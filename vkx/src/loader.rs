@@ -6,8 +6,8 @@ use libloading::Library;
 
 pub(crate) type VTable<const N: usize> = [crate::vkVoidFunction; N];
 
-type GlobalVTable = VTable<{ crate::GlobalCommands::VARIANTS.len() }>;
-type InstanceVTable = VTable<{ crate::InstanceCommands::VARIANTS.len() }>;
+type GlobalVTable = VTable<{ crate::GlobalCommand::VARIANTS.len() }>;
+type InstanceVTable = VTable<{ crate::InstanceCommand::VARIANTS.len() }>;
 
 #[inline(always)]
 pub(crate) fn vtable_get<const N: usize>(table: &VTable<N>, index: usize) -> crate::vkVoidFunction {
@@ -40,8 +40,8 @@ pub unsafe fn setup() -> Result<(), libloading::Error> {
     let get_instance_proc_addr =
         *unsafe { lib.get::<crate::FUN_GetInstanceProcAddr>("vkGetInstanceProcAddr") }?;
 
-    let mut global_commands = Vec::with_capacity(crate::GlobalCommands::VARIANTS.len());
-    for command in crate::GlobalCommands::VARIANTS {
+    let mut global_commands = Vec::with_capacity(crate::GlobalCommand::VARIANTS.len());
+    for command in crate::GlobalCommand::VARIANTS {
         let command = unsafe {
             get_instance_proc_addr(crate::InstanceHandle::default(), command.name().as_ptr())
         };
@@ -95,8 +95,8 @@ impl Instance {
             .expect("vkx setup should have been run")
             .get_instance_proc_addr;
 
-        let mut instance_commands = Vec::with_capacity(crate::InstanceCommands::VARIANTS.len());
-        for command in crate::InstanceCommands::VARIANTS {
+        let mut instance_commands = Vec::with_capacity(crate::InstanceCommand::VARIANTS.len());
+        for command in crate::InstanceCommand::VARIANTS {
             let command = unsafe { get_instance_proc_addr(instance, command.name().as_ptr()) };
             instance_commands.push(command);
         }
@@ -147,7 +147,7 @@ impl Drop for Instance {
 
 pub struct PhysicalDevice {
     pub(crate) handle: crate::PhysicalDeviceHandle,
-    pub(crate) vtable: *const VTable<{ crate::InstanceCommands::VARIANTS.len() }>,
+    pub(crate) vtable: *const VTable<{ crate::InstanceCommand::VARIANTS.len() }>,
 }
 
 impl PhysicalDevice {
@@ -179,7 +179,7 @@ impl PhysicalDevice {
 
 pub struct Device {
     pub(crate) handle: crate::DeviceHandle,
-    pub(crate) vtable: *const VTable<{ crate::InstanceCommands::VARIANTS.len() }>,
+    pub(crate) vtable: *const VTable<{ crate::InstanceCommand::VARIANTS.len() }>,
 }
 
 impl Device {
@@ -192,7 +192,7 @@ impl Device {
 
 pub struct Queue {
     pub(crate) handle: crate::QueueHandle,
-    pub(crate) vtable: &'static VTable<{ crate::InstanceCommands::VARIANTS.len() }>,
+    pub(crate) vtable: &'static VTable<{ crate::InstanceCommand::VARIANTS.len() }>,
 }
 
 impl Queue {
@@ -205,7 +205,7 @@ impl Queue {
 
 pub struct CommandBuffer {
     pub(crate) handle: crate::CommandBufferHandle,
-    pub(crate) vtable: &'static VTable<{ crate::InstanceCommands::VARIANTS.len() }>,
+    pub(crate) vtable: &'static VTable<{ crate::InstanceCommand::VARIANTS.len() }>,
 }
 
 impl CommandBuffer {

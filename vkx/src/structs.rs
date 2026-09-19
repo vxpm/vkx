@@ -4838,7 +4838,7 @@ unsafe impl Extendable for RenderPassBeginInfo {
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_BindMemory2`](Extensions::KHR_BindMemory2)
+/// - Extension [`KHR_BindMemory2`](Extension::KHR_BindMemory2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -4895,7 +4895,7 @@ pub type BindBufferMemoryInfoKHR = BindBufferMemoryInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_BindMemory2`](Extensions::KHR_BindMemory2)
+/// - Extension [`KHR_BindMemory2`](Extension::KHR_BindMemory2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -4954,7 +4954,7 @@ pub type BindImageMemoryInfoKHR = BindImageMemoryInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_DedicatedAllocation`](Extensions::KHR_DedicatedAllocation)
+/// - Extension [`KHR_DedicatedAllocation`](Extension::KHR_DedicatedAllocation)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -5011,7 +5011,7 @@ pub type MemoryDedicatedRequirementsKHR = MemoryDedicatedRequirements;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_DedicatedAllocation`](Extensions::KHR_DedicatedAllocation)
+/// - Extension [`KHR_DedicatedAllocation`](Extension::KHR_DedicatedAllocation)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -5068,7 +5068,7 @@ pub type MemoryDedicatedAllocateInfoKHR = MemoryDedicatedAllocateInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+/// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -5124,7 +5124,7 @@ pub type MemoryAllocateFlagsInfoKHR = MemoryAllocateFlagsInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+/// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -5177,7 +5177,7 @@ pub type DeviceGroupCommandBufferBeginInfoKHR = DeviceGroupCommandBufferBeginInf
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+/// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -5245,7 +5245,7 @@ pub type DeviceGroupSubmitInfoKHR = DeviceGroupSubmitInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+/// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -5300,7 +5300,7 @@ pub type DeviceGroupBindSparseInfoKHR = DeviceGroupBindSparseInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+/// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -5356,7 +5356,7 @@ pub type BindBufferMemoryDeviceGroupInfoKHR = BindBufferMemoryDeviceGroupInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+/// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -5417,7 +5417,7 @@ pub type BindImageMemoryDeviceGroupInfoKHR = BindImageMemoryDeviceGroupInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_DeviceGroupCreation`](Extensions::KHR_DeviceGroupCreation)
+/// - Extension [`KHR_DeviceGroupCreation`](Extension::KHR_DeviceGroupCreation)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -5473,7 +5473,7 @@ pub type PhysicalDeviceGroupPropertiesKHR = PhysicalDeviceGroupProperties;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_DeviceGroupCreation`](Extensions::KHR_DeviceGroupCreation)
+/// - Extension [`KHR_DeviceGroupCreation`](Extension::KHR_DeviceGroupCreation)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -5529,7 +5529,7 @@ pub type DeviceGroupDeviceCreateInfoKHR = DeviceGroupDeviceCreateInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_GetMemoryRequirements2`](Extensions::KHR_GetMemoryRequirements2)
+/// - Extension [`KHR_GetMemoryRequirements2`](Extension::KHR_GetMemoryRequirements2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -5579,7 +5579,7 @@ pub type BufferMemoryRequirementsInfo2KHR = BufferMemoryRequirementsInfo2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_GetMemoryRequirements2`](Extensions::KHR_GetMemoryRequirements2)
+/// - Extension [`KHR_GetMemoryRequirements2`](Extension::KHR_GetMemoryRequirements2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -5631,7 +5631,7 @@ pub type ImageMemoryRequirementsInfo2KHR = ImageMemoryRequirementsInfo2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_GetMemoryRequirements2`](Extensions::KHR_GetMemoryRequirements2)
+/// - Extension [`KHR_GetMemoryRequirements2`](Extension::KHR_GetMemoryRequirements2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -5681,9 +5681,9 @@ pub type ImageSparseMemoryRequirementsInfo2KHR = ImageSparseMemoryRequirementsIn
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_GetMemoryRequirements2`](Extensions::KHR_GetMemoryRequirements2)
-/// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+/// - Extension [`KHR_GetMemoryRequirements2`](Extension::KHR_GetMemoryRequirements2)
+/// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -5738,7 +5738,7 @@ pub type MemoryRequirements2KHR = MemoryRequirements2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_GetMemoryRequirements2`](Extensions::KHR_GetMemoryRequirements2)
+/// - Extension [`KHR_GetMemoryRequirements2`](Extension::KHR_GetMemoryRequirements2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -5790,7 +5790,7 @@ pub type SparseImageMemoryRequirements2KHR = SparseImageMemoryRequirements2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
+/// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -6121,7 +6121,7 @@ pub type PhysicalDeviceFeatures2KHR = PhysicalDeviceFeatures2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
+/// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -6300,7 +6300,7 @@ pub type PhysicalDeviceProperties2KHR = PhysicalDeviceProperties2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
+/// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -6360,7 +6360,7 @@ pub type FormatProperties2KHR = FormatProperties2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
+/// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -6422,7 +6422,7 @@ pub type ImageFormatProperties2KHR = ImageFormatProperties2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
+/// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -6494,7 +6494,7 @@ pub type PhysicalDeviceImageFormatInfo2KHR = PhysicalDeviceImageFormatInfo2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
+/// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -6554,7 +6554,7 @@ pub type QueueFamilyProperties2KHR = QueueFamilyProperties2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
+/// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -6608,7 +6608,7 @@ pub type PhysicalDeviceMemoryProperties2KHR = PhysicalDeviceMemoryProperties2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
+/// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -6660,7 +6660,7 @@ pub type SparseImageFormatProperties2KHR = SparseImageFormatProperties2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
+/// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -6720,7 +6720,7 @@ pub type PhysicalDeviceSparseImageFormatInfo2KHR = PhysicalDeviceSparseImageForm
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_Maintenance2`](Extensions::KHR_Maintenance2)
+/// - Extension [`KHR_Maintenance2`](Extension::KHR_Maintenance2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -6971,7 +6971,7 @@ unsafe impl Extends<SubmitInfo> for ProtectedSubmitInfo {}
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_SamplerYcbcrConversion`](Extensions::KHR_SamplerYcbcrConversion)
+/// - Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7024,7 +7024,7 @@ pub type BindImagePlaneMemoryInfoKHR = BindImagePlaneMemoryInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_SamplerYcbcrConversion`](Extensions::KHR_SamplerYcbcrConversion)
+/// - Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7077,7 +7077,7 @@ pub type ImagePlaneMemoryRequirementsInfoKHR = ImagePlaneMemoryRequirementsInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+/// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7112,7 +7112,7 @@ pub type ExternalMemoryPropertiesKHR = ExternalMemoryProperties;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+/// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7166,7 +7166,7 @@ pub type PhysicalDeviceExternalImageFormatInfoKHR = PhysicalDeviceExternalImageF
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+/// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7221,7 +7221,7 @@ pub type ExternalImageFormatPropertiesKHR = ExternalImageFormatProperties;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+/// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7279,7 +7279,7 @@ pub type PhysicalDeviceExternalBufferInfoKHR = PhysicalDeviceExternalBufferInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+/// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7331,9 +7331,9 @@ pub type ExternalBufferPropertiesKHR = ExternalBufferProperties;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
-/// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extensions::KHR_ExternalSemaphoreCapabilities)
-/// - Extension [`KHR_ExternalFenceCapabilities`](Extensions::KHR_ExternalFenceCapabilities)
+/// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
+/// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extension::KHR_ExternalSemaphoreCapabilities)
+/// - Extension [`KHR_ExternalFenceCapabilities`](Extension::KHR_ExternalFenceCapabilities)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7396,7 +7396,7 @@ pub type PhysicalDeviceIDPropertiesKHR = PhysicalDeviceIDProperties;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_ExternalMemory`](Extensions::KHR_ExternalMemory)
+/// - Extension [`KHR_ExternalMemory`](Extension::KHR_ExternalMemory)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7450,7 +7450,7 @@ pub type ExternalMemoryImageCreateInfoKHR = ExternalMemoryImageCreateInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_ExternalMemory`](Extensions::KHR_ExternalMemory)
+/// - Extension [`KHR_ExternalMemory`](Extension::KHR_ExternalMemory)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7504,7 +7504,7 @@ pub type ExternalMemoryBufferCreateInfoKHR = ExternalMemoryBufferCreateInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_ExternalMemory`](Extensions::KHR_ExternalMemory)
+/// - Extension [`KHR_ExternalMemory`](Extension::KHR_ExternalMemory)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7558,7 +7558,7 @@ pub type ExportMemoryAllocateInfoKHR = ExportMemoryAllocateInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_ExternalFenceCapabilities`](Extensions::KHR_ExternalFenceCapabilities)
+/// - Extension [`KHR_ExternalFenceCapabilities`](Extension::KHR_ExternalFenceCapabilities)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7608,7 +7608,7 @@ pub type PhysicalDeviceExternalFenceInfoKHR = PhysicalDeviceExternalFenceInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_ExternalFenceCapabilities`](Extensions::KHR_ExternalFenceCapabilities)
+/// - Extension [`KHR_ExternalFenceCapabilities`](Extension::KHR_ExternalFenceCapabilities)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7665,7 +7665,7 @@ pub type ExternalFencePropertiesKHR = ExternalFenceProperties;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_ExternalFence`](Extensions::KHR_ExternalFence)
+/// - Extension [`KHR_ExternalFence`](Extension::KHR_ExternalFence)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7719,7 +7719,7 @@ pub type ExportFenceCreateInfoKHR = ExportFenceCreateInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_ExternalSemaphore`](Extensions::KHR_ExternalSemaphore)
+/// - Extension [`KHR_ExternalSemaphore`](Extension::KHR_ExternalSemaphore)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7773,7 +7773,7 @@ pub type ExportSemaphoreCreateInfoKHR = ExportSemaphoreCreateInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extensions::KHR_ExternalSemaphoreCapabilities)
+/// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extension::KHR_ExternalSemaphoreCapabilities)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7825,7 +7825,7 @@ pub type PhysicalDeviceExternalSemaphoreInfoKHR = PhysicalDeviceExternalSemaphor
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extensions::KHR_ExternalSemaphoreCapabilities)
+/// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extension::KHR_ExternalSemaphoreCapabilities)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7938,7 +7938,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceSubgroupPropert
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_16BitStorage`](Extensions::KHR_16BitStorage)
+/// - Extension [`KHR_16BitStorage`](Extension::KHR_16BitStorage)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7999,7 +7999,7 @@ pub type PhysicalDevice16BitStorageFeaturesKHR = PhysicalDevice16BitStorageFeatu
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_VariablePointers`](Extensions::KHR_VariablePointers)
+/// - Extension [`KHR_VariablePointers`](Extension::KHR_VariablePointers)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8064,7 +8064,7 @@ pub type PhysicalDeviceVariablePointersFeaturesKHR = PhysicalDeviceVariablePoint
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_DescriptorUpdateTemplate`](Extensions::KHR_DescriptorUpdateTemplate)
+/// - Extension [`KHR_DescriptorUpdateTemplate`](Extension::KHR_DescriptorUpdateTemplate)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8102,7 +8102,7 @@ pub type DescriptorUpdateTemplateEntryKHR = DescriptorUpdateTemplateEntry;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_DescriptorUpdateTemplate`](Extensions::KHR_DescriptorUpdateTemplate)
+/// - Extension [`KHR_DescriptorUpdateTemplate`](Extension::KHR_DescriptorUpdateTemplate)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8167,7 +8167,7 @@ pub type DescriptorUpdateTemplateCreateInfoKHR = DescriptorUpdateTemplateCreateI
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_Maintenance3`](Extensions::KHR_Maintenance3)
+/// - Extension [`KHR_Maintenance3`](Extension::KHR_Maintenance3)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8224,7 +8224,7 @@ pub type PhysicalDeviceMaintenance3PropertiesKHR = PhysicalDeviceMaintenance3Pro
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_Maintenance3`](Extensions::KHR_Maintenance3)
+/// - Extension [`KHR_Maintenance3`](Extension::KHR_Maintenance3)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8278,7 +8278,7 @@ pub type DescriptorSetLayoutSupportKHR = DescriptorSetLayoutSupport;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_SamplerYcbcrConversion`](Extensions::KHR_SamplerYcbcrConversion)
+/// - Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8347,7 +8347,7 @@ pub type SamplerYcbcrConversionCreateInfoKHR = SamplerYcbcrConversionCreateInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_SamplerYcbcrConversion`](Extensions::KHR_SamplerYcbcrConversion)
+/// - Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8402,7 +8402,7 @@ pub type SamplerYcbcrConversionInfoKHR = SamplerYcbcrConversionInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_SamplerYcbcrConversion`](Extensions::KHR_SamplerYcbcrConversion)
+/// - Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8458,7 +8458,7 @@ pub type PhysicalDeviceSamplerYcbcrConversionFeaturesKHR =
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_SamplerYcbcrConversion`](Extensions::KHR_SamplerYcbcrConversion)
+/// - Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8514,7 +8514,7 @@ pub type SamplerYcbcrConversionImageFormatPropertiesKHR =
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+/// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8574,7 +8574,7 @@ pub type DeviceGroupRenderPassBeginInfoKHR = DeviceGroupRenderPassBeginInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_Maintenance2`](Extensions::KHR_Maintenance2)
+/// - Extension [`KHR_Maintenance2`](Extension::KHR_Maintenance2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8629,7 +8629,7 @@ pub type PhysicalDevicePointClippingPropertiesKHR = PhysicalDevicePointClippingP
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_Maintenance2`](Extensions::KHR_Maintenance2)
+/// - Extension [`KHR_Maintenance2`](Extension::KHR_Maintenance2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8661,7 +8661,7 @@ pub type InputAttachmentAspectReferenceKHR = InputAttachmentAspectReference;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_Maintenance2`](Extensions::KHR_Maintenance2)
+/// - Extension [`KHR_Maintenance2`](Extension::KHR_Maintenance2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8716,7 +8716,7 @@ pub type RenderPassInputAttachmentAspectCreateInfoKHR = RenderPassInputAttachmen
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_Maintenance2`](Extensions::KHR_Maintenance2)
+/// - Extension [`KHR_Maintenance2`](Extension::KHR_Maintenance2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8773,7 +8773,7 @@ pub type PipelineTessellationDomainOriginStateCreateInfoKHR =
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_Multiview`](Extensions::KHR_Multiview)
+/// - Extension [`KHR_Multiview`](Extension::KHR_Multiview)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8839,7 +8839,7 @@ pub type RenderPassMultiviewCreateInfoKHR = RenderPassMultiviewCreateInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_Multiview`](Extensions::KHR_Multiview)
+/// - Extension [`KHR_Multiview`](Extension::KHR_Multiview)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8898,7 +8898,7 @@ pub type PhysicalDeviceMultiviewFeaturesKHR = PhysicalDeviceMultiviewFeatures;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_Multiview`](Extensions::KHR_Multiview)
+/// - Extension [`KHR_Multiview`](Extension::KHR_Multiview)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9009,7 +9009,7 @@ pub type PhysicalDeviceShaderDrawParameterFeatures = PhysicalDeviceShaderDrawPar
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_DriverProperties`](Extensions::KHR_DriverProperties)
+/// - Extension [`KHR_DriverProperties`](Extension::KHR_DriverProperties)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9043,7 +9043,7 @@ pub type ConformanceVersionKHR = ConformanceVersion;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_DriverProperties`](Extensions::KHR_DriverProperties)
+/// - Extension [`KHR_DriverProperties`](Extension::KHR_DriverProperties)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9553,7 +9553,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceVulkan12Propert
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_ImageFormatList`](Extensions::KHR_ImageFormatList)
+/// - Extension [`KHR_ImageFormatList`](Extension::KHR_ImageFormatList)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9613,7 +9613,7 @@ pub type ImageFormatListCreateInfoKHR = ImageFormatListCreateInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_VulkanMemoryModel`](Extensions::KHR_VulkanMemoryModel)
+/// - Extension [`KHR_VulkanMemoryModel`](Extension::KHR_VulkanMemoryModel)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9672,7 +9672,7 @@ pub type PhysicalDeviceVulkanMemoryModelFeaturesKHR = PhysicalDeviceVulkanMemory
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`EXT_HostQueryReset`](Extensions::EXT_HostQueryReset)
+/// - Extension [`EXT_HostQueryReset`](Extension::EXT_HostQueryReset)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9727,7 +9727,7 @@ pub type PhysicalDeviceHostQueryResetFeaturesEXT = PhysicalDeviceHostQueryResetF
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_TimelineSemaphore`](Extensions::KHR_TimelineSemaphore)
+/// - Extension [`KHR_TimelineSemaphore`](Extension::KHR_TimelineSemaphore)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9782,7 +9782,7 @@ pub type PhysicalDeviceTimelineSemaphoreFeaturesKHR = PhysicalDeviceTimelineSema
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_TimelineSemaphore`](Extensions::KHR_TimelineSemaphore)
+/// - Extension [`KHR_TimelineSemaphore`](Extension::KHR_TimelineSemaphore)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9837,7 +9837,7 @@ pub type PhysicalDeviceTimelineSemaphorePropertiesKHR = PhysicalDeviceTimelineSe
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_TimelineSemaphore`](Extensions::KHR_TimelineSemaphore)
+/// - Extension [`KHR_TimelineSemaphore`](Extension::KHR_TimelineSemaphore)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9894,7 +9894,7 @@ pub type SemaphoreTypeCreateInfoKHR = SemaphoreTypeCreateInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_TimelineSemaphore`](Extensions::KHR_TimelineSemaphore)
+/// - Extension [`KHR_TimelineSemaphore`](Extension::KHR_TimelineSemaphore)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9959,7 +9959,7 @@ pub type TimelineSemaphoreSubmitInfoKHR = TimelineSemaphoreSubmitInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_TimelineSemaphore`](Extensions::KHR_TimelineSemaphore)
+/// - Extension [`KHR_TimelineSemaphore`](Extension::KHR_TimelineSemaphore)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10016,7 +10016,7 @@ pub type SemaphoreWaitInfoKHR = SemaphoreWaitInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_TimelineSemaphore`](Extensions::KHR_TimelineSemaphore)
+/// - Extension [`KHR_TimelineSemaphore`](Extension::KHR_TimelineSemaphore)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10068,7 +10068,7 @@ pub type SemaphoreSignalInfoKHR = SemaphoreSignalInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
+/// - Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10127,8 +10127,8 @@ pub type PhysicalDeviceBufferDeviceAddressFeaturesKHR = PhysicalDeviceBufferDevi
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
-/// - Extension [`EXT_BufferDeviceAddress`](Extensions::EXT_BufferDeviceAddress)
+/// - Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress)
+/// - Extension [`EXT_BufferDeviceAddress`](Extension::EXT_BufferDeviceAddress)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10182,7 +10182,7 @@ pub type BufferDeviceAddressInfoEXT = BufferDeviceAddressInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
+/// - Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10235,7 +10235,7 @@ pub type BufferOpaqueCaptureAddressCreateInfoKHR = BufferOpaqueCaptureAddressCre
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
+/// - Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10288,7 +10288,7 @@ pub type MemoryOpaqueCaptureAddressAllocateInfoKHR = MemoryOpaqueCaptureAddressA
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
+/// - Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10338,7 +10338,7 @@ pub type DeviceMemoryOpaqueCaptureAddressInfoKHR = DeviceMemoryOpaqueCaptureAddr
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_8BitStorage`](Extensions::KHR_8BitStorage)
+/// - Extension [`KHR_8BitStorage`](Extension::KHR_8BitStorage)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10397,7 +10397,7 @@ pub type PhysicalDevice8BitStorageFeaturesKHR = PhysicalDevice8BitStorageFeature
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_ShaderAtomicInt64`](Extensions::KHR_ShaderAtomicInt64)
+/// - Extension [`KHR_ShaderAtomicInt64`](Extension::KHR_ShaderAtomicInt64)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10454,7 +10454,7 @@ pub type PhysicalDeviceShaderAtomicInt64FeaturesKHR = PhysicalDeviceShaderAtomic
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_ShaderFloat16Int8`](Extensions::KHR_ShaderFloat16Int8)
+/// - Extension [`KHR_ShaderFloat16Int8`](Extension::KHR_ShaderFloat16Int8)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10515,7 +10515,7 @@ pub type PhysicalDeviceFloat16Int8FeaturesKHR = PhysicalDeviceShaderFloat16Int8F
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_ShaderFloatControls`](Extensions::KHR_ShaderFloatControls)
+/// - Extension [`KHR_ShaderFloatControls`](Extension::KHR_ShaderFloatControls)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10602,7 +10602,7 @@ pub type PhysicalDeviceFloatControlsPropertiesKHR = PhysicalDeviceFloatControlsP
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`EXT_DescriptorIndexing`](Extensions::EXT_DescriptorIndexing)
+/// - Extension [`EXT_DescriptorIndexing`](Extension::EXT_DescriptorIndexing)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10658,7 +10658,7 @@ pub type DescriptorSetLayoutBindingFlagsCreateInfoEXT = DescriptorSetLayoutBindi
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`EXT_DescriptorIndexing`](Extensions::EXT_DescriptorIndexing)
+/// - Extension [`EXT_DescriptorIndexing`](Extension::EXT_DescriptorIndexing)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10751,7 +10751,7 @@ pub type PhysicalDeviceDescriptorIndexingFeaturesEXT = PhysicalDeviceDescriptorI
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`EXT_DescriptorIndexing`](Extensions::EXT_DescriptorIndexing)
+/// - Extension [`EXT_DescriptorIndexing`](Extension::EXT_DescriptorIndexing)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10850,7 +10850,7 @@ pub type PhysicalDeviceDescriptorIndexingPropertiesEXT = PhysicalDeviceDescripto
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`EXT_DescriptorIndexing`](Extensions::EXT_DescriptorIndexing)
+/// - Extension [`EXT_DescriptorIndexing`](Extension::EXT_DescriptorIndexing)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10910,7 +10910,7 @@ pub type DescriptorSetVariableDescriptorCountAllocateInfoEXT =
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`EXT_DescriptorIndexing`](Extensions::EXT_DescriptorIndexing)
+/// - Extension [`EXT_DescriptorIndexing`](Extension::EXT_DescriptorIndexing)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10969,7 +10969,7 @@ pub type DescriptorSetVariableDescriptorCountLayoutSupportEXT =
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`EXT_ScalarBlockLayout`](Extensions::EXT_ScalarBlockLayout)
+/// - Extension [`EXT_ScalarBlockLayout`](Extension::EXT_ScalarBlockLayout)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11024,7 +11024,7 @@ pub type PhysicalDeviceScalarBlockLayoutFeaturesEXT = PhysicalDeviceScalarBlockL
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`EXT_SamplerFilterMinmax`](Extensions::EXT_SamplerFilterMinmax)
+/// - Extension [`EXT_SamplerFilterMinmax`](Extension::EXT_SamplerFilterMinmax)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11077,7 +11077,7 @@ pub type SamplerReductionModeCreateInfoEXT = SamplerReductionModeCreateInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`EXT_SamplerFilterMinmax`](Extensions::EXT_SamplerFilterMinmax)
+/// - Extension [`EXT_SamplerFilterMinmax`](Extension::EXT_SamplerFilterMinmax)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11135,7 +11135,7 @@ pub type PhysicalDeviceSamplerFilterMinmaxPropertiesEXT =
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_UniformBufferStandardLayout`](Extensions::KHR_UniformBufferStandardLayout)
+/// - Extension [`KHR_UniformBufferStandardLayout`](Extension::KHR_UniformBufferStandardLayout)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11191,7 +11191,7 @@ pub type PhysicalDeviceUniformBufferStandardLayoutFeaturesKHR =
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_ShaderSubgroupExtendedTypes`](Extensions::KHR_ShaderSubgroupExtendedTypes)
+/// - Extension [`KHR_ShaderSubgroupExtendedTypes`](Extension::KHR_ShaderSubgroupExtendedTypes)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11247,7 +11247,7 @@ pub type PhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR =
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_CreateRenderpass2`](Extensions::KHR_CreateRenderpass2)
+/// - Extension [`KHR_CreateRenderpass2`](Extension::KHR_CreateRenderpass2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11318,7 +11318,7 @@ pub type AttachmentDescription2KHR = AttachmentDescription2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_CreateRenderpass2`](Extensions::KHR_CreateRenderpass2)
+/// - Extension [`KHR_CreateRenderpass2`](Extension::KHR_CreateRenderpass2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11374,7 +11374,7 @@ pub type AttachmentReference2KHR = AttachmentReference2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_CreateRenderpass2`](Extensions::KHR_CreateRenderpass2)
+/// - Extension [`KHR_CreateRenderpass2`](Extension::KHR_CreateRenderpass2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11456,7 +11456,7 @@ pub type SubpassDescription2KHR = SubpassDescription2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_CreateRenderpass2`](Extensions::KHR_CreateRenderpass2)
+/// - Extension [`KHR_CreateRenderpass2`](Extension::KHR_CreateRenderpass2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11528,7 +11528,7 @@ pub type SubpassDependency2KHR = SubpassDependency2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_CreateRenderpass2`](Extensions::KHR_CreateRenderpass2)
+/// - Extension [`KHR_CreateRenderpass2`](Extension::KHR_CreateRenderpass2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11578,7 +11578,7 @@ pub type SubpassBeginInfoKHR = SubpassBeginInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_CreateRenderpass2`](Extensions::KHR_CreateRenderpass2)
+/// - Extension [`KHR_CreateRenderpass2`](Extension::KHR_CreateRenderpass2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11628,7 +11628,7 @@ pub type SubpassEndInfoKHR = SubpassEndInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_CreateRenderpass2`](Extensions::KHR_CreateRenderpass2)
+/// - Extension [`KHR_CreateRenderpass2`](Extension::KHR_CreateRenderpass2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11704,7 +11704,7 @@ pub type RenderPassCreateInfo2KHR = RenderPassCreateInfo2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_DepthStencilResolve`](Extensions::KHR_DepthStencilResolve)
+/// - Extension [`KHR_DepthStencilResolve`](Extension::KHR_DepthStencilResolve)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11764,7 +11764,7 @@ pub type SubpassDescriptionDepthStencilResolveKHR = SubpassDescriptionDepthStenc
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_DepthStencilResolve`](Extensions::KHR_DepthStencilResolve)
+/// - Extension [`KHR_DepthStencilResolve`](Extension::KHR_DepthStencilResolve)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11826,7 +11826,7 @@ pub type PhysicalDeviceDepthStencilResolvePropertiesKHR =
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`EXT_SeparateStencilUsage`](Extensions::EXT_SeparateStencilUsage)
+/// - Extension [`EXT_SeparateStencilUsage`](Extension::EXT_SeparateStencilUsage)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11881,7 +11881,7 @@ pub type ImageStencilUsageCreateInfoEXT = ImageStencilUsageCreateInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_ImagelessFramebuffer`](Extensions::KHR_ImagelessFramebuffer)
+/// - Extension [`KHR_ImagelessFramebuffer`](Extension::KHR_ImagelessFramebuffer)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11936,7 +11936,7 @@ pub type PhysicalDeviceImagelessFramebufferFeaturesKHR = PhysicalDeviceImageless
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_ImagelessFramebuffer`](Extensions::KHR_ImagelessFramebuffer)
+/// - Extension [`KHR_ImagelessFramebuffer`](Extension::KHR_ImagelessFramebuffer)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12003,7 +12003,7 @@ pub type FramebufferAttachmentImageInfoKHR = FramebufferAttachmentImageInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_ImagelessFramebuffer`](Extensions::KHR_ImagelessFramebuffer)
+/// - Extension [`KHR_ImagelessFramebuffer`](Extension::KHR_ImagelessFramebuffer)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12059,7 +12059,7 @@ pub type RenderPassAttachmentBeginInfoKHR = RenderPassAttachmentBeginInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_ImagelessFramebuffer`](Extensions::KHR_ImagelessFramebuffer)
+/// - Extension [`KHR_ImagelessFramebuffer`](Extension::KHR_ImagelessFramebuffer)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12115,7 +12115,7 @@ pub type FramebufferAttachmentsCreateInfoKHR = FramebufferAttachmentsCreateInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_SeparateDepthStencilLayouts`](Extensions::KHR_SeparateDepthStencilLayouts)
+/// - Extension [`KHR_SeparateDepthStencilLayouts`](Extension::KHR_SeparateDepthStencilLayouts)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12171,7 +12171,7 @@ pub type PhysicalDeviceSeparateDepthStencilLayoutsFeaturesKHR =
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_SeparateDepthStencilLayouts`](Extensions::KHR_SeparateDepthStencilLayouts)
+/// - Extension [`KHR_SeparateDepthStencilLayouts`](Extension::KHR_SeparateDepthStencilLayouts)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12224,7 +12224,7 @@ pub type AttachmentReferenceStencilLayoutKHR = AttachmentReferenceStencilLayout;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.2 with appropriate features
-/// - Extension [`KHR_SeparateDepthStencilLayouts`](Extensions::KHR_SeparateDepthStencilLayouts)
+/// - Extension [`KHR_SeparateDepthStencilLayouts`](Extension::KHR_SeparateDepthStencilLayouts)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12496,7 +12496,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceVulkan13Propert
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`EXT_ToolingInfo`](Extensions::EXT_ToolingInfo)
+/// - Extension [`EXT_ToolingInfo`](Extension::EXT_ToolingInfo)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12560,7 +12560,7 @@ pub type PhysicalDeviceToolPropertiesEXT = PhysicalDeviceToolProperties;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`EXT_PrivateData`](Extensions::EXT_PrivateData)
+/// - Extension [`EXT_PrivateData`](Extension::EXT_PrivateData)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12615,7 +12615,7 @@ pub type PhysicalDevicePrivateDataFeaturesEXT = PhysicalDevicePrivateDataFeature
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`EXT_PrivateData`](Extensions::EXT_PrivateData)
+/// - Extension [`EXT_PrivateData`](Extension::EXT_PrivateData)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12669,7 +12669,7 @@ pub type DevicePrivateDataCreateInfoEXT = DevicePrivateDataCreateInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`EXT_PrivateData`](Extensions::EXT_PrivateData)
+/// - Extension [`EXT_PrivateData`](Extension::EXT_PrivateData)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12720,7 +12720,7 @@ pub type PrivateDataSlotCreateInfoEXT = PrivateDataSlotCreateInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+/// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12783,7 +12783,7 @@ pub type MemoryBarrier2KHR = MemoryBarrier2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+/// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12856,7 +12856,7 @@ pub type BufferMemoryBarrier2KHR = BufferMemoryBarrier2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+/// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12932,7 +12932,7 @@ pub type ImageMemoryBarrier2KHR = ImageMemoryBarrier2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+/// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13002,7 +13002,7 @@ pub type DependencyInfoKHR = DependencyInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+/// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13059,7 +13059,7 @@ pub type SemaphoreSubmitInfoKHR = SemaphoreSubmitInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+/// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13113,7 +13113,7 @@ pub type CommandBufferSubmitInfoKHR = CommandBufferSubmitInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+/// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13186,7 +13186,7 @@ pub type SubmitInfo2KHR = SubmitInfo2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+/// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13241,7 +13241,7 @@ pub type PhysicalDeviceSynchronization2FeaturesKHR = PhysicalDeviceSynchronizati
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
+/// - Extension [`KHR_CopyCommands2`](Extension::KHR_CopyCommands2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13295,7 +13295,7 @@ pub type BufferCopy2KHR = BufferCopy2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
+/// - Extension [`KHR_CopyCommands2`](Extension::KHR_CopyCommands2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13351,7 +13351,7 @@ pub type CopyBufferInfo2KHR = CopyBufferInfo2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
+/// - Extension [`KHR_CopyCommands2`](Extension::KHR_CopyCommands2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13409,7 +13409,7 @@ pub type ImageCopy2KHR = ImageCopy2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
+/// - Extension [`KHR_CopyCommands2`](Extension::KHR_CopyCommands2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13469,7 +13469,7 @@ pub type CopyImageInfo2KHR = CopyImageInfo2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
+/// - Extension [`KHR_CopyCommands2`](Extension::KHR_CopyCommands2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13531,7 +13531,7 @@ pub type BufferImageCopy2KHR = BufferImageCopy2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
+/// - Extension [`KHR_CopyCommands2`](Extension::KHR_CopyCommands2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13589,7 +13589,7 @@ pub type CopyBufferToImageInfo2KHR = CopyBufferToImageInfo2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
+/// - Extension [`KHR_CopyCommands2`](Extension::KHR_CopyCommands2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13647,7 +13647,7 @@ pub type CopyImageToBufferInfo2KHR = CopyImageToBufferInfo2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`EXT_TextureCompressionAstcHdr`](Extensions::EXT_TextureCompressionAstcHdr)
+/// - Extension [`EXT_TextureCompressionAstcHdr`](Extension::EXT_TextureCompressionAstcHdr)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13703,7 +13703,7 @@ pub type PhysicalDeviceTextureCompressionASTCHDRFeaturesEXT =
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+/// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13765,7 +13765,7 @@ pub type FormatProperties3KHR = FormatProperties3;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_Maintenance4`](Extensions::KHR_Maintenance4)
+/// - Extension [`KHR_Maintenance4`](Extension::KHR_Maintenance4)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13820,7 +13820,7 @@ pub type PhysicalDeviceMaintenance4FeaturesKHR = PhysicalDeviceMaintenance4Featu
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_Maintenance4`](Extensions::KHR_Maintenance4)
+/// - Extension [`KHR_Maintenance4`](Extension::KHR_Maintenance4)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13875,7 +13875,7 @@ pub type PhysicalDeviceMaintenance4PropertiesKHR = PhysicalDeviceMaintenance4Pro
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_Maintenance4`](Extensions::KHR_Maintenance4)
+/// - Extension [`KHR_Maintenance4`](Extension::KHR_Maintenance4)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13925,7 +13925,7 @@ pub type DeviceBufferMemoryRequirementsKHR = DeviceBufferMemoryRequirements;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_Maintenance4`](Extensions::KHR_Maintenance4)
+/// - Extension [`KHR_Maintenance4`](Extension::KHR_Maintenance4)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13978,7 +13978,7 @@ pub type DeviceImageMemoryRequirementsKHR = DeviceImageMemoryRequirements;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`EXT_PipelineCreationFeedback`](Extensions::EXT_PipelineCreationFeedback)
+/// - Extension [`EXT_PipelineCreationFeedback`](Extension::EXT_PipelineCreationFeedback)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14010,7 +14010,7 @@ pub type PipelineCreationFeedbackEXT = PipelineCreationFeedback;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`EXT_PipelineCreationFeedback`](Extensions::EXT_PipelineCreationFeedback)
+/// - Extension [`EXT_PipelineCreationFeedback`](Extension::EXT_PipelineCreationFeedback)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14080,7 +14080,7 @@ pub type PipelineCreationFeedbackCreateInfoEXT = PipelineCreationFeedbackCreateI
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_ShaderTerminateInvocation`](Extensions::KHR_ShaderTerminateInvocation)
+/// - Extension [`KHR_ShaderTerminateInvocation`](Extension::KHR_ShaderTerminateInvocation)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14136,7 +14136,7 @@ pub type PhysicalDeviceShaderTerminateInvocationFeaturesKHR =
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`EXT_ShaderDemoteToHelperInvocation`](Extensions::EXT_ShaderDemoteToHelperInvocation)
+/// - Extension [`EXT_ShaderDemoteToHelperInvocation`](Extension::EXT_ShaderDemoteToHelperInvocation)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14195,7 +14195,7 @@ pub type PhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT =
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`EXT_PipelineCreationCacheControl`](Extensions::EXT_PipelineCreationCacheControl)
+/// - Extension [`EXT_PipelineCreationCacheControl`](Extension::EXT_PipelineCreationCacheControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14254,7 +14254,7 @@ pub type PhysicalDevicePipelineCreationCacheControlFeaturesEXT =
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_ZeroInitializeWorkgroupMemory`](Extensions::KHR_ZeroInitializeWorkgroupMemory)
+/// - Extension [`KHR_ZeroInitializeWorkgroupMemory`](Extension::KHR_ZeroInitializeWorkgroupMemory)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14313,7 +14313,7 @@ pub type PhysicalDeviceZeroInitializeWorkgroupMemoryFeaturesKHR =
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`EXT_ImageRobustness`](Extensions::EXT_ImageRobustness)
+/// - Extension [`EXT_ImageRobustness`](Extension::EXT_ImageRobustness)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14368,7 +14368,7 @@ pub type PhysicalDeviceImageRobustnessFeaturesEXT = PhysicalDeviceImageRobustnes
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`EXT_SubgroupSizeControl`](Extensions::EXT_SubgroupSizeControl)
+/// - Extension [`EXT_SubgroupSizeControl`](Extension::EXT_SubgroupSizeControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14425,7 +14425,7 @@ pub type PhysicalDeviceSubgroupSizeControlFeaturesEXT = PhysicalDeviceSubgroupSi
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`EXT_SubgroupSizeControl`](Extensions::EXT_SubgroupSizeControl)
+/// - Extension [`EXT_SubgroupSizeControl`](Extension::EXT_SubgroupSizeControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14487,8 +14487,8 @@ pub type PhysicalDeviceSubgroupSizeControlPropertiesEXT =
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`EXT_SubgroupSizeControl`](Extensions::EXT_SubgroupSizeControl)
-/// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+/// - Extension [`EXT_SubgroupSizeControl`](Extension::EXT_SubgroupSizeControl)
+/// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14552,7 +14552,7 @@ pub type ShaderRequiredSubgroupSizeCreateInfoEXT =
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`EXT_InlineUniformBlock`](Extensions::EXT_InlineUniformBlock)
+/// - Extension [`EXT_InlineUniformBlock`](Extension::EXT_InlineUniformBlock)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14609,7 +14609,7 @@ pub type PhysicalDeviceInlineUniformBlockFeaturesEXT = PhysicalDeviceInlineUnifo
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`EXT_InlineUniformBlock`](Extensions::EXT_InlineUniformBlock)
+/// - Extension [`EXT_InlineUniformBlock`](Extension::EXT_InlineUniformBlock)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14672,7 +14672,7 @@ pub type PhysicalDeviceInlineUniformBlockPropertiesEXT = PhysicalDeviceInlineUni
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`EXT_InlineUniformBlock`](Extensions::EXT_InlineUniformBlock)
+/// - Extension [`EXT_InlineUniformBlock`](Extension::EXT_InlineUniformBlock)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14727,7 +14727,7 @@ pub type WriteDescriptorSetInlineUniformBlockEXT = WriteDescriptorSetInlineUnifo
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`EXT_InlineUniformBlock`](Extensions::EXT_InlineUniformBlock)
+/// - Extension [`EXT_InlineUniformBlock`](Extension::EXT_InlineUniformBlock)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14780,7 +14780,7 @@ pub type DescriptorPoolInlineUniformBlockCreateInfoEXT = DescriptorPoolInlineUni
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_ShaderIntegerDotProduct`](Extensions::KHR_ShaderIntegerDotProduct)
+/// - Extension [`KHR_ShaderIntegerDotProduct`](Extension::KHR_ShaderIntegerDotProduct)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14836,7 +14836,7 @@ pub type PhysicalDeviceShaderIntegerDotProductFeaturesKHR =
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_ShaderIntegerDotProduct`](Extensions::KHR_ShaderIntegerDotProduct)
+/// - Extension [`KHR_ShaderIntegerDotProduct`](Extension::KHR_ShaderIntegerDotProduct)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14951,7 +14951,7 @@ pub type PhysicalDeviceShaderIntegerDotProductPropertiesKHR =
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`EXT_TexelBufferAlignment`](Extensions::EXT_TexelBufferAlignment)
+/// - Extension [`EXT_TexelBufferAlignment`](Extension::EXT_TexelBufferAlignment)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -15013,7 +15013,7 @@ pub type PhysicalDeviceTexelBufferAlignmentPropertiesEXT =
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
+/// - Extension [`KHR_CopyCommands2`](Extension::KHR_CopyCommands2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -15071,7 +15071,7 @@ pub type ImageBlit2KHR = ImageBlit2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
+/// - Extension [`KHR_CopyCommands2`](Extension::KHR_CopyCommands2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -15135,7 +15135,7 @@ pub type BlitImageInfo2KHR = BlitImageInfo2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
+/// - Extension [`KHR_CopyCommands2`](Extension::KHR_CopyCommands2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -15193,7 +15193,7 @@ pub type ImageResolve2KHR = ImageResolve2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
+/// - Extension [`KHR_CopyCommands2`](Extension::KHR_CopyCommands2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -15255,7 +15255,7 @@ pub type ResolveImageInfo2KHR = ResolveImageInfo2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_DynamicRendering`](Extensions::KHR_DynamicRendering)
+/// - Extension [`KHR_DynamicRendering`](Extension::KHR_DynamicRendering)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -15325,8 +15325,8 @@ pub type RenderingAttachmentInfoKHR = RenderingAttachmentInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_DynamicRendering`](Extensions::KHR_DynamicRendering)
-/// - Extension [`QCOM_TileProperties`](Extensions::QCOM_TileProperties)
+/// - Extension [`KHR_DynamicRendering`](Extension::KHR_DynamicRendering)
+/// - Extension [`QCOM_TileProperties`](Extension::QCOM_TileProperties)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -15405,7 +15405,7 @@ pub type RenderingInfoKHR = RenderingInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_DynamicRendering`](Extensions::KHR_DynamicRendering)
+/// - Extension [`KHR_DynamicRendering`](Extension::KHR_DynamicRendering)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -15467,7 +15467,7 @@ pub type PipelineRenderingCreateInfoKHR = PipelineRenderingCreateInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_DynamicRendering`](Extensions::KHR_DynamicRendering)
+/// - Extension [`KHR_DynamicRendering`](Extension::KHR_DynamicRendering)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -15522,7 +15522,7 @@ pub type PhysicalDeviceDynamicRenderingFeaturesKHR = PhysicalDeviceDynamicRender
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`KHR_DynamicRendering`](Extensions::KHR_DynamicRendering)
+/// - Extension [`KHR_DynamicRendering`](Extension::KHR_DynamicRendering)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -15783,8 +15783,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceVulkan14Propert
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_GlobalPriority`](Extensions::KHR_GlobalPriority)
-/// - Extension [`EXT_GlobalPriority`](Extensions::EXT_GlobalPriority)
+/// - Extension [`KHR_GlobalPriority`](Extension::KHR_GlobalPriority)
+/// - Extension [`EXT_GlobalPriority`](Extension::EXT_GlobalPriority)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -15841,8 +15841,8 @@ pub type DeviceQueueGlobalPriorityCreateInfoEXT = DeviceQueueGlobalPriorityCreat
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_GlobalPriority`](Extensions::KHR_GlobalPriority)
-/// - Extension [`EXT_GlobalPriorityQuery`](Extensions::EXT_GlobalPriorityQuery)
+/// - Extension [`KHR_GlobalPriority`](Extension::KHR_GlobalPriority)
+/// - Extension [`EXT_GlobalPriorityQuery`](Extension::EXT_GlobalPriorityQuery)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -15901,8 +15901,8 @@ pub type PhysicalDeviceGlobalPriorityQueryFeaturesEXT = PhysicalDeviceGlobalPrio
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_GlobalPriority`](Extensions::KHR_GlobalPriority)
-/// - Extension [`EXT_GlobalPriorityQuery`](Extensions::EXT_GlobalPriorityQuery)
+/// - Extension [`KHR_GlobalPriority`](Extension::KHR_GlobalPriority)
+/// - Extension [`EXT_GlobalPriorityQuery`](Extension::EXT_GlobalPriorityQuery)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -15963,8 +15963,8 @@ pub type QueueFamilyGlobalPriorityPropertiesEXT = QueueFamilyGlobalPriorityPrope
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_IndexTypeUint8`](Extensions::KHR_IndexTypeUint8)
-/// - Extension [`EXT_IndexTypeUint8`](Extensions::EXT_IndexTypeUint8)
+/// - Extension [`KHR_IndexTypeUint8`](Extension::KHR_IndexTypeUint8)
+/// - Extension [`EXT_IndexTypeUint8`](Extension::EXT_IndexTypeUint8)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -16023,7 +16023,7 @@ pub type PhysicalDeviceIndexTypeUint8FeaturesEXT = PhysicalDeviceIndexTypeUint8F
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_MapMemory2`](Extensions::KHR_MapMemory2)
+/// - Extension [`KHR_MapMemory2`](Extension::KHR_MapMemory2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -16082,7 +16082,7 @@ pub type MemoryMapInfoKHR = MemoryMapInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_MapMemory2`](Extensions::KHR_MapMemory2)
+/// - Extension [`KHR_MapMemory2`](Extension::KHR_MapMemory2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -16135,7 +16135,7 @@ pub type MemoryUnmapInfoKHR = MemoryUnmapInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
+/// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -16190,7 +16190,7 @@ pub type PhysicalDeviceMaintenance5FeaturesKHR = PhysicalDeviceMaintenance5Featu
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
+/// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -16255,9 +16255,9 @@ pub type PhysicalDeviceMaintenance5PropertiesKHR = PhysicalDeviceMaintenance5Pro
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-/// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
-/// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+/// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+/// - Extension [`EXT_HostImageCopy`](Extension::EXT_HostImageCopy)
+/// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -16316,9 +16316,9 @@ pub type SubresourceLayout2EXT = SubresourceLayout2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-/// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
-/// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+/// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+/// - Extension [`EXT_HostImageCopy`](Extension::EXT_HostImageCopy)
+/// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -16372,7 +16372,7 @@ pub type ImageSubresource2EXT = ImageSubresource2;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
+/// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -16424,8 +16424,8 @@ pub type DeviceImageSubresourceInfoKHR = DeviceImageSubresourceInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-/// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+/// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+/// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -16484,7 +16484,7 @@ pub type BufferUsageFlags2CreateInfoKHR = BufferUsageFlags2CreateInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
+/// - Extension [`KHR_Maintenance6`](Extension::KHR_Maintenance6)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -16539,7 +16539,7 @@ pub type PhysicalDeviceMaintenance6FeaturesKHR = PhysicalDeviceMaintenance6Featu
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
+/// - Extension [`KHR_Maintenance6`](Extension::KHR_Maintenance6)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -16598,7 +16598,7 @@ pub type PhysicalDeviceMaintenance6PropertiesKHR = PhysicalDeviceMaintenance6Pro
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
+/// - Extension [`KHR_Maintenance6`](Extension::KHR_Maintenance6)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -16653,7 +16653,7 @@ pub type BindMemoryStatusKHR = BindMemoryStatus;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
+/// - Extension [`EXT_HostImageCopy`](Extension::EXT_HostImageCopy)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -16708,7 +16708,7 @@ pub type PhysicalDeviceHostImageCopyFeaturesEXT = PhysicalDeviceHostImageCopyFea
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
+/// - Extension [`EXT_HostImageCopy`](Extension::EXT_HostImageCopy)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -16776,7 +16776,7 @@ pub type PhysicalDeviceHostImageCopyPropertiesEXT = PhysicalDeviceHostImageCopyP
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
+/// - Extension [`EXT_HostImageCopy`](Extension::EXT_HostImageCopy)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -16836,7 +16836,7 @@ pub type MemoryToImageCopyEXT = MemoryToImageCopy;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
+/// - Extension [`EXT_HostImageCopy`](Extension::EXT_HostImageCopy)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -16896,7 +16896,7 @@ pub type ImageToMemoryCopyEXT = ImageToMemoryCopy;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
+/// - Extension [`EXT_HostImageCopy`](Extension::EXT_HostImageCopy)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -16955,7 +16955,7 @@ pub type CopyMemoryToImageInfoEXT = CopyMemoryToImageInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
+/// - Extension [`EXT_HostImageCopy`](Extension::EXT_HostImageCopy)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -17014,7 +17014,7 @@ pub type CopyImageToMemoryInfoEXT = CopyImageToMemoryInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
+/// - Extension [`EXT_HostImageCopy`](Extension::EXT_HostImageCopy)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -17077,7 +17077,7 @@ pub type CopyImageToImageInfoEXT = CopyImageToImageInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
+/// - Extension [`EXT_HostImageCopy`](Extension::EXT_HostImageCopy)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -17133,7 +17133,7 @@ pub type HostImageLayoutTransitionInfoEXT = HostImageLayoutTransitionInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
+/// - Extension [`EXT_HostImageCopy`](Extension::EXT_HostImageCopy)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -17188,7 +17188,7 @@ pub type SubresourceHostMemcpySizeEXT = SubresourceHostMemcpySize;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
+/// - Extension [`EXT_HostImageCopy`](Extension::EXT_HostImageCopy)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -17245,7 +17245,7 @@ pub type HostImageCopyDevicePerformanceQueryEXT = HostImageCopyDevicePerformance
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_ShaderSubgroupRotate`](Extensions::KHR_ShaderSubgroupRotate)
+/// - Extension [`KHR_ShaderSubgroupRotate`](Extension::KHR_ShaderSubgroupRotate)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -17302,7 +17302,7 @@ pub type PhysicalDeviceShaderSubgroupRotateFeaturesKHR = PhysicalDeviceShaderSub
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_ShaderFloatControls2`](Extensions::KHR_ShaderFloatControls2)
+/// - Extension [`KHR_ShaderFloatControls2`](Extension::KHR_ShaderFloatControls2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -17357,7 +17357,7 @@ pub type PhysicalDeviceShaderFloatControls2FeaturesKHR = PhysicalDeviceShaderFlo
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_ShaderExpectAssume`](Extensions::KHR_ShaderExpectAssume)
+/// - Extension [`KHR_ShaderExpectAssume`](Extension::KHR_ShaderExpectAssume)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -17412,8 +17412,8 @@ pub type PhysicalDeviceShaderExpectAssumeFeaturesKHR = PhysicalDeviceShaderExpec
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-/// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+/// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+/// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -17473,7 +17473,7 @@ pub type PipelineCreateFlags2CreateInfoKHR = PipelineCreateFlags2CreateInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_PushDescriptor`](Extensions::KHR_PushDescriptor)
+/// - Extension [`KHR_PushDescriptor`](Extension::KHR_PushDescriptor)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -17528,7 +17528,7 @@ pub type PhysicalDevicePushDescriptorPropertiesKHR = PhysicalDevicePushDescripto
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
+/// - Extension [`KHR_Maintenance6`](Extension::KHR_Maintenance6)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -17596,7 +17596,7 @@ pub type BindDescriptorSetsInfoKHR = BindDescriptorSetsInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
+/// - Extension [`KHR_Maintenance6`](Extension::KHR_Maintenance6)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -17659,7 +17659,7 @@ pub type PushConstantsInfoKHR = PushConstantsInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
+/// - Extension [`KHR_Maintenance6`](Extension::KHR_Maintenance6)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -17721,7 +17721,7 @@ pub type PushDescriptorSetInfoKHR = PushDescriptorSetInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
+/// - Extension [`KHR_Maintenance6`](Extension::KHR_Maintenance6)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -17781,7 +17781,7 @@ pub type PushDescriptorSetWithTemplateInfoKHR = PushDescriptorSetWithTemplateInf
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`EXT_PipelineProtectedAccess`](Extensions::EXT_PipelineProtectedAccess)
+/// - Extension [`EXT_PipelineProtectedAccess`](Extension::EXT_PipelineProtectedAccess)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -17837,7 +17837,7 @@ pub type PhysicalDevicePipelineProtectedAccessFeaturesEXT =
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`EXT_PipelineRobustness`](Extensions::EXT_PipelineRobustness)
+/// - Extension [`EXT_PipelineRobustness`](Extension::EXT_PipelineRobustness)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -17892,7 +17892,7 @@ pub type PhysicalDevicePipelineRobustnessFeaturesEXT = PhysicalDevicePipelineRob
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`EXT_PipelineRobustness`](Extensions::EXT_PipelineRobustness)
+/// - Extension [`EXT_PipelineRobustness`](Extension::EXT_PipelineRobustness)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -17953,7 +17953,7 @@ pub type PhysicalDevicePipelineRobustnessPropertiesEXT = PhysicalDevicePipelineR
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`EXT_PipelineRobustness`](Extensions::EXT_PipelineRobustness)
+/// - Extension [`EXT_PipelineRobustness`](Extension::EXT_PipelineRobustness)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -18018,8 +18018,8 @@ pub type PipelineRobustnessCreateInfoEXT = PipelineRobustnessCreateInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_LineRasterization`](Extensions::KHR_LineRasterization)
-/// - Extension [`EXT_LineRasterization`](Extensions::EXT_LineRasterization)
+/// - Extension [`KHR_LineRasterization`](Extension::KHR_LineRasterization)
+/// - Extension [`EXT_LineRasterization`](Extension::EXT_LineRasterization)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -18088,8 +18088,8 @@ pub type PhysicalDeviceLineRasterizationFeaturesEXT = PhysicalDeviceLineRasteriz
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_LineRasterization`](Extensions::KHR_LineRasterization)
-/// - Extension [`EXT_LineRasterization`](Extensions::EXT_LineRasterization)
+/// - Extension [`KHR_LineRasterization`](Extension::KHR_LineRasterization)
+/// - Extension [`EXT_LineRasterization`](Extension::EXT_LineRasterization)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -18148,8 +18148,8 @@ pub type PhysicalDeviceLineRasterizationPropertiesEXT = PhysicalDeviceLineRaster
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_LineRasterization`](Extensions::KHR_LineRasterization)
-/// - Extension [`EXT_LineRasterization`](Extensions::EXT_LineRasterization)
+/// - Extension [`KHR_LineRasterization`](Extension::KHR_LineRasterization)
+/// - Extension [`EXT_LineRasterization`](Extension::EXT_LineRasterization)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -18215,7 +18215,7 @@ pub type PipelineRasterizationLineStateCreateInfoEXT = PipelineRasterizationLine
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_VertexAttributeDivisor`](Extensions::KHR_VertexAttributeDivisor)
+/// - Extension [`KHR_VertexAttributeDivisor`](Extension::KHR_VertexAttributeDivisor)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -18273,8 +18273,8 @@ pub type PhysicalDeviceVertexAttributeDivisorPropertiesKHR =
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_VertexAttributeDivisor`](Extensions::KHR_VertexAttributeDivisor)
-/// - Extension [`EXT_VertexAttributeDivisor`](Extensions::EXT_VertexAttributeDivisor)
+/// - Extension [`KHR_VertexAttributeDivisor`](Extension::KHR_VertexAttributeDivisor)
+/// - Extension [`EXT_VertexAttributeDivisor`](Extension::EXT_VertexAttributeDivisor)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -18308,8 +18308,8 @@ pub type VertexInputBindingDivisorDescriptionEXT = VertexInputBindingDivisorDesc
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_VertexAttributeDivisor`](Extensions::KHR_VertexAttributeDivisor)
-/// - Extension [`EXT_VertexAttributeDivisor`](Extensions::EXT_VertexAttributeDivisor)
+/// - Extension [`KHR_VertexAttributeDivisor`](Extension::KHR_VertexAttributeDivisor)
+/// - Extension [`EXT_VertexAttributeDivisor`](Extension::EXT_VertexAttributeDivisor)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -18371,8 +18371,8 @@ pub type PipelineVertexInputDivisorStateCreateInfoEXT = PipelineVertexInputDivis
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_VertexAttributeDivisor`](Extensions::KHR_VertexAttributeDivisor)
-/// - Extension [`EXT_VertexAttributeDivisor`](Extensions::EXT_VertexAttributeDivisor)
+/// - Extension [`KHR_VertexAttributeDivisor`](Extension::KHR_VertexAttributeDivisor)
+/// - Extension [`EXT_VertexAttributeDivisor`](Extension::EXT_VertexAttributeDivisor)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -18435,7 +18435,7 @@ pub type PhysicalDeviceVertexAttributeDivisorFeaturesEXT =
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
+/// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -18494,7 +18494,7 @@ pub type RenderingAreaInfoKHR = RenderingAreaInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_DynamicRenderingLocalRead`](Extensions::KHR_DynamicRenderingLocalRead)
+/// - Extension [`KHR_DynamicRenderingLocalRead`](Extension::KHR_DynamicRenderingLocalRead)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -18550,7 +18550,7 @@ pub type PhysicalDeviceDynamicRenderingLocalReadFeaturesKHR =
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_DynamicRenderingLocalRead`](Extensions::KHR_DynamicRenderingLocalRead)
+/// - Extension [`KHR_DynamicRenderingLocalRead`](Extension::KHR_DynamicRenderingLocalRead)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -18608,7 +18608,7 @@ pub type RenderingAttachmentLocationInfoKHR = RenderingAttachmentLocationInfo;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_DynamicRenderingLocalRead`](Extensions::KHR_DynamicRenderingLocalRead)
+/// - Extension [`KHR_DynamicRenderingLocalRead`](Extension::KHR_DynamicRenderingLocalRead)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -18676,7 +18676,7 @@ pub type RenderingInputAttachmentIndexInfoKHR = RenderingInputAttachmentIndexInf
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
+/// - Extension [`KHR_Surface`](Extension::KHR_Surface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -18719,7 +18719,7 @@ impl Default for SurfaceCapabilitiesKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
+/// - Extension [`KHR_Surface`](Extension::KHR_Surface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -18746,7 +18746,7 @@ impl Default for SurfaceFormatKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
+/// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -18837,7 +18837,7 @@ unsafe impl Extendable for SwapchainCreateInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
+/// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -18909,8 +18909,8 @@ unsafe impl Extendable for PresentInfoKHR {
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
-/// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+/// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+/// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -18960,8 +18960,8 @@ unsafe impl Extends<ImageCreateInfo> for ImageSwapchainCreateInfoKHR {}
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
-/// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+/// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+/// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -19012,8 +19012,8 @@ unsafe impl Extends<BindImageMemoryInfo> for BindImageMemorySwapchainInfoKHR {}
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
-/// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+/// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+/// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -19069,8 +19069,8 @@ unsafe impl Extendable for AcquireNextImageInfoKHR {
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
-/// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+/// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+/// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -19120,8 +19120,8 @@ unsafe impl Extendable for DeviceGroupPresentCapabilitiesKHR {
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
-/// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+/// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+/// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -19175,8 +19175,8 @@ unsafe impl Extends<PresentInfoKHR> for DeviceGroupPresentInfoKHR {}
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
-/// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+/// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+/// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -19224,7 +19224,7 @@ unsafe impl Extends<SwapchainCreateInfoKHR> for DeviceGroupSwapchainCreateInfoKH
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Display`](Extensions::KHR_Display)
+/// - Extension [`KHR_Display`](Extension::KHR_Display)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -19249,7 +19249,7 @@ impl Default for DisplayModeParametersKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Display`](Extensions::KHR_Display)
+/// - Extension [`KHR_Display`](Extension::KHR_Display)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -19297,7 +19297,7 @@ unsafe impl Extendable for DisplayModeCreateInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Display`](Extensions::KHR_Display)
+/// - Extension [`KHR_Display`](Extension::KHR_Display)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -19324,7 +19324,7 @@ impl Default for DisplayModePropertiesKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Display`](Extensions::KHR_Display)
+/// - Extension [`KHR_Display`](Extension::KHR_Display)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -19366,7 +19366,7 @@ impl Default for DisplayPlaneCapabilitiesKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Display`](Extensions::KHR_Display)
+/// - Extension [`KHR_Display`](Extension::KHR_Display)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -19393,7 +19393,7 @@ impl Default for DisplayPlanePropertiesKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Display`](Extensions::KHR_Display)
+/// - Extension [`KHR_Display`](Extension::KHR_Display)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -19432,7 +19432,7 @@ impl Default for DisplayPropertiesKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Display`](Extensions::KHR_Display)
+/// - Extension [`KHR_Display`](Extension::KHR_Display)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -19494,7 +19494,7 @@ unsafe impl Extendable for DisplaySurfaceCreateInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DisplaySwapchain`](Extensions::KHR_DisplaySwapchain)
+/// - Extension [`KHR_DisplaySwapchain`](Extension::KHR_DisplaySwapchain)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -19546,7 +19546,7 @@ unsafe impl Extends<PresentInfoKHR> for DisplayPresentInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_XlibSurface`](Extensions::KHR_XlibSurface)
+/// - Extension [`KHR_XlibSurface`](Extension::KHR_XlibSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -19596,7 +19596,7 @@ unsafe impl Extendable for XlibSurfaceCreateInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_XcbSurface`](Extensions::KHR_XcbSurface)
+/// - Extension [`KHR_XcbSurface`](Extension::KHR_XcbSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -19646,7 +19646,7 @@ unsafe impl Extendable for XcbSurfaceCreateInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_WaylandSurface`](Extensions::KHR_WaylandSurface)
+/// - Extension [`KHR_WaylandSurface`](Extension::KHR_WaylandSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -19696,7 +19696,7 @@ unsafe impl Extendable for WaylandSurfaceCreateInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_AndroidSurface`](Extensions::KHR_AndroidSurface)
+/// - Extension [`KHR_AndroidSurface`](Extension::KHR_AndroidSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -19744,7 +19744,7 @@ unsafe impl Extendable for AndroidSurfaceCreateInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Win32Surface`](Extensions::KHR_Win32Surface)
+/// - Extension [`KHR_Win32Surface`](Extension::KHR_Win32Surface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -19794,7 +19794,7 @@ unsafe impl Extendable for Win32SurfaceCreateInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -19844,7 +19844,7 @@ unsafe impl Extends<QueueFamilyProperties2> for QueueFamilyQueryResultStatusProp
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -19894,7 +19894,7 @@ unsafe impl Extends<QueueFamilyProperties2> for QueueFamilyVideoPropertiesKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -19960,7 +19960,7 @@ unsafe impl Extends<QueryPoolCreateInfo> for VideoProfileInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -20017,7 +20017,7 @@ unsafe impl Extends<BufferCreateInfo> for VideoProfileListInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -20097,7 +20097,7 @@ unsafe impl Extendable for VideoCapabilitiesKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -20145,7 +20145,7 @@ unsafe impl Extendable for PhysicalDeviceVideoFormatInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -20208,7 +20208,7 @@ unsafe impl Extendable for VideoFormatPropertiesKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -20259,7 +20259,7 @@ unsafe impl Extendable for VideoPictureResourceInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -20315,7 +20315,7 @@ unsafe impl Extendable for VideoReferenceSlotInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -20364,7 +20364,7 @@ unsafe impl Extendable for VideoSessionMemoryRequirementsKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -20415,7 +20415,7 @@ unsafe impl Extendable for BindVideoSessionMemoryInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -20483,7 +20483,7 @@ unsafe impl Extendable for VideoSessionCreateInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -20543,7 +20543,7 @@ unsafe impl Extendable for VideoSessionParametersCreateInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -20593,7 +20593,7 @@ unsafe impl Extendable for VideoSessionParametersUpdateInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -20657,7 +20657,7 @@ unsafe impl Extendable for VideoBeginCodingInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -20703,7 +20703,7 @@ unsafe impl Extendable for VideoEndCodingInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -20754,7 +20754,7 @@ unsafe impl Extendable for VideoCodingControlInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+/// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -20804,7 +20804,7 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoDecodeCapabilitiesKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+/// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -20855,7 +20855,7 @@ unsafe impl Extends<QueryPoolCreateInfo> for VideoDecodeUsageInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+/// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -20926,7 +20926,7 @@ unsafe impl Extendable for VideoDecodeInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+/// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -21000,7 +21000,7 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoEncodeH264CapabilitiesKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+/// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -21027,7 +21027,7 @@ impl Default for VideoEncodeH264QpKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+/// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -21096,7 +21096,7 @@ unsafe impl Extends<VideoEncodeQualityLevelPropertiesKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+/// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -21146,7 +21146,7 @@ unsafe impl Extends<VideoSessionCreateInfoKHR> for VideoEncodeH264SessionCreateI
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+/// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -21207,7 +21207,7 @@ unsafe impl Extends<VideoSessionParametersUpdateInfoKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+/// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -21263,7 +21263,7 @@ unsafe impl Extends<VideoSessionParametersCreateInfoKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+/// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -21320,7 +21320,7 @@ unsafe impl Extends<VideoEncodeSessionParametersGetInfoKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+/// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -21375,7 +21375,7 @@ unsafe impl Extends<VideoEncodeSessionParametersFeedbackInfoKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+/// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -21422,7 +21422,7 @@ unsafe impl Extendable for VideoEncodeH264NaluSliceInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+/// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -21476,7 +21476,7 @@ unsafe impl Extends<VideoEncodeInfoKHR> for VideoEncodeH264PictureInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+/// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -21524,7 +21524,7 @@ unsafe impl Extends<VideoReferenceSlotInfoKHR> for VideoEncodeH264DpbSlotInfoKHR
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+/// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -21574,7 +21574,7 @@ unsafe impl Extends<QueryPoolCreateInfo> for VideoEncodeH264ProfileInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+/// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -21633,7 +21633,7 @@ unsafe impl Extends<VideoBeginCodingInfoKHR> for VideoEncodeH264RateControlInfoK
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+/// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -21660,7 +21660,7 @@ impl Default for VideoEncodeH264FrameSizeKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+/// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -21718,7 +21718,7 @@ unsafe impl Extends<VideoEncodeRateControlLayerInfoKHR> for VideoEncodeH264RateC
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+/// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -21772,7 +21772,7 @@ unsafe impl Extends<VideoBeginCodingInfoKHR> for VideoEncodeH264GopRemainingFram
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+/// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -21852,7 +21852,7 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoEncodeH265CapabilitiesKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+/// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -21902,7 +21902,7 @@ unsafe impl Extends<VideoSessionCreateInfoKHR> for VideoEncodeH265SessionCreateI
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+/// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -21929,7 +21929,7 @@ impl Default for VideoEncodeH265QpKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+/// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -21996,7 +21996,7 @@ unsafe impl Extends<VideoEncodeQualityLevelPropertiesKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+/// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -22063,7 +22063,7 @@ unsafe impl Extends<VideoSessionParametersUpdateInfoKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+/// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -22121,7 +22121,7 @@ unsafe impl Extends<VideoSessionParametersCreateInfoKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+/// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -22182,7 +22182,7 @@ unsafe impl Extends<VideoEncodeSessionParametersGetInfoKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+/// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -22239,7 +22239,7 @@ unsafe impl Extends<VideoEncodeSessionParametersFeedbackInfoKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+/// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -22286,7 +22286,7 @@ unsafe impl Extendable for VideoEncodeH265NaluSliceSegmentInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+/// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -22338,7 +22338,7 @@ unsafe impl Extends<VideoEncodeInfoKHR> for VideoEncodeH265PictureInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+/// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -22386,7 +22386,7 @@ unsafe impl Extends<VideoReferenceSlotInfoKHR> for VideoEncodeH265DpbSlotInfoKHR
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+/// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -22436,7 +22436,7 @@ unsafe impl Extends<QueryPoolCreateInfo> for VideoEncodeH265ProfileInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+/// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -22495,7 +22495,7 @@ unsafe impl Extends<VideoBeginCodingInfoKHR> for VideoEncodeH265RateControlInfoK
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+/// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -22522,7 +22522,7 @@ impl Default for VideoEncodeH265FrameSizeKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+/// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -22580,7 +22580,7 @@ unsafe impl Extends<VideoEncodeRateControlLayerInfoKHR> for VideoEncodeH265RateC
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+/// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -22634,7 +22634,7 @@ unsafe impl Extends<VideoBeginCodingInfoKHR> for VideoEncodeH265GopRemainingFram
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeH264`](Extensions::KHR_VideoDecodeH264)
+/// - Extension [`KHR_VideoDecodeH264`](Extension::KHR_VideoDecodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -22687,7 +22687,7 @@ unsafe impl Extends<QueryPoolCreateInfo> for VideoDecodeH264ProfileInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeH264`](Extensions::KHR_VideoDecodeH264)
+/// - Extension [`KHR_VideoDecodeH264`](Extension::KHR_VideoDecodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -22739,7 +22739,7 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoDecodeH264CapabilitiesKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeH264`](Extensions::KHR_VideoDecodeH264)
+/// - Extension [`KHR_VideoDecodeH264`](Extension::KHR_VideoDecodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -22798,7 +22798,7 @@ unsafe impl Extends<VideoSessionParametersUpdateInfoKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeH264`](Extensions::KHR_VideoDecodeH264)
+/// - Extension [`KHR_VideoDecodeH264`](Extension::KHR_VideoDecodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -22854,7 +22854,7 @@ unsafe impl Extends<VideoSessionParametersCreateInfoKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeH264`](Extensions::KHR_VideoDecodeH264)
+/// - Extension [`KHR_VideoDecodeH264`](Extension::KHR_VideoDecodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -22906,7 +22906,7 @@ unsafe impl Extends<VideoDecodeInfoKHR> for VideoDecodeH264PictureInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeH264`](Extensions::KHR_VideoDecodeH264)
+/// - Extension [`KHR_VideoDecodeH264`](Extension::KHR_VideoDecodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -22954,7 +22954,7 @@ unsafe impl Extends<VideoReferenceSlotInfoKHR> for VideoDecodeH264DpbSlotInfoKHR
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExternalMemoryWin32`](Extensions::KHR_ExternalMemoryWin32)
+/// - Extension [`KHR_ExternalMemoryWin32`](Extension::KHR_ExternalMemoryWin32)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -23009,7 +23009,7 @@ unsafe impl Extends<MemoryAllocateInfo> for ImportMemoryWin32HandleInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExternalMemoryWin32`](Extensions::KHR_ExternalMemoryWin32)
+/// - Extension [`KHR_ExternalMemoryWin32`](Extension::KHR_ExternalMemoryWin32)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -23062,7 +23062,7 @@ unsafe impl Extends<MemoryAllocateInfo> for ExportMemoryWin32HandleInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExternalMemoryWin32`](Extensions::KHR_ExternalMemoryWin32)
+/// - Extension [`KHR_ExternalMemoryWin32`](Extension::KHR_ExternalMemoryWin32)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -23109,7 +23109,7 @@ unsafe impl Extendable for MemoryWin32HandlePropertiesKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExternalMemoryWin32`](Extensions::KHR_ExternalMemoryWin32)
+/// - Extension [`KHR_ExternalMemoryWin32`](Extension::KHR_ExternalMemoryWin32)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -23156,7 +23156,7 @@ unsafe impl Extendable for MemoryGetWin32HandleInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExternalMemoryFd`](Extensions::KHR_ExternalMemoryFd)
+/// - Extension [`KHR_ExternalMemoryFd`](Extension::KHR_ExternalMemoryFd)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -23207,7 +23207,7 @@ unsafe impl Extends<MemoryAllocateInfo> for ImportMemoryFdInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExternalMemoryFd`](Extensions::KHR_ExternalMemoryFd)
+/// - Extension [`KHR_ExternalMemoryFd`](Extension::KHR_ExternalMemoryFd)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -23254,7 +23254,7 @@ unsafe impl Extendable for MemoryFdPropertiesKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExternalMemoryFd`](Extensions::KHR_ExternalMemoryFd)
+/// - Extension [`KHR_ExternalMemoryFd`](Extension::KHR_ExternalMemoryFd)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -23301,7 +23301,7 @@ unsafe impl Extendable for MemoryGetFdInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Win32KeyedMutex`](Extensions::KHR_Win32KeyedMutex)
+/// - Extension [`KHR_Win32KeyedMutex`](Extension::KHR_Win32KeyedMutex)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -23365,7 +23365,7 @@ unsafe impl Extends<SubmitInfo2> for Win32KeyedMutexAcquireReleaseInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExternalSemaphoreWin32`](Extensions::KHR_ExternalSemaphoreWin32)
+/// - Extension [`KHR_ExternalSemaphoreWin32`](Extension::KHR_ExternalSemaphoreWin32)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -23421,7 +23421,7 @@ unsafe impl Extendable for ImportSemaphoreWin32HandleInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExternalSemaphoreWin32`](Extensions::KHR_ExternalSemaphoreWin32)
+/// - Extension [`KHR_ExternalSemaphoreWin32`](Extension::KHR_ExternalSemaphoreWin32)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -23474,7 +23474,7 @@ unsafe impl Extends<SemaphoreCreateInfo> for ExportSemaphoreWin32HandleInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExternalSemaphoreWin32`](Extensions::KHR_ExternalSemaphoreWin32)
+/// - Extension [`KHR_ExternalSemaphoreWin32`](Extension::KHR_ExternalSemaphoreWin32)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -23532,7 +23532,7 @@ unsafe impl Extends<SubmitInfo> for D3D12FenceSubmitInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExternalSemaphoreWin32`](Extensions::KHR_ExternalSemaphoreWin32)
+/// - Extension [`KHR_ExternalSemaphoreWin32`](Extension::KHR_ExternalSemaphoreWin32)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -23579,7 +23579,7 @@ unsafe impl Extendable for SemaphoreGetWin32HandleInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExternalSemaphoreFd`](Extensions::KHR_ExternalSemaphoreFd)
+/// - Extension [`KHR_ExternalSemaphoreFd`](Extension::KHR_ExternalSemaphoreFd)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -23631,7 +23631,7 @@ unsafe impl Extendable for ImportSemaphoreFdInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExternalSemaphoreFd`](Extensions::KHR_ExternalSemaphoreFd)
+/// - Extension [`KHR_ExternalSemaphoreFd`](Extension::KHR_ExternalSemaphoreFd)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -23678,7 +23678,7 @@ unsafe impl Extendable for SemaphoreGetFdInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_IncrementalPresent`](Extensions::KHR_IncrementalPresent)
+/// - Extension [`KHR_IncrementalPresent`](Extension::KHR_IncrementalPresent)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -23705,7 +23705,7 @@ impl Default for RectLayerKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_IncrementalPresent`](Extensions::KHR_IncrementalPresent)
+/// - Extension [`KHR_IncrementalPresent`](Extension::KHR_IncrementalPresent)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -23732,7 +23732,7 @@ impl Default for PresentRegionKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_IncrementalPresent`](Extensions::KHR_IncrementalPresent)
+/// - Extension [`KHR_IncrementalPresent`](Extension::KHR_IncrementalPresent)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -23783,7 +23783,7 @@ unsafe impl Extends<PresentInfoKHR> for PresentRegionsKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_SharedPresentableImage`](Extensions::KHR_SharedPresentableImage)
+/// - Extension [`KHR_SharedPresentableImage`](Extension::KHR_SharedPresentableImage)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -23834,7 +23834,7 @@ unsafe impl Extends<SurfaceCapabilities2KHR> for SharedPresentSurfaceCapabilitie
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExternalFenceWin32`](Extensions::KHR_ExternalFenceWin32)
+/// - Extension [`KHR_ExternalFenceWin32`](Extension::KHR_ExternalFenceWin32)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -23890,7 +23890,7 @@ unsafe impl Extendable for ImportFenceWin32HandleInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExternalFenceWin32`](Extensions::KHR_ExternalFenceWin32)
+/// - Extension [`KHR_ExternalFenceWin32`](Extension::KHR_ExternalFenceWin32)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -23943,7 +23943,7 @@ unsafe impl Extends<FenceCreateInfo> for ExportFenceWin32HandleInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExternalFenceWin32`](Extensions::KHR_ExternalFenceWin32)
+/// - Extension [`KHR_ExternalFenceWin32`](Extension::KHR_ExternalFenceWin32)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -23990,7 +23990,7 @@ unsafe impl Extendable for FenceGetWin32HandleInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExternalFenceFd`](Extensions::KHR_ExternalFenceFd)
+/// - Extension [`KHR_ExternalFenceFd`](Extension::KHR_ExternalFenceFd)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -24042,7 +24042,7 @@ unsafe impl Extendable for ImportFenceFdInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExternalFenceFd`](Extensions::KHR_ExternalFenceFd)
+/// - Extension [`KHR_ExternalFenceFd`](Extension::KHR_ExternalFenceFd)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -24089,7 +24089,7 @@ unsafe impl Extendable for FenceGetFdInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
+/// - Extension [`KHR_PerformanceQuery`](Extension::KHR_PerformanceQuery)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -24141,7 +24141,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePerformanceQueryFeatures
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
+/// - Extension [`KHR_PerformanceQuery`](Extension::KHR_PerformanceQuery)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -24191,7 +24191,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDevicePerformanceQuer
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
+/// - Extension [`KHR_PerformanceQuery`](Extension::KHR_PerformanceQuery)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -24244,7 +24244,7 @@ unsafe impl Extendable for PerformanceCounterKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
+/// - Extension [`KHR_PerformanceQuery`](Extension::KHR_PerformanceQuery)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -24301,7 +24301,7 @@ unsafe impl Extendable for PerformanceCounterDescriptionKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
+/// - Extension [`KHR_PerformanceQuery`](Extension::KHR_PerformanceQuery)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -24353,7 +24353,7 @@ unsafe impl Extends<QueryPoolCreateInfo> for QueryPoolPerformanceCreateInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
+/// - Extension [`KHR_PerformanceQuery`](Extension::KHR_PerformanceQuery)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -24385,7 +24385,7 @@ impl Default for PerformanceCounterResultKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
+/// - Extension [`KHR_PerformanceQuery`](Extension::KHR_PerformanceQuery)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -24433,7 +24433,7 @@ unsafe impl Extendable for AcquireProfilingLockInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
+/// - Extension [`KHR_PerformanceQuery`](Extension::KHR_PerformanceQuery)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -24483,7 +24483,7 @@ unsafe impl Extends<SubmitInfo2> for PerformanceQuerySubmitInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_GetSurfaceCapabilities2`](Extensions::KHR_GetSurfaceCapabilities2)
+/// - Extension [`KHR_GetSurfaceCapabilities2`](Extension::KHR_GetSurfaceCapabilities2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -24533,7 +24533,7 @@ unsafe impl Extendable for PhysicalDeviceSurfaceInfo2KHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_GetSurfaceCapabilities2`](Extensions::KHR_GetSurfaceCapabilities2)
+/// - Extension [`KHR_GetSurfaceCapabilities2`](Extension::KHR_GetSurfaceCapabilities2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -24595,7 +24595,7 @@ unsafe impl Extendable for SurfaceCapabilities2KHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_GetSurfaceCapabilities2`](Extensions::KHR_GetSurfaceCapabilities2)
+/// - Extension [`KHR_GetSurfaceCapabilities2`](Extension::KHR_GetSurfaceCapabilities2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -24644,7 +24644,7 @@ unsafe impl Extendable for SurfaceFormat2KHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_GetDisplayProperties2`](Extensions::KHR_GetDisplayProperties2)
+/// - Extension [`KHR_GetDisplayProperties2`](Extension::KHR_GetDisplayProperties2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -24691,7 +24691,7 @@ unsafe impl Extendable for DisplayProperties2KHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_GetDisplayProperties2`](Extensions::KHR_GetDisplayProperties2)
+/// - Extension [`KHR_GetDisplayProperties2`](Extension::KHR_GetDisplayProperties2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -24738,7 +24738,7 @@ unsafe impl Extendable for DisplayPlaneProperties2KHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_GetDisplayProperties2`](Extensions::KHR_GetDisplayProperties2)
+/// - Extension [`KHR_GetDisplayProperties2`](Extension::KHR_GetDisplayProperties2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -24787,7 +24787,7 @@ unsafe impl Extendable for DisplayModeProperties2KHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_GetDisplayProperties2`](Extensions::KHR_GetDisplayProperties2)
+/// - Extension [`KHR_GetDisplayProperties2`](Extension::KHR_GetDisplayProperties2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -24834,7 +24834,7 @@ unsafe impl Extendable for DisplayPlaneInfo2KHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_GetDisplayProperties2`](Extensions::KHR_GetDisplayProperties2)
+/// - Extension [`KHR_GetDisplayProperties2`](Extension::KHR_GetDisplayProperties2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -24881,7 +24881,7 @@ unsafe impl Extendable for DisplayPlaneCapabilities2KHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ShaderBfloat16`](Extensions::KHR_ShaderBfloat16)
+/// - Extension [`KHR_ShaderBfloat16`](Extension::KHR_ShaderBfloat16)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -24935,7 +24935,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderBfloat16FeaturesKH
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PortabilitySubset`](Extensions::KHR_PortabilitySubset)
+/// - Extension [`KHR_PortabilitySubset`](Extension::KHR_PortabilitySubset)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -25013,7 +25013,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePortabilitySubsetFeature
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PortabilitySubset`](Extensions::KHR_PortabilitySubset)
+/// - Extension [`KHR_PortabilitySubset`](Extension::KHR_PortabilitySubset)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -25063,7 +25063,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDevicePortabilitySubs
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ShaderClock`](Extensions::KHR_ShaderClock)
+/// - Extension [`KHR_ShaderClock`](Extension::KHR_ShaderClock)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -25115,7 +25115,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderClockFeaturesKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeH265`](Extensions::KHR_VideoDecodeH265)
+/// - Extension [`KHR_VideoDecodeH265`](Extension::KHR_VideoDecodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -25165,7 +25165,7 @@ unsafe impl Extends<QueryPoolCreateInfo> for VideoDecodeH265ProfileInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeH265`](Extensions::KHR_VideoDecodeH265)
+/// - Extension [`KHR_VideoDecodeH265`](Extension::KHR_VideoDecodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -25215,7 +25215,7 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoDecodeH265CapabilitiesKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeH265`](Extensions::KHR_VideoDecodeH265)
+/// - Extension [`KHR_VideoDecodeH265`](Extension::KHR_VideoDecodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -25279,7 +25279,7 @@ unsafe impl Extends<VideoSessionParametersUpdateInfoKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeH265`](Extensions::KHR_VideoDecodeH265)
+/// - Extension [`KHR_VideoDecodeH265`](Extension::KHR_VideoDecodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -25337,7 +25337,7 @@ unsafe impl Extends<VideoSessionParametersCreateInfoKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeH265`](Extensions::KHR_VideoDecodeH265)
+/// - Extension [`KHR_VideoDecodeH265`](Extension::KHR_VideoDecodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -25389,7 +25389,7 @@ unsafe impl Extends<VideoDecodeInfoKHR> for VideoDecodeH265PictureInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeH265`](Extensions::KHR_VideoDecodeH265)
+/// - Extension [`KHR_VideoDecodeH265`](Extension::KHR_VideoDecodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -25437,7 +25437,7 @@ unsafe impl Extends<VideoReferenceSlotInfoKHR> for VideoDecodeH265DpbSlotInfoKHR
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_FragmentShadingRate`](Extensions::KHR_FragmentShadingRate)
+/// - Extension [`KHR_FragmentShadingRate`](Extension::KHR_FragmentShadingRate)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -25490,7 +25490,7 @@ unsafe impl Extends<SubpassDescription2> for FragmentShadingRateAttachmentInfoKH
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_FragmentShadingRate`](Extensions::KHR_FragmentShadingRate)
+/// - Extension [`KHR_FragmentShadingRate`](Extension::KHR_FragmentShadingRate)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -25540,7 +25540,7 @@ unsafe impl Extends<GraphicsPipelineCreateInfo> for PipelineFragmentShadingRateS
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_FragmentShadingRate`](Extensions::KHR_FragmentShadingRate)
+/// - Extension [`KHR_FragmentShadingRate`](Extension::KHR_FragmentShadingRate)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -25594,7 +25594,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceFragmentShadingRateFeatu
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_FragmentShadingRate`](Extensions::KHR_FragmentShadingRate)
+/// - Extension [`KHR_FragmentShadingRate`](Extension::KHR_FragmentShadingRate)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -25676,7 +25676,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceFragmentShading
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_FragmentShadingRate`](Extensions::KHR_FragmentShadingRate)
+/// - Extension [`KHR_FragmentShadingRate`](Extension::KHR_FragmentShadingRate)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -25725,7 +25725,7 @@ unsafe impl Extendable for PhysicalDeviceFragmentShadingRateKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_FragmentShadingRate`](Extensions::KHR_FragmentShadingRate)
+/// - Extension [`KHR_FragmentShadingRate`](Extension::KHR_FragmentShadingRate)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -25778,7 +25778,7 @@ unsafe impl Extends<RenderingInfo> for RenderingFragmentShadingRateAttachmentInf
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ShaderConstantData`](Extensions::KHR_ShaderConstantData)
+/// - Extension [`KHR_ShaderConstantData`](Extension::KHR_ShaderConstantData)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -25828,7 +25828,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderConstantDataFeatur
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ShaderAbort`](Extensions::KHR_ShaderAbort)
+/// - Extension [`KHR_ShaderAbort`](Extension::KHR_ShaderAbort)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -25878,7 +25878,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderAbortFeaturesKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ShaderAbort`](Extensions::KHR_ShaderAbort)
+/// - Extension [`KHR_ShaderAbort`](Extension::KHR_ShaderAbort)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -25932,7 +25932,7 @@ unsafe impl Extends<DeviceFaultDebugInfoKHR> for DeviceFaultShaderAbortMessageIn
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ShaderAbort`](Extensions::KHR_ShaderAbort)
+/// - Extension [`KHR_ShaderAbort`](Extension::KHR_ShaderAbort)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -25980,7 +25980,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderAbortProp
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ShaderQuadControl`](Extensions::KHR_ShaderQuadControl)
+/// - Extension [`KHR_ShaderQuadControl`](Extension::KHR_ShaderQuadControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -26030,7 +26030,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderQuadControlFeature
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_SurfaceProtectedCapabilities`](Extensions::KHR_SurfaceProtectedCapabilities)
+/// - Extension [`KHR_SurfaceProtectedCapabilities`](Extension::KHR_SurfaceProtectedCapabilities)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -26080,7 +26080,7 @@ unsafe impl Extends<SurfaceCapabilities2KHR> for SurfaceProtectedCapabilitiesKHR
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PresentWait`](Extensions::KHR_PresentWait)
+/// - Extension [`KHR_PresentWait`](Extension::KHR_PresentWait)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -26130,7 +26130,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePresentWaitFeaturesKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PipelineExecutableProperties`](Extensions::KHR_PipelineExecutableProperties)
+/// - Extension [`KHR_PipelineExecutableProperties`](Extension::KHR_PipelineExecutableProperties)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -26183,8 +26183,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePipelineExecutableProper
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PipelineExecutableProperties`](Extensions::KHR_PipelineExecutableProperties)
-/// - Extension [`EXT_PipelineProperties`](Extensions::EXT_PipelineProperties)
+/// - Extension [`KHR_PipelineExecutableProperties`](Extension::KHR_PipelineExecutableProperties)
+/// - Extension [`EXT_PipelineProperties`](Extension::EXT_PipelineProperties)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -26233,7 +26233,7 @@ pub type PipelineInfoEXT = PipelineInfoKHR;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PipelineExecutableProperties`](Extensions::KHR_PipelineExecutableProperties)
+/// - Extension [`KHR_PipelineExecutableProperties`](Extension::KHR_PipelineExecutableProperties)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -26288,7 +26288,7 @@ unsafe impl Extendable for PipelineExecutablePropertiesKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PipelineExecutableProperties`](Extensions::KHR_PipelineExecutableProperties)
+/// - Extension [`KHR_PipelineExecutableProperties`](Extension::KHR_PipelineExecutableProperties)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -26335,7 +26335,7 @@ unsafe impl Extendable for PipelineExecutableInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PipelineExecutableProperties`](Extensions::KHR_PipelineExecutableProperties)
+/// - Extension [`KHR_PipelineExecutableProperties`](Extension::KHR_PipelineExecutableProperties)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -26367,7 +26367,7 @@ impl Default for PipelineExecutableStatisticValueKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PipelineExecutableProperties`](Extensions::KHR_PipelineExecutableProperties)
+/// - Extension [`KHR_PipelineExecutableProperties`](Extension::KHR_PipelineExecutableProperties)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -26422,7 +26422,7 @@ unsafe impl Extendable for PipelineExecutableStatisticKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PipelineExecutableProperties`](Extensions::KHR_PipelineExecutableProperties)
+/// - Extension [`KHR_PipelineExecutableProperties`](Extension::KHR_PipelineExecutableProperties)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -26480,7 +26480,7 @@ unsafe impl Extendable for PipelineExecutableInternalRepresentationKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PipelineLibrary`](Extensions::KHR_PipelineLibrary)
+/// - Extension [`KHR_PipelineLibrary`](Extension::KHR_PipelineLibrary)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -26531,7 +26531,7 @@ unsafe impl Extends<GraphicsPipelineCreateInfo> for PipelineLibraryCreateInfoKHR
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PresentId`](Extensions::KHR_PresentId)
+/// - Extension [`KHR_PresentId`](Extension::KHR_PresentId)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -26582,7 +26582,7 @@ unsafe impl Extends<PresentInfoKHR> for PresentIdKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PresentId`](Extensions::KHR_PresentId)
+/// - Extension [`KHR_PresentId`](Extension::KHR_PresentId)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -26632,7 +26632,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePresentIdFeaturesKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+/// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -26703,7 +26703,7 @@ unsafe impl Extendable for VideoEncodeInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+/// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -26765,7 +26765,7 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoEncodeCapabilitiesKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+/// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -26813,7 +26813,7 @@ unsafe impl Extends<QueryPoolCreateInfo> for QueryPoolVideoEncodeFeedbackCreateI
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+/// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -26870,7 +26870,7 @@ unsafe impl Extends<QueryPoolCreateInfo> for VideoEncodeUsageInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+/// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -26925,7 +26925,7 @@ unsafe impl Extendable for VideoEncodeRateControlLayerInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+/// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -26988,7 +26988,7 @@ unsafe impl Extends<VideoBeginCodingInfoKHR> for VideoEncodeRateControlInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+/// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -27035,7 +27035,7 @@ unsafe impl Extendable for PhysicalDeviceVideoEncodeQualityLevelInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+/// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -27088,7 +27088,7 @@ unsafe impl Extendable for VideoEncodeQualityLevelPropertiesKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+/// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -27138,7 +27138,7 @@ unsafe impl Extends<VideoSessionParametersCreateInfoKHR> for VideoEncodeQualityL
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+/// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -27186,7 +27186,7 @@ unsafe impl Extendable for VideoEncodeSessionParametersGetInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+/// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -27236,8 +27236,8 @@ unsafe impl Extendable for VideoEncodeSessionParametersFeedbackInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -27267,8 +27267,8 @@ pub type DeviceAddressRangeEXT = DeviceAddressRangeKHR;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
-/// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
+/// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+/// - Extension [`KHR_CopyMemoryIndirect`](Extension::KHR_CopyMemoryIndirect)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -27296,7 +27296,7 @@ impl Default for StridedDeviceAddressRangeKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+/// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -27349,7 +27349,7 @@ unsafe impl Extendable for DeviceMemoryCopyKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+/// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -27396,7 +27396,7 @@ unsafe impl Extendable for CopyDeviceMemoryInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+/// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -27458,7 +27458,7 @@ unsafe impl Extendable for DeviceMemoryImageCopyKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+/// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -27507,7 +27507,7 @@ unsafe impl Extendable for CopyDeviceMemoryImageInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+/// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -27571,7 +27571,7 @@ unsafe impl Extendable for MemoryRangeBarrierKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+/// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -27624,7 +27624,7 @@ unsafe impl Extends<DependencyInfo> for MemoryRangeBarriersInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+/// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -27674,7 +27674,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDeviceAddressCommandsFea
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+/// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -27724,7 +27724,7 @@ unsafe impl Extendable for BindIndexBuffer3InfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+/// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -27774,7 +27774,7 @@ unsafe impl Extendable for BindVertexBuffer3InfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+/// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -27824,7 +27824,7 @@ unsafe impl Extendable for DrawIndirect2InfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+/// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -27879,7 +27879,7 @@ unsafe impl Extendable for DrawIndirectCount2InfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+/// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -27927,7 +27927,7 @@ unsafe impl Extendable for DispatchIndirect2InfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+/// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -27978,7 +27978,7 @@ unsafe impl Extendable for ConditionalRenderingBeginInfo2EXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+/// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -28026,7 +28026,7 @@ unsafe impl Extendable for BindTransformFeedbackBuffer2InfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+/// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -28078,7 +28078,7 @@ unsafe impl Extendable for MemoryMarkerInfoAMD {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+/// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -28133,8 +28133,8 @@ unsafe impl Extendable for AccelerationStructureCreateInfo2KHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_FragmentShaderBarycentric`](Extensions::KHR_FragmentShaderBarycentric)
-/// - Extension [`NV_FragmentShaderBarycentric`](Extensions::NV_FragmentShaderBarycentric)
+/// - Extension [`KHR_FragmentShaderBarycentric`](Extension::KHR_FragmentShaderBarycentric)
+/// - Extension [`NV_FragmentShaderBarycentric`](Extension::NV_FragmentShaderBarycentric)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -28192,7 +28192,7 @@ pub type PhysicalDeviceFragmentShaderBarycentricFeaturesNV =
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_FragmentShaderBarycentric`](Extensions::KHR_FragmentShaderBarycentric)
+/// - Extension [`KHR_FragmentShaderBarycentric`](Extension::KHR_FragmentShaderBarycentric)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -28245,7 +28245,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ShaderSubgroupUniformControlFlow`](Extensions::KHR_ShaderSubgroupUniformControlFlow)
+/// - Extension [`KHR_ShaderSubgroupUniformControlFlow`](Extension::KHR_ShaderSubgroupUniformControlFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -28302,7 +28302,7 @@ unsafe impl Extends<DeviceCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_WorkgroupMemoryExplicitLayout`](Extensions::KHR_WorkgroupMemoryExplicitLayout)
+/// - Extension [`KHR_WorkgroupMemoryExplicitLayout`](Extension::KHR_WorkgroupMemoryExplicitLayout)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -28361,7 +28361,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceWorkgroupMemoryExplicitL
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_RayTracingMaintenance1`](Extensions::KHR_RayTracingMaintenance1)
+/// - Extension [`KHR_RayTracingMaintenance1`](Extension::KHR_RayTracingMaintenance1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -28413,7 +28413,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRayTracingMaintenance1Fe
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_RayTracingMaintenance1`](Extensions::KHR_RayTracingMaintenance1)
+/// - Extension [`KHR_RayTracingMaintenance1`](Extension::KHR_RayTracingMaintenance1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -28462,7 +28462,7 @@ impl Default for TraceRaysIndirectCommand2KHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ShaderUntypedPointers`](Extensions::KHR_ShaderUntypedPointers)
+/// - Extension [`KHR_ShaderUntypedPointers`](Extension::KHR_ShaderUntypedPointers)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -28512,7 +28512,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderUntypedPointersFea
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ShaderMaximalReconvergence`](Extensions::KHR_ShaderMaximalReconvergence)
+/// - Extension [`KHR_ShaderMaximalReconvergence`](Extension::KHR_ShaderMaximalReconvergence)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -28565,7 +28565,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderMaximalReconvergen
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PresentId2`](Extensions::KHR_PresentId2)
+/// - Extension [`KHR_PresentId2`](Extension::KHR_PresentId2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -28613,7 +28613,7 @@ unsafe impl Extends<SurfaceCapabilities2KHR> for SurfaceCapabilitiesPresentId2KH
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PresentId2`](Extensions::KHR_PresentId2)
+/// - Extension [`KHR_PresentId2`](Extension::KHR_PresentId2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -28664,7 +28664,7 @@ unsafe impl Extends<PresentInfoKHR> for PresentId2KHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PresentId2`](Extensions::KHR_PresentId2)
+/// - Extension [`KHR_PresentId2`](Extension::KHR_PresentId2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -28714,7 +28714,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePresentId2FeaturesKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PresentWait2`](Extensions::KHR_PresentWait2)
+/// - Extension [`KHR_PresentWait2`](Extension::KHR_PresentWait2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -28762,7 +28762,7 @@ unsafe impl Extends<SurfaceCapabilities2KHR> for SurfaceCapabilitiesPresentWait2
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PresentWait2`](Extensions::KHR_PresentWait2)
+/// - Extension [`KHR_PresentWait2`](Extension::KHR_PresentWait2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -28812,7 +28812,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePresentWait2FeaturesKHR 
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PresentWait2`](Extensions::KHR_PresentWait2)
+/// - Extension [`KHR_PresentWait2`](Extension::KHR_PresentWait2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -28859,7 +28859,7 @@ unsafe impl Extendable for PresentWait2InfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_RayTracingPositionFetch`](Extensions::KHR_RayTracingPositionFetch)
+/// - Extension [`KHR_RayTracingPositionFetch`](Extension::KHR_RayTracingPositionFetch)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -28909,7 +28909,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRayTracingPositionFetchF
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+/// - Extension [`KHR_PipelineBinary`](Extension::KHR_PipelineBinary)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -28959,7 +28959,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePipelineBinaryFeaturesKH
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+/// - Extension [`KHR_PipelineBinary`](Extension::KHR_PipelineBinary)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -29017,7 +29017,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDevicePipelineBinaryP
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+/// - Extension [`KHR_PipelineBinary`](Extension::KHR_PipelineBinary)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -29065,7 +29065,7 @@ unsafe impl Extends<DeviceCreateInfo> for DevicePipelineBinaryInternalCacheContr
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+/// - Extension [`KHR_PipelineBinary`](Extension::KHR_PipelineBinary)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -29112,7 +29112,7 @@ unsafe impl Extendable for PipelineBinaryKeyKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+/// - Extension [`KHR_PipelineBinary`](Extension::KHR_PipelineBinary)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -29137,7 +29137,7 @@ impl Default for PipelineBinaryDataKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+/// - Extension [`KHR_PipelineBinary`](Extension::KHR_PipelineBinary)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -29164,7 +29164,7 @@ impl Default for PipelineBinaryKeysAndDataKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+/// - Extension [`KHR_PipelineBinary`](Extension::KHR_PipelineBinary)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -29207,7 +29207,7 @@ unsafe impl Extendable for PipelineCreateInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+/// - Extension [`KHR_PipelineBinary`](Extension::KHR_PipelineBinary)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -29259,7 +29259,7 @@ unsafe impl Extendable for PipelineBinaryCreateInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+/// - Extension [`KHR_PipelineBinary`](Extension::KHR_PipelineBinary)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -29314,7 +29314,7 @@ unsafe impl Extends<RayTracingPipelineCreateInfoKHR> for PipelineBinaryInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+/// - Extension [`KHR_PipelineBinary`](Extension::KHR_PipelineBinary)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -29359,7 +29359,7 @@ unsafe impl Extendable for ReleaseCapturedPipelineDataInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+/// - Extension [`KHR_PipelineBinary`](Extension::KHR_PipelineBinary)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -29404,7 +29404,7 @@ unsafe impl Extendable for PipelineBinaryDataInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+/// - Extension [`KHR_PipelineBinary`](Extension::KHR_PipelineBinary)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -29452,8 +29452,8 @@ unsafe impl Extendable for PipelineBinaryHandlesInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_SurfaceMaintenance1`](Extensions::KHR_SurfaceMaintenance1)
-/// - Extension [`EXT_SurfaceMaintenance1`](Extensions::EXT_SurfaceMaintenance1)
+/// - Extension [`KHR_SurfaceMaintenance1`](Extension::KHR_SurfaceMaintenance1)
+/// - Extension [`EXT_SurfaceMaintenance1`](Extension::EXT_SurfaceMaintenance1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -29505,8 +29505,8 @@ pub type SurfacePresentModeEXT = SurfacePresentModeKHR;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_SurfaceMaintenance1`](Extensions::KHR_SurfaceMaintenance1)
-/// - Extension [`EXT_SurfaceMaintenance1`](Extensions::EXT_SurfaceMaintenance1)
+/// - Extension [`KHR_SurfaceMaintenance1`](Extension::KHR_SurfaceMaintenance1)
+/// - Extension [`EXT_SurfaceMaintenance1`](Extension::EXT_SurfaceMaintenance1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -29571,8 +29571,8 @@ pub type SurfacePresentScalingCapabilitiesEXT = SurfacePresentScalingCapabilitie
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_SurfaceMaintenance1`](Extensions::KHR_SurfaceMaintenance1)
-/// - Extension [`EXT_SurfaceMaintenance1`](Extensions::EXT_SurfaceMaintenance1)
+/// - Extension [`KHR_SurfaceMaintenance1`](Extension::KHR_SurfaceMaintenance1)
+/// - Extension [`EXT_SurfaceMaintenance1`](Extension::EXT_SurfaceMaintenance1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -29628,8 +29628,8 @@ pub type SurfacePresentModeCompatibilityEXT = SurfacePresentModeCompatibilityKHR
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_SwapchainMaintenance1`](Extensions::KHR_SwapchainMaintenance1)
-/// - Extension [`EXT_SwapchainMaintenance1`](Extensions::EXT_SwapchainMaintenance1)
+/// - Extension [`KHR_SwapchainMaintenance1`](Extension::KHR_SwapchainMaintenance1)
+/// - Extension [`EXT_SwapchainMaintenance1`](Extension::EXT_SwapchainMaintenance1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -29684,8 +29684,8 @@ pub type PhysicalDeviceSwapchainMaintenance1FeaturesEXT =
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_SwapchainMaintenance1`](Extensions::KHR_SwapchainMaintenance1)
-/// - Extension [`EXT_SwapchainMaintenance1`](Extensions::EXT_SwapchainMaintenance1)
+/// - Extension [`KHR_SwapchainMaintenance1`](Extension::KHR_SwapchainMaintenance1)
+/// - Extension [`EXT_SwapchainMaintenance1`](Extension::EXT_SwapchainMaintenance1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -29739,8 +29739,8 @@ pub type SwapchainPresentFenceInfoEXT = SwapchainPresentFenceInfoKHR;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_SwapchainMaintenance1`](Extensions::KHR_SwapchainMaintenance1)
-/// - Extension [`EXT_SwapchainMaintenance1`](Extensions::EXT_SwapchainMaintenance1)
+/// - Extension [`KHR_SwapchainMaintenance1`](Extension::KHR_SwapchainMaintenance1)
+/// - Extension [`EXT_SwapchainMaintenance1`](Extension::EXT_SwapchainMaintenance1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -29794,8 +29794,8 @@ pub type SwapchainPresentModesCreateInfoEXT = SwapchainPresentModesCreateInfoKHR
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_SwapchainMaintenance1`](Extensions::KHR_SwapchainMaintenance1)
-/// - Extension [`EXT_SwapchainMaintenance1`](Extensions::EXT_SwapchainMaintenance1)
+/// - Extension [`KHR_SwapchainMaintenance1`](Extension::KHR_SwapchainMaintenance1)
+/// - Extension [`EXT_SwapchainMaintenance1`](Extension::EXT_SwapchainMaintenance1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -29849,8 +29849,8 @@ pub type SwapchainPresentModeInfoEXT = SwapchainPresentModeInfoKHR;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_SwapchainMaintenance1`](Extensions::KHR_SwapchainMaintenance1)
-/// - Extension [`EXT_SwapchainMaintenance1`](Extensions::EXT_SwapchainMaintenance1)
+/// - Extension [`KHR_SwapchainMaintenance1`](Extension::KHR_SwapchainMaintenance1)
+/// - Extension [`EXT_SwapchainMaintenance1`](Extension::EXT_SwapchainMaintenance1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -29909,8 +29909,8 @@ pub type SwapchainPresentScalingCreateInfoEXT = SwapchainPresentScalingCreateInf
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_SwapchainMaintenance1`](Extensions::KHR_SwapchainMaintenance1)
-/// - Extension [`EXT_SwapchainMaintenance1`](Extensions::EXT_SwapchainMaintenance1)
+/// - Extension [`KHR_SwapchainMaintenance1`](Extension::KHR_SwapchainMaintenance1)
+/// - Extension [`EXT_SwapchainMaintenance1`](Extension::EXT_SwapchainMaintenance1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -29963,7 +29963,7 @@ pub type ReleaseSwapchainImagesInfoEXT = ReleaseSwapchainImagesInfoKHR;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_InternallySynchronizedQueues`](Extensions::KHR_InternallySynchronizedQueues)
+/// - Extension [`KHR_InternallySynchronizedQueues`](Extension::KHR_InternallySynchronizedQueues)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -30016,7 +30016,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceInternallySynchronizedQu
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_CooperativeMatrix`](Extensions::KHR_CooperativeMatrix)
+/// - Extension [`KHR_CooperativeMatrix`](Extension::KHR_CooperativeMatrix)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -30079,7 +30079,7 @@ unsafe impl Extendable for CooperativeMatrixPropertiesKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_CooperativeMatrix`](Extensions::KHR_CooperativeMatrix)
+/// - Extension [`KHR_CooperativeMatrix`](Extension::KHR_CooperativeMatrix)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -30131,7 +30131,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCooperativeMatrixFeature
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_CooperativeMatrix`](Extensions::KHR_CooperativeMatrix)
+/// - Extension [`KHR_CooperativeMatrix`](Extension::KHR_CooperativeMatrix)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -30181,8 +30181,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceCooperativeMatr
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ComputeShaderDerivatives`](Extensions::KHR_ComputeShaderDerivatives)
-/// - Extension [`NV_ComputeShaderDerivatives`](Extensions::NV_ComputeShaderDerivatives)
+/// - Extension [`KHR_ComputeShaderDerivatives`](Extension::KHR_ComputeShaderDerivatives)
+/// - Extension [`NV_ComputeShaderDerivatives`](Extension::NV_ComputeShaderDerivatives)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -30239,7 +30239,7 @@ pub type PhysicalDeviceComputeShaderDerivativesFeaturesNV =
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ComputeShaderDerivatives`](Extensions::KHR_ComputeShaderDerivatives)
+/// - Extension [`KHR_ComputeShaderDerivatives`](Extension::KHR_ComputeShaderDerivatives)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -30292,7 +30292,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeAv1`](Extensions::KHR_VideoDecodeAv1)
+/// - Extension [`KHR_VideoDecodeAv1`](Extension::KHR_VideoDecodeAv1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -30344,7 +30344,7 @@ unsafe impl Extends<QueryPoolCreateInfo> for VideoDecodeAV1ProfileInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeAv1`](Extensions::KHR_VideoDecodeAv1)
+/// - Extension [`KHR_VideoDecodeAv1`](Extension::KHR_VideoDecodeAv1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -30394,7 +30394,7 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoDecodeAV1CapabilitiesKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeAv1`](Extensions::KHR_VideoDecodeAv1)
+/// - Extension [`KHR_VideoDecodeAv1`](Extension::KHR_VideoDecodeAv1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -30445,7 +30445,7 @@ unsafe impl Extends<VideoSessionParametersCreateInfoKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeAv1`](Extensions::KHR_VideoDecodeAv1)
+/// - Extension [`KHR_VideoDecodeAv1`](Extension::KHR_VideoDecodeAv1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -30503,7 +30503,7 @@ unsafe impl Extends<VideoDecodeInfoKHR> for VideoDecodeAV1PictureInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeAv1`](Extensions::KHR_VideoDecodeAv1)
+/// - Extension [`KHR_VideoDecodeAv1`](Extension::KHR_VideoDecodeAv1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -30551,7 +30551,7 @@ unsafe impl Extends<VideoReferenceSlotInfoKHR> for VideoDecodeAV1DpbSlotInfoKHR 
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+/// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -30601,7 +30601,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVideoEncodeAV1FeaturesKH
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+/// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -30697,7 +30697,7 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoEncodeAV1CapabilitiesKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+/// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -30724,7 +30724,7 @@ impl Default for VideoEncodeAV1QIndexKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+/// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -30805,7 +30805,7 @@ unsafe impl Extends<VideoEncodeQualityLevelPropertiesKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+/// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -30855,7 +30855,7 @@ unsafe impl Extends<VideoSessionCreateInfoKHR> for VideoEncodeAV1SessionCreateIn
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+/// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -30915,7 +30915,7 @@ unsafe impl Extends<VideoSessionParametersCreateInfoKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+/// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -30975,7 +30975,7 @@ unsafe impl Extends<VideoEncodeInfoKHR> for VideoEncodeAV1PictureInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+/// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -31023,7 +31023,7 @@ unsafe impl Extends<VideoReferenceSlotInfoKHR> for VideoEncodeAV1DpbSlotInfoKHR 
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+/// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -31073,7 +31073,7 @@ unsafe impl Extends<QueryPoolCreateInfo> for VideoEncodeAV1ProfileInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+/// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -31100,7 +31100,7 @@ impl Default for VideoEncodeAV1FrameSizeKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+/// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -31154,7 +31154,7 @@ unsafe impl Extends<VideoBeginCodingInfoKHR> for VideoEncodeAV1GopRemainingFrame
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+/// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -31213,7 +31213,7 @@ unsafe impl Extends<VideoBeginCodingInfoKHR> for VideoEncodeAV1RateControlInfoKH
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+/// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -31271,7 +31271,7 @@ unsafe impl Extends<VideoEncodeRateControlLayerInfoKHR> for VideoEncodeAV1RateCo
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeVp9`](Extensions::KHR_VideoDecodeVp9)
+/// - Extension [`KHR_VideoDecodeVp9`](Extension::KHR_VideoDecodeVp9)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -31321,7 +31321,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVideoDecodeVP9FeaturesKH
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeVp9`](Extensions::KHR_VideoDecodeVp9)
+/// - Extension [`KHR_VideoDecodeVp9`](Extension::KHR_VideoDecodeVp9)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -31371,7 +31371,7 @@ unsafe impl Extends<QueryPoolCreateInfo> for VideoDecodeVP9ProfileInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeVp9`](Extensions::KHR_VideoDecodeVp9)
+/// - Extension [`KHR_VideoDecodeVp9`](Extension::KHR_VideoDecodeVp9)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -31421,7 +31421,7 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoDecodeVP9CapabilitiesKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeVp9`](Extensions::KHR_VideoDecodeVp9)
+/// - Extension [`KHR_VideoDecodeVp9`](Extension::KHR_VideoDecodeVp9)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -31477,7 +31477,7 @@ unsafe impl Extends<VideoDecodeInfoKHR> for VideoDecodeVP9PictureInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoMaintenance1`](Extensions::KHR_VideoMaintenance1)
+/// - Extension [`KHR_VideoMaintenance1`](Extension::KHR_VideoMaintenance1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -31527,7 +31527,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVideoMaintenance1Feature
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoMaintenance1`](Extensions::KHR_VideoMaintenance1)
+/// - Extension [`KHR_VideoMaintenance1`](Extension::KHR_VideoMaintenance1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -31582,7 +31582,7 @@ unsafe impl Extends<VideoEncodeInfoKHR> for VideoInlineQueryInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_UnifiedImageLayouts`](Extensions::KHR_UnifiedImageLayouts)
+/// - Extension [`KHR_UnifiedImageLayouts`](Extension::KHR_UnifiedImageLayouts)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -31634,7 +31634,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceUnifiedImageLayoutsFeatu
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_UnifiedImageLayouts`](Extensions::KHR_UnifiedImageLayouts)
+/// - Extension [`KHR_UnifiedImageLayouts`](Extension::KHR_UnifiedImageLayouts)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -31682,8 +31682,8 @@ unsafe impl Extends<RenderingAttachmentInfo> for AttachmentFeedbackLoopInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_CalibratedTimestamps`](Extensions::KHR_CalibratedTimestamps)
-/// - Extension [`EXT_CalibratedTimestamps`](Extensions::EXT_CalibratedTimestamps)
+/// - Extension [`KHR_CalibratedTimestamps`](Extension::KHR_CalibratedTimestamps)
+/// - Extension [`EXT_CalibratedTimestamps`](Extension::EXT_CalibratedTimestamps)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -31735,7 +31735,7 @@ pub type CalibratedTimestampInfoEXT = CalibratedTimestampInfoKHR;
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
+/// - Extension [`KHR_Maintenance6`](Extension::KHR_Maintenance6)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -31795,7 +31795,7 @@ unsafe impl Extendable for SetDescriptorBufferOffsetsInfoEXT {
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.4 with appropriate features
-/// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
+/// - Extension [`KHR_Maintenance6`](Extension::KHR_Maintenance6)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -31848,8 +31848,8 @@ unsafe impl Extendable for BindDescriptorBufferEmbeddedSamplersInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
-/// - Extension [`NV_CopyMemoryIndirect`](Extensions::NV_CopyMemoryIndirect)
+/// - Extension [`KHR_CopyMemoryIndirect`](Extension::KHR_CopyMemoryIndirect)
+/// - Extension [`NV_CopyMemoryIndirect`](Extension::NV_CopyMemoryIndirect)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -31880,7 +31880,7 @@ pub type CopyMemoryIndirectCommandNV = CopyMemoryIndirectCommandKHR;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
+/// - Extension [`KHR_CopyMemoryIndirect`](Extension::KHR_CopyMemoryIndirect)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -31933,8 +31933,8 @@ unsafe impl Extendable for CopyMemoryIndirectInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
-/// - Extension [`NV_CopyMemoryIndirect`](Extensions::NV_CopyMemoryIndirect)
+/// - Extension [`KHR_CopyMemoryIndirect`](Extension::KHR_CopyMemoryIndirect)
+/// - Extension [`NV_CopyMemoryIndirect`](Extension::NV_CopyMemoryIndirect)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -31971,7 +31971,7 @@ pub type CopyMemoryToImageIndirectCommandNV = CopyMemoryToImageIndirectCommandKH
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
+/// - Extension [`KHR_CopyMemoryIndirect`](Extension::KHR_CopyMemoryIndirect)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -32027,7 +32027,7 @@ unsafe impl Extendable for CopyMemoryToImageIndirectInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
+/// - Extension [`KHR_CopyMemoryIndirect`](Extension::KHR_CopyMemoryIndirect)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -32079,8 +32079,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCopyMemoryIndirectFeatur
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
-/// - Extension [`NV_CopyMemoryIndirect`](Extensions::NV_CopyMemoryIndirect)
+/// - Extension [`KHR_CopyMemoryIndirect`](Extension::KHR_CopyMemoryIndirect)
+/// - Extension [`NV_CopyMemoryIndirect`](Extension::NV_CopyMemoryIndirect)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -32135,7 +32135,7 @@ pub type PhysicalDeviceCopyMemoryIndirectPropertiesNV =
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeIntraRefresh`](Extensions::KHR_VideoEncodeIntraRefresh)
+/// - Extension [`KHR_VideoEncodeIntraRefresh`](Extension::KHR_VideoEncodeIntraRefresh)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -32194,7 +32194,7 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoEncodeIntraRefreshCapabilitie
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeIntraRefresh`](Extensions::KHR_VideoEncodeIntraRefresh)
+/// - Extension [`KHR_VideoEncodeIntraRefresh`](Extension::KHR_VideoEncodeIntraRefresh)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -32243,7 +32243,7 @@ unsafe impl Extends<VideoSessionCreateInfoKHR> for VideoEncodeSessionIntraRefres
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeIntraRefresh`](Extensions::KHR_VideoEncodeIntraRefresh)
+/// - Extension [`KHR_VideoEncodeIntraRefresh`](Extension::KHR_VideoEncodeIntraRefresh)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -32293,7 +32293,7 @@ unsafe impl Extends<VideoEncodeInfoKHR> for VideoEncodeIntraRefreshInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeIntraRefresh`](Extensions::KHR_VideoEncodeIntraRefresh)
+/// - Extension [`KHR_VideoEncodeIntraRefresh`](Extension::KHR_VideoEncodeIntraRefresh)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -32341,7 +32341,7 @@ unsafe impl Extends<VideoReferenceSlotInfoKHR> for VideoReferenceIntraRefreshInf
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeIntraRefresh`](Extensions::KHR_VideoEncodeIntraRefresh)
+/// - Extension [`KHR_VideoEncodeIntraRefresh`](Extension::KHR_VideoEncodeIntraRefresh)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -32391,7 +32391,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVideoEncodeIntraRefreshF
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQuantizationMap`](Extensions::KHR_VideoEncodeQuantizationMap)
+/// - Extension [`KHR_VideoEncodeQuantizationMap`](Extension::KHR_VideoEncodeQuantizationMap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -32441,7 +32441,7 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoEncodeQuantizationMapCapabili
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQuantizationMap`](Extensions::KHR_VideoEncodeQuantizationMap)
+/// - Extension [`KHR_VideoEncodeQuantizationMap`](Extension::KHR_VideoEncodeQuantizationMap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -32491,7 +32491,7 @@ unsafe impl Extends<VideoFormatPropertiesKHR> for VideoFormatQuantizationMapProp
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQuantizationMap`](Extensions::KHR_VideoEncodeQuantizationMap)
+/// - Extension [`KHR_VideoEncodeQuantizationMap`](Extension::KHR_VideoEncodeQuantizationMap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -32542,7 +32542,7 @@ unsafe impl Extends<VideoEncodeInfoKHR> for VideoEncodeQuantizationMapInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQuantizationMap`](Extensions::KHR_VideoEncodeQuantizationMap)
+/// - Extension [`KHR_VideoEncodeQuantizationMap`](Extension::KHR_VideoEncodeQuantizationMap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -32593,7 +32593,7 @@ unsafe impl Extends<VideoSessionParametersCreateInfoKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQuantizationMap`](Extensions::KHR_VideoEncodeQuantizationMap)
+/// - Extension [`KHR_VideoEncodeQuantizationMap`](Extension::KHR_VideoEncodeQuantizationMap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -32646,7 +32646,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVideoEncodeQuantizationM
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQuantizationMap`](Extensions::KHR_VideoEncodeQuantizationMap)
+/// - Extension [`KHR_VideoEncodeQuantizationMap`](Extension::KHR_VideoEncodeQuantizationMap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -32698,7 +32698,7 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoEncodeH264QuantizationMapCapa
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQuantizationMap`](Extensions::KHR_VideoEncodeQuantizationMap)
+/// - Extension [`KHR_VideoEncodeQuantizationMap`](Extension::KHR_VideoEncodeQuantizationMap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -32750,7 +32750,7 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoEncodeH265QuantizationMapCapa
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQuantizationMap`](Extensions::KHR_VideoEncodeQuantizationMap)
+/// - Extension [`KHR_VideoEncodeQuantizationMap`](Extension::KHR_VideoEncodeQuantizationMap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -32800,7 +32800,7 @@ unsafe impl Extends<VideoFormatPropertiesKHR> for VideoFormatH265QuantizationMap
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQuantizationMap`](Extensions::KHR_VideoEncodeQuantizationMap)
+/// - Extension [`KHR_VideoEncodeQuantizationMap`](Extension::KHR_VideoEncodeQuantizationMap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -32852,7 +32852,7 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoEncodeAV1QuantizationMapCapab
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQuantizationMap`](Extensions::KHR_VideoEncodeQuantizationMap)
+/// - Extension [`KHR_VideoEncodeQuantizationMap`](Extension::KHR_VideoEncodeQuantizationMap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -32902,7 +32902,7 @@ unsafe impl Extends<VideoFormatPropertiesKHR> for VideoFormatAV1QuantizationMapP
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ShaderRelaxedExtendedInstruction`](Extensions::KHR_ShaderRelaxedExtendedInstruction)
+/// - Extension [`KHR_ShaderRelaxedExtendedInstruction`](Extension::KHR_ShaderRelaxedExtendedInstruction)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -32958,7 +32958,7 @@ unsafe impl Extends<DeviceCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Maintenance7`](Extensions::KHR_Maintenance7)
+/// - Extension [`KHR_Maintenance7`](Extension::KHR_Maintenance7)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -33008,7 +33008,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMaintenance7FeaturesKHR 
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Maintenance7`](Extensions::KHR_Maintenance7)
+/// - Extension [`KHR_Maintenance7`](Extension::KHR_Maintenance7)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -33072,7 +33072,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMaintenance7Pro
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Maintenance7`](Extensions::KHR_Maintenance7)
+/// - Extension [`KHR_Maintenance7`](Extension::KHR_Maintenance7)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -33127,7 +33127,7 @@ unsafe impl Extendable for PhysicalDeviceLayeredApiPropertiesKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Maintenance7`](Extensions::KHR_Maintenance7)
+/// - Extension [`KHR_Maintenance7`](Extension::KHR_Maintenance7)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -33179,7 +33179,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceLayeredApiPrope
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Maintenance7`](Extensions::KHR_Maintenance7)
+/// - Extension [`KHR_Maintenance7`](Extension::KHR_Maintenance7)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -33232,7 +33232,7 @@ unsafe impl Extends<PhysicalDeviceLayeredApiPropertiesKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
+/// - Extension [`KHR_DeviceFault`](Extension::KHR_DeviceFault)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -33288,7 +33288,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceFaultFeaturesKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
+/// - Extension [`KHR_DeviceFault`](Extension::KHR_DeviceFault)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -33338,8 +33338,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceFaultProperties
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
-/// - Extension [`EXT_DeviceFault`](Extensions::EXT_DeviceFault)
+/// - Extension [`KHR_DeviceFault`](Extension::KHR_DeviceFault)
+/// - Extension [`EXT_DeviceFault`](Extension::EXT_DeviceFault)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -33372,8 +33372,8 @@ pub type DeviceFaultAddressInfoEXT = DeviceFaultAddressInfoKHR;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
-/// - Extension [`EXT_DeviceFault`](Extensions::EXT_DeviceFault)
+/// - Extension [`KHR_DeviceFault`](Extension::KHR_DeviceFault)
+/// - Extension [`EXT_DeviceFault`](Extension::EXT_DeviceFault)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -33407,7 +33407,7 @@ pub type DeviceFaultVendorInfoEXT = DeviceFaultVendorInfoKHR;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
+/// - Extension [`KHR_DeviceFault`](Extension::KHR_DeviceFault)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -33468,7 +33468,7 @@ unsafe impl Extendable for DeviceFaultInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
+/// - Extension [`KHR_DeviceFault`](Extension::KHR_DeviceFault)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -33520,8 +33520,8 @@ unsafe impl Extendable for DeviceFaultDebugInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
-/// - Extension [`EXT_DeviceFault`](Extensions::EXT_DeviceFault)
+/// - Extension [`KHR_DeviceFault`](Extension::KHR_DeviceFault)
+/// - Extension [`EXT_DeviceFault`](Extension::EXT_DeviceFault)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -33568,7 +33568,7 @@ pub type DeviceFaultVendorBinaryHeaderVersionOneEXT = DeviceFaultVendorBinaryHea
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Maintenance8`](Extensions::KHR_Maintenance8)
+/// - Extension [`KHR_Maintenance8`](Extension::KHR_Maintenance8)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -33626,7 +33626,7 @@ unsafe impl Extends<MemoryRangeBarriersInfoKHR> for MemoryBarrierAccessFlags3KHR
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Maintenance8`](Extensions::KHR_Maintenance8)
+/// - Extension [`KHR_Maintenance8`](Extension::KHR_Maintenance8)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -33676,7 +33676,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMaintenance8FeaturesKHR 
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ShaderFma`](Extensions::KHR_ShaderFma)
+/// - Extension [`KHR_ShaderFma`](Extension::KHR_ShaderFma)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -33730,7 +33730,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderFmaFeaturesKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Maintenance9`](Extensions::KHR_Maintenance9)
+/// - Extension [`KHR_Maintenance9`](Extension::KHR_Maintenance9)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -33780,7 +33780,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMaintenance9FeaturesKHR 
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Maintenance9`](Extensions::KHR_Maintenance9)
+/// - Extension [`KHR_Maintenance9`](Extension::KHR_Maintenance9)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -33832,7 +33832,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMaintenance9Pro
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Maintenance9`](Extensions::KHR_Maintenance9)
+/// - Extension [`KHR_Maintenance9`](Extension::KHR_Maintenance9)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -33882,7 +33882,7 @@ unsafe impl Extends<QueueFamilyProperties2> for QueueFamilyOwnershipTransferProp
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoMaintenance2`](Extensions::KHR_VideoMaintenance2)
+/// - Extension [`KHR_VideoMaintenance2`](Extension::KHR_VideoMaintenance2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -33932,7 +33932,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVideoMaintenance2Feature
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoMaintenance2`](Extensions::KHR_VideoMaintenance2)
+/// - Extension [`KHR_VideoMaintenance2`](Extension::KHR_VideoMaintenance2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -33984,7 +33984,7 @@ unsafe impl Extends<VideoDecodeInfoKHR> for VideoDecodeH264InlineSessionParamete
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoMaintenance2`](Extensions::KHR_VideoMaintenance2)
+/// - Extension [`KHR_VideoMaintenance2`](Extension::KHR_VideoMaintenance2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -34039,7 +34039,7 @@ unsafe impl Extends<VideoDecodeInfoKHR> for VideoDecodeH265InlineSessionParamete
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoMaintenance2`](Extensions::KHR_VideoMaintenance2)
+/// - Extension [`KHR_VideoMaintenance2`](Extension::KHR_VideoMaintenance2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -34088,7 +34088,7 @@ unsafe impl Extends<VideoDecodeInfoKHR> for VideoDecodeAV1InlineSessionParameter
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeFeedback2`](Extensions::KHR_VideoEncodeFeedback2)
+/// - Extension [`KHR_VideoEncodeFeedback2`](Extension::KHR_VideoEncodeFeedback2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -34138,7 +34138,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVideoEncodeFeedback2Feat
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeFeedback2`](Extensions::KHR_VideoEncodeFeedback2)
+/// - Extension [`KHR_VideoEncodeFeedback2`](Extension::KHR_VideoEncodeFeedback2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -34190,7 +34190,7 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoEncodeFeedback2CapabilitiesKH
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeFeedback2`](Extensions::KHR_VideoEncodeFeedback2)
+/// - Extension [`KHR_VideoEncodeFeedback2`](Extension::KHR_VideoEncodeFeedback2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -34242,8 +34242,8 @@ unsafe impl Extends<QueryPoolCreateInfo> for QueryPoolVideoEncodePerPartitionFee
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DepthClampZeroOne`](Extensions::KHR_DepthClampZeroOne)
-/// - Extension [`EXT_DepthClampZeroOne`](Extensions::EXT_DepthClampZeroOne)
+/// - Extension [`KHR_DepthClampZeroOne`](Extension::KHR_DepthClampZeroOne)
+/// - Extension [`EXT_DepthClampZeroOne`](Extension::EXT_DepthClampZeroOne)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -34297,8 +34297,8 @@ pub type PhysicalDeviceDepthClampZeroOneFeaturesEXT = PhysicalDeviceDepthClampZe
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Robustness2`](Extensions::KHR_Robustness2)
-/// - Extension [`EXT_Robustness2`](Extensions::EXT_Robustness2)
+/// - Extension [`KHR_Robustness2`](Extension::KHR_Robustness2)
+/// - Extension [`EXT_Robustness2`](Extension::EXT_Robustness2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -34356,8 +34356,8 @@ pub type PhysicalDeviceRobustness2FeaturesEXT = PhysicalDeviceRobustness2Feature
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Robustness2`](Extensions::KHR_Robustness2)
-/// - Extension [`EXT_Robustness2`](Extensions::EXT_Robustness2)
+/// - Extension [`KHR_Robustness2`](Extension::KHR_Robustness2)
+/// - Extension [`EXT_Robustness2`](Extension::EXT_Robustness2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -34413,8 +34413,8 @@ pub type PhysicalDeviceRobustness2PropertiesEXT = PhysicalDeviceRobustness2Prope
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PresentModeFifoLatestReady`](Extensions::KHR_PresentModeFifoLatestReady)
-/// - Extension [`EXT_PresentModeFifoLatestReady`](Extensions::EXT_PresentModeFifoLatestReady)
+/// - Extension [`KHR_PresentModeFifoLatestReady`](Extension::KHR_PresentModeFifoLatestReady)
+/// - Extension [`EXT_PresentModeFifoLatestReady`](Extension::EXT_PresentModeFifoLatestReady)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -34472,7 +34472,7 @@ pub type PhysicalDevicePresentModeFifoLatestReadyFeaturesEXT =
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+/// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -34499,7 +34499,7 @@ impl Default for MicromapUsageKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+/// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -34563,7 +34563,7 @@ unsafe impl Extends<AccelerationStructureGeometryKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+/// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -34613,7 +34613,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceOpacityMicromapFeaturesK
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+/// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -34669,8 +34669,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceOpacityMicromap
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
-/// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+/// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
+/// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -34701,7 +34701,7 @@ pub type MicromapTriangleEXT = MicromapTriangleKHR;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+/// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -34766,7 +34766,7 @@ unsafe impl Extends<AccelerationStructureDenseGeometryFormatTrianglesDataAMDX>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
+/// - Extension [`KHR_Maintenance10`](Extension::KHR_Maintenance10)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -34816,7 +34816,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMaintenance10FeaturesKHR
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
+/// - Extension [`KHR_Maintenance10`](Extension::KHR_Maintenance10)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -34870,8 +34870,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMaintenance10Pr
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
-/// - Extension [`EXT_FragmentDensityMapOffset`](Extensions::EXT_FragmentDensityMapOffset)
+/// - Extension [`KHR_Maintenance10`](Extension::KHR_Maintenance10)
+/// - Extension [`EXT_FragmentDensityMapOffset`](Extension::EXT_FragmentDensityMapOffset)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -34920,7 +34920,7 @@ pub type RenderingEndInfoEXT = RenderingEndInfoKHR;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
+/// - Extension [`KHR_Maintenance10`](Extension::KHR_Maintenance10)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -34969,7 +34969,7 @@ unsafe impl Extends<RenderingAttachmentInfo> for RenderingAttachmentFlagsInfoKHR
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
+/// - Extension [`KHR_Maintenance10`](Extension::KHR_Maintenance10)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -35024,8 +35024,8 @@ unsafe impl Extends<ResolveImageInfo2> for ResolveImageModeInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PipelineLibraryGroupHandles`](Extensions::KHR_PipelineLibraryGroupHandles)
-/// - Extension [`EXT_PipelineLibraryGroupHandles`](Extensions::EXT_PipelineLibraryGroupHandles)
+/// - Extension [`KHR_PipelineLibraryGroupHandles`](Extension::KHR_PipelineLibraryGroupHandles)
+/// - Extension [`EXT_PipelineLibraryGroupHandles`](Extension::EXT_PipelineLibraryGroupHandles)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -35083,7 +35083,7 @@ pub type PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT =
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Maintenance11`](Extensions::KHR_Maintenance11)
+/// - Extension [`KHR_Maintenance11`](Extension::KHR_Maintenance11)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -35133,7 +35133,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMaintenance11FeaturesKHR
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Maintenance11`](Extensions::KHR_Maintenance11)
+/// - Extension [`KHR_Maintenance11`](Extension::KHR_Maintenance11)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -35186,7 +35186,7 @@ unsafe impl Extends<QueueFamilyProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+/// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -35243,7 +35243,7 @@ unsafe impl Extends<FormatProperties2> for FormatProperties4KHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+/// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -35305,7 +35305,7 @@ unsafe impl Extends<VideoFormatPropertiesKHR> for ImageUsageFlags2CreateInfoKHR 
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+/// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -35359,7 +35359,7 @@ unsafe impl Extends<VideoFormatPropertiesKHR> for ImageCreateFlags2CreateInfoKHR
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+/// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -35407,7 +35407,7 @@ unsafe impl Extends<ImageViewCreateInfo> for ImageViewUsage2CreateInfoKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+/// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -35457,7 +35457,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceExtendedFlagsFeaturesKHR
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+/// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -35507,7 +35507,7 @@ unsafe impl Extends<PhysicalDeviceImageFormatInfo2> for ImageStencilUsage2Create
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+/// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -35558,8 +35558,8 @@ unsafe impl Extends<SurfaceCapabilities2KHR> for SharedPresentSurfaceCapabilitie
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DebugReport`](Extensions::EXT_DebugReport)
-/// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+/// - Extension [`EXT_DebugReport`](Extension::EXT_DebugReport)
+/// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -35613,7 +35613,7 @@ unsafe impl Extends<InstanceCreateInfo> for DebugReportCallbackCreateInfoEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_RasterizationOrder`](Extensions::AMD_RasterizationOrder)
+/// - Extension [`AMD_RasterizationOrder`](Extension::AMD_RasterizationOrder)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -35664,8 +35664,8 @@ unsafe impl Extends<PipelineRasterizationStateCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DebugMarker`](Extensions::EXT_DebugMarker)
-/// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+/// - Extension [`EXT_DebugMarker`](Extension::EXT_DebugMarker)
+/// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -35715,8 +35715,8 @@ unsafe impl Extendable for DebugMarkerObjectNameInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DebugMarker`](Extensions::EXT_DebugMarker)
-/// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+/// - Extension [`EXT_DebugMarker`](Extension::EXT_DebugMarker)
+/// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -35769,8 +35769,8 @@ unsafe impl Extendable for DebugMarkerObjectTagInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DebugMarker`](Extensions::EXT_DebugMarker)
-/// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+/// - Extension [`EXT_DebugMarker`](Extension::EXT_DebugMarker)
+/// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -35818,8 +35818,8 @@ unsafe impl Extendable for DebugMarkerMarkerInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DedicatedAllocation`](Extensions::NV_DedicatedAllocation)
-/// - Extension [`KHR_DedicatedAllocation`](Extensions::KHR_DedicatedAllocation)
+/// - Extension [`NV_DedicatedAllocation`](Extension::NV_DedicatedAllocation)
+/// - Extension [`KHR_DedicatedAllocation`](Extension::KHR_DedicatedAllocation)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -35867,8 +35867,8 @@ unsafe impl Extends<ImageCreateInfo> for DedicatedAllocationImageCreateInfoNV {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DedicatedAllocation`](Extensions::NV_DedicatedAllocation)
-/// - Extension [`KHR_DedicatedAllocation`](Extensions::KHR_DedicatedAllocation)
+/// - Extension [`NV_DedicatedAllocation`](Extension::NV_DedicatedAllocation)
+/// - Extension [`KHR_DedicatedAllocation`](Extension::KHR_DedicatedAllocation)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -35916,8 +35916,8 @@ unsafe impl Extends<BufferCreateInfo> for DedicatedAllocationBufferCreateInfoNV 
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DedicatedAllocation`](Extensions::NV_DedicatedAllocation)
-/// - Extension [`KHR_DedicatedAllocation`](Extensions::KHR_DedicatedAllocation)
+/// - Extension [`NV_DedicatedAllocation`](Extension::NV_DedicatedAllocation)
+/// - Extension [`KHR_DedicatedAllocation`](Extension::KHR_DedicatedAllocation)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -35969,7 +35969,7 @@ unsafe impl Extends<MemoryAllocateInfo> for DedicatedAllocationMemoryAllocateInf
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
+/// - Extension [`EXT_TransformFeedback`](Extension::EXT_TransformFeedback)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -36021,7 +36021,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceTransformFeedbackFeature
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
+/// - Extension [`EXT_TransformFeedback`](Extension::EXT_TransformFeedback)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -36089,7 +36089,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceTransformFeedba
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
+/// - Extension [`EXT_TransformFeedback`](Extension::EXT_TransformFeedback)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -36143,7 +36143,7 @@ unsafe impl Extends<PipelineRasterizationStateCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NVX_BinaryImport`](Extensions::NVX_BinaryImport)
+/// - Extension [`NVX_BinaryImport`](Extension::NVX_BinaryImport)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -36193,7 +36193,7 @@ unsafe impl Extendable for CuModuleCreateInfoNVX {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NVX_BinaryImport`](Extensions::NVX_BinaryImport)
+/// - Extension [`NVX_BinaryImport`](Extension::NVX_BinaryImport)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -36241,7 +36241,7 @@ unsafe impl Extends<CuModuleCreateInfoNVX> for CuModuleTexturingModeCreateInfoNV
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NVX_BinaryImport`](Extensions::NVX_BinaryImport)
+/// - Extension [`NVX_BinaryImport`](Extension::NVX_BinaryImport)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -36289,7 +36289,7 @@ unsafe impl Extendable for CuFunctionCreateInfoNVX {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NVX_BinaryImport`](Extensions::NVX_BinaryImport)
+/// - Extension [`NVX_BinaryImport`](Extension::NVX_BinaryImport)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -36358,7 +36358,7 @@ unsafe impl Extendable for CuLaunchInfoNVX {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NVX_ImageViewHandle`](Extensions::NVX_ImageViewHandle)
+/// - Extension [`NVX_ImageViewHandle`](Extension::NVX_ImageViewHandle)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -36408,7 +36408,7 @@ unsafe impl Extendable for ImageViewHandleInfoNVX {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NVX_ImageViewHandle`](Extensions::NVX_ImageViewHandle)
+/// - Extension [`NVX_ImageViewHandle`](Extension::NVX_ImageViewHandle)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -36457,7 +36457,7 @@ unsafe impl Extendable for ImageViewAddressPropertiesNVX {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_TextureGatherBiasLod`](Extensions::AMD_TextureGatherBiasLod)
+/// - Extension [`AMD_TextureGatherBiasLod`](Extension::AMD_TextureGatherBiasLod)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -36507,7 +36507,7 @@ unsafe impl Extends<ImageFormatProperties2> for TextureLODGatherFormatProperties
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_ShaderInfo`](Extensions::AMD_ShaderInfo)
+/// - Extension [`AMD_ShaderInfo`](Extension::AMD_ShaderInfo)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -36540,7 +36540,7 @@ impl Default for ShaderResourceUsageAMD {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_ShaderInfo`](Extensions::AMD_ShaderInfo)
+/// - Extension [`AMD_ShaderInfo`](Extension::AMD_ShaderInfo)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -36577,7 +36577,7 @@ impl Default for ShaderStatisticsInfoAMD {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`GGP_StreamDescriptorSurface`](Extensions::GGP_StreamDescriptorSurface)
+/// - Extension [`GGP_StreamDescriptorSurface`](Extension::GGP_StreamDescriptorSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -36625,7 +36625,7 @@ unsafe impl Extendable for StreamDescriptorSurfaceCreateInfoGGP {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_CornerSampledImage`](Extensions::NV_CornerSampledImage)
+/// - Extension [`NV_CornerSampledImage`](Extension::NV_CornerSampledImage)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -36675,8 +36675,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCornerSampledImageFeatur
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ExternalMemoryCapabilities`](Extensions::NV_ExternalMemoryCapabilities)
-/// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+/// - Extension [`NV_ExternalMemoryCapabilities`](Extension::NV_ExternalMemoryCapabilities)
+/// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -36710,8 +36710,8 @@ impl Default for ExternalImageFormatPropertiesNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ExternalMemory`](Extensions::NV_ExternalMemory)
-/// - Extension [`KHR_ExternalMemory`](Extensions::KHR_ExternalMemory)
+/// - Extension [`NV_ExternalMemory`](Extension::NV_ExternalMemory)
+/// - Extension [`KHR_ExternalMemory`](Extension::KHR_ExternalMemory)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -36760,8 +36760,8 @@ unsafe impl Extends<ImageCreateInfo> for ExternalMemoryImageCreateInfoNV {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ExternalMemory`](Extensions::NV_ExternalMemory)
-/// - Extension [`KHR_ExternalMemory`](Extensions::KHR_ExternalMemory)
+/// - Extension [`NV_ExternalMemory`](Extension::NV_ExternalMemory)
+/// - Extension [`KHR_ExternalMemory`](Extension::KHR_ExternalMemory)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -36810,8 +36810,8 @@ unsafe impl Extends<MemoryAllocateInfo> for ExportMemoryAllocateInfoNV {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ExternalMemoryWin32`](Extensions::NV_ExternalMemoryWin32)
-/// - Extension [`KHR_ExternalMemoryWin32`](Extensions::KHR_ExternalMemoryWin32)
+/// - Extension [`NV_ExternalMemoryWin32`](Extension::NV_ExternalMemoryWin32)
+/// - Extension [`KHR_ExternalMemoryWin32`](Extension::KHR_ExternalMemoryWin32)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -36863,8 +36863,8 @@ unsafe impl Extends<MemoryAllocateInfo> for ImportMemoryWin32HandleInfoNV {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ExternalMemoryWin32`](Extensions::NV_ExternalMemoryWin32)
-/// - Extension [`KHR_ExternalMemoryWin32`](Extensions::KHR_ExternalMemoryWin32)
+/// - Extension [`NV_ExternalMemoryWin32`](Extension::NV_ExternalMemoryWin32)
+/// - Extension [`KHR_ExternalMemoryWin32`](Extension::KHR_ExternalMemoryWin32)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -36916,8 +36916,8 @@ unsafe impl Extends<MemoryAllocateInfo> for ExportMemoryWin32HandleInfoNV {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_Win32KeyedMutex`](Extensions::NV_Win32KeyedMutex)
-/// - Extension [`KHR_Win32KeyedMutex`](Extensions::KHR_Win32KeyedMutex)
+/// - Extension [`NV_Win32KeyedMutex`](Extension::NV_Win32KeyedMutex)
+/// - Extension [`KHR_Win32KeyedMutex`](Extension::KHR_Win32KeyedMutex)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -36981,8 +36981,8 @@ unsafe impl Extends<SubmitInfo2> for Win32KeyedMutexAcquireReleaseInfoNV {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ValidationFlags`](Extensions::EXT_ValidationFlags)
-/// - Extension [`EXT_LayerSettings`](Extensions::EXT_LayerSettings)
+/// - Extension [`EXT_ValidationFlags`](Extension::EXT_ValidationFlags)
+/// - Extension [`EXT_LayerSettings`](Extension::EXT_LayerSettings)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -37032,7 +37032,7 @@ unsafe impl Extends<InstanceCreateInfo> for ValidationFlagsEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NN_ViSurface`](Extensions::NN_ViSurface)
+/// - Extension [`NN_ViSurface`](Extension::NN_ViSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -37080,7 +37080,7 @@ unsafe impl Extendable for ViSurfaceCreateInfoNN {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_AstcDecodeMode`](Extensions::EXT_AstcDecodeMode)
+/// - Extension [`EXT_AstcDecodeMode`](Extension::EXT_AstcDecodeMode)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -37128,7 +37128,7 @@ unsafe impl Extends<ImageViewCreateInfo> for ImageViewASTCDecodeModeEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_AstcDecodeMode`](Extensions::EXT_AstcDecodeMode)
+/// - Extension [`EXT_AstcDecodeMode`](Extension::EXT_AstcDecodeMode)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -37178,7 +37178,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceASTCDecodeFeaturesEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ConditionalRendering`](Extensions::EXT_ConditionalRendering)
+/// - Extension [`EXT_ConditionalRendering`](Extension::EXT_ConditionalRendering)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -37228,7 +37228,7 @@ unsafe impl Extendable for ConditionalRenderingBeginInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ConditionalRendering`](Extensions::EXT_ConditionalRendering)
+/// - Extension [`EXT_ConditionalRendering`](Extension::EXT_ConditionalRendering)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -37280,7 +37280,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceConditionalRenderingFeat
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ConditionalRendering`](Extensions::EXT_ConditionalRendering)
+/// - Extension [`EXT_ConditionalRendering`](Extension::EXT_ConditionalRendering)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -37331,7 +37331,7 @@ unsafe impl Extends<CommandBufferInheritanceInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ClipSpaceWScaling`](Extensions::NV_ClipSpaceWScaling)
+/// - Extension [`NV_ClipSpaceWScaling`](Extension::NV_ClipSpaceWScaling)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -37356,7 +37356,7 @@ impl Default for ViewportWScalingNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ClipSpaceWScaling`](Extensions::NV_ClipSpaceWScaling)
+/// - Extension [`NV_ClipSpaceWScaling`](Extension::NV_ClipSpaceWScaling)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -37409,7 +37409,7 @@ unsafe impl Extends<PipelineViewportStateCreateInfo> for PipelineViewportWScalin
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DisplaySurfaceCounter`](Extensions::EXT_DisplaySurfaceCounter)
+/// - Extension [`EXT_DisplaySurfaceCounter`](Extension::EXT_DisplaySurfaceCounter)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -37477,7 +37477,7 @@ unsafe impl Extendable for SurfaceCapabilities2EXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DisplayControl`](Extensions::EXT_DisplayControl)
+/// - Extension [`EXT_DisplayControl`](Extension::EXT_DisplayControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -37522,7 +37522,7 @@ unsafe impl Extendable for DisplayPowerInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DisplayControl`](Extensions::EXT_DisplayControl)
+/// - Extension [`EXT_DisplayControl`](Extension::EXT_DisplayControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -37567,7 +37567,7 @@ unsafe impl Extendable for DeviceEventInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DisplayControl`](Extensions::EXT_DisplayControl)
+/// - Extension [`EXT_DisplayControl`](Extension::EXT_DisplayControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -37612,7 +37612,7 @@ unsafe impl Extendable for DisplayEventInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DisplayControl`](Extensions::EXT_DisplayControl)
+/// - Extension [`EXT_DisplayControl`](Extension::EXT_DisplayControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -37661,7 +37661,7 @@ unsafe impl Extends<SwapchainCreateInfoKHR> for SwapchainCounterCreateInfoEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`GOOGLE_DisplayTiming`](Extensions::GOOGLE_DisplayTiming)
+/// - Extension [`GOOGLE_DisplayTiming`](Extension::GOOGLE_DisplayTiming)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -37686,7 +37686,7 @@ impl Default for RefreshCycleDurationGOOGLE {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`GOOGLE_DisplayTiming`](Extensions::GOOGLE_DisplayTiming)
+/// - Extension [`GOOGLE_DisplayTiming`](Extension::GOOGLE_DisplayTiming)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -37719,7 +37719,7 @@ impl Default for PastPresentationTimingGOOGLE {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`GOOGLE_DisplayTiming`](Extensions::GOOGLE_DisplayTiming)
+/// - Extension [`GOOGLE_DisplayTiming`](Extension::GOOGLE_DisplayTiming)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -37744,7 +37744,7 @@ impl Default for PresentTimeGOOGLE {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`GOOGLE_DisplayTiming`](Extensions::GOOGLE_DisplayTiming)
+/// - Extension [`GOOGLE_DisplayTiming`](Extension::GOOGLE_DisplayTiming)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -37795,7 +37795,7 @@ unsafe impl Extends<PresentInfoKHR> for PresentTimesInfoGOOGLE {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NVX_MultiviewPerViewAttributes`](Extensions::NVX_MultiviewPerViewAttributes)
+/// - Extension [`NVX_MultiviewPerViewAttributes`](Extension::NVX_MultiviewPerViewAttributes)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -37848,7 +37848,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NVX_MultiviewPerViewAttributes`](Extensions::NVX_MultiviewPerViewAttributes)
+/// - Extension [`NVX_MultiviewPerViewAttributes`](Extension::NVX_MultiviewPerViewAttributes)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -37902,7 +37902,7 @@ unsafe impl Extends<RenderingInfo> for MultiviewPerViewAttributesInfoNVX {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ViewportSwizzle`](Extensions::NV_ViewportSwizzle)
+/// - Extension [`NV_ViewportSwizzle`](Extension::NV_ViewportSwizzle)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -37931,7 +37931,7 @@ impl Default for ViewportSwizzleNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ViewportSwizzle`](Extensions::NV_ViewportSwizzle)
+/// - Extension [`NV_ViewportSwizzle`](Extension::NV_ViewportSwizzle)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -37984,7 +37984,7 @@ unsafe impl Extends<PipelineViewportStateCreateInfo> for PipelineViewportSwizzle
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DiscardRectangles`](Extensions::EXT_DiscardRectangles)
+/// - Extension [`EXT_DiscardRectangles`](Extension::EXT_DiscardRectangles)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -38034,7 +38034,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDiscardRectangl
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DiscardRectangles`](Extensions::EXT_DiscardRectangles)
+/// - Extension [`EXT_DiscardRectangles`](Extension::EXT_DiscardRectangles)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -38090,7 +38090,7 @@ unsafe impl Extends<GraphicsPipelineCreateInfo> for PipelineDiscardRectangleStat
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ConservativeRasterization`](Extensions::EXT_ConservativeRasterization)
+/// - Extension [`EXT_ConservativeRasterization`](Extension::EXT_ConservativeRasterization)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -38159,7 +38159,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ConservativeRasterization`](Extensions::EXT_ConservativeRasterization)
+/// - Extension [`EXT_ConservativeRasterization`](Extension::EXT_ConservativeRasterization)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -38215,7 +38215,7 @@ unsafe impl Extends<PipelineRasterizationStateCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DepthClipEnable`](Extensions::EXT_DepthClipEnable)
+/// - Extension [`EXT_DepthClipEnable`](Extension::EXT_DepthClipEnable)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -38265,7 +38265,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDepthClipEnableFeaturesE
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DepthClipEnable`](Extensions::EXT_DepthClipEnable)
+/// - Extension [`EXT_DepthClipEnable`](Extension::EXT_DepthClipEnable)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -38319,7 +38319,7 @@ unsafe impl Extends<PipelineRasterizationStateCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_HdrMetadata`](Extensions::EXT_HdrMetadata)
+/// - Extension [`EXT_HdrMetadata`](Extension::EXT_HdrMetadata)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -38344,7 +38344,7 @@ impl Default for XYColorEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_HdrMetadata`](Extensions::EXT_HdrMetadata)
+/// - Extension [`EXT_HdrMetadata`](Extension::EXT_HdrMetadata)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -38405,7 +38405,7 @@ unsafe impl Extendable for HdrMetadataEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`IMG_RelaxedLineRasterization`](Extensions::IMG_RelaxedLineRasterization)
+/// - Extension [`IMG_RelaxedLineRasterization`](Extension::IMG_RelaxedLineRasterization)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -38455,8 +38455,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRelaxedLineRasterization
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`MVK_IosSurface`](Extensions::MVK_IosSurface)
-/// - Extension [`EXT_MetalSurface`](Extensions::EXT_MetalSurface)
+/// - Extension [`MVK_IosSurface`](Extension::MVK_IosSurface)
+/// - Extension [`EXT_MetalSurface`](Extension::EXT_MetalSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -38504,8 +38504,8 @@ unsafe impl Extendable for IOSSurfaceCreateInfoMVK {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`MVK_MacosSurface`](Extensions::MVK_MacosSurface)
-/// - Extension [`EXT_MetalSurface`](Extensions::EXT_MetalSurface)
+/// - Extension [`MVK_MacosSurface`](Extension::MVK_MacosSurface)
+/// - Extension [`EXT_MetalSurface`](Extension::EXT_MetalSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -38553,7 +38553,7 @@ unsafe impl Extendable for MacOSSurfaceCreateInfoMVK {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+/// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -38601,7 +38601,7 @@ unsafe impl Extendable for DebugUtilsLabelEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+/// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -38659,7 +38659,7 @@ unsafe impl Extends<SamplerCreateInfo> for DebugUtilsObjectNameInfoEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+/// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -38732,7 +38732,7 @@ unsafe impl Extendable for DebugUtilsMessengerCallbackDataEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+/// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -38791,7 +38791,7 @@ unsafe impl Extends<DebugUtilsMessengerCreateInfoEXT> for DebugUtilsMessengerCre
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+/// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -38844,7 +38844,7 @@ unsafe impl Extendable for DebugUtilsObjectTagInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ANDROID_ExternalMemoryAndroidHardwareBuffer`](Extensions::ANDROID_ExternalMemoryAndroidHardwareBuffer)
+/// - Extension [`ANDROID_ExternalMemoryAndroidHardwareBuffer`](Extension::ANDROID_ExternalMemoryAndroidHardwareBuffer)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -38894,7 +38894,7 @@ unsafe impl Extends<ImageFormatProperties2> for AndroidHardwareBufferUsageANDROI
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ANDROID_ExternalMemoryAndroidHardwareBuffer`](Extensions::ANDROID_ExternalMemoryAndroidHardwareBuffer)
+/// - Extension [`ANDROID_ExternalMemoryAndroidHardwareBuffer`](Extension::ANDROID_ExternalMemoryAndroidHardwareBuffer)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -38947,7 +38947,7 @@ unsafe impl Extendable for AndroidHardwareBufferPropertiesANDROID {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ANDROID_ExternalMemoryAndroidHardwareBuffer`](Extensions::ANDROID_ExternalMemoryAndroidHardwareBuffer)
+/// - Extension [`ANDROID_ExternalMemoryAndroidHardwareBuffer`](Extension::ANDROID_ExternalMemoryAndroidHardwareBuffer)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -39014,7 +39014,7 @@ unsafe impl Extends<AndroidHardwareBufferPropertiesANDROID>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ANDROID_ExternalMemoryAndroidHardwareBuffer`](Extensions::ANDROID_ExternalMemoryAndroidHardwareBuffer)
+/// - Extension [`ANDROID_ExternalMemoryAndroidHardwareBuffer`](Extension::ANDROID_ExternalMemoryAndroidHardwareBuffer)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -39062,7 +39062,7 @@ unsafe impl Extends<MemoryAllocateInfo> for ImportAndroidHardwareBufferInfoANDRO
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ANDROID_ExternalMemoryAndroidHardwareBuffer`](Extensions::ANDROID_ExternalMemoryAndroidHardwareBuffer)
+/// - Extension [`ANDROID_ExternalMemoryAndroidHardwareBuffer`](Extension::ANDROID_ExternalMemoryAndroidHardwareBuffer)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -39107,7 +39107,7 @@ unsafe impl Extendable for MemoryGetAndroidHardwareBufferInfoANDROID {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ANDROID_ExternalMemoryAndroidHardwareBuffer`](Extensions::ANDROID_ExternalMemoryAndroidHardwareBuffer)
+/// - Extension [`ANDROID_ExternalMemoryAndroidHardwareBuffer`](Extension::ANDROID_ExternalMemoryAndroidHardwareBuffer)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -39163,7 +39163,7 @@ unsafe impl Extends<CommandBufferInheritanceInfo> for ExternalFormatANDROID {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ANDROID_ExternalMemoryAndroidHardwareBuffer`](Extensions::ANDROID_ExternalMemoryAndroidHardwareBuffer)
+/// - Extension [`ANDROID_ExternalMemoryAndroidHardwareBuffer`](Extension::ANDROID_ExternalMemoryAndroidHardwareBuffer)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -39230,7 +39230,7 @@ unsafe impl Extends<AndroidHardwareBufferPropertiesANDROID>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+/// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -39265,7 +39265,7 @@ impl Default for GpaPerfBlockPropertiesAMD {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+/// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -39321,7 +39321,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceGpaFeaturesAMD {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+/// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -39379,7 +39379,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceGpaPropertiesAM
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+/// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -39429,7 +39429,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceGpaProperties2A
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+/// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -39456,7 +39456,7 @@ impl Default for GpaPerfCounterAMD {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+/// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -39530,7 +39530,7 @@ unsafe impl Extendable for GpaSampleBeginInfoAMD {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+/// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -39579,7 +39579,7 @@ unsafe impl Extendable for GpaDeviceClockModeInfoAMD {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+/// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -39630,7 +39630,7 @@ unsafe impl Extendable for GpaDeviceGetClockInfoAMD {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+/// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -39676,7 +39676,7 @@ unsafe impl Extendable for GpaSessionCreateInfoAMD {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
+/// - Extension [`AMDX_ShaderEnqueue`](Extension::AMDX_ShaderEnqueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -39728,7 +39728,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderEnqueueFeaturesAMD
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
+/// - Extension [`AMDX_ShaderEnqueue`](Extension::AMDX_ShaderEnqueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -39790,7 +39790,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderEnqueuePr
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
+/// - Extension [`AMDX_ShaderEnqueue`](Extension::AMDX_ShaderEnqueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -39839,7 +39839,7 @@ unsafe impl Extendable for ExecutionGraphPipelineScratchSizeAMDX {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
+/// - Extension [`AMDX_ShaderEnqueue`](Extension::AMDX_ShaderEnqueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -39905,7 +39905,7 @@ unsafe impl Extendable for ExecutionGraphPipelineCreateInfoAMDX {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
+/// - Extension [`AMDX_ShaderEnqueue`](Extension::AMDX_ShaderEnqueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -39933,7 +39933,7 @@ impl Default for DeviceOrHostAddressConstAMDX {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
+/// - Extension [`AMDX_ShaderEnqueue`](Extension::AMDX_ShaderEnqueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -39963,7 +39963,7 @@ impl Default for DispatchGraphInfoAMDX {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
+/// - Extension [`AMDX_ShaderEnqueue`](Extension::AMDX_ShaderEnqueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -39991,7 +39991,7 @@ impl Default for DispatchGraphCountInfoAMDX {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
+/// - Extension [`AMDX_ShaderEnqueue`](Extension::AMDX_ShaderEnqueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -40043,7 +40043,7 @@ unsafe impl Extends<PipelineShaderStageCreateInfo> for PipelineShaderStageNodeCr
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -40068,7 +40068,7 @@ impl Default for HostAddressRangeEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -40093,7 +40093,7 @@ impl Default for HostAddressRangeConstEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -40140,7 +40140,7 @@ unsafe impl Extendable for TexelBufferDescriptorInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -40187,8 +40187,8 @@ unsafe impl Extendable for ImageDescriptorInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -40240,7 +40240,7 @@ unsafe impl Extendable for TensorViewCreateInfoARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -40274,7 +40274,7 @@ impl Default for ResourceDescriptorDataEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -40323,7 +40323,7 @@ unsafe impl Extendable for ResourceDescriptorInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -40372,7 +40372,7 @@ unsafe impl Extendable for BindHeapInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -40421,7 +40421,7 @@ unsafe impl Extendable for PushDataInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -40453,7 +40453,7 @@ impl Default for DescriptorMappingSourceConstantOffsetEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -40495,7 +40495,7 @@ impl Default for DescriptorMappingSourcePushIndexEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -40541,7 +40541,7 @@ impl Default for DescriptorMappingSourceIndirectIndexEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -40566,7 +40566,7 @@ impl Default for DescriptorMappingSourceHeapDataEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -40591,7 +40591,7 @@ impl Default for DescriptorMappingSourceIndirectAddressEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -40633,7 +40633,7 @@ impl Default for DescriptorMappingSourceShaderRecordIndexEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -40675,7 +40675,7 @@ impl Default for DescriptorMappingSourceIndirectIndexArrayEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -40712,7 +40712,7 @@ impl Default for DescriptorMappingSourceDataEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -40769,7 +40769,7 @@ unsafe impl Extendable for DescriptorSetAndBindingMappingEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -40822,7 +40822,7 @@ unsafe impl Extends<ShaderCreateInfoEXT> for ShaderDescriptorSetAndBindingMappin
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -40873,7 +40873,7 @@ unsafe impl Extends<TensorCreateInfoARM> for OpaqueCaptureDataCreateInfoEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -40925,7 +40925,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDescriptorHeapFeaturesEX
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -41011,7 +41011,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDescriptorHeapP
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -41066,7 +41066,7 @@ unsafe impl Extends<CommandBufferInheritanceInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -41114,8 +41114,8 @@ unsafe impl Extends<SamplerCreateInfo> for SamplerCustomBorderColorIndexCreateIn
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
-/// - Extension [`EXT_CustomBorderColor`](Extensions::EXT_CustomBorderColor)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+/// - Extension [`EXT_CustomBorderColor`](Extension::EXT_CustomBorderColor)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -41165,7 +41165,7 @@ unsafe impl Extends<SamplerCreateInfo> for SamplerCustomBorderColorCreateInfoEXT
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -41215,7 +41215,7 @@ unsafe impl Extends<IndirectCommandsLayoutTokenNV> for IndirectCommandsLayoutPus
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -41263,7 +41263,7 @@ unsafe impl Extends<ImageFormatProperties2> for SubsampledImageFormatPropertiesE
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -41317,8 +41317,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDescriptorHeapT
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_MixedAttachmentSamples`](Extensions::AMD_MixedAttachmentSamples)
-/// - Extension [`NV_FramebufferMixedSamples`](Extensions::NV_FramebufferMixedSamples)
+/// - Extension [`AMD_MixedAttachmentSamples`](Extension::AMD_MixedAttachmentSamples)
+/// - Extension [`NV_FramebufferMixedSamples`](Extension::NV_FramebufferMixedSamples)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -41378,7 +41378,7 @@ pub type AttachmentSampleCountInfoNV = AttachmentSampleCountInfoAMD;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_SampleLocations`](Extensions::EXT_SampleLocations)
+/// - Extension [`EXT_SampleLocations`](Extension::EXT_SampleLocations)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -41403,7 +41403,7 @@ impl Default for SampleLocationEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_SampleLocations`](Extensions::EXT_SampleLocations)
+/// - Extension [`EXT_SampleLocations`](Extension::EXT_SampleLocations)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -41460,7 +41460,7 @@ unsafe impl Extends<ImageMemoryBarrier2> for SampleLocationsInfoEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_SampleLocations`](Extensions::EXT_SampleLocations)
+/// - Extension [`EXT_SampleLocations`](Extension::EXT_SampleLocations)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -41485,7 +41485,7 @@ impl Default for AttachmentSampleLocationsEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_SampleLocations`](Extensions::EXT_SampleLocations)
+/// - Extension [`EXT_SampleLocations`](Extension::EXT_SampleLocations)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -41510,7 +41510,7 @@ impl Default for SubpassSampleLocationsEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_SampleLocations`](Extensions::EXT_SampleLocations)
+/// - Extension [`EXT_SampleLocations`](Extension::EXT_SampleLocations)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -41568,7 +41568,7 @@ unsafe impl Extends<RenderPassBeginInfo> for RenderPassSampleLocationsBeginInfoE
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_SampleLocations`](Extensions::EXT_SampleLocations)
+/// - Extension [`EXT_SampleLocations`](Extension::EXT_SampleLocations)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -41621,7 +41621,7 @@ unsafe impl Extends<PipelineMultisampleStateCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_SampleLocations`](Extensions::EXT_SampleLocations)
+/// - Extension [`EXT_SampleLocations`](Extension::EXT_SampleLocations)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -41679,7 +41679,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceSampleLocations
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_SampleLocations`](Extensions::EXT_SampleLocations)
+/// - Extension [`EXT_SampleLocations`](Extension::EXT_SampleLocations)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -41726,7 +41726,7 @@ unsafe impl Extendable for MultisamplePropertiesEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_BlendOperationAdvanced`](Extensions::EXT_BlendOperationAdvanced)
+/// - Extension [`EXT_BlendOperationAdvanced`](Extension::EXT_BlendOperationAdvanced)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -41776,7 +41776,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceBlendOperationAdvancedFe
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_BlendOperationAdvanced`](Extensions::EXT_BlendOperationAdvanced)
+/// - Extension [`EXT_BlendOperationAdvanced`](Extension::EXT_BlendOperationAdvanced)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -41839,7 +41839,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_BlendOperationAdvanced`](Extensions::EXT_BlendOperationAdvanced)
+/// - Extension [`EXT_BlendOperationAdvanced`](Extension::EXT_BlendOperationAdvanced)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -41894,7 +41894,7 @@ unsafe impl Extends<PipelineColorBlendStateCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_FragmentCoverageToColor`](Extensions::NV_FragmentCoverageToColor)
+/// - Extension [`NV_FragmentCoverageToColor`](Extension::NV_FragmentCoverageToColor)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -41951,7 +41951,7 @@ unsafe impl Extends<PipelineMultisampleStateCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_FramebufferMixedSamples`](Extensions::NV_FramebufferMixedSamples)
+/// - Extension [`NV_FramebufferMixedSamples`](Extension::NV_FramebufferMixedSamples)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -42013,7 +42013,7 @@ unsafe impl Extends<PipelineMultisampleStateCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ShaderSmBuiltins`](Extensions::NV_ShaderSmBuiltins)
+/// - Extension [`NV_ShaderSmBuiltins`](Extension::NV_ShaderSmBuiltins)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -42065,7 +42065,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderSMBuiltin
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ShaderSmBuiltins`](Extensions::NV_ShaderSmBuiltins)
+/// - Extension [`NV_ShaderSmBuiltins`](Extension::NV_ShaderSmBuiltins)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -42115,7 +42115,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderSMBuiltinsFeatures
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ImageDrmFormatModifier`](Extensions::EXT_ImageDrmFormatModifier)
+/// - Extension [`EXT_ImageDrmFormatModifier`](Extension::EXT_ImageDrmFormatModifier)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -42144,7 +42144,7 @@ impl Default for DrmFormatModifierPropertiesEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ImageDrmFormatModifier`](Extensions::EXT_ImageDrmFormatModifier)
+/// - Extension [`EXT_ImageDrmFormatModifier`](Extension::EXT_ImageDrmFormatModifier)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -42200,7 +42200,7 @@ unsafe impl Extends<FormatProperties2> for DrmFormatModifierPropertiesListEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ImageDrmFormatModifier`](Extensions::EXT_ImageDrmFormatModifier)
+/// - Extension [`EXT_ImageDrmFormatModifier`](Extension::EXT_ImageDrmFormatModifier)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -42258,7 +42258,7 @@ unsafe impl Extends<PhysicalDeviceImageFormatInfo2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ImageDrmFormatModifier`](Extensions::EXT_ImageDrmFormatModifier)
+/// - Extension [`EXT_ImageDrmFormatModifier`](Extension::EXT_ImageDrmFormatModifier)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -42308,7 +42308,7 @@ unsafe impl Extends<ImageCreateInfo> for ImageDrmFormatModifierListCreateInfoEXT
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ImageDrmFormatModifier`](Extensions::EXT_ImageDrmFormatModifier)
+/// - Extension [`EXT_ImageDrmFormatModifier`](Extension::EXT_ImageDrmFormatModifier)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -42360,7 +42360,7 @@ unsafe impl Extends<ImageCreateInfo> for ImageDrmFormatModifierExplicitCreateInf
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ImageDrmFormatModifier`](Extensions::EXT_ImageDrmFormatModifier)
+/// - Extension [`EXT_ImageDrmFormatModifier`](Extension::EXT_ImageDrmFormatModifier)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -42407,7 +42407,7 @@ unsafe impl Extendable for ImageDrmFormatModifierPropertiesEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ImageDrmFormatModifier`](Extensions::EXT_ImageDrmFormatModifier)
+/// - Extension [`EXT_ImageDrmFormatModifier`](Extension::EXT_ImageDrmFormatModifier)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -42436,7 +42436,7 @@ impl Default for DrmFormatModifierProperties2EXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ImageDrmFormatModifier`](Extensions::EXT_ImageDrmFormatModifier)
+/// - Extension [`EXT_ImageDrmFormatModifier`](Extension::EXT_ImageDrmFormatModifier)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -42492,7 +42492,7 @@ unsafe impl Extends<FormatProperties2> for DrmFormatModifierPropertiesList2EXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ValidationCache`](Extensions::EXT_ValidationCache)
+/// - Extension [`EXT_ValidationCache`](Extension::EXT_ValidationCache)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -42543,7 +42543,7 @@ unsafe impl Extendable for ValidationCacheCreateInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ValidationCache`](Extensions::EXT_ValidationCache)
+/// - Extension [`EXT_ValidationCache`](Extension::EXT_ValidationCache)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -42593,7 +42593,7 @@ unsafe impl Extends<PipelineShaderStageCreateInfo> for ShaderModuleValidationCac
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ShadingRateImage`](Extensions::NV_ShadingRateImage)
+/// - Extension [`NV_ShadingRateImage`](Extension::NV_ShadingRateImage)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -42618,7 +42618,7 @@ impl Default for ShadingRatePaletteNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ShadingRateImage`](Extensions::NV_ShadingRateImage)
+/// - Extension [`NV_ShadingRateImage`](Extension::NV_ShadingRateImage)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -42674,7 +42674,7 @@ unsafe impl Extends<PipelineViewportStateCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ShadingRateImage`](Extensions::NV_ShadingRateImage)
+/// - Extension [`NV_ShadingRateImage`](Extension::NV_ShadingRateImage)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -42726,7 +42726,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShadingRateImageFeatures
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ShadingRateImage`](Extensions::NV_ShadingRateImage)
+/// - Extension [`NV_ShadingRateImage`](Extension::NV_ShadingRateImage)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -42780,7 +42780,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShadingRateImag
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ShadingRateImage`](Extensions::NV_ShadingRateImage)
+/// - Extension [`NV_ShadingRateImage`](Extension::NV_ShadingRateImage)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -42807,7 +42807,7 @@ impl Default for CoarseSampleLocationNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ShadingRateImage`](Extensions::NV_ShadingRateImage)
+/// - Extension [`NV_ShadingRateImage`](Extension::NV_ShadingRateImage)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -42836,7 +42836,7 @@ impl Default for CoarseSampleOrderCustomNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ShadingRateImage`](Extensions::NV_ShadingRateImage)
+/// - Extension [`NV_ShadingRateImage`](Extension::NV_ShadingRateImage)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -42892,8 +42892,8 @@ unsafe impl Extends<PipelineViewportStateCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+/// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -42946,8 +42946,8 @@ unsafe impl Extendable for RayTracingShaderGroupCreateInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+/// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -43014,8 +43014,8 @@ unsafe impl Extendable for RayTracingPipelineCreateInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+/// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -43083,8 +43083,8 @@ unsafe impl Extendable for GeometryTrianglesNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+/// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -43136,8 +43136,8 @@ unsafe impl Extendable for GeometryAABBNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+/// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -43162,8 +43162,8 @@ impl Default for GeometryDataNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+/// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -43213,8 +43213,8 @@ unsafe impl Extendable for GeometryNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+/// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -43270,8 +43270,8 @@ unsafe impl Extendable for AccelerationStructureInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+/// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -43320,8 +43320,8 @@ unsafe impl Extendable for AccelerationStructureCreateInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+/// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -43375,8 +43375,8 @@ unsafe impl Extendable for BindAccelerationStructureMemoryInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+/// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -43426,8 +43426,8 @@ unsafe impl Extends<WriteDescriptorSet> for WriteDescriptorSetAccelerationStruct
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+/// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -43474,8 +43474,8 @@ unsafe impl Extendable for AccelerationStructureMemoryRequirementsInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+/// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -43539,9 +43539,9 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceRayTracingPrope
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+/// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+/// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -43568,9 +43568,9 @@ pub type TransformMatrixNV = TransformMatrixKHR;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+/// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+/// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -43607,9 +43607,9 @@ pub type AabbPositionsNV = AabbPositionsKHR;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+/// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+/// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -43647,7 +43647,7 @@ pub type AccelerationStructureInstanceNV = AccelerationStructureInstanceKHR;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RepresentativeFragmentTest`](Extensions::NV_RepresentativeFragmentTest)
+/// - Extension [`NV_RepresentativeFragmentTest`](Extension::NV_RepresentativeFragmentTest)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -43700,7 +43700,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRepresentativeFragmentTe
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RepresentativeFragmentTest`](Extensions::NV_RepresentativeFragmentTest)
+/// - Extension [`NV_RepresentativeFragmentTest`](Extension::NV_RepresentativeFragmentTest)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -43751,7 +43751,7 @@ unsafe impl Extends<GraphicsPipelineCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_FilterCubic`](Extensions::EXT_FilterCubic)
+/// - Extension [`EXT_FilterCubic`](Extension::EXT_FilterCubic)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -43799,7 +43799,7 @@ unsafe impl Extends<PhysicalDeviceImageFormatInfo2> for PhysicalDeviceImageViewI
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_FilterCubic`](Extensions::EXT_FilterCubic)
+/// - Extension [`EXT_FilterCubic`](Extension::EXT_FilterCubic)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -43851,7 +43851,7 @@ unsafe impl Extends<ImageFormatProperties2> for FilterCubicImageViewImageFormatP
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_CooperativeMatrixConversion`](Extensions::QCOM_CooperativeMatrixConversion)
+/// - Extension [`QCOM_CooperativeMatrixConversion`](Extension::QCOM_CooperativeMatrixConversion)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -43904,7 +43904,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCooperativeMatrixConvers
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_ElapsedTimerQuery`](Extensions::QCOM_ElapsedTimerQuery)
+/// - Extension [`QCOM_ElapsedTimerQuery`](Extension::QCOM_ElapsedTimerQuery)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -43954,7 +43954,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceElapsedTimerQueryFeature
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ExternalMemoryHost`](Extensions::EXT_ExternalMemoryHost)
+/// - Extension [`EXT_ExternalMemoryHost`](Extension::EXT_ExternalMemoryHost)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -44004,7 +44004,7 @@ unsafe impl Extends<MemoryAllocateInfo> for ImportMemoryHostPointerInfoEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ExternalMemoryHost`](Extensions::EXT_ExternalMemoryHost)
+/// - Extension [`EXT_ExternalMemoryHost`](Extension::EXT_ExternalMemoryHost)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -44051,7 +44051,7 @@ unsafe impl Extendable for MemoryHostPointerPropertiesEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ExternalMemoryHost`](Extensions::EXT_ExternalMemoryHost)
+/// - Extension [`EXT_ExternalMemoryHost`](Extension::EXT_ExternalMemoryHost)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -44101,7 +44101,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceExternalMemoryH
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_PipelineCompilerControl`](Extensions::AMD_PipelineCompilerControl)
+/// - Extension [`AMD_PipelineCompilerControl`](Extension::AMD_PipelineCompilerControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -44154,7 +44154,7 @@ unsafe impl Extends<ExecutionGraphPipelineCreateInfoAMDX> for PipelineCompilerCo
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_ShaderCoreProperties`](Extensions::AMD_ShaderCoreProperties)
+/// - Extension [`AMD_ShaderCoreProperties`](Extension::AMD_ShaderCoreProperties)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -44230,7 +44230,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderCorePrope
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_MemoryOverallocationBehavior`](Extensions::AMD_MemoryOverallocationBehavior)
+/// - Extension [`AMD_MemoryOverallocationBehavior`](Extension::AMD_MemoryOverallocationBehavior)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -44278,8 +44278,8 @@ unsafe impl Extends<DeviceCreateInfo> for DeviceMemoryOverallocationCreateInfoAM
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_VertexAttributeDivisor`](Extensions::EXT_VertexAttributeDivisor)
-/// - Extension [`KHR_VertexAttributeDivisor`](Extensions::KHR_VertexAttributeDivisor)
+/// - Extension [`EXT_VertexAttributeDivisor`](Extension::EXT_VertexAttributeDivisor)
+/// - Extension [`KHR_VertexAttributeDivisor`](Extension::KHR_VertexAttributeDivisor)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -44332,7 +44332,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`GGP_FrameToken`](Extensions::GGP_FrameToken)
+/// - Extension [`GGP_FrameToken`](Extension::GGP_FrameToken)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -44380,7 +44380,7 @@ unsafe impl Extends<PresentInfoKHR> for PresentFrameTokenGGP {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_MeshShader`](Extensions::NV_MeshShader)
+/// - Extension [`NV_MeshShader`](Extension::NV_MeshShader)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -44432,7 +44432,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMeshShaderFeaturesNV {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_MeshShader`](Extensions::NV_MeshShader)
+/// - Extension [`NV_MeshShader`](Extension::NV_MeshShader)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -44506,7 +44506,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMeshShaderPrope
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_MeshShader`](Extensions::NV_MeshShader)
+/// - Extension [`NV_MeshShader`](Extension::NV_MeshShader)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -44531,7 +44531,7 @@ impl Default for DrawMeshTasksIndirectCommandNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ShaderImageFootprint`](Extensions::NV_ShaderImageFootprint)
+/// - Extension [`NV_ShaderImageFootprint`](Extension::NV_ShaderImageFootprint)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -44581,7 +44581,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderImageFootprintFeat
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ScissorExclusive`](Extensions::NV_ScissorExclusive)
+/// - Extension [`NV_ScissorExclusive`](Extension::NV_ScissorExclusive)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -44635,7 +44635,7 @@ unsafe impl Extends<PipelineViewportStateCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ScissorExclusive`](Extensions::NV_ScissorExclusive)
+/// - Extension [`NV_ScissorExclusive`](Extension::NV_ScissorExclusive)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -44685,7 +44685,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceExclusiveScissorFeatures
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceDiagnosticCheckpoints`](Extensions::NV_DeviceDiagnosticCheckpoints)
+/// - Extension [`NV_DeviceDiagnosticCheckpoints`](Extension::NV_DeviceDiagnosticCheckpoints)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -44735,7 +44735,7 @@ unsafe impl Extends<QueueFamilyProperties2> for QueueFamilyCheckpointPropertiesN
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceDiagnosticCheckpoints`](Extensions::NV_DeviceDiagnosticCheckpoints)
+/// - Extension [`NV_DeviceDiagnosticCheckpoints`](Extension::NV_DeviceDiagnosticCheckpoints)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -44784,7 +44784,7 @@ unsafe impl Extendable for CheckpointDataNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceDiagnosticCheckpoints`](Extensions::NV_DeviceDiagnosticCheckpoints)
+/// - Extension [`NV_DeviceDiagnosticCheckpoints`](Extension::NV_DeviceDiagnosticCheckpoints)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -44834,7 +44834,7 @@ unsafe impl Extends<QueueFamilyProperties2> for QueueFamilyCheckpointProperties2
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceDiagnosticCheckpoints`](Extensions::NV_DeviceDiagnosticCheckpoints)
+/// - Extension [`NV_DeviceDiagnosticCheckpoints`](Extension::NV_DeviceDiagnosticCheckpoints)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -44883,7 +44883,7 @@ unsafe impl Extendable for CheckpointData2NV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+/// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -44937,7 +44937,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePresentTimingFeaturesEXT
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+/// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -44993,7 +44993,7 @@ unsafe impl Extends<SurfaceCapabilities2KHR> for PresentTimingSurfaceCapabilitie
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+/// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -45046,7 +45046,7 @@ unsafe impl Extends<CalibratedTimestampInfoKHR> for SwapchainCalibratedTimestamp
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+/// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -45095,7 +45095,7 @@ unsafe impl Extendable for SwapchainTimingPropertiesEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+/// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -45148,7 +45148,7 @@ unsafe impl Extendable for SwapchainTimeDomainPropertiesEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+/// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -45196,7 +45196,7 @@ unsafe impl Extendable for PastPresentationTimingInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+/// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -45223,7 +45223,7 @@ impl Default for PresentStageTimeEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+/// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -45282,7 +45282,7 @@ unsafe impl Extendable for PastPresentationTimingEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+/// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -45335,7 +45335,7 @@ unsafe impl Extendable for PastPresentationTimingPropertiesEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+/// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -45391,7 +45391,7 @@ unsafe impl Extendable for PresentTimingInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+/// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -45442,7 +45442,7 @@ unsafe impl Extends<PresentInfoKHR> for PresentTimingsInfoEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`INTEL_ShaderIntegerFunctions2`](Extensions::INTEL_ShaderIntegerFunctions2)
+/// - Extension [`INTEL_ShaderIntegerFunctions2`](Extension::INTEL_ShaderIntegerFunctions2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -45495,7 +45495,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderIntegerFunctions2F
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
+/// - Extension [`INTEL_PerformanceQuery`](Extension::INTEL_PerformanceQuery)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -45527,7 +45527,7 @@ impl Default for PerformanceValueDataINTEL {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
+/// - Extension [`INTEL_PerformanceQuery`](Extension::INTEL_PerformanceQuery)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -45554,7 +45554,7 @@ impl Default for PerformanceValueINTEL {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
+/// - Extension [`INTEL_PerformanceQuery`](Extension::INTEL_PerformanceQuery)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -45600,7 +45600,7 @@ unsafe impl Extendable for InitializePerformanceApiInfoINTEL {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
+/// - Extension [`INTEL_PerformanceQuery`](Extension::INTEL_PerformanceQuery)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -45652,7 +45652,7 @@ pub type QueryPoolCreateInfoINTEL = QueryPoolPerformanceQueryCreateInfoINTEL;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
+/// - Extension [`INTEL_PerformanceQuery`](Extension::INTEL_PerformanceQuery)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -45697,7 +45697,7 @@ unsafe impl Extendable for PerformanceMarkerInfoINTEL {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
+/// - Extension [`INTEL_PerformanceQuery`](Extension::INTEL_PerformanceQuery)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -45742,7 +45742,7 @@ unsafe impl Extendable for PerformanceStreamMarkerInfoINTEL {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
+/// - Extension [`INTEL_PerformanceQuery`](Extension::INTEL_PerformanceQuery)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -45791,7 +45791,7 @@ unsafe impl Extendable for PerformanceOverrideInfoINTEL {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
+/// - Extension [`INTEL_PerformanceQuery`](Extension::INTEL_PerformanceQuery)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -45836,7 +45836,7 @@ unsafe impl Extendable for PerformanceConfigurationAcquireInfoINTEL {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_PciBusInfo`](Extensions::EXT_PciBusInfo)
+/// - Extension [`EXT_PciBusInfo`](Extension::EXT_PciBusInfo)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -45892,7 +45892,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDevicePCIBusInfoPrope
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_DisplayNativeHdr`](Extensions::AMD_DisplayNativeHdr)
+/// - Extension [`AMD_DisplayNativeHdr`](Extension::AMD_DisplayNativeHdr)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -45942,7 +45942,7 @@ unsafe impl Extends<SurfaceCapabilities2KHR> for DisplayNativeHdrSurfaceCapabili
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_DisplayNativeHdr`](Extensions::AMD_DisplayNativeHdr)
+/// - Extension [`AMD_DisplayNativeHdr`](Extension::AMD_DisplayNativeHdr)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -45990,7 +45990,7 @@ unsafe impl Extends<SwapchainCreateInfoKHR> for SwapchainDisplayNativeHdrCreateI
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`FUCHSIA_ImagepipeSurface`](Extensions::FUCHSIA_ImagepipeSurface)
+/// - Extension [`FUCHSIA_ImagepipeSurface`](Extension::FUCHSIA_ImagepipeSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -46038,7 +46038,7 @@ unsafe impl Extendable for ImagePipeSurfaceCreateInfoFUCHSIA {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MetalSurface`](Extensions::EXT_MetalSurface)
+/// - Extension [`EXT_MetalSurface`](Extension::EXT_MetalSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -46086,7 +46086,7 @@ unsafe impl Extendable for MetalSurfaceCreateInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_FragmentDensityMap`](Extensions::EXT_FragmentDensityMap)
+/// - Extension [`EXT_FragmentDensityMap`](Extension::EXT_FragmentDensityMap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -46140,7 +46140,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceFragmentDensityMapFeatur
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_FragmentDensityMap`](Extensions::EXT_FragmentDensityMap)
+/// - Extension [`EXT_FragmentDensityMap`](Extension::EXT_FragmentDensityMap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -46194,7 +46194,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceFragmentDensity
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_FragmentDensityMap`](Extensions::EXT_FragmentDensityMap)
+/// - Extension [`EXT_FragmentDensityMap`](Extension::EXT_FragmentDensityMap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -46244,7 +46244,7 @@ unsafe impl Extends<RenderPassCreateInfo2> for RenderPassFragmentDensityMapCreat
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_FragmentDensityMap`](Extensions::EXT_FragmentDensityMap)
+/// - Extension [`EXT_FragmentDensityMap`](Extension::EXT_FragmentDensityMap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -46294,7 +46294,7 @@ unsafe impl Extends<RenderingInfo> for RenderingFragmentDensityMapAttachmentInfo
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_ShaderCoreProperties2`](Extensions::AMD_ShaderCoreProperties2)
+/// - Extension [`AMD_ShaderCoreProperties2`](Extension::AMD_ShaderCoreProperties2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -46346,7 +46346,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderCorePrope
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_DeviceCoherentMemory`](Extensions::AMD_DeviceCoherentMemory)
+/// - Extension [`AMD_DeviceCoherentMemory`](Extension::AMD_DeviceCoherentMemory)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -46396,7 +46396,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCoherentMemoryFeaturesAM
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ShaderImageAtomicInt64`](Extensions::EXT_ShaderImageAtomicInt64)
+/// - Extension [`EXT_ShaderImageAtomicInt64`](Extension::EXT_ShaderImageAtomicInt64)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -46448,7 +46448,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderImageAtomicInt64Fe
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MemoryBudget`](Extensions::EXT_MemoryBudget)
+/// - Extension [`EXT_MemoryBudget`](Extension::EXT_MemoryBudget)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -46500,7 +46500,7 @@ unsafe impl Extends<PhysicalDeviceMemoryProperties2> for PhysicalDeviceMemoryBud
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MemoryPriority`](Extensions::EXT_MemoryPriority)
+/// - Extension [`EXT_MemoryPriority`](Extension::EXT_MemoryPriority)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -46550,7 +46550,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMemoryPriorityFeaturesEX
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MemoryPriority`](Extensions::EXT_MemoryPriority)
+/// - Extension [`EXT_MemoryPriority`](Extension::EXT_MemoryPriority)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -46598,7 +46598,7 @@ unsafe impl Extends<MemoryAllocateInfo> for MemoryPriorityAllocateInfoEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DedicatedAllocationImageAliasing`](Extensions::NV_DedicatedAllocationImageAliasing)
+/// - Extension [`NV_DedicatedAllocationImageAliasing`](Extension::NV_DedicatedAllocationImageAliasing)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -46651,8 +46651,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDedicatedAllocationImage
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_BufferDeviceAddress`](Extensions::EXT_BufferDeviceAddress)
-/// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
+/// - Extension [`EXT_BufferDeviceAddress`](Extension::EXT_BufferDeviceAddress)
+/// - Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -46710,8 +46710,8 @@ pub type PhysicalDeviceBufferAddressFeaturesEXT = PhysicalDeviceBufferDeviceAddr
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_BufferDeviceAddress`](Extensions::EXT_BufferDeviceAddress)
-/// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
+/// - Extension [`EXT_BufferDeviceAddress`](Extension::EXT_BufferDeviceAddress)
+/// - Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -46760,8 +46760,8 @@ unsafe impl Extends<BufferCreateInfo> for BufferDeviceAddressCreateInfoEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ValidationFeatures`](Extensions::EXT_ValidationFeatures)
-/// - Extension [`EXT_LayerSettings`](Extensions::EXT_LayerSettings)
+/// - Extension [`EXT_ValidationFeatures`](Extension::EXT_ValidationFeatures)
+/// - Extension [`EXT_LayerSettings`](Extension::EXT_LayerSettings)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -46829,7 +46829,7 @@ unsafe impl Extends<RayTracingPipelineCreateInfoKHR> for ValidationFeaturesEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_CooperativeMatrix`](Extensions::NV_CooperativeMatrix)
+/// - Extension [`NV_CooperativeMatrix`](Extension::NV_CooperativeMatrix)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -46890,7 +46890,7 @@ unsafe impl Extendable for CooperativeMatrixPropertiesNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_CooperativeMatrix`](Extensions::NV_CooperativeMatrix)
+/// - Extension [`NV_CooperativeMatrix`](Extension::NV_CooperativeMatrix)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -46942,7 +46942,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCooperativeMatrixFeature
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_CooperativeMatrix`](Extensions::NV_CooperativeMatrix)
+/// - Extension [`NV_CooperativeMatrix`](Extension::NV_CooperativeMatrix)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -46992,7 +46992,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceCooperativeMatr
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_CoverageReductionMode`](Extensions::NV_CoverageReductionMode)
+/// - Extension [`NV_CoverageReductionMode`](Extension::NV_CoverageReductionMode)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -47042,7 +47042,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCoverageReductionModeFea
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_CoverageReductionMode`](Extensions::NV_CoverageReductionMode)
+/// - Extension [`NV_CoverageReductionMode`](Extension::NV_CoverageReductionMode)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -47096,7 +47096,7 @@ unsafe impl Extends<PipelineMultisampleStateCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_CoverageReductionMode`](Extensions::NV_CoverageReductionMode)
+/// - Extension [`NV_CoverageReductionMode`](Extension::NV_CoverageReductionMode)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -47149,7 +47149,7 @@ unsafe impl Extendable for FramebufferMixedSamplesCombinationNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_FragmentShaderInterlock`](Extensions::EXT_FragmentShaderInterlock)
+/// - Extension [`EXT_FragmentShaderInterlock`](Extension::EXT_FragmentShaderInterlock)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -47203,7 +47203,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceFragmentShaderInterlockF
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_YcbcrImageArrays`](Extensions::EXT_YcbcrImageArrays)
+/// - Extension [`EXT_YcbcrImageArrays`](Extension::EXT_YcbcrImageArrays)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -47253,7 +47253,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceYcbcrImageArraysFeatures
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ProvokingVertex`](Extensions::EXT_ProvokingVertex)
+/// - Extension [`EXT_ProvokingVertex`](Extension::EXT_ProvokingVertex)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -47305,7 +47305,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceProvokingVertexFeaturesE
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ProvokingVertex`](Extensions::EXT_ProvokingVertex)
+/// - Extension [`EXT_ProvokingVertex`](Extension::EXT_ProvokingVertex)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -47357,7 +47357,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceProvokingVertex
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ProvokingVertex`](Extensions::EXT_ProvokingVertex)
+/// - Extension [`EXT_ProvokingVertex`](Extension::EXT_ProvokingVertex)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -47408,7 +47408,7 @@ unsafe impl Extends<PipelineRasterizationStateCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_FullScreenExclusive`](Extensions::EXT_FullScreenExclusive)
+/// - Extension [`EXT_FullScreenExclusive`](Extension::EXT_FullScreenExclusive)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -47458,7 +47458,7 @@ unsafe impl Extends<SwapchainCreateInfoKHR> for SurfaceFullScreenExclusiveInfoEX
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_FullScreenExclusive`](Extensions::EXT_FullScreenExclusive)
+/// - Extension [`EXT_FullScreenExclusive`](Extension::EXT_FullScreenExclusive)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -47508,7 +47508,7 @@ unsafe impl Extends<SurfaceCapabilities2KHR> for SurfaceCapabilitiesFullScreenEx
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_FullScreenExclusive`](Extensions::EXT_FullScreenExclusive)
+/// - Extension [`EXT_FullScreenExclusive`](Extension::EXT_FullScreenExclusive)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -47558,7 +47558,7 @@ unsafe impl Extends<SwapchainCreateInfoKHR> for SurfaceFullScreenExclusiveWin32I
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_HeadlessSurface`](Extensions::EXT_HeadlessSurface)
+/// - Extension [`EXT_HeadlessSurface`](Extension::EXT_HeadlessSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -47604,7 +47604,7 @@ unsafe impl Extendable for HeadlessSurfaceCreateInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ShaderAtomicFloat`](Extensions::EXT_ShaderAtomicFloat)
+/// - Extension [`EXT_ShaderAtomicFloat`](Extension::EXT_ShaderAtomicFloat)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -47677,7 +47677,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderAtomicFloatFeature
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
+/// - Extension [`EXT_ExtendedDynamicState`](Extension::EXT_ExtendedDynamicState)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -47727,7 +47727,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceExtendedDynamicStateFeat
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MapMemoryPlaced`](Extensions::EXT_MapMemoryPlaced)
+/// - Extension [`EXT_MapMemoryPlaced`](Extension::EXT_MapMemoryPlaced)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -47781,7 +47781,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMapMemoryPlacedFeaturesE
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MapMemoryPlaced`](Extensions::EXT_MapMemoryPlaced)
+/// - Extension [`EXT_MapMemoryPlaced`](Extension::EXT_MapMemoryPlaced)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -47831,7 +47831,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMapMemoryPlaced
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MapMemoryPlaced`](Extensions::EXT_MapMemoryPlaced)
+/// - Extension [`EXT_MapMemoryPlaced`](Extension::EXT_MapMemoryPlaced)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -47879,7 +47879,7 @@ unsafe impl Extends<MemoryMapInfo> for MemoryMapPlacedInfoEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ShaderAtomicFloat2`](Extensions::EXT_ShaderAtomicFloat2)
+/// - Extension [`EXT_ShaderAtomicFloat2`](Extension::EXT_ShaderAtomicFloat2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -47951,7 +47951,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderAtomicFloat2Featur
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+/// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -48020,7 +48020,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+/// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -48070,7 +48070,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDeviceGeneratedCommandsF
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+/// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -48123,7 +48123,7 @@ unsafe impl Extendable for GraphicsShaderGroupCreateInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+/// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -48179,7 +48179,7 @@ unsafe impl Extends<GraphicsPipelineCreateInfo> for GraphicsPipelineShaderGroups
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+/// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -48202,7 +48202,7 @@ impl Default for BindShaderGroupIndirectCommandNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+/// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -48229,7 +48229,7 @@ impl Default for BindIndexBufferIndirectCommandNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+/// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -48256,7 +48256,7 @@ impl Default for BindVertexBufferIndirectCommandNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+/// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -48279,7 +48279,7 @@ impl Default for SetStateFlagsIndirectCommandNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+/// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -48304,7 +48304,7 @@ impl Default for IndirectCommandsStreamNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+/// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -48379,7 +48379,7 @@ unsafe impl Extendable for IndirectCommandsLayoutTokenNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+/// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -48435,7 +48435,7 @@ unsafe impl Extendable for IndirectCommandsLayoutCreateInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+/// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -48507,7 +48507,7 @@ unsafe impl Extendable for GeneratedCommandsInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+/// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -48559,7 +48559,7 @@ unsafe impl Extendable for GeneratedCommandsMemoryRequirementsInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_InheritedViewportScissor`](Extensions::NV_InheritedViewportScissor)
+/// - Extension [`NV_InheritedViewportScissor`](Extension::NV_InheritedViewportScissor)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -48609,7 +48609,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceInheritedViewportScissor
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_InheritedViewportScissor`](Extensions::NV_InheritedViewportScissor)
+/// - Extension [`NV_InheritedViewportScissor`](Extension::NV_InheritedViewportScissor)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -48665,7 +48665,7 @@ unsafe impl Extends<CommandBufferInheritanceInfo>
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`EXT_TexelBufferAlignment`](Extensions::EXT_TexelBufferAlignment)
+/// - Extension [`EXT_TexelBufferAlignment`](Extension::EXT_TexelBufferAlignment)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -48715,7 +48715,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceTexelBufferAlignmentFeat
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_RenderPassTransform`](Extensions::QCOM_RenderPassTransform)
+/// - Extension [`QCOM_RenderPassTransform`](Extension::QCOM_RenderPassTransform)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -48763,7 +48763,7 @@ unsafe impl Extends<RenderPassBeginInfo> for RenderPassTransformBeginInfoQCOM {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_RenderPassTransform`](Extensions::QCOM_RenderPassTransform)
+/// - Extension [`QCOM_RenderPassTransform`](Extension::QCOM_RenderPassTransform)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -48816,7 +48816,7 @@ unsafe impl Extends<CommandBufferInheritanceInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DepthBiasControl`](Extensions::EXT_DepthBiasControl)
+/// - Extension [`EXT_DepthBiasControl`](Extension::EXT_DepthBiasControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -48872,7 +48872,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDepthBiasControlFeatures
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DepthBiasControl`](Extensions::EXT_DepthBiasControl)
+/// - Extension [`EXT_DepthBiasControl`](Extension::EXT_DepthBiasControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -48923,7 +48923,7 @@ unsafe impl Extendable for DepthBiasInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DepthBiasControl`](Extensions::EXT_DepthBiasControl)
+/// - Extension [`EXT_DepthBiasControl`](Extension::EXT_DepthBiasControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -48975,7 +48975,7 @@ unsafe impl Extends<PipelineRasterizationStateCreateInfo> for DepthBiasRepresent
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceMemoryReport`](Extensions::EXT_DeviceMemoryReport)
+/// - Extension [`EXT_DeviceMemoryReport`](Extension::EXT_DeviceMemoryReport)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -49025,7 +49025,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDeviceMemoryReportFeatur
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceMemoryReport`](Extensions::EXT_DeviceMemoryReport)
+/// - Extension [`EXT_DeviceMemoryReport`](Extension::EXT_DeviceMemoryReport)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -49084,7 +49084,7 @@ unsafe impl Extendable for DeviceMemoryReportCallbackDataEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceMemoryReport`](Extensions::EXT_DeviceMemoryReport)
+/// - Extension [`EXT_DeviceMemoryReport`](Extension::EXT_DeviceMemoryReport)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -49141,7 +49141,7 @@ unsafe impl Extends<DeviceDeviceMemoryReportCreateInfoEXT>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_CustomBorderColor`](Extensions::EXT_CustomBorderColor)
+/// - Extension [`EXT_CustomBorderColor`](Extension::EXT_CustomBorderColor)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -49191,7 +49191,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceCustomBorderCol
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_CustomBorderColor`](Extensions::EXT_CustomBorderColor)
+/// - Extension [`EXT_CustomBorderColor`](Extension::EXT_CustomBorderColor)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -49243,7 +49243,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCustomBorderColorFeature
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_TextureCompressionAstc3D`](Extensions::EXT_TextureCompressionAstc3D)
+/// - Extension [`EXT_TextureCompressionAstc3D`](Extension::EXT_TextureCompressionAstc3D)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -49293,7 +49293,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceTextureCompressionASTC3D
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_PresentBarrier`](Extensions::NV_PresentBarrier)
+/// - Extension [`NV_PresentBarrier`](Extension::NV_PresentBarrier)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -49343,7 +49343,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePresentBarrierFeaturesNV
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_PresentBarrier`](Extensions::NV_PresentBarrier)
+/// - Extension [`NV_PresentBarrier`](Extension::NV_PresentBarrier)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -49393,7 +49393,7 @@ unsafe impl Extends<SurfaceCapabilities2KHR> for SurfaceCapabilitiesPresentBarri
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_PresentBarrier`](Extensions::NV_PresentBarrier)
+/// - Extension [`NV_PresentBarrier`](Extension::NV_PresentBarrier)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -49441,7 +49441,7 @@ unsafe impl Extends<SwapchainCreateInfoKHR> for SwapchainPresentBarrierCreateInf
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceDiagnosticsConfig`](Extensions::NV_DeviceDiagnosticsConfig)
+/// - Extension [`NV_DeviceDiagnosticsConfig`](Extension::NV_DeviceDiagnosticsConfig)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -49491,7 +49491,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDiagnosticsConfigFeature
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceDiagnosticsConfig`](Extensions::NV_DeviceDiagnosticsConfig)
+/// - Extension [`NV_DeviceDiagnosticsConfig`](Extension::NV_DeviceDiagnosticsConfig)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -49540,7 +49540,7 @@ unsafe impl Extends<DeviceCreateInfo> for DeviceDiagnosticsConfigCreateInfoNV {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_QueuePerfHint`](Extensions::QCOM_QueuePerfHint)
+/// - Extension [`QCOM_QueuePerfHint`](Extension::QCOM_QueuePerfHint)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -49587,7 +49587,7 @@ unsafe impl Extendable for PerfHintInfoQCOM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_QueuePerfHint`](Extensions::QCOM_QueuePerfHint)
+/// - Extension [`QCOM_QueuePerfHint`](Extension::QCOM_QueuePerfHint)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -49637,7 +49637,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceQueuePerfHintFeaturesQCO
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_QueuePerfHint`](Extensions::QCOM_QueuePerfHint)
+/// - Extension [`QCOM_QueuePerfHint`](Extension::QCOM_QueuePerfHint)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -49687,7 +49687,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceQueuePerfHintPr
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_ImageProcessing3`](Extensions::QCOM_ImageProcessing3)
+/// - Extension [`QCOM_ImageProcessing3`](Extension::QCOM_ImageProcessing3)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -49741,7 +49741,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceImageProcessing3Features
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_ShaderMultipleWaitQueues`](Extensions::QCOM_ShaderMultipleWaitQueues)
+/// - Extension [`QCOM_ShaderMultipleWaitQueues`](Extension::QCOM_ShaderMultipleWaitQueues)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -49794,7 +49794,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderMultipleWaitQueues
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_ShaderMultipleWaitQueues`](Extensions::QCOM_ShaderMultipleWaitQueues)
+/// - Extension [`QCOM_ShaderMultipleWaitQueues`](Extension::QCOM_ShaderMultipleWaitQueues)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -49848,7 +49848,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ShaderSplitBarrier`](Extensions::EXT_ShaderSplitBarrier)
+/// - Extension [`EXT_ShaderSplitBarrier`](Extension::EXT_ShaderSplitBarrier)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -49898,7 +49898,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderSplitBarrierFeatur
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ShaderSplitBarrier`](Extensions::EXT_ShaderSplitBarrier)
+/// - Extension [`EXT_ShaderSplitBarrier`](Extension::EXT_ShaderSplitBarrier)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -49948,7 +49948,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderSplitBarr
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
+/// - Extension [`NV_CudaKernelLaunch`](Extension::NV_CudaKernelLaunch)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -49995,7 +49995,7 @@ unsafe impl Extendable for CudaModuleCreateInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
+/// - Extension [`NV_CudaKernelLaunch`](Extension::NV_CudaKernelLaunch)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -50043,7 +50043,7 @@ unsafe impl Extendable for CudaFunctionCreateInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
+/// - Extension [`NV_CudaKernelLaunch`](Extension::NV_CudaKernelLaunch)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -50112,7 +50112,7 @@ unsafe impl Extendable for CudaLaunchInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
+/// - Extension [`NV_CudaKernelLaunch`](Extension::NV_CudaKernelLaunch)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -50162,7 +50162,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCudaKernelLaunchFeatures
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
+/// - Extension [`NV_CudaKernelLaunch`](Extension::NV_CudaKernelLaunch)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -50214,7 +50214,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceCudaKernelLaunc
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_TileShading`](Extensions::QCOM_TileShading)
+/// - Extension [`QCOM_TileShading`](Extension::QCOM_TileShading)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -50290,7 +50290,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceTileShadingFeaturesQCOM 
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_TileShading`](Extensions::QCOM_TileShading)
+/// - Extension [`QCOM_TileShading`](Extension::QCOM_TileShading)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -50346,7 +50346,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceTileShadingProp
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_TileShading`](Extensions::QCOM_TileShading)
+/// - Extension [`QCOM_TileShading`](Extension::QCOM_TileShading)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -50404,7 +50404,7 @@ unsafe impl Extends<CommandBufferInheritanceInfo> for RenderPassTileShadingCreat
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_TileShading`](Extensions::QCOM_TileShading)
+/// - Extension [`QCOM_TileShading`](Extension::QCOM_TileShading)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -50447,7 +50447,7 @@ unsafe impl Extendable for PerTileBeginInfoQCOM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_TileShading`](Extensions::QCOM_TileShading)
+/// - Extension [`QCOM_TileShading`](Extension::QCOM_TileShading)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -50490,7 +50490,7 @@ unsafe impl Extendable for PerTileEndInfoQCOM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_TileShading`](Extensions::QCOM_TileShading)
+/// - Extension [`QCOM_TileShading`](Extension::QCOM_TileShading)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -50533,8 +50533,8 @@ unsafe impl Extendable for DispatchTileInfoQCOM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_LowLatency`](Extensions::NV_LowLatency)
-/// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+/// - Extension [`NV_LowLatency`](Extension::NV_LowLatency)
+/// - Extension [`NV_LowLatency2`](Extension::NV_LowLatency2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -50582,7 +50582,7 @@ unsafe impl Extends<SemaphoreCreateInfo> for QueryLowLatencySupportNV {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MetalObjects`](Extensions::EXT_MetalObjects)
+/// - Extension [`EXT_MetalObjects`](Extension::EXT_MetalObjects)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -50644,7 +50644,7 @@ unsafe impl Extends<ExportMetalObjectCreateInfoEXT> for ExportMetalObjectCreateI
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MetalObjects`](Extensions::EXT_MetalObjects)
+/// - Extension [`EXT_MetalObjects`](Extension::EXT_MetalObjects)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -50694,7 +50694,7 @@ unsafe impl Extendable for ExportMetalObjectsInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MetalObjects`](Extensions::EXT_MetalObjects)
+/// - Extension [`EXT_MetalObjects`](Extension::EXT_MetalObjects)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -50742,7 +50742,7 @@ unsafe impl Extends<ExportMetalObjectsInfoEXT> for ExportMetalDeviceInfoEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MetalObjects`](Extensions::EXT_MetalObjects)
+/// - Extension [`EXT_MetalObjects`](Extension::EXT_MetalObjects)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -50793,7 +50793,7 @@ unsafe impl Extends<ExportMetalCommandQueueInfoEXT> for ExportMetalCommandQueueI
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MetalObjects`](Extensions::EXT_MetalObjects)
+/// - Extension [`EXT_MetalObjects`](Extension::EXT_MetalObjects)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -50844,7 +50844,7 @@ unsafe impl Extends<ExportMetalBufferInfoEXT> for ExportMetalBufferInfoEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MetalObjects`](Extensions::EXT_MetalObjects)
+/// - Extension [`EXT_MetalObjects`](Extension::EXT_MetalObjects)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -50892,7 +50892,7 @@ unsafe impl Extends<MemoryAllocateInfo> for ImportMetalBufferInfoEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MetalObjects`](Extensions::EXT_MetalObjects)
+/// - Extension [`EXT_MetalObjects`](Extension::EXT_MetalObjects)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -50952,7 +50952,7 @@ unsafe impl Extends<ExportMetalTextureInfoEXT> for ExportMetalTextureInfoEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MetalObjects`](Extensions::EXT_MetalObjects)
+/// - Extension [`EXT_MetalObjects`](Extension::EXT_MetalObjects)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -51003,7 +51003,7 @@ unsafe impl Extends<ImportMetalTextureInfoEXT> for ImportMetalTextureInfoEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MetalObjects`](Extensions::EXT_MetalObjects)
+/// - Extension [`EXT_MetalObjects`](Extension::EXT_MetalObjects)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -51054,7 +51054,7 @@ unsafe impl Extends<ExportMetalIOSurfaceInfoEXT> for ExportMetalIOSurfaceInfoEXT
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MetalObjects`](Extensions::EXT_MetalObjects)
+/// - Extension [`EXT_MetalObjects`](Extension::EXT_MetalObjects)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -51103,7 +51103,7 @@ unsafe impl Extends<ImageCreateInfo> for ImportMetalIOSurfaceInfoEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MetalObjects`](Extensions::EXT_MetalObjects)
+/// - Extension [`EXT_MetalObjects`](Extension::EXT_MetalObjects)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -51158,7 +51158,7 @@ unsafe impl Extends<ExportMetalSharedEventInfoEXT> for ExportMetalSharedEventInf
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MetalObjects`](Extensions::EXT_MetalObjects)
+/// - Extension [`EXT_MetalObjects`](Extension::EXT_MetalObjects)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -51208,8 +51208,8 @@ unsafe impl Extends<EventCreateInfo> for ImportMetalSharedEventInfoEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -51323,8 +51323,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDescriptorBuffe
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -51380,8 +51380,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDescriptorBufferFeatures
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -51431,8 +51431,8 @@ unsafe impl Extendable for DescriptorAddressInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -51483,8 +51483,8 @@ unsafe impl Extendable for DescriptorBufferBindingInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -51535,8 +51535,8 @@ unsafe impl Extends<DescriptorBufferBindingInfoEXT>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -51578,8 +51578,8 @@ impl Default for DescriptorDataEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -51628,8 +51628,8 @@ unsafe impl Extendable for DescriptorGetInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -51674,8 +51674,8 @@ unsafe impl Extendable for BufferCaptureDescriptorDataInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -51720,8 +51720,8 @@ unsafe impl Extendable for ImageCaptureDescriptorDataInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -51766,8 +51766,8 @@ unsafe impl Extendable for ImageViewCaptureDescriptorDataInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -51812,8 +51812,8 @@ unsafe impl Extendable for SamplerCaptureDescriptorDataInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -51886,8 +51886,8 @@ unsafe impl Extends<AccelerationStructureCreateInfo2KHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -51936,8 +51936,8 @@ unsafe impl Extendable for AccelerationStructureCaptureDescriptorDataInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -51990,7 +51990,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_GraphicsPipelineLibrary`](Extensions::EXT_GraphicsPipelineLibrary)
+/// - Extension [`EXT_GraphicsPipelineLibrary`](Extension::EXT_GraphicsPipelineLibrary)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -52040,7 +52040,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceGraphicsPipelineLibraryF
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_GraphicsPipelineLibrary`](Extensions::EXT_GraphicsPipelineLibrary)
+/// - Extension [`EXT_GraphicsPipelineLibrary`](Extension::EXT_GraphicsPipelineLibrary)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -52095,7 +52095,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_GraphicsPipelineLibrary`](Extensions::EXT_GraphicsPipelineLibrary)
+/// - Extension [`EXT_GraphicsPipelineLibrary`](Extension::EXT_GraphicsPipelineLibrary)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -52143,7 +52143,7 @@ unsafe impl Extends<GraphicsPipelineCreateInfo> for GraphicsPipelineLibraryCreat
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_ShaderEarlyAndLateFragmentTests`](Extensions::AMD_ShaderEarlyAndLateFragmentTests)
+/// - Extension [`AMD_ShaderEarlyAndLateFragmentTests`](Extension::AMD_ShaderEarlyAndLateFragmentTests)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -52197,7 +52197,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderEarlyAndLateFragme
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_FragmentShadingRateEnums`](Extensions::NV_FragmentShadingRateEnums)
+/// - Extension [`NV_FragmentShadingRateEnums`](Extension::NV_FragmentShadingRateEnums)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -52251,7 +52251,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceFragmentShadingRateEnums
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_FragmentShadingRateEnums`](Extensions::NV_FragmentShadingRateEnums)
+/// - Extension [`NV_FragmentShadingRateEnums`](Extension::NV_FragmentShadingRateEnums)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -52304,7 +52304,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_FragmentShadingRateEnums`](Extensions::NV_FragmentShadingRateEnums)
+/// - Extension [`NV_FragmentShadingRateEnums`](Extension::NV_FragmentShadingRateEnums)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -52359,7 +52359,7 @@ unsafe impl Extends<GraphicsPipelineCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracingMotionBlur`](Extensions::NV_RayTracingMotionBlur)
+/// - Extension [`NV_RayTracingMotionBlur`](Extension::NV_RayTracingMotionBlur)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -52387,7 +52387,7 @@ impl Default for DeviceOrHostAddressConstKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracingMotionBlur`](Extensions::NV_RayTracingMotionBlur)
+/// - Extension [`NV_RayTracingMotionBlur`](Extension::NV_RayTracingMotionBlur)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -52438,7 +52438,7 @@ unsafe impl Extends<AccelerationStructureGeometryTrianglesDataKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracingMotionBlur`](Extensions::NV_RayTracingMotionBlur)
+/// - Extension [`NV_RayTracingMotionBlur`](Extension::NV_RayTracingMotionBlur)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -52489,7 +52489,7 @@ unsafe impl Extends<AccelerationStructureCreateInfoKHR> for AccelerationStructur
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracingMotionBlur`](Extensions::NV_RayTracingMotionBlur)
+/// - Extension [`NV_RayTracingMotionBlur`](Extension::NV_RayTracingMotionBlur)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -52525,7 +52525,7 @@ impl Default for AccelerationStructureMatrixMotionInstanceNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracingMotionBlur`](Extensions::NV_RayTracingMotionBlur)
+/// - Extension [`NV_RayTracingMotionBlur`](Extension::NV_RayTracingMotionBlur)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -52578,7 +52578,7 @@ impl Default for SRTDataNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracingMotionBlur`](Extensions::NV_RayTracingMotionBlur)
+/// - Extension [`NV_RayTracingMotionBlur`](Extension::NV_RayTracingMotionBlur)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -52614,7 +52614,7 @@ impl Default for AccelerationStructureSRTMotionInstanceNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracingMotionBlur`](Extensions::NV_RayTracingMotionBlur)
+/// - Extension [`NV_RayTracingMotionBlur`](Extension::NV_RayTracingMotionBlur)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -52643,7 +52643,7 @@ impl Default for AccelerationStructureMotionInstanceDataNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracingMotionBlur`](Extensions::NV_RayTracingMotionBlur)
+/// - Extension [`NV_RayTracingMotionBlur`](Extension::NV_RayTracingMotionBlur)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -52671,7 +52671,7 @@ impl Default for AccelerationStructureMotionInstanceNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracingMotionBlur`](Extensions::NV_RayTracingMotionBlur)
+/// - Extension [`NV_RayTracingMotionBlur`](Extension::NV_RayTracingMotionBlur)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -52724,7 +52724,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRayTracingMotionBlurFeat
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`EXT_Ycbcr2Plane444Formats`](Extensions::EXT_Ycbcr2Plane444Formats)
+/// - Extension [`EXT_Ycbcr2Plane444Formats`](Extension::EXT_Ycbcr2Plane444Formats)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -52774,7 +52774,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceYcbcr2Plane444FormatsFea
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_FragmentDensityMap2`](Extensions::EXT_FragmentDensityMap2)
+/// - Extension [`EXT_FragmentDensityMap2`](Extension::EXT_FragmentDensityMap2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -52824,7 +52824,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceFragmentDensityMap2Featu
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_FragmentDensityMap2`](Extensions::EXT_FragmentDensityMap2)
+/// - Extension [`EXT_FragmentDensityMap2`](Extension::EXT_FragmentDensityMap2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -52880,7 +52880,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceFragmentDensity
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_RotatedCopyCommands`](Extensions::QCOM_RotatedCopyCommands)
+/// - Extension [`QCOM_RotatedCopyCommands`](Extension::QCOM_RotatedCopyCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -52932,7 +52932,7 @@ unsafe impl Extends<DeviceMemoryImageCopyKHR> for CopyCommandTransformInfoQCOM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+/// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -52982,7 +52982,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceImageCompressionControlF
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+/// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -53039,7 +53039,7 @@ unsafe impl Extends<PhysicalDeviceImageFormatInfo2> for ImageCompressionControlE
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+/// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -53095,7 +53095,7 @@ unsafe impl Extends<SubresourceLayout2> for ImageCompressionPropertiesEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_AttachmentFeedbackLoopLayout`](Extensions::EXT_AttachmentFeedbackLoopLayout)
+/// - Extension [`EXT_AttachmentFeedbackLoopLayout`](Extension::EXT_AttachmentFeedbackLoopLayout)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -53149,7 +53149,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceAttachmentFeedbackLoopLa
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`EXT_4444Formats`](Extensions::EXT_4444Formats)
+/// - Extension [`EXT_4444Formats`](Extension::EXT_4444Formats)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -53201,8 +53201,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevice4444FormatsFeaturesEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceFault`](Extensions::EXT_DeviceFault)
-/// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
+/// - Extension [`EXT_DeviceFault`](Extension::EXT_DeviceFault)
+/// - Extension [`KHR_DeviceFault`](Extension::KHR_DeviceFault)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -53254,8 +53254,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceFaultFeaturesEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceFault`](Extensions::EXT_DeviceFault)
-/// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
+/// - Extension [`EXT_DeviceFault`](Extension::EXT_DeviceFault)
+/// - Extension [`KHR_DeviceFault`](Extension::KHR_DeviceFault)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -53307,8 +53307,8 @@ unsafe impl Extendable for DeviceFaultCountsEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceFault`](Extensions::EXT_DeviceFault)
-/// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
+/// - Extension [`EXT_DeviceFault`](Extension::EXT_DeviceFault)
+/// - Extension [`KHR_DeviceFault`](Extension::KHR_DeviceFault)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -53365,8 +53365,8 @@ unsafe impl Extendable for DeviceFaultInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_RasterizationOrderAttachmentAccess`](Extensions::ARM_RasterizationOrderAttachmentAccess)
-/// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extensions::EXT_RasterizationOrderAttachmentAccess)
+/// - Extension [`ARM_RasterizationOrderAttachmentAccess`](Extension::ARM_RasterizationOrderAttachmentAccess)
+/// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extension::EXT_RasterizationOrderAttachmentAccess)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -53432,7 +53432,7 @@ pub type PhysicalDeviceRasterizationOrderAttachmentAccessFeaturesARM =
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_Rgba10X6Formats`](Extensions::EXT_Rgba10X6Formats)
+/// - Extension [`EXT_Rgba10X6Formats`](Extension::EXT_Rgba10X6Formats)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -53482,7 +53482,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRGBA10X6FormatsFeaturesE
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DirectfbSurface`](Extensions::EXT_DirectfbSurface)
+/// - Extension [`EXT_DirectfbSurface`](Extension::EXT_DirectfbSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -53532,8 +53532,8 @@ unsafe impl Extendable for DirectFBSurfaceCreateInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`VALVE_MutableDescriptorType`](Extensions::VALVE_MutableDescriptorType)
-/// - Extension [`EXT_MutableDescriptorType`](Extensions::EXT_MutableDescriptorType)
+/// - Extension [`VALVE_MutableDescriptorType`](Extension::VALVE_MutableDescriptorType)
+/// - Extension [`EXT_MutableDescriptorType`](Extension::EXT_MutableDescriptorType)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -53588,8 +53588,8 @@ pub type PhysicalDeviceMutableDescriptorTypeFeaturesVALVE =
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`VALVE_MutableDescriptorType`](Extensions::VALVE_MutableDescriptorType)
-/// - Extension [`EXT_MutableDescriptorType`](Extensions::EXT_MutableDescriptorType)
+/// - Extension [`VALVE_MutableDescriptorType`](Extension::VALVE_MutableDescriptorType)
+/// - Extension [`EXT_MutableDescriptorType`](Extension::EXT_MutableDescriptorType)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -53619,8 +53619,8 @@ pub type MutableDescriptorTypeListVALVE = MutableDescriptorTypeListEXT;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`VALVE_MutableDescriptorType`](Extensions::VALVE_MutableDescriptorType)
-/// - Extension [`EXT_MutableDescriptorType`](Extensions::EXT_MutableDescriptorType)
+/// - Extension [`VALVE_MutableDescriptorType`](Extension::VALVE_MutableDescriptorType)
+/// - Extension [`EXT_MutableDescriptorType`](Extension::EXT_MutableDescriptorType)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -53677,7 +53677,7 @@ pub type MutableDescriptorTypeCreateInfoVALVE = MutableDescriptorTypeCreateInfoE
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_VertexInputDynamicState`](Extensions::EXT_VertexInputDynamicState)
+/// - Extension [`EXT_VertexInputDynamicState`](Extension::EXT_VertexInputDynamicState)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -53727,8 +53727,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVertexInputDynamicStateF
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_VertexInputDynamicState`](Extensions::EXT_VertexInputDynamicState)
-/// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+/// - Extension [`EXT_VertexInputDynamicState`](Extension::EXT_VertexInputDynamicState)
+/// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -53779,8 +53779,8 @@ unsafe impl Extendable for VertexInputBindingDescription2EXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_VertexInputDynamicState`](Extensions::EXT_VertexInputDynamicState)
-/// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+/// - Extension [`EXT_VertexInputDynamicState`](Extension::EXT_VertexInputDynamicState)
+/// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -53831,7 +53831,7 @@ unsafe impl Extendable for VertexInputAttributeDescription2EXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_PhysicalDeviceDrm`](Extensions::EXT_PhysicalDeviceDrm)
+/// - Extension [`EXT_PhysicalDeviceDrm`](Extension::EXT_PhysicalDeviceDrm)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -53891,7 +53891,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDrmPropertiesEX
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceAddressBindingReport`](Extensions::EXT_DeviceAddressBindingReport)
+/// - Extension [`EXT_DeviceAddressBindingReport`](Extension::EXT_DeviceAddressBindingReport)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -53941,7 +53941,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceAddressBindingReportFeat
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceAddressBindingReport`](Extensions::EXT_DeviceAddressBindingReport)
+/// - Extension [`EXT_DeviceAddressBindingReport`](Extension::EXT_DeviceAddressBindingReport)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -53996,7 +53996,7 @@ unsafe impl Extends<DebugUtilsMessengerCallbackDataEXT> for DeviceAddressBinding
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DepthClipControl`](Extensions::EXT_DepthClipControl)
+/// - Extension [`EXT_DepthClipControl`](Extension::EXT_DepthClipControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -54046,7 +54046,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDepthClipControlFeatures
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DepthClipControl`](Extensions::EXT_DepthClipControl)
+/// - Extension [`EXT_DepthClipControl`](Extension::EXT_DepthClipControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -54097,7 +54097,7 @@ unsafe impl Extends<PipelineViewportStateCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_PrimitiveTopologyListRestart`](Extensions::EXT_PrimitiveTopologyListRestart)
+/// - Extension [`EXT_PrimitiveTopologyListRestart`](Extension::EXT_PrimitiveTopologyListRestart)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -54152,7 +54152,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePrimitiveTopologyListRes
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`FUCHSIA_ExternalMemory`](Extensions::FUCHSIA_ExternalMemory)
+/// - Extension [`FUCHSIA_ExternalMemory`](Extension::FUCHSIA_ExternalMemory)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -54204,7 +54204,7 @@ unsafe impl Extends<MemoryAllocateInfo> for ImportMemoryZirconHandleInfoFUCHSIA 
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`FUCHSIA_ExternalMemory`](Extensions::FUCHSIA_ExternalMemory)
+/// - Extension [`FUCHSIA_ExternalMemory`](Extension::FUCHSIA_ExternalMemory)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -54251,7 +54251,7 @@ unsafe impl Extendable for MemoryZirconHandlePropertiesFUCHSIA {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`FUCHSIA_ExternalMemory`](Extensions::FUCHSIA_ExternalMemory)
+/// - Extension [`FUCHSIA_ExternalMemory`](Extension::FUCHSIA_ExternalMemory)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -54298,7 +54298,7 @@ unsafe impl Extendable for MemoryGetZirconHandleInfoFUCHSIA {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`FUCHSIA_ExternalSemaphore`](Extensions::FUCHSIA_ExternalSemaphore)
+/// - Extension [`FUCHSIA_ExternalSemaphore`](Extension::FUCHSIA_ExternalSemaphore)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -54350,7 +54350,7 @@ unsafe impl Extendable for ImportSemaphoreZirconHandleInfoFUCHSIA {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`FUCHSIA_ExternalSemaphore`](Extensions::FUCHSIA_ExternalSemaphore)
+/// - Extension [`FUCHSIA_ExternalSemaphore`](Extension::FUCHSIA_ExternalSemaphore)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -54397,7 +54397,7 @@ unsafe impl Extendable for SemaphoreGetZirconHandleInfoFUCHSIA {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+/// - Extension [`FUCHSIA_BufferCollection`](Extension::FUCHSIA_BufferCollection)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -54442,7 +54442,7 @@ unsafe impl Extendable for BufferCollectionCreateInfoFUCHSIA {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+/// - Extension [`FUCHSIA_BufferCollection`](Extension::FUCHSIA_BufferCollection)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -54492,7 +54492,7 @@ unsafe impl Extends<MemoryAllocateInfo> for ImportMemoryBufferCollectionFUCHSIA 
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+/// - Extension [`FUCHSIA_BufferCollection`](Extension::FUCHSIA_BufferCollection)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -54542,7 +54542,7 @@ unsafe impl Extends<ImageCreateInfo> for BufferCollectionImageCreateInfoFUCHSIA 
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+/// - Extension [`FUCHSIA_BufferCollection`](Extension::FUCHSIA_BufferCollection)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -54595,7 +54595,7 @@ unsafe impl Extendable for BufferCollectionConstraintsInfoFUCHSIA {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+/// - Extension [`FUCHSIA_BufferCollection`](Extension::FUCHSIA_BufferCollection)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -54645,7 +54645,7 @@ unsafe impl Extendable for BufferConstraintsInfoFUCHSIA {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+/// - Extension [`FUCHSIA_BufferCollection`](Extension::FUCHSIA_BufferCollection)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -54695,7 +54695,7 @@ unsafe impl Extends<BufferCreateInfo> for BufferCollectionBufferCreateInfoFUCHSI
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+/// - Extension [`FUCHSIA_BufferCollection`](Extension::FUCHSIA_BufferCollection)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -54740,7 +54740,7 @@ unsafe impl Extendable for SysmemColorSpaceFUCHSIA {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+/// - Extension [`FUCHSIA_BufferCollection`](Extension::FUCHSIA_BufferCollection)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -54807,7 +54807,7 @@ unsafe impl Extendable for BufferCollectionPropertiesFUCHSIA {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+/// - Extension [`FUCHSIA_BufferCollection`](Extension::FUCHSIA_BufferCollection)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -54864,7 +54864,7 @@ unsafe impl Extendable for ImageFormatConstraintsInfoFUCHSIA {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+/// - Extension [`FUCHSIA_BufferCollection`](Extension::FUCHSIA_BufferCollection)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -54916,7 +54916,7 @@ unsafe impl Extendable for ImageConstraintsInfoFUCHSIA {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`HUAWEI_SubpassShading`](Extensions::HUAWEI_SubpassShading)
+/// - Extension [`HUAWEI_SubpassShading`](Extension::HUAWEI_SubpassShading)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -54966,7 +54966,7 @@ unsafe impl Extends<ComputePipelineCreateInfo> for SubpassShadingPipelineCreateI
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`HUAWEI_SubpassShading`](Extensions::HUAWEI_SubpassShading)
+/// - Extension [`HUAWEI_SubpassShading`](Extension::HUAWEI_SubpassShading)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -55016,7 +55016,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceSubpassShadingFeaturesHU
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`HUAWEI_SubpassShading`](Extensions::HUAWEI_SubpassShading)
+/// - Extension [`HUAWEI_SubpassShading`](Extension::HUAWEI_SubpassShading)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -55066,7 +55066,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceSubpassShadingP
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`HUAWEI_InvocationMask`](Extensions::HUAWEI_InvocationMask)
+/// - Extension [`HUAWEI_InvocationMask`](Extension::HUAWEI_InvocationMask)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -55116,7 +55116,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceInvocationMaskFeaturesHU
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ExternalMemoryRdma`](Extensions::NV_ExternalMemoryRdma)
+/// - Extension [`NV_ExternalMemoryRdma`](Extension::NV_ExternalMemoryRdma)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -55163,7 +55163,7 @@ unsafe impl Extendable for MemoryGetRemoteAddressInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ExternalMemoryRdma`](Extensions::NV_ExternalMemoryRdma)
+/// - Extension [`NV_ExternalMemoryRdma`](Extension::NV_ExternalMemoryRdma)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -55213,7 +55213,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceExternalMemoryRDMAFeatur
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_PipelineProperties`](Extensions::EXT_PipelineProperties)
+/// - Extension [`EXT_PipelineProperties`](Extension::EXT_PipelineProperties)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -55260,7 +55260,7 @@ unsafe impl Extendable for PipelinePropertiesIdentifierEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_PipelineProperties`](Extensions::EXT_PipelineProperties)
+/// - Extension [`EXT_PipelineProperties`](Extension::EXT_PipelineProperties)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -55310,7 +55310,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePipelinePropertiesFeatur
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_FrameBoundary`](Extensions::EXT_FrameBoundary)
+/// - Extension [`EXT_FrameBoundary`](Extension::EXT_FrameBoundary)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -55360,7 +55360,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceFrameBoundaryFeaturesEXT
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_FrameBoundary`](Extensions::EXT_FrameBoundary)
+/// - Extension [`EXT_FrameBoundary`](Extension::EXT_FrameBoundary)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -55438,7 +55438,7 @@ unsafe impl Extends<BindSparseInfo> for FrameBoundaryEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MultisampledRenderToSingleSampled`](Extensions::EXT_MultisampledRenderToSingleSampled)
+/// - Extension [`EXT_MultisampledRenderToSingleSampled`](Extension::EXT_MultisampledRenderToSingleSampled)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -55495,7 +55495,7 @@ unsafe impl Extends<DeviceCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MultisampledRenderToSingleSampled`](Extensions::EXT_MultisampledRenderToSingleSampled)
+/// - Extension [`EXT_MultisampledRenderToSingleSampled`](Extension::EXT_MultisampledRenderToSingleSampled)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -55545,7 +55545,7 @@ unsafe impl Extends<FormatProperties2> for SubpassResolvePerformanceQueryEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MultisampledRenderToSingleSampled`](Extensions::EXT_MultisampledRenderToSingleSampled)
+/// - Extension [`EXT_MultisampledRenderToSingleSampled`](Extension::EXT_MultisampledRenderToSingleSampled)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -55598,7 +55598,7 @@ unsafe impl Extends<RenderingInfo> for MultisampledRenderToSingleSampledInfoEXT 
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.3 with appropriate features
-/// - Extension [`EXT_ExtendedDynamicState2`](Extensions::EXT_ExtendedDynamicState2)
+/// - Extension [`EXT_ExtendedDynamicState2`](Extension::EXT_ExtendedDynamicState2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -55652,7 +55652,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceExtendedDynamicState2Fea
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QNX_ScreenSurface`](Extensions::QNX_ScreenSurface)
+/// - Extension [`QNX_ScreenSurface`](Extension::QNX_ScreenSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -55702,7 +55702,7 @@ unsafe impl Extendable for ScreenSurfaceCreateInfoQNX {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ColorWriteEnable`](Extensions::EXT_ColorWriteEnable)
+/// - Extension [`EXT_ColorWriteEnable`](Extension::EXT_ColorWriteEnable)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -55752,7 +55752,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceColorWriteEnableFeatures
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ColorWriteEnable`](Extensions::EXT_ColorWriteEnable)
+/// - Extension [`EXT_ColorWriteEnable`](Extension::EXT_ColorWriteEnable)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -55803,7 +55803,7 @@ unsafe impl Extends<PipelineColorBlendStateCreateInfo> for PipelineColorWriteCre
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_PrimitivesGeneratedQuery`](Extensions::EXT_PrimitivesGeneratedQuery)
+/// - Extension [`EXT_PrimitivesGeneratedQuery`](Extension::EXT_PrimitivesGeneratedQuery)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -55857,7 +55857,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePrimitivesGeneratedQuery
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`VALVE_VideoEncodeRgbConversion`](Extensions::VALVE_VideoEncodeRgbConversion)
+/// - Extension [`VALVE_VideoEncodeRgbConversion`](Extension::VALVE_VideoEncodeRgbConversion)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -55910,7 +55910,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVideoEncodeRgbConversion
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`VALVE_VideoEncodeRgbConversion`](Extensions::VALVE_VideoEncodeRgbConversion)
+/// - Extension [`VALVE_VideoEncodeRgbConversion`](Extension::VALVE_VideoEncodeRgbConversion)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -55966,7 +55966,7 @@ unsafe impl Extends<VideoCapabilitiesKHR> for VideoEncodeRgbConversionCapabiliti
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`VALVE_VideoEncodeRgbConversion`](Extensions::VALVE_VideoEncodeRgbConversion)
+/// - Extension [`VALVE_VideoEncodeRgbConversion`](Extension::VALVE_VideoEncodeRgbConversion)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -56014,7 +56014,7 @@ unsafe impl Extends<VideoProfileInfoKHR> for VideoEncodeProfileRgbConversionInfo
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`VALVE_VideoEncodeRgbConversion`](Extensions::VALVE_VideoEncodeRgbConversion)
+/// - Extension [`VALVE_VideoEncodeRgbConversion`](Extension::VALVE_VideoEncodeRgbConversion)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -56068,7 +56068,7 @@ unsafe impl Extends<VideoSessionCreateInfoKHR> for VideoEncodeSessionRgbConversi
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ImageViewMinLod`](Extensions::EXT_ImageViewMinLod)
+/// - Extension [`EXT_ImageViewMinLod`](Extension::EXT_ImageViewMinLod)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -56118,7 +56118,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceImageViewMinLodFeaturesE
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ImageViewMinLod`](Extensions::EXT_ImageViewMinLod)
+/// - Extension [`EXT_ImageViewMinLod`](Extension::EXT_ImageViewMinLod)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -56166,7 +56166,7 @@ unsafe impl Extends<ImageViewCreateInfo> for ImageViewMinLodCreateInfoEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MultiDraw`](Extensions::EXT_MultiDraw)
+/// - Extension [`EXT_MultiDraw`](Extension::EXT_MultiDraw)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -56216,7 +56216,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMultiDrawFeaturesEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MultiDraw`](Extensions::EXT_MultiDraw)
+/// - Extension [`EXT_MultiDraw`](Extension::EXT_MultiDraw)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -56266,7 +56266,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMultiDrawProper
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MultiDraw`](Extensions::EXT_MultiDraw)
+/// - Extension [`EXT_MultiDraw`](Extension::EXT_MultiDraw)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -56291,7 +56291,7 @@ impl Default for MultiDrawInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MultiDraw`](Extensions::EXT_MultiDraw)
+/// - Extension [`EXT_MultiDraw`](Extension::EXT_MultiDraw)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -56318,7 +56318,7 @@ impl Default for MultiDrawIndexedInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_Image2DViewOf3D`](Extensions::EXT_Image2DViewOf3D)
+/// - Extension [`EXT_Image2DViewOf3D`](Extension::EXT_Image2DViewOf3D)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -56370,7 +56370,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceImage2DViewOf3DFeaturesE
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ShaderTileImage`](Extensions::EXT_ShaderTileImage)
+/// - Extension [`EXT_ShaderTileImage`](Extension::EXT_ShaderTileImage)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -56424,7 +56424,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderTileImageFeaturesE
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ShaderTileImage`](Extensions::EXT_ShaderTileImage)
+/// - Extension [`EXT_ShaderTileImage`](Extension::EXT_ShaderTileImage)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -56478,8 +56478,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderTileImage
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-/// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+/// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+/// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -56506,8 +56506,8 @@ impl Default for MicromapUsageEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-/// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+/// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+/// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -56535,8 +56535,8 @@ impl Default for DeviceOrHostAddressKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-/// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+/// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+/// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -56606,8 +56606,8 @@ unsafe impl Extendable for MicromapBuildInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-/// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+/// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+/// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -56664,8 +56664,8 @@ unsafe impl Extendable for MicromapCreateInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-/// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+/// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+/// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -56719,8 +56719,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceOpacityMicromapFeaturesE
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-/// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+/// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+/// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -56772,8 +56772,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceOpacityMicromap
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-/// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+/// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+/// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -56818,8 +56818,8 @@ unsafe impl Extendable for MicromapVersionInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-/// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+/// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+/// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -56868,8 +56868,8 @@ unsafe impl Extendable for CopyMicromapToMemoryInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-/// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+/// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+/// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -56918,8 +56918,8 @@ unsafe impl Extendable for CopyMemoryToMicromapInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-/// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+/// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+/// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -56968,8 +56968,8 @@ unsafe impl Extendable for CopyMicromapInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-/// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+/// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+/// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -57018,8 +57018,8 @@ unsafe impl Extendable for MicromapBuildSizesInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-/// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+/// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+/// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -57093,8 +57093,8 @@ unsafe impl Extends<AccelerationStructureDenseGeometryFormatTrianglesDataAMDX>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DisplacementMicromap`](Extensions::NV_DisplacementMicromap)
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+/// - Extension [`NV_DisplacementMicromap`](Extension::NV_DisplacementMicromap)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -57144,8 +57144,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDisplacementMicromapFeat
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DisplacementMicromap`](Extensions::NV_DisplacementMicromap)
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+/// - Extension [`NV_DisplacementMicromap`](Extension::NV_DisplacementMicromap)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -57195,8 +57195,8 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceDisplacementMic
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DisplacementMicromap`](Extensions::NV_DisplacementMicromap)
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+/// - Extension [`NV_DisplacementMicromap`](Extension::NV_DisplacementMicromap)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -57281,7 +57281,7 @@ unsafe impl Extends<AccelerationStructureGeometryTrianglesDataKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`HUAWEI_ClusterCullingShader`](Extensions::HUAWEI_ClusterCullingShader)
+/// - Extension [`HUAWEI_ClusterCullingShader`](Extension::HUAWEI_ClusterCullingShader)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -57335,7 +57335,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceClusterCullingShaderFeat
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`HUAWEI_ClusterCullingShader`](Extensions::HUAWEI_ClusterCullingShader)
+/// - Extension [`HUAWEI_ClusterCullingShader`](Extension::HUAWEI_ClusterCullingShader)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -57394,7 +57394,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`HUAWEI_ClusterCullingShader`](Extensions::HUAWEI_ClusterCullingShader)
+/// - Extension [`HUAWEI_ClusterCullingShader`](Extension::HUAWEI_ClusterCullingShader)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -57445,7 +57445,7 @@ unsafe impl Extends<PhysicalDeviceClusterCullingShaderFeaturesHUAWEI>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_BorderColorSwizzle`](Extensions::EXT_BorderColorSwizzle)
+/// - Extension [`EXT_BorderColorSwizzle`](Extension::EXT_BorderColorSwizzle)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -57497,7 +57497,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceBorderColorSwizzleFeatur
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_BorderColorSwizzle`](Extensions::EXT_BorderColorSwizzle)
+/// - Extension [`EXT_BorderColorSwizzle`](Extension::EXT_BorderColorSwizzle)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -57547,7 +57547,7 @@ unsafe impl Extends<SamplerCreateInfo> for SamplerBorderColorComponentMappingCre
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_PageableDeviceLocalMemory`](Extensions::EXT_PageableDeviceLocalMemory)
+/// - Extension [`EXT_PageableDeviceLocalMemory`](Extension::EXT_PageableDeviceLocalMemory)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -57600,7 +57600,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePageableDeviceLocalMemor
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_ShaderCoreProperties`](Extensions::ARM_ShaderCoreProperties)
+/// - Extension [`ARM_ShaderCoreProperties`](Extension::ARM_ShaderCoreProperties)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -57654,7 +57654,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderCorePrope
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_SchedulingControls`](Extensions::ARM_SchedulingControls)
+/// - Extension [`ARM_SchedulingControls`](Extension::ARM_SchedulingControls)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -57704,7 +57704,7 @@ unsafe impl Extends<DeviceCreateInfo> for DeviceQueueShaderCoreControlCreateInfo
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_SchedulingControls`](Extensions::ARM_SchedulingControls)
+/// - Extension [`ARM_SchedulingControls`](Extension::ARM_SchedulingControls)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -57754,7 +57754,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceSchedulingControlsFeatur
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_SchedulingControls`](Extensions::ARM_SchedulingControls)
+/// - Extension [`ARM_SchedulingControls`](Extension::ARM_SchedulingControls)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -57804,7 +57804,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceSchedulingContr
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_SchedulingControls`](Extensions::ARM_SchedulingControls)
+/// - Extension [`ARM_SchedulingControls`](Extension::ARM_SchedulingControls)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -57856,7 +57856,7 @@ unsafe impl Extendable for DispatchParametersARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_SchedulingControls`](Extensions::ARM_SchedulingControls)
+/// - Extension [`ARM_SchedulingControls`](Extension::ARM_SchedulingControls)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -57913,7 +57913,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ImageSlicedViewOf3D`](Extensions::EXT_ImageSlicedViewOf3D)
+/// - Extension [`EXT_ImageSlicedViewOf3D`](Extension::EXT_ImageSlicedViewOf3D)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -57963,7 +57963,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceImageSlicedViewOf3DFeatu
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ImageSlicedViewOf3D`](Extensions::EXT_ImageSlicedViewOf3D)
+/// - Extension [`EXT_ImageSlicedViewOf3D`](Extension::EXT_ImageSlicedViewOf3D)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -58013,7 +58013,7 @@ unsafe impl Extends<ImageViewCreateInfo> for ImageViewSlicedCreateInfoEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`VALVE_DescriptorSetHostMapping`](Extensions::VALVE_DescriptorSetHostMapping)
+/// - Extension [`VALVE_DescriptorSetHostMapping`](Extension::VALVE_DescriptorSetHostMapping)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -58066,7 +58066,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDescriptorSetHostMapping
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`VALVE_DescriptorSetHostMapping`](Extensions::VALVE_DescriptorSetHostMapping)
+/// - Extension [`VALVE_DescriptorSetHostMapping`](Extension::VALVE_DescriptorSetHostMapping)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -58113,7 +58113,7 @@ unsafe impl Extendable for DescriptorSetBindingReferenceVALVE {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`VALVE_DescriptorSetHostMapping`](Extensions::VALVE_DescriptorSetHostMapping)
+/// - Extension [`VALVE_DescriptorSetHostMapping`](Extension::VALVE_DescriptorSetHostMapping)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -58160,7 +58160,7 @@ unsafe impl Extendable for DescriptorSetLayoutHostMappingInfoVALVE {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_NonSeamlessCubeMap`](Extensions::EXT_NonSeamlessCubeMap)
+/// - Extension [`EXT_NonSeamlessCubeMap`](Extension::EXT_NonSeamlessCubeMap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -58210,7 +58210,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceNonSeamlessCubeMapFeatur
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_RenderPassStriped`](Extensions::ARM_RenderPassStriped)
+/// - Extension [`ARM_RenderPassStriped`](Extension::ARM_RenderPassStriped)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -58260,7 +58260,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRenderPassStripedFeature
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_RenderPassStriped`](Extensions::ARM_RenderPassStriped)
+/// - Extension [`ARM_RenderPassStriped`](Extension::ARM_RenderPassStriped)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -58312,7 +58312,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceRenderPassStrip
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_RenderPassStriped`](Extensions::ARM_RenderPassStriped)
+/// - Extension [`ARM_RenderPassStriped`](Extension::ARM_RenderPassStriped)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -58357,7 +58357,7 @@ unsafe impl Extendable for RenderPassStripeInfoARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_RenderPassStriped`](Extensions::ARM_RenderPassStriped)
+/// - Extension [`ARM_RenderPassStriped`](Extension::ARM_RenderPassStriped)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -58409,7 +58409,7 @@ unsafe impl Extends<RenderPassBeginInfo> for RenderPassStripeBeginInfoARM {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_RenderPassStriped`](Extensions::ARM_RenderPassStriped)
+/// - Extension [`ARM_RenderPassStriped`](Extension::ARM_RenderPassStriped)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -58459,8 +58459,8 @@ unsafe impl Extends<CommandBufferSubmitInfo> for RenderPassStripeSubmitInfoARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_FragmentDensityMapOffset`](Extensions::QCOM_FragmentDensityMapOffset)
-/// - Extension [`EXT_FragmentDensityMapOffset`](Extensions::EXT_FragmentDensityMapOffset)
+/// - Extension [`QCOM_FragmentDensityMapOffset`](Extension::QCOM_FragmentDensityMapOffset)
+/// - Extension [`EXT_FragmentDensityMapOffset`](Extension::EXT_FragmentDensityMapOffset)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -58515,8 +58515,8 @@ pub type PhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM =
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_FragmentDensityMapOffset`](Extensions::QCOM_FragmentDensityMapOffset)
-/// - Extension [`EXT_FragmentDensityMapOffset`](Extensions::EXT_FragmentDensityMapOffset)
+/// - Extension [`QCOM_FragmentDensityMapOffset`](Extension::QCOM_FragmentDensityMapOffset)
+/// - Extension [`EXT_FragmentDensityMapOffset`](Extension::EXT_FragmentDensityMapOffset)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -58574,8 +58574,8 @@ pub type PhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM =
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_FragmentDensityMapOffset`](Extensions::QCOM_FragmentDensityMapOffset)
-/// - Extension [`EXT_FragmentDensityMapOffset`](Extensions::EXT_FragmentDensityMapOffset)
+/// - Extension [`QCOM_FragmentDensityMapOffset`](Extension::QCOM_FragmentDensityMapOffset)
+/// - Extension [`EXT_FragmentDensityMapOffset`](Extension::EXT_FragmentDensityMapOffset)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -58632,8 +58632,8 @@ pub type SubpassFragmentDensityMapOffsetEndInfoQCOM = RenderPassFragmentDensityM
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_CopyMemoryIndirect`](Extensions::NV_CopyMemoryIndirect)
-/// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
+/// - Extension [`NV_CopyMemoryIndirect`](Extension::NV_CopyMemoryIndirect)
+/// - Extension [`KHR_CopyMemoryIndirect`](Extension::KHR_CopyMemoryIndirect)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -58683,8 +58683,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCopyMemoryIndirectFeatur
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_MemoryDecompression`](Extensions::NV_MemoryDecompression)
-/// - Extension [`EXT_MemoryDecompression`](Extensions::EXT_MemoryDecompression)
+/// - Extension [`NV_MemoryDecompression`](Extension::NV_MemoryDecompression)
+/// - Extension [`EXT_MemoryDecompression`](Extension::EXT_MemoryDecompression)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -58715,8 +58715,8 @@ impl Default for DecompressMemoryRegionNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_MemoryDecompression`](Extensions::NV_MemoryDecompression)
-/// - Extension [`EXT_MemoryDecompression`](Extensions::EXT_MemoryDecompression)
+/// - Extension [`NV_MemoryDecompression`](Extension::NV_MemoryDecompression)
+/// - Extension [`EXT_MemoryDecompression`](Extension::EXT_MemoryDecompression)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -58770,8 +58770,8 @@ pub type PhysicalDeviceMemoryDecompressionFeaturesNV = PhysicalDeviceMemoryDecom
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_MemoryDecompression`](Extensions::NV_MemoryDecompression)
-/// - Extension [`EXT_MemoryDecompression`](Extensions::EXT_MemoryDecompression)
+/// - Extension [`NV_MemoryDecompression`](Extension::NV_MemoryDecompression)
+/// - Extension [`EXT_MemoryDecompression`](Extension::EXT_MemoryDecompression)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -58828,7 +58828,7 @@ pub type PhysicalDeviceMemoryDecompressionPropertiesNV =
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceGeneratedCommandsCompute`](Extensions::NV_DeviceGeneratedCommandsCompute)
+/// - Extension [`NV_DeviceGeneratedCommandsCompute`](Extension::NV_DeviceGeneratedCommandsCompute)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -58885,7 +58885,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDeviceGeneratedCommandsC
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceGeneratedCommandsCompute`](Extensions::NV_DeviceGeneratedCommandsCompute)
+/// - Extension [`NV_DeviceGeneratedCommandsCompute`](Extension::NV_DeviceGeneratedCommandsCompute)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -58938,7 +58938,7 @@ unsafe impl Extends<ComputePipelineCreateInfo> for ComputePipelineIndirectBuffer
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceGeneratedCommandsCompute`](Extensions::NV_DeviceGeneratedCommandsCompute)
+/// - Extension [`NV_DeviceGeneratedCommandsCompute`](Extension::NV_DeviceGeneratedCommandsCompute)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -58985,7 +58985,7 @@ unsafe impl Extendable for PipelineIndirectDeviceAddressInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceGeneratedCommandsCompute`](Extensions::NV_DeviceGeneratedCommandsCompute)
+/// - Extension [`NV_DeviceGeneratedCommandsCompute`](Extension::NV_DeviceGeneratedCommandsCompute)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -59008,7 +59008,7 @@ impl Default for BindPipelineIndirectCommandNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracingLinearSweptSpheres`](Extensions::NV_RayTracingLinearSweptSpheres)
+/// - Extension [`NV_RayTracingLinearSweptSpheres`](Extension::NV_RayTracingLinearSweptSpheres)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -59063,7 +59063,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRayTracingLinearSweptSph
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracingLinearSweptSpheres`](Extensions::NV_RayTracingLinearSweptSpheres)
+/// - Extension [`NV_RayTracingLinearSweptSpheres`](Extension::NV_RayTracingLinearSweptSpheres)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -59134,7 +59134,7 @@ unsafe impl Extends<AccelerationStructureGeometryKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracingLinearSweptSpheres`](Extensions::NV_RayTracingLinearSweptSpheres)
+/// - Extension [`NV_RayTracingLinearSweptSpheres`](Extension::NV_RayTracingLinearSweptSpheres)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -59201,7 +59201,7 @@ unsafe impl Extends<AccelerationStructureGeometryKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_LinearColorAttachment`](Extensions::NV_LinearColorAttachment)
+/// - Extension [`NV_LinearColorAttachment`](Extension::NV_LinearColorAttachment)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -59251,7 +59251,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceLinearColorAttachmentFea
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ImageCompressionControlSwapchain`](Extensions::EXT_ImageCompressionControlSwapchain)
+/// - Extension [`EXT_ImageCompressionControlSwapchain`](Extension::EXT_ImageCompressionControlSwapchain)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -59307,7 +59307,7 @@ unsafe impl Extends<DeviceCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_ImageProcessing`](Extensions::QCOM_ImageProcessing)
+/// - Extension [`QCOM_ImageProcessing`](Extension::QCOM_ImageProcessing)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -59359,7 +59359,7 @@ unsafe impl Extends<ImageViewCreateInfo> for ImageViewSampleWeightCreateInfoQCOM
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_ImageProcessing`](Extensions::QCOM_ImageProcessing)
+/// - Extension [`QCOM_ImageProcessing`](Extension::QCOM_ImageProcessing)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -59413,7 +59413,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceImageProcessingFeaturesQ
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_ImageProcessing`](Extensions::QCOM_ImageProcessing)
+/// - Extension [`QCOM_ImageProcessing`](Extension::QCOM_ImageProcessing)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -59473,7 +59473,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceImageProcessing
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_NestedCommandBuffer`](Extensions::EXT_NestedCommandBuffer)
+/// - Extension [`EXT_NestedCommandBuffer`](Extension::EXT_NestedCommandBuffer)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -59527,7 +59527,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceNestedCommandBufferFeatu
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_NestedCommandBuffer`](Extensions::EXT_NestedCommandBuffer)
+/// - Extension [`EXT_NestedCommandBuffer`](Extension::EXT_NestedCommandBuffer)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -59577,7 +59577,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceNestedCommandBu
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`OHOS_ExternalMemory`](Extensions::OHOS_ExternalMemory)
+/// - Extension [`OHOS_ExternalMemory`](Extension::OHOS_ExternalMemory)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -59627,7 +59627,7 @@ unsafe impl Extends<ImageFormatProperties2> for NativeBufferUsageOHOS {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`OHOS_ExternalMemory`](Extensions::OHOS_ExternalMemory)
+/// - Extension [`OHOS_ExternalMemory`](Extension::OHOS_ExternalMemory)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -59678,7 +59678,7 @@ unsafe impl Extendable for NativeBufferPropertiesOHOS {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`OHOS_ExternalMemory`](Extensions::OHOS_ExternalMemory)
+/// - Extension [`OHOS_ExternalMemory`](Extension::OHOS_ExternalMemory)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -59742,7 +59742,7 @@ unsafe impl Extends<NativeBufferPropertiesOHOS> for NativeBufferFormatProperties
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`OHOS_ExternalMemory`](Extensions::OHOS_ExternalMemory)
+/// - Extension [`OHOS_ExternalMemory`](Extension::OHOS_ExternalMemory)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -59790,7 +59790,7 @@ unsafe impl Extends<MemoryAllocateInfo> for ImportNativeBufferInfoOHOS {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`OHOS_ExternalMemory`](Extensions::OHOS_ExternalMemory)
+/// - Extension [`OHOS_ExternalMemory`](Extension::OHOS_ExternalMemory)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -59835,7 +59835,7 @@ unsafe impl Extendable for MemoryGetNativeBufferInfoOHOS {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`OHOS_ExternalMemory`](Extensions::OHOS_ExternalMemory)
+/// - Extension [`OHOS_ExternalMemory`](Extension::OHOS_ExternalMemory)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -59891,7 +59891,7 @@ unsafe impl Extends<CommandBufferInheritanceInfo> for ExternalFormatOHOS {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ExternalMemoryAcquireUnmodified`](Extensions::EXT_ExternalMemoryAcquireUnmodified)
+/// - Extension [`EXT_ExternalMemoryAcquireUnmodified`](Extension::EXT_ExternalMemoryAcquireUnmodified)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -59945,7 +59945,7 @@ unsafe impl Extends<ImageMemoryBarrier2> for ExternalMemoryAcquireUnmodifiedEXT 
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+/// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -60055,7 +60055,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceExtendedDynamicState3Fea
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
+/// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -60108,8 +60108,8 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-/// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+/// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+/// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -60142,8 +60142,8 @@ impl Default for ColorBlendEquationEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-/// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+/// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+/// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -60174,7 +60174,7 @@ impl Default for ColorBlendAdvancedEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_SubpassMergeFeedback`](Extensions::EXT_SubpassMergeFeedback)
+/// - Extension [`EXT_SubpassMergeFeedback`](Extension::EXT_SubpassMergeFeedback)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -60224,7 +60224,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceSubpassMergeFeedbackFeat
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_SubpassMergeFeedback`](Extensions::EXT_SubpassMergeFeedback)
+/// - Extension [`EXT_SubpassMergeFeedback`](Extension::EXT_SubpassMergeFeedback)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -60274,7 +60274,7 @@ unsafe impl Extends<SubpassDescription2> for RenderPassCreationControlEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_SubpassMergeFeedback`](Extensions::EXT_SubpassMergeFeedback)
+/// - Extension [`EXT_SubpassMergeFeedback`](Extension::EXT_SubpassMergeFeedback)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -60299,7 +60299,7 @@ impl Default for RenderPassCreationFeedbackInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_SubpassMergeFeedback`](Extensions::EXT_SubpassMergeFeedback)
+/// - Extension [`EXT_SubpassMergeFeedback`](Extension::EXT_SubpassMergeFeedback)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -60347,7 +60347,7 @@ unsafe impl Extends<RenderPassCreateInfo2> for RenderPassCreationFeedbackCreateI
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_SubpassMergeFeedback`](Extensions::EXT_SubpassMergeFeedback)
+/// - Extension [`EXT_SubpassMergeFeedback`](Extension::EXT_SubpassMergeFeedback)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -60377,7 +60377,7 @@ impl Default for RenderPassSubpassFeedbackInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_SubpassMergeFeedback`](Extensions::EXT_SubpassMergeFeedback)
+/// - Extension [`EXT_SubpassMergeFeedback`](Extension::EXT_SubpassMergeFeedback)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -60425,7 +60425,7 @@ unsafe impl Extends<SubpassDescription2> for RenderPassSubpassFeedbackCreateInfo
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`LUNARG_DirectDriverLoading`](Extensions::LUNARG_DirectDriverLoading)
+/// - Extension [`LUNARG_DirectDriverLoading`](Extension::LUNARG_DirectDriverLoading)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -60472,7 +60472,7 @@ unsafe impl Extendable for DirectDriverLoadingInfoLUNARG {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`LUNARG_DirectDriverLoading`](Extensions::LUNARG_DirectDriverLoading)
+/// - Extension [`LUNARG_DirectDriverLoading`](Extension::LUNARG_DirectDriverLoading)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -60524,7 +60524,7 @@ unsafe impl Extends<InstanceCreateInfo> for DirectDriverLoadingListLUNARG {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -60585,7 +60585,7 @@ unsafe impl Extends<DataGraphPipelineConstantARM> for TensorDescriptionARM {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -60645,7 +60645,7 @@ unsafe impl Extendable for TensorCreateInfoARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -60690,7 +60690,7 @@ unsafe impl Extendable for TensorMemoryRequirementsInfoARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -60739,7 +60739,7 @@ unsafe impl Extendable for BindTensorMemoryInfoARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -60789,7 +60789,7 @@ unsafe impl Extends<WriteDescriptorSet> for WriteDescriptorSetTensorARM {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -60841,7 +60841,7 @@ unsafe impl Extends<FormatProperties2> for TensorFormatPropertiesARM {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -60915,7 +60915,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceTensorPropertie
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -60979,7 +60979,7 @@ unsafe impl Extends<DependencyInfo> for TensorMemoryBarrierARM {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -61029,7 +61029,7 @@ unsafe impl Extends<DependencyInfo> for TensorDependencyInfoARM {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -61089,7 +61089,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceTensorFeaturesARM {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -61134,7 +61134,7 @@ unsafe impl Extendable for DeviceTensorMemoryRequirementsARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -61189,7 +61189,7 @@ unsafe impl Extendable for TensorCopyARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -61240,7 +61240,7 @@ unsafe impl Extendable for CopyTensorInfoARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -61288,7 +61288,7 @@ unsafe impl Extends<MemoryAllocateInfo> for MemoryDedicatedAllocateInfoTensorARM
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -61338,7 +61338,7 @@ unsafe impl Extendable for PhysicalDeviceExternalTensorInfoARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -61383,7 +61383,7 @@ unsafe impl Extendable for ExternalTensorPropertiesARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -61432,7 +61432,7 @@ unsafe impl Extends<TensorCreateInfoARM> for ExternalMemoryTensorCreateInfoARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -61482,7 +61482,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDescriptorBufferTensorFe
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -61537,7 +61537,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -61586,7 +61586,7 @@ unsafe impl Extends<DescriptorGetInfoEXT> for DescriptorGetTensorInfoARM {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -61631,7 +61631,7 @@ unsafe impl Extendable for TensorCaptureDescriptorDataInfoARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -61676,7 +61676,7 @@ unsafe impl Extendable for TensorViewCaptureDescriptorDataInfoARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -61732,7 +61732,7 @@ unsafe impl Extends<BindSparseInfo> for FrameBoundaryTensorsARM {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ShaderModuleIdentifier`](Extensions::EXT_ShaderModuleIdentifier)
+/// - Extension [`EXT_ShaderModuleIdentifier`](Extension::EXT_ShaderModuleIdentifier)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -61782,7 +61782,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderModuleIdentifierFe
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ShaderModuleIdentifier`](Extensions::EXT_ShaderModuleIdentifier)
+/// - Extension [`EXT_ShaderModuleIdentifier`](Extension::EXT_ShaderModuleIdentifier)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -61835,7 +61835,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ShaderModuleIdentifier`](Extensions::EXT_ShaderModuleIdentifier)
+/// - Extension [`EXT_ShaderModuleIdentifier`](Extension::EXT_ShaderModuleIdentifier)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -61889,7 +61889,7 @@ unsafe impl Extends<PipelineShaderStageCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ShaderModuleIdentifier`](Extensions::EXT_ShaderModuleIdentifier)
+/// - Extension [`EXT_ShaderModuleIdentifier`](Extension::EXT_ShaderModuleIdentifier)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -61938,7 +61938,7 @@ unsafe impl Extendable for ShaderModuleIdentifierEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+/// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -61988,7 +61988,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceOpticalFlowFeaturesNV {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+/// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -62058,7 +62058,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceOpticalFlowProp
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+/// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -62108,7 +62108,7 @@ unsafe impl Extends<ImageCreateInfo> for OpticalFlowImageFormatInfoNV {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+/// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -62155,7 +62155,7 @@ unsafe impl Extendable for OpticalFlowImageFormatPropertiesNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+/// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -62222,7 +62222,7 @@ unsafe impl Extendable for OpticalFlowSessionCreateInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+/// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -62274,7 +62274,7 @@ unsafe impl Extends<OpticalFlowSessionCreateInfoNV> for OpticalFlowSessionCreate
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+/// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -62325,7 +62325,7 @@ unsafe impl Extendable for OpticalFlowExecuteInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_LegacyDithering`](Extensions::EXT_LegacyDithering)
+/// - Extension [`EXT_LegacyDithering`](Extension::EXT_LegacyDithering)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -62375,7 +62375,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceLegacyDitheringFeaturesE
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ANDROID_ExternalFormatResolve`](Extensions::ANDROID_ExternalFormatResolve)
+/// - Extension [`ANDROID_ExternalFormatResolve`](Extension::ANDROID_ExternalFormatResolve)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -62428,7 +62428,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceExternalFormatResolveFea
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ANDROID_ExternalFormatResolve`](Extensions::ANDROID_ExternalFormatResolve)
+/// - Extension [`ANDROID_ExternalFormatResolve`](Extension::ANDROID_ExternalFormatResolve)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -62485,7 +62485,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ANDROID_ExternalFormatResolve`](Extensions::ANDROID_ExternalFormatResolve)
+/// - Extension [`ANDROID_ExternalFormatResolve`](Extension::ANDROID_ExternalFormatResolve)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -62538,7 +62538,7 @@ unsafe impl Extends<AndroidHardwareBufferPropertiesANDROID>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_AntiLag`](Extensions::AMD_AntiLag)
+/// - Extension [`AMD_AntiLag`](Extension::AMD_AntiLag)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -62588,7 +62588,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceAntiLagFeaturesAMD {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_AntiLag`](Extensions::AMD_AntiLag)
+/// - Extension [`AMD_AntiLag`](Extension::AMD_AntiLag)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -62635,7 +62635,7 @@ unsafe impl Extendable for AntiLagPresentationInfoAMD {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_AntiLag`](Extensions::AMD_AntiLag)
+/// - Extension [`AMD_AntiLag`](Extension::AMD_AntiLag)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -62685,7 +62685,7 @@ unsafe impl Extendable for AntiLagDataAMD {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMDX_DenseGeometryFormat`](Extensions::AMDX_DenseGeometryFormat)
+/// - Extension [`AMDX_DenseGeometryFormat`](Extension::AMDX_DenseGeometryFormat)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -62735,7 +62735,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDenseGeometryFormatFeatu
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMDX_DenseGeometryFormat`](Extensions::AMDX_DenseGeometryFormat)
+/// - Extension [`AMDX_DenseGeometryFormat`](Extension::AMDX_DenseGeometryFormat)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -62801,7 +62801,7 @@ unsafe impl Extends<AccelerationStructureGeometryKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+/// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -62851,7 +62851,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderObjectFeaturesEXT 
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+/// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -62903,7 +62903,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderObjectPro
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+/// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -62984,8 +62984,8 @@ unsafe impl Extendable for ShaderCreateInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
-/// - Extension [`EXT_DepthClampControl`](Extensions::EXT_DepthClampControl)
+/// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
+/// - Extension [`EXT_DepthClampControl`](Extension::EXT_DepthClampControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -63010,7 +63010,7 @@ impl Default for DepthClampRangeEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_TileProperties`](Extensions::QCOM_TileProperties)
+/// - Extension [`QCOM_TileProperties`](Extension::QCOM_TileProperties)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -63060,7 +63060,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceTilePropertiesFeaturesQC
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_TileProperties`](Extensions::QCOM_TileProperties)
+/// - Extension [`QCOM_TileProperties`](Extension::QCOM_TileProperties)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -63109,7 +63109,7 @@ unsafe impl Extendable for TilePropertiesQCOM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`SEC_AmigoProfiling`](Extensions::SEC_AmigoProfiling)
+/// - Extension [`SEC_AmigoProfiling`](Extension::SEC_AmigoProfiling)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -63159,7 +63159,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceAmigoProfilingFeaturesSE
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`SEC_AmigoProfiling`](Extensions::SEC_AmigoProfiling)
+/// - Extension [`SEC_AmigoProfiling`](Extension::SEC_AmigoProfiling)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -63209,7 +63209,7 @@ unsafe impl Extends<SubmitInfo> for AmigoProfilingSubmitInfoSEC {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_MultiviewPerViewViewports`](Extensions::QCOM_MultiviewPerViewViewports)
+/// - Extension [`QCOM_MultiviewPerViewViewports`](Extension::QCOM_MultiviewPerViewViewports)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -63262,8 +63262,8 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMultiviewPerViewViewport
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracingInvocationReorder`](Extensions::NV_RayTracingInvocationReorder)
-/// - Extension [`EXT_RayTracingInvocationReorder`](Extensions::EXT_RayTracingInvocationReorder)
+/// - Extension [`NV_RayTracingInvocationReorder`](Extension::NV_RayTracingInvocationReorder)
+/// - Extension [`EXT_RayTracingInvocationReorder`](Extension::EXT_RayTracingInvocationReorder)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -63316,8 +63316,8 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracingInvocationReorder`](Extensions::NV_RayTracingInvocationReorder)
-/// - Extension [`EXT_RayTracingInvocationReorder`](Extensions::EXT_RayTracingInvocationReorder)
+/// - Extension [`NV_RayTracingInvocationReorder`](Extension::NV_RayTracingInvocationReorder)
+/// - Extension [`EXT_RayTracingInvocationReorder`](Extension::EXT_RayTracingInvocationReorder)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -63370,7 +63370,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRayTracingInvocationReor
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_CooperativeVector`](Extensions::NV_CooperativeVector)
+/// - Extension [`NV_CooperativeVector`](Extension::NV_CooperativeVector)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -63426,7 +63426,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceCooperativeVect
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_CooperativeVector`](Extensions::NV_CooperativeVector)
+/// - Extension [`NV_CooperativeVector`](Extension::NV_CooperativeVector)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -63478,7 +63478,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCooperativeVectorFeature
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_CooperativeVector`](Extensions::NV_CooperativeVector)
+/// - Extension [`NV_CooperativeVector`](Extension::NV_CooperativeVector)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -63533,7 +63533,7 @@ unsafe impl Extendable for CooperativeVectorPropertiesNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_CooperativeVector`](Extensions::NV_CooperativeVector)
+/// - Extension [`NV_CooperativeVector`](Extension::NV_CooperativeVector)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -63600,7 +63600,7 @@ unsafe impl Extendable for ConvertCooperativeVectorMatrixInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ExtendedSparseAddressSpace`](Extensions::NV_ExtendedSparseAddressSpace)
+/// - Extension [`NV_ExtendedSparseAddressSpace`](Extension::NV_ExtendedSparseAddressSpace)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -63653,7 +63653,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceExtendedSparseAddressSpa
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ExtendedSparseAddressSpace`](Extensions::NV_ExtendedSparseAddressSpace)
+/// - Extension [`NV_ExtendedSparseAddressSpace`](Extension::NV_ExtendedSparseAddressSpace)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -63710,7 +63710,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_LegacyVertexAttributes`](Extensions::EXT_LegacyVertexAttributes)
+/// - Extension [`EXT_LegacyVertexAttributes`](Extension::EXT_LegacyVertexAttributes)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -63760,7 +63760,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceLegacyVertexAttributesFe
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_LegacyVertexAttributes`](Extensions::EXT_LegacyVertexAttributes)
+/// - Extension [`EXT_LegacyVertexAttributes`](Extension::EXT_LegacyVertexAttributes)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -63813,7 +63813,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_LayerSettings`](Extensions::EXT_LayerSettings)
+/// - Extension [`EXT_LayerSettings`](Extension::EXT_LayerSettings)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -63847,7 +63847,7 @@ impl Default for LayerSettingEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_LayerSettings`](Extensions::EXT_LayerSettings)
+/// - Extension [`EXT_LayerSettings`](Extension::EXT_LayerSettings)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -63899,7 +63899,7 @@ unsafe impl Extends<LayerSettingsCreateInfoEXT> for LayerSettingsCreateInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_ShaderCoreBuiltins`](Extensions::ARM_ShaderCoreBuiltins)
+/// - Extension [`ARM_ShaderCoreBuiltins`](Extension::ARM_ShaderCoreBuiltins)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -63949,7 +63949,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderCoreBuiltinsFeatur
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_ShaderCoreBuiltins`](Extensions::ARM_ShaderCoreBuiltins)
+/// - Extension [`ARM_ShaderCoreBuiltins`](Extension::ARM_ShaderCoreBuiltins)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -64003,7 +64003,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderCoreBuilt
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DynamicRenderingUnusedAttachments`](Extensions::EXT_DynamicRenderingUnusedAttachments)
+/// - Extension [`EXT_DynamicRenderingUnusedAttachments`](Extension::EXT_DynamicRenderingUnusedAttachments)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -64060,7 +64060,7 @@ unsafe impl Extends<DeviceCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+/// - Extension [`NV_LowLatency2`](Extension::NV_LowLatency2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -64109,7 +64109,7 @@ unsafe impl Extendable for LatencySleepModeInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+/// - Extension [`NV_LowLatency2`](Extension::NV_LowLatency2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -64156,7 +64156,7 @@ unsafe impl Extendable for LatencySleepInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+/// - Extension [`NV_LowLatency2`](Extension::NV_LowLatency2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -64203,7 +64203,7 @@ unsafe impl Extendable for SetLatencyMarkerInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+/// - Extension [`NV_LowLatency2`](Extension::NV_LowLatency2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -64276,7 +64276,7 @@ unsafe impl Extendable for LatencyTimingsFrameReportNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+/// - Extension [`NV_LowLatency2`](Extension::NV_LowLatency2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -64325,7 +64325,7 @@ unsafe impl Extendable for GetLatencyMarkerInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+/// - Extension [`NV_LowLatency2`](Extension::NV_LowLatency2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -64375,7 +64375,7 @@ unsafe impl Extends<SubmitInfo2> for LatencySubmissionPresentIdNV {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+/// - Extension [`NV_LowLatency2`](Extension::NV_LowLatency2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -64424,7 +64424,7 @@ unsafe impl Extends<SwapchainCreateInfoKHR> for SwapchainLatencyCreateInfoNV {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+/// - Extension [`NV_LowLatency2`](Extension::NV_LowLatency2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -64469,7 +64469,7 @@ unsafe impl Extendable for OutOfBandQueueTypeInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+/// - Extension [`NV_LowLatency2`](Extension::NV_LowLatency2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -64521,7 +64521,7 @@ unsafe impl Extends<SurfaceCapabilities2KHR> for LatencySurfaceCapabilitiesNV {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+/// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -64579,7 +64579,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDataGraphFeaturesARM {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+/// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -64629,7 +64629,7 @@ unsafe impl Extendable for DataGraphPipelineConstantARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+/// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -64682,7 +64682,7 @@ unsafe impl Extendable for DataGraphPipelineResourceInfoARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+/// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -64734,7 +64734,7 @@ unsafe impl Extends<DataGraphPipelineCreateInfoARM>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+/// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -64798,7 +64798,7 @@ unsafe impl Extendable for DataGraphPipelineCreateInfoARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+/// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -64859,7 +64859,7 @@ unsafe impl Extends<DataGraphPipelineCreateInfoARM> for DataGraphPipelineShaderM
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+/// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -64909,7 +64909,7 @@ unsafe impl Extendable for DataGraphPipelineSessionCreateInfoARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+/// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -64954,7 +64954,7 @@ unsafe impl Extendable for DataGraphPipelineSessionBindPointRequirementsInfoARM 
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+/// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -65005,7 +65005,7 @@ unsafe impl Extendable for DataGraphPipelineSessionBindPointRequirementARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+/// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -65054,7 +65054,7 @@ unsafe impl Extendable for DataGraphPipelineSessionMemoryRequirementsInfoARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+/// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -65107,7 +65107,7 @@ unsafe impl Extendable for BindDataGraphPipelineSessionMemoryInfoARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+/// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -65152,7 +65152,7 @@ unsafe impl Extendable for DataGraphPipelineInfoARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+/// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -65205,7 +65205,7 @@ unsafe impl Extendable for DataGraphPipelinePropertyQueryResultARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+/// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -65255,7 +65255,7 @@ unsafe impl Extends<DataGraphPipelineCreateInfoARM> for DataGraphPipelineIdentif
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+/// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -65303,7 +65303,7 @@ unsafe impl Extendable for DataGraphPipelineDispatchInfoARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+/// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -65328,7 +65328,7 @@ impl Default for PhysicalDeviceDataGraphProcessingEngineARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+/// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -65356,7 +65356,7 @@ impl Default for PhysicalDeviceDataGraphOperationSupportARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+/// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -65405,7 +65405,7 @@ unsafe impl Extendable for QueueFamilyDataGraphPropertiesARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+/// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -65459,7 +65459,7 @@ unsafe impl Extends<CommandPoolCreateInfo> for DataGraphProcessingEngineCreateIn
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+/// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -65507,7 +65507,7 @@ unsafe impl Extendable for PhysicalDeviceQueueFamilyDataGraphProcessingEngineInf
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+/// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -65556,7 +65556,7 @@ unsafe impl Extendable for QueueFamilyDataGraphProcessingEnginePropertiesARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+/// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -65616,7 +65616,7 @@ unsafe impl Extends<DataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraphInstructionSetTosa`](Extensions::ARM_DataGraphInstructionSetTosa)
+/// - Extension [`ARM_DataGraphInstructionSetTosa`](Extension::ARM_DataGraphInstructionSetTosa)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -65644,7 +65644,7 @@ impl Default for DataGraphTOSANameQualityARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraphInstructionSetTosa`](Extensions::ARM_DataGraphInstructionSetTosa)
+/// - Extension [`ARM_DataGraphInstructionSetTosa`](Extension::ARM_DataGraphInstructionSetTosa)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -65699,7 +65699,7 @@ unsafe impl Extendable for QueueFamilyDataGraphTOSAPropertiesARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_MultiviewPerViewRenderAreas`](Extensions::QCOM_MultiviewPerViewRenderAreas)
+/// - Extension [`QCOM_MultiviewPerViewRenderAreas`](Extension::QCOM_MultiviewPerViewRenderAreas)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -65752,7 +65752,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMultiviewPerViewRenderAr
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_MultiviewPerViewRenderAreas`](Extensions::QCOM_MultiviewPerViewRenderAreas)
+/// - Extension [`QCOM_MultiviewPerViewRenderAreas`](Extension::QCOM_MultiviewPerViewRenderAreas)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -65805,8 +65805,8 @@ unsafe impl Extends<RenderingInfo> for MultiviewPerViewRenderAreasRenderPassBegi
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_PerStageDescriptorSet`](Extensions::NV_PerStageDescriptorSet)
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`NV_PerStageDescriptorSet`](Extension::NV_PerStageDescriptorSet)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -65858,7 +65858,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePerStageDescriptorSetFea
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_ImageProcessing2`](Extensions::QCOM_ImageProcessing2)
+/// - Extension [`QCOM_ImageProcessing2`](Extension::QCOM_ImageProcessing2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -65908,7 +65908,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceImageProcessing2Features
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_ImageProcessing2`](Extensions::QCOM_ImageProcessing2)
+/// - Extension [`QCOM_ImageProcessing2`](Extension::QCOM_ImageProcessing2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -65959,7 +65959,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceImageProcessing
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_ImageProcessing2`](Extensions::QCOM_ImageProcessing2)
+/// - Extension [`QCOM_ImageProcessing2`](Extension::QCOM_ImageProcessing2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -66009,7 +66009,7 @@ unsafe impl Extends<SamplerCreateInfo> for SamplerBlockMatchWindowCreateInfoQCOM
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_FilterCubicWeights`](Extensions::QCOM_FilterCubicWeights)
+/// - Extension [`QCOM_FilterCubicWeights`](Extension::QCOM_FilterCubicWeights)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -66059,7 +66059,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCubicWeightsFeaturesQCOM
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_FilterCubicWeights`](Extensions::QCOM_FilterCubicWeights)
+/// - Extension [`QCOM_FilterCubicWeights`](Extension::QCOM_FilterCubicWeights)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -66107,7 +66107,7 @@ unsafe impl Extends<SamplerCreateInfo> for SamplerCubicWeightsCreateInfoQCOM {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_FilterCubicWeights`](Extensions::QCOM_FilterCubicWeights)
+/// - Extension [`QCOM_FilterCubicWeights`](Extension::QCOM_FilterCubicWeights)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -66155,7 +66155,7 @@ unsafe impl Extends<BlitImageInfo2> for BlitImageCubicWeightsInfoQCOM {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_YcbcrDegamma`](Extensions::QCOM_YcbcrDegamma)
+/// - Extension [`QCOM_YcbcrDegamma`](Extension::QCOM_YcbcrDegamma)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -66205,7 +66205,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceYcbcrDegammaFeaturesQCOM
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_YcbcrDegamma`](Extensions::QCOM_YcbcrDegamma)
+/// - Extension [`QCOM_YcbcrDegamma`](Extension::QCOM_YcbcrDegamma)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -66258,7 +66258,7 @@ unsafe impl Extends<SamplerYcbcrConversionCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_FilterCubicClamp`](Extensions::QCOM_FilterCubicClamp)
+/// - Extension [`QCOM_FilterCubicClamp`](Extension::QCOM_FilterCubicClamp)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -66308,7 +66308,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCubicClampFeaturesQCOM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_AttachmentFeedbackLoopDynamicState`](Extensions::EXT_AttachmentFeedbackLoopDynamicState)
+/// - Extension [`EXT_AttachmentFeedbackLoopDynamicState`](Extension::EXT_AttachmentFeedbackLoopDynamicState)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -66365,7 +66365,7 @@ unsafe impl Extends<DeviceCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QNX_ExternalMemoryScreenBuffer`](Extensions::QNX_ExternalMemoryScreenBuffer)
+/// - Extension [`QNX_ExternalMemoryScreenBuffer`](Extension::QNX_ExternalMemoryScreenBuffer)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -66416,7 +66416,7 @@ unsafe impl Extendable for ScreenBufferPropertiesQNX {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QNX_ExternalMemoryScreenBuffer`](Extensions::QNX_ExternalMemoryScreenBuffer)
+/// - Extension [`QNX_ExternalMemoryScreenBuffer`](Extension::QNX_ExternalMemoryScreenBuffer)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -66482,7 +66482,7 @@ unsafe impl Extends<ScreenBufferPropertiesQNX> for ScreenBufferFormatPropertiesQ
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QNX_ExternalMemoryScreenBuffer`](Extensions::QNX_ExternalMemoryScreenBuffer)
+/// - Extension [`QNX_ExternalMemoryScreenBuffer`](Extension::QNX_ExternalMemoryScreenBuffer)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -66530,7 +66530,7 @@ unsafe impl Extends<MemoryAllocateInfo> for ImportScreenBufferInfoQNX {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QNX_ExternalMemoryScreenBuffer`](Extensions::QNX_ExternalMemoryScreenBuffer)
+/// - Extension [`QNX_ExternalMemoryScreenBuffer`](Extension::QNX_ExternalMemoryScreenBuffer)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -66580,7 +66580,7 @@ unsafe impl Extends<SamplerYcbcrConversionCreateInfo> for ExternalFormatQNX {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QNX_ExternalMemoryScreenBuffer`](Extensions::QNX_ExternalMemoryScreenBuffer)
+/// - Extension [`QNX_ExternalMemoryScreenBuffer`](Extension::QNX_ExternalMemoryScreenBuffer)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -66633,7 +66633,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceExternalMemoryScreenBuff
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`MSFT_LayeredDriver`](Extensions::MSFT_LayeredDriver)
+/// - Extension [`MSFT_LayeredDriver`](Extension::MSFT_LayeredDriver)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -66683,7 +66683,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceLayeredDriverPr
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DescriptorPoolOverallocation`](Extensions::NV_DescriptorPoolOverallocation)
+/// - Extension [`NV_DescriptorPoolOverallocation`](Extension::NV_DescriptorPoolOverallocation)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -66736,7 +66736,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDescriptorPoolOveralloca
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_TileMemoryHeap`](Extensions::QCOM_TileMemoryHeap)
+/// - Extension [`QCOM_TileMemoryHeap`](Extension::QCOM_TileMemoryHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -66786,7 +66786,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceTileMemoryHeapFeaturesQC
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_TileMemoryHeap`](Extensions::QCOM_TileMemoryHeap)
+/// - Extension [`QCOM_TileMemoryHeap`](Extension::QCOM_TileMemoryHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -66836,7 +66836,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceTileMemoryHeapP
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_TileMemoryHeap`](Extensions::QCOM_TileMemoryHeap)
+/// - Extension [`QCOM_TileMemoryHeap`](Extension::QCOM_TileMemoryHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -66886,7 +66886,7 @@ unsafe impl Extends<MemoryRequirements2> for TileMemoryRequirementsQCOM {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_TileMemoryHeap`](Extensions::QCOM_TileMemoryHeap)
+/// - Extension [`QCOM_TileMemoryHeap`](Extension::QCOM_TileMemoryHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -66934,7 +66934,7 @@ unsafe impl Extends<CommandBufferInheritanceInfo> for TileMemoryBindInfoQCOM {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_TileMemoryHeap`](Extensions::QCOM_TileMemoryHeap)
+/// - Extension [`QCOM_TileMemoryHeap`](Extension::QCOM_TileMemoryHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -66986,7 +66986,7 @@ unsafe impl Extends<RenderingInfo> for TileMemorySizeInfoQCOM {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MemoryDecompression`](Extensions::EXT_MemoryDecompression)
+/// - Extension [`EXT_MemoryDecompression`](Extension::EXT_MemoryDecompression)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -67015,7 +67015,7 @@ impl Default for DecompressMemoryRegionEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MemoryDecompression`](Extensions::EXT_MemoryDecompression)
+/// - Extension [`EXT_MemoryDecompression`](Extension::EXT_MemoryDecompression)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -67064,7 +67064,7 @@ unsafe impl Extendable for DecompressMemoryInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DisplayStereo`](Extensions::NV_DisplayStereo)
+/// - Extension [`NV_DisplayStereo`](Extension::NV_DisplayStereo)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -67112,7 +67112,7 @@ unsafe impl Extends<DisplaySurfaceCreateInfoKHR> for DisplaySurfaceStereoCreateI
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DisplayStereo`](Extensions::NV_DisplayStereo)
+/// - Extension [`NV_DisplayStereo`](Extension::NV_DisplayStereo)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -67162,7 +67162,7 @@ unsafe impl Extends<DisplayModeProperties2KHR> for DisplayModeStereoPropertiesNV
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RawAccessChains`](Extensions::NV_RawAccessChains)
+/// - Extension [`NV_RawAccessChains`](Extension::NV_RawAccessChains)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -67212,7 +67212,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRawAccessChainsFeaturesN
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ExternalComputeQueue`](Extensions::NV_ExternalComputeQueue)
+/// - Extension [`NV_ExternalComputeQueue`](Extension::NV_ExternalComputeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -67260,7 +67260,7 @@ unsafe impl Extends<DeviceCreateInfo> for ExternalComputeQueueDeviceCreateInfoNV
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ExternalComputeQueue`](Extensions::NV_ExternalComputeQueue)
+/// - Extension [`NV_ExternalComputeQueue`](Extension::NV_ExternalComputeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -67305,7 +67305,7 @@ unsafe impl Extendable for ExternalComputeQueueCreateInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ExternalComputeQueue`](Extensions::NV_ExternalComputeQueue)
+/// - Extension [`NV_ExternalComputeQueue`](Extension::NV_ExternalComputeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -67350,7 +67350,7 @@ unsafe impl Extendable for ExternalComputeQueueDataParamsNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ExternalComputeQueue`](Extensions::NV_ExternalComputeQueue)
+/// - Extension [`NV_ExternalComputeQueue`](Extension::NV_ExternalComputeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -67402,7 +67402,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceExternalCompute
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_CommandBufferInheritance`](Extensions::NV_CommandBufferInheritance)
+/// - Extension [`NV_CommandBufferInheritance`](Extension::NV_CommandBufferInheritance)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -67452,7 +67452,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCommandBufferInheritance
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ShaderAtomicFloat16Vector`](Extensions::NV_ShaderAtomicFloat16Vector)
+/// - Extension [`NV_ShaderAtomicFloat16Vector`](Extension::NV_ShaderAtomicFloat16Vector)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -67502,7 +67502,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderAtomicFloat16Vecto
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ShaderReplicatedComposites`](Extensions::EXT_ShaderReplicatedComposites)
+/// - Extension [`EXT_ShaderReplicatedComposites`](Extension::EXT_ShaderReplicatedComposites)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -67555,7 +67555,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderReplicatedComposit
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_TensorControls`](Extensions::ARM_TensorControls)
+/// - Extension [`ARM_TensorControls`](Extension::ARM_TensorControls)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -67603,7 +67603,7 @@ unsafe impl Extends<TensorCreateInfoARM> for TensorRollingBackingCreateInfoARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_TensorControls`](Extensions::ARM_TensorControls)
+/// - Extension [`ARM_TensorControls`](Extension::ARM_TensorControls)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -67661,7 +67661,7 @@ unsafe impl Extends<FormatProperties2> for TensorExplicitTilingFormatPropertiesA
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ShaderFloat8`](Extensions::EXT_ShaderFloat8)
+/// - Extension [`EXT_ShaderFloat8`](Extension::EXT_ShaderFloat8)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -67713,7 +67713,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderFloat8FeaturesEXT 
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracingValidation`](Extensions::NV_RayTracingValidation)
+/// - Extension [`NV_RayTracingValidation`](Extension::NV_RayTracingValidation)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -67763,7 +67763,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRayTracingValidationFeat
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -67816,7 +67816,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceClusterAccelerationStruc
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -67883,7 +67883,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -67930,7 +67930,7 @@ unsafe impl Extendable for ClusterAccelerationStructureClustersBottomLevelInputN
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -67989,7 +67989,7 @@ unsafe impl Extendable for ClusterAccelerationStructureTriangleClusterInputNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -68038,7 +68038,7 @@ unsafe impl Extendable for ClusterAccelerationStructureMoveObjectsInputNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -68067,7 +68067,7 @@ impl Default for ClusterAccelerationStructureOpInputNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -68121,8 +68121,8 @@ unsafe impl Extendable for ClusterAccelerationStructureInputInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -68150,7 +68150,7 @@ impl Default for StridedDeviceAddressRegionKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -68212,7 +68212,7 @@ unsafe impl Extendable for ClusterAccelerationStructureCommandsInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -68237,7 +68237,7 @@ impl Default for StridedDeviceAddressNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -68264,7 +68264,7 @@ impl Default for ClusterAccelerationStructureGeometryIndexAndGeometryFlagsNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -68287,7 +68287,7 @@ impl Default for ClusterAccelerationStructureMoveObjectsInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -68314,7 +68314,7 @@ impl Default for ClusterAccelerationStructureBuildClustersBottomLevelInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -68374,7 +68374,7 @@ impl Default for ClusterAccelerationStructureBuildTriangleClusterInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -68438,7 +68438,7 @@ impl Default for ClusterAccelerationStructureBuildTriangleClusterTemplateInfoNV 
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -68469,7 +68469,7 @@ impl Default for ClusterAccelerationStructureInstantiateClusterInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -68492,8 +68492,8 @@ impl Default for ClusterAccelerationStructureGetTemplateIndicesInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
-/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
+/// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -68544,7 +68544,7 @@ unsafe impl Extendable for AccelerationStructureBuildSizesInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -68596,7 +68596,7 @@ unsafe impl Extends<RayTracingPipelineCreateInfoKHR>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_PartitionedAccelerationStructure`](Extensions::NV_PartitionedAccelerationStructure)
+/// - Extension [`NV_PartitionedAccelerationStructure`](Extension::NV_PartitionedAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -68649,7 +68649,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePartitionedAccelerationS
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_PartitionedAccelerationStructure`](Extensions::NV_PartitionedAccelerationStructure)
+/// - Extension [`NV_PartitionedAccelerationStructure`](Extension::NV_PartitionedAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -68702,7 +68702,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_PartitionedAccelerationStructure`](Extensions::NV_PartitionedAccelerationStructure)
+/// - Extension [`NV_PartitionedAccelerationStructure`](Extension::NV_PartitionedAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -68753,7 +68753,7 @@ unsafe impl Extends<PartitionedAccelerationStructureInstancesInputNV>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_PartitionedAccelerationStructure`](Extensions::NV_PartitionedAccelerationStructure)
+/// - Extension [`NV_PartitionedAccelerationStructure`](Extension::NV_PartitionedAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -68780,7 +68780,7 @@ impl Default for BuildPartitionedAccelerationStructureIndirectCommandNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_PartitionedAccelerationStructure`](Extensions::NV_PartitionedAccelerationStructure)
+/// - Extension [`NV_PartitionedAccelerationStructure`](Extension::NV_PartitionedAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -68820,7 +68820,7 @@ impl Default for PartitionedAccelerationStructureWriteInstanceDataNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_PartitionedAccelerationStructure`](Extensions::NV_PartitionedAccelerationStructure)
+/// - Extension [`NV_PartitionedAccelerationStructure`](Extension::NV_PartitionedAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -68847,7 +68847,7 @@ impl Default for PartitionedAccelerationStructureUpdateInstanceDataNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_PartitionedAccelerationStructure`](Extensions::NV_PartitionedAccelerationStructure)
+/// - Extension [`NV_PartitionedAccelerationStructure`](Extension::NV_PartitionedAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -68872,7 +68872,7 @@ impl Default for PartitionedAccelerationStructureWritePartitionTranslationDataNV
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_PartitionedAccelerationStructure`](Extensions::NV_PartitionedAccelerationStructure)
+/// - Extension [`NV_PartitionedAccelerationStructure`](Extension::NV_PartitionedAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -68922,7 +68922,7 @@ unsafe impl Extends<WriteDescriptorSet> for WriteDescriptorSetPartitionedAcceler
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_PartitionedAccelerationStructure`](Extensions::NV_PartitionedAccelerationStructure)
+/// - Extension [`NV_PartitionedAccelerationStructure`](Extension::NV_PartitionedAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -68978,7 +68978,7 @@ unsafe impl Extendable for PartitionedAccelerationStructureInstancesInputNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_PartitionedAccelerationStructure`](Extensions::NV_PartitionedAccelerationStructure)
+/// - Extension [`NV_PartitionedAccelerationStructure`](Extension::NV_PartitionedAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -69034,7 +69034,7 @@ unsafe impl Extendable for BuildPartitionedAccelerationStructureInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -69086,7 +69086,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDeviceGeneratedCommandsF
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -69161,7 +69161,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -69216,7 +69216,7 @@ unsafe impl Extendable for GeneratedCommandsMemoryRequirementsInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -69263,7 +69263,7 @@ unsafe impl Extendable for IndirectExecutionSetPipelineInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -69311,7 +69311,7 @@ unsafe impl Extendable for IndirectExecutionSetShaderLayoutInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -69368,7 +69368,7 @@ unsafe impl Extendable for IndirectExecutionSetShaderInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -69396,7 +69396,7 @@ impl Default for IndirectExecutionSetInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -69443,7 +69443,7 @@ unsafe impl Extendable for IndirectExecutionSetCreateInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -69512,7 +69512,7 @@ unsafe impl Extendable for GeneratedCommandsInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -69559,7 +69559,7 @@ unsafe impl Extendable for WriteIndirectExecutionSetPipelineEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -69582,7 +69582,7 @@ impl Default for IndirectCommandsPushConstantTokenEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -69605,7 +69605,7 @@ impl Default for IndirectCommandsVertexBufferTokenEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -69628,7 +69628,7 @@ impl Default for IndirectCommandsIndexBufferTokenEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -69653,7 +69653,7 @@ impl Default for IndirectCommandsExecutionSetTokenEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -69683,7 +69683,7 @@ impl Default for IndirectCommandsTokenDataEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -69734,7 +69734,7 @@ unsafe impl Extendable for IndirectCommandsLayoutTokenEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -69793,7 +69793,7 @@ unsafe impl Extendable for IndirectCommandsLayoutCreateInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -69820,7 +69820,7 @@ impl Default for DrawIndirectCountIndirectCommandEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -69847,7 +69847,7 @@ impl Default for BindVertexBufferIndirectCommandEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -69874,7 +69874,7 @@ impl Default for BindIndexBufferIndirectCommandEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -69927,7 +69927,7 @@ unsafe impl Extends<GeneratedCommandsMemoryRequirementsInfoEXT>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -69979,7 +69979,7 @@ unsafe impl Extends<GeneratedCommandsMemoryRequirementsInfoEXT> for GeneratedCom
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -70026,7 +70026,7 @@ unsafe impl Extendable for WriteIndirectExecutionSetShaderEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`MESA_ImageAlignmentControl`](Extensions::MESA_ImageAlignmentControl)
+/// - Extension [`MESA_ImageAlignmentControl`](Extension::MESA_ImageAlignmentControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -70076,7 +70076,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceImageAlignmentControlFea
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`MESA_ImageAlignmentControl`](Extensions::MESA_ImageAlignmentControl)
+/// - Extension [`MESA_ImageAlignmentControl`](Extension::MESA_ImageAlignmentControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -70129,7 +70129,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`MESA_ImageAlignmentControl`](Extensions::MESA_ImageAlignmentControl)
+/// - Extension [`MESA_ImageAlignmentControl`](Extension::MESA_ImageAlignmentControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -70177,7 +70177,7 @@ unsafe impl Extends<ImageCreateInfo> for ImageAlignmentControlCreateInfoMESA {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_PushConstantBank`](Extensions::NV_PushConstantBank)
+/// - Extension [`NV_PushConstantBank`](Extension::NV_PushConstantBank)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -70231,7 +70231,7 @@ unsafe impl Extends<IndirectCommandsLayoutTokenEXT> for PushConstantBankInfoNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_PushConstantBank`](Extensions::NV_PushConstantBank)
+/// - Extension [`NV_PushConstantBank`](Extension::NV_PushConstantBank)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -70281,7 +70281,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePushConstantBankFeatures
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_PushConstantBank`](Extensions::NV_PushConstantBank)
+/// - Extension [`NV_PushConstantBank`](Extension::NV_PushConstantBank)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -70337,7 +70337,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDevicePushConstantBan
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_RayTracingInvocationReorder`](Extensions::EXT_RayTracingInvocationReorder)
+/// - Extension [`EXT_RayTracingInvocationReorder`](Extension::EXT_RayTracingInvocationReorder)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -70392,7 +70392,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_RayTracingInvocationReorder`](Extensions::EXT_RayTracingInvocationReorder)
+/// - Extension [`EXT_RayTracingInvocationReorder`](Extension::EXT_RayTracingInvocationReorder)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -70445,7 +70445,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRayTracingInvocationReor
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DepthClampControl`](Extensions::EXT_DepthClampControl)
+/// - Extension [`EXT_DepthClampControl`](Extension::EXT_DepthClampControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -70495,7 +70495,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDepthClampControlFeature
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DepthClampControl`](Extensions::EXT_DepthClampControl)
+/// - Extension [`EXT_DepthClampControl`](Extension::EXT_DepthClampControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -70549,7 +70549,7 @@ unsafe impl Extends<PipelineViewportStateCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`OHOS_Surface`](Extensions::OHOS_Surface)
+/// - Extension [`OHOS_Surface`](Extension::OHOS_Surface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -70597,7 +70597,7 @@ unsafe impl Extendable for SurfaceCreateInfoOHOS {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`HUAWEI_HdrVivid`](Extensions::HUAWEI_HdrVivid)
+/// - Extension [`HUAWEI_HdrVivid`](Extension::HUAWEI_HdrVivid)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -70647,7 +70647,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceHdrVividFeaturesHUAWEI {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`HUAWEI_HdrVivid`](Extensions::HUAWEI_HdrVivid)
+/// - Extension [`HUAWEI_HdrVivid`](Extension::HUAWEI_HdrVivid)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -70697,7 +70697,7 @@ unsafe impl Extends<HdrMetadataEXT> for HdrVividDynamicMetadataHUAWEI {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_CooperativeMatrix2`](Extensions::NV_CooperativeMatrix2)
+/// - Extension [`NV_CooperativeMatrix2`](Extension::NV_CooperativeMatrix2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -70762,7 +70762,7 @@ unsafe impl Extendable for CooperativeMatrixFlexibleDimensionsPropertiesNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_CooperativeMatrix2`](Extensions::NV_CooperativeMatrix2)
+/// - Extension [`NV_CooperativeMatrix2`](Extension::NV_CooperativeMatrix2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -70824,7 +70824,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCooperativeMatrix2Featur
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_CooperativeMatrix2`](Extensions::NV_CooperativeMatrix2)
+/// - Extension [`NV_CooperativeMatrix2`](Extension::NV_CooperativeMatrix2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -70878,7 +70878,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceCooperativeMatr
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_PipelineOpacityMicromap`](Extensions::ARM_PipelineOpacityMicromap)
+/// - Extension [`ARM_PipelineOpacityMicromap`](Extension::ARM_PipelineOpacityMicromap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -70928,7 +70928,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePipelineOpacityMicromapF
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ExternalMemoryMetal`](Extensions::EXT_ExternalMemoryMetal)
+/// - Extension [`EXT_ExternalMemoryMetal`](Extension::EXT_ExternalMemoryMetal)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -70980,7 +70980,7 @@ unsafe impl Extends<MemoryAllocateInfo> for ImportMemoryMetalHandleInfoEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ExternalMemoryMetal`](Extensions::EXT_ExternalMemoryMetal)
+/// - Extension [`EXT_ExternalMemoryMetal`](Extension::EXT_ExternalMemoryMetal)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -71027,7 +71027,7 @@ unsafe impl Extendable for MemoryMetalHandlePropertiesEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ExternalMemoryMetal`](Extensions::EXT_ExternalMemoryMetal)
+/// - Extension [`EXT_ExternalMemoryMetal`](Extension::EXT_ExternalMemoryMetal)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -71074,7 +71074,7 @@ unsafe impl Extendable for MemoryGetMetalHandleInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_PerformanceCountersByRegion`](Extensions::ARM_PerformanceCountersByRegion)
+/// - Extension [`ARM_PerformanceCountersByRegion`](Extension::ARM_PerformanceCountersByRegion)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -71127,7 +71127,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePerformanceCountersByReg
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_PerformanceCountersByRegion`](Extensions::ARM_PerformanceCountersByRegion)
+/// - Extension [`ARM_PerformanceCountersByRegion`](Extension::ARM_PerformanceCountersByRegion)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -71188,7 +71188,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_PerformanceCountersByRegion`](Extensions::ARM_PerformanceCountersByRegion)
+/// - Extension [`ARM_PerformanceCountersByRegion`](Extension::ARM_PerformanceCountersByRegion)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -71235,7 +71235,7 @@ unsafe impl Extendable for PerformanceCounterARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_PerformanceCountersByRegion`](Extensions::ARM_PerformanceCountersByRegion)
+/// - Extension [`ARM_PerformanceCountersByRegion`](Extension::ARM_PerformanceCountersByRegion)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -71286,7 +71286,7 @@ unsafe impl Extendable for PerformanceCounterDescriptionARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_PerformanceCountersByRegion`](Extensions::ARM_PerformanceCountersByRegion)
+/// - Extension [`ARM_PerformanceCountersByRegion`](Extension::ARM_PerformanceCountersByRegion)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -71344,7 +71344,7 @@ unsafe impl Extends<RenderingInfo> for RenderPassPerformanceCountersByRegionBegi
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
+/// - Extension [`ARM_ShaderInstrumentation`](Extension::ARM_ShaderInstrumentation)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -71394,7 +71394,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderInstrumentationFea
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
+/// - Extension [`ARM_ShaderInstrumentation`](Extension::ARM_ShaderInstrumentation)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -71449,7 +71449,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
+/// - Extension [`ARM_ShaderInstrumentation`](Extension::ARM_ShaderInstrumentation)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -71492,7 +71492,7 @@ unsafe impl Extendable for ShaderInstrumentationCreateInfoARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
+/// - Extension [`ARM_ShaderInstrumentation`](Extension::ARM_ShaderInstrumentation)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -71541,7 +71541,7 @@ unsafe impl Extendable for ShaderInstrumentationMetricDescriptionARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
+/// - Extension [`ARM_ShaderInstrumentation`](Extension::ARM_ShaderInstrumentation)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -71570,8 +71570,8 @@ impl Default for ShaderInstrumentationMetricDataHeaderARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_VertexAttributeRobustness`](Extensions::EXT_VertexAttributeRobustness)
-/// - Extension [`KHR_Maintenance9`](Extensions::KHR_Maintenance9)
+/// - Extension [`EXT_VertexAttributeRobustness`](Extension::EXT_VertexAttributeRobustness)
+/// - Extension [`KHR_Maintenance9`](Extension::KHR_Maintenance9)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -71624,7 +71624,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceVertexAttributeRobustnes
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_FormatPack`](Extensions::ARM_FormatPack)
+/// - Extension [`ARM_FormatPack`](Extension::ARM_FormatPack)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -71674,7 +71674,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceFormatPackFeaturesARM {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`VALVE_FragmentDensityMapLayered`](Extensions::VALVE_FragmentDensityMapLayered)
+/// - Extension [`VALVE_FragmentDensityMapLayered`](Extension::VALVE_FragmentDensityMapLayered)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -71727,7 +71727,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceFragmentDensityMapLayere
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`VALVE_FragmentDensityMapLayered`](Extensions::VALVE_FragmentDensityMapLayered)
+/// - Extension [`VALVE_FragmentDensityMapLayered`](Extension::VALVE_FragmentDensityMapLayered)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -71780,7 +71780,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`VALVE_FragmentDensityMapLayered`](Extensions::VALVE_FragmentDensityMapLayered)
+/// - Extension [`VALVE_FragmentDensityMapLayered`](Extension::VALVE_FragmentDensityMapLayered)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -71831,7 +71831,7 @@ unsafe impl Extends<GraphicsPipelineCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_PresentMetering`](Extensions::NV_PresentMetering)
+/// - Extension [`NV_PresentMetering`](Extension::NV_PresentMetering)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -71881,7 +71881,7 @@ unsafe impl Extends<PresentInfoKHR> for SetPresentConfigNV {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_PresentMetering`](Extensions::NV_PresentMetering)
+/// - Extension [`NV_PresentMetering`](Extension::NV_PresentMetering)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -71931,7 +71931,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePresentMeteringFeaturesN
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MultisampledRenderToSwapchain`](Extensions::EXT_MultisampledRenderToSwapchain)
+/// - Extension [`EXT_MultisampledRenderToSwapchain`](Extension::EXT_MultisampledRenderToSwapchain)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -71984,7 +71984,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMultisampledRenderToSwap
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MultisampledRenderToSwapchain`](Extensions::EXT_MultisampledRenderToSwapchain)
+/// - Extension [`EXT_MultisampledRenderToSwapchain`](Extension::EXT_MultisampledRenderToSwapchain)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -72035,7 +72035,7 @@ unsafe impl Extends<SurfaceCapabilities2KHR> for SwapchainFlagsSurfaceCapabiliti
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ZeroInitializeDeviceMemory`](Extensions::EXT_ZeroInitializeDeviceMemory)
+/// - Extension [`EXT_ZeroInitializeDeviceMemory`](Extension::EXT_ZeroInitializeDeviceMemory)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -72088,7 +72088,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceZeroInitializeDeviceMemo
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_Shader64BitIndexing`](Extensions::EXT_Shader64BitIndexing)
+/// - Extension [`EXT_Shader64BitIndexing`](Extension::EXT_Shader64BitIndexing)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -72138,7 +72138,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShader64BitIndexingFeatu
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_CustomResolve`](Extensions::EXT_CustomResolve)
+/// - Extension [`EXT_CustomResolve`](Extension::EXT_CustomResolve)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -72188,7 +72188,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCustomResolveFeaturesEXT
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_CustomResolve`](Extensions::EXT_CustomResolve)
+/// - Extension [`EXT_CustomResolve`](Extension::EXT_CustomResolve)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -72231,7 +72231,7 @@ unsafe impl Extendable for BeginCustomResolveInfoEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_CustomResolve`](Extensions::EXT_CustomResolve)
+/// - Extension [`EXT_CustomResolve`](Extension::EXT_CustomResolve)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -72292,7 +72292,7 @@ unsafe impl Extends<ShaderCreateInfoEXT> for CustomResolveCreateInfoEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_DataGraphModel`](Extensions::QCOM_DataGraphModel)
+/// - Extension [`QCOM_DataGraphModel`](Extension::QCOM_DataGraphModel)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -72323,7 +72323,7 @@ impl Default for PipelineCacheHeaderVersionDataGraphQCOM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_DataGraphModel`](Extensions::QCOM_DataGraphModel)
+/// - Extension [`QCOM_DataGraphModel`](Extension::QCOM_DataGraphModel)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -72374,7 +72374,7 @@ unsafe impl Extends<DataGraphPipelineCreateInfoARM>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_DataGraphModel`](Extensions::QCOM_DataGraphModel)
+/// - Extension [`QCOM_DataGraphModel`](Extension::QCOM_DataGraphModel)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -72424,7 +72424,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDataGraphModelFeaturesQC
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+/// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -72474,7 +72474,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceDataGraphOpticalFlowFeat
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+/// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -72535,7 +72535,7 @@ unsafe impl Extendable for QueueFamilyDataGraphOpticalFlowPropertiesARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+/// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -72602,7 +72602,7 @@ unsafe impl Extends<DataGraphPipelineCreateInfoARM> for DataGraphPipelineOptical
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+/// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -72649,7 +72649,7 @@ unsafe impl Extendable for DataGraphOpticalFlowImageFormatPropertiesARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+/// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -72699,7 +72699,7 @@ unsafe impl Extends<ImageCreateInfo> for DataGraphOpticalFlowImageFormatInfoARM 
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+/// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -72754,7 +72754,7 @@ unsafe impl Extends<DataGraphPipelineDispatchInfoARM>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+/// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -72805,7 +72805,7 @@ unsafe impl Extends<DataGraphPipelineResourceInfoARM>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+/// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -72854,7 +72854,7 @@ unsafe impl Extendable for DataGraphPipelineSingleNodeConnectionARM {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+/// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -72906,7 +72906,7 @@ unsafe impl Extends<DataGraphPipelineCreateInfoARM> for DataGraphPipelineSingleN
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ShaderLongVector`](Extensions::EXT_ShaderLongVector)
+/// - Extension [`EXT_ShaderLongVector`](Extension::EXT_ShaderLongVector)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -72956,7 +72956,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderLongVectorFeatures
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ShaderLongVector`](Extensions::EXT_ShaderLongVector)
+/// - Extension [`EXT_ShaderLongVector`](Extension::EXT_ShaderLongVector)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -73006,7 +73006,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceShaderLongVecto
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`SEC_PipelineCacheIncrementalMode`](Extensions::SEC_PipelineCacheIncrementalMode)
+/// - Extension [`SEC_PipelineCacheIncrementalMode`](Extension::SEC_PipelineCacheIncrementalMode)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -73059,7 +73059,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePipelineCacheIncremental
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ShaderUniformBufferUnsizedArray`](Extensions::EXT_ShaderUniformBufferUnsizedArray)
+/// - Extension [`EXT_ShaderUniformBufferUnsizedArray`](Extension::EXT_ShaderUniformBufferUnsizedArray)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -73112,7 +73112,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderUniformBufferUnsiz
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ComputeOccupancyPriority`](Extensions::NV_ComputeOccupancyPriority)
+/// - Extension [`NV_ComputeOccupancyPriority`](Extension::NV_ComputeOccupancyPriority)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -73159,7 +73159,7 @@ unsafe impl Extendable for ComputeOccupancyPriorityParametersNV {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ComputeOccupancyPriority`](Extensions::NV_ComputeOccupancyPriority)
+/// - Extension [`NV_ComputeOccupancyPriority`](Extension::NV_ComputeOccupancyPriority)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -73209,7 +73209,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceComputeOccupancyPriority
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_CooperativeMatrixMaintenance1`](Extensions::EXT_CooperativeMatrixMaintenance1)
+/// - Extension [`EXT_CooperativeMatrixMaintenance1`](Extension::EXT_CooperativeMatrixMaintenance1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -73268,7 +73268,7 @@ unsafe impl Extendable for CooperativeMatrixProperties2EXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_CooperativeMatrixMaintenance1`](Extensions::EXT_CooperativeMatrixMaintenance1)
+/// - Extension [`EXT_CooperativeMatrixMaintenance1`](Extension::EXT_CooperativeMatrixMaintenance1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -73322,7 +73322,7 @@ unsafe impl Extendable for PhysicalDeviceCooperativeMatrixInfo2EXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_CooperativeMatrixMaintenance1`](Extensions::EXT_CooperativeMatrixMaintenance1)
+/// - Extension [`EXT_CooperativeMatrixMaintenance1`](Extension::EXT_CooperativeMatrixMaintenance1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -73383,7 +73383,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCooperativeMatrixMainten
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ShaderSubgroupPartitioned`](Extensions::EXT_ShaderSubgroupPartitioned)
+/// - Extension [`EXT_ShaderSubgroupPartitioned`](Extension::EXT_ShaderSubgroupPartitioned)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -73436,7 +73436,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderSubgroupPartitione
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`SEC_UbmSurface`](Extensions::SEC_UbmSurface)
+/// - Extension [`SEC_UbmSurface`](Extension::SEC_UbmSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -73486,7 +73486,7 @@ unsafe impl Extendable for UbmSurfaceCreateInfoSEC {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ShaderOcpMicroscalingTypes`](Extensions::EXT_ShaderOcpMicroscalingTypes)
+/// - Extension [`EXT_ShaderOcpMicroscalingTypes`](Extension::EXT_ShaderOcpMicroscalingTypes)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -73545,7 +73545,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderOCPMicroscalingTyp
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`VALVE_ShaderMixedFloatDotProduct`](Extensions::VALVE_ShaderMixedFloatDotProduct)
+/// - Extension [`VALVE_ShaderMixedFloatDotProduct`](Extension::VALVE_ShaderMixedFloatDotProduct)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -73604,7 +73604,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceShaderMixedFloatDotProdu
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`SEC_ThrottleHint`](Extensions::SEC_ThrottleHint)
+/// - Extension [`SEC_ThrottleHint`](Extension::SEC_ThrottleHint)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -73652,7 +73652,7 @@ unsafe impl Extends<SubmitInfo> for ThrottleHintSubmitInfoSEC {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`SEC_ThrottleHint`](Extensions::SEC_ThrottleHint)
+/// - Extension [`SEC_ThrottleHint`](Extension::SEC_ThrottleHint)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -73702,7 +73702,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceThrottleHintFeaturesSEC 
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraphNeuralAcceleratorStatistics`](Extensions::ARM_DataGraphNeuralAcceleratorStatistics)
+/// - Extension [`ARM_DataGraphNeuralAcceleratorStatistics`](Extension::ARM_DataGraphNeuralAcceleratorStatistics)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -73759,7 +73759,7 @@ unsafe impl Extends<DeviceCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraphNeuralAcceleratorStatistics`](Extensions::ARM_DataGraphNeuralAcceleratorStatistics)
+/// - Extension [`ARM_DataGraphNeuralAcceleratorStatistics`](Extension::ARM_DataGraphNeuralAcceleratorStatistics)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -73810,7 +73810,7 @@ unsafe impl Extends<DataGraphPipelineCreateInfoARM>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraphNeuralAcceleratorStatistics`](Extensions::ARM_DataGraphNeuralAcceleratorStatistics)
+/// - Extension [`ARM_DataGraphNeuralAcceleratorStatistics`](Extension::ARM_DataGraphNeuralAcceleratorStatistics)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -73861,7 +73861,7 @@ unsafe impl Extends<DataGraphPipelineSessionCreateInfoARM>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_PrimitiveRestartIndex`](Extensions::EXT_PrimitiveRestartIndex)
+/// - Extension [`EXT_PrimitiveRestartIndex`](Extension::EXT_PrimitiveRestartIndex)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -73911,7 +73911,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePrimitiveRestartIndexFea
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ImageTilingControl`](Extensions::EXT_ImageTilingControl)
+/// - Extension [`EXT_ImageTilingControl`](Extension::EXT_ImageTilingControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -73961,7 +73961,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceImageTilingControlFeatur
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ImageTilingControl`](Extensions::EXT_ImageTilingControl)
+/// - Extension [`EXT_ImageTilingControl`](Extension::EXT_ImageTilingControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -74009,7 +74009,7 @@ unsafe impl Extends<ImageCreateInfo> for ImageTilingControlCreateInfoEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_CooperativeMatrixDecodeVector`](Extensions::NV_CooperativeMatrixDecodeVector)
+/// - Extension [`NV_CooperativeMatrixDecodeVector`](Extension::NV_CooperativeMatrixDecodeVector)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -74062,7 +74062,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceCooperativeMatrixDecodeV
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_PrivateDataBaseHandle`](Extensions::NV_PrivateDataBaseHandle)
+/// - Extension [`NV_PrivateDataBaseHandle`](Extension::NV_PrivateDataBaseHandle)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -74112,7 +74112,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDevicePrivateDataBaseHandleFea
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`VALVE_BufferDeviceAddressAllocationAlignment`](Extensions::VALVE_BufferDeviceAddressAllocationAlignment)
+/// - Extension [`VALVE_BufferDeviceAddressAllocationAlignment`](Extension::VALVE_BufferDeviceAddressAllocationAlignment)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -74168,7 +74168,7 @@ unsafe impl Extends<DeviceCreateInfo>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`VALVE_BufferDeviceAddressAllocationAlignment`](Extensions::VALVE_BufferDeviceAddressAllocationAlignment)
+/// - Extension [`VALVE_BufferDeviceAddressAllocationAlignment`](Extension::VALVE_BufferDeviceAddressAllocationAlignment)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -74219,7 +74219,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`VALVE_BufferDeviceAddressAllocationAlignment`](Extensions::VALVE_BufferDeviceAddressAllocationAlignment)
+/// - Extension [`VALVE_BufferDeviceAddressAllocationAlignment`](Extension::VALVE_BufferDeviceAddressAllocationAlignment)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -74269,7 +74269,7 @@ unsafe impl Extends<MemoryAllocateInfo> for BufferDeviceAddressAlignmentAllocate
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+/// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -74298,7 +74298,7 @@ impl Default for AccelerationStructureBuildRangeInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+/// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -74360,7 +74360,7 @@ unsafe impl Extendable for AccelerationStructureGeometryTrianglesDataKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+/// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -74407,7 +74407,7 @@ unsafe impl Extendable for AccelerationStructureGeometryAabbsDataKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+/// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -74454,7 +74454,7 @@ unsafe impl Extendable for AccelerationStructureGeometryInstancesDataKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+/// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -74483,7 +74483,7 @@ impl Default for AccelerationStructureGeometryDataKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+/// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -74538,7 +74538,7 @@ unsafe impl Extendable for AccelerationStructureGeometryKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+/// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -74605,7 +74605,7 @@ unsafe impl Extendable for AccelerationStructureBuildGeometryInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+/// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -74665,7 +74665,7 @@ unsafe impl Extendable for AccelerationStructureCreateInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+/// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -74715,7 +74715,7 @@ unsafe impl Extends<WriteDescriptorSet> for WriteDescriptorSetAccelerationStruct
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+/// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -74773,7 +74773,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceAccelerationStructureFea
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+/// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -74840,7 +74840,7 @@ unsafe impl Extends<PhysicalDeviceProperties2>
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+/// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -74885,7 +74885,7 @@ unsafe impl Extendable for AccelerationStructureDeviceAddressInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+/// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -74930,7 +74930,7 @@ unsafe impl Extendable for AccelerationStructureVersionInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+/// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -74979,7 +74979,7 @@ unsafe impl Extendable for CopyAccelerationStructureToMemoryInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+/// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -75028,7 +75028,7 @@ unsafe impl Extendable for CopyMemoryToAccelerationStructureInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+/// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -75077,7 +75077,7 @@ unsafe impl Extendable for CopyAccelerationStructureInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -75135,7 +75135,7 @@ unsafe impl Extendable for RayTracingShaderGroupCreateInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -75182,7 +75182,7 @@ unsafe impl Extendable for RayTracingPipelineInterfaceCreateInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -75264,7 +75264,7 @@ unsafe impl Extendable for RayTracingPipelineCreateInfoKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -75322,7 +75322,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRayTracingPipelineFeatur
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -75386,7 +75386,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceRayTracingPipel
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -75413,7 +75413,7 @@ impl Default for TraceRaysIndirectCommandKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_RayQuery`](Extensions::KHR_RayQuery)
+/// - Extension [`KHR_RayQuery`](Extension::KHR_RayQuery)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -75463,7 +75463,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceRayQueryFeaturesKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MeshShader`](Extensions::EXT_MeshShader)
+/// - Extension [`EXT_MeshShader`](Extension::EXT_MeshShader)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -75521,7 +75521,7 @@ unsafe impl Extends<DeviceCreateInfo> for PhysicalDeviceMeshShaderFeaturesEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MeshShader`](Extensions::EXT_MeshShader)
+/// - Extension [`EXT_MeshShader`](Extension::EXT_MeshShader)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -75625,7 +75625,7 @@ unsafe impl Extends<PhysicalDeviceProperties2> for PhysicalDeviceMeshShaderPrope
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MeshShader`](Extensions::EXT_MeshShader)
+/// - Extension [`EXT_MeshShader`](Extension::EXT_MeshShader)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///

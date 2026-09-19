@@ -278,7 +278,7 @@ pub type PrivateDataSlotEXT = PrivateDataSlot;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
+/// - Extension [`KHR_Surface`](Extension::KHR_Surface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -293,7 +293,7 @@ pub struct SurfaceKHR(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
+/// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -308,7 +308,7 @@ pub struct SwapchainKHR(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Display`](Extensions::KHR_Display)
+/// - Extension [`KHR_Display`](Extension::KHR_Display)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -323,7 +323,7 @@ pub struct DisplayKHR(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Display`](Extensions::KHR_Display)
+/// - Extension [`KHR_Display`](Extension::KHR_Display)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -338,7 +338,7 @@ pub struct DisplayModeKHR(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -353,7 +353,7 @@ pub struct VideoSessionKHR(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -368,7 +368,7 @@ pub struct VideoSessionParametersKHR(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeferredHostOperations`](Extensions::KHR_DeferredHostOperations)
+/// - Extension [`KHR_DeferredHostOperations`](Extension::KHR_DeferredHostOperations)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -383,8 +383,8 @@ pub struct DeferredOperationKHR(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
-/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+/// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+/// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -399,7 +399,7 @@ pub struct AccelerationStructureKHR(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+/// - Extension [`KHR_PipelineBinary`](Extension::KHR_PipelineBinary)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -414,8 +414,8 @@ pub struct PipelineBinaryKHR(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DebugReport`](Extensions::EXT_DebugReport)
-/// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+/// - Extension [`EXT_DebugReport`](Extension::EXT_DebugReport)
+/// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -430,7 +430,7 @@ pub struct DebugReportCallbackEXT(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NVX_BinaryImport`](Extensions::NVX_BinaryImport)
+/// - Extension [`NVX_BinaryImport`](Extension::NVX_BinaryImport)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -445,7 +445,7 @@ pub struct CuModuleNVX(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NVX_BinaryImport`](Extensions::NVX_BinaryImport)
+/// - Extension [`NVX_BinaryImport`](Extension::NVX_BinaryImport)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -460,7 +460,7 @@ pub struct CuFunctionNVX(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+/// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -475,7 +475,7 @@ pub struct DebugUtilsMessengerEXT(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+/// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -490,8 +490,8 @@ pub struct GpaSessionAMD(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -506,7 +506,7 @@ pub struct TensorARM(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ValidationCache`](Extensions::EXT_ValidationCache)
+/// - Extension [`EXT_ValidationCache`](Extension::EXT_ValidationCache)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -521,8 +521,8 @@ pub struct ValidationCacheEXT(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+/// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -537,7 +537,7 @@ pub struct AccelerationStructureNV(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
+/// - Extension [`INTEL_PerformanceQuery`](Extension::INTEL_PerformanceQuery)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -552,7 +552,7 @@ pub struct PerformanceConfigurationINTEL(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+/// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -567,7 +567,7 @@ pub struct IndirectCommandsLayoutNV(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
+/// - Extension [`NV_CudaKernelLaunch`](Extension::NV_CudaKernelLaunch)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -582,7 +582,7 @@ pub struct CudaModuleNV(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
+/// - Extension [`NV_CudaKernelLaunch`](Extension::NV_CudaKernelLaunch)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -597,7 +597,7 @@ pub struct CudaFunctionNV(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+/// - Extension [`FUCHSIA_BufferCollection`](Extension::FUCHSIA_BufferCollection)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -612,8 +612,8 @@ pub struct BufferCollectionFUCHSIA(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-/// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+/// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+/// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -628,7 +628,7 @@ pub struct MicromapEXT(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -643,7 +643,7 @@ pub struct TensorViewARM(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+/// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -658,7 +658,7 @@ pub struct OpticalFlowSessionNV(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+/// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -673,7 +673,7 @@ pub struct ShaderEXT(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+/// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -688,7 +688,7 @@ pub struct DataGraphPipelineSessionARM(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ExternalComputeQueue`](Extensions::NV_ExternalComputeQueue)
+/// - Extension [`NV_ExternalComputeQueue`](Extension::NV_ExternalComputeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -703,7 +703,7 @@ pub struct ExternalComputeQueueNV(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -718,7 +718,7 @@ pub struct IndirectExecutionSetEXT(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -733,7 +733,7 @@ pub struct IndirectCommandsLayoutEXT(u64);
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
+/// - Extension [`ARM_ShaderInstrumentation`](Extension::ARM_ShaderInstrumentation)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///

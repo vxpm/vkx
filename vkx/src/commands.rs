@@ -51,7 +51,7 @@ pub unsafe fn create_instance(
     let command = unsafe {
         std::mem::transmute::<vkVoidFunction, FUN_CreateInstance>(vtable_get(
             &commands,
-            GlobalCommands::vkCreateInstance as usize,
+            GlobalCommand::vkCreateInstance as usize,
         ))
     };
     unsafe { (command)(p_create_info, p_allocator, p_instance) }
@@ -72,7 +72,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyInstance>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyInstance as usize,
+                InstanceCommand::vkDestroyInstance as usize,
             ))
         };
         unsafe { (command)(self.handle, p_allocator) }
@@ -107,7 +107,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_EnumeratePhysicalDevices>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkEnumeratePhysicalDevices as usize,
+                InstanceCommand::vkEnumeratePhysicalDevices as usize,
             ))
         };
         unsafe { (command)(self.handle, p_physical_device_count, p_physical_devices) }
@@ -125,7 +125,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFeatures>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPhysicalDeviceFeatures as usize,
+                InstanceCommand::vkGetPhysicalDeviceFeatures as usize,
             ))
         };
         unsafe { (command)(self.handle, p_features) }
@@ -148,7 +148,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFormatProperties>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceFormatProperties as usize,
+                    InstanceCommand::vkGetPhysicalDeviceFormatProperties as usize,
                 ),
             )
         };
@@ -195,7 +195,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceImageFormatProperties>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceImageFormatProperties as usize,
+                    InstanceCommand::vkGetPhysicalDeviceImageFormatProperties as usize,
                 ),
             )
         };
@@ -224,7 +224,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceProperties>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPhysicalDeviceProperties as usize,
+                InstanceCommand::vkGetPhysicalDeviceProperties as usize,
             ))
         };
         unsafe { (command)(self.handle, p_properties) }
@@ -250,7 +250,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceQueueFamilyProperties>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceQueueFamilyProperties as usize,
+                    InstanceCommand::vkGetPhysicalDeviceQueueFamilyProperties as usize,
                 ),
             )
         };
@@ -279,7 +279,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceMemoryProperties>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceMemoryProperties as usize,
+                    InstanceCommand::vkGetPhysicalDeviceMemoryProperties as usize,
                 ),
             )
         };
@@ -301,7 +301,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetInstanceProcAddr>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetInstanceProcAddr as usize,
+                InstanceCommand::vkGetInstanceProcAddr as usize,
             ))
         };
         unsafe { (command)(self.handle, p_name) }
@@ -319,7 +319,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceProcAddr>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetDeviceProcAddr as usize,
+                InstanceCommand::vkGetDeviceProcAddr as usize,
             ))
         };
         unsafe { (command)(self.handle, p_name) }
@@ -362,7 +362,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateDevice>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateDevice as usize,
+                InstanceCommand::vkCreateDevice as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_device) }
@@ -383,7 +383,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyDevice>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyDevice as usize,
+                InstanceCommand::vkDestroyDevice as usize,
             ))
         };
         unsafe { (command)(self.handle, p_allocator) }
@@ -422,7 +422,7 @@ pub unsafe fn enumerate_instance_extension_properties(
     let command = unsafe {
         std::mem::transmute::<vkVoidFunction, FUN_EnumerateInstanceExtensionProperties>(vtable_get(
             &commands,
-            GlobalCommands::vkEnumerateInstanceExtensionProperties as usize,
+            GlobalCommand::vkEnumerateInstanceExtensionProperties as usize,
         ))
     };
     unsafe { (command)(p_layer_name, p_property_count, p_properties) }
@@ -463,7 +463,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_EnumerateDeviceExtensionProperties>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkEnumerateDeviceExtensionProperties as usize,
+                    InstanceCommand::vkEnumerateDeviceExtensionProperties as usize,
                 ),
             )
         };
@@ -500,7 +500,7 @@ pub unsafe fn enumerate_instance_layer_properties(
     let command = unsafe {
         std::mem::transmute::<vkVoidFunction, FUN_EnumerateInstanceLayerProperties>(vtable_get(
             &commands,
-            GlobalCommands::vkEnumerateInstanceLayerProperties as usize,
+            GlobalCommand::vkEnumerateInstanceLayerProperties as usize,
         ))
     };
     unsafe { (command)(p_property_count, p_properties) }
@@ -533,7 +533,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_EnumerateDeviceLayerProperties>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkEnumerateDeviceLayerProperties as usize,
+                InstanceCommand::vkEnumerateDeviceLayerProperties as usize,
             ))
         };
         unsafe { (command)(self.handle, p_property_count, p_properties) }
@@ -555,7 +555,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceQueue>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetDeviceQueue as usize,
+                InstanceCommand::vkGetDeviceQueue as usize,
             ))
         };
         unsafe { (command)(self.handle, queue_family_index, queue_index, p_queue) }
@@ -591,7 +591,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_QueueSubmit>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkQueueSubmit as usize,
+                InstanceCommand::vkQueueSubmit as usize,
             ))
         };
         unsafe { (command)(self.handle, submit_count, p_submits, fence) }
@@ -617,7 +617,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_QueueWaitIdle>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkQueueWaitIdle as usize,
+                InstanceCommand::vkQueueWaitIdle as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -643,7 +643,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DeviceWaitIdle>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDeviceWaitIdle as usize,
+                InstanceCommand::vkDeviceWaitIdle as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -683,7 +683,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_AllocateMemory>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkAllocateMemory as usize,
+                InstanceCommand::vkAllocateMemory as usize,
             ))
         };
         unsafe { (command)(self.handle, p_allocate_info, p_allocator, p_memory) }
@@ -709,7 +709,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_FreeMemory>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkFreeMemory as usize,
+                InstanceCommand::vkFreeMemory as usize,
             ))
         };
         unsafe { (command)(self.handle, memory, p_allocator) }
@@ -752,7 +752,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_MapMemory>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkMapMemory as usize,
+                InstanceCommand::vkMapMemory as usize,
             ))
         };
         unsafe { (command)(self.handle, memory, offset, size, flags, pp_data) }
@@ -769,7 +769,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_UnmapMemory>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkUnmapMemory as usize,
+                InstanceCommand::vkUnmapMemory as usize,
             ))
         };
         unsafe { (command)(self.handle, memory) }
@@ -799,7 +799,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_FlushMappedMemoryRanges>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkFlushMappedMemoryRanges as usize,
+                InstanceCommand::vkFlushMappedMemoryRanges as usize,
             ))
         };
         unsafe { (command)(self.handle, memory_range_count, p_memory_ranges) }
@@ -829,7 +829,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_InvalidateMappedMemoryRanges>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkInvalidateMappedMemoryRanges as usize,
+                InstanceCommand::vkInvalidateMappedMemoryRanges as usize,
             ))
         };
         unsafe { (command)(self.handle, memory_range_count, p_memory_ranges) }
@@ -851,7 +851,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceMemoryCommitment>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetDeviceMemoryCommitment as usize,
+                InstanceCommand::vkGetDeviceMemoryCommitment as usize,
             ))
         };
         unsafe { (command)(self.handle, memory, p_committed_memory_in_bytes) }
@@ -883,7 +883,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_BindBufferMemory>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkBindBufferMemory as usize,
+                InstanceCommand::vkBindBufferMemory as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer, memory, memory_offset) }
@@ -914,7 +914,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_BindImageMemory>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkBindImageMemory as usize,
+                InstanceCommand::vkBindImageMemory as usize,
             ))
         };
         unsafe { (command)(self.handle, image, memory, memory_offset) }
@@ -936,7 +936,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetBufferMemoryRequirements>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetBufferMemoryRequirements as usize,
+                InstanceCommand::vkGetBufferMemoryRequirements as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer, p_memory_requirements) }
@@ -958,7 +958,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetImageMemoryRequirements>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetImageMemoryRequirements as usize,
+                InstanceCommand::vkGetImageMemoryRequirements as usize,
             ))
         };
         unsafe { (command)(self.handle, image, p_memory_requirements) }
@@ -984,7 +984,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetImageSparseMemoryRequirements>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetImageSparseMemoryRequirements as usize,
+                InstanceCommand::vkGetImageSparseMemoryRequirements as usize,
             ))
         };
         unsafe {
@@ -1030,7 +1030,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSparseImageFormatProperties>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceSparseImageFormatProperties as usize,
+                    InstanceCommand::vkGetPhysicalDeviceSparseImageFormatProperties as usize,
                 ),
             )
         };
@@ -1081,7 +1081,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_QueueBindSparse>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkQueueBindSparse as usize,
+                InstanceCommand::vkQueueBindSparse as usize,
             ))
         };
         unsafe { (command)(self.handle, bind_info_count, p_bind_info, fence) }
@@ -1119,7 +1119,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateFence>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateFence as usize,
+                InstanceCommand::vkCreateFence as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_fence) }
@@ -1141,7 +1141,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyFence>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyFence as usize,
+                InstanceCommand::vkDestroyFence as usize,
             ))
         };
         unsafe { (command)(self.handle, fence, p_allocator) }
@@ -1166,7 +1166,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_ResetFences>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkResetFences as usize,
+                InstanceCommand::vkResetFences as usize,
             ))
         };
         unsafe { (command)(self.handle, fence_count, p_fences) }
@@ -1193,7 +1193,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetFenceStatus>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetFenceStatus as usize,
+                InstanceCommand::vkGetFenceStatus as usize,
             ))
         };
         unsafe { (command)(self.handle, fence) }
@@ -1227,7 +1227,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_WaitForFences>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkWaitForFences as usize,
+                InstanceCommand::vkWaitForFences as usize,
             ))
         };
         unsafe { (command)(self.handle, fence_count, p_fences, wait_all, timeout) }
@@ -1265,7 +1265,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateSemaphore>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateSemaphore as usize,
+                InstanceCommand::vkCreateSemaphore as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_semaphore) }
@@ -1291,7 +1291,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroySemaphore>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroySemaphore as usize,
+                InstanceCommand::vkDestroySemaphore as usize,
             ))
         };
         unsafe { (command)(self.handle, semaphore, p_allocator) }
@@ -1329,7 +1329,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateQueryPool>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateQueryPool as usize,
+                InstanceCommand::vkCreateQueryPool as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_query_pool) }
@@ -1355,7 +1355,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyQueryPool>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyQueryPool as usize,
+                InstanceCommand::vkDestroyQueryPool as usize,
             ))
         };
         unsafe { (command)(self.handle, query_pool, p_allocator) }
@@ -1403,7 +1403,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetQueryPoolResults>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetQueryPoolResults as usize,
+                InstanceCommand::vkGetQueryPoolResults as usize,
             ))
         };
         unsafe {
@@ -1453,7 +1453,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateBuffer>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateBuffer as usize,
+                InstanceCommand::vkCreateBuffer as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_buffer) }
@@ -1475,7 +1475,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyBuffer>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyBuffer as usize,
+                InstanceCommand::vkDestroyBuffer as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer, p_allocator) }
@@ -1515,7 +1515,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateImage>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateImage as usize,
+                InstanceCommand::vkCreateImage as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_image) }
@@ -1537,7 +1537,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyImage>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyImage as usize,
+                InstanceCommand::vkDestroyImage as usize,
             ))
         };
         unsafe { (command)(self.handle, image, p_allocator) }
@@ -1560,7 +1560,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetImageSubresourceLayout>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetImageSubresourceLayout as usize,
+                InstanceCommand::vkGetImageSubresourceLayout as usize,
             ))
         };
         unsafe { (command)(self.handle, image, p_subresource, p_layout) }
@@ -1599,7 +1599,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateImageView>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateImageView as usize,
+                InstanceCommand::vkCreateImageView as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_view) }
@@ -1625,7 +1625,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyImageView>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyImageView as usize,
+                InstanceCommand::vkDestroyImageView as usize,
             ))
         };
         unsafe { (command)(self.handle, image_view, p_allocator) }
@@ -1663,7 +1663,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateCommandPool>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateCommandPool as usize,
+                InstanceCommand::vkCreateCommandPool as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_command_pool) }
@@ -1689,7 +1689,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyCommandPool>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyCommandPool as usize,
+                InstanceCommand::vkDestroyCommandPool as usize,
             ))
         };
         unsafe { (command)(self.handle, command_pool, p_allocator) }
@@ -1721,7 +1721,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_ResetCommandPool>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkResetCommandPool as usize,
+                InstanceCommand::vkResetCommandPool as usize,
             ))
         };
         unsafe { (command)(self.handle, command_pool, flags) }
@@ -1754,7 +1754,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_AllocateCommandBuffers>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkAllocateCommandBuffers as usize,
+                InstanceCommand::vkAllocateCommandBuffers as usize,
             ))
         };
         unsafe { (command)(self.handle, p_allocate_info, p_command_buffers) }
@@ -1777,7 +1777,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_FreeCommandBuffers>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkFreeCommandBuffers as usize,
+                InstanceCommand::vkFreeCommandBuffers as usize,
             ))
         };
         unsafe {
@@ -1810,7 +1810,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_BeginCommandBuffer>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkBeginCommandBuffer as usize,
+                InstanceCommand::vkBeginCommandBuffer as usize,
             ))
         };
         unsafe { (command)(self.handle, p_begin_info) }
@@ -1836,7 +1836,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_EndCommandBuffer>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkEndCommandBuffer as usize,
+                InstanceCommand::vkEndCommandBuffer as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -1864,7 +1864,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_ResetCommandBuffer>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkResetCommandBuffer as usize,
+                InstanceCommand::vkResetCommandBuffer as usize,
             ))
         };
         unsafe { (command)(self.handle, flags) }
@@ -1900,7 +1900,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyBuffer>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyBuffer as usize,
+                InstanceCommand::vkCmdCopyBuffer as usize,
             ))
         };
         unsafe { (command)(self.handle, src_buffer, dst_buffer, region_count, p_regions) }
@@ -1945,7 +1945,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImage>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyImage as usize,
+                InstanceCommand::vkCmdCopyImage as usize,
             ))
         };
         unsafe {
@@ -1998,7 +1998,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyBufferToImage>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyBufferToImage as usize,
+                InstanceCommand::vkCmdCopyBufferToImage as usize,
             ))
         };
         unsafe {
@@ -2050,7 +2050,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImageToBuffer>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyImageToBuffer as usize,
+                InstanceCommand::vkCmdCopyImageToBuffer as usize,
             ))
         };
         unsafe {
@@ -2095,7 +2095,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdUpdateBuffer>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdUpdateBuffer as usize,
+                InstanceCommand::vkCmdUpdateBuffer as usize,
             ))
         };
         unsafe { (command)(self.handle, dst_buffer, dst_offset, data_size, p_data) }
@@ -2131,7 +2131,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdFillBuffer>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdFillBuffer as usize,
+                InstanceCommand::vkCmdFillBuffer as usize,
             ))
         };
         unsafe { (command)(self.handle, dst_buffer, dst_offset, size, data) }
@@ -2192,7 +2192,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdPipelineBarrier>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdPipelineBarrier as usize,
+                InstanceCommand::vkCmdPipelineBarrier as usize,
             ))
         };
         unsafe {
@@ -2245,7 +2245,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBeginQuery>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBeginQuery as usize,
+                InstanceCommand::vkCmdBeginQuery as usize,
             ))
         };
         unsafe { (command)(self.handle, query_pool, query, flags) }
@@ -2276,7 +2276,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdEndQuery>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdEndQuery as usize,
+                InstanceCommand::vkCmdEndQuery as usize,
             ))
         };
         unsafe { (command)(self.handle, query_pool, query) }
@@ -2313,7 +2313,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdResetQueryPool>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdResetQueryPool as usize,
+                InstanceCommand::vkCmdResetQueryPool as usize,
             ))
         };
         unsafe { (command)(self.handle, query_pool, first_query, query_count) }
@@ -2351,7 +2351,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdWriteTimestamp>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdWriteTimestamp as usize,
+                InstanceCommand::vkCmdWriteTimestamp as usize,
             ))
         };
         unsafe { (command)(self.handle, pipeline_stage, query_pool, query) }
@@ -2400,7 +2400,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyQueryPoolResults>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyQueryPoolResults as usize,
+                InstanceCommand::vkCmdCopyQueryPoolResults as usize,
             ))
         };
         unsafe {
@@ -2445,7 +2445,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdExecuteCommands>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdExecuteCommands as usize,
+                InstanceCommand::vkCmdExecuteCommands as usize,
             ))
         };
         unsafe { (command)(self.handle, command_buffer_count, p_command_buffers) }
@@ -2483,7 +2483,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateEvent>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateEvent as usize,
+                InstanceCommand::vkCreateEvent as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_event) }
@@ -2505,7 +2505,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyEvent>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyEvent as usize,
+                InstanceCommand::vkDestroyEvent as usize,
             ))
         };
         unsafe { (command)(self.handle, event, p_allocator) }
@@ -2532,7 +2532,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetEventStatus>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetEventStatus as usize,
+                InstanceCommand::vkGetEventStatus as usize,
             ))
         };
         unsafe { (command)(self.handle, event) }
@@ -2557,7 +2557,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_SetEvent>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkSetEvent as usize,
+                InstanceCommand::vkSetEvent as usize,
             ))
         };
         unsafe { (command)(self.handle, event) }
@@ -2581,7 +2581,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_ResetEvent>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkResetEvent as usize,
+                InstanceCommand::vkResetEvent as usize,
             ))
         };
         unsafe { (command)(self.handle, event) }
@@ -2619,7 +2619,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateBufferView>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateBufferView as usize,
+                InstanceCommand::vkCreateBufferView as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_view) }
@@ -2645,7 +2645,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyBufferView>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyBufferView as usize,
+                InstanceCommand::vkDestroyBufferView as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer_view, p_allocator) }
@@ -2684,7 +2684,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateShaderModule>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateShaderModule as usize,
+                InstanceCommand::vkCreateShaderModule as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_shader_module) }
@@ -2710,7 +2710,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyShaderModule>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyShaderModule as usize,
+                InstanceCommand::vkDestroyShaderModule as usize,
             ))
         };
         unsafe { (command)(self.handle, shader_module, p_allocator) }
@@ -2748,7 +2748,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreatePipelineCache>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreatePipelineCache as usize,
+                InstanceCommand::vkCreatePipelineCache as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_pipeline_cache) }
@@ -2774,7 +2774,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyPipelineCache>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyPipelineCache as usize,
+                InstanceCommand::vkDestroyPipelineCache as usize,
             ))
         };
         unsafe { (command)(self.handle, pipeline_cache, p_allocator) }
@@ -2809,7 +2809,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPipelineCacheData>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPipelineCacheData as usize,
+                InstanceCommand::vkGetPipelineCacheData as usize,
             ))
         };
         unsafe { (command)(self.handle, pipeline_cache, p_data_size, p_data) }
@@ -2840,7 +2840,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_MergePipelineCaches>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkMergePipelineCaches as usize,
+                InstanceCommand::vkMergePipelineCaches as usize,
             ))
         };
         unsafe { (command)(self.handle, dst_cache, src_cache_count, p_src_caches) }
@@ -2885,7 +2885,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateComputePipelines>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateComputePipelines as usize,
+                InstanceCommand::vkCreateComputePipelines as usize,
             ))
         };
         unsafe {
@@ -2920,7 +2920,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyPipeline>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyPipeline as usize,
+                InstanceCommand::vkDestroyPipeline as usize,
             ))
         };
         unsafe { (command)(self.handle, pipeline, p_allocator) }
@@ -2958,7 +2958,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreatePipelineLayout>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreatePipelineLayout as usize,
+                InstanceCommand::vkCreatePipelineLayout as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_pipeline_layout) }
@@ -2984,7 +2984,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyPipelineLayout>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyPipelineLayout as usize,
+                InstanceCommand::vkDestroyPipelineLayout as usize,
             ))
         };
         unsafe { (command)(self.handle, pipeline_layout, p_allocator) }
@@ -3023,7 +3023,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateSampler>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateSampler as usize,
+                InstanceCommand::vkCreateSampler as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_sampler) }
@@ -3049,7 +3049,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroySampler>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroySampler as usize,
+                InstanceCommand::vkDestroySampler as usize,
             ))
         };
         unsafe { (command)(self.handle, sampler, p_allocator) }
@@ -3087,7 +3087,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateDescriptorSetLayout>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateDescriptorSetLayout as usize,
+                InstanceCommand::vkCreateDescriptorSetLayout as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_set_layout) }
@@ -3113,7 +3113,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyDescriptorSetLayout>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyDescriptorSetLayout as usize,
+                InstanceCommand::vkDestroyDescriptorSetLayout as usize,
             ))
         };
         unsafe { (command)(self.handle, descriptor_set_layout, p_allocator) }
@@ -3152,7 +3152,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateDescriptorPool>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateDescriptorPool as usize,
+                InstanceCommand::vkCreateDescriptorPool as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_descriptor_pool) }
@@ -3178,7 +3178,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyDescriptorPool>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyDescriptorPool as usize,
+                InstanceCommand::vkDestroyDescriptorPool as usize,
             ))
         };
         unsafe { (command)(self.handle, descriptor_pool, p_allocator) }
@@ -3209,7 +3209,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_ResetDescriptorPool>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkResetDescriptorPool as usize,
+                InstanceCommand::vkResetDescriptorPool as usize,
             ))
         };
         unsafe { (command)(self.handle, descriptor_pool, flags) }
@@ -3244,7 +3244,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_AllocateDescriptorSets>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkAllocateDescriptorSets as usize,
+                InstanceCommand::vkAllocateDescriptorSets as usize,
             ))
         };
         unsafe { (command)(self.handle, p_allocate_info, p_descriptor_sets) }
@@ -3273,7 +3273,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_FreeDescriptorSets>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkFreeDescriptorSets as usize,
+                InstanceCommand::vkFreeDescriptorSets as usize,
             ))
         };
         unsafe {
@@ -3313,7 +3313,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_UpdateDescriptorSets>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkUpdateDescriptorSets as usize,
+                InstanceCommand::vkUpdateDescriptorSets as usize,
             ))
         };
         unsafe {
@@ -3355,7 +3355,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindPipeline>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBindPipeline as usize,
+                InstanceCommand::vkCmdBindPipeline as usize,
             ))
         };
         unsafe { (command)(self.handle, pipeline_bind_point, pipeline) }
@@ -3405,7 +3405,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindDescriptorSets>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBindDescriptorSets as usize,
+                InstanceCommand::vkCmdBindDescriptorSets as usize,
             ))
         };
         unsafe {
@@ -3458,7 +3458,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdClearColorImage>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdClearColorImage as usize,
+                InstanceCommand::vkCmdClearColorImage as usize,
             ))
         };
         unsafe {
@@ -3494,7 +3494,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDispatch>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDispatch as usize,
+                InstanceCommand::vkCmdDispatch as usize,
             ))
         };
         unsafe { (command)(self.handle, group_count_x, group_count_y, group_count_z) }
@@ -3522,7 +3522,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchIndirect>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDispatchIndirect as usize,
+                InstanceCommand::vkCmdDispatchIndirect as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer, offset) }
@@ -3556,7 +3556,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetEvent>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetEvent as usize,
+                InstanceCommand::vkCmdSetEvent as usize,
             ))
         };
         unsafe { (command)(self.handle, event, stage_mask) }
@@ -3590,7 +3590,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdResetEvent>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdResetEvent as usize,
+                InstanceCommand::vkCmdResetEvent as usize,
             ))
         };
         unsafe { (command)(self.handle, event, stage_mask) }
@@ -3651,7 +3651,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdWaitEvents>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdWaitEvents as usize,
+                InstanceCommand::vkCmdWaitEvents as usize,
             ))
         };
         unsafe {
@@ -3707,7 +3707,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdPushConstants>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdPushConstants as usize,
+                InstanceCommand::vkCmdPushConstants as usize,
             ))
         };
         unsafe { (command)(self.handle, layout, stage_flags, offset, size, p_values) }
@@ -3752,7 +3752,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateGraphicsPipelines>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateGraphicsPipelines as usize,
+                InstanceCommand::vkCreateGraphicsPipelines as usize,
             ))
         };
         unsafe {
@@ -3799,7 +3799,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateFramebuffer>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateFramebuffer as usize,
+                InstanceCommand::vkCreateFramebuffer as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_framebuffer) }
@@ -3825,7 +3825,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyFramebuffer>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyFramebuffer as usize,
+                InstanceCommand::vkDestroyFramebuffer as usize,
             ))
         };
         unsafe { (command)(self.handle, framebuffer, p_allocator) }
@@ -3863,7 +3863,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateRenderPass>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateRenderPass as usize,
+                InstanceCommand::vkCreateRenderPass as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_render_pass) }
@@ -3889,7 +3889,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyRenderPass>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyRenderPass as usize,
+                InstanceCommand::vkDestroyRenderPass as usize,
             ))
         };
         unsafe { (command)(self.handle, render_pass, p_allocator) }
@@ -3911,7 +3911,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetRenderAreaGranularity>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetRenderAreaGranularity as usize,
+                InstanceCommand::vkGetRenderAreaGranularity as usize,
             ))
         };
         unsafe { (command)(self.handle, render_pass, p_granularity) }
@@ -3944,7 +3944,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewport>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetViewport as usize,
+                InstanceCommand::vkCmdSetViewport as usize,
             ))
         };
         unsafe { (command)(self.handle, first_viewport, viewport_count, p_viewports) }
@@ -3977,7 +3977,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetScissor>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetScissor as usize,
+                InstanceCommand::vkCmdSetScissor as usize,
             ))
         };
         unsafe { (command)(self.handle, first_scissor, scissor_count, p_scissors) }
@@ -4004,7 +4004,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetLineWidth>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetLineWidth as usize,
+                InstanceCommand::vkCmdSetLineWidth as usize,
             ))
         };
         unsafe { (command)(self.handle, line_width) }
@@ -4036,7 +4036,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBias>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetDepthBias as usize,
+                InstanceCommand::vkCmdSetDepthBias as usize,
             ))
         };
         unsafe {
@@ -4071,7 +4071,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetBlendConstants>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetBlendConstants as usize,
+                InstanceCommand::vkCmdSetBlendConstants as usize,
             ))
         };
         unsafe { (command)(self.handle, blend_constants) }
@@ -4098,7 +4098,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBounds>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetDepthBounds as usize,
+                InstanceCommand::vkCmdSetDepthBounds as usize,
             ))
         };
         unsafe { (command)(self.handle, min_depth_bounds, max_depth_bounds) }
@@ -4130,7 +4130,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilCompareMask>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetStencilCompareMask as usize,
+                InstanceCommand::vkCmdSetStencilCompareMask as usize,
             ))
         };
         unsafe { (command)(self.handle, face_mask, compare_mask) }
@@ -4158,7 +4158,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilWriteMask>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetStencilWriteMask as usize,
+                InstanceCommand::vkCmdSetStencilWriteMask as usize,
             ))
         };
         unsafe { (command)(self.handle, face_mask, write_mask) }
@@ -4186,7 +4186,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilReference>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetStencilReference as usize,
+                InstanceCommand::vkCmdSetStencilReference as usize,
             ))
         };
         unsafe { (command)(self.handle, face_mask, reference) }
@@ -4222,7 +4222,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindIndexBuffer>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBindIndexBuffer as usize,
+                InstanceCommand::vkCmdBindIndexBuffer as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer, offset, index_type) }
@@ -4256,7 +4256,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindVertexBuffers>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBindVertexBuffers as usize,
+                InstanceCommand::vkCmdBindVertexBuffers as usize,
             ))
         };
         unsafe {
@@ -4297,7 +4297,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDraw>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDraw as usize,
+                InstanceCommand::vkCmdDraw as usize,
             ))
         };
         unsafe {
@@ -4340,7 +4340,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexed>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawIndexed as usize,
+                InstanceCommand::vkCmdDrawIndexed as usize,
             ))
         };
         unsafe {
@@ -4383,7 +4383,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirect>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawIndirect as usize,
+                InstanceCommand::vkCmdDrawIndirect as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer, offset, draw_count, stride) }
@@ -4417,7 +4417,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexedIndirect>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawIndexedIndirect as usize,
+                InstanceCommand::vkCmdDrawIndexedIndirect as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer, offset, draw_count, stride) }
@@ -4462,7 +4462,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBlitImage>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBlitImage as usize,
+                InstanceCommand::vkCmdBlitImage as usize,
             ))
         };
         unsafe {
@@ -4514,7 +4514,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdClearDepthStencilImage>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdClearDepthStencilImage as usize,
+                InstanceCommand::vkCmdClearDepthStencilImage as usize,
             ))
         };
         unsafe {
@@ -4557,7 +4557,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdClearAttachments>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdClearAttachments as usize,
+                InstanceCommand::vkCmdClearAttachments as usize,
             ))
         };
         unsafe {
@@ -4608,7 +4608,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdResolveImage>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdResolveImage as usize,
+                InstanceCommand::vkCmdResolveImage as usize,
             ))
         };
         unsafe {
@@ -4651,7 +4651,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBeginRenderPass>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBeginRenderPass as usize,
+                InstanceCommand::vkCmdBeginRenderPass as usize,
             ))
         };
         unsafe { (command)(self.handle, p_render_pass_begin, contents) }
@@ -4679,7 +4679,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdNextSubpass>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdNextSubpass as usize,
+                InstanceCommand::vkCmdNextSubpass as usize,
             ))
         };
         unsafe { (command)(self.handle, contents) }
@@ -4707,7 +4707,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdEndRenderPass>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdEndRenderPass as usize,
+                InstanceCommand::vkCmdEndRenderPass as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -4740,7 +4740,7 @@ pub unsafe fn enumerate_instance_version(p_api_version: *mut u32) -> ResultCode 
     let command = unsafe {
         std::mem::transmute::<vkVoidFunction, FUN_EnumerateInstanceVersion>(vtable_get(
             &commands,
-            GlobalCommands::vkEnumerateInstanceVersion as usize,
+            GlobalCommand::vkEnumerateInstanceVersion as usize,
         ))
     };
     unsafe { (command)(p_api_version) }
@@ -4776,7 +4776,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_BindBufferMemory2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkBindBufferMemory2 as usize,
+                InstanceCommand::vkBindBufferMemory2 as usize,
             ))
         };
         unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
@@ -4812,7 +4812,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_BindImageMemory2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkBindImageMemory2 as usize,
+                InstanceCommand::vkBindImageMemory2 as usize,
             ))
         };
         unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
@@ -4842,7 +4842,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceGroupPeerMemoryFeatures>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetDeviceGroupPeerMemoryFeatures as usize,
+                InstanceCommand::vkGetDeviceGroupPeerMemoryFeatures as usize,
             ))
         };
         unsafe {
@@ -4885,7 +4885,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetDeviceMask>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetDeviceMask as usize,
+                InstanceCommand::vkCmdSetDeviceMask as usize,
             ))
         };
         unsafe { (command)(self.handle, device_mask) }
@@ -4929,7 +4929,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_EnumeratePhysicalDeviceGroups>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkEnumeratePhysicalDeviceGroups as usize,
+                InstanceCommand::vkEnumeratePhysicalDeviceGroups as usize,
             ))
         };
         unsafe {
@@ -4966,7 +4966,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetImageMemoryRequirements2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetImageMemoryRequirements2 as usize,
+                InstanceCommand::vkGetImageMemoryRequirements2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
@@ -4997,7 +4997,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetBufferMemoryRequirements2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetBufferMemoryRequirements2 as usize,
+                InstanceCommand::vkGetBufferMemoryRequirements2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
@@ -5034,7 +5034,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetImageSparseMemoryRequirements2>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetImageSparseMemoryRequirements2 as usize,
+                    InstanceCommand::vkGetImageSparseMemoryRequirements2 as usize,
                 ),
             )
         };
@@ -5066,7 +5066,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFeatures2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPhysicalDeviceFeatures2 as usize,
+                InstanceCommand::vkGetPhysicalDeviceFeatures2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_features) }
@@ -5090,7 +5090,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceProperties2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPhysicalDeviceProperties2 as usize,
+                InstanceCommand::vkGetPhysicalDeviceProperties2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_properties) }
@@ -5119,7 +5119,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFormatProperties2>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceFormatProperties2 as usize,
+                    InstanceCommand::vkGetPhysicalDeviceFormatProperties2 as usize,
                 ),
             )
         };
@@ -5166,7 +5166,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceImageFormatProperties2>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceImageFormatProperties2 as usize,
+                    InstanceCommand::vkGetPhysicalDeviceImageFormatProperties2 as usize,
                 ),
             )
         };
@@ -5199,7 +5199,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceQueueFamilyProperties2>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceQueueFamilyProperties2 as usize,
+                    InstanceCommand::vkGetPhysicalDeviceQueueFamilyProperties2 as usize,
                 ),
             )
         };
@@ -5234,7 +5234,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceMemoryProperties2>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceMemoryProperties2 as usize,
+                    InstanceCommand::vkGetPhysicalDeviceMemoryProperties2 as usize,
                 ),
             )
         };
@@ -5272,7 +5272,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSparseImageFormatProperties2>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceSparseImageFormatProperties2 as usize,
+                    InstanceCommand::vkGetPhysicalDeviceSparseImageFormatProperties2 as usize,
                 ),
             )
         };
@@ -5300,7 +5300,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_TrimCommandPool>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkTrimCommandPool as usize,
+                InstanceCommand::vkTrimCommandPool as usize,
             ))
         };
         unsafe { (command)(self.handle, command_pool, flags) }
@@ -5328,7 +5328,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceQueue2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetDeviceQueue2 as usize,
+                InstanceCommand::vkGetDeviceQueue2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_queue_info, p_queue) }
@@ -5360,7 +5360,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceExternalBufferProperties>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceExternalBufferProperties as usize,
+                    InstanceCommand::vkGetPhysicalDeviceExternalBufferProperties as usize,
                 ),
             )
         };
@@ -5399,7 +5399,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceExternalFenceProperties>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceExternalFenceProperties as usize,
+                    InstanceCommand::vkGetPhysicalDeviceExternalFenceProperties as usize,
                 ),
             )
         };
@@ -5438,7 +5438,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceExternalSemaphoreProperties>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceExternalSemaphoreProperties as usize,
+                    InstanceCommand::vkGetPhysicalDeviceExternalSemaphoreProperties as usize,
                 ),
             )
         };
@@ -5487,7 +5487,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchBase>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDispatchBase as usize,
+                InstanceCommand::vkCmdDispatchBase as usize,
             ))
         };
         unsafe {
@@ -5541,7 +5541,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateDescriptorUpdateTemplate>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateDescriptorUpdateTemplate as usize,
+                InstanceCommand::vkCreateDescriptorUpdateTemplate as usize,
             ))
         };
         unsafe {
@@ -5580,7 +5580,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyDescriptorUpdateTemplate>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyDescriptorUpdateTemplate as usize,
+                InstanceCommand::vkDestroyDescriptorUpdateTemplate as usize,
             ))
         };
         unsafe { (command)(self.handle, descriptor_update_template, p_allocator) }
@@ -5609,7 +5609,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_UpdateDescriptorSetWithTemplate>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkUpdateDescriptorSetWithTemplate as usize,
+                InstanceCommand::vkUpdateDescriptorSetWithTemplate as usize,
             ))
         };
         unsafe {
@@ -5647,7 +5647,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorSetLayoutSupport>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetDescriptorSetLayoutSupport as usize,
+                InstanceCommand::vkGetDescriptorSetLayoutSupport as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_support) }
@@ -5691,7 +5691,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateSamplerYcbcrConversion>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateSamplerYcbcrConversion as usize,
+                InstanceCommand::vkCreateSamplerYcbcrConversion as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_ycbcr_conversion) }
@@ -5723,7 +5723,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroySamplerYcbcrConversion>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroySamplerYcbcrConversion as usize,
+                InstanceCommand::vkDestroySamplerYcbcrConversion as usize,
             ))
         };
         unsafe { (command)(self.handle, ycbcr_conversion, p_allocator) }
@@ -5751,7 +5751,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_ResetQueryPool>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkResetQueryPool as usize,
+                InstanceCommand::vkResetQueryPool as usize,
             ))
         };
         unsafe { (command)(self.handle, query_pool, first_query, query_count) }
@@ -5788,7 +5788,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetSemaphoreCounterValue>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetSemaphoreCounterValue as usize,
+                InstanceCommand::vkGetSemaphoreCounterValue as usize,
             ))
         };
         unsafe { (command)(self.handle, semaphore, p_value) }
@@ -5826,7 +5826,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_WaitSemaphores>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkWaitSemaphores as usize,
+                InstanceCommand::vkWaitSemaphores as usize,
             ))
         };
         unsafe { (command)(self.handle, p_wait_info, timeout) }
@@ -5858,7 +5858,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_SignalSemaphore>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkSignalSemaphore as usize,
+                InstanceCommand::vkSignalSemaphore as usize,
             ))
         };
         unsafe { (command)(self.handle, p_signal_info) }
@@ -5885,7 +5885,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetBufferDeviceAddress>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetBufferDeviceAddress as usize,
+                InstanceCommand::vkGetBufferDeviceAddress as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -5912,7 +5912,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetBufferOpaqueCaptureAddress>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetBufferOpaqueCaptureAddress as usize,
+                InstanceCommand::vkGetBufferOpaqueCaptureAddress as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -5940,7 +5940,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceMemoryOpaqueCaptureAddress>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetDeviceMemoryOpaqueCaptureAddress as usize,
+                    InstanceCommand::vkGetDeviceMemoryOpaqueCaptureAddress as usize,
                 ),
             )
         };
@@ -5983,7 +5983,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirectCount>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawIndirectCount as usize,
+                InstanceCommand::vkCmdDrawIndirectCount as usize,
             ))
         };
         unsafe {
@@ -6035,7 +6035,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexedIndirectCount>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawIndexedIndirectCount as usize,
+                InstanceCommand::vkCmdDrawIndexedIndirectCount as usize,
             ))
         };
         unsafe {
@@ -6089,7 +6089,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateRenderPass2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateRenderPass2 as usize,
+                InstanceCommand::vkCreateRenderPass2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_render_pass) }
@@ -6128,7 +6128,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBeginRenderPass2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBeginRenderPass2 as usize,
+                InstanceCommand::vkCmdBeginRenderPass2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_render_pass_begin, p_subpass_begin_info) }
@@ -6167,7 +6167,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdNextSubpass2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdNextSubpass2 as usize,
+                InstanceCommand::vkCmdNextSubpass2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_subpass_begin_info, p_subpass_end_info) }
@@ -6202,7 +6202,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdEndRenderPass2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdEndRenderPass2 as usize,
+                InstanceCommand::vkCmdEndRenderPass2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_subpass_end_info) }
@@ -6244,7 +6244,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceToolProperties>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPhysicalDeviceToolProperties as usize,
+                InstanceCommand::vkGetPhysicalDeviceToolProperties as usize,
             ))
         };
         unsafe { (command)(self.handle, p_tool_count, p_tool_properties) }
@@ -6287,7 +6287,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreatePrivateDataSlot>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreatePrivateDataSlot as usize,
+                InstanceCommand::vkCreatePrivateDataSlot as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_private_data_slot) }
@@ -6319,7 +6319,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyPrivateDataSlot>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyPrivateDataSlot as usize,
+                InstanceCommand::vkDestroyPrivateDataSlot as usize,
             ))
         };
         unsafe { (command)(self.handle, private_data_slot, p_allocator) }
@@ -6356,7 +6356,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_SetPrivateData>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkSetPrivateData as usize,
+                InstanceCommand::vkSetPrivateData as usize,
             ))
         };
         unsafe {
@@ -6394,7 +6394,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPrivateData>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPrivateData as usize,
+                InstanceCommand::vkGetPrivateData as usize,
             ))
         };
         unsafe {
@@ -6440,7 +6440,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdPipelineBarrier2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdPipelineBarrier2 as usize,
+                InstanceCommand::vkCmdPipelineBarrier2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_dependency_info) }
@@ -6486,7 +6486,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdWriteTimestamp2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdWriteTimestamp2 as usize,
+                InstanceCommand::vkCmdWriteTimestamp2 as usize,
             ))
         };
         unsafe { (command)(self.handle, stage, query_pool, query) }
@@ -6528,7 +6528,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_QueueSubmit2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkQueueSubmit2 as usize,
+                InstanceCommand::vkQueueSubmit2 as usize,
             ))
         };
         unsafe { (command)(self.handle, submit_count, p_submits, fence) }
@@ -6564,7 +6564,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyBuffer2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyBuffer2 as usize,
+                InstanceCommand::vkCmdCopyBuffer2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_buffer_info) }
@@ -6600,7 +6600,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImage2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyImage2 as usize,
+                InstanceCommand::vkCmdCopyImage2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_image_info) }
@@ -6639,7 +6639,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyBufferToImage2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyBufferToImage2 as usize,
+                InstanceCommand::vkCmdCopyBufferToImage2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_buffer_to_image_info) }
@@ -6678,7 +6678,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImageToBuffer2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyImageToBuffer2 as usize,
+                InstanceCommand::vkCmdCopyImageToBuffer2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_image_to_buffer_info) }
@@ -6710,7 +6710,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceBufferMemoryRequirements>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetDeviceBufferMemoryRequirements as usize,
+                    InstanceCommand::vkGetDeviceBufferMemoryRequirements as usize,
                 ),
             )
         };
@@ -6742,7 +6742,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceImageMemoryRequirements>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetDeviceImageMemoryRequirements as usize,
+                InstanceCommand::vkGetDeviceImageMemoryRequirements as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
@@ -6779,7 +6779,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceImageSparseMemoryRequirements>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetDeviceImageSparseMemoryRequirements as usize,
+                    InstanceCommand::vkGetDeviceImageSparseMemoryRequirements as usize,
                 ),
             )
         };
@@ -6824,7 +6824,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetEvent2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetEvent2 as usize,
+                InstanceCommand::vkCmdSetEvent2 as usize,
             ))
         };
         unsafe { (command)(self.handle, event, p_dependency_info) }
@@ -6864,7 +6864,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdResetEvent2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdResetEvent2 as usize,
+                InstanceCommand::vkCmdResetEvent2 as usize,
             ))
         };
         unsafe { (command)(self.handle, event, stage_mask) }
@@ -6906,7 +6906,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdWaitEvents2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdWaitEvents2 as usize,
+                InstanceCommand::vkCmdWaitEvents2 as usize,
             ))
         };
         unsafe { (command)(self.handle, event_count, p_events, p_dependency_infos) }
@@ -6940,7 +6940,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBlitImage2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBlitImage2 as usize,
+                InstanceCommand::vkCmdBlitImage2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_blit_image_info) }
@@ -6974,7 +6974,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdResolveImage2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdResolveImage2 as usize,
+                InstanceCommand::vkCmdResolveImage2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_resolve_image_info) }
@@ -7009,7 +7009,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBeginRendering>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBeginRendering as usize,
+                InstanceCommand::vkCmdBeginRendering as usize,
             ))
         };
         unsafe { (command)(self.handle, p_rendering_info) }
@@ -7043,7 +7043,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdEndRendering>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdEndRendering as usize,
+                InstanceCommand::vkCmdEndRendering as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -7079,7 +7079,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetCullMode>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetCullMode as usize,
+                InstanceCommand::vkCmdSetCullMode as usize,
             ))
         };
         unsafe { (command)(self.handle, cull_mode) }
@@ -7112,7 +7112,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetFrontFace>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetFrontFace as usize,
+                InstanceCommand::vkCmdSetFrontFace as usize,
             ))
         };
         unsafe { (command)(self.handle, front_face) }
@@ -7146,7 +7146,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetPrimitiveTopology>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetPrimitiveTopology as usize,
+                InstanceCommand::vkCmdSetPrimitiveTopology as usize,
             ))
         };
         unsafe { (command)(self.handle, primitive_topology) }
@@ -7184,7 +7184,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewportWithCount>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetViewportWithCount as usize,
+                InstanceCommand::vkCmdSetViewportWithCount as usize,
             ))
         };
         unsafe { (command)(self.handle, viewport_count, p_viewports) }
@@ -7218,7 +7218,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetScissorWithCount>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetScissorWithCount as usize,
+                InstanceCommand::vkCmdSetScissorWithCount as usize,
             ))
         };
         unsafe { (command)(self.handle, scissor_count, p_scissors) }
@@ -7271,7 +7271,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindVertexBuffers2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBindVertexBuffers2 as usize,
+                InstanceCommand::vkCmdBindVertexBuffers2 as usize,
             ))
         };
         unsafe {
@@ -7314,7 +7314,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthTestEnable>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetDepthTestEnable as usize,
+                InstanceCommand::vkCmdSetDepthTestEnable as usize,
             ))
         };
         unsafe { (command)(self.handle, depth_test_enable) }
@@ -7347,7 +7347,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthWriteEnable>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetDepthWriteEnable as usize,
+                InstanceCommand::vkCmdSetDepthWriteEnable as usize,
             ))
         };
         unsafe { (command)(self.handle, depth_write_enable) }
@@ -7380,7 +7380,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthCompareOp>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetDepthCompareOp as usize,
+                InstanceCommand::vkCmdSetDepthCompareOp as usize,
             ))
         };
         unsafe { (command)(self.handle, depth_compare_op) }
@@ -7413,7 +7413,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBoundsTestEnable>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetDepthBoundsTestEnable as usize,
+                InstanceCommand::vkCmdSetDepthBoundsTestEnable as usize,
             ))
         };
         unsafe { (command)(self.handle, depth_bounds_test_enable) }
@@ -7446,7 +7446,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilTestEnable>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetStencilTestEnable as usize,
+                InstanceCommand::vkCmdSetStencilTestEnable as usize,
             ))
         };
         unsafe { (command)(self.handle, stencil_test_enable) }
@@ -7493,7 +7493,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilOp>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetStencilOp as usize,
+                InstanceCommand::vkCmdSetStencilOp as usize,
             ))
         };
         unsafe {
@@ -7536,7 +7536,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetRasterizerDiscardEnable>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetRasterizerDiscardEnable as usize,
+                InstanceCommand::vkCmdSetRasterizerDiscardEnable as usize,
             ))
         };
         unsafe { (command)(self.handle, rasterizer_discard_enable) }
@@ -7569,7 +7569,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBiasEnable>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetDepthBiasEnable as usize,
+                InstanceCommand::vkCmdSetDepthBiasEnable as usize,
             ))
         };
         unsafe { (command)(self.handle, depth_bias_enable) }
@@ -7603,7 +7603,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetPrimitiveRestartEnable>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetPrimitiveRestartEnable as usize,
+                InstanceCommand::vkCmdSetPrimitiveRestartEnable as usize,
             ))
         };
         unsafe { (command)(self.handle, primitive_restart_enable) }
@@ -7640,7 +7640,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_MapMemory2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkMapMemory2 as usize,
+                InstanceCommand::vkMapMemory2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_memory_map_info, pp_data) }
@@ -7671,7 +7671,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_UnmapMemory2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkUnmapMemory2 as usize,
+                InstanceCommand::vkUnmapMemory2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_memory_unmap_info) }
@@ -7699,7 +7699,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceImageSubresourceLayout>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetDeviceImageSubresourceLayout as usize,
+                InstanceCommand::vkGetDeviceImageSubresourceLayout as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info, p_layout) }
@@ -7728,7 +7728,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetImageSubresourceLayout2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetImageSubresourceLayout2 as usize,
+                InstanceCommand::vkGetImageSubresourceLayout2 as usize,
             ))
         };
         unsafe { (command)(self.handle, image, p_subresource, p_layout) }
@@ -7765,7 +7765,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CopyMemoryToImage>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCopyMemoryToImage as usize,
+                InstanceCommand::vkCopyMemoryToImage as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_memory_to_image_info) }
@@ -7802,7 +7802,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CopyImageToMemory>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCopyImageToMemory as usize,
+                InstanceCommand::vkCopyImageToMemory as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_image_to_memory_info) }
@@ -7839,7 +7839,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CopyImageToImage>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCopyImageToImage as usize,
+                InstanceCommand::vkCopyImageToImage as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_image_to_image_info) }
@@ -7877,7 +7877,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_TransitionImageLayout>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkTransitionImageLayout as usize,
+                InstanceCommand::vkTransitionImageLayout as usize,
             ))
         };
         unsafe { (command)(self.handle, transition_count, p_transitions) }
@@ -7925,7 +7925,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSet>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdPushDescriptorSet as usize,
+                InstanceCommand::vkCmdPushDescriptorSet as usize,
             ))
         };
         unsafe {
@@ -7980,7 +7980,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSetWithTemplate>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdPushDescriptorSetWithTemplate as usize,
+                InstanceCommand::vkCmdPushDescriptorSetWithTemplate as usize,
             ))
         };
         unsafe { (command)(self.handle, descriptor_update_template, layout, set, p_data) }
@@ -8018,7 +8018,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindDescriptorSets2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBindDescriptorSets2 as usize,
+                InstanceCommand::vkCmdBindDescriptorSets2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_bind_descriptor_sets_info) }
@@ -8053,7 +8053,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdPushConstants2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdPushConstants2 as usize,
+                InstanceCommand::vkCmdPushConstants2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_push_constants_info) }
@@ -8091,7 +8091,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSet2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdPushDescriptorSet2 as usize,
+                InstanceCommand::vkCmdPushDescriptorSet2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_push_descriptor_set_info) }
@@ -8130,7 +8130,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSetWithTemplate2>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdPushDescriptorSetWithTemplate2 as usize,
+                    InstanceCommand::vkCmdPushDescriptorSetWithTemplate2 as usize,
                 ),
             )
         };
@@ -8164,7 +8164,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetLineStipple>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetLineStipple as usize,
+                InstanceCommand::vkCmdSetLineStipple as usize,
             ))
         };
         unsafe { (command)(self.handle, line_stipple_factor, line_stipple_pattern) }
@@ -8207,7 +8207,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindIndexBuffer2>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBindIndexBuffer2 as usize,
+                InstanceCommand::vkCmdBindIndexBuffer2 as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer, offset, size, index_type) }
@@ -8235,7 +8235,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetRenderingAreaGranularity>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetRenderingAreaGranularity as usize,
+                InstanceCommand::vkGetRenderingAreaGranularity as usize,
             ))
         };
         unsafe { (command)(self.handle, p_rendering_area_info, p_granularity) }
@@ -8273,7 +8273,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetRenderingAttachmentLocations>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdSetRenderingAttachmentLocations as usize,
+                    InstanceCommand::vkCmdSetRenderingAttachmentLocations as usize,
                 ),
             )
         };
@@ -8312,7 +8312,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetRenderingInputAttachmentIndices>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdSetRenderingInputAttachmentIndices as usize,
+                    InstanceCommand::vkCmdSetRenderingInputAttachmentIndices as usize,
                 ),
             )
         };
@@ -8327,7 +8327,7 @@ impl Instance {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
+    /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8345,7 +8345,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroySurfaceKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroySurfaceKHR as usize,
+                InstanceCommand::vkDestroySurfaceKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, surface, p_allocator) }
@@ -8359,7 +8359,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
+    /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8384,7 +8384,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfaceSupportKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceSurfaceSupportKHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceSurfaceSupportKHR as usize,
                 ),
             )
         };
@@ -8402,7 +8402,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
+    /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8426,7 +8426,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfaceCapabilitiesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceSurfaceCapabilitiesKHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceSurfaceCapabilitiesKHR as usize,
                 ),
             )
         };
@@ -8445,7 +8445,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
+    /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8475,7 +8475,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfaceFormatsKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceSurfaceFormatsKHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceSurfaceFormatsKHR as usize,
                 ),
             )
         };
@@ -8501,7 +8501,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
+    /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8531,7 +8531,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfacePresentModesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceSurfacePresentModesKHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceSurfacePresentModesKHR as usize,
                 ),
             )
         };
@@ -8550,7 +8550,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8581,7 +8581,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateSwapchainKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateSwapchainKHR as usize,
+                InstanceCommand::vkCreateSwapchainKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_swapchain) }
@@ -8595,7 +8595,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8613,7 +8613,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroySwapchainKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroySwapchainKHR as usize,
+                InstanceCommand::vkDestroySwapchainKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, swapchain, p_allocator) }
@@ -8627,7 +8627,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8654,7 +8654,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetSwapchainImagesKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetSwapchainImagesKHR as usize,
+                InstanceCommand::vkGetSwapchainImagesKHR as usize,
             ))
         };
         unsafe {
@@ -8675,7 +8675,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8711,7 +8711,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_AcquireNextImageKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkAcquireNextImageKHR as usize,
+                InstanceCommand::vkAcquireNextImageKHR as usize,
             ))
         };
         unsafe {
@@ -8734,7 +8734,7 @@ impl Queue {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8758,7 +8758,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_QueuePresentKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkQueuePresentKHR as usize,
+                InstanceCommand::vkQueuePresentKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_present_info) }
@@ -8773,8 +8773,8 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
-    /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+    /// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8796,7 +8796,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceGroupPresentCapabilitiesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetDeviceGroupPresentCapabilitiesKHR as usize,
+                    InstanceCommand::vkGetDeviceGroupPresentCapabilitiesKHR as usize,
                 ),
             )
         };
@@ -8815,8 +8815,8 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
-    /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+    /// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8840,7 +8840,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceGroupSurfacePresentModesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetDeviceGroupSurfacePresentModesKHR as usize,
+                    InstanceCommand::vkGetDeviceGroupSurfacePresentModesKHR as usize,
                 ),
             )
         };
@@ -8856,8 +8856,8 @@ impl PhysicalDevice {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
-    /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+    /// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8885,7 +8885,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDevicePresentRectanglesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDevicePresentRectanglesKHR as usize,
+                    InstanceCommand::vkGetPhysicalDevicePresentRectanglesKHR as usize,
                 ),
             )
         };
@@ -8901,8 +8901,8 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
-    /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+    /// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8931,7 +8931,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_AcquireNextImage2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkAcquireNextImage2KHR as usize,
+                InstanceCommand::vkAcquireNextImage2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_acquire_info, p_image_index) }
@@ -8945,7 +8945,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+    /// - Extension [`KHR_Display`](Extension::KHR_Display)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8972,7 +8972,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceDisplayPropertiesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceDisplayPropertiesKHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceDisplayPropertiesKHR as usize,
                 ),
             )
         };
@@ -8991,7 +8991,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+    /// - Extension [`KHR_Display`](Extension::KHR_Display)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9018,7 +9018,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceDisplayPlanePropertiesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceDisplayPlanePropertiesKHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceDisplayPlanePropertiesKHR as usize,
                 ),
             )
         };
@@ -9033,7 +9033,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+    /// - Extension [`KHR_Display`](Extension::KHR_Display)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9061,7 +9061,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetDisplayPlaneSupportedDisplaysKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetDisplayPlaneSupportedDisplaysKHR as usize,
+                    InstanceCommand::vkGetDisplayPlaneSupportedDisplaysKHR as usize,
                 ),
             )
         };
@@ -9080,7 +9080,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+    /// - Extension [`KHR_Display`](Extension::KHR_Display)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9107,7 +9107,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDisplayModePropertiesKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetDisplayModePropertiesKHR as usize,
+                InstanceCommand::vkGetDisplayModePropertiesKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, display, p_property_count, p_properties) }
@@ -9126,7 +9126,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+    /// - Extension [`KHR_Display`](Extension::KHR_Display)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9154,7 +9154,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateDisplayModeKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateDisplayModeKHR as usize,
+                InstanceCommand::vkCreateDisplayModeKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, display, p_create_info, p_allocator, p_mode) }
@@ -9172,7 +9172,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+    /// - Extension [`KHR_Display`](Extension::KHR_Display)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9195,7 +9195,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDisplayPlaneCapabilitiesKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetDisplayPlaneCapabilitiesKHR as usize,
+                InstanceCommand::vkGetDisplayPlaneCapabilitiesKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, mode, plane_index, p_capabilities) }
@@ -9213,7 +9213,7 @@ impl Instance {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+    /// - Extension [`KHR_Display`](Extension::KHR_Display)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9239,7 +9239,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateDisplayPlaneSurfaceKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateDisplayPlaneSurfaceKHR as usize,
+                InstanceCommand::vkCreateDisplayPlaneSurfaceKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
@@ -9258,7 +9258,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DisplaySwapchain`](Extensions::KHR_DisplaySwapchain)
+    /// - Extension [`KHR_DisplaySwapchain`](Extension::KHR_DisplaySwapchain)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9288,7 +9288,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateSharedSwapchainsKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateSharedSwapchainsKHR as usize,
+                InstanceCommand::vkCreateSharedSwapchainsKHR as usize,
             ))
         };
         unsafe {
@@ -9314,7 +9314,7 @@ impl Instance {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_XlibSurface`](Extensions::KHR_XlibSurface)
+    /// - Extension [`KHR_XlibSurface`](Extension::KHR_XlibSurface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9340,7 +9340,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateXlibSurfaceKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateXlibSurfaceKHR as usize,
+                InstanceCommand::vkCreateXlibSurfaceKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
@@ -9354,7 +9354,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_XlibSurface`](Extensions::KHR_XlibSurface)
+    /// - Extension [`KHR_XlibSurface`](Extension::KHR_XlibSurface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9370,7 +9370,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceXlibPresentationSupportKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceXlibPresentationSupportKHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceXlibPresentationSupportKHR as usize,
                 ),
             )
         };
@@ -9389,7 +9389,7 @@ impl Instance {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_XcbSurface`](Extensions::KHR_XcbSurface)
+    /// - Extension [`KHR_XcbSurface`](Extension::KHR_XcbSurface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9415,7 +9415,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateXcbSurfaceKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateXcbSurfaceKHR as usize,
+                InstanceCommand::vkCreateXcbSurfaceKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
@@ -9433,7 +9433,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_XcbSurface`](Extensions::KHR_XcbSurface)
+    /// - Extension [`KHR_XcbSurface`](Extension::KHR_XcbSurface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9449,7 +9449,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceXcbPresentationSupportKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceXcbPresentationSupportKHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceXcbPresentationSupportKHR as usize,
                 ),
             )
         };
@@ -9468,7 +9468,7 @@ impl Instance {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_WaylandSurface`](Extensions::KHR_WaylandSurface)
+    /// - Extension [`KHR_WaylandSurface`](Extension::KHR_WaylandSurface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9494,7 +9494,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateWaylandSurfaceKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateWaylandSurfaceKHR as usize,
+                InstanceCommand::vkCreateWaylandSurfaceKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
@@ -9508,7 +9508,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_WaylandSurface`](Extensions::KHR_WaylandSurface)
+    /// - Extension [`KHR_WaylandSurface`](Extension::KHR_WaylandSurface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9523,7 +9523,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceWaylandPresentationSupportKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceWaylandPresentationSupportKHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceWaylandPresentationSupportKHR as usize,
                 ),
             )
         };
@@ -9542,7 +9542,7 @@ impl Instance {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_AndroidSurface`](Extensions::KHR_AndroidSurface)
+    /// - Extension [`KHR_AndroidSurface`](Extension::KHR_AndroidSurface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9569,7 +9569,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateAndroidSurfaceKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateAndroidSurfaceKHR as usize,
+                InstanceCommand::vkCreateAndroidSurfaceKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
@@ -9587,7 +9587,7 @@ impl Instance {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Win32Surface`](Extensions::KHR_Win32Surface)
+    /// - Extension [`KHR_Win32Surface`](Extension::KHR_Win32Surface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9613,7 +9613,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateWin32SurfaceKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateWin32SurfaceKHR as usize,
+                InstanceCommand::vkCreateWin32SurfaceKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
@@ -9627,7 +9627,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Win32Surface`](Extensions::KHR_Win32Surface)
+    /// - Extension [`KHR_Win32Surface`](Extension::KHR_Win32Surface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9638,7 +9638,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceWin32PresentationSupportKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceWin32PresentationSupportKHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceWin32PresentationSupportKHR as usize,
                 ),
             )
         };
@@ -9656,7 +9656,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9683,7 +9683,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceVideoCapabilitiesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceVideoCapabilitiesKHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceVideoCapabilitiesKHR as usize,
                 ),
             )
         };
@@ -9702,7 +9702,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9735,7 +9735,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceVideoFormatPropertiesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceVideoFormatPropertiesKHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceVideoFormatPropertiesKHR as usize,
                 ),
             )
         };
@@ -9761,7 +9761,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9790,7 +9790,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateVideoSessionKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateVideoSessionKHR as usize,
+                InstanceCommand::vkCreateVideoSessionKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_video_session) }
@@ -9804,7 +9804,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9822,7 +9822,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyVideoSessionKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyVideoSessionKHR as usize,
+                InstanceCommand::vkDestroyVideoSessionKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, video_session, p_allocator) }
@@ -9840,7 +9840,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9866,7 +9866,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetVideoSessionMemoryRequirementsKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetVideoSessionMemoryRequirementsKHR as usize,
+                    InstanceCommand::vkGetVideoSessionMemoryRequirementsKHR as usize,
                 ),
             )
         };
@@ -9892,7 +9892,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9915,7 +9915,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_BindVideoSessionMemoryKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkBindVideoSessionMemoryKHR as usize,
+                InstanceCommand::vkBindVideoSessionMemoryKHR as usize,
             ))
         };
         unsafe {
@@ -9940,7 +9940,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9968,7 +9968,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateVideoSessionParametersKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateVideoSessionParametersKHR as usize,
+                InstanceCommand::vkCreateVideoSessionParametersKHR as usize,
             ))
         };
         unsafe {
@@ -9992,7 +9992,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10015,7 +10015,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_UpdateVideoSessionParametersKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkUpdateVideoSessionParametersKHR as usize,
+                InstanceCommand::vkUpdateVideoSessionParametersKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, video_session_parameters, p_update_info) }
@@ -10029,7 +10029,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10047,7 +10047,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyVideoSessionParametersKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyVideoSessionParametersKHR as usize,
+                InstanceCommand::vkDestroyVideoSessionParametersKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, video_session_parameters, p_allocator) }
@@ -10061,7 +10061,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10082,7 +10082,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBeginVideoCodingKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBeginVideoCodingKHR as usize,
+                InstanceCommand::vkCmdBeginVideoCodingKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_begin_info) }
@@ -10096,7 +10096,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10117,7 +10117,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdEndVideoCodingKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdEndVideoCodingKHR as usize,
+                InstanceCommand::vkCmdEndVideoCodingKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_end_coding_info) }
@@ -10131,7 +10131,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10154,7 +10154,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdControlVideoCodingKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdControlVideoCodingKHR as usize,
+                InstanceCommand::vkCmdControlVideoCodingKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_coding_control_info) }
@@ -10168,7 +10168,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+    /// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10187,7 +10187,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDecodeVideoKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDecodeVideoKHR as usize,
+                InstanceCommand::vkCmdDecodeVideoKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_decode_info) }
@@ -10202,7 +10202,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`KHR_DynamicRendering`](Extensions::KHR_DynamicRendering)
+    /// - Extension [`KHR_DynamicRendering`](Extension::KHR_DynamicRendering)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10223,7 +10223,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBeginRenderingKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBeginRenderingKHR as usize,
+                InstanceCommand::vkCmdBeginRenderingKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_rendering_info) }
@@ -10237,7 +10237,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`KHR_DynamicRendering`](Extensions::KHR_DynamicRendering)
+    /// - Extension [`KHR_DynamicRendering`](Extension::KHR_DynamicRendering)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10258,7 +10258,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdEndRenderingKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdEndRenderingKHR as usize,
+                InstanceCommand::vkCmdEndRenderingKHR as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -10273,7 +10273,7 @@ impl PhysicalDevice {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10283,7 +10283,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFeatures2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPhysicalDeviceFeatures2KHR as usize,
+                InstanceCommand::vkGetPhysicalDeviceFeatures2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_features) }
@@ -10298,7 +10298,7 @@ impl PhysicalDevice {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10308,7 +10308,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceProperties2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPhysicalDeviceProperties2KHR as usize,
+                InstanceCommand::vkGetPhysicalDeviceProperties2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_properties) }
@@ -10323,7 +10323,7 @@ impl PhysicalDevice {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10338,7 +10338,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFormatProperties2KHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceFormatProperties2KHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceFormatProperties2KHR as usize,
                 ),
             )
         };
@@ -10358,7 +10358,7 @@ impl PhysicalDevice {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10387,7 +10387,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceImageFormatProperties2KHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceImageFormatProperties2KHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceImageFormatProperties2KHR as usize,
                 ),
             )
         };
@@ -10403,7 +10403,7 @@ impl PhysicalDevice {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10421,7 +10421,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceQueueFamilyProperties2KHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceQueueFamilyProperties2KHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceQueueFamilyProperties2KHR as usize,
                 ),
             )
         };
@@ -10443,7 +10443,7 @@ impl PhysicalDevice {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10457,7 +10457,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceMemoryProperties2KHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceMemoryProperties2KHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceMemoryProperties2KHR as usize,
                 ),
             )
         };
@@ -10477,7 +10477,7 @@ impl PhysicalDevice {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extensions::KHR_GetPhysicalDeviceProperties2)
+    /// - Extension [`KHR_GetPhysicalDeviceProperties2`](Extension::KHR_GetPhysicalDeviceProperties2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10498,7 +10498,7 @@ impl PhysicalDevice {
                 FUN_GetPhysicalDeviceSparseImageFormatProperties2KHR,
             >(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPhysicalDeviceSparseImageFormatProperties2KHR as usize,
+                InstanceCommand::vkGetPhysicalDeviceSparseImageFormatProperties2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_format_info, p_property_count, p_properties) }
@@ -10513,7 +10513,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+    /// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10530,7 +10530,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceGroupPeerMemoryFeaturesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetDeviceGroupPeerMemoryFeaturesKHR as usize,
+                    InstanceCommand::vkGetDeviceGroupPeerMemoryFeaturesKHR as usize,
                 ),
             )
         };
@@ -10553,7 +10553,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+    /// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10575,7 +10575,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetDeviceMaskKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetDeviceMaskKHR as usize,
+                InstanceCommand::vkCmdSetDeviceMaskKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, device_mask) }
@@ -10590,7 +10590,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+    /// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10618,7 +10618,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchBaseKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDispatchBaseKHR as usize,
+                InstanceCommand::vkCmdDispatchBaseKHR as usize,
             ))
         };
         unsafe {
@@ -10643,7 +10643,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_Maintenance1`](Extensions::KHR_Maintenance1)
+    /// - Extension [`KHR_Maintenance1`](Extension::KHR_Maintenance1)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10660,7 +10660,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_TrimCommandPoolKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkTrimCommandPoolKHR as usize,
+                InstanceCommand::vkTrimCommandPoolKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, command_pool, flags) }
@@ -10678,7 +10678,7 @@ impl Instance {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_DeviceGroupCreation`](Extensions::KHR_DeviceGroupCreation)
+    /// - Extension [`KHR_DeviceGroupCreation`](Extension::KHR_DeviceGroupCreation)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10705,7 +10705,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_EnumeratePhysicalDeviceGroupsKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkEnumeratePhysicalDeviceGroupsKHR as usize,
+                InstanceCommand::vkEnumeratePhysicalDeviceGroupsKHR as usize,
             ))
         };
         unsafe {
@@ -10729,7 +10729,7 @@ impl PhysicalDevice {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+    /// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10744,7 +10744,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceExternalBufferPropertiesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceExternalBufferPropertiesKHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceExternalBufferPropertiesKHR as usize,
                 ),
             )
         };
@@ -10768,7 +10768,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_ExternalMemoryWin32`](Extensions::KHR_ExternalMemoryWin32)
+    /// - Extension [`KHR_ExternalMemoryWin32`](Extension::KHR_ExternalMemoryWin32)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10790,7 +10790,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetMemoryWin32HandleKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetMemoryWin32HandleKHR as usize,
+                InstanceCommand::vkGetMemoryWin32HandleKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_get_win_32_handle_info, p_handle) }
@@ -10808,7 +10808,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_ExternalMemoryWin32`](Extensions::KHR_ExternalMemoryWin32)
+    /// - Extension [`KHR_ExternalMemoryWin32`](Extension::KHR_ExternalMemoryWin32)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10832,7 +10832,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetMemoryWin32HandlePropertiesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetMemoryWin32HandlePropertiesKHR as usize,
+                    InstanceCommand::vkGetMemoryWin32HandlePropertiesKHR as usize,
                 ),
             )
         };
@@ -10854,7 +10854,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_ExternalMemoryFd`](Extensions::KHR_ExternalMemoryFd)
+    /// - Extension [`KHR_ExternalMemoryFd`](Extension::KHR_ExternalMemoryFd)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10876,7 +10876,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetMemoryFdKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetMemoryFdKHR as usize,
+                InstanceCommand::vkGetMemoryFdKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_get_fd_info, p_fd) }
@@ -10894,7 +10894,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_ExternalMemoryFd`](Extensions::KHR_ExternalMemoryFd)
+    /// - Extension [`KHR_ExternalMemoryFd`](Extension::KHR_ExternalMemoryFd)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10917,7 +10917,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetMemoryFdPropertiesKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetMemoryFdPropertiesKHR as usize,
+                InstanceCommand::vkGetMemoryFdPropertiesKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, handle_type, fd, p_memory_fd_properties) }
@@ -10935,7 +10935,7 @@ impl PhysicalDevice {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extensions::KHR_ExternalSemaphoreCapabilities)
+    /// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extension::KHR_ExternalSemaphoreCapabilities)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10950,7 +10950,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceExternalSemaphorePropertiesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceExternalSemaphorePropertiesKHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceExternalSemaphorePropertiesKHR as usize,
                 ),
             )
         };
@@ -10971,7 +10971,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_ExternalSemaphoreWin32`](Extensions::KHR_ExternalSemaphoreWin32)
+    /// - Extension [`KHR_ExternalSemaphoreWin32`](Extension::KHR_ExternalSemaphoreWin32)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10992,7 +10992,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_ImportSemaphoreWin32HandleKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkImportSemaphoreWin32HandleKHR as usize,
+                InstanceCommand::vkImportSemaphoreWin32HandleKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_import_semaphore_win_32_handle_info) }
@@ -11009,7 +11009,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_ExternalSemaphoreWin32`](Extensions::KHR_ExternalSemaphoreWin32)
+    /// - Extension [`KHR_ExternalSemaphoreWin32`](Extension::KHR_ExternalSemaphoreWin32)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11031,7 +11031,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetSemaphoreWin32HandleKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetSemaphoreWin32HandleKHR as usize,
+                InstanceCommand::vkGetSemaphoreWin32HandleKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_get_win_32_handle_info, p_handle) }
@@ -11045,7 +11045,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_ExternalSemaphoreFd`](Extensions::KHR_ExternalSemaphoreFd)
+    /// - Extension [`KHR_ExternalSemaphoreFd`](Extension::KHR_ExternalSemaphoreFd)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11066,7 +11066,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_ImportSemaphoreFdKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkImportSemaphoreFdKHR as usize,
+                InstanceCommand::vkImportSemaphoreFdKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_import_semaphore_fd_info) }
@@ -11080,7 +11080,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_ExternalSemaphoreFd`](Extensions::KHR_ExternalSemaphoreFd)
+    /// - Extension [`KHR_ExternalSemaphoreFd`](Extension::KHR_ExternalSemaphoreFd)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11102,7 +11102,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetSemaphoreFdKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetSemaphoreFdKHR as usize,
+                InstanceCommand::vkGetSemaphoreFdKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_get_fd_info, p_fd) }
@@ -11123,7 +11123,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
-    /// - Extension [`KHR_PushDescriptor`](Extensions::KHR_PushDescriptor)
+    /// - Extension [`KHR_PushDescriptor`](Extension::KHR_PushDescriptor)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11151,7 +11151,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSetKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdPushDescriptorSetKHR as usize,
+                InstanceCommand::vkCmdPushDescriptorSetKHR as usize,
             ))
         };
         unsafe {
@@ -11180,8 +11180,8 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_PushDescriptor`](Extensions::KHR_PushDescriptor)
-    /// - Extension [`KHR_DescriptorUpdateTemplate`](Extensions::KHR_DescriptorUpdateTemplate)
+    /// - Extension [`KHR_PushDescriptor`](Extension::KHR_PushDescriptor)
+    /// - Extension [`KHR_DescriptorUpdateTemplate`](Extension::KHR_DescriptorUpdateTemplate)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11209,7 +11209,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSetWithTemplateKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdPushDescriptorSetWithTemplateKHR as usize,
+                    InstanceCommand::vkCmdPushDescriptorSetWithTemplateKHR as usize,
                 ),
             )
         };
@@ -11229,7 +11229,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_DescriptorUpdateTemplate`](Extensions::KHR_DescriptorUpdateTemplate)
+    /// - Extension [`KHR_DescriptorUpdateTemplate`](Extension::KHR_DescriptorUpdateTemplate)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11256,7 +11256,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_CreateDescriptorUpdateTemplateKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCreateDescriptorUpdateTemplateKHR as usize,
+                    InstanceCommand::vkCreateDescriptorUpdateTemplateKHR as usize,
                 ),
             )
         };
@@ -11279,7 +11279,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_DescriptorUpdateTemplate`](Extensions::KHR_DescriptorUpdateTemplate)
+    /// - Extension [`KHR_DescriptorUpdateTemplate`](Extension::KHR_DescriptorUpdateTemplate)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11298,7 +11298,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyDescriptorUpdateTemplateKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkDestroyDescriptorUpdateTemplateKHR as usize,
+                    InstanceCommand::vkDestroyDescriptorUpdateTemplateKHR as usize,
                 ),
             )
         };
@@ -11314,7 +11314,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_DescriptorUpdateTemplate`](Extensions::KHR_DescriptorUpdateTemplate)
+    /// - Extension [`KHR_DescriptorUpdateTemplate`](Extension::KHR_DescriptorUpdateTemplate)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11330,7 +11330,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_UpdateDescriptorSetWithTemplateKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkUpdateDescriptorSetWithTemplateKHR as usize,
+                    InstanceCommand::vkUpdateDescriptorSetWithTemplateKHR as usize,
                 ),
             )
         };
@@ -11357,7 +11357,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
-    /// - Extension [`KHR_CreateRenderpass2`](Extensions::KHR_CreateRenderpass2)
+    /// - Extension [`KHR_CreateRenderpass2`](Extension::KHR_CreateRenderpass2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11383,7 +11383,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateRenderPass2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateRenderPass2KHR as usize,
+                InstanceCommand::vkCreateRenderPass2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_render_pass) }
@@ -11398,7 +11398,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
-    /// - Extension [`KHR_CreateRenderpass2`](Extensions::KHR_CreateRenderpass2)
+    /// - Extension [`KHR_CreateRenderpass2`](Extension::KHR_CreateRenderpass2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11423,7 +11423,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBeginRenderPass2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBeginRenderPass2KHR as usize,
+                InstanceCommand::vkCmdBeginRenderPass2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_render_pass_begin, p_subpass_begin_info) }
@@ -11438,7 +11438,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
-    /// - Extension [`KHR_CreateRenderpass2`](Extensions::KHR_CreateRenderpass2)
+    /// - Extension [`KHR_CreateRenderpass2`](Extension::KHR_CreateRenderpass2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11463,7 +11463,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdNextSubpass2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdNextSubpass2KHR as usize,
+                InstanceCommand::vkCmdNextSubpass2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_subpass_begin_info, p_subpass_end_info) }
@@ -11478,7 +11478,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
-    /// - Extension [`KHR_CreateRenderpass2`](Extensions::KHR_CreateRenderpass2)
+    /// - Extension [`KHR_CreateRenderpass2`](Extension::KHR_CreateRenderpass2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11499,7 +11499,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdEndRenderPass2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdEndRenderPass2KHR as usize,
+                InstanceCommand::vkCmdEndRenderPass2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_subpass_end_info) }
@@ -11513,7 +11513,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_SharedPresentableImage`](Extensions::KHR_SharedPresentableImage)
+    /// - Extension [`KHR_SharedPresentableImage`](Extension::KHR_SharedPresentableImage)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11536,7 +11536,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetSwapchainStatusKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetSwapchainStatusKHR as usize,
+                InstanceCommand::vkGetSwapchainStatusKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, swapchain) }
@@ -11554,7 +11554,7 @@ impl PhysicalDevice {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_ExternalFenceCapabilities`](Extensions::KHR_ExternalFenceCapabilities)
+    /// - Extension [`KHR_ExternalFenceCapabilities`](Extension::KHR_ExternalFenceCapabilities)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11569,7 +11569,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceExternalFencePropertiesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceExternalFencePropertiesKHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceExternalFencePropertiesKHR as usize,
                 ),
             )
         };
@@ -11590,7 +11590,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_ExternalFenceWin32`](Extensions::KHR_ExternalFenceWin32)
+    /// - Extension [`KHR_ExternalFenceWin32`](Extension::KHR_ExternalFenceWin32)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11611,7 +11611,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_ImportFenceWin32HandleKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkImportFenceWin32HandleKHR as usize,
+                InstanceCommand::vkImportFenceWin32HandleKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_import_fence_win_32_handle_info) }
@@ -11628,7 +11628,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_ExternalFenceWin32`](Extensions::KHR_ExternalFenceWin32)
+    /// - Extension [`KHR_ExternalFenceWin32`](Extension::KHR_ExternalFenceWin32)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11650,7 +11650,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetFenceWin32HandleKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetFenceWin32HandleKHR as usize,
+                InstanceCommand::vkGetFenceWin32HandleKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_get_win_32_handle_info, p_handle) }
@@ -11664,7 +11664,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_ExternalFenceFd`](Extensions::KHR_ExternalFenceFd)
+    /// - Extension [`KHR_ExternalFenceFd`](Extension::KHR_ExternalFenceFd)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11685,7 +11685,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_ImportFenceFdKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkImportFenceFdKHR as usize,
+                InstanceCommand::vkImportFenceFdKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_import_fence_fd_info) }
@@ -11699,7 +11699,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_ExternalFenceFd`](Extensions::KHR_ExternalFenceFd)
+    /// - Extension [`KHR_ExternalFenceFd`](Extension::KHR_ExternalFenceFd)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11721,7 +11721,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetFenceFdKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetFenceFdKHR as usize,
+                InstanceCommand::vkGetFenceFdKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_get_fd_info, p_fd) }
@@ -11741,7 +11741,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
+    /// - Extension [`KHR_PerformanceQuery`](Extension::KHR_PerformanceQuery)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11774,7 +11774,7 @@ impl PhysicalDevice {
                 FUN_EnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR,
             >(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR
+                InstanceCommand::vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR
                     as usize,
             ))
         };
@@ -11797,7 +11797,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
+    /// - Extension [`KHR_PerformanceQuery`](Extension::KHR_PerformanceQuery)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11814,7 +11814,7 @@ impl PhysicalDevice {
                 FUN_GetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR,
             >(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR as usize,
+                InstanceCommand::vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_performance_query_create_info, p_num_passes) }
@@ -11828,7 +11828,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
+    /// - Extension [`KHR_PerformanceQuery`](Extension::KHR_PerformanceQuery)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11849,7 +11849,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_AcquireProfilingLockKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkAcquireProfilingLockKHR as usize,
+                InstanceCommand::vkAcquireProfilingLockKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -11862,7 +11862,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
+    /// - Extension [`KHR_PerformanceQuery`](Extension::KHR_PerformanceQuery)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11872,7 +11872,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_ReleaseProfilingLockKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkReleaseProfilingLockKHR as usize,
+                InstanceCommand::vkReleaseProfilingLockKHR as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -11889,7 +11889,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_GetSurfaceCapabilities2`](Extensions::KHR_GetSurfaceCapabilities2)
+    /// - Extension [`KHR_GetSurfaceCapabilities2`](Extension::KHR_GetSurfaceCapabilities2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11913,7 +11913,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfaceCapabilities2KHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceSurfaceCapabilities2KHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceSurfaceCapabilities2KHR as usize,
                 ),
             )
         };
@@ -11932,7 +11932,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_GetSurfaceCapabilities2`](Extensions::KHR_GetSurfaceCapabilities2)
+    /// - Extension [`KHR_GetSurfaceCapabilities2`](Extension::KHR_GetSurfaceCapabilities2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11961,7 +11961,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfaceFormats2KHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceSurfaceFormats2KHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceSurfaceFormats2KHR as usize,
                 ),
             )
         };
@@ -11983,7 +11983,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_GetDisplayProperties2`](Extensions::KHR_GetDisplayProperties2)
+    /// - Extension [`KHR_GetDisplayProperties2`](Extension::KHR_GetDisplayProperties2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12010,7 +12010,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceDisplayProperties2KHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceDisplayProperties2KHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceDisplayProperties2KHR as usize,
                 ),
             )
         };
@@ -12029,7 +12029,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_GetDisplayProperties2`](Extensions::KHR_GetDisplayProperties2)
+    /// - Extension [`KHR_GetDisplayProperties2`](Extension::KHR_GetDisplayProperties2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12056,7 +12056,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceDisplayPlaneProperties2KHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceDisplayPlaneProperties2KHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceDisplayPlaneProperties2KHR as usize,
                 ),
             )
         };
@@ -12075,7 +12075,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_GetDisplayProperties2`](Extensions::KHR_GetDisplayProperties2)
+    /// - Extension [`KHR_GetDisplayProperties2`](Extension::KHR_GetDisplayProperties2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12102,7 +12102,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDisplayModeProperties2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetDisplayModeProperties2KHR as usize,
+                InstanceCommand::vkGetDisplayModeProperties2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, display, p_property_count, p_properties) }
@@ -12119,7 +12119,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_GetDisplayProperties2`](Extensions::KHR_GetDisplayProperties2)
+    /// - Extension [`KHR_GetDisplayProperties2`](Extension::KHR_GetDisplayProperties2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12141,7 +12141,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDisplayPlaneCapabilities2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetDisplayPlaneCapabilities2KHR as usize,
+                InstanceCommand::vkGetDisplayPlaneCapabilities2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_display_plane_info, p_capabilities) }
@@ -12159,7 +12159,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_GetMemoryRequirements2`](Extensions::KHR_GetMemoryRequirements2)
+    /// - Extension [`KHR_GetMemoryRequirements2`](Extension::KHR_GetMemoryRequirements2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12173,7 +12173,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetImageMemoryRequirements2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetImageMemoryRequirements2KHR as usize,
+                InstanceCommand::vkGetImageMemoryRequirements2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
@@ -12191,7 +12191,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_GetMemoryRequirements2`](Extensions::KHR_GetMemoryRequirements2)
+    /// - Extension [`KHR_GetMemoryRequirements2`](Extension::KHR_GetMemoryRequirements2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12205,7 +12205,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetBufferMemoryRequirements2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetBufferMemoryRequirements2KHR as usize,
+                InstanceCommand::vkGetBufferMemoryRequirements2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
@@ -12224,7 +12224,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_GetMemoryRequirements2`](Extensions::KHR_GetMemoryRequirements2)
+    /// - Extension [`KHR_GetMemoryRequirements2`](Extension::KHR_GetMemoryRequirements2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12243,7 +12243,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetImageSparseMemoryRequirements2KHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetImageSparseMemoryRequirements2KHR as usize,
+                    InstanceCommand::vkGetImageSparseMemoryRequirements2KHR as usize,
                 ),
             )
         };
@@ -12270,7 +12270,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_SamplerYcbcrConversion`](Extensions::KHR_SamplerYcbcrConversion)
+    /// - Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12296,7 +12296,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateSamplerYcbcrConversionKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateSamplerYcbcrConversionKHR as usize,
+                InstanceCommand::vkCreateSamplerYcbcrConversionKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_ycbcr_conversion) }
@@ -12311,7 +12311,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_SamplerYcbcrConversion`](Extensions::KHR_SamplerYcbcrConversion)
+    /// - Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12329,7 +12329,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroySamplerYcbcrConversionKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroySamplerYcbcrConversionKHR as usize,
+                InstanceCommand::vkDestroySamplerYcbcrConversionKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, ycbcr_conversion, p_allocator) }
@@ -12344,7 +12344,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_BindMemory2`](Extensions::KHR_BindMemory2)
+    /// - Extension [`KHR_BindMemory2`](Extension::KHR_BindMemory2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12367,7 +12367,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_BindBufferMemory2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkBindBufferMemory2KHR as usize,
+                InstanceCommand::vkBindBufferMemory2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
@@ -12382,7 +12382,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_BindMemory2`](Extensions::KHR_BindMemory2)
+    /// - Extension [`KHR_BindMemory2`](Extension::KHR_BindMemory2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12404,7 +12404,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_BindImageMemory2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkBindImageMemory2KHR as usize,
+                InstanceCommand::vkBindImageMemory2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
@@ -12422,7 +12422,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_Maintenance3`](Extensions::KHR_Maintenance3)
+    /// - Extension [`KHR_Maintenance3`](Extension::KHR_Maintenance3)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12436,7 +12436,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorSetLayoutSupportKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetDescriptorSetLayoutSupportKHR as usize,
+                InstanceCommand::vkGetDescriptorSetLayoutSupportKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_support) }
@@ -12451,7 +12451,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
-    /// - Extension [`KHR_DrawIndirectCount`](Extensions::KHR_DrawIndirectCount)
+    /// - Extension [`KHR_DrawIndirectCount`](Extension::KHR_DrawIndirectCount)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12479,7 +12479,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirectCountKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawIndirectCountKHR as usize,
+                InstanceCommand::vkCmdDrawIndirectCountKHR as usize,
             ))
         };
         unsafe {
@@ -12504,7 +12504,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
-    /// - Extension [`KHR_DrawIndirectCount`](Extensions::KHR_DrawIndirectCount)
+    /// - Extension [`KHR_DrawIndirectCount`](Extension::KHR_DrawIndirectCount)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12532,7 +12532,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexedIndirectCountKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawIndexedIndirectCountKHR as usize,
+                InstanceCommand::vkCmdDrawIndexedIndirectCountKHR as usize,
             ))
         };
         unsafe {
@@ -12557,7 +12557,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
-    /// - Extension [`KHR_TimelineSemaphore`](Extensions::KHR_TimelineSemaphore)
+    /// - Extension [`KHR_TimelineSemaphore`](Extension::KHR_TimelineSemaphore)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12580,7 +12580,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetSemaphoreCounterValueKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetSemaphoreCounterValueKHR as usize,
+                InstanceCommand::vkGetSemaphoreCounterValueKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, semaphore, p_value) }
@@ -12595,7 +12595,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
-    /// - Extension [`KHR_TimelineSemaphore`](Extensions::KHR_TimelineSemaphore)
+    /// - Extension [`KHR_TimelineSemaphore`](Extension::KHR_TimelineSemaphore)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12619,7 +12619,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_WaitSemaphoresKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkWaitSemaphoresKHR as usize,
+                InstanceCommand::vkWaitSemaphoresKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_wait_info, timeout) }
@@ -12634,7 +12634,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
-    /// - Extension [`KHR_TimelineSemaphore`](Extensions::KHR_TimelineSemaphore)
+    /// - Extension [`KHR_TimelineSemaphore`](Extension::KHR_TimelineSemaphore)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12655,7 +12655,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_SignalSemaphoreKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkSignalSemaphoreKHR as usize,
+                InstanceCommand::vkSignalSemaphoreKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_signal_info) }
@@ -12672,7 +12672,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_FragmentShadingRate`](Extensions::KHR_FragmentShadingRate)
+    /// - Extension [`KHR_FragmentShadingRate`](Extension::KHR_FragmentShadingRate)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12698,7 +12698,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceFragmentShadingRatesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceFragmentShadingRatesKHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceFragmentShadingRatesKHR as usize,
                 ),
             )
         };
@@ -12722,7 +12722,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_FragmentShadingRate`](Extensions::KHR_FragmentShadingRate)
+    /// - Extension [`KHR_FragmentShadingRate`](Extension::KHR_FragmentShadingRate)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12746,7 +12746,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetFragmentShadingRateKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetFragmentShadingRateKHR as usize,
+                InstanceCommand::vkCmdSetFragmentShadingRateKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_fragment_size, combiner_ops) }
@@ -12761,7 +12761,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
-    /// - Extension [`KHR_DynamicRenderingLocalRead`](Extensions::KHR_DynamicRenderingLocalRead)
+    /// - Extension [`KHR_DynamicRenderingLocalRead`](Extension::KHR_DynamicRenderingLocalRead)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12785,7 +12785,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetRenderingAttachmentLocationsKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdSetRenderingAttachmentLocationsKHR as usize,
+                    InstanceCommand::vkCmdSetRenderingAttachmentLocationsKHR as usize,
                 ),
             )
         };
@@ -12801,7 +12801,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
-    /// - Extension [`KHR_DynamicRenderingLocalRead`](Extensions::KHR_DynamicRenderingLocalRead)
+    /// - Extension [`KHR_DynamicRenderingLocalRead`](Extension::KHR_DynamicRenderingLocalRead)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12825,7 +12825,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetRenderingInputAttachmentIndicesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdSetRenderingInputAttachmentIndicesKHR as usize,
+                    InstanceCommand::vkCmdSetRenderingInputAttachmentIndicesKHR as usize,
                 ),
             )
         };
@@ -12840,7 +12840,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_PresentWait`](Extensions::KHR_PresentWait)
+    /// - Extension [`KHR_PresentWait`](Extension::KHR_PresentWait)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12869,7 +12869,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_WaitForPresentKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkWaitForPresentKHR as usize,
+                InstanceCommand::vkWaitForPresentKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, swapchain, present_id, timeout) }
@@ -12884,7 +12884,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
-    /// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
+    /// - Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12897,7 +12897,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetBufferDeviceAddressKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetBufferDeviceAddressKHR as usize,
+                InstanceCommand::vkGetBufferDeviceAddressKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -12912,7 +12912,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
-    /// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
+    /// - Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12925,7 +12925,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetBufferOpaqueCaptureAddressKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetBufferOpaqueCaptureAddressKHR as usize,
+                InstanceCommand::vkGetBufferOpaqueCaptureAddressKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -12940,7 +12940,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
-    /// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
+    /// - Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12954,7 +12954,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceMemoryOpaqueCaptureAddressKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetDeviceMemoryOpaqueCaptureAddressKHR as usize,
+                    InstanceCommand::vkGetDeviceMemoryOpaqueCaptureAddressKHR as usize,
                 ),
             )
         };
@@ -12972,7 +12972,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeferredHostOperations`](Extensions::KHR_DeferredHostOperations)
+    /// - Extension [`KHR_DeferredHostOperations`](Extension::KHR_DeferredHostOperations)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12996,7 +12996,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateDeferredOperationKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateDeferredOperationKHR as usize,
+                InstanceCommand::vkCreateDeferredOperationKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_allocator, p_deferred_operation) }
@@ -13010,7 +13010,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeferredHostOperations`](Extensions::KHR_DeferredHostOperations)
+    /// - Extension [`KHR_DeferredHostOperations`](Extension::KHR_DeferredHostOperations)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13028,7 +13028,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyDeferredOperationKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyDeferredOperationKHR as usize,
+                InstanceCommand::vkDestroyDeferredOperationKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, operation, p_allocator) }
@@ -13042,7 +13042,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeferredHostOperations`](Extensions::KHR_DeferredHostOperations)
+    /// - Extension [`KHR_DeferredHostOperations`](Extension::KHR_DeferredHostOperations)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13056,7 +13056,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeferredOperationMaxConcurrencyKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetDeferredOperationMaxConcurrencyKHR as usize,
+                    InstanceCommand::vkGetDeferredOperationMaxConcurrencyKHR as usize,
                 ),
             )
         };
@@ -13071,7 +13071,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeferredHostOperations`](Extensions::KHR_DeferredHostOperations)
+    /// - Extension [`KHR_DeferredHostOperations`](Extension::KHR_DeferredHostOperations)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13091,7 +13091,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeferredOperationResultKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetDeferredOperationResultKHR as usize,
+                InstanceCommand::vkGetDeferredOperationResultKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, operation) }
@@ -13105,7 +13105,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeferredHostOperations`](Extensions::KHR_DeferredHostOperations)
+    /// - Extension [`KHR_DeferredHostOperations`](Extension::KHR_DeferredHostOperations)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13128,7 +13128,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DeferredOperationJoinKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDeferredOperationJoinKHR as usize,
+                InstanceCommand::vkDeferredOperationJoinKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, operation) }
@@ -13146,7 +13146,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_PipelineExecutableProperties`](Extensions::KHR_PipelineExecutableProperties)
+    /// - Extension [`KHR_PipelineExecutableProperties`](Extension::KHR_PipelineExecutableProperties)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13174,7 +13174,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetPipelineExecutablePropertiesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPipelineExecutablePropertiesKHR as usize,
+                    InstanceCommand::vkGetPipelineExecutablePropertiesKHR as usize,
                 ),
             )
         };
@@ -13200,7 +13200,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_PipelineExecutableProperties`](Extensions::KHR_PipelineExecutableProperties)
+    /// - Extension [`KHR_PipelineExecutableProperties`](Extension::KHR_PipelineExecutableProperties)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13228,7 +13228,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetPipelineExecutableStatisticsKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPipelineExecutableStatisticsKHR as usize,
+                    InstanceCommand::vkGetPipelineExecutableStatisticsKHR as usize,
                 ),
             )
         };
@@ -13255,7 +13255,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_PipelineExecutableProperties`](Extensions::KHR_PipelineExecutableProperties)
+    /// - Extension [`KHR_PipelineExecutableProperties`](Extension::KHR_PipelineExecutableProperties)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13283,7 +13283,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetPipelineExecutableInternalRepresentationsKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPipelineExecutableInternalRepresentationsKHR as usize,
+                    InstanceCommand::vkGetPipelineExecutableInternalRepresentationsKHR as usize,
                 ),
             )
         };
@@ -13306,7 +13306,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
-    /// - Extension [`KHR_MapMemory2`](Extensions::KHR_MapMemory2)
+    /// - Extension [`KHR_MapMemory2`](Extension::KHR_MapMemory2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13329,7 +13329,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_MapMemory2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkMapMemory2KHR as usize,
+                InstanceCommand::vkMapMemory2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_memory_map_info, pp_data) }
@@ -13344,7 +13344,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
-    /// - Extension [`KHR_MapMemory2`](Extensions::KHR_MapMemory2)
+    /// - Extension [`KHR_MapMemory2`](Extension::KHR_MapMemory2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13364,7 +13364,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_UnmapMemory2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkUnmapMemory2KHR as usize,
+                InstanceCommand::vkUnmapMemory2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_memory_unmap_info) }
@@ -13382,7 +13382,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+    /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13411,7 +13411,7 @@ impl PhysicalDevice {
                 FUN_GetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR,
             >(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR as usize,
+                InstanceCommand::vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR as usize,
             ))
         };
         unsafe {
@@ -13436,7 +13436,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+    /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13466,7 +13466,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetEncodedVideoSessionParametersKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetEncodedVideoSessionParametersKHR as usize,
+                    InstanceCommand::vkGetEncodedVideoSessionParametersKHR as usize,
                 ),
             )
         };
@@ -13489,7 +13489,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+    /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13508,7 +13508,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdEncodeVideoKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdEncodeVideoKHR as usize,
+                InstanceCommand::vkCmdEncodeVideoKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_encode_info) }
@@ -13523,7 +13523,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+    /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13550,7 +13550,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetEvent2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetEvent2KHR as usize,
+                InstanceCommand::vkCmdSetEvent2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, event, p_dependency_info) }
@@ -13565,7 +13565,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+    /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13591,7 +13591,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdResetEvent2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdResetEvent2KHR as usize,
+                InstanceCommand::vkCmdResetEvent2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, event, stage_mask) }
@@ -13606,7 +13606,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+    /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13634,7 +13634,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdWaitEvents2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdWaitEvents2KHR as usize,
+                InstanceCommand::vkCmdWaitEvents2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, event_count, p_events, p_dependency_infos) }
@@ -13649,7 +13649,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+    /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13673,7 +13673,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdPipelineBarrier2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdPipelineBarrier2KHR as usize,
+                InstanceCommand::vkCmdPipelineBarrier2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_dependency_info) }
@@ -13688,7 +13688,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+    /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13720,7 +13720,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdWriteTimestamp2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdWriteTimestamp2KHR as usize,
+                InstanceCommand::vkCmdWriteTimestamp2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, stage, query_pool, query) }
@@ -13735,7 +13735,7 @@ impl Queue {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+    /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13763,7 +13763,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_QueueSubmit2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkQueueSubmit2KHR as usize,
+                InstanceCommand::vkQueueSubmit2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, submit_count, p_submits, fence) }
@@ -13777,7 +13777,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13797,7 +13797,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindIndexBuffer3KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBindIndexBuffer3KHR as usize,
+                InstanceCommand::vkCmdBindIndexBuffer3KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -13811,7 +13811,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13836,7 +13836,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindVertexBuffers3KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBindVertexBuffers3KHR as usize,
+                InstanceCommand::vkCmdBindVertexBuffers3KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, first_binding, binding_count, p_binding_infos) }
@@ -13850,7 +13850,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13870,7 +13870,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirect2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawIndirect2KHR as usize,
+                InstanceCommand::vkCmdDrawIndirect2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -13884,7 +13884,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13904,7 +13904,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexedIndirect2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawIndexedIndirect2KHR as usize,
+                InstanceCommand::vkCmdDrawIndexedIndirect2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -13918,7 +13918,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13938,7 +13938,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchIndirect2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDispatchIndirect2KHR as usize,
+                InstanceCommand::vkCmdDispatchIndirect2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -13952,7 +13952,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13975,7 +13975,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyMemoryKHR as usize,
+                InstanceCommand::vkCmdCopyMemoryKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_memory_info) }
@@ -13989,7 +13989,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14015,7 +14015,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryToImageKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyMemoryToImageKHR as usize,
+                InstanceCommand::vkCmdCopyMemoryToImageKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_memory_info) }
@@ -14029,7 +14029,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14055,7 +14055,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImageToMemoryKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyImageToMemoryKHR as usize,
+                InstanceCommand::vkCmdCopyImageToMemoryKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_memory_info) }
@@ -14074,7 +14074,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14103,7 +14103,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdUpdateMemoryKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdUpdateMemoryKHR as usize,
+                InstanceCommand::vkCmdUpdateMemoryKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_dst_range, dst_flags, data_size, p_data) }
@@ -14121,7 +14121,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14149,7 +14149,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdFillMemoryKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdFillMemoryKHR as usize,
+                InstanceCommand::vkCmdFillMemoryKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_dst_range, dst_flags, data) }
@@ -14170,7 +14170,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14203,7 +14203,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyQueryPoolResultsToMemoryKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdCopyQueryPoolResultsToMemoryKHR as usize,
+                    InstanceCommand::vkCmdCopyQueryPoolResultsToMemoryKHR as usize,
                 ),
             )
         };
@@ -14228,7 +14228,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14248,7 +14248,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirectCount2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawIndirectCount2KHR as usize,
+                InstanceCommand::vkCmdDrawIndirectCount2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -14262,7 +14262,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14285,7 +14285,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexedIndirectCount2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawIndexedIndirectCount2KHR as usize,
+                InstanceCommand::vkCmdDrawIndexedIndirectCount2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -14299,7 +14299,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14324,7 +14324,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBeginConditionalRendering2EXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBeginConditionalRendering2EXT as usize,
+                InstanceCommand::vkCmdBeginConditionalRendering2EXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_conditional_rendering_begin) }
@@ -14338,7 +14338,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14367,7 +14367,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindTransformFeedbackBuffers2EXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdBindTransformFeedbackBuffers2EXT as usize,
+                    InstanceCommand::vkCmdBindTransformFeedbackBuffers2EXT as usize,
                 ),
             )
         };
@@ -14382,7 +14382,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14411,7 +14411,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBeginTransformFeedback2EXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBeginTransformFeedback2EXT as usize,
+                InstanceCommand::vkCmdBeginTransformFeedback2EXT as usize,
             ))
         };
         unsafe {
@@ -14432,7 +14432,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14461,7 +14461,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdEndTransformFeedback2EXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdEndTransformFeedback2EXT as usize,
+                InstanceCommand::vkCmdEndTransformFeedback2EXT as usize,
             ))
         };
         unsafe {
@@ -14488,7 +14488,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14515,7 +14515,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirectByteCount2EXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawIndirectByteCount2EXT as usize,
+                InstanceCommand::vkCmdDrawIndirectByteCount2EXT as usize,
             ))
         };
         unsafe {
@@ -14538,7 +14538,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14558,7 +14558,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksIndirect2EXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawMeshTasksIndirect2EXT as usize,
+                InstanceCommand::vkCmdDrawMeshTasksIndirect2EXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -14572,7 +14572,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14596,7 +14596,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksIndirectCount2EXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdDrawMeshTasksIndirectCount2EXT as usize,
+                    InstanceCommand::vkCmdDrawMeshTasksIndirectCount2EXT as usize,
                 ),
             )
         };
@@ -14611,7 +14611,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14633,7 +14633,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdWriteMarkerToMemoryAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdWriteMarkerToMemoryAMD as usize,
+                InstanceCommand::vkCmdWriteMarkerToMemoryAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -14651,7 +14651,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14677,7 +14677,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateAccelerationStructure2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateAccelerationStructure2KHR as usize,
+                InstanceCommand::vkCreateAccelerationStructure2KHR as usize,
             ))
         };
         unsafe {
@@ -14699,7 +14699,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
+    /// - Extension [`KHR_CopyCommands2`](Extension::KHR_CopyCommands2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14721,7 +14721,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyBuffer2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyBuffer2KHR as usize,
+                InstanceCommand::vkCmdCopyBuffer2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_buffer_info) }
@@ -14736,7 +14736,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
+    /// - Extension [`KHR_CopyCommands2`](Extension::KHR_CopyCommands2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14758,7 +14758,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImage2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyImage2KHR as usize,
+                InstanceCommand::vkCmdCopyImage2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_image_info) }
@@ -14773,7 +14773,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
+    /// - Extension [`KHR_CopyCommands2`](Extension::KHR_CopyCommands2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14798,7 +14798,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyBufferToImage2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyBufferToImage2KHR as usize,
+                InstanceCommand::vkCmdCopyBufferToImage2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_buffer_to_image_info) }
@@ -14813,7 +14813,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
+    /// - Extension [`KHR_CopyCommands2`](Extension::KHR_CopyCommands2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14838,7 +14838,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyImageToBuffer2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyImageToBuffer2KHR as usize,
+                InstanceCommand::vkCmdCopyImageToBuffer2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_image_to_buffer_info) }
@@ -14853,7 +14853,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
+    /// - Extension [`KHR_CopyCommands2`](Extension::KHR_CopyCommands2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14873,7 +14873,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBlitImage2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBlitImage2KHR as usize,
+                InstanceCommand::vkCmdBlitImage2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_blit_image_info) }
@@ -14888,7 +14888,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`KHR_CopyCommands2`](Extensions::KHR_CopyCommands2)
+    /// - Extension [`KHR_CopyCommands2`](Extension::KHR_CopyCommands2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14908,7 +14908,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdResolveImage2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdResolveImage2KHR as usize,
+                InstanceCommand::vkCmdResolveImage2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_resolve_image_info) }
@@ -14922,7 +14922,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_RayTracingMaintenance1`](Extensions::KHR_RayTracingMaintenance1)
+    /// - Extension [`KHR_RayTracingMaintenance1`](Extension::KHR_RayTracingMaintenance1)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14942,7 +14942,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdTraceRaysIndirect2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdTraceRaysIndirect2KHR as usize,
+                InstanceCommand::vkCmdTraceRaysIndirect2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, indirect_device_address) }
@@ -14960,7 +14960,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`KHR_Maintenance4`](Extensions::KHR_Maintenance4)
+    /// - Extension [`KHR_Maintenance4`](Extension::KHR_Maintenance4)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14975,7 +14975,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceBufferMemoryRequirementsKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetDeviceBufferMemoryRequirementsKHR as usize,
+                    InstanceCommand::vkGetDeviceBufferMemoryRequirementsKHR as usize,
                 ),
             )
         };
@@ -14994,7 +14994,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`KHR_Maintenance4`](Extensions::KHR_Maintenance4)
+    /// - Extension [`KHR_Maintenance4`](Extension::KHR_Maintenance4)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -15009,7 +15009,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceImageMemoryRequirementsKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetDeviceImageMemoryRequirementsKHR as usize,
+                    InstanceCommand::vkGetDeviceImageMemoryRequirementsKHR as usize,
                 ),
             )
         };
@@ -15029,7 +15029,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`KHR_Maintenance4`](Extensions::KHR_Maintenance4)
+    /// - Extension [`KHR_Maintenance4`](Extension::KHR_Maintenance4)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -15048,7 +15048,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceImageSparseMemoryRequirementsKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetDeviceImageSparseMemoryRequirementsKHR as usize,
+                    InstanceCommand::vkGetDeviceImageSparseMemoryRequirementsKHR as usize,
                 ),
             )
         };
@@ -15071,7 +15071,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
-    /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
+    /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -15100,7 +15100,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindIndexBuffer2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBindIndexBuffer2KHR as usize,
+                InstanceCommand::vkCmdBindIndexBuffer2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer, offset, size, index_type) }
@@ -15115,7 +15115,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
-    /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
+    /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -15129,7 +15129,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetRenderingAreaGranularityKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetRenderingAreaGranularityKHR as usize,
+                InstanceCommand::vkGetRenderingAreaGranularityKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_rendering_area_info, p_granularity) }
@@ -15144,7 +15144,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
-    /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
+    /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -15159,7 +15159,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceImageSubresourceLayoutKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetDeviceImageSubresourceLayoutKHR as usize,
+                    InstanceCommand::vkGetDeviceImageSubresourceLayoutKHR as usize,
                 ),
             )
         };
@@ -15175,7 +15175,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
-    /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
+    /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -15190,7 +15190,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetImageSubresourceLayout2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetImageSubresourceLayout2KHR as usize,
+                InstanceCommand::vkGetImageSubresourceLayout2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, image, p_subresource, p_layout) }
@@ -15204,7 +15204,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_PresentWait2`](Extensions::KHR_PresentWait2)
+    /// - Extension [`KHR_PresentWait2`](Extension::KHR_PresentWait2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -15232,7 +15232,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_WaitForPresent2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkWaitForPresent2KHR as usize,
+                InstanceCommand::vkWaitForPresent2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, swapchain, p_present_wait_2_info) }
@@ -15250,7 +15250,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+    /// - Extension [`KHR_PipelineBinary`](Extension::KHR_PipelineBinary)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -15279,7 +15279,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreatePipelineBinariesKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreatePipelineBinariesKHR as usize,
+                InstanceCommand::vkCreatePipelineBinariesKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_binaries) }
@@ -15293,7 +15293,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+    /// - Extension [`KHR_PipelineBinary`](Extension::KHR_PipelineBinary)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -15311,7 +15311,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyPipelineBinaryKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyPipelineBinaryKHR as usize,
+                InstanceCommand::vkDestroyPipelineBinaryKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, pipeline_binary, p_allocator) }
@@ -15328,7 +15328,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+    /// - Extension [`KHR_PipelineBinary`](Extension::KHR_PipelineBinary)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -15353,7 +15353,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPipelineKeyKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPipelineKeyKHR as usize,
+                InstanceCommand::vkGetPipelineKeyKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_pipeline_create_info, p_pipeline_key) }
@@ -15372,7 +15372,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+    /// - Extension [`KHR_PipelineBinary`](Extension::KHR_PipelineBinary)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -15400,7 +15400,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPipelineBinaryDataKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPipelineBinaryDataKHR as usize,
+                InstanceCommand::vkGetPipelineBinaryDataKHR as usize,
             ))
         };
         unsafe {
@@ -15425,7 +15425,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+    /// - Extension [`KHR_PipelineBinary`](Extension::KHR_PipelineBinary)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -15448,7 +15448,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_ReleaseCapturedPipelineDataKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkReleaseCapturedPipelineDataKHR as usize,
+                InstanceCommand::vkReleaseCapturedPipelineDataKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info, p_allocator) }
@@ -15462,7 +15462,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_SwapchainMaintenance1`](Extensions::KHR_SwapchainMaintenance1)
+    /// - Extension [`KHR_SwapchainMaintenance1`](Extension::KHR_SwapchainMaintenance1)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -15482,7 +15482,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_ReleaseSwapchainImagesKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkReleaseSwapchainImagesKHR as usize,
+                InstanceCommand::vkReleaseSwapchainImagesKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_release_info) }
@@ -15500,7 +15500,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_CooperativeMatrix`](Extensions::KHR_CooperativeMatrix)
+    /// - Extension [`KHR_CooperativeMatrix`](Extension::KHR_CooperativeMatrix)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -15527,7 +15527,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceCooperativeMatrixPropertiesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR as usize,
                 ),
             )
         };
@@ -15542,7 +15542,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
-    /// - Extension [`KHR_LineRasterization`](Extensions::KHR_LineRasterization)
+    /// - Extension [`KHR_LineRasterization`](Extension::KHR_LineRasterization)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -15566,7 +15566,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetLineStippleKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetLineStippleKHR as usize,
+                InstanceCommand::vkCmdSetLineStippleKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, line_stipple_factor, line_stipple_pattern) }
@@ -15580,7 +15580,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_CalibratedTimestamps`](Extensions::KHR_CalibratedTimestamps)
+    /// - Extension [`KHR_CalibratedTimestamps`](Extension::KHR_CalibratedTimestamps)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -15607,7 +15607,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceCalibrateableTimeDomainsKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceCalibrateableTimeDomainsKHR as usize,
+                    InstanceCommand::vkGetPhysicalDeviceCalibrateableTimeDomainsKHR as usize,
                 ),
             )
         };
@@ -15627,7 +15627,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_CalibratedTimestamps`](Extensions::KHR_CalibratedTimestamps)
+    /// - Extension [`KHR_CalibratedTimestamps`](Extension::KHR_CalibratedTimestamps)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -15651,7 +15651,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetCalibratedTimestampsKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetCalibratedTimestampsKHR as usize,
+                InstanceCommand::vkGetCalibratedTimestampsKHR as usize,
             ))
         };
         unsafe {
@@ -15674,7 +15674,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
-    /// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
+    /// - Extension [`KHR_Maintenance6`](Extension::KHR_Maintenance6)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -15698,7 +15698,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindDescriptorSets2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBindDescriptorSets2KHR as usize,
+                InstanceCommand::vkCmdBindDescriptorSets2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_bind_descriptor_sets_info) }
@@ -15713,7 +15713,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
-    /// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
+    /// - Extension [`KHR_Maintenance6`](Extension::KHR_Maintenance6)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -15734,7 +15734,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdPushConstants2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdPushConstants2KHR as usize,
+                InstanceCommand::vkCmdPushConstants2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_push_constants_info) }
@@ -15749,7 +15749,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
-    /// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
+    /// - Extension [`KHR_Maintenance6`](Extension::KHR_Maintenance6)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -15773,7 +15773,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSet2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdPushDescriptorSet2KHR as usize,
+                InstanceCommand::vkCmdPushDescriptorSet2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_push_descriptor_set_info) }
@@ -15788,7 +15788,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
-    /// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
+    /// - Extension [`KHR_Maintenance6`](Extension::KHR_Maintenance6)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -15813,7 +15813,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdPushDescriptorSetWithTemplate2KHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdPushDescriptorSetWithTemplate2KHR as usize,
+                    InstanceCommand::vkCmdPushDescriptorSetWithTemplate2KHR as usize,
                 ),
             )
         };
@@ -15829,7 +15829,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
-    /// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
+    /// - Extension [`KHR_Maintenance6`](Extension::KHR_Maintenance6)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -15855,7 +15855,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetDescriptorBufferOffsets2EXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdSetDescriptorBufferOffsets2EXT as usize,
+                    InstanceCommand::vkCmdSetDescriptorBufferOffsets2EXT as usize,
                 ),
             )
         };
@@ -15871,7 +15871,7 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
-    /// - Extension [`KHR_Maintenance6`](Extensions::KHR_Maintenance6)
+    /// - Extension [`KHR_Maintenance6`](Extension::KHR_Maintenance6)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -15896,7 +15896,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindDescriptorBufferEmbeddedSamplers2EXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdBindDescriptorBufferEmbeddedSamplers2EXT as usize,
+                    InstanceCommand::vkCmdBindDescriptorBufferEmbeddedSamplers2EXT as usize,
                 ),
             )
         };
@@ -15911,7 +15911,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
+    /// - Extension [`KHR_CopyMemoryIndirect`](Extension::KHR_CopyMemoryIndirect)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -15936,7 +15936,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryIndirectKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyMemoryIndirectKHR as usize,
+                InstanceCommand::vkCmdCopyMemoryIndirectKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_memory_indirect_info) }
@@ -15950,7 +15950,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
+    /// - Extension [`KHR_CopyMemoryIndirect`](Extension::KHR_CopyMemoryIndirect)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -15975,7 +15975,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryToImageIndirectKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyMemoryToImageIndirectKHR as usize,
+                InstanceCommand::vkCmdCopyMemoryToImageIndirectKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_memory_to_image_indirect_info) }
@@ -15989,7 +15989,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
+    /// - Extension [`KHR_DeviceFault`](Extension::KHR_DeviceFault)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -16016,7 +16016,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceFaultReportsKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetDeviceFaultReportsKHR as usize,
+                InstanceCommand::vkGetDeviceFaultReportsKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, timeout, p_fault_counts, p_fault_info) }
@@ -16030,7 +16030,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
+    /// - Extension [`KHR_DeviceFault`](Extension::KHR_DeviceFault)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -16052,7 +16052,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceFaultDebugInfoKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetDeviceFaultDebugInfoKHR as usize,
+                InstanceCommand::vkGetDeviceFaultDebugInfoKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_debug_info) }
@@ -16066,7 +16066,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
+    /// - Extension [`KHR_Maintenance10`](Extension::KHR_Maintenance10)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -16090,7 +16090,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdEndRendering2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdEndRendering2KHR as usize,
+                InstanceCommand::vkCmdEndRendering2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_rendering_end_info) }
@@ -16108,8 +16108,8 @@ impl Instance {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DebugReport`](Extensions::EXT_DebugReport)
-    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    /// - Extension [`EXT_DebugReport`](Extension::EXT_DebugReport)
+    /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -16134,7 +16134,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateDebugReportCallbackEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateDebugReportCallbackEXT as usize,
+                InstanceCommand::vkCreateDebugReportCallbackEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_callback) }
@@ -16148,8 +16148,8 @@ impl Instance {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DebugReport`](Extensions::EXT_DebugReport)
-    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    /// - Extension [`EXT_DebugReport`](Extension::EXT_DebugReport)
+    /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -16167,7 +16167,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyDebugReportCallbackEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyDebugReportCallbackEXT as usize,
+                InstanceCommand::vkDestroyDebugReportCallbackEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, callback, p_allocator) }
@@ -16189,8 +16189,8 @@ impl Instance {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DebugReport`](Extensions::EXT_DebugReport)
-    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    /// - Extension [`EXT_DebugReport`](Extension::EXT_DebugReport)
+    /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -16209,7 +16209,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DebugReportMessageEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDebugReportMessageEXT as usize,
+                InstanceCommand::vkDebugReportMessageEXT as usize,
             ))
         };
         unsafe {
@@ -16234,8 +16234,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DebugMarker`](Extensions::EXT_DebugMarker)
-    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    /// - Extension [`EXT_DebugMarker`](Extension::EXT_DebugMarker)
+    /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -16256,7 +16256,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DebugMarkerSetObjectTagEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDebugMarkerSetObjectTagEXT as usize,
+                InstanceCommand::vkDebugMarkerSetObjectTagEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_tag_info) }
@@ -16270,8 +16270,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DebugMarker`](Extensions::EXT_DebugMarker)
-    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    /// - Extension [`EXT_DebugMarker`](Extension::EXT_DebugMarker)
+    /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -16292,7 +16292,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DebugMarkerSetObjectNameEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDebugMarkerSetObjectNameEXT as usize,
+                InstanceCommand::vkDebugMarkerSetObjectNameEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_name_info) }
@@ -16306,8 +16306,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DebugMarker`](Extensions::EXT_DebugMarker)
-    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    /// - Extension [`EXT_DebugMarker`](Extension::EXT_DebugMarker)
+    /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -16335,7 +16335,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDebugMarkerBeginEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDebugMarkerBeginEXT as usize,
+                InstanceCommand::vkCmdDebugMarkerBeginEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_marker_info) }
@@ -16348,8 +16348,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DebugMarker`](Extensions::EXT_DebugMarker)
-    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    /// - Extension [`EXT_DebugMarker`](Extension::EXT_DebugMarker)
+    /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -16374,7 +16374,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDebugMarkerEndEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDebugMarkerEndEXT as usize,
+                InstanceCommand::vkCmdDebugMarkerEndEXT as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -16388,8 +16388,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DebugMarker`](Extensions::EXT_DebugMarker)
-    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    /// - Extension [`EXT_DebugMarker`](Extension::EXT_DebugMarker)
+    /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -16417,7 +16417,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDebugMarkerInsertEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDebugMarkerInsertEXT as usize,
+                InstanceCommand::vkCmdDebugMarkerInsertEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_marker_info) }
@@ -16437,7 +16437,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
+    /// - Extension [`EXT_TransformFeedback`](Extension::EXT_TransformFeedback)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -16468,7 +16468,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindTransformFeedbackBuffersEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdBindTransformFeedbackBuffersEXT as usize,
+                    InstanceCommand::vkCmdBindTransformFeedbackBuffersEXT as usize,
                 ),
             )
         };
@@ -16492,7 +16492,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
+    /// - Extension [`EXT_TransformFeedback`](Extension::EXT_TransformFeedback)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -16522,7 +16522,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBeginTransformFeedbackEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBeginTransformFeedbackEXT as usize,
+                InstanceCommand::vkCmdBeginTransformFeedbackEXT as usize,
             ))
         };
         unsafe {
@@ -16544,7 +16544,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
+    /// - Extension [`EXT_TransformFeedback`](Extension::EXT_TransformFeedback)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -16574,7 +16574,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdEndTransformFeedbackEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdEndTransformFeedbackEXT as usize,
+                InstanceCommand::vkCmdEndTransformFeedbackEXT as usize,
             ))
         };
         unsafe {
@@ -16596,7 +16596,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
+    /// - Extension [`EXT_TransformFeedback`](Extension::EXT_TransformFeedback)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -16629,7 +16629,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBeginQueryIndexedEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBeginQueryIndexedEXT as usize,
+                InstanceCommand::vkCmdBeginQueryIndexedEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, query_pool, query, flags, index) }
@@ -16643,7 +16643,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
+    /// - Extension [`EXT_TransformFeedback`](Extension::EXT_TransformFeedback)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -16667,7 +16667,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdEndQueryIndexedEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdEndQueryIndexedEXT as usize,
+                InstanceCommand::vkCmdEndQueryIndexedEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, query_pool, query, index) }
@@ -16681,7 +16681,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
+    /// - Extension [`EXT_TransformFeedback`](Extension::EXT_TransformFeedback)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -16709,7 +16709,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirectByteCountEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawIndirectByteCountEXT as usize,
+                InstanceCommand::vkCmdDrawIndirectByteCountEXT as usize,
             ))
         };
         unsafe {
@@ -16737,7 +16737,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NVX_BinaryImport`](Extensions::NVX_BinaryImport)
+    /// - Extension [`NVX_BinaryImport`](Extension::NVX_BinaryImport)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -16763,7 +16763,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateCuModuleNVX>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateCuModuleNVX as usize,
+                InstanceCommand::vkCreateCuModuleNVX as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_module) }
@@ -16781,7 +16781,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NVX_BinaryImport`](Extensions::NVX_BinaryImport)
+    /// - Extension [`NVX_BinaryImport`](Extension::NVX_BinaryImport)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -16807,7 +16807,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateCuFunctionNVX>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateCuFunctionNVX as usize,
+                InstanceCommand::vkCreateCuFunctionNVX as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_function) }
@@ -16821,7 +16821,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NVX_BinaryImport`](Extensions::NVX_BinaryImport)
+    /// - Extension [`NVX_BinaryImport`](Extension::NVX_BinaryImport)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -16838,7 +16838,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyCuModuleNVX>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyCuModuleNVX as usize,
+                InstanceCommand::vkDestroyCuModuleNVX as usize,
             ))
         };
         unsafe { (command)(self.handle, module, p_allocator) }
@@ -16852,7 +16852,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NVX_BinaryImport`](Extensions::NVX_BinaryImport)
+    /// - Extension [`NVX_BinaryImport`](Extension::NVX_BinaryImport)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -16869,7 +16869,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyCuFunctionNVX>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyCuFunctionNVX as usize,
+                InstanceCommand::vkDestroyCuFunctionNVX as usize,
             ))
         };
         unsafe { (command)(self.handle, function, p_allocator) }
@@ -16883,7 +16883,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NVX_BinaryImport`](Extensions::NVX_BinaryImport)
+    /// - Extension [`NVX_BinaryImport`](Extension::NVX_BinaryImport)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -16904,7 +16904,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCuLaunchKernelNVX>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCuLaunchKernelNVX as usize,
+                InstanceCommand::vkCmdCuLaunchKernelNVX as usize,
             ))
         };
         unsafe { (command)(self.handle, p_launch_info) }
@@ -16918,7 +16918,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NVX_ImageViewHandle`](Extensions::NVX_ImageViewHandle)
+    /// - Extension [`NVX_ImageViewHandle`](Extension::NVX_ImageViewHandle)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -16928,7 +16928,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetImageViewHandleNVX>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetImageViewHandleNVX as usize,
+                InstanceCommand::vkGetImageViewHandleNVX as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -16942,7 +16942,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NVX_ImageViewHandle`](Extensions::NVX_ImageViewHandle)
+    /// - Extension [`NVX_ImageViewHandle`](Extension::NVX_ImageViewHandle)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -16955,7 +16955,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetImageViewHandle64NVX>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetImageViewHandle64NVX as usize,
+                InstanceCommand::vkGetImageViewHandle64NVX as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -16969,7 +16969,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NVX_ImageViewHandle`](Extensions::NVX_ImageViewHandle)
+    /// - Extension [`NVX_ImageViewHandle`](Extension::NVX_ImageViewHandle)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -16990,7 +16990,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetImageViewAddressNVX>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetImageViewAddressNVX as usize,
+                InstanceCommand::vkGetImageViewAddressNVX as usize,
             ))
         };
         unsafe { (command)(self.handle, image_view, p_properties) }
@@ -17004,7 +17004,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NVX_ImageViewHandle`](Extensions::NVX_ImageViewHandle)
+    /// - Extension [`NVX_ImageViewHandle`](Extension::NVX_ImageViewHandle)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -17019,7 +17019,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceCombinedImageSamplerIndexNVX>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetDeviceCombinedImageSamplerIndexNVX as usize,
+                    InstanceCommand::vkGetDeviceCombinedImageSamplerIndexNVX as usize,
                 ),
             )
         };
@@ -17034,8 +17034,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMD_DrawIndirectCount`](Extensions::AMD_DrawIndirectCount)
-    /// - Extension [`KHR_DrawIndirectCount`](Extensions::KHR_DrawIndirectCount)
+    /// - Extension [`AMD_DrawIndirectCount`](Extension::AMD_DrawIndirectCount)
+    /// - Extension [`KHR_DrawIndirectCount`](Extension::KHR_DrawIndirectCount)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -17063,7 +17063,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndirectCountAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawIndirectCountAMD as usize,
+                InstanceCommand::vkCmdDrawIndirectCountAMD as usize,
             ))
         };
         unsafe {
@@ -17087,8 +17087,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMD_DrawIndirectCount`](Extensions::AMD_DrawIndirectCount)
-    /// - Extension [`KHR_DrawIndirectCount`](Extensions::KHR_DrawIndirectCount)
+    /// - Extension [`AMD_DrawIndirectCount`](Extension::AMD_DrawIndirectCount)
+    /// - Extension [`KHR_DrawIndirectCount`](Extension::KHR_DrawIndirectCount)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -17116,7 +17116,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawIndexedIndirectCountAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawIndexedIndirectCountAMD as usize,
+                InstanceCommand::vkCmdDrawIndexedIndirectCountAMD as usize,
             ))
         };
         unsafe {
@@ -17146,7 +17146,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMD_ShaderInfo`](Extensions::AMD_ShaderInfo)
+    /// - Extension [`AMD_ShaderInfo`](Extension::AMD_ShaderInfo)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -17175,7 +17175,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetShaderInfoAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetShaderInfoAMD as usize,
+                InstanceCommand::vkGetShaderInfoAMD as usize,
             ))
         };
         unsafe {
@@ -17202,7 +17202,7 @@ impl Instance {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`GGP_StreamDescriptorSurface`](Extensions::GGP_StreamDescriptorSurface)
+    /// - Extension [`GGP_StreamDescriptorSurface`](Extension::GGP_StreamDescriptorSurface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -17229,7 +17229,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateStreamDescriptorSurfaceGGP>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateStreamDescriptorSurfaceGGP as usize,
+                InstanceCommand::vkCreateStreamDescriptorSurfaceGGP as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
@@ -17252,8 +17252,8 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_ExternalMemoryCapabilities`](Extensions::NV_ExternalMemoryCapabilities)
-    /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+    /// - Extension [`NV_ExternalMemoryCapabilities`](Extension::NV_ExternalMemoryCapabilities)
+    /// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -17288,7 +17288,7 @@ impl PhysicalDevice {
                 FUN_GetPhysicalDeviceExternalImageFormatPropertiesNV,
             >(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPhysicalDeviceExternalImageFormatPropertiesNV as usize,
+                InstanceCommand::vkGetPhysicalDeviceExternalImageFormatPropertiesNV as usize,
             ))
         };
         unsafe {
@@ -17317,8 +17317,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_ExternalMemoryWin32`](Extensions::NV_ExternalMemoryWin32)
-    /// - Extension [`KHR_ExternalMemoryWin32`](Extensions::KHR_ExternalMemoryWin32)
+    /// - Extension [`NV_ExternalMemoryWin32`](Extension::NV_ExternalMemoryWin32)
+    /// - Extension [`KHR_ExternalMemoryWin32`](Extension::KHR_ExternalMemoryWin32)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -17341,7 +17341,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetMemoryWin32HandleNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetMemoryWin32HandleNV as usize,
+                InstanceCommand::vkGetMemoryWin32HandleNV as usize,
             ))
         };
         unsafe { (command)(self.handle, memory, handle_type, p_handle) }
@@ -17359,7 +17359,7 @@ impl Instance {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NN_ViSurface`](Extensions::NN_ViSurface)
+    /// - Extension [`NN_ViSurface`](Extension::NN_ViSurface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -17386,7 +17386,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateViSurfaceNN>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateViSurfaceNN as usize,
+                InstanceCommand::vkCreateViSurfaceNN as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
@@ -17400,7 +17400,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ConditionalRendering`](Extensions::EXT_ConditionalRendering)
+    /// - Extension [`EXT_ConditionalRendering`](Extension::EXT_ConditionalRendering)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -17425,7 +17425,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBeginConditionalRenderingEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBeginConditionalRenderingEXT as usize,
+                InstanceCommand::vkCmdBeginConditionalRenderingEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_conditional_rendering_begin) }
@@ -17438,7 +17438,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ConditionalRendering`](Extensions::EXT_ConditionalRendering)
+    /// - Extension [`EXT_ConditionalRendering`](Extension::EXT_ConditionalRendering)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -17460,7 +17460,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdEndConditionalRenderingEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdEndConditionalRenderingEXT as usize,
+                InstanceCommand::vkCmdEndConditionalRenderingEXT as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -17474,7 +17474,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_ClipSpaceWScaling`](Extensions::NV_ClipSpaceWScaling)
+    /// - Extension [`NV_ClipSpaceWScaling`](Extension::NV_ClipSpaceWScaling)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -17499,7 +17499,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewportWScalingNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetViewportWScalingNV as usize,
+                InstanceCommand::vkCmdSetViewportWScalingNV as usize,
             ))
         };
         unsafe {
@@ -17520,7 +17520,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DirectModeDisplay`](Extensions::EXT_DirectModeDisplay)
+    /// - Extension [`EXT_DirectModeDisplay`](Extension::EXT_DirectModeDisplay)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -17536,7 +17536,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_ReleaseDisplayEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkReleaseDisplayEXT as usize,
+                InstanceCommand::vkReleaseDisplayEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, display) }
@@ -17550,7 +17550,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_AcquireXlibDisplay`](Extensions::EXT_AcquireXlibDisplay)
+    /// - Extension [`EXT_AcquireXlibDisplay`](Extension::EXT_AcquireXlibDisplay)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -17572,7 +17572,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_AcquireXlibDisplayEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkAcquireXlibDisplayEXT as usize,
+                InstanceCommand::vkAcquireXlibDisplayEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, dpy, display) }
@@ -17590,7 +17590,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_AcquireXlibDisplay`](Extensions::EXT_AcquireXlibDisplay)
+    /// - Extension [`EXT_AcquireXlibDisplay`](Extension::EXT_AcquireXlibDisplay)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -17612,7 +17612,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetRandROutputDisplayEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetRandROutputDisplayEXT as usize,
+                InstanceCommand::vkGetRandROutputDisplayEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, dpy, rr_output, p_display) }
@@ -17629,7 +17629,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DisplaySurfaceCounter`](Extensions::EXT_DisplaySurfaceCounter)
+    /// - Extension [`EXT_DisplaySurfaceCounter`](Extension::EXT_DisplaySurfaceCounter)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -17653,7 +17653,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfaceCapabilities2EXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceSurfaceCapabilities2EXT as usize,
+                    InstanceCommand::vkGetPhysicalDeviceSurfaceCapabilities2EXT as usize,
                 ),
             )
         };
@@ -17668,7 +17668,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DisplayControl`](Extensions::EXT_DisplayControl)
+    /// - Extension [`EXT_DisplayControl`](Extension::EXT_DisplayControl)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -17689,7 +17689,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DisplayPowerControlEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDisplayPowerControlEXT as usize,
+                InstanceCommand::vkDisplayPowerControlEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, display, p_display_power_info) }
@@ -17707,7 +17707,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DisplayControl`](Extensions::EXT_DisplayControl)
+    /// - Extension [`EXT_DisplayControl`](Extension::EXT_DisplayControl)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -17732,7 +17732,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_RegisterDeviceEventEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkRegisterDeviceEventEXT as usize,
+                InstanceCommand::vkRegisterDeviceEventEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_device_event_info, p_allocator, p_fence) }
@@ -17751,7 +17751,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DisplayControl`](Extensions::EXT_DisplayControl)
+    /// - Extension [`EXT_DisplayControl`](Extension::EXT_DisplayControl)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -17777,7 +17777,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_RegisterDisplayEventEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkRegisterDisplayEventEXT as usize,
+                InstanceCommand::vkRegisterDisplayEventEXT as usize,
             ))
         };
         unsafe {
@@ -17803,7 +17803,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DisplayControl`](Extensions::EXT_DisplayControl)
+    /// - Extension [`EXT_DisplayControl`](Extension::EXT_DisplayControl)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -17827,7 +17827,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetSwapchainCounterEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetSwapchainCounterEXT as usize,
+                InstanceCommand::vkGetSwapchainCounterEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, swapchain, counter, p_counter_value) }
@@ -17841,7 +17841,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`GOOGLE_DisplayTiming`](Extensions::GOOGLE_DisplayTiming)
+    /// - Extension [`GOOGLE_DisplayTiming`](Extension::GOOGLE_DisplayTiming)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -17864,7 +17864,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetRefreshCycleDurationGOOGLE>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetRefreshCycleDurationGOOGLE as usize,
+                InstanceCommand::vkGetRefreshCycleDurationGOOGLE as usize,
             ))
         };
         unsafe { (command)(self.handle, swapchain, p_display_timing_properties) }
@@ -17882,7 +17882,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`GOOGLE_DisplayTiming`](Extensions::GOOGLE_DisplayTiming)
+    /// - Extension [`GOOGLE_DisplayTiming`](Extension::GOOGLE_DisplayTiming)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -17911,7 +17911,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPastPresentationTimingGOOGLE>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPastPresentationTimingGOOGLE as usize,
+                InstanceCommand::vkGetPastPresentationTimingGOOGLE as usize,
             ))
         };
         unsafe {
@@ -17932,7 +17932,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DiscardRectangles`](Extensions::EXT_DiscardRectangles)
+    /// - Extension [`EXT_DiscardRectangles`](Extension::EXT_DiscardRectangles)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -17957,7 +17957,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetDiscardRectangleEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetDiscardRectangleEXT as usize,
+                InstanceCommand::vkCmdSetDiscardRectangleEXT as usize,
             ))
         };
         unsafe {
@@ -17978,7 +17978,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DiscardRectangles`](Extensions::EXT_DiscardRectangles)
+    /// - Extension [`EXT_DiscardRectangles`](Extension::EXT_DiscardRectangles)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -17998,7 +17998,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetDiscardRectangleEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetDiscardRectangleEnableEXT as usize,
+                InstanceCommand::vkCmdSetDiscardRectangleEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, discard_rectangle_enable) }
@@ -18012,7 +18012,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DiscardRectangles`](Extensions::EXT_DiscardRectangles)
+    /// - Extension [`EXT_DiscardRectangles`](Extension::EXT_DiscardRectangles)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18035,7 +18035,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetDiscardRectangleModeEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetDiscardRectangleModeEXT as usize,
+                InstanceCommand::vkCmdSetDiscardRectangleModeEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, discard_rectangle_mode) }
@@ -18049,7 +18049,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_HdrMetadata`](Extensions::EXT_HdrMetadata)
+    /// - Extension [`EXT_HdrMetadata`](Extension::EXT_HdrMetadata)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18064,7 +18064,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_SetHdrMetadataEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkSetHdrMetadataEXT as usize,
+                InstanceCommand::vkSetHdrMetadataEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, swapchain_count, p_swapchains, p_metadata) }
@@ -18082,8 +18082,8 @@ impl Instance {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`MVK_IosSurface`](Extensions::MVK_IosSurface)
-    /// - Extension [`EXT_MetalSurface`](Extensions::EXT_MetalSurface)
+    /// - Extension [`MVK_IosSurface`](Extension::MVK_IosSurface)
+    /// - Extension [`EXT_MetalSurface`](Extension::EXT_MetalSurface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18110,7 +18110,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateIOSSurfaceMVK>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateIOSSurfaceMVK as usize,
+                InstanceCommand::vkCreateIOSSurfaceMVK as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
@@ -18128,8 +18128,8 @@ impl Instance {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`MVK_MacosSurface`](Extensions::MVK_MacosSurface)
-    /// - Extension [`EXT_MetalSurface`](Extensions::EXT_MetalSurface)
+    /// - Extension [`MVK_MacosSurface`](Extension::MVK_MacosSurface)
+    /// - Extension [`EXT_MetalSurface`](Extension::EXT_MetalSurface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18156,7 +18156,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateMacOSSurfaceMVK>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateMacOSSurfaceMVK as usize,
+                InstanceCommand::vkCreateMacOSSurfaceMVK as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
@@ -18170,7 +18170,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18191,7 +18191,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_SetDebugUtilsObjectNameEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkSetDebugUtilsObjectNameEXT as usize,
+                InstanceCommand::vkSetDebugUtilsObjectNameEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_name_info) }
@@ -18205,7 +18205,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18226,7 +18226,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_SetDebugUtilsObjectTagEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkSetDebugUtilsObjectTagEXT as usize,
+                InstanceCommand::vkSetDebugUtilsObjectTagEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_tag_info) }
@@ -18240,7 +18240,7 @@ impl Queue {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18250,7 +18250,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_QueueBeginDebugUtilsLabelEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkQueueBeginDebugUtilsLabelEXT as usize,
+                InstanceCommand::vkQueueBeginDebugUtilsLabelEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_label_info) }
@@ -18263,7 +18263,7 @@ impl Queue {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18273,7 +18273,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_QueueEndDebugUtilsLabelEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkQueueEndDebugUtilsLabelEXT as usize,
+                InstanceCommand::vkQueueEndDebugUtilsLabelEXT as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -18287,7 +18287,7 @@ impl Queue {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18297,7 +18297,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_QueueInsertDebugUtilsLabelEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkQueueInsertDebugUtilsLabelEXT as usize,
+                InstanceCommand::vkQueueInsertDebugUtilsLabelEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_label_info) }
@@ -18311,7 +18311,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18336,7 +18336,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBeginDebugUtilsLabelEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBeginDebugUtilsLabelEXT as usize,
+                InstanceCommand::vkCmdBeginDebugUtilsLabelEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_label_info) }
@@ -18349,7 +18349,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18374,7 +18374,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdEndDebugUtilsLabelEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdEndDebugUtilsLabelEXT as usize,
+                InstanceCommand::vkCmdEndDebugUtilsLabelEXT as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -18388,7 +18388,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18413,7 +18413,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdInsertDebugUtilsLabelEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdInsertDebugUtilsLabelEXT as usize,
+                InstanceCommand::vkCmdInsertDebugUtilsLabelEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_label_info) }
@@ -18431,7 +18431,7 @@ impl Instance {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18456,7 +18456,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateDebugUtilsMessengerEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateDebugUtilsMessengerEXT as usize,
+                InstanceCommand::vkCreateDebugUtilsMessengerEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_messenger) }
@@ -18470,7 +18470,7 @@ impl Instance {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18488,7 +18488,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyDebugUtilsMessengerEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyDebugUtilsMessengerEXT as usize,
+                InstanceCommand::vkDestroyDebugUtilsMessengerEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, messenger, p_allocator) }
@@ -18506,7 +18506,7 @@ impl Instance {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18521,7 +18521,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_SubmitDebugUtilsMessageEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkSubmitDebugUtilsMessageEXT as usize,
+                InstanceCommand::vkSubmitDebugUtilsMessageEXT as usize,
             ))
         };
         unsafe {
@@ -18545,7 +18545,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ANDROID_ExternalMemoryAndroidHardwareBuffer`](Extensions::ANDROID_ExternalMemoryAndroidHardwareBuffer)
+    /// - Extension [`ANDROID_ExternalMemoryAndroidHardwareBuffer`](Extension::ANDROID_ExternalMemoryAndroidHardwareBuffer)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18568,7 +18568,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetAndroidHardwareBufferPropertiesANDROID>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetAndroidHardwareBufferPropertiesANDROID as usize,
+                    InstanceCommand::vkGetAndroidHardwareBufferPropertiesANDROID as usize,
                 ),
             )
         };
@@ -18586,7 +18586,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ANDROID_ExternalMemoryAndroidHardwareBuffer`](Extensions::ANDROID_ExternalMemoryAndroidHardwareBuffer)
+    /// - Extension [`ANDROID_ExternalMemoryAndroidHardwareBuffer`](Extension::ANDROID_ExternalMemoryAndroidHardwareBuffer)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18609,7 +18609,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetMemoryAndroidHardwareBufferANDROID>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetMemoryAndroidHardwareBufferANDROID as usize,
+                    InstanceCommand::vkGetMemoryAndroidHardwareBufferANDROID as usize,
                 ),
             )
         };
@@ -18628,7 +18628,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+    /// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18654,7 +18654,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateGpaSessionAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateGpaSessionAMD as usize,
+                InstanceCommand::vkCreateGpaSessionAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_gpa_session) }
@@ -18668,7 +18668,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+    /// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18686,7 +18686,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyGpaSessionAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyGpaSessionAMD as usize,
+                InstanceCommand::vkDestroyGpaSessionAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, gpa_session, p_allocator) }
@@ -18700,7 +18700,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+    /// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18721,7 +18721,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_SetGpaDeviceClockModeAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkSetGpaDeviceClockModeAMD as usize,
+                InstanceCommand::vkSetGpaDeviceClockModeAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -18735,7 +18735,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+    /// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18756,7 +18756,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetGpaDeviceClockInfoAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetGpaDeviceClockInfoAMD as usize,
+                InstanceCommand::vkGetGpaDeviceClockInfoAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -18770,7 +18770,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+    /// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18800,7 +18800,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBeginGpaSessionAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBeginGpaSessionAMD as usize,
+                InstanceCommand::vkCmdBeginGpaSessionAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, gpa_session) }
@@ -18814,7 +18814,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+    /// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18844,7 +18844,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdEndGpaSessionAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdEndGpaSessionAMD as usize,
+                InstanceCommand::vkCmdEndGpaSessionAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, gpa_session) }
@@ -18862,7 +18862,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+    /// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18897,7 +18897,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBeginGpaSampleAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBeginGpaSampleAMD as usize,
+                InstanceCommand::vkCmdBeginGpaSampleAMD as usize,
             ))
         };
         unsafe {
@@ -18918,7 +18918,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+    /// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18940,7 +18940,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdEndGpaSampleAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdEndGpaSampleAMD as usize,
+                InstanceCommand::vkCmdEndGpaSampleAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, gpa_session, sample_id) }
@@ -18954,7 +18954,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+    /// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -18972,7 +18972,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetGpaSessionStatusAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetGpaSessionStatusAMD as usize,
+                InstanceCommand::vkGetGpaSessionStatusAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, gpa_session) }
@@ -18986,7 +18986,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+    /// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19013,7 +19013,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetGpaSessionResultsAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetGpaSessionResultsAMD as usize,
+                InstanceCommand::vkGetGpaSessionResultsAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, gpa_session, sample_id, p_size_in_bytes, p_data) }
@@ -19027,7 +19027,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+    /// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19045,7 +19045,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_ResetGpaSessionAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkResetGpaSessionAMD as usize,
+                InstanceCommand::vkResetGpaSessionAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, gpa_session) }
@@ -19059,7 +19059,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+    /// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19082,7 +19082,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyGpaSessionResultsAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyGpaSessionResultsAMD as usize,
+                InstanceCommand::vkCmdCopyGpaSessionResultsAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, gpa_session) }
@@ -19102,7 +19102,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
+    /// - Extension [`AMDX_ShaderEnqueue`](Extension::AMDX_ShaderEnqueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19133,7 +19133,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_CreateExecutionGraphPipelinesAMDX>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCreateExecutionGraphPipelinesAMDX as usize,
+                    InstanceCommand::vkCreateExecutionGraphPipelinesAMDX as usize,
                 ),
             )
         };
@@ -19160,7 +19160,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
+    /// - Extension [`AMDX_ShaderEnqueue`](Extension::AMDX_ShaderEnqueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19182,7 +19182,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetExecutionGraphPipelineScratchSizeAMDX>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetExecutionGraphPipelineScratchSizeAMDX as usize,
+                    InstanceCommand::vkGetExecutionGraphPipelineScratchSizeAMDX as usize,
                 ),
             )
         };
@@ -19201,7 +19201,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
+    /// - Extension [`AMDX_ShaderEnqueue`](Extension::AMDX_ShaderEnqueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19224,7 +19224,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetExecutionGraphPipelineNodeIndexAMDX>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetExecutionGraphPipelineNodeIndexAMDX as usize,
+                    InstanceCommand::vkGetExecutionGraphPipelineNodeIndexAMDX as usize,
                 ),
             )
         };
@@ -19239,7 +19239,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
+    /// - Extension [`AMDX_ShaderEnqueue`](Extension::AMDX_ShaderEnqueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19265,7 +19265,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdInitializeGraphScratchMemoryAMDX>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdInitializeGraphScratchMemoryAMDX as usize,
+                    InstanceCommand::vkCmdInitializeGraphScratchMemoryAMDX as usize,
                 ),
             )
         };
@@ -19284,7 +19284,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
+    /// - Extension [`AMDX_ShaderEnqueue`](Extension::AMDX_ShaderEnqueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19309,7 +19309,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchGraphAMDX>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDispatchGraphAMDX as usize,
+                InstanceCommand::vkCmdDispatchGraphAMDX as usize,
             ))
         };
         unsafe { (command)(self.handle, scratch, scratch_size, p_count_info) }
@@ -19327,7 +19327,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
+    /// - Extension [`AMDX_ShaderEnqueue`](Extension::AMDX_ShaderEnqueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19352,7 +19352,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchGraphIndirectAMDX>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDispatchGraphIndirectAMDX as usize,
+                InstanceCommand::vkCmdDispatchGraphIndirectAMDX as usize,
             ))
         };
         unsafe { (command)(self.handle, scratch, scratch_size, p_count_info) }
@@ -19366,7 +19366,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
+    /// - Extension [`AMDX_ShaderEnqueue`](Extension::AMDX_ShaderEnqueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19392,7 +19392,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchGraphIndirectCountAMDX>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdDispatchGraphIndirectCountAMDX as usize,
+                    InstanceCommand::vkCmdDispatchGraphIndirectCountAMDX as usize,
                 ),
             )
         };
@@ -19411,7 +19411,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19434,7 +19434,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_WriteSamplerDescriptorsEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkWriteSamplerDescriptorsEXT as usize,
+                InstanceCommand::vkWriteSamplerDescriptorsEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, sampler_count, p_samplers, p_descriptors) }
@@ -19452,7 +19452,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19475,7 +19475,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_WriteResourceDescriptorsEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkWriteResourceDescriptorsEXT as usize,
+                InstanceCommand::vkWriteResourceDescriptorsEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, resource_count, p_resources, p_descriptors) }
@@ -19489,7 +19489,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19510,7 +19510,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindSamplerHeapEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBindSamplerHeapEXT as usize,
+                InstanceCommand::vkCmdBindSamplerHeapEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_bind_info) }
@@ -19524,7 +19524,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19545,7 +19545,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindResourceHeapEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBindResourceHeapEXT as usize,
+                InstanceCommand::vkCmdBindResourceHeapEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_bind_info) }
@@ -19559,7 +19559,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19580,7 +19580,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdPushDataEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdPushDataEXT as usize,
+                InstanceCommand::vkCmdPushDataEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_push_data_info) }
@@ -19594,7 +19594,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19617,7 +19617,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetImageOpaqueCaptureDataEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetImageOpaqueCaptureDataEXT as usize,
+                InstanceCommand::vkGetImageOpaqueCaptureDataEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, image_count, p_images, p_datas) }
@@ -19631,7 +19631,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19642,7 +19642,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceDescriptorSizeEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceDescriptorSizeEXT as usize,
+                    InstanceCommand::vkGetPhysicalDeviceDescriptorSizeEXT as usize,
                 ),
             )
         };
@@ -19661,7 +19661,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19686,7 +19686,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_RegisterCustomBorderColorEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkRegisterCustomBorderColorEXT as usize,
+                InstanceCommand::vkRegisterCustomBorderColorEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_border_color, request_index, p_index) }
@@ -19699,7 +19699,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19709,7 +19709,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_UnregisterCustomBorderColorEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkUnregisterCustomBorderColorEXT as usize,
+                InstanceCommand::vkUnregisterCustomBorderColorEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, index) }
@@ -19727,7 +19727,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19750,7 +19750,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetTensorOpaqueCaptureDataARM>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetTensorOpaqueCaptureDataARM as usize,
+                InstanceCommand::vkGetTensorOpaqueCaptureDataARM as usize,
             ))
         };
         unsafe { (command)(self.handle, tensor_count, p_tensors, p_datas) }
@@ -19764,7 +19764,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_SampleLocations`](Extensions::EXT_SampleLocations)
+    /// - Extension [`EXT_SampleLocations`](Extension::EXT_SampleLocations)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19787,7 +19787,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetSampleLocationsEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetSampleLocationsEXT as usize,
+                InstanceCommand::vkCmdSetSampleLocationsEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_sample_locations_info) }
@@ -19801,7 +19801,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_SampleLocations`](Extensions::EXT_SampleLocations)
+    /// - Extension [`EXT_SampleLocations`](Extension::EXT_SampleLocations)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19816,7 +19816,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceMultisamplePropertiesEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceMultisamplePropertiesEXT as usize,
+                    InstanceCommand::vkGetPhysicalDeviceMultisamplePropertiesEXT as usize,
                 ),
             )
         };
@@ -19834,7 +19834,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ImageDrmFormatModifier`](Extensions::EXT_ImageDrmFormatModifier)
+    /// - Extension [`EXT_ImageDrmFormatModifier`](Extension::EXT_ImageDrmFormatModifier)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19856,7 +19856,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetImageDrmFormatModifierPropertiesEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetImageDrmFormatModifierPropertiesEXT as usize,
+                    InstanceCommand::vkGetImageDrmFormatModifierPropertiesEXT as usize,
                 ),
             )
         };
@@ -19875,7 +19875,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ValidationCache`](Extensions::EXT_ValidationCache)
+    /// - Extension [`EXT_ValidationCache`](Extension::EXT_ValidationCache)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19900,7 +19900,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateValidationCacheEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateValidationCacheEXT as usize,
+                InstanceCommand::vkCreateValidationCacheEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_validation_cache) }
@@ -19914,7 +19914,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ValidationCache`](Extensions::EXT_ValidationCache)
+    /// - Extension [`EXT_ValidationCache`](Extension::EXT_ValidationCache)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19932,7 +19932,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyValidationCacheEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyValidationCacheEXT as usize,
+                InstanceCommand::vkDestroyValidationCacheEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, validation_cache, p_allocator) }
@@ -19950,7 +19950,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ValidationCache`](Extensions::EXT_ValidationCache)
+    /// - Extension [`EXT_ValidationCache`](Extension::EXT_ValidationCache)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -19973,7 +19973,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_MergeValidationCachesEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkMergeValidationCachesEXT as usize,
+                InstanceCommand::vkMergeValidationCachesEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, dst_cache, src_cache_count, p_src_caches) }
@@ -19987,7 +19987,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ValidationCache`](Extensions::EXT_ValidationCache)
+    /// - Extension [`EXT_ValidationCache`](Extension::EXT_ValidationCache)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -20014,7 +20014,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetValidationCacheDataEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetValidationCacheDataEXT as usize,
+                InstanceCommand::vkGetValidationCacheDataEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, validation_cache, p_data_size, p_data) }
@@ -20028,7 +20028,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_ShadingRateImage`](Extensions::NV_ShadingRateImage)
+    /// - Extension [`NV_ShadingRateImage`](Extension::NV_ShadingRateImage)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -20055,7 +20055,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindShadingRateImageNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBindShadingRateImageNV as usize,
+                InstanceCommand::vkCmdBindShadingRateImageNV as usize,
             ))
         };
         unsafe { (command)(self.handle, image_view, image_layout) }
@@ -20069,7 +20069,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_ShadingRateImage`](Extensions::NV_ShadingRateImage)
+    /// - Extension [`NV_ShadingRateImage`](Extension::NV_ShadingRateImage)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -20095,7 +20095,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewportShadingRatePaletteNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdSetViewportShadingRatePaletteNV as usize,
+                    InstanceCommand::vkCmdSetViewportShadingRatePaletteNV as usize,
                 ),
             )
         };
@@ -20121,7 +20121,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_ShadingRateImage`](Extensions::NV_ShadingRateImage)
+    /// - Extension [`NV_ShadingRateImage`](Extension::NV_ShadingRateImage)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -20149,7 +20149,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoarseSampleOrderNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetCoarseSampleOrderNV as usize,
+                InstanceCommand::vkCmdSetCoarseSampleOrderNV as usize,
             ))
         };
         unsafe {
@@ -20174,8 +20174,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+    /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -20200,7 +20200,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateAccelerationStructureNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateAccelerationStructureNV as usize,
+                InstanceCommand::vkCreateAccelerationStructureNV as usize,
             ))
         };
         unsafe {
@@ -20221,8 +20221,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+    /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -20240,7 +20240,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyAccelerationStructureNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyAccelerationStructureNV as usize,
+                InstanceCommand::vkDestroyAccelerationStructureNV as usize,
             ))
         };
         unsafe { (command)(self.handle, acceleration_structure, p_allocator) }
@@ -20257,8 +20257,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+    /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -20273,7 +20273,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetAccelerationStructureMemoryRequirementsNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetAccelerationStructureMemoryRequirementsNV as usize,
+                    InstanceCommand::vkGetAccelerationStructureMemoryRequirementsNV as usize,
                 ),
             )
         };
@@ -20291,8 +20291,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+    /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -20315,7 +20315,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_BindAccelerationStructureMemoryNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkBindAccelerationStructureMemoryNV as usize,
+                    InstanceCommand::vkBindAccelerationStructureMemoryNV as usize,
                 ),
             )
         };
@@ -20339,8 +20339,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+    /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -20374,7 +20374,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBuildAccelerationStructureNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBuildAccelerationStructureNV as usize,
+                InstanceCommand::vkCmdBuildAccelerationStructureNV as usize,
             ))
         };
         unsafe {
@@ -20404,8 +20404,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+    /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -20430,7 +20430,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyAccelerationStructureNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyAccelerationStructureNV as usize,
+                InstanceCommand::vkCmdCopyAccelerationStructureNV as usize,
             ))
         };
         unsafe { (command)(self.handle, dst, src, mode) }
@@ -20459,8 +20459,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+    /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -20501,7 +20501,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdTraceRaysNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdTraceRaysNV as usize,
+                InstanceCommand::vkCmdTraceRaysNV as usize,
             ))
         };
         unsafe {
@@ -20539,8 +20539,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+    /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -20571,7 +20571,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateRayTracingPipelinesNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateRayTracingPipelinesNV as usize,
+                InstanceCommand::vkCreateRayTracingPipelinesNV as usize,
             ))
         };
         unsafe {
@@ -20594,7 +20594,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+    /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -20620,7 +20620,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetRayTracingShaderGroupHandlesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetRayTracingShaderGroupHandlesKHR as usize,
+                    InstanceCommand::vkGetRayTracingShaderGroupHandlesKHR as usize,
                 ),
             )
         };
@@ -20644,8 +20644,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+    /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -20671,7 +20671,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetRayTracingShaderGroupHandlesNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetRayTracingShaderGroupHandlesNV as usize,
+                    InstanceCommand::vkGetRayTracingShaderGroupHandlesNV as usize,
                 ),
             )
         };
@@ -20695,8 +20695,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+    /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -20719,7 +20719,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetAccelerationStructureHandleNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetAccelerationStructureHandleNV as usize,
+                InstanceCommand::vkGetAccelerationStructureHandleNV as usize,
             ))
         };
         unsafe { (command)(self.handle, acceleration_structure, data_size, p_data) }
@@ -20739,8 +20739,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+    /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -20768,7 +20768,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdWriteAccelerationStructuresPropertiesNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdWriteAccelerationStructuresPropertiesNV as usize,
+                    InstanceCommand::vkCmdWriteAccelerationStructuresPropertiesNV as usize,
                 ),
             )
         };
@@ -20792,8 +20792,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+    /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -20811,7 +20811,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CompileDeferredNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCompileDeferredNV as usize,
+                InstanceCommand::vkCompileDeferredNV as usize,
             ))
         };
         unsafe { (command)(self.handle, pipeline, shader) }
@@ -20829,7 +20829,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExternalMemoryHost`](Extensions::EXT_ExternalMemoryHost)
+    /// - Extension [`EXT_ExternalMemoryHost`](Extension::EXT_ExternalMemoryHost)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -20853,7 +20853,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetMemoryHostPointerPropertiesEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetMemoryHostPointerPropertiesEXT as usize,
+                    InstanceCommand::vkGetMemoryHostPointerPropertiesEXT as usize,
                 ),
             )
         };
@@ -20875,7 +20875,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMD_BufferMarker`](Extensions::AMD_BufferMarker)
+    /// - Extension [`AMD_BufferMarker`](Extension::AMD_BufferMarker)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -20906,7 +20906,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdWriteBufferMarkerAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdWriteBufferMarkerAMD as usize,
+                InstanceCommand::vkCmdWriteBufferMarkerAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, pipeline_stage, dst_buffer, dst_offset, marker) }
@@ -20920,7 +20920,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMD_BufferMarker`](Extensions::AMD_BufferMarker)
+    /// - Extension [`AMD_BufferMarker`](Extension::AMD_BufferMarker)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -20951,7 +20951,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdWriteBufferMarker2AMD>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdWriteBufferMarker2AMD as usize,
+                InstanceCommand::vkCmdWriteBufferMarker2AMD as usize,
             ))
         };
         unsafe { (command)(self.handle, stage, dst_buffer, dst_offset, marker) }
@@ -20965,8 +20965,8 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_CalibratedTimestamps`](Extensions::EXT_CalibratedTimestamps)
-    /// - Extension [`KHR_CalibratedTimestamps`](Extensions::KHR_CalibratedTimestamps)
+    /// - Extension [`EXT_CalibratedTimestamps`](Extension::EXT_CalibratedTimestamps)
+    /// - Extension [`KHR_CalibratedTimestamps`](Extension::KHR_CalibratedTimestamps)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -20993,7 +20993,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceCalibrateableTimeDomainsEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceCalibrateableTimeDomainsEXT as usize,
+                    InstanceCommand::vkGetPhysicalDeviceCalibrateableTimeDomainsEXT as usize,
                 ),
             )
         };
@@ -21013,8 +21013,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_CalibratedTimestamps`](Extensions::EXT_CalibratedTimestamps)
-    /// - Extension [`KHR_CalibratedTimestamps`](Extensions::KHR_CalibratedTimestamps)
+    /// - Extension [`EXT_CalibratedTimestamps`](Extension::EXT_CalibratedTimestamps)
+    /// - Extension [`KHR_CalibratedTimestamps`](Extension::KHR_CalibratedTimestamps)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -21038,7 +21038,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetCalibratedTimestampsEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetCalibratedTimestampsEXT as usize,
+                InstanceCommand::vkGetCalibratedTimestampsEXT as usize,
             ))
         };
         unsafe {
@@ -21059,7 +21059,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_MeshShader`](Extensions::NV_MeshShader)
+    /// - Extension [`NV_MeshShader`](Extension::NV_MeshShader)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -21079,7 +21079,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawMeshTasksNV as usize,
+                InstanceCommand::vkCmdDrawMeshTasksNV as usize,
             ))
         };
         unsafe { (command)(self.handle, task_count, first_task) }
@@ -21093,7 +21093,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_MeshShader`](Extensions::NV_MeshShader)
+    /// - Extension [`NV_MeshShader`](Extension::NV_MeshShader)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -21119,7 +21119,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksIndirectNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawMeshTasksIndirectNV as usize,
+                InstanceCommand::vkCmdDrawMeshTasksIndirectNV as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer, offset, draw_count, stride) }
@@ -21133,7 +21133,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_MeshShader`](Extensions::NV_MeshShader)
+    /// - Extension [`NV_MeshShader`](Extension::NV_MeshShader)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -21161,7 +21161,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksIndirectCountNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawMeshTasksIndirectCountNV as usize,
+                InstanceCommand::vkCmdDrawMeshTasksIndirectCountNV as usize,
             ))
         };
         unsafe {
@@ -21185,7 +21185,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_ScissorExclusive`](Extensions::NV_ScissorExclusive)
+    /// - Extension [`NV_ScissorExclusive`](Extension::NV_ScissorExclusive)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -21210,7 +21210,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetExclusiveScissorEnableNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetExclusiveScissorEnableNV as usize,
+                InstanceCommand::vkCmdSetExclusiveScissorEnableNV as usize,
             ))
         };
         unsafe {
@@ -21231,7 +21231,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_ScissorExclusive`](Extensions::NV_ScissorExclusive)
+    /// - Extension [`NV_ScissorExclusive`](Extension::NV_ScissorExclusive)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -21256,7 +21256,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetExclusiveScissorNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetExclusiveScissorNV as usize,
+                InstanceCommand::vkCmdSetExclusiveScissorNV as usize,
             ))
         };
         unsafe {
@@ -21276,7 +21276,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_DeviceDiagnosticCheckpoints`](Extensions::NV_DeviceDiagnosticCheckpoints)
+    /// - Extension [`NV_DeviceDiagnosticCheckpoints`](Extension::NV_DeviceDiagnosticCheckpoints)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -21298,7 +21298,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetCheckpointNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetCheckpointNV as usize,
+                InstanceCommand::vkCmdSetCheckpointNV as usize,
             ))
         };
         unsafe { (command)(self.handle, p_checkpoint_marker) }
@@ -21312,7 +21312,7 @@ impl Queue {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_DeviceDiagnosticCheckpoints`](Extensions::NV_DeviceDiagnosticCheckpoints)
+    /// - Extension [`NV_DeviceDiagnosticCheckpoints`](Extension::NV_DeviceDiagnosticCheckpoints)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -21329,7 +21329,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetQueueCheckpointDataNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetQueueCheckpointDataNV as usize,
+                InstanceCommand::vkGetQueueCheckpointDataNV as usize,
             ))
         };
         unsafe { (command)(self.handle, p_checkpoint_data_count, p_checkpoint_data) }
@@ -21343,7 +21343,7 @@ impl Queue {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_DeviceDiagnosticCheckpoints`](Extensions::NV_DeviceDiagnosticCheckpoints)
+    /// - Extension [`NV_DeviceDiagnosticCheckpoints`](Extension::NV_DeviceDiagnosticCheckpoints)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -21360,7 +21360,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetQueueCheckpointData2NV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetQueueCheckpointData2NV as usize,
+                InstanceCommand::vkGetQueueCheckpointData2NV as usize,
             ))
         };
         unsafe { (command)(self.handle, p_checkpoint_data_count, p_checkpoint_data) }
@@ -21374,7 +21374,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+    /// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -21398,7 +21398,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_SetSwapchainPresentTimingQueueSizeEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkSetSwapchainPresentTimingQueueSizeEXT as usize,
+                    InstanceCommand::vkSetSwapchainPresentTimingQueueSizeEXT as usize,
                 ),
             )
         };
@@ -21417,7 +21417,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+    /// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -21445,7 +21445,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetSwapchainTimingPropertiesEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetSwapchainTimingPropertiesEXT as usize,
+                InstanceCommand::vkGetSwapchainTimingPropertiesEXT as usize,
             ))
         };
         unsafe {
@@ -21470,7 +21470,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+    /// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -21499,7 +21499,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetSwapchainTimeDomainPropertiesEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetSwapchainTimeDomainPropertiesEXT as usize,
+                    InstanceCommand::vkGetSwapchainTimeDomainPropertiesEXT as usize,
                 ),
             )
         };
@@ -21524,7 +21524,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+    /// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -21548,7 +21548,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPastPresentationTimingEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPastPresentationTimingEXT as usize,
+                InstanceCommand::vkGetPastPresentationTimingEXT as usize,
             ))
         };
         unsafe {
@@ -21568,7 +21568,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
+    /// - Extension [`INTEL_PerformanceQuery`](Extension::INTEL_PerformanceQuery)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -21589,7 +21589,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_InitializePerformanceApiINTEL>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkInitializePerformanceApiINTEL as usize,
+                InstanceCommand::vkInitializePerformanceApiINTEL as usize,
             ))
         };
         unsafe { (command)(self.handle, p_initialize_info) }
@@ -21602,7 +21602,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
+    /// - Extension [`INTEL_PerformanceQuery`](Extension::INTEL_PerformanceQuery)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -21612,7 +21612,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_UninitializePerformanceApiINTEL>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkUninitializePerformanceApiINTEL as usize,
+                InstanceCommand::vkUninitializePerformanceApiINTEL as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -21626,7 +21626,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
+    /// - Extension [`INTEL_PerformanceQuery`](Extension::INTEL_PerformanceQuery)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -21660,7 +21660,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetPerformanceMarkerINTEL>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetPerformanceMarkerINTEL as usize,
+                InstanceCommand::vkCmdSetPerformanceMarkerINTEL as usize,
             ))
         };
         unsafe { (command)(self.handle, p_marker_info) }
@@ -21676,7 +21676,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
+    /// - Extension [`INTEL_PerformanceQuery`](Extension::INTEL_PerformanceQuery)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -21711,7 +21711,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetPerformanceStreamMarkerINTEL>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdSetPerformanceStreamMarkerINTEL as usize,
+                    InstanceCommand::vkCmdSetPerformanceStreamMarkerINTEL as usize,
                 ),
             )
         };
@@ -21726,7 +21726,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
+    /// - Extension [`INTEL_PerformanceQuery`](Extension::INTEL_PerformanceQuery)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -21759,7 +21759,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetPerformanceOverrideINTEL>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetPerformanceOverrideINTEL as usize,
+                InstanceCommand::vkCmdSetPerformanceOverrideINTEL as usize,
             ))
         };
         unsafe { (command)(self.handle, p_override_info) }
@@ -21776,7 +21776,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
+    /// - Extension [`INTEL_PerformanceQuery`](Extension::INTEL_PerformanceQuery)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -21799,7 +21799,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_AcquirePerformanceConfigurationINTEL>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkAcquirePerformanceConfigurationINTEL as usize,
+                    InstanceCommand::vkAcquirePerformanceConfigurationINTEL as usize,
                 ),
             )
         };
@@ -21814,7 +21814,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
+    /// - Extension [`INTEL_PerformanceQuery`](Extension::INTEL_PerformanceQuery)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -21839,7 +21839,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_ReleasePerformanceConfigurationINTEL>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkReleasePerformanceConfigurationINTEL as usize,
+                    InstanceCommand::vkReleasePerformanceConfigurationINTEL as usize,
                 ),
             )
         };
@@ -21854,7 +21854,7 @@ impl Queue {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
+    /// - Extension [`INTEL_PerformanceQuery`](Extension::INTEL_PerformanceQuery)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -21876,7 +21876,7 @@ impl Queue {
             std::mem::transmute::<vkVoidFunction, FUN_QueueSetPerformanceConfigurationINTEL>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkQueueSetPerformanceConfigurationINTEL as usize,
+                    InstanceCommand::vkQueueSetPerformanceConfigurationINTEL as usize,
                 ),
             )
         };
@@ -21894,7 +21894,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`INTEL_PerformanceQuery`](Extensions::INTEL_PerformanceQuery)
+    /// - Extension [`INTEL_PerformanceQuery`](Extension::INTEL_PerformanceQuery)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -21916,7 +21916,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPerformanceParameterINTEL>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPerformanceParameterINTEL as usize,
+                InstanceCommand::vkGetPerformanceParameterINTEL as usize,
             ))
         };
         unsafe { (command)(self.handle, parameter, p_value) }
@@ -21929,7 +21929,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMD_DisplayNativeHdr`](Extensions::AMD_DisplayNativeHdr)
+    /// - Extension [`AMD_DisplayNativeHdr`](Extension::AMD_DisplayNativeHdr)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -21943,7 +21943,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_SetLocalDimmingAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkSetLocalDimmingAMD as usize,
+                InstanceCommand::vkSetLocalDimmingAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, swap_chain, local_dimming_enable) }
@@ -21961,7 +21961,7 @@ impl Instance {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`FUCHSIA_ImagepipeSurface`](Extensions::FUCHSIA_ImagepipeSurface)
+    /// - Extension [`FUCHSIA_ImagepipeSurface`](Extension::FUCHSIA_ImagepipeSurface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -21987,7 +21987,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateImagePipeSurfaceFUCHSIA>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateImagePipeSurfaceFUCHSIA as usize,
+                InstanceCommand::vkCreateImagePipeSurfaceFUCHSIA as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
@@ -22005,7 +22005,7 @@ impl Instance {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_MetalSurface`](Extensions::EXT_MetalSurface)
+    /// - Extension [`EXT_MetalSurface`](Extension::EXT_MetalSurface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -22032,7 +22032,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateMetalSurfaceEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateMetalSurfaceEXT as usize,
+                InstanceCommand::vkCreateMetalSurfaceEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
@@ -22046,8 +22046,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_BufferDeviceAddress`](Extensions::EXT_BufferDeviceAddress)
-    /// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
+    /// - Extension [`EXT_BufferDeviceAddress`](Extension::EXT_BufferDeviceAddress)
+    /// - Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -22060,7 +22060,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetBufferDeviceAddressEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetBufferDeviceAddressEXT as usize,
+                InstanceCommand::vkGetBufferDeviceAddressEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -22078,7 +22078,7 @@ impl PhysicalDevice {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`EXT_ToolingInfo`](Extensions::EXT_ToolingInfo)
+    /// - Extension [`EXT_ToolingInfo`](Extension::EXT_ToolingInfo)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -22104,7 +22104,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceToolPropertiesEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceToolPropertiesEXT as usize,
+                    InstanceCommand::vkGetPhysicalDeviceToolPropertiesEXT as usize,
                 ),
             )
         };
@@ -22123,7 +22123,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_CooperativeMatrix`](Extensions::NV_CooperativeMatrix)
+    /// - Extension [`NV_CooperativeMatrix`](Extension::NV_CooperativeMatrix)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -22150,7 +22150,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceCooperativeMatrixPropertiesNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceCooperativeMatrixPropertiesNV as usize,
+                    InstanceCommand::vkGetPhysicalDeviceCooperativeMatrixPropertiesNV as usize,
                 ),
             )
         };
@@ -22169,7 +22169,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_CoverageReductionMode`](Extensions::NV_CoverageReductionMode)
+    /// - Extension [`NV_CoverageReductionMode`](Extension::NV_CoverageReductionMode)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -22198,7 +22198,7 @@ impl PhysicalDevice {
                 FUN_GetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV,
             >(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV
+                InstanceCommand::vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV
                     as usize,
             ))
         };
@@ -22217,7 +22217,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_FullScreenExclusive`](Extensions::EXT_FullScreenExclusive)
+    /// - Extension [`EXT_FullScreenExclusive`](Extension::EXT_FullScreenExclusive)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -22246,7 +22246,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceSurfacePresentModes2EXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceSurfacePresentModes2EXT as usize,
+                    InstanceCommand::vkGetPhysicalDeviceSurfacePresentModes2EXT as usize,
                 ),
             )
         };
@@ -22268,7 +22268,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_FullScreenExclusive`](Extensions::EXT_FullScreenExclusive)
+    /// - Extension [`EXT_FullScreenExclusive`](Extension::EXT_FullScreenExclusive)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -22292,7 +22292,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_AcquireFullScreenExclusiveModeEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkAcquireFullScreenExclusiveModeEXT as usize,
+                    InstanceCommand::vkAcquireFullScreenExclusiveModeEXT as usize,
                 ),
             )
         };
@@ -22307,7 +22307,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_FullScreenExclusive`](Extensions::EXT_FullScreenExclusive)
+    /// - Extension [`EXT_FullScreenExclusive`](Extension::EXT_FullScreenExclusive)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -22330,7 +22330,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_ReleaseFullScreenExclusiveModeEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkReleaseFullScreenExclusiveModeEXT as usize,
+                    InstanceCommand::vkReleaseFullScreenExclusiveModeEXT as usize,
                 ),
             )
         };
@@ -22348,7 +22348,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_FullScreenExclusive`](Extensions::EXT_FullScreenExclusive)
+    /// - Extension [`EXT_FullScreenExclusive`](Extension::EXT_FullScreenExclusive)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -22372,7 +22372,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceGroupSurfacePresentModes2EXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetDeviceGroupSurfacePresentModes2EXT as usize,
+                    InstanceCommand::vkGetDeviceGroupSurfacePresentModes2EXT as usize,
                 ),
             )
         };
@@ -22391,7 +22391,7 @@ impl Instance {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_HeadlessSurface`](Extensions::EXT_HeadlessSurface)
+    /// - Extension [`EXT_HeadlessSurface`](Extension::EXT_HeadlessSurface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -22417,7 +22417,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateHeadlessSurfaceEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateHeadlessSurfaceEXT as usize,
+                InstanceCommand::vkCreateHeadlessSurfaceEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
@@ -22430,8 +22430,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_LineRasterization`](Extensions::EXT_LineRasterization)
-    /// - Extension [`KHR_LineRasterization`](Extensions::KHR_LineRasterization)
+    /// - Extension [`EXT_LineRasterization`](Extension::EXT_LineRasterization)
+    /// - Extension [`KHR_LineRasterization`](Extension::KHR_LineRasterization)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -22455,7 +22455,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetLineStippleEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetLineStippleEXT as usize,
+                InstanceCommand::vkCmdSetLineStippleEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, line_stipple_factor, line_stipple_pattern) }
@@ -22469,7 +22469,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
-    /// - Extension [`EXT_HostQueryReset`](Extensions::EXT_HostQueryReset)
+    /// - Extension [`EXT_HostQueryReset`](Extension::EXT_HostQueryReset)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -22484,7 +22484,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_ResetQueryPoolEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkResetQueryPoolEXT as usize,
+                InstanceCommand::vkResetQueryPoolEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, query_pool, first_query, query_count) }
@@ -22498,8 +22498,8 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState`](Extension::EXT_ExtendedDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -22522,7 +22522,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetCullModeEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetCullModeEXT as usize,
+                InstanceCommand::vkCmdSetCullModeEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, cull_mode) }
@@ -22536,8 +22536,8 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState`](Extension::EXT_ExtendedDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -22557,7 +22557,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetFrontFaceEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetFrontFaceEXT as usize,
+                InstanceCommand::vkCmdSetFrontFaceEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, front_face) }
@@ -22572,8 +22572,8 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState`](Extension::EXT_ExtendedDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -22593,7 +22593,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetPrimitiveTopologyEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetPrimitiveTopologyEXT as usize,
+                InstanceCommand::vkCmdSetPrimitiveTopologyEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, primitive_topology) }
@@ -22608,8 +22608,8 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState`](Extension::EXT_ExtendedDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -22633,7 +22633,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewportWithCountEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetViewportWithCountEXT as usize,
+                InstanceCommand::vkCmdSetViewportWithCountEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, viewport_count, p_viewports) }
@@ -22648,8 +22648,8 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState`](Extension::EXT_ExtendedDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -22673,7 +22673,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetScissorWithCountEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetScissorWithCountEXT as usize,
+                InstanceCommand::vkCmdSetScissorWithCountEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, scissor_count, p_scissors) }
@@ -22695,8 +22695,8 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState`](Extension::EXT_ExtendedDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -22728,7 +22728,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindVertexBuffers2EXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBindVertexBuffers2EXT as usize,
+                InstanceCommand::vkCmdBindVertexBuffers2EXT as usize,
             ))
         };
         unsafe {
@@ -22752,8 +22752,8 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState`](Extension::EXT_ExtendedDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -22773,7 +22773,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthTestEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetDepthTestEnableEXT as usize,
+                InstanceCommand::vkCmdSetDepthTestEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, depth_test_enable) }
@@ -22787,8 +22787,8 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState`](Extension::EXT_ExtendedDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -22808,7 +22808,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthWriteEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetDepthWriteEnableEXT as usize,
+                InstanceCommand::vkCmdSetDepthWriteEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, depth_write_enable) }
@@ -22822,8 +22822,8 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState`](Extension::EXT_ExtendedDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -22843,7 +22843,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthCompareOpEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetDepthCompareOpEXT as usize,
+                InstanceCommand::vkCmdSetDepthCompareOpEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, depth_compare_op) }
@@ -22858,8 +22858,8 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState`](Extension::EXT_ExtendedDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -22879,7 +22879,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBoundsTestEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetDepthBoundsTestEnableEXT as usize,
+                InstanceCommand::vkCmdSetDepthBoundsTestEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, depth_bounds_test_enable) }
@@ -22893,8 +22893,8 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState`](Extension::EXT_ExtendedDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -22914,7 +22914,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilTestEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetStencilTestEnableEXT as usize,
+                InstanceCommand::vkCmdSetStencilTestEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, stencil_test_enable) }
@@ -22935,8 +22935,8 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`EXT_ExtendedDynamicState`](Extensions::EXT_ExtendedDynamicState)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState`](Extension::EXT_ExtendedDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -22963,7 +22963,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetStencilOpEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetStencilOpEXT as usize,
+                InstanceCommand::vkCmdSetStencilOpEXT as usize,
             ))
         };
         unsafe {
@@ -22987,7 +22987,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
-    /// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
+    /// - Extension [`EXT_HostImageCopy`](Extension::EXT_HostImageCopy)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23010,7 +23010,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CopyMemoryToImageEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCopyMemoryToImageEXT as usize,
+                InstanceCommand::vkCopyMemoryToImageEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_memory_to_image_info) }
@@ -23025,7 +23025,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
-    /// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
+    /// - Extension [`EXT_HostImageCopy`](Extension::EXT_HostImageCopy)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23048,7 +23048,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CopyImageToMemoryEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCopyImageToMemoryEXT as usize,
+                InstanceCommand::vkCopyImageToMemoryEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_image_to_memory_info) }
@@ -23063,7 +23063,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
-    /// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
+    /// - Extension [`EXT_HostImageCopy`](Extension::EXT_HostImageCopy)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23086,7 +23086,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CopyImageToImageEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCopyImageToImageEXT as usize,
+                InstanceCommand::vkCopyImageToImageEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_image_to_image_info) }
@@ -23101,7 +23101,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
-    /// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
+    /// - Extension [`EXT_HostImageCopy`](Extension::EXT_HostImageCopy)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23125,7 +23125,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_TransitionImageLayoutEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkTransitionImageLayoutEXT as usize,
+                InstanceCommand::vkTransitionImageLayoutEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, transition_count, p_transitions) }
@@ -23140,8 +23140,8 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
-    /// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
-    /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+    /// - Extension [`EXT_HostImageCopy`](Extension::EXT_HostImageCopy)
+    /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23156,7 +23156,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetImageSubresourceLayout2EXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetImageSubresourceLayout2EXT as usize,
+                InstanceCommand::vkGetImageSubresourceLayout2EXT as usize,
             ))
         };
         unsafe { (command)(self.handle, image, p_subresource, p_layout) }
@@ -23170,8 +23170,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_SwapchainMaintenance1`](Extensions::EXT_SwapchainMaintenance1)
-    /// - Extension [`KHR_SwapchainMaintenance1`](Extensions::KHR_SwapchainMaintenance1)
+    /// - Extension [`EXT_SwapchainMaintenance1`](Extension::EXT_SwapchainMaintenance1)
+    /// - Extension [`KHR_SwapchainMaintenance1`](Extension::KHR_SwapchainMaintenance1)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23191,7 +23191,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_ReleaseSwapchainImagesEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkReleaseSwapchainImagesEXT as usize,
+                InstanceCommand::vkReleaseSwapchainImagesEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_release_info) }
@@ -23208,7 +23208,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+    /// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23223,7 +23223,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetGeneratedCommandsMemoryRequirementsNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetGeneratedCommandsMemoryRequirementsNV as usize,
+                    InstanceCommand::vkGetGeneratedCommandsMemoryRequirementsNV as usize,
                 ),
             )
         };
@@ -23238,7 +23238,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+    /// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23262,7 +23262,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdPreprocessGeneratedCommandsNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdPreprocessGeneratedCommandsNV as usize,
+                InstanceCommand::vkCmdPreprocessGeneratedCommandsNV as usize,
             ))
         };
         unsafe { (command)(self.handle, p_generated_commands_info) }
@@ -23276,7 +23276,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+    /// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23302,7 +23302,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdExecuteGeneratedCommandsNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdExecuteGeneratedCommandsNV as usize,
+                InstanceCommand::vkCmdExecuteGeneratedCommandsNV as usize,
             ))
         };
         unsafe { (command)(self.handle, is_preprocessed, p_generated_commands_info) }
@@ -23316,7 +23316,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+    /// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23342,7 +23342,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindPipelineShaderGroupNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBindPipelineShaderGroupNV as usize,
+                InstanceCommand::vkCmdBindPipelineShaderGroupNV as usize,
             ))
         };
         unsafe { (command)(self.handle, pipeline_bind_point, pipeline, group_index) }
@@ -23360,7 +23360,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+    /// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23386,7 +23386,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateIndirectCommandsLayoutNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateIndirectCommandsLayoutNV as usize,
+                InstanceCommand::vkCreateIndirectCommandsLayoutNV as usize,
             ))
         };
         unsafe {
@@ -23407,7 +23407,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+    /// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23425,7 +23425,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyIndirectCommandsLayoutNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyIndirectCommandsLayoutNV as usize,
+                InstanceCommand::vkDestroyIndirectCommandsLayoutNV as usize,
             ))
         };
         unsafe { (command)(self.handle, indirect_commands_layout, p_allocator) }
@@ -23439,7 +23439,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DepthBiasControl`](Extensions::EXT_DepthBiasControl)
+    /// - Extension [`EXT_DepthBiasControl`](Extension::EXT_DepthBiasControl)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23459,7 +23459,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBias2EXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetDepthBias2EXT as usize,
+                InstanceCommand::vkCmdSetDepthBias2EXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_depth_bias_info) }
@@ -23473,7 +23473,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_AcquireDrmDisplay`](Extensions::EXT_AcquireDrmDisplay)
+    /// - Extension [`EXT_AcquireDrmDisplay`](Extension::EXT_AcquireDrmDisplay)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23490,7 +23490,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_AcquireDrmDisplayEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkAcquireDrmDisplayEXT as usize,
+                InstanceCommand::vkAcquireDrmDisplayEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, drm_fd, display) }
@@ -23504,7 +23504,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_AcquireDrmDisplay`](Extensions::EXT_AcquireDrmDisplay)
+    /// - Extension [`EXT_AcquireDrmDisplay`](Extension::EXT_AcquireDrmDisplay)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23527,7 +23527,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDrmDisplayEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetDrmDisplayEXT as usize,
+                InstanceCommand::vkGetDrmDisplayEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, drm_fd, connector_id, display) }
@@ -23546,7 +23546,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`EXT_PrivateData`](Extensions::EXT_PrivateData)
+    /// - Extension [`EXT_PrivateData`](Extension::EXT_PrivateData)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23571,7 +23571,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreatePrivateDataSlotEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreatePrivateDataSlotEXT as usize,
+                InstanceCommand::vkCreatePrivateDataSlotEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_private_data_slot) }
@@ -23586,7 +23586,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`EXT_PrivateData`](Extensions::EXT_PrivateData)
+    /// - Extension [`EXT_PrivateData`](Extension::EXT_PrivateData)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23604,7 +23604,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyPrivateDataSlotEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyPrivateDataSlotEXT as usize,
+                InstanceCommand::vkDestroyPrivateDataSlotEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, private_data_slot, p_allocator) }
@@ -23619,7 +23619,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`EXT_PrivateData`](Extensions::EXT_PrivateData)
+    /// - Extension [`EXT_PrivateData`](Extension::EXT_PrivateData)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23642,7 +23642,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_SetPrivateDataEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkSetPrivateDataEXT as usize,
+                InstanceCommand::vkSetPrivateDataEXT as usize,
             ))
         };
         unsafe {
@@ -23665,7 +23665,7 @@ impl Device {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`EXT_PrivateData`](Extensions::EXT_PrivateData)
+    /// - Extension [`EXT_PrivateData`](Extension::EXT_PrivateData)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23681,7 +23681,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPrivateDataEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPrivateDataEXT as usize,
+                InstanceCommand::vkGetPrivateDataEXT as usize,
             ))
         };
         unsafe {
@@ -23703,7 +23703,7 @@ impl Queue {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`QCOM_QueuePerfHint`](Extensions::QCOM_QueuePerfHint)
+    /// - Extension [`QCOM_QueuePerfHint`](Extension::QCOM_QueuePerfHint)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23723,7 +23723,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_QueueSetPerfHintQCOM>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkQueueSetPerfHintQCOM as usize,
+                InstanceCommand::vkQueueSetPerfHintQCOM as usize,
             ))
         };
         unsafe { (command)(self.handle, p_perf_hint_info) }
@@ -23741,7 +23741,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
+    /// - Extension [`NV_CudaKernelLaunch`](Extension::NV_CudaKernelLaunch)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23767,7 +23767,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateCudaModuleNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateCudaModuleNV as usize,
+                InstanceCommand::vkCreateCudaModuleNV as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_module) }
@@ -23781,7 +23781,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
+    /// - Extension [`NV_CudaKernelLaunch`](Extension::NV_CudaKernelLaunch)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23807,7 +23807,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetCudaModuleCacheNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetCudaModuleCacheNV as usize,
+                InstanceCommand::vkGetCudaModuleCacheNV as usize,
             ))
         };
         unsafe { (command)(self.handle, module, p_cache_size, p_cache_data) }
@@ -23825,7 +23825,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
+    /// - Extension [`NV_CudaKernelLaunch`](Extension::NV_CudaKernelLaunch)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23851,7 +23851,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateCudaFunctionNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateCudaFunctionNV as usize,
+                InstanceCommand::vkCreateCudaFunctionNV as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_function) }
@@ -23865,7 +23865,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
+    /// - Extension [`NV_CudaKernelLaunch`](Extension::NV_CudaKernelLaunch)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23882,7 +23882,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyCudaModuleNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyCudaModuleNV as usize,
+                InstanceCommand::vkDestroyCudaModuleNV as usize,
             ))
         };
         unsafe { (command)(self.handle, module, p_allocator) }
@@ -23896,7 +23896,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
+    /// - Extension [`NV_CudaKernelLaunch`](Extension::NV_CudaKernelLaunch)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23913,7 +23913,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyCudaFunctionNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyCudaFunctionNV as usize,
+                InstanceCommand::vkDestroyCudaFunctionNV as usize,
             ))
         };
         unsafe { (command)(self.handle, function, p_allocator) }
@@ -23927,7 +23927,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_CudaKernelLaunch`](Extensions::NV_CudaKernelLaunch)
+    /// - Extension [`NV_CudaKernelLaunch`](Extension::NV_CudaKernelLaunch)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23948,7 +23948,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCudaLaunchKernelNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCudaLaunchKernelNV as usize,
+                InstanceCommand::vkCmdCudaLaunchKernelNV as usize,
             ))
         };
         unsafe { (command)(self.handle, p_launch_info) }
@@ -23962,7 +23962,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`QCOM_TileShading`](Extensions::QCOM_TileShading)
+    /// - Extension [`QCOM_TileShading`](Extension::QCOM_TileShading)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -23982,7 +23982,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchTileQCOM>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDispatchTileQCOM as usize,
+                InstanceCommand::vkCmdDispatchTileQCOM as usize,
             ))
         };
         unsafe { (command)(self.handle, p_dispatch_tile_info) }
@@ -23996,7 +23996,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`QCOM_TileShading`](Extensions::QCOM_TileShading)
+    /// - Extension [`QCOM_TileShading`](Extension::QCOM_TileShading)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24020,7 +24020,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBeginPerTileExecutionQCOM>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBeginPerTileExecutionQCOM as usize,
+                InstanceCommand::vkCmdBeginPerTileExecutionQCOM as usize,
             ))
         };
         unsafe { (command)(self.handle, p_per_tile_begin_info) }
@@ -24034,7 +24034,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`QCOM_TileShading`](Extensions::QCOM_TileShading)
+    /// - Extension [`QCOM_TileShading`](Extension::QCOM_TileShading)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24058,7 +24058,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdEndPerTileExecutionQCOM>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdEndPerTileExecutionQCOM as usize,
+                InstanceCommand::vkCmdEndPerTileExecutionQCOM as usize,
             ))
         };
         unsafe { (command)(self.handle, p_per_tile_end_info) }
@@ -24072,8 +24072,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_LowLatency`](Extensions::NV_LowLatency)
-    /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+    /// - Extension [`NV_LowLatency`](Extension::NV_LowLatency)
+    /// - Extension [`NV_LowLatency2`](Extension::NV_LowLatency2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24088,7 +24088,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_SetLatencySleepModeLegacyNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkSetLatencySleepModeLegacyNV as usize,
+                InstanceCommand::vkSetLatencySleepModeLegacyNV as usize,
             ))
         };
         unsafe {
@@ -24108,8 +24108,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_LowLatency`](Extensions::NV_LowLatency)
-    /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+    /// - Extension [`NV_LowLatency`](Extension::NV_LowLatency)
+    /// - Extension [`NV_LowLatency2`](Extension::NV_LowLatency2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24119,7 +24119,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_LatencySleepLegacyNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkLatencySleepLegacyNV as usize,
+                InstanceCommand::vkLatencySleepLegacyNV as usize,
             ))
         };
         unsafe { (command)(self.handle, signal_semaphore, value) }
@@ -24132,8 +24132,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_LowLatency`](Extensions::NV_LowLatency)
-    /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+    /// - Extension [`NV_LowLatency`](Extension::NV_LowLatency)
+    /// - Extension [`NV_LowLatency2`](Extension::NV_LowLatency2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24143,7 +24143,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_SetLatencyMarkerLegacyNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkSetLatencyMarkerLegacyNV as usize,
+                InstanceCommand::vkSetLatencyMarkerLegacyNV as usize,
             ))
         };
         unsafe { (command)(self.handle, frame_id, marker) }
@@ -24156,8 +24156,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_LowLatency`](Extensions::NV_LowLatency)
-    /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+    /// - Extension [`NV_LowLatency`](Extension::NV_LowLatency)
+    /// - Extension [`NV_LowLatency2`](Extension::NV_LowLatency2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24167,7 +24167,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetLatencyTimingsLegacyNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetLatencyTimingsLegacyNV as usize,
+                InstanceCommand::vkGetLatencyTimingsLegacyNV as usize,
             ))
         };
         unsafe { (command)(self.handle, p_timings) }
@@ -24180,8 +24180,8 @@ impl Queue {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_LowLatency`](Extensions::NV_LowLatency)
-    /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+    /// - Extension [`NV_LowLatency`](Extension::NV_LowLatency)
+    /// - Extension [`NV_LowLatency2`](Extension::NV_LowLatency2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24191,7 +24191,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_QueueNotifyOutOfBandLegacyNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkQueueNotifyOutOfBandLegacyNV as usize,
+                InstanceCommand::vkQueueNotifyOutOfBandLegacyNV as usize,
             ))
         };
         unsafe { (command)(self.handle, queue_type) }
@@ -24204,8 +24204,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_LowLatency`](Extensions::NV_LowLatency)
-    /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+    /// - Extension [`NV_LowLatency`](Extension::NV_LowLatency)
+    /// - Extension [`NV_LowLatency2`](Extension::NV_LowLatency2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24215,7 +24215,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetSleepStatusLegacyNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetSleepStatusLegacyNV as usize,
+                InstanceCommand::vkGetSleepStatusLegacyNV as usize,
             ))
         };
         unsafe { (command)(self.handle, p_low_latency_mode) }
@@ -24228,8 +24228,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_LowLatency`](Extensions::NV_LowLatency)
-    /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+    /// - Extension [`NV_LowLatency`](Extension::NV_LowLatency)
+    /// - Extension [`NV_LowLatency2`](Extension::NV_LowLatency2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24239,7 +24239,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_ShutdownLatencyDeviceLegacyNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkShutdownLatencyDeviceLegacyNV as usize,
+                InstanceCommand::vkShutdownLatencyDeviceLegacyNV as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -24253,7 +24253,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_MetalObjects`](Extensions::EXT_MetalObjects)
+    /// - Extension [`EXT_MetalObjects`](Extension::EXT_MetalObjects)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24266,7 +24266,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_ExportMetalObjectsEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkExportMetalObjectsEXT as usize,
+                InstanceCommand::vkExportMetalObjectsEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_metal_objects_info) }
@@ -24280,8 +24280,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    /// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24295,7 +24295,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorSetLayoutSizeEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetDescriptorSetLayoutSizeEXT as usize,
+                InstanceCommand::vkGetDescriptorSetLayoutSizeEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, layout, p_layout_size_in_bytes) }
@@ -24309,8 +24309,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    /// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24326,7 +24326,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorSetLayoutBindingOffsetEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetDescriptorSetLayoutBindingOffsetEXT as usize,
+                    InstanceCommand::vkGetDescriptorSetLayoutBindingOffsetEXT as usize,
                 ),
             )
         };
@@ -24341,8 +24341,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    /// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24357,7 +24357,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetDescriptorEXT as usize,
+                InstanceCommand::vkGetDescriptorEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_descriptor_info, data_size, p_descriptor) }
@@ -24371,8 +24371,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    /// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24398,7 +24398,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindDescriptorBuffersEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBindDescriptorBuffersEXT as usize,
+                InstanceCommand::vkCmdBindDescriptorBuffersEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer_count, p_binding_infos) }
@@ -24419,8 +24419,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    /// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24450,7 +24450,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetDescriptorBufferOffsetsEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetDescriptorBufferOffsetsEXT as usize,
+                InstanceCommand::vkCmdSetDescriptorBufferOffsetsEXT as usize,
             ))
         };
         unsafe {
@@ -24474,8 +24474,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    /// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24502,7 +24502,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindDescriptorBufferEmbeddedSamplersEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdBindDescriptorBufferEmbeddedSamplersEXT as usize,
+                    InstanceCommand::vkCmdBindDescriptorBufferEmbeddedSamplersEXT as usize,
                 ),
             )
         };
@@ -24520,8 +24520,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    /// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24544,7 +24544,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetBufferOpaqueCaptureDescriptorDataEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetBufferOpaqueCaptureDescriptorDataEXT as usize,
+                    InstanceCommand::vkGetBufferOpaqueCaptureDescriptorDataEXT as usize,
                 ),
             )
         };
@@ -24562,8 +24562,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    /// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24586,7 +24586,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetImageOpaqueCaptureDescriptorDataEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetImageOpaqueCaptureDescriptorDataEXT as usize,
+                    InstanceCommand::vkGetImageOpaqueCaptureDescriptorDataEXT as usize,
                 ),
             )
         };
@@ -24605,8 +24605,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    /// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24629,7 +24629,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetImageViewOpaqueCaptureDescriptorDataEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetImageViewOpaqueCaptureDescriptorDataEXT as usize,
+                    InstanceCommand::vkGetImageViewOpaqueCaptureDescriptorDataEXT as usize,
                 ),
             )
         };
@@ -24647,8 +24647,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    /// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24671,7 +24671,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetSamplerOpaqueCaptureDescriptorDataEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetSamplerOpaqueCaptureDescriptorDataEXT as usize,
+                    InstanceCommand::vkGetSamplerOpaqueCaptureDescriptorDataEXT as usize,
                 ),
             )
         };
@@ -24690,8 +24690,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    /// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24716,7 +24716,7 @@ impl Device {
                 FUN_GetAccelerationStructureOpaqueCaptureDescriptorDataEXT,
             >(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT as usize,
+                InstanceCommand::vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info, p_data) }
@@ -24733,7 +24733,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_FragmentShadingRateEnums`](Extensions::NV_FragmentShadingRateEnums)
+    /// - Extension [`NV_FragmentShadingRateEnums`](Extension::NV_FragmentShadingRateEnums)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24757,7 +24757,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetFragmentShadingRateEnumNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetFragmentShadingRateEnumNV as usize,
+                InstanceCommand::vkCmdSetFragmentShadingRateEnumNV as usize,
             ))
         };
         unsafe { (command)(self.handle, shading_rate, combiner_ops) }
@@ -24774,8 +24774,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DeviceFault`](Extensions::EXT_DeviceFault)
-    /// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
+    /// - Extension [`EXT_DeviceFault`](Extension::EXT_DeviceFault)
+    /// - Extension [`KHR_DeviceFault`](Extension::KHR_DeviceFault)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24800,7 +24800,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceFaultInfoEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetDeviceFaultInfoEXT as usize,
+                InstanceCommand::vkGetDeviceFaultInfoEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_fault_counts, p_fault_info) }
@@ -24814,7 +24814,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_AcquireWinrtDisplay`](Extensions::NV_AcquireWinrtDisplay)
+    /// - Extension [`NV_AcquireWinrtDisplay`](Extension::NV_AcquireWinrtDisplay)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24833,7 +24833,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_AcquireWinrtDisplayNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkAcquireWinrtDisplayNV as usize,
+                InstanceCommand::vkAcquireWinrtDisplayNV as usize,
             ))
         };
         unsafe { (command)(self.handle, display) }
@@ -24847,7 +24847,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_AcquireWinrtDisplay`](Extensions::NV_AcquireWinrtDisplay)
+    /// - Extension [`NV_AcquireWinrtDisplay`](Extension::NV_AcquireWinrtDisplay)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24870,7 +24870,7 @@ impl PhysicalDevice {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetWinrtDisplayNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetWinrtDisplayNV as usize,
+                InstanceCommand::vkGetWinrtDisplayNV as usize,
             ))
         };
         unsafe { (command)(self.handle, device_relative_id, p_display) }
@@ -24888,7 +24888,7 @@ impl Instance {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DirectfbSurface`](Extensions::EXT_DirectfbSurface)
+    /// - Extension [`EXT_DirectfbSurface`](Extension::EXT_DirectfbSurface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24914,7 +24914,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateDirectFBSurfaceEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateDirectFBSurfaceEXT as usize,
+                InstanceCommand::vkCreateDirectFBSurfaceEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
@@ -24928,7 +24928,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DirectfbSurface`](Extensions::EXT_DirectfbSurface)
+    /// - Extension [`EXT_DirectfbSurface`](Extension::EXT_DirectfbSurface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24943,7 +24943,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceDirectFBPresentationSupportEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceDirectFBPresentationSupportEXT as usize,
+                    InstanceCommand::vkGetPhysicalDeviceDirectFBPresentationSupportEXT as usize,
                 ),
             )
         };
@@ -24963,8 +24963,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_VertexInputDynamicState`](Extensions::EXT_VertexInputDynamicState)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_VertexInputDynamicState`](Extension::EXT_VertexInputDynamicState)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -24994,7 +24994,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetVertexInputEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetVertexInputEXT as usize,
+                InstanceCommand::vkCmdSetVertexInputEXT as usize,
             ))
         };
         unsafe {
@@ -25019,7 +25019,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`FUCHSIA_ExternalMemory`](Extensions::FUCHSIA_ExternalMemory)
+    /// - Extension [`FUCHSIA_ExternalMemory`](Extension::FUCHSIA_ExternalMemory)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -25041,7 +25041,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetMemoryZirconHandleFUCHSIA>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetMemoryZirconHandleFUCHSIA as usize,
+                InstanceCommand::vkGetMemoryZirconHandleFUCHSIA as usize,
             ))
         };
         unsafe { (command)(self.handle, p_get_zircon_handle_info, p_zircon_handle) }
@@ -25059,7 +25059,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`FUCHSIA_ExternalMemory`](Extensions::FUCHSIA_ExternalMemory)
+    /// - Extension [`FUCHSIA_ExternalMemory`](Extension::FUCHSIA_ExternalMemory)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -25082,7 +25082,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetMemoryZirconHandlePropertiesFUCHSIA>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetMemoryZirconHandlePropertiesFUCHSIA as usize,
+                    InstanceCommand::vkGetMemoryZirconHandlePropertiesFUCHSIA as usize,
                 ),
             )
         };
@@ -25104,7 +25104,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`FUCHSIA_ExternalSemaphore`](Extensions::FUCHSIA_ExternalSemaphore)
+    /// - Extension [`FUCHSIA_ExternalSemaphore`](Extension::FUCHSIA_ExternalSemaphore)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -25126,7 +25126,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_ImportSemaphoreZirconHandleFUCHSIA>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkImportSemaphoreZirconHandleFUCHSIA as usize,
+                    InstanceCommand::vkImportSemaphoreZirconHandleFUCHSIA as usize,
                 ),
             )
         };
@@ -25144,7 +25144,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`FUCHSIA_ExternalSemaphore`](Extensions::FUCHSIA_ExternalSemaphore)
+    /// - Extension [`FUCHSIA_ExternalSemaphore`](Extension::FUCHSIA_ExternalSemaphore)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -25166,7 +25166,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetSemaphoreZirconHandleFUCHSIA>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetSemaphoreZirconHandleFUCHSIA as usize,
+                InstanceCommand::vkGetSemaphoreZirconHandleFUCHSIA as usize,
             ))
         };
         unsafe { (command)(self.handle, p_get_zircon_handle_info, p_zircon_handle) }
@@ -25184,7 +25184,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+    /// - Extension [`FUCHSIA_BufferCollection`](Extension::FUCHSIA_BufferCollection)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -25211,7 +25211,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateBufferCollectionFUCHSIA>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateBufferCollectionFUCHSIA as usize,
+                InstanceCommand::vkCreateBufferCollectionFUCHSIA as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_collection) }
@@ -25229,7 +25229,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+    /// - Extension [`FUCHSIA_BufferCollection`](Extension::FUCHSIA_BufferCollection)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -25253,7 +25253,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_SetBufferCollectionImageConstraintsFUCHSIA>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkSetBufferCollectionImageConstraintsFUCHSIA as usize,
+                    InstanceCommand::vkSetBufferCollectionImageConstraintsFUCHSIA as usize,
                 ),
             )
         };
@@ -25272,7 +25272,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+    /// - Extension [`FUCHSIA_BufferCollection`](Extension::FUCHSIA_BufferCollection)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -25296,7 +25296,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_SetBufferCollectionBufferConstraintsFUCHSIA>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkSetBufferCollectionBufferConstraintsFUCHSIA as usize,
+                    InstanceCommand::vkSetBufferCollectionBufferConstraintsFUCHSIA as usize,
                 ),
             )
         };
@@ -25311,7 +25311,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+    /// - Extension [`FUCHSIA_BufferCollection`](Extension::FUCHSIA_BufferCollection)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -25328,7 +25328,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyBufferCollectionFUCHSIA>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyBufferCollectionFUCHSIA as usize,
+                InstanceCommand::vkDestroyBufferCollectionFUCHSIA as usize,
             ))
         };
         unsafe { (command)(self.handle, collection, p_allocator) }
@@ -25345,7 +25345,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+    /// - Extension [`FUCHSIA_BufferCollection`](Extension::FUCHSIA_BufferCollection)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -25368,7 +25368,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetBufferCollectionPropertiesFUCHSIA>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetBufferCollectionPropertiesFUCHSIA as usize,
+                    InstanceCommand::vkGetBufferCollectionPropertiesFUCHSIA as usize,
                 ),
             )
         };
@@ -25383,7 +25383,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`HUAWEI_SubpassShading`](Extensions::HUAWEI_SubpassShading)
+    /// - Extension [`HUAWEI_SubpassShading`](Extension::HUAWEI_SubpassShading)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -25407,7 +25407,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI as usize,
+                    InstanceCommand::vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI as usize,
                 ),
             )
         };
@@ -25421,7 +25421,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`HUAWEI_SubpassShading`](Extensions::HUAWEI_SubpassShading)
+    /// - Extension [`HUAWEI_SubpassShading`](Extension::HUAWEI_SubpassShading)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -25441,7 +25441,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSubpassShadingHUAWEI>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSubpassShadingHUAWEI as usize,
+                InstanceCommand::vkCmdSubpassShadingHUAWEI as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -25455,7 +25455,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`HUAWEI_InvocationMask`](Extensions::HUAWEI_InvocationMask)
+    /// - Extension [`HUAWEI_InvocationMask`](Extension::HUAWEI_InvocationMask)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -25482,7 +25482,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindInvocationMaskHUAWEI>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBindInvocationMaskHUAWEI as usize,
+                InstanceCommand::vkCmdBindInvocationMaskHUAWEI as usize,
             ))
         };
         unsafe { (command)(self.handle, image_view, image_layout) }
@@ -25499,7 +25499,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_ExternalMemoryRdma`](Extensions::NV_ExternalMemoryRdma)
+    /// - Extension [`NV_ExternalMemoryRdma`](Extension::NV_ExternalMemoryRdma)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -25520,7 +25520,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetMemoryRemoteAddressNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetMemoryRemoteAddressNV as usize,
+                InstanceCommand::vkGetMemoryRemoteAddressNV as usize,
             ))
         };
         unsafe { (command)(self.handle, p_memory_get_remote_address_info, p_address) }
@@ -25534,7 +25534,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_PipelineProperties`](Extensions::EXT_PipelineProperties)
+    /// - Extension [`EXT_PipelineProperties`](Extension::EXT_PipelineProperties)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -25555,7 +25555,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetPipelinePropertiesEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPipelinePropertiesEXT as usize,
+                InstanceCommand::vkGetPipelinePropertiesEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_pipeline_info, p_pipeline_properties) }
@@ -25569,8 +25569,8 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`EXT_ExtendedDynamicState2`](Extensions::EXT_ExtendedDynamicState2)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState2`](Extension::EXT_ExtendedDynamicState2)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -25590,7 +25590,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetPatchControlPointsEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetPatchControlPointsEXT as usize,
+                InstanceCommand::vkCmdSetPatchControlPointsEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, patch_control_points) }
@@ -25605,8 +25605,8 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`EXT_ExtendedDynamicState2`](Extensions::EXT_ExtendedDynamicState2)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState2`](Extension::EXT_ExtendedDynamicState2)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -25626,7 +25626,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetRasterizerDiscardEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetRasterizerDiscardEnableEXT as usize,
+                InstanceCommand::vkCmdSetRasterizerDiscardEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, rasterizer_discard_enable) }
@@ -25640,8 +25640,8 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`EXT_ExtendedDynamicState2`](Extensions::EXT_ExtendedDynamicState2)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState2`](Extension::EXT_ExtendedDynamicState2)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -25661,7 +25661,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthBiasEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetDepthBiasEnableEXT as usize,
+                InstanceCommand::vkCmdSetDepthBiasEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, depth_bias_enable) }
@@ -25675,8 +25675,8 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`EXT_ExtendedDynamicState2`](Extensions::EXT_ExtendedDynamicState2)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState2`](Extension::EXT_ExtendedDynamicState2)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -25696,7 +25696,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetLogicOpEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetLogicOpEXT as usize,
+                InstanceCommand::vkCmdSetLogicOpEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, logic_op) }
@@ -25711,8 +25711,8 @@ impl CommandBuffer {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`EXT_ExtendedDynamicState2`](Extensions::EXT_ExtendedDynamicState2)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState2`](Extension::EXT_ExtendedDynamicState2)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -25732,7 +25732,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetPrimitiveRestartEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetPrimitiveRestartEnableEXT as usize,
+                InstanceCommand::vkCmdSetPrimitiveRestartEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, primitive_restart_enable) }
@@ -25750,7 +25750,7 @@ impl Instance {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`QNX_ScreenSurface`](Extensions::QNX_ScreenSurface)
+    /// - Extension [`QNX_ScreenSurface`](Extension::QNX_ScreenSurface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -25776,7 +25776,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateScreenSurfaceQNX>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateScreenSurfaceQNX as usize,
+                InstanceCommand::vkCreateScreenSurfaceQNX as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
@@ -25790,7 +25790,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`QNX_ScreenSurface`](Extensions::QNX_ScreenSurface)
+    /// - Extension [`QNX_ScreenSurface`](Extension::QNX_ScreenSurface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -25805,7 +25805,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceScreenPresentationSupportQNX>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceScreenPresentationSupportQNX as usize,
+                    InstanceCommand::vkGetPhysicalDeviceScreenPresentationSupportQNX as usize,
                 ),
             )
         };
@@ -25820,7 +25820,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ColorWriteEnable`](Extensions::EXT_ColorWriteEnable)
+    /// - Extension [`EXT_ColorWriteEnable`](Extension::EXT_ColorWriteEnable)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -25844,7 +25844,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetColorWriteEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetColorWriteEnableEXT as usize,
+                InstanceCommand::vkCmdSetColorWriteEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, attachment_count, p_color_write_enables) }
@@ -25858,7 +25858,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_MultiDraw`](Extensions::EXT_MultiDraw)
+    /// - Extension [`EXT_MultiDraw`](Extension::EXT_MultiDraw)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -25888,7 +25888,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMultiEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawMultiEXT as usize,
+                InstanceCommand::vkCmdDrawMultiEXT as usize,
             ))
         };
         unsafe {
@@ -25918,7 +25918,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_MultiDraw`](Extensions::EXT_MultiDraw)
+    /// - Extension [`EXT_MultiDraw`](Extension::EXT_MultiDraw)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -25950,7 +25950,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMultiIndexedEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawMultiIndexedEXT as usize,
+                InstanceCommand::vkCmdDrawMultiIndexedEXT as usize,
             ))
         };
         unsafe {
@@ -25978,8 +25978,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -26005,7 +26005,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateMicromapEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateMicromapEXT as usize,
+                InstanceCommand::vkCreateMicromapEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_micromap) }
@@ -26019,8 +26019,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -26038,7 +26038,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyMicromapEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyMicromapEXT as usize,
+                InstanceCommand::vkDestroyMicromapEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, micromap, p_allocator) }
@@ -26052,8 +26052,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -26077,7 +26077,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBuildMicromapsEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBuildMicromapsEXT as usize,
+                InstanceCommand::vkCmdBuildMicromapsEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, info_count, p_infos) }
@@ -26095,8 +26095,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -26124,7 +26124,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_BuildMicromapsEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkBuildMicromapsEXT as usize,
+                InstanceCommand::vkBuildMicromapsEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, deferred_operation, info_count, p_infos) }
@@ -26141,8 +26141,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -26169,7 +26169,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CopyMicromapEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCopyMicromapEXT as usize,
+                InstanceCommand::vkCopyMicromapEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, deferred_operation, p_info) }
@@ -26186,8 +26186,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -26214,7 +26214,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CopyMicromapToMemoryEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCopyMicromapToMemoryEXT as usize,
+                InstanceCommand::vkCopyMicromapToMemoryEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, deferred_operation, p_info) }
@@ -26231,8 +26231,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -26259,7 +26259,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CopyMemoryToMicromapEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCopyMemoryToMicromapEXT as usize,
+                InstanceCommand::vkCopyMemoryToMicromapEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, deferred_operation, p_info) }
@@ -26280,8 +26280,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -26307,7 +26307,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_WriteMicromapsPropertiesEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkWriteMicromapsPropertiesEXT as usize,
+                InstanceCommand::vkWriteMicromapsPropertiesEXT as usize,
             ))
         };
         unsafe {
@@ -26331,8 +26331,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -26352,7 +26352,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMicromapEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyMicromapEXT as usize,
+                InstanceCommand::vkCmdCopyMicromapEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -26366,8 +26366,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -26390,7 +26390,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMicromapToMemoryEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyMicromapToMemoryEXT as usize,
+                InstanceCommand::vkCmdCopyMicromapToMemoryEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -26404,8 +26404,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -26428,7 +26428,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryToMicromapEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyMemoryToMicromapEXT as usize,
+                InstanceCommand::vkCmdCopyMemoryToMicromapEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -26442,8 +26442,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -26470,7 +26470,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdWriteMicromapsPropertiesEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdWriteMicromapsPropertiesEXT as usize,
+                InstanceCommand::vkCmdWriteMicromapsPropertiesEXT as usize,
             ))
         };
         unsafe {
@@ -26496,8 +26496,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -26512,7 +26512,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceMicromapCompatibilityEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetDeviceMicromapCompatibilityEXT as usize,
+                    InstanceCommand::vkGetDeviceMicromapCompatibilityEXT as usize,
                 ),
             )
         };
@@ -26531,8 +26531,8 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -26547,7 +26547,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetMicromapBuildSizesEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetMicromapBuildSizesEXT as usize,
+                InstanceCommand::vkGetMicromapBuildSizesEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, build_type, p_build_info, p_size_info) }
@@ -26560,7 +26560,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`HUAWEI_ClusterCullingShader`](Extensions::HUAWEI_ClusterCullingShader)
+    /// - Extension [`HUAWEI_ClusterCullingShader`](Extension::HUAWEI_ClusterCullingShader)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -26585,7 +26585,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawClusterHUAWEI>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawClusterHUAWEI as usize,
+                InstanceCommand::vkCmdDrawClusterHUAWEI as usize,
             ))
         };
         unsafe { (command)(self.handle, group_count_x, group_count_y, group_count_z) }
@@ -26599,7 +26599,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`HUAWEI_ClusterCullingShader`](Extensions::HUAWEI_ClusterCullingShader)
+    /// - Extension [`HUAWEI_ClusterCullingShader`](Extension::HUAWEI_ClusterCullingShader)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -26619,7 +26619,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawClusterIndirectHUAWEI>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawClusterIndirectHUAWEI as usize,
+                InstanceCommand::vkCmdDrawClusterIndirectHUAWEI as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer, offset) }
@@ -26633,7 +26633,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_PageableDeviceLocalMemory`](Extensions::EXT_PageableDeviceLocalMemory)
+    /// - Extension [`EXT_PageableDeviceLocalMemory`](Extension::EXT_PageableDeviceLocalMemory)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -26643,7 +26643,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_SetDeviceMemoryPriorityEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkSetDeviceMemoryPriorityEXT as usize,
+                InstanceCommand::vkSetDeviceMemoryPriorityEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, memory, priority) }
@@ -26657,7 +26657,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_SchedulingControls`](Extensions::ARM_SchedulingControls)
+    /// - Extension [`ARM_SchedulingControls`](Extension::ARM_SchedulingControls)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -26680,7 +26680,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetDispatchParametersARM>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetDispatchParametersARM as usize,
+                InstanceCommand::vkCmdSetDispatchParametersARM as usize,
             ))
         };
         unsafe { (command)(self.handle, p_dispatch_parameters) }
@@ -26697,7 +26697,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`VALVE_DescriptorSetHostMapping`](Extensions::VALVE_DescriptorSetHostMapping)
+    /// - Extension [`VALVE_DescriptorSetHostMapping`](Extension::VALVE_DescriptorSetHostMapping)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -26712,7 +26712,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorSetLayoutHostMappingInfoVALVE>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetDescriptorSetLayoutHostMappingInfoVALVE as usize,
+                    InstanceCommand::vkGetDescriptorSetLayoutHostMappingInfoVALVE as usize,
                 ),
             )
         };
@@ -26727,7 +26727,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`VALVE_DescriptorSetHostMapping`](Extensions::VALVE_DescriptorSetHostMapping)
+    /// - Extension [`VALVE_DescriptorSetHostMapping`](Extension::VALVE_DescriptorSetHostMapping)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -26741,7 +26741,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetDescriptorSetHostMappingVALVE>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetDescriptorSetHostMappingVALVE as usize,
+                InstanceCommand::vkGetDescriptorSetHostMappingVALVE as usize,
             ))
         };
         unsafe { (command)(self.handle, descriptor_set, pp_data) }
@@ -26755,8 +26755,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_CopyMemoryIndirect`](Extensions::NV_CopyMemoryIndirect)
-    /// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
+    /// - Extension [`NV_CopyMemoryIndirect`](Extension::NV_CopyMemoryIndirect)
+    /// - Extension [`KHR_CopyMemoryIndirect`](Extension::KHR_CopyMemoryIndirect)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -26783,7 +26783,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryIndirectNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyMemoryIndirectNV as usize,
+                InstanceCommand::vkCmdCopyMemoryIndirectNV as usize,
             ))
         };
         unsafe { (command)(self.handle, copy_buffer_address, copy_count, stride) }
@@ -26804,8 +26804,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_CopyMemoryIndirect`](Extensions::NV_CopyMemoryIndirect)
-    /// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
+    /// - Extension [`NV_CopyMemoryIndirect`](Extension::NV_CopyMemoryIndirect)
+    /// - Extension [`KHR_CopyMemoryIndirect`](Extension::KHR_CopyMemoryIndirect)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -26835,7 +26835,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryToImageIndirectNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyMemoryToImageIndirectNV as usize,
+                InstanceCommand::vkCmdCopyMemoryToImageIndirectNV as usize,
             ))
         };
         unsafe {
@@ -26859,8 +26859,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_MemoryDecompression`](Extensions::NV_MemoryDecompression)
-    /// - Extension [`EXT_MemoryDecompression`](Extensions::EXT_MemoryDecompression)
+    /// - Extension [`NV_MemoryDecompression`](Extension::NV_MemoryDecompression)
+    /// - Extension [`EXT_MemoryDecompression`](Extension::EXT_MemoryDecompression)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -26885,7 +26885,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDecompressMemoryNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDecompressMemoryNV as usize,
+                InstanceCommand::vkCmdDecompressMemoryNV as usize,
             ))
         };
         unsafe {
@@ -26905,8 +26905,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_MemoryDecompression`](Extensions::NV_MemoryDecompression)
-    /// - Extension [`EXT_MemoryDecompression`](Extensions::EXT_MemoryDecompression)
+    /// - Extension [`NV_MemoryDecompression`](Extension::NV_MemoryDecompression)
+    /// - Extension [`EXT_MemoryDecompression`](Extension::EXT_MemoryDecompression)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -26933,7 +26933,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDecompressMemoryIndirectCountNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdDecompressMemoryIndirectCountNV as usize,
+                    InstanceCommand::vkCmdDecompressMemoryIndirectCountNV as usize,
                 ),
             )
         };
@@ -26955,7 +26955,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_DeviceGeneratedCommandsCompute`](Extensions::NV_DeviceGeneratedCommandsCompute)
+    /// - Extension [`NV_DeviceGeneratedCommandsCompute`](Extension::NV_DeviceGeneratedCommandsCompute)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -26970,7 +26970,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetPipelineIndirectMemoryRequirementsNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPipelineIndirectMemoryRequirementsNV as usize,
+                    InstanceCommand::vkGetPipelineIndirectMemoryRequirementsNV as usize,
                 ),
             )
         };
@@ -26985,7 +26985,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_DeviceGeneratedCommandsCompute`](Extensions::NV_DeviceGeneratedCommandsCompute)
+    /// - Extension [`NV_DeviceGeneratedCommandsCompute`](Extension::NV_DeviceGeneratedCommandsCompute)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27012,7 +27012,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdUpdatePipelineIndirectBufferNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdUpdatePipelineIndirectBufferNV as usize,
+                    InstanceCommand::vkCmdUpdatePipelineIndirectBufferNV as usize,
                 ),
             )
         };
@@ -27027,7 +27027,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_DeviceGeneratedCommandsCompute`](Extensions::NV_DeviceGeneratedCommandsCompute)
+    /// - Extension [`NV_DeviceGeneratedCommandsCompute`](Extension::NV_DeviceGeneratedCommandsCompute)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27041,7 +27041,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetPipelineIndirectDeviceAddressNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPipelineIndirectDeviceAddressNV as usize,
+                    InstanceCommand::vkGetPipelineIndirectDeviceAddressNV as usize,
                 ),
             )
         };
@@ -27059,7 +27059,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`OHOS_ExternalMemory`](Extensions::OHOS_ExternalMemory)
+    /// - Extension [`OHOS_ExternalMemory`](Extension::OHOS_ExternalMemory)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27081,7 +27081,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetNativeBufferPropertiesOHOS>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetNativeBufferPropertiesOHOS as usize,
+                InstanceCommand::vkGetNativeBufferPropertiesOHOS as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer, p_properties) }
@@ -27098,7 +27098,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`OHOS_ExternalMemory`](Extensions::OHOS_ExternalMemory)
+    /// - Extension [`OHOS_ExternalMemory`](Extension::OHOS_ExternalMemory)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27119,7 +27119,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetMemoryNativeBufferOHOS>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetMemoryNativeBufferOHOS as usize,
+                InstanceCommand::vkGetMemoryNativeBufferOHOS as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info, p_buffer) }
@@ -27132,8 +27132,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27153,7 +27153,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthClampEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetDepthClampEnableEXT as usize,
+                InstanceCommand::vkCmdSetDepthClampEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, depth_clamp_enable) }
@@ -27166,8 +27166,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27187,7 +27187,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetPolygonModeEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetPolygonModeEXT as usize,
+                InstanceCommand::vkCmdSetPolygonModeEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, polygon_mode) }
@@ -27201,8 +27201,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27225,7 +27225,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetRasterizationSamplesEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetRasterizationSamplesEXT as usize,
+                InstanceCommand::vkCmdSetRasterizationSamplesEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, rasterization_samples) }
@@ -27239,8 +27239,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27267,7 +27267,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetSampleMaskEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetSampleMaskEXT as usize,
+                InstanceCommand::vkCmdSetSampleMaskEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, samples, p_sample_mask) }
@@ -27281,8 +27281,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27302,7 +27302,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetAlphaToCoverageEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetAlphaToCoverageEnableEXT as usize,
+                InstanceCommand::vkCmdSetAlphaToCoverageEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, alpha_to_coverage_enable) }
@@ -27315,8 +27315,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27336,7 +27336,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetAlphaToOneEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetAlphaToOneEnableEXT as usize,
+                InstanceCommand::vkCmdSetAlphaToOneEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, alpha_to_one_enable) }
@@ -27349,8 +27349,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27370,7 +27370,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetLogicOpEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetLogicOpEnableEXT as usize,
+                InstanceCommand::vkCmdSetLogicOpEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, logic_op_enable) }
@@ -27384,8 +27384,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27410,7 +27410,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetColorBlendEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetColorBlendEnableEXT as usize,
+                InstanceCommand::vkCmdSetColorBlendEnableEXT as usize,
             ))
         };
         unsafe {
@@ -27431,8 +27431,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27457,7 +27457,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetColorBlendEquationEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetColorBlendEquationEXT as usize,
+                InstanceCommand::vkCmdSetColorBlendEquationEXT as usize,
             ))
         };
         unsafe {
@@ -27478,8 +27478,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27504,7 +27504,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetColorWriteMaskEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetColorWriteMaskEXT as usize,
+                InstanceCommand::vkCmdSetColorWriteMaskEXT as usize,
             ))
         };
         unsafe {
@@ -27525,8 +27525,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27550,7 +27550,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetTessellationDomainOriginEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdSetTessellationDomainOriginEXT as usize,
+                    InstanceCommand::vkCmdSetTessellationDomainOriginEXT as usize,
                 ),
             )
         };
@@ -27564,8 +27564,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27585,7 +27585,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetRasterizationStreamEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetRasterizationStreamEXT as usize,
+                InstanceCommand::vkCmdSetRasterizationStreamEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, rasterization_stream) }
@@ -27599,8 +27599,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27624,7 +27624,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetConservativeRasterizationModeEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdSetConservativeRasterizationModeEXT as usize,
+                    InstanceCommand::vkCmdSetConservativeRasterizationModeEXT as usize,
                 ),
             )
         };
@@ -27639,8 +27639,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27664,7 +27664,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetExtraPrimitiveOverestimationSizeEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdSetExtraPrimitiveOverestimationSizeEXT as usize,
+                    InstanceCommand::vkCmdSetExtraPrimitiveOverestimationSizeEXT as usize,
                 ),
             )
         };
@@ -27678,8 +27678,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27699,7 +27699,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthClipEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetDepthClipEnableEXT as usize,
+                InstanceCommand::vkCmdSetDepthClipEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, depth_clip_enable) }
@@ -27713,8 +27713,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27734,7 +27734,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetSampleLocationsEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetSampleLocationsEnableEXT as usize,
+                InstanceCommand::vkCmdSetSampleLocationsEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, sample_locations_enable) }
@@ -27748,8 +27748,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27774,7 +27774,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetColorBlendAdvancedEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetColorBlendAdvancedEXT as usize,
+                InstanceCommand::vkCmdSetColorBlendAdvancedEXT as usize,
             ))
         };
         unsafe {
@@ -27795,8 +27795,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27819,7 +27819,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetProvokingVertexModeEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetProvokingVertexModeEXT as usize,
+                InstanceCommand::vkCmdSetProvokingVertexModeEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, provoking_vertex_mode) }
@@ -27833,8 +27833,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27857,7 +27857,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetLineRasterizationModeEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetLineRasterizationModeEXT as usize,
+                InstanceCommand::vkCmdSetLineRasterizationModeEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, line_rasterization_mode) }
@@ -27870,8 +27870,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27891,7 +27891,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetLineStippleEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetLineStippleEnableEXT as usize,
+                InstanceCommand::vkCmdSetLineStippleEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, stippled_line_enable) }
@@ -27905,8 +27905,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27927,7 +27927,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthClipNegativeOneToOneEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdSetDepthClipNegativeOneToOneEXT as usize,
+                    InstanceCommand::vkCmdSetDepthClipNegativeOneToOneEXT as usize,
                 ),
             )
         };
@@ -27942,8 +27942,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -27963,7 +27963,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewportWScalingEnableNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetViewportWScalingEnableNV as usize,
+                InstanceCommand::vkCmdSetViewportWScalingEnableNV as usize,
             ))
         };
         unsafe { (command)(self.handle, viewport_w_scaling_enable) }
@@ -27977,8 +27977,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28003,7 +28003,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetViewportSwizzleNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetViewportSwizzleNV as usize,
+                InstanceCommand::vkCmdSetViewportSwizzleNV as usize,
             ))
         };
         unsafe {
@@ -28024,8 +28024,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28045,7 +28045,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoverageToColorEnableNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetCoverageToColorEnableNV as usize,
+                InstanceCommand::vkCmdSetCoverageToColorEnableNV as usize,
             ))
         };
         unsafe { (command)(self.handle, coverage_to_color_enable) }
@@ -28059,8 +28059,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28080,7 +28080,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoverageToColorLocationNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetCoverageToColorLocationNV as usize,
+                InstanceCommand::vkCmdSetCoverageToColorLocationNV as usize,
             ))
         };
         unsafe { (command)(self.handle, coverage_to_color_location) }
@@ -28094,8 +28094,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28118,7 +28118,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoverageModulationModeNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetCoverageModulationModeNV as usize,
+                InstanceCommand::vkCmdSetCoverageModulationModeNV as usize,
             ))
         };
         unsafe { (command)(self.handle, coverage_modulation_mode) }
@@ -28132,8 +28132,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28157,7 +28157,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoverageModulationTableEnableNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdSetCoverageModulationTableEnableNV as usize,
+                    InstanceCommand::vkCmdSetCoverageModulationTableEnableNV as usize,
                 ),
             )
         };
@@ -28172,8 +28172,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28197,7 +28197,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoverageModulationTableNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetCoverageModulationTableNV as usize,
+                InstanceCommand::vkCmdSetCoverageModulationTableNV as usize,
             ))
         };
         unsafe {
@@ -28217,8 +28217,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28238,7 +28238,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetShadingRateImageEnableNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetShadingRateImageEnableNV as usize,
+                InstanceCommand::vkCmdSetShadingRateImageEnableNV as usize,
             ))
         };
         unsafe { (command)(self.handle, shading_rate_image_enable) }
@@ -28252,8 +28252,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28277,7 +28277,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetRepresentativeFragmentTestEnableNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdSetRepresentativeFragmentTestEnableNV as usize,
+                    InstanceCommand::vkCmdSetRepresentativeFragmentTestEnableNV as usize,
                 ),
             )
         };
@@ -28292,8 +28292,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExtendedDynamicState3`](Extensions::EXT_ExtendedDynamicState3)
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ExtendedDynamicState3`](Extension::EXT_ExtendedDynamicState3)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28316,7 +28316,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetCoverageReductionModeNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetCoverageReductionModeNV as usize,
+                InstanceCommand::vkCmdSetCoverageReductionModeNV as usize,
             ))
         };
         unsafe { (command)(self.handle, coverage_reduction_mode) }
@@ -28334,7 +28334,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    /// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28360,7 +28360,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateTensorARM>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateTensorARM as usize,
+                InstanceCommand::vkCreateTensorARM as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_tensor) }
@@ -28374,7 +28374,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    /// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28392,7 +28392,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyTensorARM>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyTensorARM as usize,
+                InstanceCommand::vkDestroyTensorARM as usize,
             ))
         };
         unsafe { (command)(self.handle, tensor, p_allocator) }
@@ -28410,7 +28410,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    /// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28436,7 +28436,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateTensorViewARM>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateTensorViewARM as usize,
+                InstanceCommand::vkCreateTensorViewARM as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_view) }
@@ -28450,7 +28450,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    /// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28468,7 +28468,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyTensorViewARM>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyTensorViewARM as usize,
+                InstanceCommand::vkDestroyTensorViewARM as usize,
             ))
         };
         unsafe { (command)(self.handle, tensor_view, p_allocator) }
@@ -28485,7 +28485,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    /// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28499,7 +28499,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetTensorMemoryRequirementsARM>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetTensorMemoryRequirementsARM as usize,
+                InstanceCommand::vkGetTensorMemoryRequirementsARM as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
@@ -28513,7 +28513,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    /// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28535,7 +28535,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_BindTensorMemoryARM>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkBindTensorMemoryARM as usize,
+                InstanceCommand::vkBindTensorMemoryARM as usize,
             ))
         };
         unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
@@ -28552,7 +28552,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    /// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28567,7 +28567,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceTensorMemoryRequirementsARM>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetDeviceTensorMemoryRequirementsARM as usize,
+                    InstanceCommand::vkGetDeviceTensorMemoryRequirementsARM as usize,
                 ),
             )
         };
@@ -28582,7 +28582,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    /// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28604,7 +28604,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyTensorARM>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyTensorARM as usize,
+                InstanceCommand::vkCmdCopyTensorARM as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_tensor_info) }
@@ -28621,7 +28621,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    /// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28636,7 +28636,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceExternalTensorPropertiesARM>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceExternalTensorPropertiesARM as usize,
+                    InstanceCommand::vkGetPhysicalDeviceExternalTensorPropertiesARM as usize,
                 ),
             )
         };
@@ -28660,7 +28660,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    /// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28683,7 +28683,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetTensorOpaqueCaptureDescriptorDataARM>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetTensorOpaqueCaptureDescriptorDataARM as usize,
+                    InstanceCommand::vkGetTensorOpaqueCaptureDescriptorDataARM as usize,
                 ),
             )
         };
@@ -28702,7 +28702,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    /// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28725,7 +28725,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetTensorViewOpaqueCaptureDescriptorDataARM>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetTensorViewOpaqueCaptureDescriptorDataARM as usize,
+                    InstanceCommand::vkGetTensorViewOpaqueCaptureDescriptorDataARM as usize,
                 ),
             )
         };
@@ -28740,7 +28740,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ShaderModuleIdentifier`](Extensions::EXT_ShaderModuleIdentifier)
+    /// - Extension [`EXT_ShaderModuleIdentifier`](Extension::EXT_ShaderModuleIdentifier)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28754,7 +28754,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetShaderModuleIdentifierEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetShaderModuleIdentifierEXT as usize,
+                InstanceCommand::vkGetShaderModuleIdentifierEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, shader_module, p_identifier) }
@@ -28771,7 +28771,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ShaderModuleIdentifier`](Extensions::EXT_ShaderModuleIdentifier)
+    /// - Extension [`EXT_ShaderModuleIdentifier`](Extension::EXT_ShaderModuleIdentifier)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28786,7 +28786,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetShaderModuleCreateInfoIdentifierEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetShaderModuleCreateInfoIdentifierEXT as usize,
+                    InstanceCommand::vkGetShaderModuleCreateInfoIdentifierEXT as usize,
                 ),
             )
         };
@@ -28806,7 +28806,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+    /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28835,7 +28835,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceOpticalFlowImageFormatsNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceOpticalFlowImageFormatsNV as usize,
+                    InstanceCommand::vkGetPhysicalDeviceOpticalFlowImageFormatsNV as usize,
                 ),
             )
         };
@@ -28861,7 +28861,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+    /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28887,7 +28887,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateOpticalFlowSessionNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateOpticalFlowSessionNV as usize,
+                InstanceCommand::vkCreateOpticalFlowSessionNV as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_session) }
@@ -28901,7 +28901,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+    /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28918,7 +28918,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyOpticalFlowSessionNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyOpticalFlowSessionNV as usize,
+                InstanceCommand::vkDestroyOpticalFlowSessionNV as usize,
             ))
         };
         unsafe { (command)(self.handle, session, p_allocator) }
@@ -28937,7 +28937,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+    /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -28964,7 +28964,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_BindOpticalFlowSessionImageNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkBindOpticalFlowSessionImageNV as usize,
+                InstanceCommand::vkBindOpticalFlowSessionImageNV as usize,
             ))
         };
         unsafe { (command)(self.handle, session, binding_point, view, layout) }
@@ -28981,7 +28981,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+    /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -29005,7 +29005,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdOpticalFlowExecuteNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdOpticalFlowExecuteNV as usize,
+                InstanceCommand::vkCmdOpticalFlowExecuteNV as usize,
             ))
         };
         unsafe { (command)(self.handle, session, p_execute_info) }
@@ -29018,7 +29018,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMD_AntiLag`](Extensions::AMD_AntiLag)
+    /// - Extension [`AMD_AntiLag`](Extension::AMD_AntiLag)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -29028,7 +29028,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_AntiLagUpdateAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkAntiLagUpdateAMD as usize,
+                InstanceCommand::vkAntiLagUpdateAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, p_data) }
@@ -29047,7 +29047,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -29076,7 +29076,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateShadersEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateShadersEXT as usize,
+                InstanceCommand::vkCreateShadersEXT as usize,
             ))
         };
         unsafe {
@@ -29098,7 +29098,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -29116,7 +29116,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyShaderEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyShaderEXT as usize,
+                InstanceCommand::vkDestroyShaderEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, shader, p_allocator) }
@@ -29130,7 +29130,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -29157,7 +29157,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetShaderBinaryDataEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetShaderBinaryDataEXT as usize,
+                InstanceCommand::vkGetShaderBinaryDataEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, shader, p_data_size, p_data) }
@@ -29171,7 +29171,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -29200,7 +29200,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindShadersEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBindShadersEXT as usize,
+                InstanceCommand::vkCmdBindShadersEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, stage_count, p_stages, p_shaders) }
@@ -29214,8 +29214,8 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
-    /// - Extension [`EXT_DepthClampControl`](Extensions::EXT_DepthClampControl)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
+    /// - Extension [`EXT_DepthClampControl`](Extension::EXT_DepthClampControl)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -29242,7 +29242,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetDepthClampRangeEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetDepthClampRangeEXT as usize,
+                InstanceCommand::vkCmdSetDepthClampRangeEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, depth_clamp_mode, p_depth_clamp_range) }
@@ -29260,7 +29260,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`QCOM_TileProperties`](Extensions::QCOM_TileProperties)
+    /// - Extension [`QCOM_TileProperties`](Extension::QCOM_TileProperties)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -29285,7 +29285,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetFramebufferTilePropertiesQCOM>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetFramebufferTilePropertiesQCOM as usize,
+                InstanceCommand::vkGetFramebufferTilePropertiesQCOM as usize,
             ))
         };
         unsafe { (command)(self.handle, framebuffer, p_properties_count, p_properties) }
@@ -29299,7 +29299,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`QCOM_TileProperties`](Extensions::QCOM_TileProperties)
+    /// - Extension [`QCOM_TileProperties`](Extension::QCOM_TileProperties)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -29320,7 +29320,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetDynamicRenderingTilePropertiesQCOM>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetDynamicRenderingTilePropertiesQCOM as usize,
+                    InstanceCommand::vkGetDynamicRenderingTilePropertiesQCOM as usize,
                 ),
             )
         };
@@ -29339,7 +29339,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_CooperativeVector`](Extensions::NV_CooperativeVector)
+    /// - Extension [`NV_CooperativeVector`](Extension::NV_CooperativeVector)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -29366,7 +29366,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceCooperativeVectorPropertiesNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceCooperativeVectorPropertiesNV as usize,
+                    InstanceCommand::vkGetPhysicalDeviceCooperativeVectorPropertiesNV as usize,
                 ),
             )
         };
@@ -29381,7 +29381,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_CooperativeVector`](Extensions::NV_CooperativeVector)
+    /// - Extension [`NV_CooperativeVector`](Extension::NV_CooperativeVector)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -29402,7 +29402,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_ConvertCooperativeVectorMatrixNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkConvertCooperativeVectorMatrixNV as usize,
+                InstanceCommand::vkConvertCooperativeVectorMatrixNV as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -29416,7 +29416,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_CooperativeVector`](Extensions::NV_CooperativeVector)
+    /// - Extension [`NV_CooperativeVector`](Extension::NV_CooperativeVector)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -29442,7 +29442,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdConvertCooperativeVectorMatrixNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdConvertCooperativeVectorMatrixNV as usize,
+                    InstanceCommand::vkCmdConvertCooperativeVectorMatrixNV as usize,
                 ),
             )
         };
@@ -29457,7 +29457,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+    /// - Extension [`NV_LowLatency2`](Extension::NV_LowLatency2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -29478,7 +29478,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_SetLatencySleepModeNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkSetLatencySleepModeNV as usize,
+                InstanceCommand::vkSetLatencySleepModeNV as usize,
             ))
         };
         unsafe { (command)(self.handle, swapchain, p_sleep_mode_info) }
@@ -29492,7 +29492,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+    /// - Extension [`NV_LowLatency2`](Extension::NV_LowLatency2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -29512,7 +29512,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_LatencySleepNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkLatencySleepNV as usize,
+                InstanceCommand::vkLatencySleepNV as usize,
             ))
         };
         unsafe { (command)(self.handle, swapchain, p_sleep_info) }
@@ -29526,7 +29526,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+    /// - Extension [`NV_LowLatency2`](Extension::NV_LowLatency2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -29540,7 +29540,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_SetLatencyMarkerNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkSetLatencyMarkerNV as usize,
+                InstanceCommand::vkSetLatencyMarkerNV as usize,
             ))
         };
         unsafe { (command)(self.handle, swapchain, p_latency_marker_info) }
@@ -29554,7 +29554,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+    /// - Extension [`NV_LowLatency2`](Extension::NV_LowLatency2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -29568,7 +29568,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetLatencyTimingsNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetLatencyTimingsNV as usize,
+                InstanceCommand::vkGetLatencyTimingsNV as usize,
             ))
         };
         unsafe { (command)(self.handle, swapchain, p_latency_marker_info) }
@@ -29582,7 +29582,7 @@ impl Queue {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_LowLatency2`](Extensions::NV_LowLatency2)
+    /// - Extension [`NV_LowLatency2`](Extension::NV_LowLatency2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -29592,7 +29592,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_QueueNotifyOutOfBandNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkQueueNotifyOutOfBandNV as usize,
+                InstanceCommand::vkQueueNotifyOutOfBandNV as usize,
             ))
         };
         unsafe { (command)(self.handle, p_queue_type_info) }
@@ -29613,7 +29613,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+    /// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -29645,7 +29645,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateDataGraphPipelinesARM>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateDataGraphPipelinesARM as usize,
+                InstanceCommand::vkCreateDataGraphPipelinesARM as usize,
             ))
         };
         unsafe {
@@ -29673,7 +29673,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+    /// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -29700,7 +29700,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_CreateDataGraphPipelineSessionARM>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCreateDataGraphPipelineSessionARM as usize,
+                    InstanceCommand::vkCreateDataGraphPipelineSessionARM as usize,
                 ),
             )
         };
@@ -29720,7 +29720,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+    /// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -29750,7 +29750,7 @@ impl Device {
                 FUN_GetDataGraphPipelineSessionBindPointRequirementsARM,
             >(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetDataGraphPipelineSessionBindPointRequirementsARM as usize,
+                InstanceCommand::vkGetDataGraphPipelineSessionBindPointRequirementsARM as usize,
             ))
         };
         unsafe {
@@ -29774,7 +29774,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+    /// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -29791,7 +29791,7 @@ impl Device {
                 FUN_GetDataGraphPipelineSessionMemoryRequirementsARM,
             >(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetDataGraphPipelineSessionMemoryRequirementsARM as usize,
+                InstanceCommand::vkGetDataGraphPipelineSessionMemoryRequirementsARM as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
@@ -29808,7 +29808,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+    /// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -29831,7 +29831,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_BindDataGraphPipelineSessionMemoryARM>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkBindDataGraphPipelineSessionMemoryARM as usize,
+                    InstanceCommand::vkBindDataGraphPipelineSessionMemoryARM as usize,
                 ),
             )
         };
@@ -29846,7 +29846,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+    /// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -29864,7 +29864,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyDataGraphPipelineSessionARM>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkDestroyDataGraphPipelineSessionARM as usize,
+                    InstanceCommand::vkDestroyDataGraphPipelineSessionARM as usize,
                 ),
             )
         };
@@ -29882,7 +29882,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+    /// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -29909,7 +29909,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDispatchDataGraphARM>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDispatchDataGraphARM as usize,
+                InstanceCommand::vkCmdDispatchDataGraphARM as usize,
             ))
         };
         unsafe { (command)(self.handle, session, p_info) }
@@ -29928,7 +29928,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+    /// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -29956,7 +29956,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetDataGraphPipelineAvailablePropertiesARM>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetDataGraphPipelineAvailablePropertiesARM as usize,
+                    InstanceCommand::vkGetDataGraphPipelineAvailablePropertiesARM as usize,
                 ),
             )
         };
@@ -29982,7 +29982,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+    /// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -30007,7 +30007,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetDataGraphPipelinePropertiesARM>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetDataGraphPipelinePropertiesARM as usize,
+                    InstanceCommand::vkGetDataGraphPipelinePropertiesARM as usize,
                 ),
             )
         };
@@ -30027,7 +30027,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+    /// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -30057,7 +30057,7 @@ impl PhysicalDevice {
                 FUN_GetPhysicalDeviceQueueFamilyDataGraphPropertiesARM,
             >(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM as usize,
+                InstanceCommand::vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM as usize,
             ))
         };
         unsafe {
@@ -30082,7 +30082,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+    /// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -30094,7 +30094,7 @@ impl PhysicalDevice {
         p_queue_family_data_graph_processing_engine_properties: *mut QueueFamilyDataGraphProcessingEnginePropertiesARM,
     ) {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM>(vtable_get(self.vtable(), InstanceCommands::vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM as usize))
+            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM>(vtable_get(self.vtable(), InstanceCommand::vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM as usize))
         };
         unsafe {
             (command)(
@@ -30118,8 +30118,8 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_DataGraphInstructionSetTosa`](Extensions::ARM_DataGraphInstructionSetTosa)
-    /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+    /// - Extension [`ARM_DataGraphInstructionSetTosa`](Extension::ARM_DataGraphInstructionSetTosa)
+    /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -30140,7 +30140,14 @@ impl PhysicalDevice {
         p_properties: *mut BaseOutStructure,
     ) -> ResultCode {
         let command = unsafe {
-            std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM>(vtable_get(self.vtable(), InstanceCommands::vkGetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM as usize))
+            std::mem::transmute::<
+                vkVoidFunction,
+                FUN_GetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM,
+            >(vtable_get(
+                self.vtable(),
+                InstanceCommand::vkGetPhysicalDeviceQueueFamilyDataGraphEngineOperationPropertiesARM
+                    as usize,
+            ))
         };
         unsafe {
             (command)(
@@ -30160,7 +30167,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_AttachmentFeedbackLoopDynamicState`](Extensions::EXT_AttachmentFeedbackLoopDynamicState)
+    /// - Extension [`EXT_AttachmentFeedbackLoopDynamicState`](Extension::EXT_AttachmentFeedbackLoopDynamicState)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -30187,7 +30194,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetAttachmentFeedbackLoopEnableEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdSetAttachmentFeedbackLoopEnableEXT as usize,
+                    InstanceCommand::vkCmdSetAttachmentFeedbackLoopEnableEXT as usize,
                 ),
             )
         };
@@ -30205,7 +30212,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`QNX_ExternalMemoryScreenBuffer`](Extensions::QNX_ExternalMemoryScreenBuffer)
+    /// - Extension [`QNX_ExternalMemoryScreenBuffer`](Extension::QNX_ExternalMemoryScreenBuffer)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -30227,7 +30234,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetScreenBufferPropertiesQNX>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetScreenBufferPropertiesQNX as usize,
+                InstanceCommand::vkGetScreenBufferPropertiesQNX as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer, p_properties) }
@@ -30241,7 +30248,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`QCOM_TileMemoryHeap`](Extensions::QCOM_TileMemoryHeap)
+    /// - Extension [`QCOM_TileMemoryHeap`](Extension::QCOM_TileMemoryHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -30268,7 +30275,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBindTileMemoryQCOM>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBindTileMemoryQCOM as usize,
+                InstanceCommand::vkCmdBindTileMemoryQCOM as usize,
             ))
         };
         unsafe { (command)(self.handle, p_tile_memory_bind_info) }
@@ -30282,7 +30289,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_MemoryDecompression`](Extensions::EXT_MemoryDecompression)
+    /// - Extension [`EXT_MemoryDecompression`](Extension::EXT_MemoryDecompression)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -30306,7 +30313,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDecompressMemoryEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDecompressMemoryEXT as usize,
+                InstanceCommand::vkCmdDecompressMemoryEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_decompress_memory_info_ext) }
@@ -30326,7 +30333,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_MemoryDecompression`](Extensions::EXT_MemoryDecompression)
+    /// - Extension [`EXT_MemoryDecompression`](Extension::EXT_MemoryDecompression)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -30355,7 +30362,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDecompressMemoryIndirectCountEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdDecompressMemoryIndirectCountEXT as usize,
+                    InstanceCommand::vkCmdDecompressMemoryIndirectCountEXT as usize,
                 ),
             )
         };
@@ -30383,7 +30390,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_ExternalComputeQueue`](Extensions::NV_ExternalComputeQueue)
+    /// - Extension [`NV_ExternalComputeQueue`](Extension::NV_ExternalComputeQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -30409,7 +30416,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateExternalComputeQueueNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateExternalComputeQueueNV as usize,
+                InstanceCommand::vkCreateExternalComputeQueueNV as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_external_queue) }
@@ -30423,7 +30430,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_ExternalComputeQueue`](Extensions::NV_ExternalComputeQueue)
+    /// - Extension [`NV_ExternalComputeQueue`](Extension::NV_ExternalComputeQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -30440,7 +30447,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyExternalComputeQueueNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyExternalComputeQueueNV as usize,
+                InstanceCommand::vkDestroyExternalComputeQueueNV as usize,
             ))
         };
         unsafe { (command)(self.handle, external_queue, p_allocator) }
@@ -30456,7 +30463,7 @@ pub(crate) type FUN_GetExternalComputeQueueDataNV = unsafe extern "C" fn(
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ExternalComputeQueue`](Extensions::NV_ExternalComputeQueue)
+/// - Extension [`NV_ExternalComputeQueue`](Extension::NV_ExternalComputeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -30474,7 +30481,7 @@ pub unsafe fn get_external_compute_queue_data_nv(
     let command = unsafe {
         std::mem::transmute::<vkVoidFunction, FUN_GetExternalComputeQueueDataNV>(vtable_get(
             &commands,
-            GlobalCommands::vkGetExternalComputeQueueDataNV as usize,
+            GlobalCommand::vkGetExternalComputeQueueDataNV as usize,
         ))
     };
     unsafe { (command)(external_queue, params, p_data) }
@@ -30490,7 +30497,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+    /// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -30505,7 +30512,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetClusterAccelerationStructureBuildSizesNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetClusterAccelerationStructureBuildSizesNV as usize,
+                    InstanceCommand::vkGetClusterAccelerationStructureBuildSizesNV as usize,
                 ),
             )
         };
@@ -30520,7 +30527,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+    /// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -30544,7 +30551,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBuildClusterAccelerationStructureIndirectNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdBuildClusterAccelerationStructureIndirectNV as usize,
+                    InstanceCommand::vkCmdBuildClusterAccelerationStructureIndirectNV as usize,
                 ),
             )
         };
@@ -30562,7 +30569,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_PartitionedAccelerationStructure`](Extensions::NV_PartitionedAccelerationStructure)
+    /// - Extension [`NV_PartitionedAccelerationStructure`](Extension::NV_PartitionedAccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -30579,7 +30586,7 @@ impl Device {
                 FUN_GetPartitionedAccelerationStructuresBuildSizesNV,
             >(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPartitionedAccelerationStructuresBuildSizesNV as usize,
+                InstanceCommand::vkGetPartitionedAccelerationStructuresBuildSizesNV as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info, p_size_info) }
@@ -30593,7 +30600,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_PartitionedAccelerationStructure`](Extensions::NV_PartitionedAccelerationStructure)
+    /// - Extension [`NV_PartitionedAccelerationStructure`](Extension::NV_PartitionedAccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -30617,7 +30624,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBuildPartitionedAccelerationStructuresNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdBuildPartitionedAccelerationStructuresNV as usize,
+                    InstanceCommand::vkCmdBuildPartitionedAccelerationStructuresNV as usize,
                 ),
             )
         };
@@ -30635,7 +30642,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+    /// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -30650,7 +30657,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetGeneratedCommandsMemoryRequirementsEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetGeneratedCommandsMemoryRequirementsEXT as usize,
+                    InstanceCommand::vkGetGeneratedCommandsMemoryRequirementsEXT as usize,
                 ),
             )
         };
@@ -30665,7 +30672,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+    /// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -30690,7 +30697,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdPreprocessGeneratedCommandsEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdPreprocessGeneratedCommandsEXT as usize,
+                    InstanceCommand::vkCmdPreprocessGeneratedCommandsEXT as usize,
                 ),
             )
         };
@@ -30705,7 +30712,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+    /// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -30730,7 +30737,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdExecuteGeneratedCommandsEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdExecuteGeneratedCommandsEXT as usize,
+                InstanceCommand::vkCmdExecuteGeneratedCommandsEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, is_preprocessed, p_generated_commands_info) }
@@ -30748,7 +30755,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+    /// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -30774,7 +30781,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateIndirectCommandsLayoutEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateIndirectCommandsLayoutEXT as usize,
+                InstanceCommand::vkCreateIndirectCommandsLayoutEXT as usize,
             ))
         };
         unsafe {
@@ -30795,7 +30802,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+    /// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -30813,7 +30820,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyIndirectCommandsLayoutEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyIndirectCommandsLayoutEXT as usize,
+                InstanceCommand::vkDestroyIndirectCommandsLayoutEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, indirect_commands_layout, p_allocator) }
@@ -30831,7 +30838,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+    /// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -30857,7 +30864,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateIndirectExecutionSetEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateIndirectExecutionSetEXT as usize,
+                InstanceCommand::vkCreateIndirectExecutionSetEXT as usize,
             ))
         };
         unsafe {
@@ -30878,7 +30885,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+    /// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -30896,7 +30903,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyIndirectExecutionSetEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyIndirectExecutionSetEXT as usize,
+                InstanceCommand::vkDestroyIndirectExecutionSetEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, indirect_execution_set, p_allocator) }
@@ -30914,7 +30921,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+    /// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -30930,7 +30937,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_UpdateIndirectExecutionSetPipelineEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkUpdateIndirectExecutionSetPipelineEXT as usize,
+                    InstanceCommand::vkUpdateIndirectExecutionSetPipelineEXT as usize,
                 ),
             )
         };
@@ -30956,7 +30963,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+    /// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -30972,7 +30979,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_UpdateIndirectExecutionSetShaderEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkUpdateIndirectExecutionSetShaderEXT as usize,
+                    InstanceCommand::vkUpdateIndirectExecutionSetShaderEXT as usize,
                 ),
             )
         };
@@ -30998,7 +31005,7 @@ impl Instance {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`OHOS_Surface`](Extensions::OHOS_Surface)
+    /// - Extension [`OHOS_Surface`](Extension::OHOS_Surface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -31024,7 +31031,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateSurfaceOHOS>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateSurfaceOHOS as usize,
+                InstanceCommand::vkCreateSurfaceOHOS as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
@@ -31042,7 +31049,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_CooperativeMatrix2`](Extensions::NV_CooperativeMatrix2)
+    /// - Extension [`NV_CooperativeMatrix2`](Extension::NV_CooperativeMatrix2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -31071,7 +31078,7 @@ impl PhysicalDevice {
                 FUN_GetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV,
             >(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV
+                InstanceCommand::vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV
                     as usize,
             ))
         };
@@ -31089,7 +31096,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExternalMemoryMetal`](Extensions::EXT_ExternalMemoryMetal)
+    /// - Extension [`EXT_ExternalMemoryMetal`](Extension::EXT_ExternalMemoryMetal)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -31111,7 +31118,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_GetMemoryMetalHandleEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetMemoryMetalHandleEXT as usize,
+                InstanceCommand::vkGetMemoryMetalHandleEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_get_metal_handle_info, p_handle) }
@@ -31129,7 +31136,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ExternalMemoryMetal`](Extensions::EXT_ExternalMemoryMetal)
+    /// - Extension [`EXT_ExternalMemoryMetal`](Extension::EXT_ExternalMemoryMetal)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -31153,7 +31160,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetMemoryMetalHandlePropertiesEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetMemoryMetalHandlePropertiesEXT as usize,
+                    InstanceCommand::vkGetMemoryMetalHandlePropertiesEXT as usize,
                 ),
             )
         };
@@ -31181,7 +31188,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_PerformanceCountersByRegion`](Extensions::ARM_PerformanceCountersByRegion)
+    /// - Extension [`ARM_PerformanceCountersByRegion`](Extension::ARM_PerformanceCountersByRegion)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -31214,7 +31221,7 @@ impl PhysicalDevice {
                 FUN_EnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM,
             >(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM
+                InstanceCommand::vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM
                     as usize,
             ))
         };
@@ -31241,7 +31248,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
+    /// - Extension [`ARM_ShaderInstrumentation`](Extension::ARM_ShaderInstrumentation)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -31271,7 +31278,7 @@ impl PhysicalDevice {
                 FUN_EnumeratePhysicalDeviceShaderInstrumentationMetricsARM,
             >(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM as usize,
+                InstanceCommand::vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM as usize,
             ))
         };
         unsafe { (command)(self.handle, p_description_count, p_descriptions) }
@@ -31289,7 +31296,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
+    /// - Extension [`ARM_ShaderInstrumentation`](Extension::ARM_ShaderInstrumentation)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -31315,7 +31322,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateShaderInstrumentationARM>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateShaderInstrumentationARM as usize,
+                InstanceCommand::vkCreateShaderInstrumentationARM as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_instrumentation) }
@@ -31329,7 +31336,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
+    /// - Extension [`ARM_ShaderInstrumentation`](Extension::ARM_ShaderInstrumentation)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -31347,7 +31354,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyShaderInstrumentationARM>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyShaderInstrumentationARM as usize,
+                InstanceCommand::vkDestroyShaderInstrumentationARM as usize,
             ))
         };
         unsafe { (command)(self.handle, instrumentation, p_allocator) }
@@ -31361,7 +31368,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
+    /// - Extension [`ARM_ShaderInstrumentation`](Extension::ARM_ShaderInstrumentation)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -31387,7 +31394,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBeginShaderInstrumentationARM>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBeginShaderInstrumentationARM as usize,
+                InstanceCommand::vkCmdBeginShaderInstrumentationARM as usize,
             ))
         };
         unsafe { (command)(self.handle, instrumentation) }
@@ -31400,7 +31407,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
+    /// - Extension [`ARM_ShaderInstrumentation`](Extension::ARM_ShaderInstrumentation)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -31423,7 +31430,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdEndShaderInstrumentationARM>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdEndShaderInstrumentationARM as usize,
+                InstanceCommand::vkCmdEndShaderInstrumentationARM as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -31442,7 +31449,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
+    /// - Extension [`ARM_ShaderInstrumentation`](Extension::ARM_ShaderInstrumentation)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -31472,7 +31479,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetShaderInstrumentationValuesARM>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetShaderInstrumentationValuesARM as usize,
+                    InstanceCommand::vkGetShaderInstrumentationValuesARM as usize,
                 ),
             )
         };
@@ -31495,7 +31502,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
+    /// - Extension [`ARM_ShaderInstrumentation`](Extension::ARM_ShaderInstrumentation)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -31509,7 +31516,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_ClearShaderInstrumentationMetricsARM>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkClearShaderInstrumentationMetricsARM as usize,
+                    InstanceCommand::vkClearShaderInstrumentationMetricsARM as usize,
                 ),
             )
         };
@@ -31524,7 +31531,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_FragmentDensityMapOffset`](Extensions::EXT_FragmentDensityMapOffset)
+    /// - Extension [`EXT_FragmentDensityMapOffset`](Extension::EXT_FragmentDensityMapOffset)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -31548,7 +31555,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdEndRendering2EXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdEndRendering2EXT as usize,
+                InstanceCommand::vkCmdEndRendering2EXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_rendering_end_info) }
@@ -31562,7 +31569,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_CustomResolve`](Extensions::EXT_CustomResolve)
+    /// - Extension [`EXT_CustomResolve`](Extension::EXT_CustomResolve)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -31588,7 +31595,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBeginCustomResolveEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdBeginCustomResolveEXT as usize,
+                InstanceCommand::vkCmdBeginCustomResolveEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_begin_custom_resolve_info) }
@@ -31609,7 +31616,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+    /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -31642,7 +31649,7 @@ impl PhysicalDevice {
                 FUN_GetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM,
             >(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM
+                InstanceCommand::vkGetPhysicalDeviceQueueFamilyDataGraphOpticalFlowImageFormatsARM
                     as usize,
             ))
         };
@@ -31666,7 +31673,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_ComputeOccupancyPriority`](Extensions::NV_ComputeOccupancyPriority)
+    /// - Extension [`NV_ComputeOccupancyPriority`](Extension::NV_ComputeOccupancyPriority)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -31689,7 +31696,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetComputeOccupancyPriorityNV>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetComputeOccupancyPriorityNV as usize,
+                InstanceCommand::vkCmdSetComputeOccupancyPriorityNV as usize,
             ))
         };
         unsafe { (command)(self.handle, p_parameters) }
@@ -31708,7 +31715,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_CooperativeMatrixMaintenance1`](Extensions::EXT_CooperativeMatrixMaintenance1)
+    /// - Extension [`EXT_CooperativeMatrixMaintenance1`](Extension::EXT_CooperativeMatrixMaintenance1)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -31738,7 +31745,7 @@ impl PhysicalDevice {
                 FUN_GetPhysicalDeviceCooperativeMatrixProperties2EXT,
             >(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkGetPhysicalDeviceCooperativeMatrixProperties2EXT as usize,
+                InstanceCommand::vkGetPhysicalDeviceCooperativeMatrixProperties2EXT as usize,
             ))
         };
         unsafe {
@@ -31763,7 +31770,7 @@ impl Instance {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`SEC_UbmSurface`](Extensions::SEC_UbmSurface)
+    /// - Extension [`SEC_UbmSurface`](Extension::SEC_UbmSurface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -31789,7 +31796,7 @@ impl Instance {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateUbmSurfaceSEC>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateUbmSurfaceSEC as usize,
+                InstanceCommand::vkCreateUbmSurfaceSEC as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
@@ -31803,7 +31810,7 @@ impl PhysicalDevice {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`SEC_UbmSurface`](Extensions::SEC_UbmSurface)
+    /// - Extension [`SEC_UbmSurface`](Extension::SEC_UbmSurface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -31818,7 +31825,7 @@ impl PhysicalDevice {
             std::mem::transmute::<vkVoidFunction, FUN_GetPhysicalDeviceUbmPresentationSupportSEC>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetPhysicalDeviceUbmPresentationSupportSEC as usize,
+                    InstanceCommand::vkGetPhysicalDeviceUbmPresentationSupportSEC as usize,
                 ),
             )
         };
@@ -31832,7 +31839,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_PrimitiveRestartIndex`](Extensions::EXT_PrimitiveRestartIndex)
+    /// - Extension [`EXT_PrimitiveRestartIndex`](Extension::EXT_PrimitiveRestartIndex)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -31855,7 +31862,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetPrimitiveRestartIndexEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdSetPrimitiveRestartIndexEXT as usize,
+                InstanceCommand::vkCmdSetPrimitiveRestartIndexEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, primitive_restart_index) }
@@ -31873,7 +31880,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -31899,7 +31906,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateAccelerationStructureKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateAccelerationStructureKHR as usize,
+                InstanceCommand::vkCreateAccelerationStructureKHR as usize,
             ))
         };
         unsafe {
@@ -31920,7 +31927,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -31938,7 +31945,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_DestroyAccelerationStructureKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkDestroyAccelerationStructureKHR as usize,
+                InstanceCommand::vkDestroyAccelerationStructureKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, acceleration_structure, p_allocator) }
@@ -31956,7 +31963,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -31982,7 +31989,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBuildAccelerationStructuresKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdBuildAccelerationStructuresKHR as usize,
+                    InstanceCommand::vkCmdBuildAccelerationStructuresKHR as usize,
                 ),
             )
         };
@@ -32003,7 +32010,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -32031,7 +32038,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdBuildAccelerationStructuresIndirectKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdBuildAccelerationStructuresIndirectKHR as usize,
+                    InstanceCommand::vkCmdBuildAccelerationStructuresIndirectKHR as usize,
                 ),
             )
         };
@@ -32060,7 +32067,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -32089,7 +32096,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_BuildAccelerationStructuresKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkBuildAccelerationStructuresKHR as usize,
+                InstanceCommand::vkBuildAccelerationStructuresKHR as usize,
             ))
         };
         unsafe {
@@ -32114,7 +32121,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -32141,7 +32148,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CopyAccelerationStructureKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCopyAccelerationStructureKHR as usize,
+                InstanceCommand::vkCopyAccelerationStructureKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, deferred_operation, p_info) }
@@ -32158,7 +32165,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -32186,7 +32193,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_CopyAccelerationStructureToMemoryKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCopyAccelerationStructureToMemoryKHR as usize,
+                    InstanceCommand::vkCopyAccelerationStructureToMemoryKHR as usize,
                 ),
             )
         };
@@ -32204,7 +32211,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -32232,7 +32239,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_CopyMemoryToAccelerationStructureKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCopyMemoryToAccelerationStructureKHR as usize,
+                    InstanceCommand::vkCopyMemoryToAccelerationStructureKHR as usize,
                 ),
             )
         };
@@ -32254,7 +32261,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -32281,7 +32288,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_WriteAccelerationStructuresPropertiesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkWriteAccelerationStructuresPropertiesKHR as usize,
+                    InstanceCommand::vkWriteAccelerationStructuresPropertiesKHR as usize,
                 ),
             )
         };
@@ -32306,7 +32313,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -32329,7 +32336,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyAccelerationStructureKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdCopyAccelerationStructureKHR as usize,
+                InstanceCommand::vkCmdCopyAccelerationStructureKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -32343,7 +32350,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -32367,7 +32374,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyAccelerationStructureToMemoryKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdCopyAccelerationStructureToMemoryKHR as usize,
+                    InstanceCommand::vkCmdCopyAccelerationStructureToMemoryKHR as usize,
                 ),
             )
         };
@@ -32382,7 +32389,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -32406,7 +32413,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdCopyMemoryToAccelerationStructureKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdCopyMemoryToAccelerationStructureKHR as usize,
+                    InstanceCommand::vkCmdCopyMemoryToAccelerationStructureKHR as usize,
                 ),
             )
         };
@@ -32424,7 +32431,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -32438,7 +32445,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetAccelerationStructureDeviceAddressKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetAccelerationStructureDeviceAddressKHR as usize,
+                    InstanceCommand::vkGetAccelerationStructureDeviceAddressKHR as usize,
                 ),
             )
         };
@@ -32459,7 +32466,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -32487,7 +32494,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdWriteAccelerationStructuresPropertiesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdWriteAccelerationStructuresPropertiesKHR as usize,
+                    InstanceCommand::vkCmdWriteAccelerationStructuresPropertiesKHR as usize,
                 ),
             )
         };
@@ -32514,7 +32521,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -32529,7 +32536,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetDeviceAccelerationStructureCompatibilityKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetDeviceAccelerationStructureCompatibilityKHR as usize,
+                    InstanceCommand::vkGetDeviceAccelerationStructureCompatibilityKHR as usize,
                 ),
             )
         };
@@ -32549,7 +32556,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -32569,7 +32576,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetAccelerationStructureBuildSizesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetAccelerationStructureBuildSizesKHR as usize,
+                    InstanceCommand::vkGetAccelerationStructureBuildSizesKHR as usize,
                 ),
             )
         };
@@ -32600,7 +32607,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+    /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -32629,7 +32636,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdTraceRaysKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdTraceRaysKHR as usize,
+                InstanceCommand::vkCmdTraceRaysKHR as usize,
             ))
         };
         unsafe {
@@ -32661,7 +32668,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+    /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -32696,7 +32703,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CreateRayTracingPipelinesKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCreateRayTracingPipelinesKHR as usize,
+                InstanceCommand::vkCreateRayTracingPipelinesKHR as usize,
             ))
         };
         unsafe {
@@ -32720,7 +32727,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+    /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -32746,7 +32753,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetRayTracingCaptureReplayShaderGroupHandlesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetRayTracingCaptureReplayShaderGroupHandlesKHR as usize,
+                    InstanceCommand::vkGetRayTracingCaptureReplayShaderGroupHandlesKHR as usize,
                 ),
             )
         };
@@ -32776,7 +32783,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+    /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -32803,7 +32810,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdTraceRaysIndirectKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdTraceRaysIndirectKHR as usize,
+                InstanceCommand::vkCmdTraceRaysIndirectKHR as usize,
             ))
         };
         unsafe {
@@ -32826,7 +32833,7 @@ impl Device {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+    /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -32842,7 +32849,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FUN_GetRayTracingShaderGroupStackSizeKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkGetRayTracingShaderGroupStackSizeKHR as usize,
+                    InstanceCommand::vkGetRayTracingShaderGroupStackSizeKHR as usize,
                 ),
             )
         };
@@ -32857,7 +32864,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+    /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -32878,7 +32885,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FUN_CmdSetRayTracingPipelineStackSizeKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommands::vkCmdSetRayTracingPipelineStackSizeKHR as usize,
+                    InstanceCommand::vkCmdSetRayTracingPipelineStackSizeKHR as usize,
                 ),
             )
         };
@@ -32892,7 +32899,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_MeshShader`](Extensions::EXT_MeshShader)
+    /// - Extension [`EXT_MeshShader`](Extension::EXT_MeshShader)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -32917,7 +32924,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawMeshTasksEXT as usize,
+                InstanceCommand::vkCmdDrawMeshTasksEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, group_count_x, group_count_y, group_count_z) }
@@ -32931,7 +32938,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_MeshShader`](Extensions::EXT_MeshShader)
+    /// - Extension [`EXT_MeshShader`](Extension::EXT_MeshShader)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -32957,7 +32964,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksIndirectEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawMeshTasksIndirectEXT as usize,
+                InstanceCommand::vkCmdDrawMeshTasksIndirectEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer, offset, draw_count, stride) }
@@ -32971,7 +32978,7 @@ impl CommandBuffer {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_MeshShader`](Extensions::EXT_MeshShader)
+    /// - Extension [`EXT_MeshShader`](Extension::EXT_MeshShader)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -32999,7 +33006,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FUN_CmdDrawMeshTasksIndirectCountEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommands::vkCmdDrawMeshTasksIndirectCountEXT as usize,
+                InstanceCommand::vkCmdDrawMeshTasksIndirectCountEXT as usize,
             ))
         };
         unsafe {

@@ -204,7 +204,7 @@ class Context:
 
             for ext in all_extensions:
                 ext_name = names.extension(ext)
-                out.writeln(f"/// - Extension [`{ext_name}`](Extensions::{ext_name})")
+                out.writeln(f"/// - Extension [`{ext_name}`](Extension::{ext_name})")
 
             out.writeln("///")
             out.writeln(
@@ -778,7 +778,7 @@ class Context:
             out.indent()
 
             out.writeln(
-                f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FUN_{command_fn_alias_name}>(vtable_get(self.vtable(), InstanceCommands::{x.name} as usize)) }};"
+                f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FUN_{command_fn_alias_name}>(vtable_get(self.vtable(), InstanceCommand::{x.name} as usize)) }};"
             )
             out.writeln(
                 f"unsafe {{ (command)(self.handle, {', '.join(x[0] for x in params)}) }}"
@@ -812,7 +812,7 @@ class Context:
                 'let commands = GLOBAL.get().expect("vkx setup should have been run").commands;'
             )
             out.writeln(
-                f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FUN_{command_fn_alias_name}>(vtable_get(&commands, GlobalCommands::{x.name} as usize)) }};"
+                f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FUN_{command_fn_alias_name}>(vtable_get(&commands, GlobalCommand::{x.name} as usize)) }};"
             )
             out.writeln(f"unsafe {{ (command)({', '.join(x[0] for x in params)}) }}")
             out.deindent()
@@ -881,13 +881,13 @@ class Context:
 
         return (success.content, error.content, split.content)
 
-    def generate_extensions(self) -> str:
+    def generate_extension_enum(self) -> str:
         out = CodeWriter()
 
         out.writeln("/// Enum containing all extensions.")
         out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq)]")
         out.writeln("#[non_exhaustive]")
-        out.writeln("pub enum Extensions {")
+        out.writeln("pub enum Extension {")
         out.indent()
 
         for ext in self.vk.extensions.values():
@@ -928,7 +928,7 @@ class Context:
         out.deindent()
         out.writeln("}")
 
-        out.writeln("impl Extensions {")
+        out.writeln("impl Extension {")
         out.indent()
         out.writeln("pub fn name(self) -> &'static std::ffi::CStr {")
         out.indent()
@@ -1049,12 +1049,12 @@ class Context:
 
     def generate_custom_enums(self) -> str:
         success_enum, error_enum, split_impl = self.generate_success_and_error_enums()
-        extensions_enum = self.generate_extensions()
+        extensions_enum = self.generate_extension_enum()
         global_commands_enum = self.generate_commands_enum(
-            "GlobalCommands", self.global_commands
+            "GlobalCommand", self.global_commands
         )
         instance_commands_enum = self.generate_commands_enum(
-            "InstanceCommands", self.instance_commands
+            "InstanceCommand", self.instance_commands
         )
         return f"{success_enum}\n{error_enum}\n{split_impl}\n{extensions_enum}\n{global_commands_enum}\n{instance_commands_enum}"
 

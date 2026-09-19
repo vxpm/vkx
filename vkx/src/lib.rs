@@ -2,6 +2,9 @@ mod internal;
 mod loader;
 mod platform;
 
+#[cfg(feature = "window")]
+pub mod window;
+
 // auto generated modules
 mod commands;
 mod consts;

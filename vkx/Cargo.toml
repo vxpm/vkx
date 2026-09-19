@@ -6,3 +6,11 @@ edition = "2024"
 [dependencies]
 flagset = "0.4.7"
 libloading = "0.9.0"
+raw-window-handle = { version = "0.6.2", features = ["std"], optional = true }
+thiserror = { version = "2.0.20", optional = true }
+
+[target.'cfg(any(target_os = "macos", target_os = "ios"))'.dependencies]
+raw-window-metal = { version = "1.1.0", features = ["std"], optional = true }
+
+[features]
+window = ["dep:raw-window-handle", "dep:raw-window-metal", "dep:thiserror"]

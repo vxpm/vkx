@@ -44,7 +44,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_Maintenance1`](Extensions::KHR_Maintenance1)
+        /// - Extension [`KHR_Maintenance1`](Extension::KHR_Maintenance1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -53,7 +53,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_Maintenance1`](Extensions::KHR_Maintenance1)
+        /// - Extension [`KHR_Maintenance1`](Extension::KHR_Maintenance1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -62,7 +62,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_SamplerYcbcrConversion`](Extensions::KHR_SamplerYcbcrConversion)
+        /// - Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -71,7 +71,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_SamplerYcbcrConversion`](Extensions::KHR_SamplerYcbcrConversion)
+        /// - Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -80,7 +80,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_SamplerYcbcrConversion`](Extensions::KHR_SamplerYcbcrConversion)
+        /// - Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -89,7 +89,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_SamplerYcbcrConversion`](Extensions::KHR_SamplerYcbcrConversion)
+        /// - Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -98,7 +98,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_SamplerYcbcrConversion`](Extensions::KHR_SamplerYcbcrConversion)
+        /// - Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -107,7 +107,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_SamplerYcbcrConversion`](Extensions::KHR_SamplerYcbcrConversion)
+        /// - Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -116,7 +116,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_SamplerYcbcrConversion`](Extensions::KHR_SamplerYcbcrConversion)
+        /// - Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -125,7 +125,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.2 with appropriate features
-        /// - Extension [`EXT_SamplerFilterMinmax`](Extensions::EXT_SamplerFilterMinmax)
+        /// - Extension [`EXT_SamplerFilterMinmax`](Extension::EXT_SamplerFilterMinmax)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -133,7 +133,7 @@ flagset::flags! {
         SAMPLED_IMAGE_FILTER_MINMAX = 65536,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+        /// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -141,7 +141,7 @@ flagset::flags! {
         VIDEO_DECODE_OUTPUT_KHR = 33554432,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+        /// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -149,7 +149,7 @@ flagset::flags! {
         VIDEO_DECODE_DPB_KHR = 67108864,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+        /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -157,8 +157,8 @@ flagset::flags! {
         ACCELERATION_STRUCTURE_VERTEX_BUFFER_KHR = 536870912,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`IMG_FilterCubic`](Extensions::IMG_FilterCubic)
-        /// - Extension [`EXT_FilterCubic`](Extensions::EXT_FilterCubic)
+        /// - Extension [`IMG_FilterCubic`](Extension::IMG_FilterCubic)
+        /// - Extension [`EXT_FilterCubic`](Extension::EXT_FilterCubic)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -166,7 +166,7 @@ flagset::flags! {
         SAMPLED_IMAGE_FILTER_CUBIC_EXT = 8192,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_FragmentDensityMap`](Extensions::EXT_FragmentDensityMap)
+        /// - Extension [`EXT_FragmentDensityMap`](Extension::EXT_FragmentDensityMap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -174,7 +174,7 @@ flagset::flags! {
         FRAGMENT_DENSITY_MAP_EXT = 16777216,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_FragmentShadingRate`](Extensions::KHR_FragmentShadingRate)
+        /// - Extension [`KHR_FragmentShadingRate`](Extension::KHR_FragmentShadingRate)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -182,7 +182,7 @@ flagset::flags! {
         FRAGMENT_SHADING_RATE_ATTACHMENT_KHR = 1073741824,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -190,7 +190,7 @@ flagset::flags! {
         VIDEO_ENCODE_INPUT_KHR = 134217728,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -278,7 +278,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_BindMemory2`](Extensions::KHR_BindMemory2)
+        /// - Extension [`KHR_BindMemory2`](Extension::KHR_BindMemory2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -287,7 +287,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+        /// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -296,7 +296,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_Maintenance1`](Extensions::KHR_Maintenance1)
+        /// - Extension [`KHR_Maintenance1`](Extension::KHR_Maintenance1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -305,7 +305,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_Maintenance2`](Extensions::KHR_Maintenance2)
+        /// - Extension [`KHR_Maintenance2`](Extension::KHR_Maintenance2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -314,7 +314,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_Maintenance2`](Extensions::KHR_Maintenance2)
+        /// - Extension [`KHR_Maintenance2`](Extension::KHR_Maintenance2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -325,7 +325,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_SamplerYcbcrConversion`](Extensions::KHR_SamplerYcbcrConversion)
+        /// - Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -333,7 +333,7 @@ flagset::flags! {
         DISJOINT = 512,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_CornerSampledImage`](Extensions::NV_CornerSampledImage)
+        /// - Extension [`NV_CornerSampledImage`](Extension::NV_CornerSampledImage)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -341,8 +341,8 @@ flagset::flags! {
         CORNER_SAMPLED_NV = 8192,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
-        /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -350,7 +350,7 @@ flagset::flags! {
         DESCRIPTOR_HEAP_CAPTURE_REPLAY_EXT = 65536,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_SampleLocations`](Extensions::EXT_SampleLocations)
+        /// - Extension [`EXT_SampleLocations`](Extension::EXT_SampleLocations)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -358,7 +358,7 @@ flagset::flags! {
         SAMPLE_LOCATIONS_COMPATIBLE_DEPTH_EXT = 4096,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_FragmentDensityMap`](Extensions::EXT_FragmentDensityMap)
+        /// - Extension [`EXT_FragmentDensityMap`](Extension::EXT_FragmentDensityMap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -366,7 +366,7 @@ flagset::flags! {
         SUBSAMPLED_EXT = 16384,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_MultisampledRenderToSingleSampled`](Extensions::EXT_MultisampledRenderToSingleSampled)
+        /// - Extension [`EXT_MultisampledRenderToSingleSampled`](Extension::EXT_MultisampledRenderToSingleSampled)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -374,7 +374,7 @@ flagset::flags! {
         MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_EXT = 262144,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_Image2DViewOf3D`](Extensions::EXT_Image2DViewOf3D)
+        /// - Extension [`EXT_Image2DViewOf3D`](Extension::EXT_Image2DViewOf3D)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -382,7 +382,7 @@ flagset::flags! {
         _2D_VIEW_COMPATIBLE_EXT = 131072,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoMaintenance1`](Extensions::KHR_VideoMaintenance1)
+        /// - Extension [`KHR_VideoMaintenance1`](Extension::KHR_VideoMaintenance1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -390,8 +390,8 @@ flagset::flags! {
         VIDEO_PROFILE_INDEPENDENT_KHR = 1048576,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`QCOM_FragmentDensityMapOffset`](Extensions::QCOM_FragmentDensityMapOffset)
-        /// - Extension [`EXT_FragmentDensityMapOffset`](Extensions::EXT_FragmentDensityMapOffset)
+        /// - Extension [`QCOM_FragmentDensityMapOffset`](Extension::QCOM_FragmentDensityMapOffset)
+        /// - Extension [`EXT_FragmentDensityMapOffset`](Extension::EXT_FragmentDensityMapOffset)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -399,7 +399,7 @@ flagset::flags! {
         FRAGMENT_DENSITY_MAP_OFFSET_EXT = 32768,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Maintenance11`](Extensions::KHR_Maintenance11)
+        /// - Extension [`KHR_Maintenance11`](Extension::KHR_Maintenance11)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -500,7 +500,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
+        /// - Extension [`EXT_HostImageCopy`](Extension::EXT_HostImageCopy)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -508,7 +508,7 @@ flagset::flags! {
         HOST_TRANSFER = 4194304,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+        /// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -516,7 +516,7 @@ flagset::flags! {
         VIDEO_DECODE_DST_KHR = 1024,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+        /// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -524,7 +524,7 @@ flagset::flags! {
         VIDEO_DECODE_SRC_KHR = 2048,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+        /// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -532,7 +532,7 @@ flagset::flags! {
         VIDEO_DECODE_DPB_KHR = 4096,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_FragmentDensityMap`](Extensions::EXT_FragmentDensityMap)
+        /// - Extension [`EXT_FragmentDensityMap`](Extension::EXT_FragmentDensityMap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -540,8 +540,8 @@ flagset::flags! {
         FRAGMENT_DENSITY_MAP_EXT = 512,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_FragmentShadingRate`](Extensions::KHR_FragmentShadingRate)
-        /// - Extension [`NV_ShadingRateImage`](Extensions::NV_ShadingRateImage)
+        /// - Extension [`KHR_FragmentShadingRate`](Extension::KHR_FragmentShadingRate)
+        /// - Extension [`NV_ShadingRateImage`](Extension::NV_ShadingRateImage)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -549,7 +549,7 @@ flagset::flags! {
         FRAGMENT_SHADING_RATE_ATTACHMENT_KHR = 256,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -557,7 +557,7 @@ flagset::flags! {
         VIDEO_ENCODE_DST_KHR = 8192,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -565,7 +565,7 @@ flagset::flags! {
         VIDEO_ENCODE_SRC_KHR = 16384,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -573,7 +573,7 @@ flagset::flags! {
         VIDEO_ENCODE_DPB_KHR = 32768,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_AttachmentFeedbackLoopLayout`](Extensions::EXT_AttachmentFeedbackLoopLayout)
+        /// - Extension [`EXT_AttachmentFeedbackLoopLayout`](Extension::EXT_AttachmentFeedbackLoopLayout)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -581,7 +581,7 @@ flagset::flags! {
         ATTACHMENT_FEEDBACK_LOOP_EXT = 524288,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`HUAWEI_InvocationMask`](Extensions::HUAWEI_InvocationMask)
+        /// - Extension [`HUAWEI_InvocationMask`](Extension::HUAWEI_InvocationMask)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -589,7 +589,7 @@ flagset::flags! {
         INVOCATION_MASK_HUAWEI = 262144,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`QCOM_ImageProcessing`](Extensions::QCOM_ImageProcessing)
+        /// - Extension [`QCOM_ImageProcessing`](Extension::QCOM_ImageProcessing)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -597,7 +597,7 @@ flagset::flags! {
         SAMPLE_WEIGHT_QCOM = 1048576,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`QCOM_ImageProcessing`](Extensions::QCOM_ImageProcessing)
+        /// - Extension [`QCOM_ImageProcessing`](Extension::QCOM_ImageProcessing)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -605,7 +605,7 @@ flagset::flags! {
         SAMPLE_BLOCK_MATCH_QCOM = 2097152,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+        /// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -613,7 +613,7 @@ flagset::flags! {
         TENSOR_ALIASING_ARM = 8388608,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`QCOM_TileMemoryHeap`](Extensions::QCOM_TileMemoryHeap)
+        /// - Extension [`QCOM_TileMemoryHeap`](Extension::QCOM_TileMemoryHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -621,7 +621,7 @@ flagset::flags! {
         TILE_MEMORY_QCOM = 134217728,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extensions::KHR_VideoEncodeQuantizationMap)
+        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extension::KHR_VideoEncodeQuantizationMap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -629,7 +629,7 @@ flagset::flags! {
         VIDEO_ENCODE_QUANTIZATION_DELTA_MAP_KHR = 33554432,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extensions::KHR_VideoEncodeQuantizationMap)
+        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extension::KHR_VideoEncodeQuantizationMap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -660,7 +660,7 @@ flagset::flags! {
     pub enum InstanceCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_PortabilityEnumeration`](Extensions::KHR_PortabilityEnumeration)
+        /// - Extension [`KHR_PortabilityEnumeration`](Extension::KHR_PortabilityEnumeration)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -686,7 +686,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_DeviceGroupCreation`](Extensions::KHR_DeviceGroupCreation)
+        /// - Extension [`KHR_DeviceGroupCreation`](Extension::KHR_DeviceGroupCreation)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -694,7 +694,7 @@ flagset::flags! {
         MULTI_INSTANCE = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`QCOM_TileMemoryHeap`](Extensions::QCOM_TileMemoryHeap)
+        /// - Extension [`QCOM_TileMemoryHeap`](Extension::QCOM_TileMemoryHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -737,7 +737,7 @@ flagset::flags! {
         PROTECTED = 32,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`AMD_DeviceCoherentMemory`](Extensions::AMD_DeviceCoherentMemory)
+        /// - Extension [`AMD_DeviceCoherentMemory`](Extension::AMD_DeviceCoherentMemory)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -745,7 +745,7 @@ flagset::flags! {
         DEVICE_COHERENT_AMD = 64,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`AMD_DeviceCoherentMemory`](Extensions::AMD_DeviceCoherentMemory)
+        /// - Extension [`AMD_DeviceCoherentMemory`](Extension::AMD_DeviceCoherentMemory)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -753,7 +753,7 @@ flagset::flags! {
         DEVICE_UNCACHED_AMD = 128,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_ExternalMemoryRdma`](Extensions::NV_ExternalMemoryRdma)
+        /// - Extension [`NV_ExternalMemoryRdma`](Extension::NV_ExternalMemoryRdma)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -788,7 +788,7 @@ flagset::flags! {
         PROTECTED = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+        /// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -796,7 +796,7 @@ flagset::flags! {
         VIDEO_DECODE_KHR = 32,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -804,7 +804,7 @@ flagset::flags! {
         VIDEO_ENCODE_KHR = 64,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+        /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -812,7 +812,7 @@ flagset::flags! {
         OPTICAL_FLOW_NV = 256,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+        /// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -851,8 +851,8 @@ flagset::flags! {
         ALL = 2147483647,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+        /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -860,8 +860,8 @@ flagset::flags! {
         RAYGEN_KHR = 256,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+        /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -869,8 +869,8 @@ flagset::flags! {
         ANY_HIT_KHR = 512,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+        /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -878,8 +878,8 @@ flagset::flags! {
         CLOSEST_HIT_KHR = 1024,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+        /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -887,8 +887,8 @@ flagset::flags! {
         MISS_KHR = 2048,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+        /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -896,8 +896,8 @@ flagset::flags! {
         INTERSECTION_KHR = 4096,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+        /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -905,8 +905,8 @@ flagset::flags! {
         CALLABLE_KHR = 8192,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_MeshShader`](Extensions::NV_MeshShader)
-        /// - Extension [`EXT_MeshShader`](Extensions::EXT_MeshShader)
+        /// - Extension [`NV_MeshShader`](Extension::NV_MeshShader)
+        /// - Extension [`EXT_MeshShader`](Extension::EXT_MeshShader)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -914,8 +914,8 @@ flagset::flags! {
         TASK_EXT = 64,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_MeshShader`](Extensions::NV_MeshShader)
-        /// - Extension [`EXT_MeshShader`](Extensions::EXT_MeshShader)
+        /// - Extension [`NV_MeshShader`](Extension::NV_MeshShader)
+        /// - Extension [`EXT_MeshShader`](Extension::EXT_MeshShader)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -923,7 +923,7 @@ flagset::flags! {
         MESH_EXT = 128,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`HUAWEI_SubpassShading`](Extensions::HUAWEI_SubpassShading)
+        /// - Extension [`HUAWEI_SubpassShading`](Extension::HUAWEI_SubpassShading)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -931,7 +931,7 @@ flagset::flags! {
         SUBPASS_SHADING_HUAWEI = 16384,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`HUAWEI_ClusterCullingShader`](Extensions::HUAWEI_ClusterCullingShader)
+        /// - Extension [`HUAWEI_ClusterCullingShader`](Extension::HUAWEI_ClusterCullingShader)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -988,7 +988,7 @@ flagset::flags! {
         PROTECTED = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_InternallySynchronizedQueues`](Extensions::KHR_InternallySynchronizedQueues)
+        /// - Extension [`KHR_InternallySynchronizedQueues`](Extension::KHR_InternallySynchronizedQueues)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1044,7 +1044,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1052,7 +1052,7 @@ flagset::flags! {
         NONE = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
+        /// - Extension [`EXT_TransformFeedback`](Extension::EXT_TransformFeedback)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1060,7 +1060,7 @@ flagset::flags! {
         TRANSFORM_FEEDBACK_EXT = 16777216,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ConditionalRendering`](Extensions::EXT_ConditionalRendering)
+        /// - Extension [`EXT_ConditionalRendering`](Extension::EXT_ConditionalRendering)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1068,9 +1068,9 @@ flagset::flags! {
         CONDITIONAL_RENDERING_EXT = 262144,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-        /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+        /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+        /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1078,8 +1078,8 @@ flagset::flags! {
         ACCELERATION_STRUCTURE_BUILD_KHR = 33554432,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+        /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1087,7 +1087,7 @@ flagset::flags! {
         RAY_TRACING_SHADER_KHR = 2097152,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_FragmentDensityMap`](Extensions::EXT_FragmentDensityMap)
+        /// - Extension [`EXT_FragmentDensityMap`](Extension::EXT_FragmentDensityMap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1095,8 +1095,8 @@ flagset::flags! {
         FRAGMENT_DENSITY_PROCESS_EXT = 8388608,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_FragmentShadingRate`](Extensions::KHR_FragmentShadingRate)
-        /// - Extension [`NV_ShadingRateImage`](Extensions::NV_ShadingRateImage)
+        /// - Extension [`KHR_FragmentShadingRate`](Extension::KHR_FragmentShadingRate)
+        /// - Extension [`NV_ShadingRateImage`](Extension::NV_ShadingRateImage)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1104,8 +1104,8 @@ flagset::flags! {
         FRAGMENT_SHADING_RATE_ATTACHMENT_KHR = 4194304,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_MeshShader`](Extensions::NV_MeshShader)
-        /// - Extension [`EXT_MeshShader`](Extensions::EXT_MeshShader)
+        /// - Extension [`NV_MeshShader`](Extension::NV_MeshShader)
+        /// - Extension [`EXT_MeshShader`](Extension::EXT_MeshShader)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1113,8 +1113,8 @@ flagset::flags! {
         TASK_SHADER_EXT = 524288,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_MeshShader`](Extensions::NV_MeshShader)
-        /// - Extension [`EXT_MeshShader`](Extensions::EXT_MeshShader)
+        /// - Extension [`NV_MeshShader`](Extension::NV_MeshShader)
+        /// - Extension [`EXT_MeshShader`](Extension::EXT_MeshShader)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1122,8 +1122,8 @@ flagset::flags! {
         MESH_SHADER_EXT = 1048576,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
-        /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+        /// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
+        /// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1174,7 +1174,7 @@ flagset::flags! {
     pub enum MemoryMapFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_MapMemoryPlaced`](Extensions::EXT_MapMemoryPlaced)
+        /// - Extension [`EXT_MapMemoryPlaced`](Extension::EXT_MapMemoryPlaced)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1204,7 +1204,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_SamplerYcbcrConversion`](Extensions::KHR_SamplerYcbcrConversion)
+        /// - Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1213,7 +1213,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_SamplerYcbcrConversion`](Extensions::KHR_SamplerYcbcrConversion)
+        /// - Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1222,7 +1222,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_SamplerYcbcrConversion`](Extensions::KHR_SamplerYcbcrConversion)
+        /// - Extension [`KHR_SamplerYcbcrConversion`](Extension::KHR_SamplerYcbcrConversion)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1231,7 +1231,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Maintenance4`](Extensions::KHR_Maintenance4)
+        /// - Extension [`KHR_Maintenance4`](Extension::KHR_Maintenance4)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1239,7 +1239,7 @@ flagset::flags! {
         NONE = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageDrmFormatModifier`](Extensions::EXT_ImageDrmFormatModifier)
+        /// - Extension [`EXT_ImageDrmFormatModifier`](Extension::EXT_ImageDrmFormatModifier)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1247,7 +1247,7 @@ flagset::flags! {
         MEMORY_PLANE_0_EXT = 128,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageDrmFormatModifier`](Extensions::EXT_ImageDrmFormatModifier)
+        /// - Extension [`EXT_ImageDrmFormatModifier`](Extension::EXT_ImageDrmFormatModifier)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1255,7 +1255,7 @@ flagset::flags! {
         MEMORY_PLANE_1_EXT = 256,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageDrmFormatModifier`](Extensions::EXT_ImageDrmFormatModifier)
+        /// - Extension [`EXT_ImageDrmFormatModifier`](Extension::EXT_ImageDrmFormatModifier)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1263,7 +1263,7 @@ flagset::flags! {
         MEMORY_PLANE_2_EXT = 512,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageDrmFormatModifier`](Extensions::EXT_ImageDrmFormatModifier)
+        /// - Extension [`EXT_ImageDrmFormatModifier`](Extension::EXT_ImageDrmFormatModifier)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1355,7 +1355,7 @@ flagset::flags! {
     pub enum QueryPoolCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Maintenance9`](Extensions::KHR_Maintenance9)
+        /// - Extension [`KHR_Maintenance9`](Extension::KHR_Maintenance9)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1398,7 +1398,7 @@ flagset::flags! {
         COMPUTE_SHADER_INVOCATIONS = 1024,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_MeshShader`](Extensions::EXT_MeshShader)
+        /// - Extension [`EXT_MeshShader`](Extension::EXT_MeshShader)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1406,7 +1406,7 @@ flagset::flags! {
         TASK_SHADER_INVOCATIONS_EXT = 2048,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_MeshShader`](Extensions::EXT_MeshShader)
+        /// - Extension [`EXT_MeshShader`](Extension::EXT_MeshShader)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1414,7 +1414,7 @@ flagset::flags! {
         MESH_SHADER_INVOCATIONS_EXT = 4096,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`HUAWEI_ClusterCullingShader`](Extensions::HUAWEI_ClusterCullingShader)
+        /// - Extension [`HUAWEI_ClusterCullingShader`](Extension::HUAWEI_ClusterCullingShader)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1443,7 +1443,7 @@ flagset::flags! {
         PARTIAL = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+        /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1473,8 +1473,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.2 with appropriate features
-        /// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
-        /// - Extension [`EXT_BufferDeviceAddress`](Extensions::EXT_BufferDeviceAddress)
+        /// - Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress)
+        /// - Extension [`EXT_BufferDeviceAddress`](Extension::EXT_BufferDeviceAddress)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1482,8 +1482,8 @@ flagset::flags! {
         DEVICE_ADDRESS_CAPTURE_REPLAY = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1491,7 +1491,7 @@ flagset::flags! {
         DESCRIPTOR_BUFFER_CAPTURE_REPLAY_EXT = 32,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoMaintenance1`](Extensions::KHR_VideoMaintenance1)
+        /// - Extension [`KHR_VideoMaintenance1`](Extension::KHR_VideoMaintenance1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1541,8 +1541,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.2 with appropriate features
-        /// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
-        /// - Extension [`EXT_BufferDeviceAddress`](Extensions::EXT_BufferDeviceAddress)
+        /// - Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress)
+        /// - Extension [`EXT_BufferDeviceAddress`](Extension::EXT_BufferDeviceAddress)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1550,7 +1550,7 @@ flagset::flags! {
         SHADER_DEVICE_ADDRESS = 131072,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+        /// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1558,7 +1558,7 @@ flagset::flags! {
         VIDEO_DECODE_SRC_KHR = 8192,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+        /// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1566,7 +1566,7 @@ flagset::flags! {
         VIDEO_DECODE_DST_KHR = 16384,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
+        /// - Extension [`EXT_TransformFeedback`](Extension::EXT_TransformFeedback)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1574,7 +1574,7 @@ flagset::flags! {
         TRANSFORM_FEEDBACK_BUFFER_EXT = 2048,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
+        /// - Extension [`EXT_TransformFeedback`](Extension::EXT_TransformFeedback)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1582,7 +1582,7 @@ flagset::flags! {
         TRANSFORM_FEEDBACK_COUNTER_BUFFER_EXT = 4096,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ConditionalRendering`](Extensions::EXT_ConditionalRendering)
+        /// - Extension [`EXT_ConditionalRendering`](Extension::EXT_ConditionalRendering)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1590,7 +1590,7 @@ flagset::flags! {
         CONDITIONAL_RENDERING_EXT = 512,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
+        /// - Extension [`AMDX_ShaderEnqueue`](Extension::AMDX_ShaderEnqueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1598,7 +1598,7 @@ flagset::flags! {
         EXECUTION_GRAPH_SCRATCH_AMDX = 33554432,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1606,7 +1606,7 @@ flagset::flags! {
         DESCRIPTOR_HEAP_EXT = 268435456,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+        /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1614,7 +1614,7 @@ flagset::flags! {
         ACCELERATION_STRUCTURE_BUILD_INPUT_READ_ONLY_KHR = 524288,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+        /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1622,8 +1622,8 @@ flagset::flags! {
         ACCELERATION_STRUCTURE_STORAGE_KHR = 1048576,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+        /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1631,7 +1631,7 @@ flagset::flags! {
         SHADER_BINDING_TABLE_KHR = 1024,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1639,7 +1639,7 @@ flagset::flags! {
         VIDEO_ENCODE_DST_KHR = 32768,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1647,8 +1647,8 @@ flagset::flags! {
         VIDEO_ENCODE_SRC_KHR = 65536,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1656,8 +1656,8 @@ flagset::flags! {
         SAMPLER_DESCRIPTOR_BUFFER_EXT = 2097152,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1665,8 +1665,8 @@ flagset::flags! {
         RESOURCE_DESCRIPTOR_BUFFER_EXT = 4194304,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1674,8 +1674,8 @@ flagset::flags! {
         PUSH_DESCRIPTORS_DESCRIPTOR_BUFFER_EXT = 67108864,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+        /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+        /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1683,8 +1683,8 @@ flagset::flags! {
         MICROMAP_BUILD_INPUT_READ_ONLY_EXT = 8388608,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+        /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+        /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1692,7 +1692,7 @@ flagset::flags! {
         MICROMAP_STORAGE_EXT = 16777216,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`QCOM_TileMemoryHeap`](Extensions::QCOM_TileMemoryHeap)
+        /// - Extension [`QCOM_TileMemoryHeap`](Extension::QCOM_TileMemoryHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1727,7 +1727,7 @@ flagset::flags! {
     pub enum ImageViewCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_FragmentDensityMap`](Extensions::EXT_FragmentDensityMap)
+        /// - Extension [`EXT_FragmentDensityMap`](Extension::EXT_FragmentDensityMap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1735,8 +1735,8 @@ flagset::flags! {
         FRAGMENT_DENSITY_MAP_DYNAMIC_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1744,7 +1744,7 @@ flagset::flags! {
         DESCRIPTOR_BUFFER_CAPTURE_REPLAY_EXT = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_FragmentDensityMap2`](Extensions::EXT_FragmentDensityMap2)
+        /// - Extension [`EXT_FragmentDensityMap2`](Extension::EXT_FragmentDensityMap2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1800,7 +1800,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1808,7 +1808,7 @@ flagset::flags! {
         NONE = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
+        /// - Extension [`EXT_TransformFeedback`](Extension::EXT_TransformFeedback)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1816,7 +1816,7 @@ flagset::flags! {
         TRANSFORM_FEEDBACK_WRITE_EXT = 33554432,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
+        /// - Extension [`EXT_TransformFeedback`](Extension::EXT_TransformFeedback)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1824,7 +1824,7 @@ flagset::flags! {
         TRANSFORM_FEEDBACK_COUNTER_READ_EXT = 67108864,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
+        /// - Extension [`EXT_TransformFeedback`](Extension::EXT_TransformFeedback)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1832,7 +1832,7 @@ flagset::flags! {
         TRANSFORM_FEEDBACK_COUNTER_WRITE_EXT = 134217728,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ConditionalRendering`](Extensions::EXT_ConditionalRendering)
+        /// - Extension [`EXT_ConditionalRendering`](Extension::EXT_ConditionalRendering)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1840,7 +1840,7 @@ flagset::flags! {
         CONDITIONAL_RENDERING_READ_EXT = 1048576,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_BlendOperationAdvanced`](Extensions::EXT_BlendOperationAdvanced)
+        /// - Extension [`EXT_BlendOperationAdvanced`](Extension::EXT_BlendOperationAdvanced)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1848,9 +1848,9 @@ flagset::flags! {
         COLOR_ATTACHMENT_READ_NONCOHERENT_EXT = 524288,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-        /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+        /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+        /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1858,9 +1858,9 @@ flagset::flags! {
         ACCELERATION_STRUCTURE_READ_KHR = 2097152,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-        /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+        /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+        /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1868,7 +1868,7 @@ flagset::flags! {
         ACCELERATION_STRUCTURE_WRITE_KHR = 4194304,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_FragmentDensityMap`](Extensions::EXT_FragmentDensityMap)
+        /// - Extension [`EXT_FragmentDensityMap`](Extension::EXT_FragmentDensityMap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1876,8 +1876,8 @@ flagset::flags! {
         FRAGMENT_DENSITY_MAP_READ_EXT = 16777216,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_FragmentShadingRate`](Extensions::KHR_FragmentShadingRate)
-        /// - Extension [`NV_ShadingRateImage`](Extensions::NV_ShadingRateImage)
+        /// - Extension [`KHR_FragmentShadingRate`](Extension::KHR_FragmentShadingRate)
+        /// - Extension [`NV_ShadingRateImage`](Extension::NV_ShadingRateImage)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1885,8 +1885,8 @@ flagset::flags! {
         FRAGMENT_SHADING_RATE_ATTACHMENT_READ_KHR = 8388608,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
-        /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+        /// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
+        /// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1894,8 +1894,8 @@ flagset::flags! {
         COMMAND_PREPROCESS_READ_EXT = 131072,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
-        /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+        /// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
+        /// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1945,7 +1945,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+        /// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1954,7 +1954,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_Multiview`](Extensions::KHR_Multiview)
+        /// - Extension [`KHR_Multiview`](Extension::KHR_Multiview)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1962,7 +1962,7 @@ flagset::flags! {
         VIEW_LOCAL = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_AttachmentFeedbackLoopLayout`](Extensions::EXT_AttachmentFeedbackLoopLayout)
+        /// - Extension [`EXT_AttachmentFeedbackLoopLayout`](Extension::EXT_AttachmentFeedbackLoopLayout)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1970,7 +1970,7 @@ flagset::flags! {
         FEEDBACK_LOOP_EXT = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Maintenance8`](Extensions::KHR_Maintenance8)
+        /// - Extension [`KHR_Maintenance8`](Extension::KHR_Maintenance8)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -1978,7 +1978,7 @@ flagset::flags! {
         QUEUE_FAMILY_OWNERSHIP_TRANSFER_USE_ALL_STAGES_KHR = 32,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Maintenance9`](Extensions::KHR_Maintenance9)
+        /// - Extension [`KHR_Maintenance9`](Extension::KHR_Maintenance9)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2093,7 +2093,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2121,7 +2121,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`EXT_PipelineCreationCacheControl`](Extensions::EXT_PipelineCreationCacheControl)
+        /// - Extension [`EXT_PipelineCreationCacheControl`](Extension::EXT_PipelineCreationCacheControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2129,7 +2129,7 @@ flagset::flags! {
         EXTERNALLY_SYNCHRONIZED = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Maintenance8`](Extensions::KHR_Maintenance8)
+        /// - Extension [`KHR_Maintenance8`](Extension::KHR_Maintenance8)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2163,7 +2163,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+        /// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2172,7 +2172,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+        /// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2181,7 +2181,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`EXT_PipelineCreationCacheControl`](Extensions::EXT_PipelineCreationCacheControl)
+        /// - Extension [`EXT_PipelineCreationCacheControl`](Extension::EXT_PipelineCreationCacheControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2190,7 +2190,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`EXT_PipelineCreationCacheControl`](Extensions::EXT_PipelineCreationCacheControl)
+        /// - Extension [`EXT_PipelineCreationCacheControl`](Extension::EXT_PipelineCreationCacheControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2199,7 +2199,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`EXT_PipelineProtectedAccess`](Extensions::EXT_PipelineProtectedAccess)
+        /// - Extension [`EXT_PipelineProtectedAccess`](Extension::EXT_PipelineProtectedAccess)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2208,7 +2208,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`EXT_PipelineProtectedAccess`](Extensions::EXT_PipelineProtectedAccess)
+        /// - Extension [`EXT_PipelineProtectedAccess`](Extension::EXT_PipelineProtectedAccess)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2216,7 +2216,7 @@ flagset::flags! {
         PROTECTED_ACCESS_ONLY = 1073741824,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2224,7 +2224,7 @@ flagset::flags! {
         RAY_TRACING_NO_NULL_ANY_HIT_SHADERS_KHR = 16384,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2232,7 +2232,7 @@ flagset::flags! {
         RAY_TRACING_NO_NULL_CLOSEST_HIT_SHADERS_KHR = 32768,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2240,7 +2240,7 @@ flagset::flags! {
         RAY_TRACING_NO_NULL_MISS_SHADERS_KHR = 65536,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2248,7 +2248,7 @@ flagset::flags! {
         RAY_TRACING_NO_NULL_INTERSECTION_SHADERS_KHR = 131072,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2256,7 +2256,7 @@ flagset::flags! {
         RAY_TRACING_SKIP_TRIANGLES_KHR = 4096,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2264,7 +2264,7 @@ flagset::flags! {
         RAY_TRACING_SKIP_AABBS_KHR = 8192,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2272,8 +2272,8 @@ flagset::flags! {
         RAY_TRACING_SHADER_GROUP_HANDLE_CAPTURE_REPLAY_KHR = 524288,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+        /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2281,7 +2281,7 @@ flagset::flags! {
         DEFER_COMPILE_NV = 32,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_FragmentDensityMap`](Extensions::EXT_FragmentDensityMap)
+        /// - Extension [`EXT_FragmentDensityMap`](Extension::EXT_FragmentDensityMap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2289,7 +2289,7 @@ flagset::flags! {
         RENDERING_FRAGMENT_DENSITY_MAP_ATTACHMENT_EXT = 4194304,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_FragmentShadingRate`](Extensions::KHR_FragmentShadingRate)
+        /// - Extension [`KHR_FragmentShadingRate`](Extension::KHR_FragmentShadingRate)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2297,7 +2297,7 @@ flagset::flags! {
         RENDERING_FRAGMENT_SHADING_RATE_ATTACHMENT_KHR = 2097152,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_PipelineExecutableProperties`](Extensions::KHR_PipelineExecutableProperties)
+        /// - Extension [`KHR_PipelineExecutableProperties`](Extension::KHR_PipelineExecutableProperties)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2305,7 +2305,7 @@ flagset::flags! {
         CAPTURE_STATISTICS_KHR = 64,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_PipelineExecutableProperties`](Extensions::KHR_PipelineExecutableProperties)
+        /// - Extension [`KHR_PipelineExecutableProperties`](Extension::KHR_PipelineExecutableProperties)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2313,7 +2313,7 @@ flagset::flags! {
         CAPTURE_INTERNAL_REPRESENTATIONS_KHR = 128,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+        /// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2321,7 +2321,7 @@ flagset::flags! {
         INDIRECT_BINDABLE_NV = 262144,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_PipelineLibrary`](Extensions::KHR_PipelineLibrary)
+        /// - Extension [`KHR_PipelineLibrary`](Extension::KHR_PipelineLibrary)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2329,8 +2329,8 @@ flagset::flags! {
         LIBRARY_KHR = 2048,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2338,7 +2338,7 @@ flagset::flags! {
         DESCRIPTOR_BUFFER_EXT = 536870912,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_GraphicsPipelineLibrary`](Extensions::EXT_GraphicsPipelineLibrary)
+        /// - Extension [`EXT_GraphicsPipelineLibrary`](Extension::EXT_GraphicsPipelineLibrary)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2346,7 +2346,7 @@ flagset::flags! {
         RETAIN_LINK_TIME_OPTIMIZATION_INFO_EXT = 8388608,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_GraphicsPipelineLibrary`](Extensions::EXT_GraphicsPipelineLibrary)
+        /// - Extension [`EXT_GraphicsPipelineLibrary`](Extension::EXT_GraphicsPipelineLibrary)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2354,7 +2354,7 @@ flagset::flags! {
         LINK_TIME_OPTIMIZATION_EXT = 1024,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracingMotionBlur`](Extensions::NV_RayTracingMotionBlur)
+        /// - Extension [`NV_RayTracingMotionBlur`](Extension::NV_RayTracingMotionBlur)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2362,7 +2362,7 @@ flagset::flags! {
         RAY_TRACING_ALLOW_MOTION_NV = 1048576,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_AttachmentFeedbackLoopLayout`](Extensions::EXT_AttachmentFeedbackLoopLayout)
+        /// - Extension [`EXT_AttachmentFeedbackLoopLayout`](Extension::EXT_AttachmentFeedbackLoopLayout)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2370,7 +2370,7 @@ flagset::flags! {
         COLOR_ATTACHMENT_FEEDBACK_LOOP_EXT = 33554432,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_AttachmentFeedbackLoopLayout`](Extensions::EXT_AttachmentFeedbackLoopLayout)
+        /// - Extension [`EXT_AttachmentFeedbackLoopLayout`](Extension::EXT_AttachmentFeedbackLoopLayout)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2378,8 +2378,8 @@ flagset::flags! {
         DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_EXT = 67108864,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_DisplacementMicromap`](Extensions::NV_DisplacementMicromap)
-        /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+        /// - Extension [`NV_DisplacementMicromap`](Extension::NV_DisplacementMicromap)
+        /// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2387,8 +2387,8 @@ flagset::flags! {
         RAY_TRACING_DISPLACEMENT_MICROMAP_NV = 268435456,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
-        /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+        /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
+        /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2451,8 +2451,8 @@ flagset::flags! {
     pub enum PipelineLayoutCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Maintenance11`](Extensions::KHR_Maintenance11)
-        /// - Extension [`EXT_GraphicsPipelineLibrary`](Extensions::EXT_GraphicsPipelineLibrary)
+        /// - Extension [`KHR_Maintenance11`](Extension::KHR_Maintenance11)
+        /// - Extension [`EXT_GraphicsPipelineLibrary`](Extension::EXT_GraphicsPipelineLibrary)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2460,7 +2460,7 @@ flagset::flags! {
         INDEPENDENT_SETS_EXT = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Maintenance11`](Extensions::KHR_Maintenance11)
+        /// - Extension [`KHR_Maintenance11`](Extension::KHR_Maintenance11)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2482,7 +2482,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`EXT_SubgroupSizeControl`](Extensions::EXT_SubgroupSizeControl)
+        /// - Extension [`EXT_SubgroupSizeControl`](Extension::EXT_SubgroupSizeControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2491,7 +2491,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`EXT_SubgroupSizeControl`](Extensions::EXT_SubgroupSizeControl)
+        /// - Extension [`EXT_SubgroupSizeControl`](Extension::EXT_SubgroupSizeControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2522,7 +2522,7 @@ flagset::flags! {
     pub enum SamplerCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_FragmentDensityMap`](Extensions::EXT_FragmentDensityMap)
+        /// - Extension [`EXT_FragmentDensityMap`](Extension::EXT_FragmentDensityMap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2530,7 +2530,7 @@ flagset::flags! {
         SUBSAMPLED_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_FragmentDensityMap`](Extensions::EXT_FragmentDensityMap)
+        /// - Extension [`EXT_FragmentDensityMap`](Extension::EXT_FragmentDensityMap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2538,8 +2538,8 @@ flagset::flags! {
         SUBSAMPLED_COARSE_RECONSTRUCTION_EXT = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2547,7 +2547,7 @@ flagset::flags! {
         DESCRIPTOR_BUFFER_CAPTURE_REPLAY_EXT = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_NonSeamlessCubeMap`](Extensions::EXT_NonSeamlessCubeMap)
+        /// - Extension [`EXT_NonSeamlessCubeMap`](Extension::EXT_NonSeamlessCubeMap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2555,7 +2555,7 @@ flagset::flags! {
         NON_SEAMLESS_CUBE_MAP_EXT = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`QCOM_ImageProcessing`](Extensions::QCOM_ImageProcessing)
+        /// - Extension [`QCOM_ImageProcessing`](Extension::QCOM_ImageProcessing)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2579,7 +2579,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.2 with appropriate features
-        /// - Extension [`EXT_DescriptorIndexing`](Extensions::EXT_DescriptorIndexing)
+        /// - Extension [`EXT_DescriptorIndexing`](Extension::EXT_DescriptorIndexing)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2587,8 +2587,8 @@ flagset::flags! {
         UPDATE_AFTER_BIND = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`VALVE_MutableDescriptorType`](Extensions::VALVE_MutableDescriptorType)
-        /// - Extension [`EXT_MutableDescriptorType`](Extensions::EXT_MutableDescriptorType)
+        /// - Extension [`VALVE_MutableDescriptorType`](Extension::VALVE_MutableDescriptorType)
+        /// - Extension [`EXT_MutableDescriptorType`](Extension::EXT_MutableDescriptorType)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2596,7 +2596,7 @@ flagset::flags! {
         HOST_ONLY_EXT = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_DescriptorPoolOverallocation`](Extensions::NV_DescriptorPoolOverallocation)
+        /// - Extension [`NV_DescriptorPoolOverallocation`](Extension::NV_DescriptorPoolOverallocation)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2604,7 +2604,7 @@ flagset::flags! {
         ALLOW_OVERALLOCATION_SETS_NV = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_DescriptorPoolOverallocation`](Extensions::NV_DescriptorPoolOverallocation)
+        /// - Extension [`NV_DescriptorPoolOverallocation`](Extension::NV_DescriptorPoolOverallocation)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2636,7 +2636,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.2 with appropriate features
-        /// - Extension [`EXT_DescriptorIndexing`](Extensions::EXT_DescriptorIndexing)
+        /// - Extension [`EXT_DescriptorIndexing`](Extension::EXT_DescriptorIndexing)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2645,7 +2645,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_PushDescriptor`](Extensions::KHR_PushDescriptor)
+        /// - Extension [`KHR_PushDescriptor`](Extension::KHR_PushDescriptor)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2653,8 +2653,8 @@ flagset::flags! {
         PUSH_DESCRIPTOR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2662,8 +2662,8 @@ flagset::flags! {
         DESCRIPTOR_BUFFER_EXT = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2671,7 +2671,7 @@ flagset::flags! {
         EMBEDDED_IMMUTABLE_SAMPLERS_EXT = 32,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_DeviceGeneratedCommandsCompute`](Extensions::NV_DeviceGeneratedCommandsCompute)
+        /// - Extension [`NV_DeviceGeneratedCommandsCompute`](Extension::NV_DeviceGeneratedCommandsCompute)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2679,8 +2679,8 @@ flagset::flags! {
         INDIRECT_BINDABLE_NV = 128,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`VALVE_MutableDescriptorType`](Extensions::VALVE_MutableDescriptorType)
-        /// - Extension [`EXT_MutableDescriptorType`](Extensions::EXT_MutableDescriptorType)
+        /// - Extension [`VALVE_MutableDescriptorType`](Extension::VALVE_MutableDescriptorType)
+        /// - Extension [`EXT_MutableDescriptorType`](Extension::EXT_MutableDescriptorType)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2688,8 +2688,8 @@ flagset::flags! {
         HOST_ONLY_POOL_EXT = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_PerStageDescriptorSet`](Extensions::NV_PerStageDescriptorSet)
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`NV_PerStageDescriptorSet`](Extension::NV_PerStageDescriptorSet)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2766,8 +2766,8 @@ flagset::flags! {
     pub enum PipelineColorBlendStateCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_RasterizationOrderAttachmentAccess`](Extensions::ARM_RasterizationOrderAttachmentAccess)
-        /// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extensions::EXT_RasterizationOrderAttachmentAccess)
+        /// - Extension [`ARM_RasterizationOrderAttachmentAccess`](Extension::ARM_RasterizationOrderAttachmentAccess)
+        /// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extension::EXT_RasterizationOrderAttachmentAccess)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2797,8 +2797,8 @@ flagset::flags! {
     pub enum PipelineDepthStencilStateCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_RasterizationOrderAttachmentAccess`](Extensions::ARM_RasterizationOrderAttachmentAccess)
-        /// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extensions::EXT_RasterizationOrderAttachmentAccess)
+        /// - Extension [`ARM_RasterizationOrderAttachmentAccess`](Extension::ARM_RasterizationOrderAttachmentAccess)
+        /// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extension::EXT_RasterizationOrderAttachmentAccess)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2806,8 +2806,8 @@ flagset::flags! {
         RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_RasterizationOrderAttachmentAccess`](Extensions::ARM_RasterizationOrderAttachmentAccess)
-        /// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extensions::EXT_RasterizationOrderAttachmentAccess)
+        /// - Extension [`ARM_RasterizationOrderAttachmentAccess`](Extension::ARM_RasterizationOrderAttachmentAccess)
+        /// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extension::EXT_RasterizationOrderAttachmentAccess)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2847,7 +2847,7 @@ flagset::flags! {
         MAY_ALIAS = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
+        /// - Extension [`KHR_Maintenance10`](Extension::KHR_Maintenance10)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2855,7 +2855,7 @@ flagset::flags! {
         RESOLVE_SKIP_TRANSFER_FUNCTION_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
+        /// - Extension [`KHR_Maintenance10`](Extension::KHR_Maintenance10)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2877,7 +2877,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.2 with appropriate features
-        /// - Extension [`KHR_ImagelessFramebuffer`](Extensions::KHR_ImagelessFramebuffer)
+        /// - Extension [`KHR_ImagelessFramebuffer`](Extension::KHR_ImagelessFramebuffer)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2904,7 +2904,7 @@ flagset::flags! {
     pub enum RenderPassCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`QCOM_RenderPassTransform`](Extensions::QCOM_RenderPassTransform)
+        /// - Extension [`QCOM_RenderPassTransform`](Extension::QCOM_RenderPassTransform)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2912,7 +2912,7 @@ flagset::flags! {
         TRANSFORM_QCOM = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`VALVE_FragmentDensityMapLayered`](Extensions::VALVE_FragmentDensityMapLayered)
+        /// - Extension [`VALVE_FragmentDensityMapLayered`](Extension::VALVE_FragmentDensityMapLayered)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2933,7 +2933,7 @@ flagset::flags! {
     pub enum SubpassDescriptionFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NVX_MultiviewPerViewAttributes`](Extensions::NVX_MultiviewPerViewAttributes)
+        /// - Extension [`NVX_MultiviewPerViewAttributes`](Extension::NVX_MultiviewPerViewAttributes)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2941,7 +2941,7 @@ flagset::flags! {
         PER_VIEW_ATTRIBUTES_NVX = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NVX_MultiviewPerViewAttributes`](Extensions::NVX_MultiviewPerViewAttributes)
+        /// - Extension [`NVX_MultiviewPerViewAttributes`](Extension::NVX_MultiviewPerViewAttributes)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2949,7 +2949,7 @@ flagset::flags! {
         PER_VIEW_POSITION_X_ONLY_NVX = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`QCOM_TileShading`](Extensions::QCOM_TileShading)
+        /// - Extension [`QCOM_TileShading`](Extension::QCOM_TileShading)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2957,8 +2957,8 @@ flagset::flags! {
         TILE_SHADING_APRON_QCOM = 256,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_RasterizationOrderAttachmentAccess`](Extensions::ARM_RasterizationOrderAttachmentAccess)
-        /// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extensions::EXT_RasterizationOrderAttachmentAccess)
+        /// - Extension [`ARM_RasterizationOrderAttachmentAccess`](Extension::ARM_RasterizationOrderAttachmentAccess)
+        /// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extension::EXT_RasterizationOrderAttachmentAccess)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2966,8 +2966,8 @@ flagset::flags! {
         RASTERIZATION_ORDER_ATTACHMENT_COLOR_ACCESS_EXT = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_RasterizationOrderAttachmentAccess`](Extensions::ARM_RasterizationOrderAttachmentAccess)
-        /// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extensions::EXT_RasterizationOrderAttachmentAccess)
+        /// - Extension [`ARM_RasterizationOrderAttachmentAccess`](Extension::ARM_RasterizationOrderAttachmentAccess)
+        /// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extension::EXT_RasterizationOrderAttachmentAccess)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2975,8 +2975,8 @@ flagset::flags! {
         RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS_EXT = 32,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_RasterizationOrderAttachmentAccess`](Extensions::ARM_RasterizationOrderAttachmentAccess)
-        /// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extensions::EXT_RasterizationOrderAttachmentAccess)
+        /// - Extension [`ARM_RasterizationOrderAttachmentAccess`](Extension::ARM_RasterizationOrderAttachmentAccess)
+        /// - Extension [`EXT_RasterizationOrderAttachmentAccess`](Extension::EXT_RasterizationOrderAttachmentAccess)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2984,7 +2984,7 @@ flagset::flags! {
         RASTERIZATION_ORDER_ATTACHMENT_STENCIL_ACCESS_EXT = 64,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_LegacyDithering`](Extensions::EXT_LegacyDithering)
+        /// - Extension [`EXT_LegacyDithering`](Extension::EXT_LegacyDithering)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -2992,8 +2992,8 @@ flagset::flags! {
         ENABLE_LEGACY_DITHERING_EXT = 128,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`QCOM_RenderPassShaderResolve`](Extensions::QCOM_RenderPassShaderResolve)
-        /// - Extension [`EXT_CustomResolve`](Extensions::EXT_CustomResolve)
+        /// - Extension [`QCOM_RenderPassShaderResolve`](Extension::QCOM_RenderPassShaderResolve)
+        /// - Extension [`EXT_CustomResolve`](Extension::EXT_CustomResolve)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3001,8 +3001,8 @@ flagset::flags! {
         FRAGMENT_REGION_EXT = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`QCOM_RenderPassShaderResolve`](Extensions::QCOM_RenderPassShaderResolve)
-        /// - Extension [`EXT_CustomResolve`](Extensions::EXT_CustomResolve)
+        /// - Extension [`QCOM_RenderPassShaderResolve`](Extension::QCOM_RenderPassShaderResolve)
+        /// - Extension [`EXT_CustomResolve`](Extension::EXT_CustomResolve)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3092,7 +3092,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_ShaderSubgroupRotate`](Extensions::KHR_ShaderSubgroupRotate)
+        /// - Extension [`KHR_ShaderSubgroupRotate`](Extension::KHR_ShaderSubgroupRotate)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3101,7 +3101,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_ShaderSubgroupRotate`](Extensions::KHR_ShaderSubgroupRotate)
+        /// - Extension [`KHR_ShaderSubgroupRotate`](Extension::KHR_ShaderSubgroupRotate)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3109,8 +3109,8 @@ flagset::flags! {
         ROTATE_CLUSTERED = 1024,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_ShaderSubgroupPartitioned`](Extensions::NV_ShaderSubgroupPartitioned)
-        /// - Extension [`EXT_ShaderSubgroupPartitioned`](Extensions::EXT_ShaderSubgroupPartitioned)
+        /// - Extension [`NV_ShaderSubgroupPartitioned`](Extension::NV_ShaderSubgroupPartitioned)
+        /// - Extension [`EXT_ShaderSubgroupPartitioned`](Extension::EXT_ShaderSubgroupPartitioned)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3145,7 +3145,7 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+    /// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -3155,7 +3155,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+        /// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3164,7 +3164,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+        /// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3173,7 +3173,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+        /// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3182,7 +3182,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+        /// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3227,7 +3227,7 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+    /// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -3237,7 +3237,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+        /// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3246,7 +3246,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.2 with appropriate features
-        /// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
+        /// - Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3255,7 +3255,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.2 with appropriate features
-        /// - Extension [`KHR_BufferDeviceAddress`](Extensions::KHR_BufferDeviceAddress)
+        /// - Extension [`KHR_BufferDeviceAddress`](Extension::KHR_BufferDeviceAddress)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3263,7 +3263,7 @@ flagset::flags! {
         DEVICE_ADDRESS_CAPTURE_REPLAY = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ZeroInitializeDeviceMemory`](Extensions::EXT_ZeroInitializeDeviceMemory)
+        /// - Extension [`EXT_ZeroInitializeDeviceMemory`](Extension::EXT_ZeroInitializeDeviceMemory)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3304,7 +3304,7 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+    /// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -3314,7 +3314,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3323,7 +3323,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3332,7 +3332,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3341,7 +3341,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3350,7 +3350,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3359,7 +3359,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3368,7 +3368,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3376,7 +3376,7 @@ flagset::flags! {
         D3D12_RESOURCE = 64,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ExternalMemoryDmaBuf`](Extensions::EXT_ExternalMemoryDmaBuf)
+        /// - Extension [`EXT_ExternalMemoryDmaBuf`](Extension::EXT_ExternalMemoryDmaBuf)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3384,7 +3384,7 @@ flagset::flags! {
         DMA_BUF_EXT = 512,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ANDROID_ExternalMemoryAndroidHardwareBuffer`](Extensions::ANDROID_ExternalMemoryAndroidHardwareBuffer)
+        /// - Extension [`ANDROID_ExternalMemoryAndroidHardwareBuffer`](Extension::ANDROID_ExternalMemoryAndroidHardwareBuffer)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3392,7 +3392,7 @@ flagset::flags! {
         ANDROID_HARDWARE_BUFFER_ANDROID = 1024,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ExternalMemoryHost`](Extensions::EXT_ExternalMemoryHost)
+        /// - Extension [`EXT_ExternalMemoryHost`](Extension::EXT_ExternalMemoryHost)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3400,7 +3400,7 @@ flagset::flags! {
         HOST_ALLOCATION_EXT = 128,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ExternalMemoryHost`](Extensions::EXT_ExternalMemoryHost)
+        /// - Extension [`EXT_ExternalMemoryHost`](Extension::EXT_ExternalMemoryHost)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3408,7 +3408,7 @@ flagset::flags! {
         HOST_MAPPED_FOREIGN_MEMORY_EXT = 256,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`FUCHSIA_ExternalMemory`](Extensions::FUCHSIA_ExternalMemory)
+        /// - Extension [`FUCHSIA_ExternalMemory`](Extension::FUCHSIA_ExternalMemory)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3416,7 +3416,7 @@ flagset::flags! {
         ZIRCON_VMO_FUCHSIA = 2048,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_ExternalMemoryRdma`](Extensions::NV_ExternalMemoryRdma)
+        /// - Extension [`NV_ExternalMemoryRdma`](Extension::NV_ExternalMemoryRdma)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3424,7 +3424,7 @@ flagset::flags! {
         RDMA_ADDRESS_NV = 4096,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`OHOS_ExternalMemory`](Extensions::OHOS_ExternalMemory)
+        /// - Extension [`OHOS_ExternalMemory`](Extension::OHOS_ExternalMemory)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3432,7 +3432,7 @@ flagset::flags! {
         OH_NATIVE_BUFFER_OHOS = 32768,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`QNX_ExternalMemoryScreenBuffer`](Extensions::QNX_ExternalMemoryScreenBuffer)
+        /// - Extension [`QNX_ExternalMemoryScreenBuffer`](Extension::QNX_ExternalMemoryScreenBuffer)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3440,7 +3440,7 @@ flagset::flags! {
         SCREEN_BUFFER_QNX = 16384,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ExternalMemoryMetal`](Extensions::EXT_ExternalMemoryMetal)
+        /// - Extension [`EXT_ExternalMemoryMetal`](Extension::EXT_ExternalMemoryMetal)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3448,7 +3448,7 @@ flagset::flags! {
         MTLBUFFER_EXT = 65536,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ExternalMemoryMetal`](Extensions::EXT_ExternalMemoryMetal)
+        /// - Extension [`EXT_ExternalMemoryMetal`](Extension::EXT_ExternalMemoryMetal)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3456,7 +3456,7 @@ flagset::flags! {
         MTLTEXTURE_EXT = 131072,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ExternalMemoryMetal`](Extensions::EXT_ExternalMemoryMetal)
+        /// - Extension [`EXT_ExternalMemoryMetal`](Extension::EXT_ExternalMemoryMetal)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3513,7 +3513,7 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+    /// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -3525,7 +3525,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3534,7 +3534,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3543,7 +3543,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3586,7 +3586,7 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_ExternalFenceCapabilities`](Extensions::KHR_ExternalFenceCapabilities)
+    /// - Extension [`KHR_ExternalFenceCapabilities`](Extension::KHR_ExternalFenceCapabilities)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -3596,7 +3596,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_ExternalFenceCapabilities`](Extensions::KHR_ExternalFenceCapabilities)
+        /// - Extension [`KHR_ExternalFenceCapabilities`](Extension::KHR_ExternalFenceCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3605,7 +3605,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_ExternalFenceCapabilities`](Extensions::KHR_ExternalFenceCapabilities)
+        /// - Extension [`KHR_ExternalFenceCapabilities`](Extension::KHR_ExternalFenceCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3614,7 +3614,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_ExternalFenceCapabilities`](Extensions::KHR_ExternalFenceCapabilities)
+        /// - Extension [`KHR_ExternalFenceCapabilities`](Extension::KHR_ExternalFenceCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3623,7 +3623,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_ExternalFenceCapabilities`](Extensions::KHR_ExternalFenceCapabilities)
+        /// - Extension [`KHR_ExternalFenceCapabilities`](Extension::KHR_ExternalFenceCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3668,7 +3668,7 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_ExternalFenceCapabilities`](Extensions::KHR_ExternalFenceCapabilities)
+    /// - Extension [`KHR_ExternalFenceCapabilities`](Extension::KHR_ExternalFenceCapabilities)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -3680,7 +3680,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_ExternalFenceCapabilities`](Extensions::KHR_ExternalFenceCapabilities)
+        /// - Extension [`KHR_ExternalFenceCapabilities`](Extension::KHR_ExternalFenceCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3689,7 +3689,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_ExternalFenceCapabilities`](Extensions::KHR_ExternalFenceCapabilities)
+        /// - Extension [`KHR_ExternalFenceCapabilities`](Extension::KHR_ExternalFenceCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3728,7 +3728,7 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_ExternalFence`](Extensions::KHR_ExternalFence)
+    /// - Extension [`KHR_ExternalFence`](Extension::KHR_ExternalFence)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -3738,7 +3738,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_ExternalFence`](Extensions::KHR_ExternalFence)
+        /// - Extension [`KHR_ExternalFence`](Extension::KHR_ExternalFence)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3771,7 +3771,7 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_ExternalSemaphore`](Extensions::KHR_ExternalSemaphore)
+    /// - Extension [`KHR_ExternalSemaphore`](Extension::KHR_ExternalSemaphore)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -3781,7 +3781,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_ExternalSemaphore`](Extensions::KHR_ExternalSemaphore)
+        /// - Extension [`KHR_ExternalSemaphore`](Extension::KHR_ExternalSemaphore)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3814,7 +3814,7 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extensions::KHR_ExternalSemaphoreCapabilities)
+    /// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extension::KHR_ExternalSemaphoreCapabilities)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -3824,7 +3824,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extensions::KHR_ExternalSemaphoreCapabilities)
+        /// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extension::KHR_ExternalSemaphoreCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3833,7 +3833,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extensions::KHR_ExternalSemaphoreCapabilities)
+        /// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extension::KHR_ExternalSemaphoreCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3842,7 +3842,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extensions::KHR_ExternalSemaphoreCapabilities)
+        /// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extension::KHR_ExternalSemaphoreCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3851,7 +3851,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extensions::KHR_ExternalSemaphoreCapabilities)
+        /// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extension::KHR_ExternalSemaphoreCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3860,7 +3860,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extensions::KHR_ExternalSemaphoreCapabilities)
+        /// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extension::KHR_ExternalSemaphoreCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3868,7 +3868,7 @@ flagset::flags! {
         SYNC_FD = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`FUCHSIA_ExternalSemaphore`](Extensions::FUCHSIA_ExternalSemaphore)
+        /// - Extension [`FUCHSIA_ExternalSemaphore`](Extension::FUCHSIA_ExternalSemaphore)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3921,7 +3921,7 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extensions::KHR_ExternalSemaphoreCapabilities)
+    /// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extension::KHR_ExternalSemaphoreCapabilities)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -3933,7 +3933,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extensions::KHR_ExternalSemaphoreCapabilities)
+        /// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extension::KHR_ExternalSemaphoreCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3942,7 +3942,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extensions::KHR_ExternalSemaphoreCapabilities)
+        /// - Extension [`KHR_ExternalSemaphoreCapabilities`](Extension::KHR_ExternalSemaphoreCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -3981,7 +3981,7 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
-    /// - Extension [`KHR_DepthStencilResolve`](Extensions::KHR_DepthStencilResolve)
+    /// - Extension [`KHR_DepthStencilResolve`](Extension::KHR_DepthStencilResolve)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -3991,7 +3991,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.2 with appropriate features
-        /// - Extension [`KHR_DepthStencilResolve`](Extensions::KHR_DepthStencilResolve)
+        /// - Extension [`KHR_DepthStencilResolve`](Extension::KHR_DepthStencilResolve)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4000,7 +4000,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.2 with appropriate features
-        /// - Extension [`KHR_DepthStencilResolve`](Extensions::KHR_DepthStencilResolve)
+        /// - Extension [`KHR_DepthStencilResolve`](Extension::KHR_DepthStencilResolve)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4009,7 +4009,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.2 with appropriate features
-        /// - Extension [`KHR_DepthStencilResolve`](Extensions::KHR_DepthStencilResolve)
+        /// - Extension [`KHR_DepthStencilResolve`](Extension::KHR_DepthStencilResolve)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4018,7 +4018,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.2 with appropriate features
-        /// - Extension [`KHR_DepthStencilResolve`](Extensions::KHR_DepthStencilResolve)
+        /// - Extension [`KHR_DepthStencilResolve`](Extension::KHR_DepthStencilResolve)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4027,7 +4027,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.2 with appropriate features
-        /// - Extension [`KHR_DepthStencilResolve`](Extensions::KHR_DepthStencilResolve)
+        /// - Extension [`KHR_DepthStencilResolve`](Extension::KHR_DepthStencilResolve)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4035,7 +4035,7 @@ flagset::flags! {
         MAX = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ANDROID_ExternalFormatResolve`](Extensions::ANDROID_ExternalFormatResolve)
+        /// - Extension [`ANDROID_ExternalFormatResolve`](Extension::ANDROID_ExternalFormatResolve)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4043,7 +4043,7 @@ flagset::flags! {
         EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_CustomResolve`](Extensions::EXT_CustomResolve)
+        /// - Extension [`EXT_CustomResolve`](Extension::EXT_CustomResolve)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4094,7 +4094,7 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
-    /// - Extension [`KHR_TimelineSemaphore`](Extensions::KHR_TimelineSemaphore)
+    /// - Extension [`KHR_TimelineSemaphore`](Extension::KHR_TimelineSemaphore)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -4104,7 +4104,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.2 with appropriate features
-        /// - Extension [`KHR_TimelineSemaphore`](Extensions::KHR_TimelineSemaphore)
+        /// - Extension [`KHR_TimelineSemaphore`](Extension::KHR_TimelineSemaphore)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4137,7 +4137,7 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.2 with appropriate features
-    /// - Extension [`EXT_DescriptorIndexing`](Extensions::EXT_DescriptorIndexing)
+    /// - Extension [`EXT_DescriptorIndexing`](Extension::EXT_DescriptorIndexing)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -4147,7 +4147,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.2 with appropriate features
-        /// - Extension [`EXT_DescriptorIndexing`](Extensions::EXT_DescriptorIndexing)
+        /// - Extension [`EXT_DescriptorIndexing`](Extension::EXT_DescriptorIndexing)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4156,7 +4156,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.2 with appropriate features
-        /// - Extension [`EXT_DescriptorIndexing`](Extensions::EXT_DescriptorIndexing)
+        /// - Extension [`EXT_DescriptorIndexing`](Extension::EXT_DescriptorIndexing)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4165,7 +4165,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.2 with appropriate features
-        /// - Extension [`EXT_DescriptorIndexing`](Extensions::EXT_DescriptorIndexing)
+        /// - Extension [`EXT_DescriptorIndexing`](Extension::EXT_DescriptorIndexing)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4174,7 +4174,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.2 with appropriate features
-        /// - Extension [`EXT_DescriptorIndexing`](Extensions::EXT_DescriptorIndexing)
+        /// - Extension [`EXT_DescriptorIndexing`](Extension::EXT_DescriptorIndexing)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4219,7 +4219,7 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`EXT_ToolingInfo`](Extensions::EXT_ToolingInfo)
+    /// - Extension [`EXT_ToolingInfo`](Extension::EXT_ToolingInfo)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -4231,7 +4231,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`EXT_ToolingInfo`](Extensions::EXT_ToolingInfo)
+        /// - Extension [`EXT_ToolingInfo`](Extension::EXT_ToolingInfo)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4240,7 +4240,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`EXT_ToolingInfo`](Extensions::EXT_ToolingInfo)
+        /// - Extension [`EXT_ToolingInfo`](Extension::EXT_ToolingInfo)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4249,7 +4249,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`EXT_ToolingInfo`](Extensions::EXT_ToolingInfo)
+        /// - Extension [`EXT_ToolingInfo`](Extension::EXT_ToolingInfo)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4258,7 +4258,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`EXT_ToolingInfo`](Extensions::EXT_ToolingInfo)
+        /// - Extension [`EXT_ToolingInfo`](Extension::EXT_ToolingInfo)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4267,7 +4267,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`EXT_ToolingInfo`](Extensions::EXT_ToolingInfo)
+        /// - Extension [`EXT_ToolingInfo`](Extension::EXT_ToolingInfo)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4276,7 +4276,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`EXT_ToolingInfo`](Extensions::EXT_ToolingInfo)
+        /// - Extension [`EXT_ToolingInfo`](Extension::EXT_ToolingInfo)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4285,7 +4285,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`EXT_ToolingInfo`](Extensions::EXT_ToolingInfo)
+        /// - Extension [`EXT_ToolingInfo`](Extension::EXT_ToolingInfo)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4336,7 +4336,7 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`EXT_PrivateData`](Extensions::EXT_PrivateData)
+    /// - Extension [`EXT_PrivateData`](Extension::EXT_PrivateData)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -4345,7 +4345,7 @@ flagset::flags! {
     pub enum PrivateDataSlotCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_PrivateDataBaseHandle`](Extensions::NV_PrivateDataBaseHandle)
+        /// - Extension [`NV_PrivateDataBaseHandle`](Extension::NV_PrivateDataBaseHandle)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4372,7 +4372,7 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+    /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -4382,7 +4382,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4391,7 +4391,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4400,7 +4400,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4409,7 +4409,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4418,7 +4418,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4427,7 +4427,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4436,7 +4436,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4445,7 +4445,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4454,7 +4454,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4463,7 +4463,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4472,7 +4472,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4481,7 +4481,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4490,7 +4490,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4499,7 +4499,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4508,7 +4508,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4517,7 +4517,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4526,7 +4526,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4535,7 +4535,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4544,7 +4544,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4553,7 +4553,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4562,7 +4562,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4571,7 +4571,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4580,7 +4580,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4589,7 +4589,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4598,7 +4598,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4606,7 +4606,7 @@ flagset::flags! {
         PRE_RASTERIZATION_SHADERS = 274877906944,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+        /// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4614,7 +4614,7 @@ flagset::flags! {
         VIDEO_DECODE_KHR = 67108864,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4623,7 +4623,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4632,7 +4632,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4641,7 +4641,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4650,7 +4650,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4659,7 +4659,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4668,7 +4668,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4677,7 +4677,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4686,7 +4686,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4695,7 +4695,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4703,7 +4703,7 @@ flagset::flags! {
         MESH_SHADER_EXT = 1048576,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`HUAWEI_SubpassShading`](Extensions::HUAWEI_SubpassShading)
+        /// - Extension [`HUAWEI_SubpassShading`](Extension::HUAWEI_SubpassShading)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4711,7 +4711,7 @@ flagset::flags! {
         SUBPASS_SHADER_HUAWEI = 549755813888,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`HUAWEI_InvocationMask`](Extensions::HUAWEI_InvocationMask)
+        /// - Extension [`HUAWEI_InvocationMask`](Extension::HUAWEI_InvocationMask)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4719,7 +4719,7 @@ flagset::flags! {
         INVOCATION_MASK_HUAWEI = 1099511627776,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_RayTracingMaintenance1`](Extensions::KHR_RayTracingMaintenance1)
+        /// - Extension [`KHR_RayTracingMaintenance1`](Extension::KHR_RayTracingMaintenance1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4727,8 +4727,8 @@ flagset::flags! {
         ACCELERATION_STRUCTURE_COPY_KHR = 268435456,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+        /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+        /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4736,7 +4736,7 @@ flagset::flags! {
         MICROMAP_BUILD_EXT = 1073741824,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`HUAWEI_ClusterCullingShader`](Extensions::HUAWEI_ClusterCullingShader)
+        /// - Extension [`HUAWEI_ClusterCullingShader`](Extension::HUAWEI_ClusterCullingShader)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4744,7 +4744,7 @@ flagset::flags! {
         CLUSTER_CULLING_SHADER_HUAWEI = 2199023255552,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+        /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4752,7 +4752,7 @@ flagset::flags! {
         OPTICAL_FLOW_NV = 536870912,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_CooperativeVector`](Extensions::NV_CooperativeVector)
+        /// - Extension [`NV_CooperativeVector`](Extension::NV_CooperativeVector)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4760,7 +4760,7 @@ flagset::flags! {
         CONVERT_COOPERATIVE_VECTOR_MATRIX_NV = 17592186044416,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+        /// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4768,7 +4768,7 @@ flagset::flags! {
         DATA_GRAPH_ARM = 4398046511104,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
+        /// - Extension [`KHR_CopyMemoryIndirect`](Extension::KHR_CopyMemoryIndirect)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4776,7 +4776,7 @@ flagset::flags! {
         COPY_INDIRECT_KHR = 70368744177664,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_MemoryDecompression`](Extensions::EXT_MemoryDecompression)
+        /// - Extension [`EXT_MemoryDecompression`](Extension::EXT_MemoryDecompression)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4941,7 +4941,7 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+    /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -4951,7 +4951,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4960,7 +4960,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4969,7 +4969,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4978,7 +4978,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4987,7 +4987,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -4996,7 +4996,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5005,7 +5005,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5014,7 +5014,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5023,7 +5023,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5032,7 +5032,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5041,7 +5041,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5050,7 +5050,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5059,7 +5059,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5068,7 +5068,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5077,7 +5077,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5086,7 +5086,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5095,7 +5095,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5104,7 +5104,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5113,7 +5113,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5122,7 +5122,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5131,7 +5131,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5139,7 +5139,7 @@ flagset::flags! {
         SHADER_STORAGE_WRITE = 17179869184,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+        /// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5147,7 +5147,7 @@ flagset::flags! {
         VIDEO_DECODE_READ_KHR = 34359738368,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+        /// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5155,7 +5155,7 @@ flagset::flags! {
         VIDEO_DECODE_WRITE_KHR = 68719476736,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5163,7 +5163,7 @@ flagset::flags! {
         SAMPLER_HEAP_READ_EXT = 144115188075855872,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5171,7 +5171,7 @@ flagset::flags! {
         RESOURCE_HEAP_READ_EXT = 288230376151711744,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5179,7 +5179,7 @@ flagset::flags! {
         VIDEO_ENCODE_READ_KHR = 137438953472,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5187,7 +5187,7 @@ flagset::flags! {
         VIDEO_ENCODE_WRITE_KHR = 274877906944,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`QCOM_TileShading`](Extensions::QCOM_TileShading)
+        /// - Extension [`QCOM_TileShading`](Extension::QCOM_TileShading)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5195,7 +5195,7 @@ flagset::flags! {
         SHADER_TILE_ATTACHMENT_READ_QCOM = 2251799813685248,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`QCOM_TileShading`](Extensions::QCOM_TileShading)
+        /// - Extension [`QCOM_TileShading`](Extension::QCOM_TileShading)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5204,7 +5204,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5213,7 +5213,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5222,7 +5222,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5231,7 +5231,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5240,7 +5240,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5249,7 +5249,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5258,7 +5258,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5267,7 +5267,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5276,7 +5276,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5285,7 +5285,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5294,7 +5294,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5302,8 +5302,8 @@ flagset::flags! {
         COLOR_ATTACHMENT_READ_NONCOHERENT_EXT = 524288,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5311,7 +5311,7 @@ flagset::flags! {
         DESCRIPTOR_BUFFER_READ_EXT = 2199023255552,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`HUAWEI_InvocationMask`](Extensions::HUAWEI_InvocationMask)
+        /// - Extension [`HUAWEI_InvocationMask`](Extension::HUAWEI_InvocationMask)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5319,7 +5319,7 @@ flagset::flags! {
         INVOCATION_MASK_READ_HUAWEI = 549755813888,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_RayTracingMaintenance1`](Extensions::KHR_RayTracingMaintenance1)
+        /// - Extension [`KHR_RayTracingMaintenance1`](Extension::KHR_RayTracingMaintenance1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5327,8 +5327,8 @@ flagset::flags! {
         SHADER_BINDING_TABLE_READ_KHR = 1099511627776,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+        /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+        /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5336,8 +5336,8 @@ flagset::flags! {
         MICROMAP_READ_EXT = 17592186044416,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+        /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+        /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5345,7 +5345,7 @@ flagset::flags! {
         MICROMAP_WRITE_EXT = 35184372088832,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+        /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5353,7 +5353,7 @@ flagset::flags! {
         OPTICAL_FLOW_READ_NV = 4398046511104,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+        /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5361,7 +5361,7 @@ flagset::flags! {
         OPTICAL_FLOW_WRITE_NV = 8796093022208,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+        /// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5369,7 +5369,7 @@ flagset::flags! {
         DATA_GRAPH_READ_ARM = 140737488355328,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+        /// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5377,7 +5377,7 @@ flagset::flags! {
         DATA_GRAPH_WRITE_ARM = 281474976710656,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_MemoryDecompression`](Extensions::EXT_MemoryDecompression)
+        /// - Extension [`EXT_MemoryDecompression`](Extension::EXT_MemoryDecompression)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5385,7 +5385,7 @@ flagset::flags! {
         MEMORY_DECOMPRESSION_READ_EXT = 36028797018963968,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_MemoryDecompression`](Extensions::EXT_MemoryDecompression)
+        /// - Extension [`EXT_MemoryDecompression`](Extension::EXT_MemoryDecompression)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5518,7 +5518,7 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+    /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -5528,7 +5528,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_Synchronization2`](Extensions::KHR_Synchronization2)
+        /// - Extension [`KHR_Synchronization2`](Extension::KHR_Synchronization2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5561,7 +5561,7 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+    /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -5573,7 +5573,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5582,7 +5582,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5591,7 +5591,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5600,7 +5600,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5609,7 +5609,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5618,7 +5618,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5627,7 +5627,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5636,7 +5636,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5645,7 +5645,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5654,7 +5654,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5663,7 +5663,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5672,7 +5672,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5681,7 +5681,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5690,7 +5690,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5699,7 +5699,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5708,7 +5708,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5717,7 +5717,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5726,7 +5726,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5735,7 +5735,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5744,7 +5744,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5753,7 +5753,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5762,7 +5762,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5771,7 +5771,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5780,7 +5780,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5789,7 +5789,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5798,7 +5798,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5807,7 +5807,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_FormatFeatureFlags2`](Extensions::KHR_FormatFeatureFlags2)
+        /// - Extension [`KHR_FormatFeatureFlags2`](Extension::KHR_FormatFeatureFlags2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5816,7 +5816,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
+        /// - Extension [`EXT_HostImageCopy`](Extension::EXT_HostImageCopy)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5824,7 +5824,7 @@ flagset::flags! {
         HOST_IMAGE_TRANSFER = 70368744177664,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+        /// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5832,7 +5832,7 @@ flagset::flags! {
         VIDEO_DECODE_OUTPUT_KHR = 33554432,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+        /// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5840,7 +5840,7 @@ flagset::flags! {
         VIDEO_DECODE_DPB_KHR = 67108864,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+        /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5848,7 +5848,7 @@ flagset::flags! {
         ACCELERATION_STRUCTURE_VERTEX_BUFFER_KHR = 536870912,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_FragmentDensityMap`](Extensions::EXT_FragmentDensityMap)
+        /// - Extension [`EXT_FragmentDensityMap`](Extension::EXT_FragmentDensityMap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5856,7 +5856,7 @@ flagset::flags! {
         FRAGMENT_DENSITY_MAP_EXT = 16777216,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_FragmentShadingRate`](Extensions::KHR_FragmentShadingRate)
+        /// - Extension [`KHR_FragmentShadingRate`](Extension::KHR_FragmentShadingRate)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5864,7 +5864,7 @@ flagset::flags! {
         FRAGMENT_SHADING_RATE_ATTACHMENT_KHR = 1073741824,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5872,7 +5872,7 @@ flagset::flags! {
         VIDEO_ENCODE_INPUT_KHR = 134217728,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5880,7 +5880,7 @@ flagset::flags! {
         VIDEO_ENCODE_DPB_KHR = 268435456,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`QCOM_ImageProcessing3`](Extensions::QCOM_ImageProcessing3)
+        /// - Extension [`QCOM_ImageProcessing3`](Extension::QCOM_ImageProcessing3)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5888,7 +5888,7 @@ flagset::flags! {
         BLOCK_MATCHING_SXD_QCOM = 17592186044416,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracingLinearSweptSpheres`](Extensions::NV_RayTracingLinearSweptSpheres)
+        /// - Extension [`NV_RayTracingLinearSweptSpheres`](Extension::NV_RayTracingLinearSweptSpheres)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5896,7 +5896,7 @@ flagset::flags! {
         ACCELERATION_STRUCTURE_RADIUS_BUFFER_NV = 2251799813685248,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_LinearColorAttachment`](Extensions::NV_LinearColorAttachment)
+        /// - Extension [`NV_LinearColorAttachment`](Extension::NV_LinearColorAttachment)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5904,7 +5904,7 @@ flagset::flags! {
         LINEAR_COLOR_ATTACHMENT_NV = 274877906944,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`QCOM_ImageProcessing`](Extensions::QCOM_ImageProcessing)
+        /// - Extension [`QCOM_ImageProcessing`](Extension::QCOM_ImageProcessing)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5912,7 +5912,7 @@ flagset::flags! {
         WEIGHT_IMAGE_QCOM = 17179869184,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`QCOM_ImageProcessing`](Extensions::QCOM_ImageProcessing)
+        /// - Extension [`QCOM_ImageProcessing`](Extension::QCOM_ImageProcessing)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5920,7 +5920,7 @@ flagset::flags! {
         WEIGHT_SAMPLED_IMAGE_QCOM = 34359738368,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`QCOM_ImageProcessing`](Extensions::QCOM_ImageProcessing)
+        /// - Extension [`QCOM_ImageProcessing`](Extension::QCOM_ImageProcessing)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5928,7 +5928,7 @@ flagset::flags! {
         BLOCK_MATCHING_QCOM = 68719476736,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`QCOM_ImageProcessing`](Extensions::QCOM_ImageProcessing)
+        /// - Extension [`QCOM_ImageProcessing`](Extension::QCOM_ImageProcessing)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5936,7 +5936,7 @@ flagset::flags! {
         BOX_FILTER_SAMPLED_QCOM = 137438953472,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+        /// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5944,7 +5944,7 @@ flagset::flags! {
         TENSOR_SHADER_ARM = 549755813888,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+        /// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5952,7 +5952,7 @@ flagset::flags! {
         TENSOR_IMAGE_ALIASING_ARM = 8796093022208,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+        /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5960,7 +5960,7 @@ flagset::flags! {
         OPTICAL_FLOW_IMAGE_NV = 1099511627776,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+        /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5968,7 +5968,7 @@ flagset::flags! {
         OPTICAL_FLOW_VECTOR_NV = 2199023255552,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+        /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5976,7 +5976,7 @@ flagset::flags! {
         OPTICAL_FLOW_COST_NV = 4398046511104,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+        /// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5984,7 +5984,7 @@ flagset::flags! {
         TENSOR_DATA_GRAPH_ARM = 281474976710656,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
+        /// - Extension [`KHR_CopyMemoryIndirect`](Extension::KHR_CopyMemoryIndirect)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -5992,7 +5992,7 @@ flagset::flags! {
         COPY_IMAGE_INDIRECT_DST_KHR = 576460752303423488,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extensions::KHR_VideoEncodeQuantizationMap)
+        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extension::KHR_VideoEncodeQuantizationMap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6000,7 +6000,7 @@ flagset::flags! {
         VIDEO_ENCODE_QUANTIZATION_DELTA_MAP_KHR = 562949953421312,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extensions::KHR_VideoEncodeQuantizationMap)
+        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extension::KHR_VideoEncodeQuantizationMap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6008,7 +6008,7 @@ flagset::flags! {
         VIDEO_ENCODE_EMPHASIS_MAP_KHR = 1125899906842624,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`IMG_FilterLinear2D`](Extensions::IMG_FilterLinear2D)
+        /// - Extension [`IMG_FilterLinear2D`](Extension::IMG_FilterLinear2D)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6016,7 +6016,7 @@ flagset::flags! {
         SAMPLED_IMAGE_FILTER_LINEAR_2D_IMG = 35184372088832,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
+        /// - Extension [`KHR_Maintenance10`](Extension::KHR_Maintenance10)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6024,7 +6024,7 @@ flagset::flags! {
         DEPTH_COPY_ON_COMPUTE_QUEUE_KHR = 4503599627370496,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
+        /// - Extension [`KHR_Maintenance10`](Extension::KHR_Maintenance10)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6032,7 +6032,7 @@ flagset::flags! {
         DEPTH_COPY_ON_TRANSFER_QUEUE_KHR = 9007199254740992,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
+        /// - Extension [`KHR_Maintenance10`](Extension::KHR_Maintenance10)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6040,7 +6040,7 @@ flagset::flags! {
         STENCIL_COPY_ON_COMPUTE_QUEUE_KHR = 18014398509481984,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
+        /// - Extension [`KHR_Maintenance10`](Extension::KHR_Maintenance10)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6048,7 +6048,7 @@ flagset::flags! {
         STENCIL_COPY_ON_TRANSFER_QUEUE_KHR = 36028797018963968,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+        /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6056,7 +6056,7 @@ flagset::flags! {
         DATA_GRAPH_OPTICAL_FLOW_IMAGE_ARM = 72057594037927936,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+        /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6064,7 +6064,7 @@ flagset::flags! {
         DATA_GRAPH_OPTICAL_FLOW_VECTOR_ARM = 144115188075855872,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+        /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6217,7 +6217,7 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`EXT_PipelineCreationFeedback`](Extensions::EXT_PipelineCreationFeedback)
+    /// - Extension [`EXT_PipelineCreationFeedback`](Extension::EXT_PipelineCreationFeedback)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -6229,7 +6229,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`EXT_PipelineCreationFeedback`](Extensions::EXT_PipelineCreationFeedback)
+        /// - Extension [`EXT_PipelineCreationFeedback`](Extension::EXT_PipelineCreationFeedback)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6238,7 +6238,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`EXT_PipelineCreationFeedback`](Extensions::EXT_PipelineCreationFeedback)
+        /// - Extension [`EXT_PipelineCreationFeedback`](Extension::EXT_PipelineCreationFeedback)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6247,7 +6247,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`EXT_PipelineCreationFeedback`](Extensions::EXT_PipelineCreationFeedback)
+        /// - Extension [`EXT_PipelineCreationFeedback`](Extension::EXT_PipelineCreationFeedback)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6290,7 +6290,7 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.3 with appropriate features
-    /// - Extension [`KHR_DynamicRendering`](Extensions::KHR_DynamicRendering)
+    /// - Extension [`KHR_DynamicRendering`](Extension::KHR_DynamicRendering)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -6300,7 +6300,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_DynamicRendering`](Extensions::KHR_DynamicRendering)
+        /// - Extension [`KHR_DynamicRendering`](Extension::KHR_DynamicRendering)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6309,7 +6309,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_DynamicRendering`](Extensions::KHR_DynamicRendering)
+        /// - Extension [`KHR_DynamicRendering`](Extension::KHR_DynamicRendering)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6318,7 +6318,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.3 with appropriate features
-        /// - Extension [`KHR_DynamicRendering`](Extensions::KHR_DynamicRendering)
+        /// - Extension [`KHR_DynamicRendering`](Extension::KHR_DynamicRendering)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6326,7 +6326,7 @@ flagset::flags! {
         RESUMING = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_LegacyDithering`](Extensions::EXT_LegacyDithering)
+        /// - Extension [`EXT_LegacyDithering`](Extension::EXT_LegacyDithering)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6334,8 +6334,8 @@ flagset::flags! {
         ENABLE_LEGACY_DITHERING_EXT = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Maintenance7`](Extensions::KHR_Maintenance7)
-        /// - Extension [`EXT_NestedCommandBuffer`](Extensions::EXT_NestedCommandBuffer)
+        /// - Extension [`KHR_Maintenance7`](Extension::KHR_Maintenance7)
+        /// - Extension [`EXT_NestedCommandBuffer`](Extension::EXT_NestedCommandBuffer)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6343,7 +6343,7 @@ flagset::flags! {
         CONTENTS_INLINE_KHR = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`VALVE_FragmentDensityMapLayered`](Extensions::VALVE_FragmentDensityMapLayered)
+        /// - Extension [`VALVE_FragmentDensityMapLayered`](Extension::VALVE_FragmentDensityMapLayered)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6351,7 +6351,7 @@ flagset::flags! {
         PER_LAYER_FRAGMENT_DENSITY_VALVE = 32,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_CustomResolve`](Extensions::EXT_CustomResolve)
+        /// - Extension [`EXT_CustomResolve`](Extension::EXT_CustomResolve)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6359,7 +6359,7 @@ flagset::flags! {
         FRAGMENT_REGION_EXT = 64,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_CustomResolve`](Extensions::EXT_CustomResolve)
+        /// - Extension [`EXT_CustomResolve`](Extension::EXT_CustomResolve)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6367,7 +6367,7 @@ flagset::flags! {
         CUSTOM_RESOLVE_EXT = 128,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
+        /// - Extension [`KHR_Maintenance10`](Extension::KHR_Maintenance10)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6413,7 +6413,7 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
-    /// - Extension [`KHR_MapMemory2`](Extensions::KHR_MapMemory2)
+    /// - Extension [`KHR_MapMemory2`](Extension::KHR_MapMemory2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -6422,7 +6422,7 @@ flagset::flags! {
     pub enum MemoryUnmapFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_MapMemoryPlaced`](Extensions::EXT_MapMemoryPlaced)
+        /// - Extension [`EXT_MapMemoryPlaced`](Extension::EXT_MapMemoryPlaced)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6449,8 +6449,8 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
-    /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-    /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+    /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+    /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -6460,8 +6460,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6470,8 +6470,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6480,8 +6480,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6490,8 +6490,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6500,8 +6500,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6510,8 +6510,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6520,8 +6520,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6530,8 +6530,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6540,8 +6540,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6550,8 +6550,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6559,7 +6559,7 @@ flagset::flags! {
         SHADER_DEVICE_ADDRESS = 131072,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
+        /// - Extension [`AMDX_ShaderEnqueue`](Extension::AMDX_ShaderEnqueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6567,7 +6567,7 @@ flagset::flags! {
         EXECUTION_GRAPH_SCRATCH_AMDX = 33554432,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6575,9 +6575,9 @@ flagset::flags! {
         DESCRIPTOR_HEAP_EXT = 268435456,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
-        /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
+        /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+        /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6585,9 +6585,9 @@ flagset::flags! {
         MICROMAP_BUILD_INPUT_READ_ONLY_EXT = 8388608,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
-        /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
+        /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+        /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6596,8 +6596,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6606,8 +6606,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6616,8 +6616,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6626,8 +6626,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6636,8 +6636,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6646,8 +6646,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6656,8 +6656,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6666,8 +6666,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6676,8 +6676,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6686,8 +6686,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6696,8 +6696,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6706,8 +6706,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6716,8 +6716,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6725,7 +6725,7 @@ flagset::flags! {
         PUSH_DESCRIPTORS_DESCRIPTOR_BUFFER_EXT = 67108864,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`AMDX_DenseGeometryFormat`](Extensions::AMDX_DenseGeometryFormat)
+        /// - Extension [`AMDX_DenseGeometryFormat`](Extension::AMDX_DenseGeometryFormat)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6733,7 +6733,7 @@ flagset::flags! {
         COMPRESSED_DATA_DGF1_AMDX = 8589934592,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+        /// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6741,7 +6741,7 @@ flagset::flags! {
         DATA_GRAPH_FOREIGN_DESCRIPTOR_ARM = 536870912,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`QCOM_TileMemoryHeap`](Extensions::QCOM_TileMemoryHeap)
+        /// - Extension [`QCOM_TileMemoryHeap`](Extension::QCOM_TileMemoryHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6749,7 +6749,7 @@ flagset::flags! {
         TILE_MEMORY_QCOM = 134217728,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_MemoryDecompression`](Extensions::EXT_MemoryDecompression)
+        /// - Extension [`EXT_MemoryDecompression`](Extension::EXT_MemoryDecompression)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6757,7 +6757,7 @@ flagset::flags! {
         MEMORY_DECOMPRESSION_EXT = 4294967296,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+        /// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6830,7 +6830,7 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
-    /// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
+    /// - Extension [`EXT_HostImageCopy`](Extension::EXT_HostImageCopy)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -6840,7 +6840,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`EXT_HostImageCopy`](Extensions::EXT_HostImageCopy)
+        /// - Extension [`EXT_HostImageCopy`](Extension::EXT_HostImageCopy)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6873,8 +6873,8 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.4 with appropriate features
-    /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-    /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+    /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+    /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -6884,8 +6884,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6894,8 +6894,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6904,8 +6904,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6914,8 +6914,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6924,8 +6924,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6934,8 +6934,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6944,8 +6944,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6954,7 +6954,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6963,7 +6963,7 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6971,7 +6971,7 @@ flagset::flags! {
         PROTECTED_ACCESS_ONLY = 1073741824,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`AMDX_ShaderEnqueue`](Extensions::AMDX_ShaderEnqueue)
+        /// - Extension [`AMDX_ShaderEnqueue`](Extension::AMDX_ShaderEnqueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6979,7 +6979,7 @@ flagset::flags! {
         EXECUTION_GRAPH_AMDX = 4294967296,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6987,7 +6987,7 @@ flagset::flags! {
         DESCRIPTOR_HEAP_EXT = 68719476736,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracingLinearSweptSpheres`](Extensions::NV_RayTracingLinearSweptSpheres)
+        /// - Extension [`NV_RayTracingLinearSweptSpheres`](Extension::NV_RayTracingLinearSweptSpheres)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -6995,7 +6995,7 @@ flagset::flags! {
         RAY_TRACING_ALLOW_SPHERES_AND_LINEAR_SWEPT_SPHERES_NV = 8589934592,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_LegacyDithering`](Extensions::EXT_LegacyDithering)
+        /// - Extension [`EXT_LegacyDithering`](Extension::EXT_LegacyDithering)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7004,8 +7004,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7014,8 +7014,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7024,8 +7024,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7034,8 +7034,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7044,8 +7044,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7054,8 +7054,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7064,9 +7064,9 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7075,8 +7075,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7085,8 +7085,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7095,8 +7095,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7105,8 +7105,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7115,8 +7115,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7125,8 +7125,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7135,8 +7135,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7145,8 +7145,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7155,8 +7155,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7165,8 +7165,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7175,8 +7175,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7185,8 +7185,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7195,8 +7195,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7205,8 +7205,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7215,9 +7215,9 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
-        /// - Extension [`ARM_PipelineOpacityMicromap`](Extensions::ARM_PipelineOpacityMicromap)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
+        /// - Extension [`ARM_PipelineOpacityMicromap`](Extension::ARM_PipelineOpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7226,8 +7226,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`ARM_ShaderInstrumentation`](Extension::ARM_ShaderInstrumentation)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7235,7 +7235,7 @@ flagset::flags! {
         INSTRUMENT_SHADERS_ARM = 549755813888,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_PipelineBinary`](Extensions::KHR_PipelineBinary)
+        /// - Extension [`KHR_PipelineBinary`](Extension::KHR_PipelineBinary)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7243,7 +7243,7 @@ flagset::flags! {
         CAPTURE_DATA_KHR = 2147483648,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+        /// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7251,7 +7251,7 @@ flagset::flags! {
         INDIRECT_BINDABLE_EXT = 274877906944,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`VALVE_FragmentDensityMapLayered`](Extensions::VALVE_FragmentDensityMapLayered)
+        /// - Extension [`VALVE_FragmentDensityMapLayered`](Extension::VALVE_FragmentDensityMapLayered)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7259,9 +7259,9 @@ flagset::flags! {
         PER_LAYER_FRAGMENT_DENSITY_VALVE = 1099511627776,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
-        /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+        /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
+        /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7269,7 +7269,7 @@ flagset::flags! {
         RAY_TRACING_OPACITY_MICROMAP_KHR = 16777216,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+        /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7277,7 +7277,7 @@ flagset::flags! {
         OPACITY_MICROMAP_DISALLOW_MIXED_SPECIAL_INDEX_KHR = 2199023255552,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_Shader64BitIndexing`](Extensions::EXT_Shader64BitIndexing)
+        /// - Extension [`EXT_Shader64BitIndexing`](Extension::EXT_Shader64BitIndexing)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7349,8 +7349,8 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
-    /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+    /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
+    /// - Extension [`KHR_Display`](Extension::KHR_Display)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -7359,8 +7359,8 @@ flagset::flags! {
     pub enum SurfaceTransformFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
-        /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+        /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
+        /// - Extension [`KHR_Display`](Extension::KHR_Display)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7368,8 +7368,8 @@ flagset::flags! {
         IDENTITY_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
-        /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+        /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
+        /// - Extension [`KHR_Display`](Extension::KHR_Display)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7377,8 +7377,8 @@ flagset::flags! {
         ROTATE_90_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
-        /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+        /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
+        /// - Extension [`KHR_Display`](Extension::KHR_Display)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7386,8 +7386,8 @@ flagset::flags! {
         ROTATE_180_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
-        /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+        /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
+        /// - Extension [`KHR_Display`](Extension::KHR_Display)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7395,8 +7395,8 @@ flagset::flags! {
         ROTATE_270_KHR = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
-        /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+        /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
+        /// - Extension [`KHR_Display`](Extension::KHR_Display)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7404,8 +7404,8 @@ flagset::flags! {
         HORIZONTAL_MIRROR_KHR = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
-        /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+        /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
+        /// - Extension [`KHR_Display`](Extension::KHR_Display)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7413,8 +7413,8 @@ flagset::flags! {
         HORIZONTAL_MIRROR_ROTATE_90_KHR = 32,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
-        /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+        /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
+        /// - Extension [`KHR_Display`](Extension::KHR_Display)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7422,8 +7422,8 @@ flagset::flags! {
         HORIZONTAL_MIRROR_ROTATE_180_KHR = 64,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
-        /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+        /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
+        /// - Extension [`KHR_Display`](Extension::KHR_Display)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7431,8 +7431,8 @@ flagset::flags! {
         HORIZONTAL_MIRROR_ROTATE_270_KHR = 128,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
-        /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+        /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
+        /// - Extension [`KHR_Display`](Extension::KHR_Display)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7444,8 +7444,8 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
-/// - Extension [`KHR_Display`](Extensions::KHR_Display)
+/// - Extension [`KHR_Surface`](Extension::KHR_Surface)
+/// - Extension [`KHR_Display`](Extension::KHR_Display)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7459,7 +7459,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
+    /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -7468,7 +7468,7 @@ flagset::flags! {
     pub enum CompositeAlphaFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
+        /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7476,7 +7476,7 @@ flagset::flags! {
         OPAQUE_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
+        /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7484,7 +7484,7 @@ flagset::flags! {
         PRE_MULTIPLIED_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
+        /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7492,7 +7492,7 @@ flagset::flags! {
         POST_MULTIPLIED_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
+        /// - Extension [`KHR_Surface`](Extension::KHR_Surface)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7504,7 +7504,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Surface`](Extensions::KHR_Surface)
+/// - Extension [`KHR_Surface`](Extension::KHR_Surface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7518,7 +7518,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -7528,8 +7528,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
-        /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+        /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+        /// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7537,7 +7537,7 @@ flagset::flags! {
         SPLIT_INSTANCE_BIND_REGIONS_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
+        /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7545,7 +7545,7 @@ flagset::flags! {
         PROTECTED_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_SwapchainMutableFormat`](Extensions::KHR_SwapchainMutableFormat)
+        /// - Extension [`KHR_SwapchainMutableFormat`](Extension::KHR_SwapchainMutableFormat)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7553,7 +7553,7 @@ flagset::flags! {
         MUTABLE_FORMAT_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+        /// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7561,7 +7561,7 @@ flagset::flags! {
         PRESENT_TIMING_EXT = 512,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_PresentId2`](Extensions::KHR_PresentId2)
+        /// - Extension [`KHR_PresentId2`](Extension::KHR_PresentId2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7569,7 +7569,7 @@ flagset::flags! {
         PRESENT_ID_2_KHR = 64,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_PresentWait2`](Extensions::KHR_PresentWait2)
+        /// - Extension [`KHR_PresentWait2`](Extension::KHR_PresentWait2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7577,8 +7577,8 @@ flagset::flags! {
         PRESENT_WAIT_2_KHR = 128,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_SwapchainMaintenance1`](Extensions::KHR_SwapchainMaintenance1)
-        /// - Extension [`EXT_SwapchainMaintenance1`](Extensions::EXT_SwapchainMaintenance1)
+        /// - Extension [`KHR_SwapchainMaintenance1`](Extension::KHR_SwapchainMaintenance1)
+        /// - Extension [`EXT_SwapchainMaintenance1`](Extension::EXT_SwapchainMaintenance1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7586,7 +7586,7 @@ flagset::flags! {
         DEFERRED_MEMORY_ALLOCATION_KHR = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_MultisampledRenderToSwapchain`](Extensions::EXT_MultisampledRenderToSwapchain)
+        /// - Extension [`EXT_MultisampledRenderToSwapchain`](Extension::EXT_MultisampledRenderToSwapchain)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7604,7 +7604,7 @@ impl SwapchainCreateFlagKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
+/// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7617,8 +7617,8 @@ flagset::flags! {
     /// # Requirements
     /// This requires _at least_ one of the following:
     /// - Version 1.1 with appropriate features
-    /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
-    /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+    /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+    /// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -7628,8 +7628,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
-        /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+        /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+        /// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7638,8 +7638,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
-        /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+        /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+        /// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7648,8 +7648,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
-        /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+        /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+        /// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7658,8 +7658,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.1 with appropriate features
-        /// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
-        /// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+        /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+        /// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7672,8 +7672,8 @@ flagset::flags! {
 /// # Requirements
 /// This requires _at least_ one of the following:
 /// - Version 1.1 with appropriate features
-/// - Extension [`KHR_Swapchain`](Extensions::KHR_Swapchain)
-/// - Extension [`KHR_DeviceGroup`](Extensions::KHR_DeviceGroup)
+/// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
+/// - Extension [`KHR_DeviceGroup`](Extension::KHR_DeviceGroup)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7685,7 +7685,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+    /// - Extension [`KHR_Display`](Extension::KHR_Display)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -7694,7 +7694,7 @@ flagset::flags! {
     pub enum DisplayPlaneAlphaFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+        /// - Extension [`KHR_Display`](Extension::KHR_Display)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7702,7 +7702,7 @@ flagset::flags! {
         OPAQUE_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+        /// - Extension [`KHR_Display`](Extension::KHR_Display)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7710,7 +7710,7 @@ flagset::flags! {
         GLOBAL_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+        /// - Extension [`KHR_Display`](Extension::KHR_Display)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7718,7 +7718,7 @@ flagset::flags! {
         PER_PIXEL_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Display`](Extensions::KHR_Display)
+        /// - Extension [`KHR_Display`](Extension::KHR_Display)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7730,7 +7730,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Display`](Extensions::KHR_Display)
+/// - Extension [`KHR_Display`](Extension::KHR_Display)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7744,7 +7744,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -7753,7 +7753,7 @@ flagset::flags! {
     pub enum VideoCodecOperationFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+        /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7761,7 +7761,7 @@ flagset::flags! {
         NONE_KHR = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7769,7 +7769,7 @@ flagset::flags! {
         ENCODE_H264_KHR = 65536,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7777,7 +7777,7 @@ flagset::flags! {
         ENCODE_H265_KHR = 131072,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeH264`](Extensions::KHR_VideoDecodeH264)
+        /// - Extension [`KHR_VideoDecodeH264`](Extension::KHR_VideoDecodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7785,7 +7785,7 @@ flagset::flags! {
         DECODE_H264_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeH265`](Extensions::KHR_VideoDecodeH265)
+        /// - Extension [`KHR_VideoDecodeH265`](Extension::KHR_VideoDecodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7793,7 +7793,7 @@ flagset::flags! {
         DECODE_H265_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeAv1`](Extensions::KHR_VideoDecodeAv1)
+        /// - Extension [`KHR_VideoDecodeAv1`](Extension::KHR_VideoDecodeAv1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7801,7 +7801,7 @@ flagset::flags! {
         DECODE_AV1_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+        /// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7809,7 +7809,7 @@ flagset::flags! {
         ENCODE_AV1_KHR = 262144,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeVp9`](Extensions::KHR_VideoDecodeVp9)
+        /// - Extension [`KHR_VideoDecodeVp9`](Extension::KHR_VideoDecodeVp9)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7821,7 +7821,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7835,7 +7835,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -7844,7 +7844,7 @@ flagset::flags! {
     pub enum VideoChromaSubsamplingFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+        /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7852,7 +7852,7 @@ flagset::flags! {
         INVALID_KHR = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+        /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7860,7 +7860,7 @@ flagset::flags! {
         MONOCHROME_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+        /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7868,7 +7868,7 @@ flagset::flags! {
         _420_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+        /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7876,7 +7876,7 @@ flagset::flags! {
         _422_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+        /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7888,7 +7888,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7900,7 +7900,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -7909,7 +7909,7 @@ flagset::flags! {
     pub enum VideoComponentBitDepthFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+        /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7917,7 +7917,7 @@ flagset::flags! {
         INVALID_KHR = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+        /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7925,7 +7925,7 @@ flagset::flags! {
         _8_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+        /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7933,7 +7933,7 @@ flagset::flags! {
         _10_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+        /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7945,7 +7945,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -7957,7 +7957,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -7968,7 +7968,7 @@ flagset::flags! {
     pub enum VideoCapabilityFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+        /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7976,7 +7976,7 @@ flagset::flags! {
         PROTECTED_CONTENT_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+        /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -7988,7 +7988,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8002,7 +8002,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8011,7 +8011,7 @@ flagset::flags! {
     pub enum VideoSessionCreateFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+        /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8019,7 +8019,7 @@ flagset::flags! {
         PROTECTED_CONTENT_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8027,7 +8027,7 @@ flagset::flags! {
         ALLOW_ENCODE_PARAMETER_OPTIMIZATIONS_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoMaintenance1`](Extensions::KHR_VideoMaintenance1)
+        /// - Extension [`KHR_VideoMaintenance1`](Extension::KHR_VideoMaintenance1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8035,7 +8035,7 @@ flagset::flags! {
         INLINE_QUERIES_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extensions::KHR_VideoEncodeQuantizationMap)
+        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extension::KHR_VideoEncodeQuantizationMap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8043,7 +8043,7 @@ flagset::flags! {
         ALLOW_ENCODE_QUANTIZATION_DELTA_MAP_KHR = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extensions::KHR_VideoEncodeQuantizationMap)
+        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extension::KHR_VideoEncodeQuantizationMap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8051,7 +8051,7 @@ flagset::flags! {
         ALLOW_ENCODE_EMPHASIS_MAP_KHR = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoMaintenance2`](Extensions::KHR_VideoMaintenance2)
+        /// - Extension [`KHR_VideoMaintenance2`](Extension::KHR_VideoMaintenance2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8063,7 +8063,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8075,7 +8075,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8084,7 +8084,7 @@ flagset::flags! {
     pub enum VideoSessionParametersCreateFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extensions::KHR_VideoEncodeQuantizationMap)
+        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extension::KHR_VideoEncodeQuantizationMap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8096,7 +8096,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8109,7 +8109,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+    /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8118,7 +8118,7 @@ flagset::flags! {
     pub enum VideoCodingControlFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+        /// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8126,7 +8126,7 @@ flagset::flags! {
         RESET_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8134,7 +8134,7 @@ flagset::flags! {
         ENCODE_RATE_CONTROL_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8146,7 +8146,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8158,7 +8158,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+    /// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8169,7 +8169,7 @@ flagset::flags! {
     pub enum VideoDecodeCapabilityFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+        /// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8177,7 +8177,7 @@ flagset::flags! {
         DPB_AND_OUTPUT_COINCIDE_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+        /// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8189,7 +8189,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+/// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8203,7 +8203,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+    /// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8212,7 +8212,7 @@ flagset::flags! {
     pub enum VideoDecodeUsageFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+        /// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8220,7 +8220,7 @@ flagset::flags! {
         DEFAULT_KHR = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+        /// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8228,7 +8228,7 @@ flagset::flags! {
         TRANSCODING_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+        /// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8236,7 +8236,7 @@ flagset::flags! {
         OFFLINE_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+        /// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8248,7 +8248,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+/// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8260,7 +8260,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+    /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8271,7 +8271,7 @@ flagset::flags! {
     pub enum VideoEncodeH264CapabilityFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8279,7 +8279,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_CAPABILITY_HRD_COMPLIANCE_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8287,7 +8287,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_CAPABILITY_PREDICTION_WEIGHT_TABLE_GENERATED_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8295,7 +8295,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_CAPABILITY_ROW_UNALIGNED_SLICE_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8303,7 +8303,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_CAPABILITY_DIFFERENT_SLICE_TYPE_KHR = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8311,7 +8311,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_CAPABILITY_B_FRAME_IN_L0_LIST_KHR = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8319,7 +8319,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_CAPABILITY_B_FRAME_IN_L1_LIST_KHR = 32,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8327,7 +8327,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_CAPABILITY_PER_PICTURE_TYPE_MIN_MAX_QP_KHR = 64,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8335,7 +8335,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_CAPABILITY_PER_SLICE_CONSTANT_QP_KHR = 128,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8343,7 +8343,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_CAPABILITY_GENERATE_PREFIX_NALU_KHR = 256,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeIntraRefresh`](Extensions::KHR_VideoEncodeIntraRefresh)
+        /// - Extension [`KHR_VideoEncodeIntraRefresh`](Extension::KHR_VideoEncodeIntraRefresh)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8351,7 +8351,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_CAPABILITY_B_PICTURE_INTRA_REFRESH_KHR = 1024,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extensions::KHR_VideoEncodeQuantizationMap)
+        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extension::KHR_VideoEncodeQuantizationMap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8363,7 +8363,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+/// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8377,7 +8377,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+    /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8388,7 +8388,7 @@ flagset::flags! {
     pub enum VideoEncodeH264StdFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8396,7 +8396,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_STD_SEPARATE_COLOR_PLANE_FLAG_SET_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8404,7 +8404,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_STD_QPPRIME_Y_ZERO_TRANSFORM_BYPASS_FLAG_SET_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8412,7 +8412,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_STD_SCALING_MATRIX_PRESENT_FLAG_SET_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8420,7 +8420,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_STD_CHROMA_QP_INDEX_OFFSET_KHR = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8428,7 +8428,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_STD_SECOND_CHROMA_QP_INDEX_OFFSET_KHR = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8436,7 +8436,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_STD_PIC_INIT_QP_MINUS26_KHR = 32,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8444,7 +8444,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_STD_WEIGHTED_PRED_FLAG_SET_KHR = 64,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8452,7 +8452,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_STD_WEIGHTED_BIPRED_IDC_EXPLICIT_KHR = 128,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8460,7 +8460,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_STD_WEIGHTED_BIPRED_IDC_IMPLICIT_KHR = 256,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8468,7 +8468,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_STD_TRANSFORM_8X8_MODE_FLAG_SET_KHR = 512,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8476,7 +8476,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_STD_DIRECT_SPATIAL_MV_PRED_FLAG_UNSET_KHR = 1024,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8484,7 +8484,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_STD_ENTROPY_CODING_MODE_FLAG_UNSET_KHR = 2048,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8492,7 +8492,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_STD_ENTROPY_CODING_MODE_FLAG_SET_KHR = 4096,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8500,7 +8500,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_STD_DIRECT_8X8_INFERENCE_FLAG_UNSET_KHR = 8192,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8508,7 +8508,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_STD_CONSTRAINED_INTRA_PRED_FLAG_SET_KHR = 16384,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8516,7 +8516,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_STD_DEBLOCKING_FILTER_DISABLED_KHR = 32768,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8524,7 +8524,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_STD_DEBLOCKING_FILTER_ENABLED_KHR = 65536,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8532,7 +8532,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_STD_DEBLOCKING_FILTER_PARTIAL_KHR = 131072,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8540,7 +8540,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_STD_SLICE_QP_DELTA_KHR = 524288,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8552,7 +8552,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+/// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8566,7 +8566,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+    /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8575,7 +8575,7 @@ flagset::flags! {
     pub enum VideoEncodeH264RateControlFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8583,7 +8583,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_RATE_CONTROL_ATTEMPT_HRD_COMPLIANCE_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8591,7 +8591,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_RATE_CONTROL_REGULAR_GOP_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8599,7 +8599,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_RATE_CONTROL_REFERENCE_PATTERN_FLAT_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8607,7 +8607,7 @@ flagset::flags! {
         VIDEO_ENCODE_H264_RATE_CONTROL_REFERENCE_PATTERN_DYADIC_KHR = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+        /// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8619,7 +8619,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH264`](Extensions::KHR_VideoEncodeH264)
+/// - Extension [`KHR_VideoEncodeH264`](Extension::KHR_VideoEncodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8631,7 +8631,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+    /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8642,7 +8642,7 @@ flagset::flags! {
     pub enum VideoEncodeH265CapabilityFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8650,7 +8650,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_CAPABILITY_HRD_COMPLIANCE_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8658,7 +8658,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_CAPABILITY_PREDICTION_WEIGHT_TABLE_GENERATED_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8666,7 +8666,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_CAPABILITY_ROW_UNALIGNED_SLICE_SEGMENT_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8674,7 +8674,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_CAPABILITY_DIFFERENT_SLICE_SEGMENT_TYPE_KHR = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8682,7 +8682,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_CAPABILITY_B_FRAME_IN_L0_LIST_KHR = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8690,7 +8690,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_CAPABILITY_B_FRAME_IN_L1_LIST_KHR = 32,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8698,7 +8698,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_CAPABILITY_PER_PICTURE_TYPE_MIN_MAX_QP_KHR = 64,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8706,7 +8706,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_CAPABILITY_PER_SLICE_SEGMENT_CONSTANT_QP_KHR = 128,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8714,7 +8714,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_CAPABILITY_MULTIPLE_TILES_PER_SLICE_SEGMENT_KHR = 256,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8722,7 +8722,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_CAPABILITY_MULTIPLE_SLICE_SEGMENTS_PER_TILE_KHR = 512,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeIntraRefresh`](Extensions::KHR_VideoEncodeIntraRefresh)
+        /// - Extension [`KHR_VideoEncodeIntraRefresh`](Extension::KHR_VideoEncodeIntraRefresh)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8730,7 +8730,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_CAPABILITY_B_PICTURE_INTRA_REFRESH_KHR = 2048,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extensions::KHR_VideoEncodeQuantizationMap)
+        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extension::KHR_VideoEncodeQuantizationMap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8742,7 +8742,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+/// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8756,7 +8756,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+    /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8767,7 +8767,7 @@ flagset::flags! {
     pub enum VideoEncodeH265StdFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8775,7 +8775,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_STD_SEPARATE_COLOR_PLANE_FLAG_SET_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8783,7 +8783,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_STD_SAMPLE_ADAPTIVE_OFFSET_ENABLED_FLAG_SET_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8791,7 +8791,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_STD_SCALING_LIST_DATA_PRESENT_FLAG_SET_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8799,7 +8799,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_STD_PCM_ENABLED_FLAG_SET_KHR = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8807,7 +8807,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_STD_SPS_TEMPORAL_MVP_ENABLED_FLAG_SET_KHR = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8815,7 +8815,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_STD_INIT_QP_MINUS26_KHR = 32,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8823,7 +8823,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_STD_WEIGHTED_PRED_FLAG_SET_KHR = 64,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8831,7 +8831,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_STD_WEIGHTED_BIPRED_FLAG_SET_KHR = 128,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8839,7 +8839,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_STD_LOG2_PARALLEL_MERGE_LEVEL_MINUS2_KHR = 256,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8847,7 +8847,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_STD_SIGN_DATA_HIDING_ENABLED_FLAG_SET_KHR = 512,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8855,7 +8855,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_STD_TRANSFORM_SKIP_ENABLED_FLAG_SET_KHR = 1024,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8863,7 +8863,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_STD_TRANSFORM_SKIP_ENABLED_FLAG_UNSET_KHR = 2048,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8871,7 +8871,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_STD_PPS_SLICE_CHROMA_QP_OFFSETS_PRESENT_FLAG_SET_KHR = 4096,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8879,7 +8879,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_STD_TRANSQUANT_BYPASS_ENABLED_FLAG_SET_KHR = 8192,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8887,7 +8887,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_STD_CONSTRAINED_INTRA_PRED_FLAG_SET_KHR = 16384,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8895,7 +8895,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_STD_ENTROPY_CODING_SYNC_ENABLED_FLAG_SET_KHR = 32768,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8903,7 +8903,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_STD_DEBLOCKING_FILTER_OVERRIDE_ENABLED_FLAG_SET_KHR = 65536,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8911,7 +8911,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_STD_DEPENDENT_SLICE_SEGMENTS_ENABLED_FLAG_SET_KHR = 131072,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8919,7 +8919,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_STD_DEPENDENT_SLICE_SEGMENT_FLAG_SET_KHR = 262144,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8927,7 +8927,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_STD_SLICE_QP_DELTA_KHR = 524288,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8939,7 +8939,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+/// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -8953,7 +8953,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+    /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -8964,7 +8964,7 @@ flagset::flags! {
     pub enum VideoEncodeH265CtbSizeFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8972,7 +8972,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_CTB_SIZE_16_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8980,7 +8980,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_CTB_SIZE_32_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -8992,7 +8992,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+/// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9006,7 +9006,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+    /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9017,7 +9017,7 @@ flagset::flags! {
     pub enum VideoEncodeH265TransformBlockSizeFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9025,7 +9025,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_TRANSFORM_BLOCK_SIZE_4_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9033,7 +9033,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_TRANSFORM_BLOCK_SIZE_8_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9041,7 +9041,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_TRANSFORM_BLOCK_SIZE_16_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9053,7 +9053,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+/// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9068,7 +9068,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+    /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9077,7 +9077,7 @@ flagset::flags! {
     pub enum VideoEncodeH265RateControlFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9085,7 +9085,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_RATE_CONTROL_ATTEMPT_HRD_COMPLIANCE_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9093,7 +9093,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_RATE_CONTROL_REGULAR_GOP_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9101,7 +9101,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_RATE_CONTROL_REFERENCE_PATTERN_FLAT_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9109,7 +9109,7 @@ flagset::flags! {
         VIDEO_ENCODE_H265_RATE_CONTROL_REFERENCE_PATTERN_DYADIC_KHR = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+        /// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9121,7 +9121,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeH265`](Extensions::KHR_VideoEncodeH265)
+/// - Extension [`KHR_VideoEncodeH265`](Extension::KHR_VideoEncodeH265)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9133,7 +9133,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoDecodeH264`](Extensions::KHR_VideoDecodeH264)
+    /// - Extension [`KHR_VideoDecodeH264`](Extension::KHR_VideoDecodeH264)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9142,7 +9142,7 @@ flagset::flags! {
     pub enum VideoDecodeH264PictureLayoutFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeH264`](Extensions::KHR_VideoDecodeH264)
+        /// - Extension [`KHR_VideoDecodeH264`](Extension::KHR_VideoDecodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9150,7 +9150,7 @@ flagset::flags! {
         VIDEO_DECODE_H264_PICTURE_LAYOUT_PROGRESSIVE_KHR = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeH264`](Extensions::KHR_VideoDecodeH264)
+        /// - Extension [`KHR_VideoDecodeH264`](Extension::KHR_VideoDecodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9158,7 +9158,7 @@ flagset::flags! {
         VIDEO_DECODE_H264_PICTURE_LAYOUT_INTERLACED_INTERLEAVED_LINES_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoDecodeH264`](Extensions::KHR_VideoDecodeH264)
+        /// - Extension [`KHR_VideoDecodeH264`](Extension::KHR_VideoDecodeH264)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9170,7 +9170,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeH264`](Extensions::KHR_VideoDecodeH264)
+/// - Extension [`KHR_VideoDecodeH264`](Extension::KHR_VideoDecodeH264)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9185,7 +9185,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
+    /// - Extension [`KHR_PerformanceQuery`](Extension::KHR_PerformanceQuery)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9196,7 +9196,7 @@ flagset::flags! {
     pub enum PerformanceCounterDescriptionFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
+        /// - Extension [`KHR_PerformanceQuery`](Extension::KHR_PerformanceQuery)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9204,7 +9204,7 @@ flagset::flags! {
         PERFORMANCE_IMPACTING_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
+        /// - Extension [`KHR_PerformanceQuery`](Extension::KHR_PerformanceQuery)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9217,7 +9217,7 @@ impl PerformanceCounterDescriptionFlagKHR {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
+/// - Extension [`KHR_PerformanceQuery`](Extension::KHR_PerformanceQuery)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9232,7 +9232,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
+    /// - Extension [`KHR_PerformanceQuery`](Extension::KHR_PerformanceQuery)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9245,7 +9245,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_PerformanceQuery`](Extensions::KHR_PerformanceQuery)
+/// - Extension [`KHR_PerformanceQuery`](Extension::KHR_PerformanceQuery)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9257,7 +9257,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+    /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9266,7 +9266,7 @@ flagset::flags! {
     pub enum VideoEncodeFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeIntraRefresh`](Extensions::KHR_VideoEncodeIntraRefresh)
+        /// - Extension [`KHR_VideoEncodeIntraRefresh`](Extension::KHR_VideoEncodeIntraRefresh)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9274,7 +9274,7 @@ flagset::flags! {
         INTRA_REFRESH_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extensions::KHR_VideoEncodeQuantizationMap)
+        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extension::KHR_VideoEncodeQuantizationMap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9282,7 +9282,7 @@ flagset::flags! {
         WITH_QUANTIZATION_DELTA_MAP_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extensions::KHR_VideoEncodeQuantizationMap)
+        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extension::KHR_VideoEncodeQuantizationMap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9294,7 +9294,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+/// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9306,7 +9306,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+    /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9317,7 +9317,7 @@ flagset::flags! {
     pub enum VideoEncodeCapabilityFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9325,7 +9325,7 @@ flagset::flags! {
         PRECEDING_EXTERNALLY_ENCODED_BYTES_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9333,7 +9333,7 @@ flagset::flags! {
         INSUFFICIENT_BITSTREAM_BUFFER_RANGE_DETECTION_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extensions::KHR_VideoEncodeQuantizationMap)
+        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extension::KHR_VideoEncodeQuantizationMap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9341,7 +9341,7 @@ flagset::flags! {
         QUANTIZATION_DELTA_MAP_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extensions::KHR_VideoEncodeQuantizationMap)
+        /// - Extension [`KHR_VideoEncodeQuantizationMap`](Extension::KHR_VideoEncodeQuantizationMap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9353,7 +9353,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+/// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9367,7 +9367,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+    /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9376,7 +9376,7 @@ flagset::flags! {
     pub enum VideoEncodeRateControlModeFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9384,7 +9384,7 @@ flagset::flags! {
         DEFAULT_KHR = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9392,7 +9392,7 @@ flagset::flags! {
         DISABLED_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9400,7 +9400,7 @@ flagset::flags! {
         CBR_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9412,7 +9412,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+/// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9426,7 +9426,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+    /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9435,7 +9435,7 @@ flagset::flags! {
     pub enum VideoEncodeFeedbackFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9443,7 +9443,7 @@ flagset::flags! {
         BITSTREAM_BUFFER_OFFSET_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9451,7 +9451,7 @@ flagset::flags! {
         BITSTREAM_BYTES_WRITTEN_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9459,7 +9459,7 @@ flagset::flags! {
         BITSTREAM_HAS_OVERRIDES_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeFeedback2`](Extensions::KHR_VideoEncodeFeedback2)
+        /// - Extension [`KHR_VideoEncodeFeedback2`](Extension::KHR_VideoEncodeFeedback2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9467,7 +9467,7 @@ flagset::flags! {
         AVERAGE_QUANTIZATION_KHR = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeFeedback2`](Extensions::KHR_VideoEncodeFeedback2)
+        /// - Extension [`KHR_VideoEncodeFeedback2`](Extension::KHR_VideoEncodeFeedback2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9475,7 +9475,7 @@ flagset::flags! {
         MIN_QUANTIZATION_KHR = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeFeedback2`](Extensions::KHR_VideoEncodeFeedback2)
+        /// - Extension [`KHR_VideoEncodeFeedback2`](Extension::KHR_VideoEncodeFeedback2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9483,7 +9483,7 @@ flagset::flags! {
         MAX_QUANTIZATION_KHR = 32,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeFeedback2`](Extensions::KHR_VideoEncodeFeedback2)
+        /// - Extension [`KHR_VideoEncodeFeedback2`](Extension::KHR_VideoEncodeFeedback2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9491,7 +9491,7 @@ flagset::flags! {
         INTRA_PIXELS_KHR = 64,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeFeedback2`](Extensions::KHR_VideoEncodeFeedback2)
+        /// - Extension [`KHR_VideoEncodeFeedback2`](Extension::KHR_VideoEncodeFeedback2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9499,7 +9499,7 @@ flagset::flags! {
         INTER_PIXELS_KHR = 128,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeFeedback2`](Extensions::KHR_VideoEncodeFeedback2)
+        /// - Extension [`KHR_VideoEncodeFeedback2`](Extension::KHR_VideoEncodeFeedback2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9507,7 +9507,7 @@ flagset::flags! {
         SKIPPED_PIXELS_KHR = 256,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeFeedback2`](Extensions::KHR_VideoEncodeFeedback2)
+        /// - Extension [`KHR_VideoEncodeFeedback2`](Extension::KHR_VideoEncodeFeedback2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9519,7 +9519,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+/// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9531,7 +9531,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+    /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9540,7 +9540,7 @@ flagset::flags! {
     pub enum VideoEncodeUsageFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9548,7 +9548,7 @@ flagset::flags! {
         DEFAULT_KHR = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9556,7 +9556,7 @@ flagset::flags! {
         TRANSCODING_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9564,7 +9564,7 @@ flagset::flags! {
         STREAMING_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9572,7 +9572,7 @@ flagset::flags! {
         RECORDING_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9584,7 +9584,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+/// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9596,7 +9596,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+    /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9605,7 +9605,7 @@ flagset::flags! {
     pub enum VideoEncodeContentFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9613,7 +9613,7 @@ flagset::flags! {
         DEFAULT_KHR = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9621,7 +9621,7 @@ flagset::flags! {
         CAMERA_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9629,7 +9629,7 @@ flagset::flags! {
         DESKTOP_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+        /// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9641,7 +9641,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+/// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9653,7 +9653,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+    /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9662,7 +9662,7 @@ flagset::flags! {
     pub enum AddressCommandFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+        /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9670,7 +9670,7 @@ flagset::flags! {
         PROTECTED_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+        /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9678,7 +9678,7 @@ flagset::flags! {
         FULLY_BOUND_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+        /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9686,7 +9686,7 @@ flagset::flags! {
         STORAGE_BUFFER_USAGE_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+        /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9694,7 +9694,7 @@ flagset::flags! {
         UNKNOWN_STORAGE_BUFFER_USAGE_KHR = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+        /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9702,7 +9702,7 @@ flagset::flags! {
         TRANSFORM_FEEDBACK_BUFFER_USAGE_KHR = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+        /// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9714,7 +9714,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
+/// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9726,7 +9726,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ConditionalRendering`](Extensions::EXT_ConditionalRendering)
+    /// - Extension [`EXT_ConditionalRendering`](Extension::EXT_ConditionalRendering)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9735,7 +9735,7 @@ flagset::flags! {
     pub enum ConditionalRenderingFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ConditionalRendering`](Extensions::EXT_ConditionalRendering)
+        /// - Extension [`EXT_ConditionalRendering`](Extension::EXT_ConditionalRendering)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9747,8 +9747,8 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
-/// - Extension [`EXT_ConditionalRendering`](Extensions::EXT_ConditionalRendering)
+/// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+/// - Extension [`EXT_ConditionalRendering`](Extension::EXT_ConditionalRendering)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9760,7 +9760,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9769,7 +9769,7 @@ flagset::flags! {
     pub enum AccelerationStructureCreateFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+        /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9777,8 +9777,8 @@ flagset::flags! {
         DEVICE_ADDRESS_CAPTURE_REPLAY_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorBuffer`](Extensions::EXT_DescriptorBuffer)
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorBuffer`](Extension::EXT_DescriptorBuffer)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9786,7 +9786,7 @@ flagset::flags! {
         DESCRIPTOR_BUFFER_CAPTURE_REPLAY_EXT = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracingMotionBlur`](Extensions::NV_RayTracingMotionBlur)
+        /// - Extension [`NV_RayTracingMotionBlur`](Extension::NV_RayTracingMotionBlur)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9798,8 +9798,8 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceAddressCommands`](Extensions::KHR_DeviceAddressCommands)
-/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+/// - Extension [`KHR_DeviceAddressCommands`](Extension::KHR_DeviceAddressCommands)
+/// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9811,8 +9811,8 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_SurfaceMaintenance1`](Extensions::KHR_SurfaceMaintenance1)
-    /// - Extension [`EXT_SurfaceMaintenance1`](Extensions::EXT_SurfaceMaintenance1)
+    /// - Extension [`KHR_SurfaceMaintenance1`](Extension::KHR_SurfaceMaintenance1)
+    /// - Extension [`EXT_SurfaceMaintenance1`](Extension::EXT_SurfaceMaintenance1)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9821,7 +9821,7 @@ flagset::flags! {
     pub enum PresentScalingFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_SurfaceMaintenance1`](Extensions::KHR_SurfaceMaintenance1)
+        /// - Extension [`KHR_SurfaceMaintenance1`](Extension::KHR_SurfaceMaintenance1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9829,7 +9829,7 @@ flagset::flags! {
         ONE_TO_ONE_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_SurfaceMaintenance1`](Extensions::KHR_SurfaceMaintenance1)
+        /// - Extension [`KHR_SurfaceMaintenance1`](Extension::KHR_SurfaceMaintenance1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9837,7 +9837,7 @@ flagset::flags! {
         ASPECT_RATIO_STRETCH_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_SurfaceMaintenance1`](Extensions::KHR_SurfaceMaintenance1)
+        /// - Extension [`KHR_SurfaceMaintenance1`](Extension::KHR_SurfaceMaintenance1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9867,7 +9867,7 @@ impl PresentScalingFlagKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_SurfaceMaintenance1`](Extensions::KHR_SurfaceMaintenance1)
+/// - Extension [`KHR_SurfaceMaintenance1`](Extension::KHR_SurfaceMaintenance1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9883,8 +9883,8 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_SurfaceMaintenance1`](Extensions::KHR_SurfaceMaintenance1)
-    /// - Extension [`EXT_SurfaceMaintenance1`](Extensions::EXT_SurfaceMaintenance1)
+    /// - Extension [`KHR_SurfaceMaintenance1`](Extension::KHR_SurfaceMaintenance1)
+    /// - Extension [`EXT_SurfaceMaintenance1`](Extension::EXT_SurfaceMaintenance1)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9893,7 +9893,7 @@ flagset::flags! {
     pub enum PresentGravityFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_SurfaceMaintenance1`](Extensions::KHR_SurfaceMaintenance1)
+        /// - Extension [`KHR_SurfaceMaintenance1`](Extension::KHR_SurfaceMaintenance1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9901,7 +9901,7 @@ flagset::flags! {
         MIN_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_SurfaceMaintenance1`](Extensions::KHR_SurfaceMaintenance1)
+        /// - Extension [`KHR_SurfaceMaintenance1`](Extension::KHR_SurfaceMaintenance1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9909,7 +9909,7 @@ flagset::flags! {
         MAX_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_SurfaceMaintenance1`](Extensions::KHR_SurfaceMaintenance1)
+        /// - Extension [`KHR_SurfaceMaintenance1`](Extension::KHR_SurfaceMaintenance1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9939,7 +9939,7 @@ impl PresentGravityFlagKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_SurfaceMaintenance1`](Extensions::KHR_SurfaceMaintenance1)
+/// - Extension [`KHR_SurfaceMaintenance1`](Extension::KHR_SurfaceMaintenance1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -9955,7 +9955,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+    /// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -9966,7 +9966,7 @@ flagset::flags! {
     pub enum VideoEncodeAV1CapabilityFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+        /// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9974,7 +9974,7 @@ flagset::flags! {
         VIDEO_ENCODE_AV1_CAPABILITY_PER_RATE_CONTROL_GROUP_MIN_MAX_Q_INDEX_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+        /// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9982,7 +9982,7 @@ flagset::flags! {
         VIDEO_ENCODE_AV1_CAPABILITY_GENERATE_OBU_EXTENSION_HEADER_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+        /// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9990,7 +9990,7 @@ flagset::flags! {
         VIDEO_ENCODE_AV1_CAPABILITY_PRIMARY_REFERENCE_CDF_ONLY_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+        /// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -9998,7 +9998,7 @@ flagset::flags! {
         VIDEO_ENCODE_AV1_CAPABILITY_FRAME_SIZE_OVERRIDE_KHR = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+        /// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10006,7 +10006,7 @@ flagset::flags! {
         VIDEO_ENCODE_AV1_CAPABILITY_MOTION_VECTOR_SCALING_KHR = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeIntraRefresh`](Extensions::KHR_VideoEncodeIntraRefresh)
+        /// - Extension [`KHR_VideoEncodeIntraRefresh`](Extension::KHR_VideoEncodeIntraRefresh)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10018,7 +10018,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+/// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10032,7 +10032,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+    /// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10043,7 +10043,7 @@ flagset::flags! {
     pub enum VideoEncodeAV1StdFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+        /// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10051,7 +10051,7 @@ flagset::flags! {
         VIDEO_ENCODE_AV1_STD_UNIFORM_TILE_SPACING_FLAG_SET_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+        /// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10059,7 +10059,7 @@ flagset::flags! {
         VIDEO_ENCODE_AV1_STD_SKIP_MODE_PRESENT_UNSET_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+        /// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10067,7 +10067,7 @@ flagset::flags! {
         VIDEO_ENCODE_AV1_STD_PRIMARY_REF_FRAME_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+        /// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10079,7 +10079,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+/// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10093,7 +10093,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+    /// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10104,7 +10104,7 @@ flagset::flags! {
     pub enum VideoEncodeAV1SuperblockSizeFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+        /// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10112,7 +10112,7 @@ flagset::flags! {
         VIDEO_ENCODE_AV1_SUPERBLOCK_SIZE_64_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+        /// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10124,7 +10124,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+/// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10139,7 +10139,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+    /// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10148,7 +10148,7 @@ flagset::flags! {
     pub enum VideoEncodeAV1RateControlFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+        /// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10156,7 +10156,7 @@ flagset::flags! {
         VIDEO_ENCODE_AV1_RATE_CONTROL_REGULAR_GOP_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+        /// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10164,7 +10164,7 @@ flagset::flags! {
         VIDEO_ENCODE_AV1_RATE_CONTROL_TEMPORAL_LAYER_PATTERN_DYADIC_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+        /// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10172,7 +10172,7 @@ flagset::flags! {
         VIDEO_ENCODE_AV1_RATE_CONTROL_REFERENCE_PATTERN_FLAT_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+        /// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10184,7 +10184,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeAv1`](Extensions::KHR_VideoEncodeAv1)
+/// - Extension [`KHR_VideoEncodeAv1`](Extension::KHR_VideoEncodeAv1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10196,7 +10196,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
+    /// - Extension [`KHR_CopyMemoryIndirect`](Extension::KHR_CopyMemoryIndirect)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10205,7 +10205,7 @@ flagset::flags! {
     pub enum AddressCopyFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
+        /// - Extension [`KHR_CopyMemoryIndirect`](Extension::KHR_CopyMemoryIndirect)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10213,7 +10213,7 @@ flagset::flags! {
         DEVICE_LOCAL_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
+        /// - Extension [`KHR_CopyMemoryIndirect`](Extension::KHR_CopyMemoryIndirect)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10221,7 +10221,7 @@ flagset::flags! {
         SPARSE_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
+        /// - Extension [`KHR_CopyMemoryIndirect`](Extension::KHR_CopyMemoryIndirect)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10233,7 +10233,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_CopyMemoryIndirect`](Extensions::KHR_CopyMemoryIndirect)
+/// - Extension [`KHR_CopyMemoryIndirect`](Extension::KHR_CopyMemoryIndirect)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10245,7 +10245,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoEncodeIntraRefresh`](Extensions::KHR_VideoEncodeIntraRefresh)
+    /// - Extension [`KHR_VideoEncodeIntraRefresh`](Extension::KHR_VideoEncodeIntraRefresh)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10254,7 +10254,7 @@ flagset::flags! {
     pub enum VideoEncodeIntraRefreshModeFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeIntraRefresh`](Extensions::KHR_VideoEncodeIntraRefresh)
+        /// - Extension [`KHR_VideoEncodeIntraRefresh`](Extension::KHR_VideoEncodeIntraRefresh)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10262,7 +10262,7 @@ flagset::flags! {
         NONE_KHR = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeIntraRefresh`](Extensions::KHR_VideoEncodeIntraRefresh)
+        /// - Extension [`KHR_VideoEncodeIntraRefresh`](Extension::KHR_VideoEncodeIntraRefresh)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10270,7 +10270,7 @@ flagset::flags! {
         PER_PICTURE_PARTITION_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeIntraRefresh`](Extensions::KHR_VideoEncodeIntraRefresh)
+        /// - Extension [`KHR_VideoEncodeIntraRefresh`](Extension::KHR_VideoEncodeIntraRefresh)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10278,7 +10278,7 @@ flagset::flags! {
         BLOCK_BASED_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeIntraRefresh`](Extensions::KHR_VideoEncodeIntraRefresh)
+        /// - Extension [`KHR_VideoEncodeIntraRefresh`](Extension::KHR_VideoEncodeIntraRefresh)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10286,7 +10286,7 @@ flagset::flags! {
         BLOCK_ROW_BASED_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeIntraRefresh`](Extensions::KHR_VideoEncodeIntraRefresh)
+        /// - Extension [`KHR_VideoEncodeIntraRefresh`](Extension::KHR_VideoEncodeIntraRefresh)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10298,7 +10298,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeIntraRefresh`](Extensions::KHR_VideoEncodeIntraRefresh)
+/// - Extension [`KHR_VideoEncodeIntraRefresh`](Extension::KHR_VideoEncodeIntraRefresh)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10312,7 +10312,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
+    /// - Extension [`KHR_DeviceFault`](Extension::KHR_DeviceFault)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10323,7 +10323,7 @@ flagset::flags! {
     pub enum DeviceFaultFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
+        /// - Extension [`KHR_DeviceFault`](Extension::KHR_DeviceFault)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10331,7 +10331,7 @@ flagset::flags! {
         FLAG_DEVICE_LOST_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
+        /// - Extension [`KHR_DeviceFault`](Extension::KHR_DeviceFault)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10339,7 +10339,7 @@ flagset::flags! {
         FLAG_MEMORY_ADDRESS_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
+        /// - Extension [`KHR_DeviceFault`](Extension::KHR_DeviceFault)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10347,7 +10347,7 @@ flagset::flags! {
         FLAG_INSTRUCTION_ADDRESS_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
+        /// - Extension [`KHR_DeviceFault`](Extension::KHR_DeviceFault)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10355,7 +10355,7 @@ flagset::flags! {
         FLAG_VENDOR_KHR = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
+        /// - Extension [`KHR_DeviceFault`](Extension::KHR_DeviceFault)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10363,7 +10363,7 @@ flagset::flags! {
         FLAG_WATCHDOG_TIMEOUT_KHR = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
+        /// - Extension [`KHR_DeviceFault`](Extension::KHR_DeviceFault)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10375,7 +10375,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_DeviceFault`](Extensions::KHR_DeviceFault)
+/// - Extension [`KHR_DeviceFault`](Extension::KHR_DeviceFault)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10389,7 +10389,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Maintenance8`](Extensions::KHR_Maintenance8)
+    /// - Extension [`KHR_Maintenance8`](Extension::KHR_Maintenance8)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10398,7 +10398,7 @@ flagset::flags! {
     pub enum AccessFlag3KHR: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Maintenance8`](Extensions::KHR_Maintenance8)
+        /// - Extension [`KHR_Maintenance8`](Extension::KHR_Maintenance8)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10410,7 +10410,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Maintenance8`](Extensions::KHR_Maintenance8)
+/// - Extension [`KHR_Maintenance8`](Extension::KHR_Maintenance8)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10422,7 +10422,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_VideoEncodeFeedback2`](Extensions::KHR_VideoEncodeFeedback2)
+    /// - Extension [`KHR_VideoEncodeFeedback2`](Extension::KHR_VideoEncodeFeedback2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10431,7 +10431,7 @@ flagset::flags! {
     pub enum VideoEncodePerPartitionFeedbackFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeFeedback2`](Extensions::KHR_VideoEncodeFeedback2)
+        /// - Extension [`KHR_VideoEncodeFeedback2`](Extension::KHR_VideoEncodeFeedback2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10439,7 +10439,7 @@ flagset::flags! {
         STATUS_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeFeedback2`](Extensions::KHR_VideoEncodeFeedback2)
+        /// - Extension [`KHR_VideoEncodeFeedback2`](Extension::KHR_VideoEncodeFeedback2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10447,7 +10447,7 @@ flagset::flags! {
         BITSTREAM_BUFFER_OFFSET_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_VideoEncodeFeedback2`](Extensions::KHR_VideoEncodeFeedback2)
+        /// - Extension [`KHR_VideoEncodeFeedback2`](Extension::KHR_VideoEncodeFeedback2)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10459,7 +10459,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeFeedback2`](Extensions::KHR_VideoEncodeFeedback2)
+/// - Extension [`KHR_VideoEncodeFeedback2`](Extension::KHR_VideoEncodeFeedback2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10472,7 +10472,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
+    /// - Extension [`KHR_Maintenance10`](Extension::KHR_Maintenance10)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10481,7 +10481,7 @@ flagset::flags! {
     pub enum RenderingAttachmentFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
+        /// - Extension [`KHR_Maintenance10`](Extension::KHR_Maintenance10)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10489,7 +10489,7 @@ flagset::flags! {
         INPUT_ATTACHMENT_FEEDBACK_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
+        /// - Extension [`KHR_Maintenance10`](Extension::KHR_Maintenance10)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10497,7 +10497,7 @@ flagset::flags! {
         RESOLVE_SKIP_TRANSFER_FUNCTION_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
+        /// - Extension [`KHR_Maintenance10`](Extension::KHR_Maintenance10)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10509,7 +10509,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
+/// - Extension [`KHR_Maintenance10`](Extension::KHR_Maintenance10)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10521,7 +10521,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
+    /// - Extension [`KHR_Maintenance10`](Extension::KHR_Maintenance10)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10530,7 +10530,7 @@ flagset::flags! {
     pub enum ResolveImageFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
+        /// - Extension [`KHR_Maintenance10`](Extension::KHR_Maintenance10)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10538,7 +10538,7 @@ flagset::flags! {
         SKIP_TRANSFER_FUNCTION_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
+        /// - Extension [`KHR_Maintenance10`](Extension::KHR_Maintenance10)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10550,7 +10550,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Maintenance10`](Extensions::KHR_Maintenance10)
+/// - Extension [`KHR_Maintenance10`](Extension::KHR_Maintenance10)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10562,7 +10562,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+    /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10577,7 +10577,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+/// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10591,7 +10591,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+    /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10600,7 +10600,7 @@ flagset::flags! {
     pub enum ImageUsageFlag2KHR: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10608,7 +10608,7 @@ flagset::flags! {
         TRANSFER_SRC_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10616,7 +10616,7 @@ flagset::flags! {
         TRANSFER_DST_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10624,7 +10624,7 @@ flagset::flags! {
         SAMPLED_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10632,7 +10632,7 @@ flagset::flags! {
         STORAGE_KHR = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10640,7 +10640,7 @@ flagset::flags! {
         COLOR_ATTACHMENT_KHR = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10648,7 +10648,7 @@ flagset::flags! {
         DEPTH_STENCIL_ATTACHMENT_KHR = 32,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10656,7 +10656,7 @@ flagset::flags! {
         TRANSIENT_ATTACHMENT_KHR = 64,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10664,7 +10664,7 @@ flagset::flags! {
         INPUT_ATTACHMENT_KHR = 128,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10672,7 +10672,7 @@ flagset::flags! {
         FRAGMENT_SHADING_RATE_ATTACHMENT_KHR = 256,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10680,7 +10680,7 @@ flagset::flags! {
         FRAGMENT_DENSITY_MAP_EXT = 512,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10688,7 +10688,7 @@ flagset::flags! {
         VIDEO_DECODE_DST_KHR = 1024,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10696,7 +10696,7 @@ flagset::flags! {
         VIDEO_DECODE_SRC_KHR = 2048,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10704,7 +10704,7 @@ flagset::flags! {
         VIDEO_DECODE_DPB_KHR = 4096,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10712,7 +10712,7 @@ flagset::flags! {
         VIDEO_ENCODE_DST_KHR = 8192,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10720,7 +10720,7 @@ flagset::flags! {
         VIDEO_ENCODE_SRC_KHR = 16384,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10728,7 +10728,7 @@ flagset::flags! {
         VIDEO_ENCODE_DPB_KHR = 32768,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10736,7 +10736,7 @@ flagset::flags! {
         INVOCATION_MASK_HUAWEI = 262144,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10744,7 +10744,7 @@ flagset::flags! {
         ATTACHMENT_FEEDBACK_LOOP_EXT = 524288,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10752,7 +10752,7 @@ flagset::flags! {
         SAMPLE_WEIGHT_QCOM = 1048576,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10760,7 +10760,7 @@ flagset::flags! {
         SAMPLE_BLOCK_MATCH_QCOM = 2097152,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10768,7 +10768,7 @@ flagset::flags! {
         HOST_TRANSFER_KHR = 4194304,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10776,7 +10776,7 @@ flagset::flags! {
         TENSOR_ALIASING_ARM = 8388608,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10784,7 +10784,7 @@ flagset::flags! {
         VIDEO_ENCODE_QUANTIZATION_DELTA_MAP_KHR = 33554432,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10792,7 +10792,7 @@ flagset::flags! {
         VIDEO_ENCODE_EMPHASIS_MAP_KHR = 67108864,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10804,7 +10804,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+/// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -10816,7 +10816,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+    /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -10825,7 +10825,7 @@ flagset::flags! {
     pub enum ImageCreateFlag2KHR: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10833,7 +10833,7 @@ flagset::flags! {
         SPARSE_BINDING_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10841,7 +10841,7 @@ flagset::flags! {
         SPARSE_RESIDENCY_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10849,7 +10849,7 @@ flagset::flags! {
         SPARSE_ALIASED_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10857,7 +10857,7 @@ flagset::flags! {
         MUTABLE_FORMAT_KHR = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10865,7 +10865,7 @@ flagset::flags! {
         CUBE_COMPATIBLE_KHR = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Maintenance11`](Extensions::KHR_Maintenance11)
+        /// - Extension [`KHR_Maintenance11`](Extension::KHR_Maintenance11)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10873,7 +10873,7 @@ flagset::flags! {
         ALIAS_SINGLE_LAYER_DESCRIPTOR_KHR = 4194304,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10881,7 +10881,7 @@ flagset::flags! {
         _2D_ARRAY_COMPATIBLE_KHR = 32,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10889,7 +10889,7 @@ flagset::flags! {
         SPLIT_INSTANCE_BIND_REGIONS_KHR = 64,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10897,7 +10897,7 @@ flagset::flags! {
         BLOCK_TEXEL_VIEW_COMPATIBLE_KHR = 128,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10905,7 +10905,7 @@ flagset::flags! {
         EXTENDED_USAGE_KHR = 256,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10913,7 +10913,7 @@ flagset::flags! {
         DISJOINT_KHR = 512,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10921,7 +10921,7 @@ flagset::flags! {
         ALIAS_KHR = 1024,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10929,7 +10929,7 @@ flagset::flags! {
         PROTECTED_KHR = 2048,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10937,7 +10937,7 @@ flagset::flags! {
         SAMPLE_LOCATIONS_COMPATIBLE_DEPTH_EXT = 4096,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10945,7 +10945,7 @@ flagset::flags! {
         CORNER_SAMPLED_NV = 8192,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10953,7 +10953,7 @@ flagset::flags! {
         SUBSAMPLED_EXT = 16384,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10961,7 +10961,7 @@ flagset::flags! {
         FRAGMENT_DENSITY_MAP_OFFSET_EXT = 32768,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10969,7 +10969,7 @@ flagset::flags! {
         DESCRIPTOR_BUFFER_CAPTURE_REPLAY_EXT = 65536,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10977,7 +10977,7 @@ flagset::flags! {
         _2D_VIEW_COMPATIBLE_EXT = 131072,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10985,7 +10985,7 @@ flagset::flags! {
         MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_EXT = 262144,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+        /// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -10997,7 +10997,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_ExtendedFlags`](Extensions::KHR_ExtendedFlags)
+/// - Extension [`KHR_ExtendedFlags`](Extension::KHR_ExtendedFlags)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11009,8 +11009,8 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DebugReport`](Extensions::EXT_DebugReport)
-    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    /// - Extension [`EXT_DebugReport`](Extension::EXT_DebugReport)
+    /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11019,8 +11019,8 @@ flagset::flags! {
     pub enum DebugReportFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DebugReport`](Extensions::EXT_DebugReport)
-        /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+        /// - Extension [`EXT_DebugReport`](Extension::EXT_DebugReport)
+        /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11028,8 +11028,8 @@ flagset::flags! {
         INFORMATION_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DebugReport`](Extensions::EXT_DebugReport)
-        /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+        /// - Extension [`EXT_DebugReport`](Extension::EXT_DebugReport)
+        /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11037,8 +11037,8 @@ flagset::flags! {
         WARNING_EXT = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DebugReport`](Extensions::EXT_DebugReport)
-        /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+        /// - Extension [`EXT_DebugReport`](Extension::EXT_DebugReport)
+        /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11046,8 +11046,8 @@ flagset::flags! {
         PERFORMANCE_WARNING_EXT = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DebugReport`](Extensions::EXT_DebugReport)
-        /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+        /// - Extension [`EXT_DebugReport`](Extension::EXT_DebugReport)
+        /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11055,8 +11055,8 @@ flagset::flags! {
         ERROR_EXT = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DebugReport`](Extensions::EXT_DebugReport)
-        /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+        /// - Extension [`EXT_DebugReport`](Extension::EXT_DebugReport)
+        /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11068,8 +11068,8 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DebugReport`](Extensions::EXT_DebugReport)
-/// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+/// - Extension [`EXT_DebugReport`](Extension::EXT_DebugReport)
+/// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11081,8 +11081,8 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_ExternalMemoryCapabilities`](Extensions::NV_ExternalMemoryCapabilities)
-    /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+    /// - Extension [`NV_ExternalMemoryCapabilities`](Extension::NV_ExternalMemoryCapabilities)
+    /// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11091,8 +11091,8 @@ flagset::flags! {
     pub enum ExternalMemoryHandleTypeFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_ExternalMemoryCapabilities`](Extensions::NV_ExternalMemoryCapabilities)
-        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+        /// - Extension [`NV_ExternalMemoryCapabilities`](Extension::NV_ExternalMemoryCapabilities)
+        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11100,8 +11100,8 @@ flagset::flags! {
         OPAQUE_WIN32_NV = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_ExternalMemoryCapabilities`](Extensions::NV_ExternalMemoryCapabilities)
-        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+        /// - Extension [`NV_ExternalMemoryCapabilities`](Extension::NV_ExternalMemoryCapabilities)
+        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11109,8 +11109,8 @@ flagset::flags! {
         OPAQUE_WIN32_KMT_NV = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_ExternalMemoryCapabilities`](Extensions::NV_ExternalMemoryCapabilities)
-        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+        /// - Extension [`NV_ExternalMemoryCapabilities`](Extension::NV_ExternalMemoryCapabilities)
+        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11118,8 +11118,8 @@ flagset::flags! {
         D3D11_IMAGE_NV = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_ExternalMemoryCapabilities`](Extensions::NV_ExternalMemoryCapabilities)
-        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+        /// - Extension [`NV_ExternalMemoryCapabilities`](Extension::NV_ExternalMemoryCapabilities)
+        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11131,8 +11131,8 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ExternalMemoryCapabilities`](Extensions::NV_ExternalMemoryCapabilities)
-/// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+/// - Extension [`NV_ExternalMemoryCapabilities`](Extension::NV_ExternalMemoryCapabilities)
+/// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11144,8 +11144,8 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_ExternalMemoryCapabilities`](Extensions::NV_ExternalMemoryCapabilities)
-    /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+    /// - Extension [`NV_ExternalMemoryCapabilities`](Extension::NV_ExternalMemoryCapabilities)
+    /// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11156,8 +11156,8 @@ flagset::flags! {
     pub enum ExternalMemoryFeatureFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_ExternalMemoryCapabilities`](Extensions::NV_ExternalMemoryCapabilities)
-        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+        /// - Extension [`NV_ExternalMemoryCapabilities`](Extension::NV_ExternalMemoryCapabilities)
+        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11165,8 +11165,8 @@ flagset::flags! {
         DEDICATED_ONLY_NV = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_ExternalMemoryCapabilities`](Extensions::NV_ExternalMemoryCapabilities)
-        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+        /// - Extension [`NV_ExternalMemoryCapabilities`](Extension::NV_ExternalMemoryCapabilities)
+        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11174,8 +11174,8 @@ flagset::flags! {
         EXPORTABLE_NV = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_ExternalMemoryCapabilities`](Extensions::NV_ExternalMemoryCapabilities)
-        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+        /// - Extension [`NV_ExternalMemoryCapabilities`](Extension::NV_ExternalMemoryCapabilities)
+        /// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11187,8 +11187,8 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ExternalMemoryCapabilities`](Extensions::NV_ExternalMemoryCapabilities)
-/// - Extension [`KHR_ExternalMemoryCapabilities`](Extensions::KHR_ExternalMemoryCapabilities)
+/// - Extension [`NV_ExternalMemoryCapabilities`](Extension::NV_ExternalMemoryCapabilities)
+/// - Extension [`KHR_ExternalMemoryCapabilities`](Extension::KHR_ExternalMemoryCapabilities)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11202,7 +11202,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DisplaySurfaceCounter`](Extensions::EXT_DisplaySurfaceCounter)
+    /// - Extension [`EXT_DisplaySurfaceCounter`](Extension::EXT_DisplaySurfaceCounter)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11211,7 +11211,7 @@ flagset::flags! {
     pub enum SurfaceCounterFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DisplaySurfaceCounter`](Extensions::EXT_DisplaySurfaceCounter)
+        /// - Extension [`EXT_DisplaySurfaceCounter`](Extension::EXT_DisplaySurfaceCounter)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11224,7 +11224,7 @@ impl SurfaceCounterFlagEXT {}
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DisplaySurfaceCounter`](Extensions::EXT_DisplaySurfaceCounter)
+/// - Extension [`EXT_DisplaySurfaceCounter`](Extension::EXT_DisplaySurfaceCounter)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11236,7 +11236,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11245,7 +11245,7 @@ flagset::flags! {
     pub enum DebugUtilsMessageSeverityFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+        /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11253,7 +11253,7 @@ flagset::flags! {
         VERBOSE_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+        /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11261,7 +11261,7 @@ flagset::flags! {
         INFO_EXT = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+        /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11269,7 +11269,7 @@ flagset::flags! {
         WARNING_EXT = 256,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+        /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11281,7 +11281,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+/// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11293,7 +11293,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+    /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11302,7 +11302,7 @@ flagset::flags! {
     pub enum DebugUtilsMessageTypeFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+        /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11310,7 +11310,7 @@ flagset::flags! {
         GENERAL_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+        /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11318,7 +11318,7 @@ flagset::flags! {
         VALIDATION_EXT = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+        /// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11326,7 +11326,7 @@ flagset::flags! {
         PERFORMANCE_EXT = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DeviceAddressBindingReport`](Extensions::EXT_DeviceAddressBindingReport)
+        /// - Extension [`EXT_DeviceAddressBindingReport`](Extension::EXT_DeviceAddressBindingReport)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11338,7 +11338,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+/// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11350,7 +11350,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+    /// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11359,7 +11359,7 @@ flagset::flags! {
     pub enum GpaSqShaderStageFlagAMD: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+        /// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11367,7 +11367,7 @@ flagset::flags! {
         PS_AMD = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+        /// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11375,7 +11375,7 @@ flagset::flags! {
         VS_AMD = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+        /// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11383,7 +11383,7 @@ flagset::flags! {
         GS_AMD = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+        /// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11391,7 +11391,7 @@ flagset::flags! {
         ES_AMD = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+        /// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11399,7 +11399,7 @@ flagset::flags! {
         HS_AMD = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+        /// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11407,7 +11407,7 @@ flagset::flags! {
         LS_AMD = 32,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+        /// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11419,7 +11419,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+/// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11431,8 +11431,8 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
-    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    /// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11441,7 +11441,7 @@ flagset::flags! {
     pub enum TensorViewCreateFlagARM: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+        /// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11453,8 +11453,8 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11466,7 +11466,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11475,7 +11475,7 @@ flagset::flags! {
     pub enum SpirvResourceTypeFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11483,7 +11483,7 @@ flagset::flags! {
         ALL_EXT = 2147483647,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11491,7 +11491,7 @@ flagset::flags! {
         SAMPLER_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11499,7 +11499,7 @@ flagset::flags! {
         SAMPLED_IMAGE_EXT = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11507,7 +11507,7 @@ flagset::flags! {
         READ_ONLY_IMAGE_EXT = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11515,7 +11515,7 @@ flagset::flags! {
         READ_WRITE_IMAGE_EXT = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11523,7 +11523,7 @@ flagset::flags! {
         COMBINED_SAMPLED_IMAGE_EXT = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11531,7 +11531,7 @@ flagset::flags! {
         UNIFORM_BUFFER_EXT = 32,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11539,7 +11539,7 @@ flagset::flags! {
         READ_ONLY_STORAGE_BUFFER_EXT = 64,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11547,7 +11547,7 @@ flagset::flags! {
         READ_WRITE_STORAGE_BUFFER_EXT = 128,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11555,7 +11555,7 @@ flagset::flags! {
         ACCELERATION_STRUCTURE_EXT = 256,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11567,7 +11567,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+/// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11579,9 +11579,9 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11590,9 +11590,9 @@ flagset::flags! {
     pub enum GeometryFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-        /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+        /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+        /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11600,9 +11600,9 @@ flagset::flags! {
         OPAQUE_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-        /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+        /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+        /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11628,9 +11628,9 @@ impl GeometryFlagKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+/// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+/// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11646,9 +11646,9 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11657,9 +11657,9 @@ flagset::flags! {
     pub enum GeometryInstanceFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-        /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+        /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+        /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11667,9 +11667,9 @@ flagset::flags! {
         TRIANGLE_FACING_CULL_DISABLE_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-        /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+        /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+        /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11677,9 +11677,9 @@ flagset::flags! {
         TRIANGLE_FLIP_FACING_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-        /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+        /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+        /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11687,9 +11687,9 @@ flagset::flags! {
         FORCE_OPAQUE_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-        /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+        /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+        /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11697,8 +11697,8 @@ flagset::flags! {
         FORCE_NO_OPAQUE_KHR = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
-        /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+        /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
+        /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11706,8 +11706,8 @@ flagset::flags! {
         FORCE_OPACITY_MICROMAP_2_STATE_KHR = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
-        /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+        /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
+        /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11753,9 +11753,9 @@ impl GeometryInstanceFlagKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+/// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+/// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11771,9 +11771,9 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-    /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-    /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+    /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+    /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+    /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11782,9 +11782,9 @@ flagset::flags! {
     pub enum BuildAccelerationStructureFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-        /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+        /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+        /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11792,9 +11792,9 @@ flagset::flags! {
         ALLOW_UPDATE_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-        /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+        /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+        /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11802,9 +11802,9 @@ flagset::flags! {
         ALLOW_COMPACTION_KHR = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-        /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+        /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+        /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11812,9 +11812,9 @@ flagset::flags! {
         PREFER_FAST_TRACE_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-        /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+        /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+        /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11822,9 +11822,9 @@ flagset::flags! {
         PREFER_FAST_BUILD_KHR = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-        /// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-        /// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+        /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+        /// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+        /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11832,7 +11832,7 @@ flagset::flags! {
         LOW_MEMORY_KHR = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_RayTracingMotionBlur`](Extensions::NV_RayTracingMotionBlur)
+        /// - Extension [`NV_RayTracingMotionBlur`](Extension::NV_RayTracingMotionBlur)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11840,8 +11840,8 @@ flagset::flags! {
         MOTION_NV = 32,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+        /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+        /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11849,8 +11849,8 @@ flagset::flags! {
         ALLOW_OPACITY_MICROMAP_DATA_UPDATE_EXT = 256,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_DisplacementMicromap`](Extensions::NV_DisplacementMicromap)
-        /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+        /// - Extension [`NV_DisplacementMicromap`](Extension::NV_DisplacementMicromap)
+        /// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11858,7 +11858,7 @@ flagset::flags! {
         ALLOW_DISPLACEMENT_MICROMAP_UPDATE_NV = 512,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_RayTracingPositionFetch`](Extensions::KHR_RayTracingPositionFetch)
+        /// - Extension [`KHR_RayTracingPositionFetch`](Extension::KHR_RayTracingPositionFetch)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11866,7 +11866,7 @@ flagset::flags! {
         ALLOW_DATA_ACCESS_KHR = 2048,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+        /// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11874,8 +11874,8 @@ flagset::flags! {
         ALLOW_CLUSTER_OPACITY_MICROMAPS_NV = 4096,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
-        /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+        /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
+        /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11883,8 +11883,8 @@ flagset::flags! {
         ALLOW_OPACITY_MICROMAP_UPDATE_KHR = 64,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
-        /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
+        /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
+        /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11892,7 +11892,7 @@ flagset::flags! {
         ALLOW_DISABLE_OPACITY_MICROMAPS_KHR = 128,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+        /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11938,9 +11938,9 @@ impl BuildAccelerationStructureFlagKHR {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracing`](Extensions::NV_RayTracing)
-/// - Extension [`KHR_RayTracingPipeline`](Extensions::KHR_RayTracingPipeline)
-/// - Extension [`KHR_AccelerationStructure`](Extensions::KHR_AccelerationStructure)
+/// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
+/// - Extension [`KHR_RayTracingPipeline`](Extension::KHR_RayTracingPipeline)
+/// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11956,7 +11956,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMD_PipelineCompilerControl`](Extensions::AMD_PipelineCompilerControl)
+    /// - Extension [`AMD_PipelineCompilerControl`](Extension::AMD_PipelineCompilerControl)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11969,7 +11969,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_PipelineCompilerControl`](Extensions::AMD_PipelineCompilerControl)
+/// - Extension [`AMD_PipelineCompilerControl`](Extension::AMD_PipelineCompilerControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -11981,7 +11981,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+    /// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -11990,7 +11990,7 @@ flagset::flags! {
     pub enum PresentStageFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+        /// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -11998,7 +11998,7 @@ flagset::flags! {
         QUEUE_OPERATIONS_END_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+        /// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12006,7 +12006,7 @@ flagset::flags! {
         REQUEST_DEQUEUED_EXT = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+        /// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12014,7 +12014,7 @@ flagset::flags! {
         IMAGE_FIRST_PIXEL_OUT_EXT = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+        /// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12026,7 +12026,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+/// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12038,7 +12038,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+    /// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12047,7 +12047,7 @@ flagset::flags! {
     pub enum PastPresentationTimingFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+        /// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12055,7 +12055,7 @@ flagset::flags! {
         ALLOW_PARTIAL_RESULTS_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+        /// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12067,7 +12067,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+/// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12079,7 +12079,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+    /// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12088,7 +12088,7 @@ flagset::flags! {
     pub enum PresentTimingInfoFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+        /// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12096,7 +12096,7 @@ flagset::flags! {
         PRESENT_AT_RELATIVE_TIME_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+        /// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12108,7 +12108,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_PresentTiming`](Extensions::EXT_PresentTiming)
+/// - Extension [`EXT_PresentTiming`](Extension::EXT_PresentTiming)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12120,7 +12120,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`AMD_ShaderCoreProperties2`](Extensions::AMD_ShaderCoreProperties2)
+    /// - Extension [`AMD_ShaderCoreProperties2`](Extension::AMD_ShaderCoreProperties2)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12135,7 +12135,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_ShaderCoreProperties2`](Extensions::AMD_ShaderCoreProperties2)
+/// - Extension [`AMD_ShaderCoreProperties2`](Extension::AMD_ShaderCoreProperties2)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12149,7 +12149,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+    /// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12158,7 +12158,7 @@ flagset::flags! {
     pub enum IndirectStateFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+        /// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12170,7 +12170,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+/// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12182,7 +12182,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+    /// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12191,7 +12191,7 @@ flagset::flags! {
     pub enum IndirectCommandsLayoutUsageFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+        /// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12199,7 +12199,7 @@ flagset::flags! {
         EXPLICIT_PREPROCESS_NV = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+        /// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12207,7 +12207,7 @@ flagset::flags! {
         INDEXED_SEQUENCES_NV = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+        /// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12219,7 +12219,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceGeneratedCommands`](Extensions::NV_DeviceGeneratedCommands)
+/// - Extension [`NV_DeviceGeneratedCommands`](Extension::NV_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12231,7 +12231,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_DeviceDiagnosticsConfig`](Extensions::NV_DeviceDiagnosticsConfig)
+    /// - Extension [`NV_DeviceDiagnosticsConfig`](Extension::NV_DeviceDiagnosticsConfig)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12240,7 +12240,7 @@ flagset::flags! {
     pub enum DeviceDiagnosticsConfigFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_DeviceDiagnosticsConfig`](Extensions::NV_DeviceDiagnosticsConfig)
+        /// - Extension [`NV_DeviceDiagnosticsConfig`](Extension::NV_DeviceDiagnosticsConfig)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12248,7 +12248,7 @@ flagset::flags! {
         ENABLE_SHADER_DEBUG_INFO_NV = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_DeviceDiagnosticsConfig`](Extensions::NV_DeviceDiagnosticsConfig)
+        /// - Extension [`NV_DeviceDiagnosticsConfig`](Extension::NV_DeviceDiagnosticsConfig)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12256,7 +12256,7 @@ flagset::flags! {
         ENABLE_RESOURCE_TRACKING_NV = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_DeviceDiagnosticsConfig`](Extensions::NV_DeviceDiagnosticsConfig)
+        /// - Extension [`NV_DeviceDiagnosticsConfig`](Extension::NV_DeviceDiagnosticsConfig)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12264,7 +12264,7 @@ flagset::flags! {
         ENABLE_AUTOMATIC_CHECKPOINTS_NV = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_DeviceDiagnosticsConfig`](Extensions::NV_DeviceDiagnosticsConfig)
+        /// - Extension [`NV_DeviceDiagnosticsConfig`](Extension::NV_DeviceDiagnosticsConfig)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12276,7 +12276,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_DeviceDiagnosticsConfig`](Extensions::NV_DeviceDiagnosticsConfig)
+/// - Extension [`NV_DeviceDiagnosticsConfig`](Extension::NV_DeviceDiagnosticsConfig)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12288,7 +12288,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`QCOM_TileShading`](Extensions::QCOM_TileShading)
+    /// - Extension [`QCOM_TileShading`](Extension::QCOM_TileShading)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12297,7 +12297,7 @@ flagset::flags! {
     pub enum TileShadingRenderPassFlagQCOM: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`QCOM_TileShading`](Extensions::QCOM_TileShading)
+        /// - Extension [`QCOM_TileShading`](Extension::QCOM_TileShading)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12305,7 +12305,7 @@ flagset::flags! {
         ENABLE_QCOM = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`QCOM_TileShading`](Extensions::QCOM_TileShading)
+        /// - Extension [`QCOM_TileShading`](Extension::QCOM_TileShading)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12317,7 +12317,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QCOM_TileShading`](Extensions::QCOM_TileShading)
+/// - Extension [`QCOM_TileShading`](Extension::QCOM_TileShading)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12329,7 +12329,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_MetalObjects`](Extensions::EXT_MetalObjects)
+    /// - Extension [`EXT_MetalObjects`](Extension::EXT_MetalObjects)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12338,7 +12338,7 @@ flagset::flags! {
     pub enum ExportMetalObjectTypeFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_MetalObjects`](Extensions::EXT_MetalObjects)
+        /// - Extension [`EXT_MetalObjects`](Extension::EXT_MetalObjects)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12346,7 +12346,7 @@ flagset::flags! {
         METAL_DEVICE_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_MetalObjects`](Extensions::EXT_MetalObjects)
+        /// - Extension [`EXT_MetalObjects`](Extension::EXT_MetalObjects)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12354,7 +12354,7 @@ flagset::flags! {
         METAL_COMMAND_QUEUE_EXT = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_MetalObjects`](Extensions::EXT_MetalObjects)
+        /// - Extension [`EXT_MetalObjects`](Extension::EXT_MetalObjects)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12362,7 +12362,7 @@ flagset::flags! {
         METAL_BUFFER_EXT = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_MetalObjects`](Extensions::EXT_MetalObjects)
+        /// - Extension [`EXT_MetalObjects`](Extension::EXT_MetalObjects)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12370,7 +12370,7 @@ flagset::flags! {
         METAL_TEXTURE_EXT = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_MetalObjects`](Extensions::EXT_MetalObjects)
+        /// - Extension [`EXT_MetalObjects`](Extension::EXT_MetalObjects)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12378,7 +12378,7 @@ flagset::flags! {
         METAL_IOSURFACE_EXT = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_MetalObjects`](Extensions::EXT_MetalObjects)
+        /// - Extension [`EXT_MetalObjects`](Extension::EXT_MetalObjects)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12390,7 +12390,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MetalObjects`](Extensions::EXT_MetalObjects)
+/// - Extension [`EXT_MetalObjects`](Extension::EXT_MetalObjects)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12404,7 +12404,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_GraphicsPipelineLibrary`](Extensions::EXT_GraphicsPipelineLibrary)
+    /// - Extension [`EXT_GraphicsPipelineLibrary`](Extension::EXT_GraphicsPipelineLibrary)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12413,7 +12413,7 @@ flagset::flags! {
     pub enum GraphicsPipelineLibraryFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_GraphicsPipelineLibrary`](Extensions::EXT_GraphicsPipelineLibrary)
+        /// - Extension [`EXT_GraphicsPipelineLibrary`](Extension::EXT_GraphicsPipelineLibrary)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12421,7 +12421,7 @@ flagset::flags! {
         VERTEX_INPUT_INTERFACE_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_GraphicsPipelineLibrary`](Extensions::EXT_GraphicsPipelineLibrary)
+        /// - Extension [`EXT_GraphicsPipelineLibrary`](Extension::EXT_GraphicsPipelineLibrary)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12429,7 +12429,7 @@ flagset::flags! {
         PRE_RASTERIZATION_SHADERS_EXT = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_GraphicsPipelineLibrary`](Extensions::EXT_GraphicsPipelineLibrary)
+        /// - Extension [`EXT_GraphicsPipelineLibrary`](Extension::EXT_GraphicsPipelineLibrary)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12437,7 +12437,7 @@ flagset::flags! {
         FRAGMENT_SHADER_EXT = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_GraphicsPipelineLibrary`](Extensions::EXT_GraphicsPipelineLibrary)
+        /// - Extension [`EXT_GraphicsPipelineLibrary`](Extension::EXT_GraphicsPipelineLibrary)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12449,7 +12449,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_GraphicsPipelineLibrary`](Extensions::EXT_GraphicsPipelineLibrary)
+/// - Extension [`EXT_GraphicsPipelineLibrary`](Extension::EXT_GraphicsPipelineLibrary)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12461,7 +12461,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+    /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12470,7 +12470,7 @@ flagset::flags! {
     pub enum ImageCompressionFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12478,7 +12478,7 @@ flagset::flags! {
         DEFAULT_EXT = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12486,7 +12486,7 @@ flagset::flags! {
         FIXED_RATE_DEFAULT_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12494,7 +12494,7 @@ flagset::flags! {
         FIXED_RATE_EXPLICIT_EXT = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12506,7 +12506,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+/// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12518,7 +12518,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+    /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12527,7 +12527,7 @@ flagset::flags! {
     pub enum ImageCompressionFixedRateFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12535,7 +12535,7 @@ flagset::flags! {
         NONE_EXT = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12543,7 +12543,7 @@ flagset::flags! {
         _1BPC_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12551,7 +12551,7 @@ flagset::flags! {
         _2BPC_EXT = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12559,7 +12559,7 @@ flagset::flags! {
         _3BPC_EXT = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12567,7 +12567,7 @@ flagset::flags! {
         _4BPC_EXT = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12575,7 +12575,7 @@ flagset::flags! {
         _5BPC_EXT = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12583,7 +12583,7 @@ flagset::flags! {
         _6BPC_EXT = 32,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12591,7 +12591,7 @@ flagset::flags! {
         _7BPC_EXT = 64,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12599,7 +12599,7 @@ flagset::flags! {
         _8BPC_EXT = 128,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12607,7 +12607,7 @@ flagset::flags! {
         _9BPC_EXT = 256,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12615,7 +12615,7 @@ flagset::flags! {
         _10BPC_EXT = 512,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12623,7 +12623,7 @@ flagset::flags! {
         _11BPC_EXT = 1024,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12631,7 +12631,7 @@ flagset::flags! {
         _12BPC_EXT = 2048,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12639,7 +12639,7 @@ flagset::flags! {
         _13BPC_EXT = 4096,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12647,7 +12647,7 @@ flagset::flags! {
         _14BPC_EXT = 8192,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12655,7 +12655,7 @@ flagset::flags! {
         _15BPC_EXT = 16384,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12663,7 +12663,7 @@ flagset::flags! {
         _16BPC_EXT = 32768,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12671,7 +12671,7 @@ flagset::flags! {
         _17BPC_EXT = 65536,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12679,7 +12679,7 @@ flagset::flags! {
         _18BPC_EXT = 131072,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12687,7 +12687,7 @@ flagset::flags! {
         _19BPC_EXT = 262144,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12695,7 +12695,7 @@ flagset::flags! {
         _20BPC_EXT = 524288,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12703,7 +12703,7 @@ flagset::flags! {
         _21BPC_EXT = 1048576,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12711,7 +12711,7 @@ flagset::flags! {
         _22BPC_EXT = 2097152,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12719,7 +12719,7 @@ flagset::flags! {
         _23BPC_EXT = 4194304,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+        /// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12731,7 +12731,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ImageCompressionControl`](Extensions::EXT_ImageCompressionControl)
+/// - Extension [`EXT_ImageCompressionControl`](Extension::EXT_ImageCompressionControl)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12743,7 +12743,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DeviceAddressBindingReport`](Extensions::EXT_DeviceAddressBindingReport)
+    /// - Extension [`EXT_DeviceAddressBindingReport`](Extension::EXT_DeviceAddressBindingReport)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12752,7 +12752,7 @@ flagset::flags! {
     pub enum DeviceAddressBindingFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DeviceAddressBindingReport`](Extensions::EXT_DeviceAddressBindingReport)
+        /// - Extension [`EXT_DeviceAddressBindingReport`](Extension::EXT_DeviceAddressBindingReport)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12764,7 +12764,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceAddressBindingReport`](Extensions::EXT_DeviceAddressBindingReport)
+/// - Extension [`EXT_DeviceAddressBindingReport`](Extension::EXT_DeviceAddressBindingReport)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12776,7 +12776,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+    /// - Extension [`FUCHSIA_BufferCollection`](Extension::FUCHSIA_BufferCollection)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12785,7 +12785,7 @@ flagset::flags! {
     pub enum ImageConstraintsInfoFlagFUCHSIA: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+        /// - Extension [`FUCHSIA_BufferCollection`](Extension::FUCHSIA_BufferCollection)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12793,7 +12793,7 @@ flagset::flags! {
         CPU_READ_RARELY_FUCHSIA = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+        /// - Extension [`FUCHSIA_BufferCollection`](Extension::FUCHSIA_BufferCollection)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12801,7 +12801,7 @@ flagset::flags! {
         CPU_READ_OFTEN_FUCHSIA = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+        /// - Extension [`FUCHSIA_BufferCollection`](Extension::FUCHSIA_BufferCollection)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12809,7 +12809,7 @@ flagset::flags! {
         CPU_WRITE_RARELY_FUCHSIA = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+        /// - Extension [`FUCHSIA_BufferCollection`](Extension::FUCHSIA_BufferCollection)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12817,7 +12817,7 @@ flagset::flags! {
         CPU_WRITE_OFTEN_FUCHSIA = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+        /// - Extension [`FUCHSIA_BufferCollection`](Extension::FUCHSIA_BufferCollection)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12829,7 +12829,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+/// - Extension [`FUCHSIA_BufferCollection`](Extension::FUCHSIA_BufferCollection)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12841,7 +12841,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_FrameBoundary`](Extensions::EXT_FrameBoundary)
+    /// - Extension [`EXT_FrameBoundary`](Extension::EXT_FrameBoundary)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12850,7 +12850,7 @@ flagset::flags! {
     pub enum FrameBoundaryFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_FrameBoundary`](Extensions::EXT_FrameBoundary)
+        /// - Extension [`EXT_FrameBoundary`](Extension::EXT_FrameBoundary)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12862,7 +12862,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_FrameBoundary`](Extensions::EXT_FrameBoundary)
+/// - Extension [`EXT_FrameBoundary`](Extension::EXT_FrameBoundary)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12874,7 +12874,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extensions::VALVE_VideoEncodeRgbConversion)
+    /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extension::VALVE_VideoEncodeRgbConversion)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12883,7 +12883,7 @@ flagset::flags! {
     pub enum VideoEncodeRgbModelConversionFlagVALVE: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extensions::VALVE_VideoEncodeRgbConversion)
+        /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extension::VALVE_VideoEncodeRgbConversion)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12891,7 +12891,7 @@ flagset::flags! {
         RGB_IDENTITY_VALVE = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extensions::VALVE_VideoEncodeRgbConversion)
+        /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extension::VALVE_VideoEncodeRgbConversion)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12899,7 +12899,7 @@ flagset::flags! {
         YCBCR_IDENTITY_VALVE = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extensions::VALVE_VideoEncodeRgbConversion)
+        /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extension::VALVE_VideoEncodeRgbConversion)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12907,7 +12907,7 @@ flagset::flags! {
         YCBCR_709_VALVE = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extensions::VALVE_VideoEncodeRgbConversion)
+        /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extension::VALVE_VideoEncodeRgbConversion)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12915,7 +12915,7 @@ flagset::flags! {
         YCBCR_601_VALVE = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extensions::VALVE_VideoEncodeRgbConversion)
+        /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extension::VALVE_VideoEncodeRgbConversion)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12927,7 +12927,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`VALVE_VideoEncodeRgbConversion`](Extensions::VALVE_VideoEncodeRgbConversion)
+/// - Extension [`VALVE_VideoEncodeRgbConversion`](Extension::VALVE_VideoEncodeRgbConversion)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12942,7 +12942,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extensions::VALVE_VideoEncodeRgbConversion)
+    /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extension::VALVE_VideoEncodeRgbConversion)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12951,7 +12951,7 @@ flagset::flags! {
     pub enum VideoEncodeRgbRangeCompressionFlagVALVE: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extensions::VALVE_VideoEncodeRgbConversion)
+        /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extension::VALVE_VideoEncodeRgbConversion)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12959,7 +12959,7 @@ flagset::flags! {
         FULL_RANGE_VALVE = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extensions::VALVE_VideoEncodeRgbConversion)
+        /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extension::VALVE_VideoEncodeRgbConversion)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -12971,7 +12971,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`VALVE_VideoEncodeRgbConversion`](Extensions::VALVE_VideoEncodeRgbConversion)
+/// - Extension [`VALVE_VideoEncodeRgbConversion`](Extension::VALVE_VideoEncodeRgbConversion)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -12986,7 +12986,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extensions::VALVE_VideoEncodeRgbConversion)
+    /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extension::VALVE_VideoEncodeRgbConversion)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -12995,7 +12995,7 @@ flagset::flags! {
     pub enum VideoEncodeRgbChromaOffsetFlagVALVE: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extensions::VALVE_VideoEncodeRgbConversion)
+        /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extension::VALVE_VideoEncodeRgbConversion)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13003,7 +13003,7 @@ flagset::flags! {
         COSITED_EVEN_VALVE = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extensions::VALVE_VideoEncodeRgbConversion)
+        /// - Extension [`VALVE_VideoEncodeRgbConversion`](Extension::VALVE_VideoEncodeRgbConversion)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13015,7 +13015,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`VALVE_VideoEncodeRgbConversion`](Extensions::VALVE_VideoEncodeRgbConversion)
+/// - Extension [`VALVE_VideoEncodeRgbConversion`](Extension::VALVE_VideoEncodeRgbConversion)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13030,8 +13030,8 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13040,8 +13040,8 @@ flagset::flags! {
     pub enum BuildMicromapFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+        /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+        /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13049,8 +13049,8 @@ flagset::flags! {
         PREFER_FAST_TRACE_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+        /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+        /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13058,8 +13058,8 @@ flagset::flags! {
         PREFER_FAST_BUILD_EXT = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+        /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+        /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13071,8 +13071,8 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-/// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+/// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+/// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13084,8 +13084,8 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-    /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+    /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+    /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13094,8 +13094,8 @@ flagset::flags! {
     pub enum MicromapCreateFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+        /// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+        /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13107,8 +13107,8 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_OpacityMicromap`](Extensions::EXT_OpacityMicromap)
-/// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+/// - Extension [`EXT_OpacityMicromap`](Extension::EXT_OpacityMicromap)
+/// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13120,7 +13120,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_SchedulingControls`](Extensions::ARM_SchedulingControls)
+    /// - Extension [`ARM_SchedulingControls`](Extension::ARM_SchedulingControls)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13131,7 +13131,7 @@ flagset::flags! {
     pub enum PhysicalDeviceSchedulingControlsFlagARM: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_SchedulingControls`](Extensions::ARM_SchedulingControls)
+        /// - Extension [`ARM_SchedulingControls`](Extension::ARM_SchedulingControls)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13139,7 +13139,7 @@ flagset::flags! {
         SHADER_CORE_COUNT_ARM = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_SchedulingControls`](Extensions::ARM_SchedulingControls)
+        /// - Extension [`ARM_SchedulingControls`](Extension::ARM_SchedulingControls)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13151,7 +13151,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_SchedulingControls`](Extensions::ARM_SchedulingControls)
+/// - Extension [`ARM_SchedulingControls`](Extension::ARM_SchedulingControls)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13166,8 +13166,8 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_MemoryDecompression`](Extensions::NV_MemoryDecompression)
-    /// - Extension [`EXT_MemoryDecompression`](Extensions::EXT_MemoryDecompression)
+    /// - Extension [`NV_MemoryDecompression`](Extension::NV_MemoryDecompression)
+    /// - Extension [`EXT_MemoryDecompression`](Extension::EXT_MemoryDecompression)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13176,7 +13176,7 @@ flagset::flags! {
     pub enum MemoryDecompressionMethodFlagEXT: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_MemoryDecompression`](Extensions::EXT_MemoryDecompression)
+        /// - Extension [`EXT_MemoryDecompression`](Extension::EXT_MemoryDecompression)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13198,8 +13198,8 @@ impl MemoryDecompressionMethodFlagEXT {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_MemoryDecompression`](Extensions::NV_MemoryDecompression)
-/// - Extension [`EXT_MemoryDecompression`](Extensions::EXT_MemoryDecompression)
+/// - Extension [`NV_MemoryDecompression`](Extension::NV_MemoryDecompression)
+/// - Extension [`EXT_MemoryDecompression`](Extension::EXT_MemoryDecompression)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13215,7 +13215,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    /// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13224,7 +13224,7 @@ flagset::flags! {
     pub enum TensorCreateFlagARM: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+        /// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13232,7 +13232,7 @@ flagset::flags! {
         MUTABLE_FORMAT_ARM = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+        /// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13240,7 +13240,7 @@ flagset::flags! {
         PROTECTED_ARM = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13248,7 +13248,7 @@ flagset::flags! {
         DESCRIPTOR_HEAP_CAPTURE_REPLAY_ARM = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+        /// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13260,7 +13260,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13272,7 +13272,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+    /// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13281,7 +13281,7 @@ flagset::flags! {
     pub enum TensorUsageFlagARM: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+        /// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13289,7 +13289,7 @@ flagset::flags! {
         SHADER_ARM = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+        /// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13297,7 +13297,7 @@ flagset::flags! {
         TRANSFER_SRC_ARM = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+        /// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13305,7 +13305,7 @@ flagset::flags! {
         TRANSFER_DST_ARM = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+        /// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13313,7 +13313,7 @@ flagset::flags! {
         IMAGE_ALIASING_ARM = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+        /// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13325,7 +13325,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_Tensors`](Extensions::ARM_Tensors)
+/// - Extension [`ARM_Tensors`](Extension::ARM_Tensors)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13337,7 +13337,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+    /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13346,7 +13346,7 @@ flagset::flags! {
     pub enum OpticalFlowGridSizeFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+        /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13354,7 +13354,7 @@ flagset::flags! {
         UNKNOWN_NV = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+        /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13362,7 +13362,7 @@ flagset::flags! {
         _1X1_NV = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+        /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13370,7 +13370,7 @@ flagset::flags! {
         _2X2_NV = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+        /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13378,7 +13378,7 @@ flagset::flags! {
         _4X4_NV = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+        /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13390,7 +13390,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+/// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13402,7 +13402,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+    /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13411,7 +13411,7 @@ flagset::flags! {
     pub enum OpticalFlowUsageFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+        /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13419,7 +13419,7 @@ flagset::flags! {
         UNKNOWN_NV = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+        /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13427,7 +13427,7 @@ flagset::flags! {
         INPUT_NV = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+        /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13435,7 +13435,7 @@ flagset::flags! {
         OUTPUT_NV = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+        /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13443,7 +13443,7 @@ flagset::flags! {
         HINT_NV = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+        /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13451,7 +13451,7 @@ flagset::flags! {
         COST_NV = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+        /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13463,7 +13463,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+/// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13475,7 +13475,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+    /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13484,7 +13484,7 @@ flagset::flags! {
     pub enum OpticalFlowSessionCreateFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+        /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13492,7 +13492,7 @@ flagset::flags! {
         ENABLE_HINT_NV = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+        /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13500,7 +13500,7 @@ flagset::flags! {
         ENABLE_COST_NV = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+        /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13508,7 +13508,7 @@ flagset::flags! {
         ENABLE_GLOBAL_FLOW_NV = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+        /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13516,7 +13516,7 @@ flagset::flags! {
         ALLOW_REGIONS_NV = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+        /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13528,7 +13528,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+/// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13540,7 +13540,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+    /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13549,7 +13549,7 @@ flagset::flags! {
     pub enum OpticalFlowExecuteFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+        /// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13561,7 +13561,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_OpticalFlow`](Extensions::NV_OpticalFlow)
+/// - Extension [`NV_OpticalFlow`](Extension::NV_OpticalFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13573,7 +13573,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+    /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13582,7 +13582,7 @@ flagset::flags! {
     pub enum ShaderCreateFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+        /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13590,7 +13590,7 @@ flagset::flags! {
         LINK_STAGE_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorHeap`](Extensions::EXT_DescriptorHeap)
+        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13599,8 +13599,8 @@ flagset::flags! {
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Version 1.4 with appropriate features
-        /// - Extension [`KHR_Maintenance5`](Extensions::KHR_Maintenance5)
-        /// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
+        /// - Extension [`KHR_Maintenance5`](Extension::KHR_Maintenance5)
+        /// - Extension [`ARM_ShaderInstrumentation`](Extension::ARM_ShaderInstrumentation)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13608,7 +13608,7 @@ flagset::flags! {
         INSTRUMENT_SHADER_ARM = 2048,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+        /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13616,7 +13616,7 @@ flagset::flags! {
         ALLOW_VARYING_SUBGROUP_SIZE_EXT = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+        /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13624,7 +13624,7 @@ flagset::flags! {
         REQUIRE_FULL_SUBGROUPS_EXT = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+        /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13632,7 +13632,7 @@ flagset::flags! {
         NO_TASK_SHADER_EXT = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+        /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13640,7 +13640,7 @@ flagset::flags! {
         DISPATCH_BASE_EXT = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+        /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13648,7 +13648,7 @@ flagset::flags! {
         FRAGMENT_SHADING_RATE_ATTACHMENT_EXT = 32,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+        /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13656,7 +13656,7 @@ flagset::flags! {
         FRAGMENT_DENSITY_MAP_ATTACHMENT_EXT = 64,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+        /// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13664,7 +13664,7 @@ flagset::flags! {
         INDIRECT_BINDABLE_EXT = 128,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_OpacityMicromap`](Extensions::KHR_OpacityMicromap)
+        /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13672,7 +13672,7 @@ flagset::flags! {
         OPACITY_MICROMAP_DISALLOW_MIXED_SPECIAL_INDEX_EXT = 4096,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_Shader64BitIndexing`](Extensions::EXT_Shader64BitIndexing)
+        /// - Extension [`EXT_Shader64BitIndexing`](Extension::EXT_Shader64BitIndexing)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13680,7 +13680,7 @@ flagset::flags! {
         _64_INDEXING_EXT = 32768,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`KHR_Maintenance11`](Extensions::KHR_Maintenance11)
+        /// - Extension [`KHR_Maintenance11`](Extension::KHR_Maintenance11)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13692,7 +13692,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ShaderObject`](Extensions::EXT_ShaderObject)
+/// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13704,7 +13704,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+    /// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13713,7 +13713,7 @@ flagset::flags! {
     pub enum DataGraphPipelineSessionCreateFlagARM: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+        /// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13721,7 +13721,7 @@ flagset::flags! {
         PROTECTED_ARM = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+        /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13733,7 +13733,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+/// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13746,7 +13746,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+    /// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13759,7 +13759,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraph`](Extensions::ARM_DataGraph)
+/// - Extension [`ARM_DataGraph`](Extension::ARM_DataGraph)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13771,7 +13771,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_DataGraphInstructionSetTosa`](Extensions::ARM_DataGraphInstructionSetTosa)
+    /// - Extension [`ARM_DataGraphInstructionSetTosa`](Extension::ARM_DataGraphInstructionSetTosa)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13782,7 +13782,7 @@ flagset::flags! {
     pub enum DataGraphTOSAQualityFlagARM: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphInstructionSetTosa`](Extensions::ARM_DataGraphInstructionSetTosa)
+        /// - Extension [`ARM_DataGraphInstructionSetTosa`](Extension::ARM_DataGraphInstructionSetTosa)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13790,7 +13790,7 @@ flagset::flags! {
         ACCELERATED_ARM = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphInstructionSetTosa`](Extensions::ARM_DataGraphInstructionSetTosa)
+        /// - Extension [`ARM_DataGraphInstructionSetTosa`](Extension::ARM_DataGraphInstructionSetTosa)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13798,7 +13798,7 @@ flagset::flags! {
         CONFORMANT_ARM = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphInstructionSetTosa`](Extensions::ARM_DataGraphInstructionSetTosa)
+        /// - Extension [`ARM_DataGraphInstructionSetTosa`](Extension::ARM_DataGraphInstructionSetTosa)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13806,7 +13806,7 @@ flagset::flags! {
         EXPERIMENTAL_ARM = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphInstructionSetTosa`](Extensions::ARM_DataGraphInstructionSetTosa)
+        /// - Extension [`ARM_DataGraphInstructionSetTosa`](Extension::ARM_DataGraphInstructionSetTosa)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13818,7 +13818,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraphInstructionSetTosa`](Extensions::ARM_DataGraphInstructionSetTosa)
+/// - Extension [`ARM_DataGraphInstructionSetTosa`](Extension::ARM_DataGraphInstructionSetTosa)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13832,7 +13832,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+    /// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13841,7 +13841,7 @@ flagset::flags! {
     pub enum ClusterAccelerationStructureAddressResolutionFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+        /// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13849,7 +13849,7 @@ flagset::flags! {
         NONE_NV = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+        /// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13857,7 +13857,7 @@ flagset::flags! {
         INDIRECTED_DST_IMPLICIT_DATA_NV = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+        /// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13865,7 +13865,7 @@ flagset::flags! {
         INDIRECTED_SCRATCH_DATA_NV = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+        /// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13873,7 +13873,7 @@ flagset::flags! {
         INDIRECTED_DST_ADDRESS_ARRAY_NV = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+        /// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13881,7 +13881,7 @@ flagset::flags! {
         INDIRECTED_DST_SIZES_ARRAY_NV = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+        /// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13889,7 +13889,7 @@ flagset::flags! {
         INDIRECTED_SRC_INFOS_ARRAY_NV = 16,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+        /// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13901,7 +13901,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13914,7 +13914,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+    /// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13923,7 +13923,7 @@ flagset::flags! {
     pub enum ClusterAccelerationStructureClusterFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+        /// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13935,7 +13935,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -13948,7 +13948,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+    /// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -13959,7 +13959,7 @@ flagset::flags! {
     pub enum ClusterAccelerationStructureGeometryFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+        /// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13967,7 +13967,7 @@ flagset::flags! {
         CULL_DISABLE_NV = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+        /// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13975,7 +13975,7 @@ flagset::flags! {
         NO_DUPLICATE_ANYHIT_INVOCATION_NV = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+        /// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -13987,7 +13987,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14002,7 +14002,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+    /// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14013,7 +14013,7 @@ flagset::flags! {
     pub enum ClusterAccelerationStructureIndexFormatFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+        /// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14021,7 +14021,7 @@ flagset::flags! {
         _8BIT_NV = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+        /// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14029,7 +14029,7 @@ flagset::flags! {
         _16BIT_NV = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+        /// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14041,7 +14041,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ClusterAccelerationStructure`](Extensions::NV_ClusterAccelerationStructure)
+/// - Extension [`NV_ClusterAccelerationStructure`](Extension::NV_ClusterAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14056,7 +14056,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`NV_PartitionedAccelerationStructure`](Extensions::NV_PartitionedAccelerationStructure)
+    /// - Extension [`NV_PartitionedAccelerationStructure`](Extension::NV_PartitionedAccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14065,7 +14065,7 @@ flagset::flags! {
     pub enum PartitionedAccelerationStructureInstanceFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_PartitionedAccelerationStructure`](Extensions::NV_PartitionedAccelerationStructure)
+        /// - Extension [`NV_PartitionedAccelerationStructure`](Extension::NV_PartitionedAccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14073,7 +14073,7 @@ flagset::flags! {
         FLAG_TRIANGLE_FACING_CULL_DISABLE_NV = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_PartitionedAccelerationStructure`](Extensions::NV_PartitionedAccelerationStructure)
+        /// - Extension [`NV_PartitionedAccelerationStructure`](Extension::NV_PartitionedAccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14081,7 +14081,7 @@ flagset::flags! {
         FLAG_TRIANGLE_FLIP_FACING_NV = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_PartitionedAccelerationStructure`](Extensions::NV_PartitionedAccelerationStructure)
+        /// - Extension [`NV_PartitionedAccelerationStructure`](Extension::NV_PartitionedAccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14089,7 +14089,7 @@ flagset::flags! {
         FLAG_FORCE_OPAQUE_NV = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_PartitionedAccelerationStructure`](Extensions::NV_PartitionedAccelerationStructure)
+        /// - Extension [`NV_PartitionedAccelerationStructure`](Extension::NV_PartitionedAccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14097,7 +14097,7 @@ flagset::flags! {
         FLAG_FORCE_NO_OPAQUE_NV = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`NV_PartitionedAccelerationStructure`](Extensions::NV_PartitionedAccelerationStructure)
+        /// - Extension [`NV_PartitionedAccelerationStructure`](Extension::NV_PartitionedAccelerationStructure)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14109,7 +14109,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_PartitionedAccelerationStructure`](Extensions::NV_PartitionedAccelerationStructure)
+/// - Extension [`NV_PartitionedAccelerationStructure`](Extension::NV_PartitionedAccelerationStructure)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14122,7 +14122,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+    /// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14131,7 +14131,7 @@ flagset::flags! {
     pub enum IndirectCommandsInputModeFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+        /// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14139,7 +14139,7 @@ flagset::flags! {
         VULKAN_INDEX_BUFFER_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+        /// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14151,7 +14151,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14165,7 +14165,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+    /// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14174,7 +14174,7 @@ flagset::flags! {
     pub enum IndirectCommandsLayoutUsageFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+        /// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14182,7 +14182,7 @@ flagset::flags! {
         EXPLICIT_PREPROCESS_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+        /// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14194,7 +14194,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceGeneratedCommands`](Extensions::EXT_DeviceGeneratedCommands)
+/// - Extension [`EXT_DeviceGeneratedCommands`](Extension::EXT_DeviceGeneratedCommands)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14206,7 +14206,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+    /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14215,7 +14215,7 @@ flagset::flags! {
     pub enum DataGraphOpticalFlowGridSizeFlagARM: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+        /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14223,7 +14223,7 @@ flagset::flags! {
         UNKNOWN_ARM = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+        /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14231,7 +14231,7 @@ flagset::flags! {
         _1X1_ARM = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+        /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14239,7 +14239,7 @@ flagset::flags! {
         _2X2_ARM = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+        /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14247,7 +14247,7 @@ flagset::flags! {
         _4X4_ARM = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+        /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14259,7 +14259,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+/// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14272,7 +14272,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+    /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14281,7 +14281,7 @@ flagset::flags! {
     pub enum DataGraphOpticalFlowCreateFlagARM: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+        /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14289,7 +14289,7 @@ flagset::flags! {
         ENABLE_HINT_ARM = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+        /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14297,7 +14297,7 @@ flagset::flags! {
         ENABLE_COST_ARM = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+        /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14309,7 +14309,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+/// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14321,7 +14321,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+    /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14330,7 +14330,7 @@ flagset::flags! {
     pub enum DataGraphOpticalFlowImageUsageFlagARM: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+        /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14338,7 +14338,7 @@ flagset::flags! {
         UNKNOWN_ARM = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+        /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14346,7 +14346,7 @@ flagset::flags! {
         INPUT_ARM = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+        /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14354,7 +14354,7 @@ flagset::flags! {
         OUTPUT_ARM = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+        /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14362,7 +14362,7 @@ flagset::flags! {
         HINT_ARM = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+        /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14374,7 +14374,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+/// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14387,7 +14387,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+    /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14396,7 +14396,7 @@ flagset::flags! {
     pub enum DataGraphOpticalFlowExecuteFlagARM: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+        /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14404,7 +14404,7 @@ flagset::flags! {
         DISABLE_TEMPORAL_HINTS_ARM = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+        /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14412,7 +14412,7 @@ flagset::flags! {
         INPUT_UNCHANGED_ARM = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+        /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14420,7 +14420,7 @@ flagset::flags! {
         REFERENCE_UNCHANGED_ARM = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+        /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14428,7 +14428,7 @@ flagset::flags! {
         INPUT_IS_PREVIOUS_REFERENCE_ARM = 8,
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+        /// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14440,7 +14440,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_DataGraphOpticalFlow`](Extensions::ARM_DataGraphOpticalFlow)
+/// - Extension [`ARM_DataGraphOpticalFlow`](Extension::ARM_DataGraphOpticalFlow)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14452,7 +14452,7 @@ flagset::flags! {
     ///
     /// # Requirements
     /// This requires _at least_ one of the following:
-    /// - Extension [`EXT_CooperativeMatrixMaintenance1`](Extensions::EXT_CooperativeMatrixMaintenance1)
+    /// - Extension [`EXT_CooperativeMatrixMaintenance1`](Extension::EXT_CooperativeMatrixMaintenance1)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
@@ -14461,7 +14461,7 @@ flagset::flags! {
     pub enum CooperativeMatrixFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_CooperativeMatrixMaintenance1`](Extensions::EXT_CooperativeMatrixMaintenance1)
+        /// - Extension [`EXT_CooperativeMatrixMaintenance1`](Extension::EXT_CooperativeMatrixMaintenance1)
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
@@ -14473,7 +14473,7 @@ flagset::flags! {
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_CooperativeMatrixMaintenance1`](Extensions::EXT_CooperativeMatrixMaintenance1)
+/// - Extension [`EXT_CooperativeMatrixMaintenance1`](Extension::EXT_CooperativeMatrixMaintenance1)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14562,7 +14562,7 @@ pub type DescriptorUpdateTemplateCreateFlagsKHR = DescriptorUpdateTemplateCreate
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Display`](Extensions::KHR_Display)
+/// - Extension [`KHR_Display`](Extension::KHR_Display)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14573,7 +14573,7 @@ pub type DisplayModeCreateFlagsKHR = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Display`](Extensions::KHR_Display)
+/// - Extension [`KHR_Display`](Extension::KHR_Display)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14584,7 +14584,7 @@ pub type DisplaySurfaceCreateFlagsKHR = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_XlibSurface`](Extensions::KHR_XlibSurface)
+/// - Extension [`KHR_XlibSurface`](Extension::KHR_XlibSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14595,7 +14595,7 @@ pub type XlibSurfaceCreateFlagsKHR = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_XcbSurface`](Extensions::KHR_XcbSurface)
+/// - Extension [`KHR_XcbSurface`](Extension::KHR_XcbSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14606,7 +14606,7 @@ pub type XcbSurfaceCreateFlagsKHR = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_WaylandSurface`](Extensions::KHR_WaylandSurface)
+/// - Extension [`KHR_WaylandSurface`](Extension::KHR_WaylandSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14617,7 +14617,7 @@ pub type WaylandSurfaceCreateFlagsKHR = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_AndroidSurface`](Extensions::KHR_AndroidSurface)
+/// - Extension [`KHR_AndroidSurface`](Extension::KHR_AndroidSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14628,7 +14628,7 @@ pub type AndroidSurfaceCreateFlagsKHR = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_Win32Surface`](Extensions::KHR_Win32Surface)
+/// - Extension [`KHR_Win32Surface`](Extension::KHR_Win32Surface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14639,7 +14639,7 @@ pub type Win32SurfaceCreateFlagsKHR = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14650,7 +14650,7 @@ pub type VideoBeginCodingFlagsKHR = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoQueue`](Extensions::KHR_VideoQueue)
+/// - Extension [`KHR_VideoQueue`](Extension::KHR_VideoQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14661,7 +14661,7 @@ pub type VideoEndCodingFlagsKHR = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoDecodeQueue`](Extensions::KHR_VideoDecodeQueue)
+/// - Extension [`KHR_VideoDecodeQueue`](Extension::KHR_VideoDecodeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14672,7 +14672,7 @@ pub type VideoDecodeFlagsKHR = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`KHR_VideoEncodeQueue`](Extensions::KHR_VideoEncodeQueue)
+/// - Extension [`KHR_VideoEncodeQueue`](Extension::KHR_VideoEncodeQueue)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14683,7 +14683,7 @@ pub type VideoEncodeRateControlFlagsKHR = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_TransformFeedback`](Extensions::EXT_TransformFeedback)
+/// - Extension [`EXT_TransformFeedback`](Extension::EXT_TransformFeedback)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14694,7 +14694,7 @@ pub type PipelineRasterizationStateStreamCreateFlagsEXT = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`GGP_StreamDescriptorSurface`](Extensions::GGP_StreamDescriptorSurface)
+/// - Extension [`GGP_StreamDescriptorSurface`](Extension::GGP_StreamDescriptorSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14705,7 +14705,7 @@ pub type StreamDescriptorSurfaceCreateFlagsGGP = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NN_ViSurface`](Extensions::NN_ViSurface)
+/// - Extension [`NN_ViSurface`](Extension::NN_ViSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14716,7 +14716,7 @@ pub type ViSurfaceCreateFlagsNN = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_ViewportSwizzle`](Extensions::NV_ViewportSwizzle)
+/// - Extension [`NV_ViewportSwizzle`](Extension::NV_ViewportSwizzle)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14727,7 +14727,7 @@ pub type PipelineViewportSwizzleStateCreateFlagsNV = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DiscardRectangles`](Extensions::EXT_DiscardRectangles)
+/// - Extension [`EXT_DiscardRectangles`](Extension::EXT_DiscardRectangles)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14738,7 +14738,7 @@ pub type PipelineDiscardRectangleStateCreateFlagsEXT = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ConservativeRasterization`](Extensions::EXT_ConservativeRasterization)
+/// - Extension [`EXT_ConservativeRasterization`](Extension::EXT_ConservativeRasterization)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14749,7 +14749,7 @@ pub type PipelineRasterizationConservativeStateCreateFlagsEXT = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DepthClipEnable`](Extensions::EXT_DepthClipEnable)
+/// - Extension [`EXT_DepthClipEnable`](Extension::EXT_DepthClipEnable)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14760,8 +14760,8 @@ pub type PipelineRasterizationDepthClipStateCreateFlagsEXT = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`MVK_IosSurface`](Extensions::MVK_IosSurface)
-/// - Extension [`EXT_MetalSurface`](Extensions::EXT_MetalSurface)
+/// - Extension [`MVK_IosSurface`](Extension::MVK_IosSurface)
+/// - Extension [`EXT_MetalSurface`](Extension::EXT_MetalSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14772,8 +14772,8 @@ pub type IOSSurfaceCreateFlagsMVK = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`MVK_MacosSurface`](Extensions::MVK_MacosSurface)
-/// - Extension [`EXT_MetalSurface`](Extensions::EXT_MetalSurface)
+/// - Extension [`MVK_MacosSurface`](Extension::MVK_MacosSurface)
+/// - Extension [`EXT_MetalSurface`](Extension::EXT_MetalSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14784,7 +14784,7 @@ pub type MacOSSurfaceCreateFlagsMVK = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+/// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14795,7 +14795,7 @@ pub type DebugUtilsMessengerCallbackDataFlagsEXT = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DebugUtils`](Extensions::EXT_DebugUtils)
+/// - Extension [`EXT_DebugUtils`](Extension::EXT_DebugUtils)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14806,7 +14806,7 @@ pub type DebugUtilsMessengerCreateFlagsEXT = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+/// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14817,7 +14817,7 @@ pub type GpaPerfBlockPropertiesFlagsAMD = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`AMD_GpaInterface`](Extensions::AMD_GpaInterface)
+/// - Extension [`AMD_GpaInterface`](Extension::AMD_GpaInterface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14830,7 +14830,7 @@ pub type PhysicalDeviceGpaPropertiesFlagsAMD = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_FragmentCoverageToColor`](Extensions::NV_FragmentCoverageToColor)
+/// - Extension [`NV_FragmentCoverageToColor`](Extension::NV_FragmentCoverageToColor)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14841,7 +14841,7 @@ pub type PipelineCoverageToColorStateCreateFlagsNV = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_FramebufferMixedSamples`](Extensions::NV_FramebufferMixedSamples)
+/// - Extension [`NV_FramebufferMixedSamples`](Extension::NV_FramebufferMixedSamples)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14852,7 +14852,7 @@ pub type PipelineCoverageModulationStateCreateFlagsNV = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_ValidationCache`](Extensions::EXT_ValidationCache)
+/// - Extension [`EXT_ValidationCache`](Extension::EXT_ValidationCache)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14863,7 +14863,7 @@ pub type ValidationCacheCreateFlagsEXT = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`FUCHSIA_ImagepipeSurface`](Extensions::FUCHSIA_ImagepipeSurface)
+/// - Extension [`FUCHSIA_ImagepipeSurface`](Extension::FUCHSIA_ImagepipeSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14874,7 +14874,7 @@ pub type ImagePipeSurfaceCreateFlagsFUCHSIA = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_MetalSurface`](Extensions::EXT_MetalSurface)
+/// - Extension [`EXT_MetalSurface`](Extension::EXT_MetalSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14885,7 +14885,7 @@ pub type MetalSurfaceCreateFlagsEXT = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_CoverageReductionMode`](Extensions::NV_CoverageReductionMode)
+/// - Extension [`NV_CoverageReductionMode`](Extension::NV_CoverageReductionMode)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14896,7 +14896,7 @@ pub type PipelineCoverageReductionStateCreateFlagsNV = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_HeadlessSurface`](Extensions::EXT_HeadlessSurface)
+/// - Extension [`EXT_HeadlessSurface`](Extension::EXT_HeadlessSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14907,7 +14907,7 @@ pub type HeadlessSurfaceCreateFlagsEXT = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DeviceMemoryReport`](Extensions::EXT_DeviceMemoryReport)
+/// - Extension [`EXT_DeviceMemoryReport`](Extension::EXT_DeviceMemoryReport)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14918,7 +14918,7 @@ pub type DeviceMemoryReportFlagsEXT = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracingMotionBlur`](Extensions::NV_RayTracingMotionBlur)
+/// - Extension [`NV_RayTracingMotionBlur`](Extension::NV_RayTracingMotionBlur)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14929,7 +14929,7 @@ pub type AccelerationStructureMotionInfoFlagsNV = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`NV_RayTracingMotionBlur`](Extensions::NV_RayTracingMotionBlur)
+/// - Extension [`NV_RayTracingMotionBlur`](Extension::NV_RayTracingMotionBlur)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14940,7 +14940,7 @@ pub type AccelerationStructureMotionInstanceFlagsNV = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`EXT_DirectfbSurface`](Extensions::EXT_DirectfbSurface)
+/// - Extension [`EXT_DirectfbSurface`](Extension::EXT_DirectfbSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14951,7 +14951,7 @@ pub type DirectFBSurfaceCreateFlagsEXT = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`FUCHSIA_BufferCollection`](Extensions::FUCHSIA_BufferCollection)
+/// - Extension [`FUCHSIA_BufferCollection`](Extension::FUCHSIA_BufferCollection)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14962,7 +14962,7 @@ pub type ImageFormatConstraintsFlagsFUCHSIA = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`QNX_ScreenSurface`](Extensions::QNX_ScreenSurface)
+/// - Extension [`QNX_ScreenSurface`](Extension::QNX_ScreenSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14973,7 +14973,7 @@ pub type ScreenSurfaceCreateFlagsQNX = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`LUNARG_DirectDriverLoading`](Extensions::LUNARG_DirectDriverLoading)
+/// - Extension [`LUNARG_DirectDriverLoading`](Extension::LUNARG_DirectDriverLoading)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14984,7 +14984,7 @@ pub type DirectDriverLoadingFlagsLUNARG = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`OHOS_Surface`](Extensions::OHOS_Surface)
+/// - Extension [`OHOS_Surface`](Extension::OHOS_Surface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -14995,7 +14995,7 @@ pub type SurfaceCreateFlagsOHOS = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_PerformanceCountersByRegion`](Extensions::ARM_PerformanceCountersByRegion)
+/// - Extension [`ARM_PerformanceCountersByRegion`](Extension::ARM_PerformanceCountersByRegion)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -15008,7 +15008,7 @@ pub type PerformanceCounterDescriptionFlagsARM = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`ARM_ShaderInstrumentation`](Extensions::ARM_ShaderInstrumentation)
+/// - Extension [`ARM_ShaderInstrumentation`](Extension::ARM_ShaderInstrumentation)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
@@ -15019,7 +15019,7 @@ pub type ShaderInstrumentationValuesFlagsARM = u32;
 ///
 /// # Requirements
 /// This requires _at least_ one of the following:
-/// - Extension [`SEC_UbmSurface`](Extensions::SEC_UbmSurface)
+/// - Extension [`SEC_UbmSurface`](Extension::SEC_UbmSurface)
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
