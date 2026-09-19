@@ -546,7 +546,7 @@ impl Device {
     ///
     #[doc(alias = "vkGetDeviceQueue")]
     #[inline(always)]
-    pub unsafe fn get_device_queue(
+    pub unsafe fn raw_get_device_queue(
         &self,
         queue_family_index: u32,
         queue_index: u32,
@@ -1746,7 +1746,7 @@ impl Device {
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     #[doc(alias = "vkAllocateCommandBuffers")]
     #[inline(always)]
-    pub unsafe fn allocate_command_buffers(
+    pub unsafe fn raw_allocate_command_buffers(
         &self,
         p_allocate_info: *const CommandBufferAllocateInfo,
         p_command_buffers: *mut CommandBufferHandle,
@@ -5320,7 +5320,7 @@ impl Device {
     ///
     #[doc(alias = "vkGetDeviceQueue2")]
     #[inline(always)]
-    pub unsafe fn get_device_queue_2(
+    pub unsafe fn raw_get_device_queue_2(
         &self,
         p_queue_info: *const DeviceQueueInfo2,
         p_queue: *mut QueueHandle,

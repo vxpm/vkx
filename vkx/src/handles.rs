@@ -18,6 +18,13 @@ use crate::internal::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct InstanceHandle(usize);
+impl InstanceHandle {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkPhysicalDevice`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDevice.html)
 ///
@@ -27,6 +34,13 @@ pub struct InstanceHandle(usize);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct PhysicalDeviceHandle(usize);
+impl PhysicalDeviceHandle {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkDevice`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDevice.html)
 ///
@@ -36,6 +50,13 @@ pub struct PhysicalDeviceHandle(usize);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct DeviceHandle(usize);
+impl DeviceHandle {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkQueue`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueue.html)
 ///
@@ -45,6 +66,13 @@ pub struct DeviceHandle(usize);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct QueueHandle(usize);
+impl QueueHandle {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkSemaphore`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphore.html)
 ///
@@ -54,6 +82,13 @@ pub struct QueueHandle(usize);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct Semaphore(u64);
+impl Semaphore {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkCommandBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBuffer.html)
 ///
@@ -63,6 +98,13 @@ pub struct Semaphore(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct CommandBufferHandle(usize);
+impl CommandBufferHandle {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkFence`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFence.html)
 ///
@@ -72,6 +114,13 @@ pub struct CommandBufferHandle(usize);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct Fence(u64);
+impl Fence {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkDeviceMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceMemory.html)
 ///
@@ -81,6 +130,13 @@ pub struct Fence(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct DeviceMemory(u64);
+impl DeviceMemory {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBuffer.html)
 ///
@@ -90,6 +146,13 @@ pub struct DeviceMemory(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct Buffer(u64);
+impl Buffer {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkImage`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImage.html)
 ///
@@ -99,6 +162,13 @@ pub struct Buffer(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct Image(u64);
+impl Image {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkQueryPool`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryPool.html)
 ///
@@ -108,6 +178,13 @@ pub struct Image(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct QueryPool(u64);
+impl QueryPool {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkImageView`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageView.html)
 ///
@@ -117,6 +194,13 @@ pub struct QueryPool(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct ImageView(u64);
+impl ImageView {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkCommandPool`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandPool.html)
 ///
@@ -126,6 +210,13 @@ pub struct ImageView(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct CommandPool(u64);
+impl CommandPool {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkRenderPass`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPass.html)
 ///
@@ -135,6 +226,13 @@ pub struct CommandPool(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct RenderPass(u64);
+impl RenderPass {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkFramebuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFramebuffer.html)
 ///
@@ -144,6 +242,13 @@ pub struct RenderPass(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct Framebuffer(u64);
+impl Framebuffer {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/VkEvent.html)
 ///
@@ -153,6 +258,13 @@ pub struct Framebuffer(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct Event(u64);
+impl Event {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkBufferView`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferView.html)
 ///
@@ -162,6 +274,13 @@ pub struct Event(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct BufferView(u64);
+impl BufferView {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkShaderModule`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderModule.html)
 ///
@@ -171,6 +290,13 @@ pub struct BufferView(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct ShaderModule(u64);
+impl ShaderModule {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkPipelineCache`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCache.html)
 ///
@@ -180,6 +306,13 @@ pub struct ShaderModule(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct PipelineCache(u64);
+impl PipelineCache {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkPipeline`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipeline.html)
 ///
@@ -189,6 +322,13 @@ pub struct PipelineCache(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct Pipeline(u64);
+impl Pipeline {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkPipelineLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineLayout.html)
 ///
@@ -198,6 +338,13 @@ pub struct Pipeline(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct PipelineLayout(u64);
+impl PipelineLayout {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkDescriptorSetLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetLayout.html)
 ///
@@ -207,6 +354,13 @@ pub struct PipelineLayout(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct DescriptorSetLayout(u64);
+impl DescriptorSetLayout {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkSampler`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSampler.html)
 ///
@@ -216,6 +370,13 @@ pub struct DescriptorSetLayout(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct Sampler(u64);
+impl Sampler {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkDescriptorSet`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSet.html)
 ///
@@ -225,6 +386,13 @@ pub struct Sampler(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct DescriptorSet(u64);
+impl DescriptorSet {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkDescriptorPool`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorPool.html)
 ///
@@ -234,6 +402,13 @@ pub struct DescriptorSet(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct DescriptorPool(u64);
+impl DescriptorPool {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkDescriptorUpdateTemplate`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorUpdateTemplate.html)
 ///
@@ -243,6 +418,13 @@ pub struct DescriptorPool(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct DescriptorUpdateTemplate(u64);
+impl DescriptorUpdateTemplate {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 /// [`VkDescriptorUpdateTemplateKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorUpdateTemplateKHR.html)
 ///
 #[doc(alias = "VkDescriptorUpdateTemplateKHR")]
@@ -256,6 +438,13 @@ pub type DescriptorUpdateTemplateKHR = DescriptorUpdateTemplate;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct SamplerYcbcrConversion(u64);
+impl SamplerYcbcrConversion {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 /// [`VkSamplerYcbcrConversionKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerYcbcrConversionKHR.html)
 ///
 #[doc(alias = "VkSamplerYcbcrConversionKHR")]
@@ -269,6 +458,13 @@ pub type SamplerYcbcrConversionKHR = SamplerYcbcrConversion;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct PrivateDataSlot(u64);
+impl PrivateDataSlot {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 /// [`VkPrivateDataSlotEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPrivateDataSlotEXT.html)
 ///
 #[doc(alias = "VkPrivateDataSlotEXT")]
@@ -288,6 +484,13 @@ pub type PrivateDataSlotEXT = PrivateDataSlot;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct SurfaceKHR(u64);
+impl SurfaceKHR {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkSwapchainKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainKHR.html)
 ///
@@ -303,6 +506,13 @@ pub struct SurfaceKHR(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct SwapchainKHR(u64);
+impl SwapchainKHR {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkDisplayKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayKHR.html)
 ///
@@ -318,6 +528,13 @@ pub struct SwapchainKHR(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct DisplayKHR(u64);
+impl DisplayKHR {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkDisplayModeKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayModeKHR.html)
 ///
@@ -333,6 +550,13 @@ pub struct DisplayKHR(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct DisplayModeKHR(u64);
+impl DisplayModeKHR {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkVideoSessionKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoSessionKHR.html)
 ///
@@ -348,6 +572,13 @@ pub struct DisplayModeKHR(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct VideoSessionKHR(u64);
+impl VideoSessionKHR {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkVideoSessionParametersKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoSessionParametersKHR.html)
 ///
@@ -363,6 +594,13 @@ pub struct VideoSessionKHR(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct VideoSessionParametersKHR(u64);
+impl VideoSessionParametersKHR {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkDeferredOperationKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeferredOperationKHR.html)
 ///
@@ -378,6 +616,13 @@ pub struct VideoSessionParametersKHR(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct DeferredOperationKHR(u64);
+impl DeferredOperationKHR {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkAccelerationStructureKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureKHR.html)
 ///
@@ -394,6 +639,13 @@ pub struct DeferredOperationKHR(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct AccelerationStructureKHR(u64);
+impl AccelerationStructureKHR {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkPipelineBinaryKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineBinaryKHR.html)
 ///
@@ -409,6 +661,13 @@ pub struct AccelerationStructureKHR(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct PipelineBinaryKHR(u64);
+impl PipelineBinaryKHR {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkDebugReportCallbackEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugReportCallbackEXT.html)
 ///
@@ -425,6 +684,13 @@ pub struct PipelineBinaryKHR(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct DebugReportCallbackEXT(u64);
+impl DebugReportCallbackEXT {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkCuModuleNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCuModuleNVX.html)
 ///
@@ -440,6 +706,13 @@ pub struct DebugReportCallbackEXT(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct CuModuleNVX(u64);
+impl CuModuleNVX {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkCuFunctionNVX`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCuFunctionNVX.html)
 ///
@@ -455,6 +728,13 @@ pub struct CuModuleNVX(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct CuFunctionNVX(u64);
+impl CuFunctionNVX {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkDebugUtilsMessengerEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugUtilsMessengerEXT.html)
 ///
@@ -470,6 +750,13 @@ pub struct CuFunctionNVX(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct DebugUtilsMessengerEXT(u64);
+impl DebugUtilsMessengerEXT {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkGpaSessionAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/VkGpaSessionAMD.html)
 ///
@@ -485,6 +772,13 @@ pub struct DebugUtilsMessengerEXT(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct GpaSessionAMD(u64);
+impl GpaSessionAMD {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkTensorARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorARM.html)
 ///
@@ -501,6 +795,13 @@ pub struct GpaSessionAMD(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct TensorARM(u64);
+impl TensorARM {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkValidationCacheEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkValidationCacheEXT.html)
 ///
@@ -516,6 +817,13 @@ pub struct TensorARM(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct ValidationCacheEXT(u64);
+impl ValidationCacheEXT {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkAccelerationStructureNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureNV.html)
 ///
@@ -532,6 +840,13 @@ pub struct ValidationCacheEXT(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct AccelerationStructureNV(u64);
+impl AccelerationStructureNV {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkPerformanceConfigurationINTEL`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceConfigurationINTEL.html)
 ///
@@ -547,6 +862,13 @@ pub struct AccelerationStructureNV(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct PerformanceConfigurationINTEL(u64);
+impl PerformanceConfigurationINTEL {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkIndirectCommandsLayoutNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsLayoutNV.html)
 ///
@@ -562,6 +884,13 @@ pub struct PerformanceConfigurationINTEL(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct IndirectCommandsLayoutNV(u64);
+impl IndirectCommandsLayoutNV {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkCudaModuleNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCudaModuleNV.html)
 ///
@@ -577,6 +906,13 @@ pub struct IndirectCommandsLayoutNV(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct CudaModuleNV(u64);
+impl CudaModuleNV {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkCudaFunctionNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCudaFunctionNV.html)
 ///
@@ -592,6 +928,13 @@ pub struct CudaModuleNV(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct CudaFunctionNV(u64);
+impl CudaFunctionNV {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkBufferCollectionFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferCollectionFUCHSIA.html)
 ///
@@ -607,6 +950,13 @@ pub struct CudaFunctionNV(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct BufferCollectionFUCHSIA(u64);
+impl BufferCollectionFUCHSIA {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkMicromapEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMicromapEXT.html)
 ///
@@ -623,6 +973,13 @@ pub struct BufferCollectionFUCHSIA(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct MicromapEXT(u64);
+impl MicromapEXT {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkTensorViewARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorViewARM.html)
 ///
@@ -638,6 +995,13 @@ pub struct MicromapEXT(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct TensorViewARM(u64);
+impl TensorViewARM {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkOpticalFlowSessionNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowSessionNV.html)
 ///
@@ -653,6 +1017,13 @@ pub struct TensorViewARM(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct OpticalFlowSessionNV(u64);
+impl OpticalFlowSessionNV {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkShaderEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderEXT.html)
 ///
@@ -668,6 +1039,13 @@ pub struct OpticalFlowSessionNV(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct ShaderEXT(u64);
+impl ShaderEXT {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkDataGraphPipelineSessionARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineSessionARM.html)
 ///
@@ -683,6 +1061,13 @@ pub struct ShaderEXT(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct DataGraphPipelineSessionARM(u64);
+impl DataGraphPipelineSessionARM {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkExternalComputeQueueNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalComputeQueueNV.html)
 ///
@@ -698,6 +1083,13 @@ pub struct DataGraphPipelineSessionARM(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct ExternalComputeQueueNV(u64);
+impl ExternalComputeQueueNV {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkIndirectExecutionSetEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectExecutionSetEXT.html)
 ///
@@ -713,6 +1105,13 @@ pub struct ExternalComputeQueueNV(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct IndirectExecutionSetEXT(u64);
+impl IndirectExecutionSetEXT {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkIndirectCommandsLayoutEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsLayoutEXT.html)
 ///
@@ -728,6 +1127,13 @@ pub struct IndirectExecutionSetEXT(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct IndirectCommandsLayoutEXT(u64);
+impl IndirectCommandsLayoutEXT {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}
 
 /// [`VkShaderInstrumentationARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderInstrumentationARM.html)
 ///
@@ -743,3 +1149,10 @@ pub struct IndirectCommandsLayoutEXT(u64);
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
 #[repr(transparent)]
 pub struct ShaderInstrumentationARM(u64);
+impl ShaderInstrumentationARM {
+    /// Returns a null handle. This is an alias for [`Self::default`].
+    #[inline(always)]
+    pub fn null() -> Self {
+        Self::default()
+    }
+}

@@ -469,6 +469,19 @@ class Context:
             inner_handle_type = "u64"
 
         out.writeln(f"pub struct {raw_handle_name}({inner_handle_type});")
+        out.writeln(f"impl {raw_handle_name} {{")
+        out.indent()
+        out.writeln(
+            "/// Returns a null handle. This is an alias for [`Self::default`]."
+        )
+        out.writeln("#[inline(always)]")
+        out.writeln("pub fn null() -> Self {")
+        out.indent()
+        out.writeln("Self::default()")
+        out.deindent()
+        out.writeln("}")
+        out.deindent()
+        out.writeln("}")
 
         # aliases
         for alias in x.aliases:
@@ -743,6 +756,9 @@ class Context:
             raw_prefixed_commands = {
                 "enumerate_physical_devices",
                 "create_device",
+                "get_device_queue",
+                "get_device_queue_2",
+                "allocate_command_buffers",
             }
 
             if command_name in raw_prefixed_commands:
@@ -893,6 +909,17 @@ class Context:
         for ext in self.vk.extensions.values():
             assert ext.vendorTag is not None
             name = names.extension(ext.name)
+
+            out.writeln(
+                f"/// <https://docs.vulkan.org/refpages/latest/refpages/source/{ext.name}.html>"
+            )
+            out.writeln("///")
+
+            out.writeln("/// # About")
+            if ext.instance:
+                out.writeln("/// Instance level.")
+            else:
+                out.writeln("/// Device level.")
 
             if ext.promotedTo is not None and ext.promotedTo != "":
                 to = ext.promotedTo

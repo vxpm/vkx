@@ -77,6 +77,11 @@ pub struct Instance {
 
 impl Instance {
     #[inline(always)]
+    pub fn handle(&self) -> crate::InstanceHandle {
+        self.handle
+    }
+
+    #[inline(always)]
     pub(crate) fn vtable(&self) -> &InstanceVTable {
         // SAFETY: the vtable is alive as long as the instance is
         unsafe { self.vtable.as_ref_unchecked() }
@@ -111,6 +116,7 @@ impl Instance {
     }
 
     /// Enumerates physical devices - a wrapper around [`Self::raw_enumerate_physical_devices`].
+    #[inline(always)]
     pub unsafe fn enumerate_physical_devices(
         &self,
     ) -> Result<Vec<PhysicalDevice>, crate::ErrorCode> {
@@ -141,7 +147,7 @@ impl Drop for Instance {
         unsafe {
             self.destroy(std::ptr::null());
             std::mem::drop(Box::from_raw(self.vtable.cast_mut()))
-        };
+        }
     }
 }
 
@@ -151,6 +157,11 @@ pub struct PhysicalDevice {
 }
 
 impl PhysicalDevice {
+    #[inline(always)]
+    pub fn handle(&self) -> crate::PhysicalDeviceHandle {
+        self.handle
+    }
+
     #[track_caller]
     #[inline(always)]
     pub(crate) fn vtable(&self) -> &InstanceVTable {
@@ -159,6 +170,7 @@ impl PhysicalDevice {
     }
 
     /// Creates a [`Device`] - a wrapper around [`Self::raw_create_device`].
+    #[inline(always)]
     pub fn create_device(
         &self,
         create_info: *const crate::DeviceCreateInfo,
@@ -184,34 +196,100 @@ pub struct Device {
 
 impl Device {
     #[inline(always)]
+    pub fn handle(&self) -> crate::DeviceHandle {
+        self.handle
+    }
+
+    #[inline(always)]
     pub(crate) fn vtable(&self) -> &InstanceVTable {
         // SAFETY: user contract - parent instance must be alive
         unsafe { self.vtable.as_ref_unchecked() }
+    }
+
+    /// Gets a [`Queue`] - a wrapper around [`Self::raw_get_device_queue`].
+    pub unsafe fn get_device_queue(&self, queue_family_index: u32, queue_index: u32) -> Queue {
+        let mut queue = crate::QueueHandle::null();
+        unsafe { self.raw_get_device_queue(queue_family_index, queue_index, &mut queue) };
+
+        Queue {
+            handle: queue,
+            vtable: self.vtable,
+        }
+    }
+
+    /// Gets a [`Queue`] - a wrapper around [`Self::raw_get_device_queue_2`].
+    pub unsafe fn get_device_queue_2(&self, p_queue_info: *const crate::DeviceQueueInfo2) -> Queue {
+        let mut queue = crate::QueueHandle::null();
+        unsafe { self.raw_get_device_queue_2(p_queue_info, &mut queue) };
+
+        Queue {
+            handle: queue,
+            vtable: self.vtable,
+        }
+    }
+
+    /// Allocates command buffers - a wrapper around [`Self::allocate_command_buffers`].
+    pub unsafe fn allocate_command_buffers(
+        &self,
+        p_allocate_info: *const crate::CommandBufferAllocateInfo,
+    ) -> Result<Vec<CommandBuffer>, crate::ErrorCode> {
+        let count = unsafe { (*p_allocate_info).command_buffer_count as usize };
+        let mut command_buffers = vec![crate::CommandBufferHandle::null(); count];
+        unsafe {
+            self.raw_allocate_command_buffers(p_allocate_info, command_buffers.as_mut_ptr())
+                .success()?
+        };
+
+        Ok(command_buffers
+            .into_iter()
+            .map(|c| CommandBuffer {
+                handle: c,
+                vtable: self.vtable,
+            })
+            .collect())
+    }
+}
+
+impl Drop for Device {
+    fn drop(&mut self) {
+        unsafe { self.destroy_device(std::ptr::null()) };
     }
 }
 
 pub struct Queue {
     pub(crate) handle: crate::QueueHandle,
-    pub(crate) vtable: &'static VTable<{ crate::InstanceCommand::VARIANTS.len() }>,
+    pub(crate) vtable: *const VTable<{ crate::InstanceCommand::VARIANTS.len() }>,
 }
 
 impl Queue {
+    #[inline(always)]
+    pub fn handle(&self) -> crate::QueueHandle {
+        self.handle
+    }
+
     #[track_caller]
     #[inline(always)]
     pub(crate) fn vtable(&self) -> &InstanceVTable {
-        self.vtable
+        // SAFETY: user contract - parent device (and instance) must be alive
+        unsafe { self.vtable.as_ref_unchecked() }
     }
 }
 
 pub struct CommandBuffer {
     pub(crate) handle: crate::CommandBufferHandle,
-    pub(crate) vtable: &'static VTable<{ crate::InstanceCommand::VARIANTS.len() }>,
+    pub(crate) vtable: *const VTable<{ crate::InstanceCommand::VARIANTS.len() }>,
 }
 
 impl CommandBuffer {
+    #[inline(always)]
+    pub fn handle(&self) -> crate::CommandBufferHandle {
+        self.handle
+    }
+
     #[track_caller]
     #[inline(always)]
     pub(crate) fn vtable(&self) -> &InstanceVTable {
-        self.vtable
+        // SAFETY: user contract - parent instance must be alive
+        unsafe { self.vtable.as_ref_unchecked() }
     }
 }
