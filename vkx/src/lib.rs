@@ -1,6 +1,6 @@
 //! # vkx
-//! Auto-generated Vulkan bindings with utilities and a loader. Unlike most Vulkan crates in rust,
-//! `vkx` does not parse `vk.xml` directly - it uses Khronos Group's [`vulkan-object`] python library
+//! Auto-generated Vulkan bindings with utilities and a loader. Unlike most Vulkan crates in Rust,
+//! `vkx` does not parse `vk.xml` directly - it uses Khronos Group's [`vulkan-object`] Python library
 //! instead.
 //!
 //! `vkx` tries to add as much documentation as possible to the generated code, reducing the need to
@@ -78,7 +78,13 @@
 //! valid. You also need to ensure dispatchable handles outlive their parents, otherwise they might
 //! cause a use-after-free (the vtable is deallocated by the instance/device on drop).
 //!
+//! # Windowing
+//! `vkx` has support for [`raw_window_handle`] through the `window` module. Enable the `window`
+//! feature flag to use it.
+//!
 //! [`vulkan-object`]: https://github.com/KhronosGroup/vulkan-object
+
+#![feature(doc_cfg)]
 
 mod internal;
 mod loader;

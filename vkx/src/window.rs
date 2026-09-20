@@ -1,3 +1,5 @@
+//! Support for creating surfaces on a window through [`raw_window_handle`].
+
 use raw_window_handle::{HasDisplayHandle, HasWindowHandle, RawDisplayHandle, RawWindowHandle};
 
 use crate::Extension;
@@ -149,7 +151,7 @@ pub unsafe fn create_surface(
     Ok(surface)
 }
 
-/// Get the required instance extensions for creating a surface using a display handle.
+/// Get the required instance extensions for creating a surface using `display`.
 pub fn get_required_extensions(
     display: impl HasDisplayHandle,
 ) -> Result<&'static [Extension], Error> {
