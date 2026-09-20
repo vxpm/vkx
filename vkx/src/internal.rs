@@ -1,5 +1,8 @@
 //! Some vulkan items implemented manually and utilities used in the crate.
 
+use core::ffi::CStr;
+use std::collections::HashSet;
+
 /// Marker trait indicating a vulkan structure that can be extended.
 #[diagnostic::on_unimplemented(
     message = "Vulkan structure `{Self}` cannot be extended",
@@ -187,3 +190,47 @@ impl std::fmt::Display for crate::ErrorCode {
 }
 
 impl std::error::Error for crate::ErrorCode {}
+
+impl crate::Extension {
+    pub fn to_ptrs(extensions: impl IntoIterator<Item = Self>) -> Vec<*const std::ffi::c_char> {
+        extensions
+            .into_iter()
+            .map(|e| e.name().as_ptr())
+            .collect::<Vec<_>>()
+    }
+
+    pub fn from_ext_properties(
+        extensions: impl IntoIterator<Item = crate::ExtensionProperties>,
+    ) -> HashSet<Self> {
+        let mut result = HashSet::default();
+        for ext in extensions {
+            let name =
+                CStr::from_bytes_until_nul(zerocopy::transmute_ref!(&ext.extension_name)).unwrap();
+
+            let Some(variant) = Self::from_name(name) else {
+                panic!("unknown extension '{name:?}'");
+            };
+
+            result.insert(variant);
+        }
+
+        result
+    }
+}
+
+#[macro_export]
+macro_rules! auto_count {
+    (|$count:ident, $placeholder:ident| $recv:ident.$method:ident($($arg:expr),* $(,)?)) => {
+        {
+            let mut $count = 0u32;
+            let mut $placeholder = std::ptr::null_mut();
+            $recv.$method($($arg),*);
+
+            let mut result = vec![Default::default(); $count as usize];
+            let mut $placeholder = result.as_mut_ptr();
+            $recv.$method($($arg),*);
+
+            result
+        }
+    };
+}

@@ -1056,7 +1056,7 @@ class Context:
         out = CodeWriter()
 
         out.writeln("/// Enum containing all extensions.")
-        out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq)]")
+        out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]")
         out.writeln("#[non_exhaustive]")
         out.writeln("pub enum Extension {")
         out.indent()
@@ -1144,6 +1144,7 @@ class Context:
 
         out.writeln("impl Extension {")
         out.indent()
+
         out.writeln("pub fn name(self) -> &'static std::ffi::CStr {")
         out.indent()
         out.writeln("match self {")
@@ -1159,6 +1160,27 @@ class Context:
         out.writeln("}")
         out.deindent()
         out.writeln("}")
+
+        out.writeln("pub fn from_name(name: &std::ffi::CStr) -> Option<Self> {")
+        out.indent()
+        out.writeln("match name {")
+        out.indent()
+
+        for ext in self.vk.extensions.values():
+            assert ext.vendorTag is not None
+            name = ext.name.removeprefix("VK_").removeprefix(f"{ext.vendorTag}_")
+            name = textcase.pascal(name)
+            out.writeln(
+                f'x if x == c"{ext.name}" => Some(Self::{ext.vendorTag}_{name}),'
+            )
+
+        out.writeln("_ => None")
+
+        out.deindent()
+        out.writeln("}")
+        out.deindent()
+        out.writeln("}")
+
         out.deindent()
         out.writeln("}")
 

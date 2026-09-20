@@ -395,7 +395,7 @@ impl ResultCode {
 }
 
 /// Enum containing all extensions.
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[non_exhaustive]
 pub enum Extension {
     /// <https://docs.vulkan.org/refpages/latest/refpages/source/VK_KHR_surface.html>
@@ -5725,6 +5725,723 @@ impl Extension {
             Self::KHR_RayTracingPipeline => c"VK_KHR_ray_tracing_pipeline",
             Self::KHR_RayQuery => c"VK_KHR_ray_query",
             Self::EXT_MeshShader => c"VK_EXT_mesh_shader",
+        }
+    }
+    pub fn from_name(name: &std::ffi::CStr) -> Option<Self> {
+        match name {
+            x if x == c"VK_KHR_surface" => Some(Self::KHR_Surface),
+            x if x == c"VK_KHR_swapchain" => Some(Self::KHR_Swapchain),
+            x if x == c"VK_KHR_display" => Some(Self::KHR_Display),
+            x if x == c"VK_KHR_display_swapchain" => Some(Self::KHR_DisplaySwapchain),
+            x if x == c"VK_KHR_xlib_surface" => Some(Self::KHR_XlibSurface),
+            x if x == c"VK_KHR_xcb_surface" => Some(Self::KHR_XcbSurface),
+            x if x == c"VK_KHR_wayland_surface" => Some(Self::KHR_WaylandSurface),
+            x if x == c"VK_KHR_android_surface" => Some(Self::KHR_AndroidSurface),
+            x if x == c"VK_KHR_win32_surface" => Some(Self::KHR_Win32Surface),
+            x if x == c"VK_KHR_sampler_mirror_clamp_to_edge" => {
+                Some(Self::KHR_SamplerMirrorClampToEdge)
+            }
+            x if x == c"VK_KHR_video_queue" => Some(Self::KHR_VideoQueue),
+            x if x == c"VK_KHR_video_decode_queue" => Some(Self::KHR_VideoDecodeQueue),
+            x if x == c"VK_KHR_video_encode_h264" => Some(Self::KHR_VideoEncodeH264),
+            x if x == c"VK_KHR_video_encode_h265" => Some(Self::KHR_VideoEncodeH265),
+            x if x == c"VK_KHR_video_decode_h264" => Some(Self::KHR_VideoDecodeH264),
+            x if x == c"VK_KHR_dynamic_rendering" => Some(Self::KHR_DynamicRendering),
+            x if x == c"VK_KHR_multiview" => Some(Self::KHR_Multiview),
+            x if x == c"VK_KHR_get_physical_device_properties2" => {
+                Some(Self::KHR_GetPhysicalDeviceProperties2)
+            }
+            x if x == c"VK_KHR_device_group" => Some(Self::KHR_DeviceGroup),
+            x if x == c"VK_KHR_shader_draw_parameters" => Some(Self::KHR_ShaderDrawParameters),
+            x if x == c"VK_KHR_maintenance1" => Some(Self::KHR_Maintenance1),
+            x if x == c"VK_KHR_device_group_creation" => Some(Self::KHR_DeviceGroupCreation),
+            x if x == c"VK_KHR_external_memory_capabilities" => {
+                Some(Self::KHR_ExternalMemoryCapabilities)
+            }
+            x if x == c"VK_KHR_external_memory" => Some(Self::KHR_ExternalMemory),
+            x if x == c"VK_KHR_external_memory_win32" => Some(Self::KHR_ExternalMemoryWin32),
+            x if x == c"VK_KHR_external_memory_fd" => Some(Self::KHR_ExternalMemoryFd),
+            x if x == c"VK_KHR_win32_keyed_mutex" => Some(Self::KHR_Win32KeyedMutex),
+            x if x == c"VK_KHR_external_semaphore_capabilities" => {
+                Some(Self::KHR_ExternalSemaphoreCapabilities)
+            }
+            x if x == c"VK_KHR_external_semaphore" => Some(Self::KHR_ExternalSemaphore),
+            x if x == c"VK_KHR_external_semaphore_win32" => Some(Self::KHR_ExternalSemaphoreWin32),
+            x if x == c"VK_KHR_external_semaphore_fd" => Some(Self::KHR_ExternalSemaphoreFd),
+            x if x == c"VK_KHR_push_descriptor" => Some(Self::KHR_PushDescriptor),
+            x if x == c"VK_KHR_shader_float16_int8" => Some(Self::KHR_ShaderFloat16Int8),
+            x if x == c"VK_KHR_16bit_storage" => Some(Self::KHR_16BitStorage),
+            x if x == c"VK_KHR_incremental_present" => Some(Self::KHR_IncrementalPresent),
+            x if x == c"VK_KHR_descriptor_update_template" => {
+                Some(Self::KHR_DescriptorUpdateTemplate)
+            }
+            x if x == c"VK_KHR_imageless_framebuffer" => Some(Self::KHR_ImagelessFramebuffer),
+            x if x == c"VK_KHR_create_renderpass2" => Some(Self::KHR_CreateRenderpass2),
+            x if x == c"VK_KHR_shared_presentable_image" => Some(Self::KHR_SharedPresentableImage),
+            x if x == c"VK_KHR_external_fence_capabilities" => {
+                Some(Self::KHR_ExternalFenceCapabilities)
+            }
+            x if x == c"VK_KHR_external_fence" => Some(Self::KHR_ExternalFence),
+            x if x == c"VK_KHR_external_fence_win32" => Some(Self::KHR_ExternalFenceWin32),
+            x if x == c"VK_KHR_external_fence_fd" => Some(Self::KHR_ExternalFenceFd),
+            x if x == c"VK_KHR_performance_query" => Some(Self::KHR_PerformanceQuery),
+            x if x == c"VK_KHR_maintenance2" => Some(Self::KHR_Maintenance2),
+            x if x == c"VK_KHR_get_surface_capabilities2" => {
+                Some(Self::KHR_GetSurfaceCapabilities2)
+            }
+            x if x == c"VK_KHR_variable_pointers" => Some(Self::KHR_VariablePointers),
+            x if x == c"VK_KHR_get_display_properties2" => Some(Self::KHR_GetDisplayProperties2),
+            x if x == c"VK_KHR_dedicated_allocation" => Some(Self::KHR_DedicatedAllocation),
+            x if x == c"VK_KHR_storage_buffer_storage_class" => {
+                Some(Self::KHR_StorageBufferStorageClass)
+            }
+            x if x == c"VK_KHR_shader_bfloat16" => Some(Self::KHR_ShaderBfloat16),
+            x if x == c"VK_KHR_relaxed_block_layout" => Some(Self::KHR_RelaxedBlockLayout),
+            x if x == c"VK_KHR_get_memory_requirements2" => Some(Self::KHR_GetMemoryRequirements2),
+            x if x == c"VK_KHR_image_format_list" => Some(Self::KHR_ImageFormatList),
+            x if x == c"VK_KHR_sampler_ycbcr_conversion" => Some(Self::KHR_SamplerYcbcrConversion),
+            x if x == c"VK_KHR_bind_memory2" => Some(Self::KHR_BindMemory2),
+            x if x == c"VK_KHR_portability_subset" => Some(Self::KHR_PortabilitySubset),
+            x if x == c"VK_KHR_maintenance3" => Some(Self::KHR_Maintenance3),
+            x if x == c"VK_KHR_draw_indirect_count" => Some(Self::KHR_DrawIndirectCount),
+            x if x == c"VK_KHR_shader_subgroup_extended_types" => {
+                Some(Self::KHR_ShaderSubgroupExtendedTypes)
+            }
+            x if x == c"VK_KHR_8bit_storage" => Some(Self::KHR_8BitStorage),
+            x if x == c"VK_KHR_shader_atomic_int64" => Some(Self::KHR_ShaderAtomicInt64),
+            x if x == c"VK_KHR_shader_clock" => Some(Self::KHR_ShaderClock),
+            x if x == c"VK_KHR_video_decode_h265" => Some(Self::KHR_VideoDecodeH265),
+            x if x == c"VK_KHR_global_priority" => Some(Self::KHR_GlobalPriority),
+            x if x == c"VK_KHR_driver_properties" => Some(Self::KHR_DriverProperties),
+            x if x == c"VK_KHR_shader_float_controls" => Some(Self::KHR_ShaderFloatControls),
+            x if x == c"VK_KHR_depth_stencil_resolve" => Some(Self::KHR_DepthStencilResolve),
+            x if x == c"VK_KHR_swapchain_mutable_format" => Some(Self::KHR_SwapchainMutableFormat),
+            x if x == c"VK_KHR_timeline_semaphore" => Some(Self::KHR_TimelineSemaphore),
+            x if x == c"VK_KHR_vulkan_memory_model" => Some(Self::KHR_VulkanMemoryModel),
+            x if x == c"VK_KHR_shader_terminate_invocation" => {
+                Some(Self::KHR_ShaderTerminateInvocation)
+            }
+            x if x == c"VK_KHR_fragment_shading_rate" => Some(Self::KHR_FragmentShadingRate),
+            x if x == c"VK_KHR_shader_constant_data" => Some(Self::KHR_ShaderConstantData),
+            x if x == c"VK_KHR_dynamic_rendering_local_read" => {
+                Some(Self::KHR_DynamicRenderingLocalRead)
+            }
+            x if x == c"VK_KHR_shader_abort" => Some(Self::KHR_ShaderAbort),
+            x if x == c"VK_KHR_shader_quad_control" => Some(Self::KHR_ShaderQuadControl),
+            x if x == c"VK_KHR_spirv_1_4" => Some(Self::KHR_Spirv14),
+            x if x == c"VK_KHR_surface_protected_capabilities" => {
+                Some(Self::KHR_SurfaceProtectedCapabilities)
+            }
+            x if x == c"VK_KHR_separate_depth_stencil_layouts" => {
+                Some(Self::KHR_SeparateDepthStencilLayouts)
+            }
+            x if x == c"VK_KHR_present_wait" => Some(Self::KHR_PresentWait),
+            x if x == c"VK_KHR_uniform_buffer_standard_layout" => {
+                Some(Self::KHR_UniformBufferStandardLayout)
+            }
+            x if x == c"VK_KHR_buffer_device_address" => Some(Self::KHR_BufferDeviceAddress),
+            x if x == c"VK_KHR_deferred_host_operations" => Some(Self::KHR_DeferredHostOperations),
+            x if x == c"VK_KHR_pipeline_executable_properties" => {
+                Some(Self::KHR_PipelineExecutableProperties)
+            }
+            x if x == c"VK_KHR_map_memory2" => Some(Self::KHR_MapMemory2),
+            x if x == c"VK_KHR_shader_integer_dot_product" => {
+                Some(Self::KHR_ShaderIntegerDotProduct)
+            }
+            x if x == c"VK_KHR_pipeline_library" => Some(Self::KHR_PipelineLibrary),
+            x if x == c"VK_KHR_shader_non_semantic_info" => Some(Self::KHR_ShaderNonSemanticInfo),
+            x if x == c"VK_KHR_present_id" => Some(Self::KHR_PresentId),
+            x if x == c"VK_KHR_video_encode_queue" => Some(Self::KHR_VideoEncodeQueue),
+            x if x == c"VK_KHR_synchronization2" => Some(Self::KHR_Synchronization2),
+            x if x == c"VK_KHR_device_address_commands" => Some(Self::KHR_DeviceAddressCommands),
+            x if x == c"VK_KHR_fragment_shader_barycentric" => {
+                Some(Self::KHR_FragmentShaderBarycentric)
+            }
+            x if x == c"VK_KHR_shader_subgroup_uniform_control_flow" => {
+                Some(Self::KHR_ShaderSubgroupUniformControlFlow)
+            }
+            x if x == c"VK_KHR_zero_initialize_workgroup_memory" => {
+                Some(Self::KHR_ZeroInitializeWorkgroupMemory)
+            }
+            x if x == c"VK_KHR_workgroup_memory_explicit_layout" => {
+                Some(Self::KHR_WorkgroupMemoryExplicitLayout)
+            }
+            x if x == c"VK_KHR_copy_commands2" => Some(Self::KHR_CopyCommands2),
+            x if x == c"VK_KHR_format_feature_flags2" => Some(Self::KHR_FormatFeatureFlags2),
+            x if x == c"VK_KHR_ray_tracing_maintenance1" => Some(Self::KHR_RayTracingMaintenance1),
+            x if x == c"VK_KHR_shader_untyped_pointers" => Some(Self::KHR_ShaderUntypedPointers),
+            x if x == c"VK_KHR_portability_enumeration" => Some(Self::KHR_PortabilityEnumeration),
+            x if x == c"VK_KHR_maintenance4" => Some(Self::KHR_Maintenance4),
+            x if x == c"VK_KHR_shader_subgroup_rotate" => Some(Self::KHR_ShaderSubgroupRotate),
+            x if x == c"VK_KHR_shader_maximal_reconvergence" => {
+                Some(Self::KHR_ShaderMaximalReconvergence)
+            }
+            x if x == c"VK_KHR_maintenance5" => Some(Self::KHR_Maintenance5),
+            x if x == c"VK_KHR_present_id2" => Some(Self::KHR_PresentId2),
+            x if x == c"VK_KHR_present_wait2" => Some(Self::KHR_PresentWait2),
+            x if x == c"VK_KHR_ray_tracing_position_fetch" => {
+                Some(Self::KHR_RayTracingPositionFetch)
+            }
+            x if x == c"VK_KHR_pipeline_binary" => Some(Self::KHR_PipelineBinary),
+            x if x == c"VK_KHR_surface_maintenance1" => Some(Self::KHR_SurfaceMaintenance1),
+            x if x == c"VK_KHR_swapchain_maintenance1" => Some(Self::KHR_SwapchainMaintenance1),
+            x if x == c"VK_KHR_internally_synchronized_queues" => {
+                Some(Self::KHR_InternallySynchronizedQueues)
+            }
+            x if x == c"VK_KHR_cooperative_matrix" => Some(Self::KHR_CooperativeMatrix),
+            x if x == c"VK_KHR_compute_shader_derivatives" => {
+                Some(Self::KHR_ComputeShaderDerivatives)
+            }
+            x if x == c"VK_KHR_video_decode_av1" => Some(Self::KHR_VideoDecodeAv1),
+            x if x == c"VK_KHR_video_encode_av1" => Some(Self::KHR_VideoEncodeAv1),
+            x if x == c"VK_KHR_video_decode_vp9" => Some(Self::KHR_VideoDecodeVp9),
+            x if x == c"VK_KHR_video_maintenance1" => Some(Self::KHR_VideoMaintenance1),
+            x if x == c"VK_KHR_vertex_attribute_divisor" => Some(Self::KHR_VertexAttributeDivisor),
+            x if x == c"VK_KHR_load_store_op_none" => Some(Self::KHR_LoadStoreOpNone),
+            x if x == c"VK_KHR_unified_image_layouts" => Some(Self::KHR_UnifiedImageLayouts),
+            x if x == c"VK_KHR_shader_float_controls2" => Some(Self::KHR_ShaderFloatControls2),
+            x if x == c"VK_KHR_index_type_uint8" => Some(Self::KHR_IndexTypeUint8),
+            x if x == c"VK_KHR_line_rasterization" => Some(Self::KHR_LineRasterization),
+            x if x == c"VK_KHR_calibrated_timestamps" => Some(Self::KHR_CalibratedTimestamps),
+            x if x == c"VK_KHR_shader_expect_assume" => Some(Self::KHR_ShaderExpectAssume),
+            x if x == c"VK_KHR_maintenance6" => Some(Self::KHR_Maintenance6),
+            x if x == c"VK_KHR_copy_memory_indirect" => Some(Self::KHR_CopyMemoryIndirect),
+            x if x == c"VK_KHR_video_encode_intra_refresh" => {
+                Some(Self::KHR_VideoEncodeIntraRefresh)
+            }
+            x if x == c"VK_KHR_video_encode_quantization_map" => {
+                Some(Self::KHR_VideoEncodeQuantizationMap)
+            }
+            x if x == c"VK_KHR_shader_relaxed_extended_instruction" => {
+                Some(Self::KHR_ShaderRelaxedExtendedInstruction)
+            }
+            x if x == c"VK_KHR_maintenance7" => Some(Self::KHR_Maintenance7),
+            x if x == c"VK_KHR_device_fault" => Some(Self::KHR_DeviceFault),
+            x if x == c"VK_KHR_maintenance8" => Some(Self::KHR_Maintenance8),
+            x if x == c"VK_KHR_shader_fma" => Some(Self::KHR_ShaderFma),
+            x if x == c"VK_KHR_maintenance9" => Some(Self::KHR_Maintenance9),
+            x if x == c"VK_KHR_video_maintenance2" => Some(Self::KHR_VideoMaintenance2),
+            x if x == c"VK_KHR_video_encode_feedback2" => Some(Self::KHR_VideoEncodeFeedback2),
+            x if x == c"VK_KHR_depth_clamp_zero_one" => Some(Self::KHR_DepthClampZeroOne),
+            x if x == c"VK_KHR_robustness2" => Some(Self::KHR_Robustness2),
+            x if x == c"VK_KHR_present_mode_fifo_latest_ready" => {
+                Some(Self::KHR_PresentModeFifoLatestReady)
+            }
+            x if x == c"VK_KHR_opacity_micromap" => Some(Self::KHR_OpacityMicromap),
+            x if x == c"VK_KHR_maintenance10" => Some(Self::KHR_Maintenance10),
+            x if x == c"VK_KHR_pipeline_library_group_handles" => {
+                Some(Self::KHR_PipelineLibraryGroupHandles)
+            }
+            x if x == c"VK_KHR_maintenance11" => Some(Self::KHR_Maintenance11),
+            x if x == c"VK_KHR_extended_flags" => Some(Self::KHR_ExtendedFlags),
+            x if x == c"VK_EXT_debug_report" => Some(Self::EXT_DebugReport),
+            x if x == c"VK_NV_glsl_shader" => Some(Self::NV_GlslShader),
+            x if x == c"VK_EXT_depth_range_unrestricted" => Some(Self::EXT_DepthRangeUnrestricted),
+            x if x == c"VK_IMG_filter_cubic" => Some(Self::IMG_FilterCubic),
+            x if x == c"VK_AMD_rasterization_order" => Some(Self::AMD_RasterizationOrder),
+            x if x == c"VK_AMD_shader_trinary_minmax" => Some(Self::AMD_ShaderTrinaryMinmax),
+            x if x == c"VK_AMD_shader_explicit_vertex_parameter" => {
+                Some(Self::AMD_ShaderExplicitVertexParameter)
+            }
+            x if x == c"VK_EXT_debug_marker" => Some(Self::EXT_DebugMarker),
+            x if x == c"VK_AMD_gcn_shader" => Some(Self::AMD_GcnShader),
+            x if x == c"VK_NV_dedicated_allocation" => Some(Self::NV_DedicatedAllocation),
+            x if x == c"VK_EXT_transform_feedback" => Some(Self::EXT_TransformFeedback),
+            x if x == c"VK_NVX_binary_import" => Some(Self::NVX_BinaryImport),
+            x if x == c"VK_NVX_image_view_handle" => Some(Self::NVX_ImageViewHandle),
+            x if x == c"VK_AMD_draw_indirect_count" => Some(Self::AMD_DrawIndirectCount),
+            x if x == c"VK_AMD_negative_viewport_height" => Some(Self::AMD_NegativeViewportHeight),
+            x if x == c"VK_AMD_gpu_shader_half_float" => Some(Self::AMD_GpuShaderHalfFloat),
+            x if x == c"VK_AMD_shader_ballot" => Some(Self::AMD_ShaderBallot),
+            x if x == c"VK_AMD_texture_gather_bias_lod" => Some(Self::AMD_TextureGatherBiasLod),
+            x if x == c"VK_AMD_shader_info" => Some(Self::AMD_ShaderInfo),
+            x if x == c"VK_AMD_shader_image_load_store_lod" => {
+                Some(Self::AMD_ShaderImageLoadStoreLod)
+            }
+            x if x == c"VK_GGP_stream_descriptor_surface" => {
+                Some(Self::GGP_StreamDescriptorSurface)
+            }
+            x if x == c"VK_NV_corner_sampled_image" => Some(Self::NV_CornerSampledImage),
+            x if x == c"VK_IMG_format_pvrtc" => Some(Self::IMG_FormatPvrtc),
+            x if x == c"VK_NV_external_memory_capabilities" => {
+                Some(Self::NV_ExternalMemoryCapabilities)
+            }
+            x if x == c"VK_NV_external_memory" => Some(Self::NV_ExternalMemory),
+            x if x == c"VK_NV_external_memory_win32" => Some(Self::NV_ExternalMemoryWin32),
+            x if x == c"VK_NV_win32_keyed_mutex" => Some(Self::NV_Win32KeyedMutex),
+            x if x == c"VK_EXT_validation_flags" => Some(Self::EXT_ValidationFlags),
+            x if x == c"VK_NN_vi_surface" => Some(Self::NN_ViSurface),
+            x if x == c"VK_EXT_shader_subgroup_ballot" => Some(Self::EXT_ShaderSubgroupBallot),
+            x if x == c"VK_EXT_shader_subgroup_vote" => Some(Self::EXT_ShaderSubgroupVote),
+            x if x == c"VK_EXT_texture_compression_astc_hdr" => {
+                Some(Self::EXT_TextureCompressionAstcHdr)
+            }
+            x if x == c"VK_EXT_astc_decode_mode" => Some(Self::EXT_AstcDecodeMode),
+            x if x == c"VK_EXT_pipeline_robustness" => Some(Self::EXT_PipelineRobustness),
+            x if x == c"VK_EXT_conditional_rendering" => Some(Self::EXT_ConditionalRendering),
+            x if x == c"VK_NV_clip_space_w_scaling" => Some(Self::NV_ClipSpaceWScaling),
+            x if x == c"VK_EXT_direct_mode_display" => Some(Self::EXT_DirectModeDisplay),
+            x if x == c"VK_EXT_acquire_xlib_display" => Some(Self::EXT_AcquireXlibDisplay),
+            x if x == c"VK_EXT_display_surface_counter" => Some(Self::EXT_DisplaySurfaceCounter),
+            x if x == c"VK_EXT_display_control" => Some(Self::EXT_DisplayControl),
+            x if x == c"VK_GOOGLE_display_timing" => Some(Self::GOOGLE_DisplayTiming),
+            x if x == c"VK_NV_sample_mask_override_coverage" => {
+                Some(Self::NV_SampleMaskOverrideCoverage)
+            }
+            x if x == c"VK_NV_geometry_shader_passthrough" => {
+                Some(Self::NV_GeometryShaderPassthrough)
+            }
+            x if x == c"VK_NV_viewport_array2" => Some(Self::NV_ViewportArray2),
+            x if x == c"VK_NVX_multiview_per_view_attributes" => {
+                Some(Self::NVX_MultiviewPerViewAttributes)
+            }
+            x if x == c"VK_NV_viewport_swizzle" => Some(Self::NV_ViewportSwizzle),
+            x if x == c"VK_EXT_discard_rectangles" => Some(Self::EXT_DiscardRectangles),
+            x if x == c"VK_EXT_conservative_rasterization" => {
+                Some(Self::EXT_ConservativeRasterization)
+            }
+            x if x == c"VK_EXT_depth_clip_enable" => Some(Self::EXT_DepthClipEnable),
+            x if x == c"VK_EXT_swapchain_colorspace" => Some(Self::EXT_SwapchainColorspace),
+            x if x == c"VK_EXT_hdr_metadata" => Some(Self::EXT_HdrMetadata),
+            x if x == c"VK_IMG_relaxed_line_rasterization" => {
+                Some(Self::IMG_RelaxedLineRasterization)
+            }
+            x if x == c"VK_MVK_ios_surface" => Some(Self::MVK_IosSurface),
+            x if x == c"VK_MVK_macos_surface" => Some(Self::MVK_MacosSurface),
+            x if x == c"VK_EXT_external_memory_dma_buf" => Some(Self::EXT_ExternalMemoryDmaBuf),
+            x if x == c"VK_EXT_queue_family_foreign" => Some(Self::EXT_QueueFamilyForeign),
+            x if x == c"VK_EXT_debug_utils" => Some(Self::EXT_DebugUtils),
+            x if x == c"VK_ANDROID_external_memory_android_hardware_buffer" => {
+                Some(Self::ANDROID_ExternalMemoryAndroidHardwareBuffer)
+            }
+            x if x == c"VK_EXT_sampler_filter_minmax" => Some(Self::EXT_SamplerFilterMinmax),
+            x if x == c"VK_AMD_gpu_shader_int16" => Some(Self::AMD_GpuShaderInt16),
+            x if x == c"VK_AMD_gpa_interface" => Some(Self::AMD_GpaInterface),
+            x if x == c"VK_AMDX_shader_enqueue" => Some(Self::AMDX_ShaderEnqueue),
+            x if x == c"VK_EXT_descriptor_heap" => Some(Self::EXT_DescriptorHeap),
+            x if x == c"VK_AMD_mixed_attachment_samples" => Some(Self::AMD_MixedAttachmentSamples),
+            x if x == c"VK_AMD_shader_fragment_mask" => Some(Self::AMD_ShaderFragmentMask),
+            x if x == c"VK_EXT_inline_uniform_block" => Some(Self::EXT_InlineUniformBlock),
+            x if x == c"VK_EXT_shader_stencil_export" => Some(Self::EXT_ShaderStencilExport),
+            x if x == c"VK_EXT_sample_locations" => Some(Self::EXT_SampleLocations),
+            x if x == c"VK_EXT_blend_operation_advanced" => Some(Self::EXT_BlendOperationAdvanced),
+            x if x == c"VK_NV_fragment_coverage_to_color" => Some(Self::NV_FragmentCoverageToColor),
+            x if x == c"VK_NV_framebuffer_mixed_samples" => Some(Self::NV_FramebufferMixedSamples),
+            x if x == c"VK_NV_fill_rectangle" => Some(Self::NV_FillRectangle),
+            x if x == c"VK_NV_shader_sm_builtins" => Some(Self::NV_ShaderSmBuiltins),
+            x if x == c"VK_EXT_post_depth_coverage" => Some(Self::EXT_PostDepthCoverage),
+            x if x == c"VK_EXT_image_drm_format_modifier" => Some(Self::EXT_ImageDrmFormatModifier),
+            x if x == c"VK_EXT_validation_cache" => Some(Self::EXT_ValidationCache),
+            x if x == c"VK_EXT_descriptor_indexing" => Some(Self::EXT_DescriptorIndexing),
+            x if x == c"VK_EXT_shader_viewport_index_layer" => {
+                Some(Self::EXT_ShaderViewportIndexLayer)
+            }
+            x if x == c"VK_NV_shading_rate_image" => Some(Self::NV_ShadingRateImage),
+            x if x == c"VK_NV_ray_tracing" => Some(Self::NV_RayTracing),
+            x if x == c"VK_NV_representative_fragment_test" => {
+                Some(Self::NV_RepresentativeFragmentTest)
+            }
+            x if x == c"VK_EXT_filter_cubic" => Some(Self::EXT_FilterCubic),
+            x if x == c"VK_QCOM_render_pass_shader_resolve" => {
+                Some(Self::QCOM_RenderPassShaderResolve)
+            }
+            x if x == c"VK_QCOM_cooperative_matrix_conversion" => {
+                Some(Self::QCOM_CooperativeMatrixConversion)
+            }
+            x if x == c"VK_QCOM_elapsed_timer_query" => Some(Self::QCOM_ElapsedTimerQuery),
+            x if x == c"VK_EXT_global_priority" => Some(Self::EXT_GlobalPriority),
+            x if x == c"VK_EXT_external_memory_host" => Some(Self::EXT_ExternalMemoryHost),
+            x if x == c"VK_AMD_buffer_marker" => Some(Self::AMD_BufferMarker),
+            x if x == c"VK_AMD_pipeline_compiler_control" => {
+                Some(Self::AMD_PipelineCompilerControl)
+            }
+            x if x == c"VK_EXT_calibrated_timestamps" => Some(Self::EXT_CalibratedTimestamps),
+            x if x == c"VK_AMD_shader_core_properties" => Some(Self::AMD_ShaderCoreProperties),
+            x if x == c"VK_AMD_memory_overallocation_behavior" => {
+                Some(Self::AMD_MemoryOverallocationBehavior)
+            }
+            x if x == c"VK_EXT_vertex_attribute_divisor" => Some(Self::EXT_VertexAttributeDivisor),
+            x if x == c"VK_GGP_frame_token" => Some(Self::GGP_FrameToken),
+            x if x == c"VK_EXT_pipeline_creation_feedback" => {
+                Some(Self::EXT_PipelineCreationFeedback)
+            }
+            x if x == c"VK_NV_shader_subgroup_partitioned" => {
+                Some(Self::NV_ShaderSubgroupPartitioned)
+            }
+            x if x == c"VK_NV_compute_shader_derivatives" => {
+                Some(Self::NV_ComputeShaderDerivatives)
+            }
+            x if x == c"VK_NV_mesh_shader" => Some(Self::NV_MeshShader),
+            x if x == c"VK_NV_fragment_shader_barycentric" => {
+                Some(Self::NV_FragmentShaderBarycentric)
+            }
+            x if x == c"VK_NV_shader_image_footprint" => Some(Self::NV_ShaderImageFootprint),
+            x if x == c"VK_NV_scissor_exclusive" => Some(Self::NV_ScissorExclusive),
+            x if x == c"VK_NV_device_diagnostic_checkpoints" => {
+                Some(Self::NV_DeviceDiagnosticCheckpoints)
+            }
+            x if x == c"VK_EXT_present_timing" => Some(Self::EXT_PresentTiming),
+            x if x == c"VK_INTEL_shader_integer_functions2" => {
+                Some(Self::INTEL_ShaderIntegerFunctions2)
+            }
+            x if x == c"VK_INTEL_performance_query" => Some(Self::INTEL_PerformanceQuery),
+            x if x == c"VK_EXT_pci_bus_info" => Some(Self::EXT_PciBusInfo),
+            x if x == c"VK_AMD_display_native_hdr" => Some(Self::AMD_DisplayNativeHdr),
+            x if x == c"VK_FUCHSIA_imagepipe_surface" => Some(Self::FUCHSIA_ImagepipeSurface),
+            x if x == c"VK_EXT_metal_surface" => Some(Self::EXT_MetalSurface),
+            x if x == c"VK_EXT_fragment_density_map" => Some(Self::EXT_FragmentDensityMap),
+            x if x == c"VK_EXT_scalar_block_layout" => Some(Self::EXT_ScalarBlockLayout),
+            x if x == c"VK_GOOGLE_hlsl_functionality1" => Some(Self::GOOGLE_HlslFunctionality1),
+            x if x == c"VK_GOOGLE_decorate_string" => Some(Self::GOOGLE_DecorateString),
+            x if x == c"VK_EXT_subgroup_size_control" => Some(Self::EXT_SubgroupSizeControl),
+            x if x == c"VK_AMD_shader_core_properties2" => Some(Self::AMD_ShaderCoreProperties2),
+            x if x == c"VK_AMD_device_coherent_memory" => Some(Self::AMD_DeviceCoherentMemory),
+            x if x == c"VK_EXT_shader_image_atomic_int64" => Some(Self::EXT_ShaderImageAtomicInt64),
+            x if x == c"VK_EXT_memory_budget" => Some(Self::EXT_MemoryBudget),
+            x if x == c"VK_EXT_memory_priority" => Some(Self::EXT_MemoryPriority),
+            x if x == c"VK_NV_dedicated_allocation_image_aliasing" => {
+                Some(Self::NV_DedicatedAllocationImageAliasing)
+            }
+            x if x == c"VK_EXT_buffer_device_address" => Some(Self::EXT_BufferDeviceAddress),
+            x if x == c"VK_EXT_tooling_info" => Some(Self::EXT_ToolingInfo),
+            x if x == c"VK_EXT_separate_stencil_usage" => Some(Self::EXT_SeparateStencilUsage),
+            x if x == c"VK_EXT_validation_features" => Some(Self::EXT_ValidationFeatures),
+            x if x == c"VK_NV_cooperative_matrix" => Some(Self::NV_CooperativeMatrix),
+            x if x == c"VK_NV_coverage_reduction_mode" => Some(Self::NV_CoverageReductionMode),
+            x if x == c"VK_EXT_fragment_shader_interlock" => {
+                Some(Self::EXT_FragmentShaderInterlock)
+            }
+            x if x == c"VK_EXT_ycbcr_image_arrays" => Some(Self::EXT_YcbcrImageArrays),
+            x if x == c"VK_EXT_provoking_vertex" => Some(Self::EXT_ProvokingVertex),
+            x if x == c"VK_EXT_full_screen_exclusive" => Some(Self::EXT_FullScreenExclusive),
+            x if x == c"VK_EXT_headless_surface" => Some(Self::EXT_HeadlessSurface),
+            x if x == c"VK_EXT_line_rasterization" => Some(Self::EXT_LineRasterization),
+            x if x == c"VK_EXT_shader_atomic_float" => Some(Self::EXT_ShaderAtomicFloat),
+            x if x == c"VK_EXT_host_query_reset" => Some(Self::EXT_HostQueryReset),
+            x if x == c"VK_EXT_index_type_uint8" => Some(Self::EXT_IndexTypeUint8),
+            x if x == c"VK_EXT_extended_dynamic_state" => Some(Self::EXT_ExtendedDynamicState),
+            x if x == c"VK_EXT_host_image_copy" => Some(Self::EXT_HostImageCopy),
+            x if x == c"VK_EXT_map_memory_placed" => Some(Self::EXT_MapMemoryPlaced),
+            x if x == c"VK_EXT_shader_atomic_float2" => Some(Self::EXT_ShaderAtomicFloat2),
+            x if x == c"VK_EXT_surface_maintenance1" => Some(Self::EXT_SurfaceMaintenance1),
+            x if x == c"VK_EXT_swapchain_maintenance1" => Some(Self::EXT_SwapchainMaintenance1),
+            x if x == c"VK_EXT_shader_demote_to_helper_invocation" => {
+                Some(Self::EXT_ShaderDemoteToHelperInvocation)
+            }
+            x if x == c"VK_NV_device_generated_commands" => Some(Self::NV_DeviceGeneratedCommands),
+            x if x == c"VK_NV_inherited_viewport_scissor" => {
+                Some(Self::NV_InheritedViewportScissor)
+            }
+            x if x == c"VK_EXT_texel_buffer_alignment" => Some(Self::EXT_TexelBufferAlignment),
+            x if x == c"VK_QCOM_render_pass_transform" => Some(Self::QCOM_RenderPassTransform),
+            x if x == c"VK_EXT_depth_bias_control" => Some(Self::EXT_DepthBiasControl),
+            x if x == c"VK_EXT_device_memory_report" => Some(Self::EXT_DeviceMemoryReport),
+            x if x == c"VK_EXT_acquire_drm_display" => Some(Self::EXT_AcquireDrmDisplay),
+            x if x == c"VK_EXT_robustness2" => Some(Self::EXT_Robustness2),
+            x if x == c"VK_EXT_custom_border_color" => Some(Self::EXT_CustomBorderColor),
+            x if x == c"VK_EXT_texture_compression_astc_3d" => {
+                Some(Self::EXT_TextureCompressionAstc3D)
+            }
+            x if x == c"VK_GOOGLE_user_type" => Some(Self::GOOGLE_UserType),
+            x if x == c"VK_NV_present_barrier" => Some(Self::NV_PresentBarrier),
+            x if x == c"VK_EXT_private_data" => Some(Self::EXT_PrivateData),
+            x if x == c"VK_EXT_pipeline_creation_cache_control" => {
+                Some(Self::EXT_PipelineCreationCacheControl)
+            }
+            x if x == c"VK_NV_device_diagnostics_config" => Some(Self::NV_DeviceDiagnosticsConfig),
+            x if x == c"VK_QCOM_render_pass_store_ops" => Some(Self::QCOM_RenderPassStoreOps),
+            x if x == c"VK_QCOM_queue_perf_hint" => Some(Self::QCOM_QueuePerfHint),
+            x if x == c"VK_QCOM_image_processing3" => Some(Self::QCOM_ImageProcessing3),
+            x if x == c"VK_QCOM_shader_multiple_wait_queues" => {
+                Some(Self::QCOM_ShaderMultipleWaitQueues)
+            }
+            x if x == c"VK_EXT_shader_split_barrier" => Some(Self::EXT_ShaderSplitBarrier),
+            x if x == c"VK_NV_cuda_kernel_launch" => Some(Self::NV_CudaKernelLaunch),
+            x if x == c"VK_QCOM_tile_shading" => Some(Self::QCOM_TileShading),
+            x if x == c"VK_NV_low_latency" => Some(Self::NV_LowLatency),
+            x if x == c"VK_EXT_metal_objects" => Some(Self::EXT_MetalObjects),
+            x if x == c"VK_EXT_descriptor_buffer" => Some(Self::EXT_DescriptorBuffer),
+            x if x == c"VK_EXT_graphics_pipeline_library" => {
+                Some(Self::EXT_GraphicsPipelineLibrary)
+            }
+            x if x == c"VK_AMD_shader_early_and_late_fragment_tests" => {
+                Some(Self::AMD_ShaderEarlyAndLateFragmentTests)
+            }
+            x if x == c"VK_NV_fragment_shading_rate_enums" => {
+                Some(Self::NV_FragmentShadingRateEnums)
+            }
+            x if x == c"VK_NV_ray_tracing_motion_blur" => Some(Self::NV_RayTracingMotionBlur),
+            x if x == c"VK_EXT_ycbcr_2plane_444_formats" => Some(Self::EXT_Ycbcr2Plane444Formats),
+            x if x == c"VK_EXT_fragment_density_map2" => Some(Self::EXT_FragmentDensityMap2),
+            x if x == c"VK_QCOM_rotated_copy_commands" => Some(Self::QCOM_RotatedCopyCommands),
+            x if x == c"VK_EXT_image_robustness" => Some(Self::EXT_ImageRobustness),
+            x if x == c"VK_EXT_image_compression_control" => {
+                Some(Self::EXT_ImageCompressionControl)
+            }
+            x if x == c"VK_EXT_attachment_feedback_loop_layout" => {
+                Some(Self::EXT_AttachmentFeedbackLoopLayout)
+            }
+            x if x == c"VK_EXT_4444_formats" => Some(Self::EXT_4444Formats),
+            x if x == c"VK_EXT_device_fault" => Some(Self::EXT_DeviceFault),
+            x if x == c"VK_ARM_rasterization_order_attachment_access" => {
+                Some(Self::ARM_RasterizationOrderAttachmentAccess)
+            }
+            x if x == c"VK_EXT_rgba10x6_formats" => Some(Self::EXT_Rgba10X6Formats),
+            x if x == c"VK_NV_acquire_winrt_display" => Some(Self::NV_AcquireWinrtDisplay),
+            x if x == c"VK_EXT_directfb_surface" => Some(Self::EXT_DirectfbSurface),
+            x if x == c"VK_VALVE_mutable_descriptor_type" => {
+                Some(Self::VALVE_MutableDescriptorType)
+            }
+            x if x == c"VK_EXT_vertex_input_dynamic_state" => {
+                Some(Self::EXT_VertexInputDynamicState)
+            }
+            x if x == c"VK_EXT_physical_device_drm" => Some(Self::EXT_PhysicalDeviceDrm),
+            x if x == c"VK_EXT_device_address_binding_report" => {
+                Some(Self::EXT_DeviceAddressBindingReport)
+            }
+            x if x == c"VK_EXT_depth_clip_control" => Some(Self::EXT_DepthClipControl),
+            x if x == c"VK_EXT_primitive_topology_list_restart" => {
+                Some(Self::EXT_PrimitiveTopologyListRestart)
+            }
+            x if x == c"VK_EXT_present_mode_fifo_latest_ready" => {
+                Some(Self::EXT_PresentModeFifoLatestReady)
+            }
+            x if x == c"VK_FUCHSIA_external_memory" => Some(Self::FUCHSIA_ExternalMemory),
+            x if x == c"VK_FUCHSIA_external_semaphore" => Some(Self::FUCHSIA_ExternalSemaphore),
+            x if x == c"VK_FUCHSIA_buffer_collection" => Some(Self::FUCHSIA_BufferCollection),
+            x if x == c"VK_HUAWEI_subpass_shading" => Some(Self::HUAWEI_SubpassShading),
+            x if x == c"VK_HUAWEI_invocation_mask" => Some(Self::HUAWEI_InvocationMask),
+            x if x == c"VK_NV_external_memory_rdma" => Some(Self::NV_ExternalMemoryRdma),
+            x if x == c"VK_EXT_pipeline_properties" => Some(Self::EXT_PipelineProperties),
+            x if x == c"VK_EXT_frame_boundary" => Some(Self::EXT_FrameBoundary),
+            x if x == c"VK_EXT_multisampled_render_to_single_sampled" => {
+                Some(Self::EXT_MultisampledRenderToSingleSampled)
+            }
+            x if x == c"VK_EXT_extended_dynamic_state2" => Some(Self::EXT_ExtendedDynamicState2),
+            x if x == c"VK_QNX_screen_surface" => Some(Self::QNX_ScreenSurface),
+            x if x == c"VK_EXT_color_write_enable" => Some(Self::EXT_ColorWriteEnable),
+            x if x == c"VK_EXT_primitives_generated_query" => {
+                Some(Self::EXT_PrimitivesGeneratedQuery)
+            }
+            x if x == c"VK_EXT_global_priority_query" => Some(Self::EXT_GlobalPriorityQuery),
+            x if x == c"VK_VALVE_video_encode_rgb_conversion" => {
+                Some(Self::VALVE_VideoEncodeRgbConversion)
+            }
+            x if x == c"VK_EXT_image_view_min_lod" => Some(Self::EXT_ImageViewMinLod),
+            x if x == c"VK_EXT_multi_draw" => Some(Self::EXT_MultiDraw),
+            x if x == c"VK_EXT_image_2d_view_of_3d" => Some(Self::EXT_Image2DViewOf3D),
+            x if x == c"VK_EXT_shader_tile_image" => Some(Self::EXT_ShaderTileImage),
+            x if x == c"VK_EXT_opacity_micromap" => Some(Self::EXT_OpacityMicromap),
+            x if x == c"VK_NV_displacement_micromap" => Some(Self::NV_DisplacementMicromap),
+            x if x == c"VK_EXT_load_store_op_none" => Some(Self::EXT_LoadStoreOpNone),
+            x if x == c"VK_HUAWEI_cluster_culling_shader" => {
+                Some(Self::HUAWEI_ClusterCullingShader)
+            }
+            x if x == c"VK_EXT_border_color_swizzle" => Some(Self::EXT_BorderColorSwizzle),
+            x if x == c"VK_EXT_pageable_device_local_memory" => {
+                Some(Self::EXT_PageableDeviceLocalMemory)
+            }
+            x if x == c"VK_ARM_shader_core_properties" => Some(Self::ARM_ShaderCoreProperties),
+            x if x == c"VK_ARM_scheduling_controls" => Some(Self::ARM_SchedulingControls),
+            x if x == c"VK_EXT_image_sliced_view_of_3d" => Some(Self::EXT_ImageSlicedViewOf3D),
+            x if x == c"VK_VALVE_descriptor_set_host_mapping" => {
+                Some(Self::VALVE_DescriptorSetHostMapping)
+            }
+            x if x == c"VK_EXT_depth_clamp_zero_one" => Some(Self::EXT_DepthClampZeroOne),
+            x if x == c"VK_EXT_non_seamless_cube_map" => Some(Self::EXT_NonSeamlessCubeMap),
+            x if x == c"VK_ARM_render_pass_striped" => Some(Self::ARM_RenderPassStriped),
+            x if x == c"VK_QCOM_fragment_density_map_offset" => {
+                Some(Self::QCOM_FragmentDensityMapOffset)
+            }
+            x if x == c"VK_NV_copy_memory_indirect" => Some(Self::NV_CopyMemoryIndirect),
+            x if x == c"VK_NV_memory_decompression" => Some(Self::NV_MemoryDecompression),
+            x if x == c"VK_NV_device_generated_commands_compute" => {
+                Some(Self::NV_DeviceGeneratedCommandsCompute)
+            }
+            x if x == c"VK_NV_ray_tracing_linear_swept_spheres" => {
+                Some(Self::NV_RayTracingLinearSweptSpheres)
+            }
+            x if x == c"VK_NV_linear_color_attachment" => Some(Self::NV_LinearColorAttachment),
+            x if x == c"VK_GOOGLE_surfaceless_query" => Some(Self::GOOGLE_SurfacelessQuery),
+            x if x == c"VK_EXT_image_compression_control_swapchain" => {
+                Some(Self::EXT_ImageCompressionControlSwapchain)
+            }
+            x if x == c"VK_QCOM_image_processing" => Some(Self::QCOM_ImageProcessing),
+            x if x == c"VK_EXT_nested_command_buffer" => Some(Self::EXT_NestedCommandBuffer),
+            x if x == c"VK_OHOS_external_memory" => Some(Self::OHOS_ExternalMemory),
+            x if x == c"VK_EXT_external_memory_acquire_unmodified" => {
+                Some(Self::EXT_ExternalMemoryAcquireUnmodified)
+            }
+            x if x == c"VK_EXT_extended_dynamic_state3" => Some(Self::EXT_ExtendedDynamicState3),
+            x if x == c"VK_EXT_subpass_merge_feedback" => Some(Self::EXT_SubpassMergeFeedback),
+            x if x == c"VK_LUNARG_direct_driver_loading" => Some(Self::LUNARG_DirectDriverLoading),
+            x if x == c"VK_ARM_tensors" => Some(Self::ARM_Tensors),
+            x if x == c"VK_EXT_shader_module_identifier" => Some(Self::EXT_ShaderModuleIdentifier),
+            x if x == c"VK_EXT_rasterization_order_attachment_access" => {
+                Some(Self::EXT_RasterizationOrderAttachmentAccess)
+            }
+            x if x == c"VK_NV_optical_flow" => Some(Self::NV_OpticalFlow),
+            x if x == c"VK_EXT_legacy_dithering" => Some(Self::EXT_LegacyDithering),
+            x if x == c"VK_EXT_pipeline_protected_access" => {
+                Some(Self::EXT_PipelineProtectedAccess)
+            }
+            x if x == c"VK_ANDROID_external_format_resolve" => {
+                Some(Self::ANDROID_ExternalFormatResolve)
+            }
+            x if x == c"VK_AMD_anti_lag" => Some(Self::AMD_AntiLag),
+            x if x == c"VK_AMDX_dense_geometry_format" => Some(Self::AMDX_DenseGeometryFormat),
+            x if x == c"VK_EXT_shader_object" => Some(Self::EXT_ShaderObject),
+            x if x == c"VK_QCOM_tile_properties" => Some(Self::QCOM_TileProperties),
+            x if x == c"VK_SEC_amigo_profiling" => Some(Self::SEC_AmigoProfiling),
+            x if x == c"VK_QCOM_multiview_per_view_viewports" => {
+                Some(Self::QCOM_MultiviewPerViewViewports)
+            }
+            x if x == c"VK_NV_ray_tracing_invocation_reorder" => {
+                Some(Self::NV_RayTracingInvocationReorder)
+            }
+            x if x == c"VK_NV_cooperative_vector" => Some(Self::NV_CooperativeVector),
+            x if x == c"VK_NV_extended_sparse_address_space" => {
+                Some(Self::NV_ExtendedSparseAddressSpace)
+            }
+            x if x == c"VK_EXT_mutable_descriptor_type" => Some(Self::EXT_MutableDescriptorType),
+            x if x == c"VK_EXT_legacy_vertex_attributes" => Some(Self::EXT_LegacyVertexAttributes),
+            x if x == c"VK_EXT_layer_settings" => Some(Self::EXT_LayerSettings),
+            x if x == c"VK_ARM_shader_core_builtins" => Some(Self::ARM_ShaderCoreBuiltins),
+            x if x == c"VK_EXT_pipeline_library_group_handles" => {
+                Some(Self::EXT_PipelineLibraryGroupHandles)
+            }
+            x if x == c"VK_EXT_dynamic_rendering_unused_attachments" => {
+                Some(Self::EXT_DynamicRenderingUnusedAttachments)
+            }
+            x if x == c"VK_NV_low_latency2" => Some(Self::NV_LowLatency2),
+            x if x == c"VK_ARM_data_graph" => Some(Self::ARM_DataGraph),
+            x if x == c"VK_ARM_data_graph_instruction_set_tosa" => {
+                Some(Self::ARM_DataGraphInstructionSetTosa)
+            }
+            x if x == c"VK_QCOM_multiview_per_view_render_areas" => {
+                Some(Self::QCOM_MultiviewPerViewRenderAreas)
+            }
+            x if x == c"VK_NV_per_stage_descriptor_set" => Some(Self::NV_PerStageDescriptorSet),
+            x if x == c"VK_QCOM_image_processing2" => Some(Self::QCOM_ImageProcessing2),
+            x if x == c"VK_QCOM_filter_cubic_weights" => Some(Self::QCOM_FilterCubicWeights),
+            x if x == c"VK_QCOM_ycbcr_degamma" => Some(Self::QCOM_YcbcrDegamma),
+            x if x == c"VK_QCOM_filter_cubic_clamp" => Some(Self::QCOM_FilterCubicClamp),
+            x if x == c"VK_EXT_attachment_feedback_loop_dynamic_state" => {
+                Some(Self::EXT_AttachmentFeedbackLoopDynamicState)
+            }
+            x if x == c"VK_QNX_external_memory_screen_buffer" => {
+                Some(Self::QNX_ExternalMemoryScreenBuffer)
+            }
+            x if x == c"VK_MSFT_layered_driver" => Some(Self::MSFT_LayeredDriver),
+            x if x == c"VK_NV_descriptor_pool_overallocation" => {
+                Some(Self::NV_DescriptorPoolOverallocation)
+            }
+            x if x == c"VK_QCOM_tile_memory_heap" => Some(Self::QCOM_TileMemoryHeap),
+            x if x == c"VK_EXT_memory_decompression" => Some(Self::EXT_MemoryDecompression),
+            x if x == c"VK_NV_display_stereo" => Some(Self::NV_DisplayStereo),
+            x if x == c"VK_NV_raw_access_chains" => Some(Self::NV_RawAccessChains),
+            x if x == c"VK_NV_external_compute_queue" => Some(Self::NV_ExternalComputeQueue),
+            x if x == c"VK_NV_command_buffer_inheritance" => {
+                Some(Self::NV_CommandBufferInheritance)
+            }
+            x if x == c"VK_NV_shader_atomic_float16_vector" => {
+                Some(Self::NV_ShaderAtomicFloat16Vector)
+            }
+            x if x == c"VK_EXT_shader_replicated_composites" => {
+                Some(Self::EXT_ShaderReplicatedComposites)
+            }
+            x if x == c"VK_ARM_tensor_controls" => Some(Self::ARM_TensorControls),
+            x if x == c"VK_EXT_shader_float8" => Some(Self::EXT_ShaderFloat8),
+            x if x == c"VK_NV_ray_tracing_validation" => Some(Self::NV_RayTracingValidation),
+            x if x == c"VK_NV_cluster_acceleration_structure" => {
+                Some(Self::NV_ClusterAccelerationStructure)
+            }
+            x if x == c"VK_NV_partitioned_acceleration_structure" => {
+                Some(Self::NV_PartitionedAccelerationStructure)
+            }
+            x if x == c"VK_EXT_device_generated_commands" => {
+                Some(Self::EXT_DeviceGeneratedCommands)
+            }
+            x if x == c"VK_MESA_image_alignment_control" => Some(Self::MESA_ImageAlignmentControl),
+            x if x == c"VK_NV_push_constant_bank" => Some(Self::NV_PushConstantBank),
+            x if x == c"VK_EXT_ray_tracing_invocation_reorder" => {
+                Some(Self::EXT_RayTracingInvocationReorder)
+            }
+            x if x == c"VK_EXT_depth_clamp_control" => Some(Self::EXT_DepthClampControl),
+            x if x == c"VK_OHOS_surface" => Some(Self::OHOS_Surface),
+            x if x == c"VK_HUAWEI_hdr_vivid" => Some(Self::HUAWEI_HdrVivid),
+            x if x == c"VK_NV_cooperative_matrix2" => Some(Self::NV_CooperativeMatrix2),
+            x if x == c"VK_ARM_pipeline_opacity_micromap" => {
+                Some(Self::ARM_PipelineOpacityMicromap)
+            }
+            x if x == c"VK_IMG_filter_linear_2d" => Some(Self::IMG_FilterLinear2D),
+            x if x == c"VK_EXT_external_memory_metal" => Some(Self::EXT_ExternalMemoryMetal),
+            x if x == c"VK_ARM_performance_counters_by_region" => {
+                Some(Self::ARM_PerformanceCountersByRegion)
+            }
+            x if x == c"VK_ARM_shader_instrumentation" => Some(Self::ARM_ShaderInstrumentation),
+            x if x == c"VK_EXT_vertex_attribute_robustness" => {
+                Some(Self::EXT_VertexAttributeRobustness)
+            }
+            x if x == c"VK_ARM_format_pack" => Some(Self::ARM_FormatPack),
+            x if x == c"VK_VALVE_fragment_density_map_layered" => {
+                Some(Self::VALVE_FragmentDensityMapLayered)
+            }
+            x if x == c"VK_NV_present_metering" => Some(Self::NV_PresentMetering),
+            x if x == c"VK_EXT_multisampled_render_to_swapchain" => {
+                Some(Self::EXT_MultisampledRenderToSwapchain)
+            }
+            x if x == c"VK_EXT_fragment_density_map_offset" => {
+                Some(Self::EXT_FragmentDensityMapOffset)
+            }
+            x if x == c"VK_EXT_zero_initialize_device_memory" => {
+                Some(Self::EXT_ZeroInitializeDeviceMemory)
+            }
+            x if x == c"VK_EXT_shader_64bit_indexing" => Some(Self::EXT_Shader64BitIndexing),
+            x if x == c"VK_EXT_custom_resolve" => Some(Self::EXT_CustomResolve),
+            x if x == c"VK_QCOM_data_graph_model" => Some(Self::QCOM_DataGraphModel),
+            x if x == c"VK_ARM_data_graph_optical_flow" => Some(Self::ARM_DataGraphOpticalFlow),
+            x if x == c"VK_EXT_shader_long_vector" => Some(Self::EXT_ShaderLongVector),
+            x if x == c"VK_SEC_pipeline_cache_incremental_mode" => {
+                Some(Self::SEC_PipelineCacheIncrementalMode)
+            }
+            x if x == c"VK_EXT_shader_uniform_buffer_unsized_array" => {
+                Some(Self::EXT_ShaderUniformBufferUnsizedArray)
+            }
+            x if x == c"VK_NV_compute_occupancy_priority" => {
+                Some(Self::NV_ComputeOccupancyPriority)
+            }
+            x if x == c"VK_EXT_cooperative_matrix_maintenance1" => {
+                Some(Self::EXT_CooperativeMatrixMaintenance1)
+            }
+            x if x == c"VK_EXT_shader_subgroup_partitioned" => {
+                Some(Self::EXT_ShaderSubgroupPartitioned)
+            }
+            x if x == c"VK_SEC_ubm_surface" => Some(Self::SEC_UbmSurface),
+            x if x == c"VK_EXT_shader_ocp_microscaling_types" => {
+                Some(Self::EXT_ShaderOcpMicroscalingTypes)
+            }
+            x if x == c"VK_VALVE_shader_mixed_float_dot_product" => {
+                Some(Self::VALVE_ShaderMixedFloatDotProduct)
+            }
+            x if x == c"VK_SEC_throttle_hint" => Some(Self::SEC_ThrottleHint),
+            x if x == c"VK_ARM_data_graph_neural_accelerator_statistics" => {
+                Some(Self::ARM_DataGraphNeuralAcceleratorStatistics)
+            }
+            x if x == c"VK_EXT_primitive_restart_index" => Some(Self::EXT_PrimitiveRestartIndex),
+            x if x == c"VK_EXT_image_tiling_control" => Some(Self::EXT_ImageTilingControl),
+            x if x == c"VK_NV_cooperative_matrix_decode_vector" => {
+                Some(Self::NV_CooperativeMatrixDecodeVector)
+            }
+            x if x == c"VK_NV_private_data_base_handle" => Some(Self::NV_PrivateDataBaseHandle),
+            x if x == c"VK_VALVE_buffer_device_address_allocation_alignment" => {
+                Some(Self::VALVE_BufferDeviceAddressAllocationAlignment)
+            }
+            x if x == c"VK_KHR_acceleration_structure" => Some(Self::KHR_AccelerationStructure),
+            x if x == c"VK_KHR_ray_tracing_pipeline" => Some(Self::KHR_RayTracingPipeline),
+            x if x == c"VK_KHR_ray_query" => Some(Self::KHR_RayQuery),
+            x if x == c"VK_EXT_mesh_shader" => Some(Self::EXT_MeshShader),
+            _ => None,
         }
     }
 }

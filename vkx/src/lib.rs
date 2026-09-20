@@ -80,7 +80,7 @@
 //!
 //! # Windowing
 //! `vkx` has support for [`raw_window_handle`] through the `window` module. Enable the `window`
-//! feature flag to use it.
+//! feature flag to use it (it is enabled by default).
 //!
 //! [`vulkan-object`]: https://github.com/KhronosGroup/vulkan-object
 
