@@ -24,9 +24,6 @@ pub type FN_CreateInstance = unsafe extern "C" fn(
 ) -> ResultCode;
 /// [`vkCreateInstance`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateInstance.html)
 ///
-/// # Optional parameters
-/// - p_allocator
-///
 /// # Result codes
 /// ## Success
 /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -66,20 +63,16 @@ pub type FN_DestroyInstance = unsafe extern "C" fn(InstanceHandle, *const Alloca
 impl Instance {
     /// [`vkDestroyInstance`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyInstance.html)
     ///
-    /// # Optional parameters
-    /// - instance
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyInstance")]
     #[inline(always)]
-    pub unsafe fn destroy(&self, p_allocator: *const AllocationCallbacks) {
+    pub unsafe fn destroy(&self, p_allocator: Option<*const AllocationCallbacks>) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyInstance>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyInstance as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_allocator) }
+        unsafe { (command)(self.handle, p_allocator.unwrap_or_default()) }
     }
 }
 
@@ -89,9 +82,6 @@ pub type FN_EnumeratePhysicalDevices =
     unsafe extern "C" fn(InstanceHandle, *mut u32, *mut PhysicalDeviceHandle) -> ResultCode;
 impl Instance {
     /// [`vkEnumeratePhysicalDevices`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumeratePhysicalDevices.html)
-    ///
-    /// # Optional parameters
-    /// - p_physical_devices
     ///
     /// # Result codes
     /// ## Success
@@ -109,7 +99,7 @@ impl Instance {
     pub unsafe fn raw_enumerate_physical_devices(
         &self,
         p_physical_device_count: *mut u32,
-        p_physical_devices: *mut PhysicalDeviceHandle,
+        p_physical_devices: Option<*mut PhysicalDeviceHandle>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_EnumeratePhysicalDevices>(vtable_get(
@@ -117,7 +107,13 @@ impl Instance {
                 InstanceCommand::vkEnumeratePhysicalDevices as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_physical_device_count, p_physical_devices) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_physical_device_count,
+                p_physical_devices.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -200,9 +196,6 @@ impl PhysicalDevice {
     ///
     /// It has been superseded by [`vkGetPhysicalDeviceImageFormatProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceImageFormatProperties2.html).
     ///
-    /// # Optional parameters
-    /// - flags
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -221,7 +214,7 @@ impl PhysicalDevice {
         type_: ImageType,
         tiling: ImageTiling,
         usage: ImageUsageFlags,
-        flags: ImageCreateFlags,
+        flags: Option<ImageCreateFlags>,
         p_image_format_properties: *mut ImageFormatProperties,
     ) -> ResultCode {
         let command = unsafe {
@@ -239,7 +232,7 @@ impl PhysicalDevice {
                 type_,
                 tiling,
                 usage,
-                flags,
+                flags.unwrap_or_default(),
                 p_image_format_properties,
             )
         }
@@ -287,15 +280,12 @@ impl PhysicalDevice {
     ///
     /// It has been superseded by [`vkGetPhysicalDeviceQueueFamilyProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceQueueFamilyProperties2.html).
     ///
-    /// # Optional parameters
-    /// - p_queue_family_properties
-    ///
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyProperties")]
     #[inline(always)]
     pub unsafe fn get_queue_family_properties(
         &self,
         p_queue_family_property_count: *mut u32,
-        p_queue_family_properties: *mut QueueFamilyProperties,
+        p_queue_family_properties: Option<*mut QueueFamilyProperties>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceQueueFamilyProperties>(
@@ -309,7 +299,7 @@ impl PhysicalDevice {
             (command)(
                 self.handle,
                 p_queue_family_property_count,
-                p_queue_family_properties,
+                p_queue_family_properties.unwrap_or_default(),
             )
         }
     }
@@ -351,9 +341,6 @@ pub type FN_GetInstanceProcAddr =
     unsafe extern "C" fn(InstanceHandle, *const c_char) -> vkVoidFunction;
 impl Instance {
     /// [`vkGetInstanceProcAddr`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetInstanceProcAddr.html)
-    ///
-    /// # Optional parameters
-    /// - instance
     ///
     #[doc(alias = "vkGetInstanceProcAddr")]
     #[inline(always)]
@@ -398,9 +385,6 @@ pub type FN_CreateDevice = unsafe extern "C" fn(
 impl PhysicalDevice {
     /// [`vkCreateDevice`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDevice.html)
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -420,7 +404,7 @@ impl PhysicalDevice {
     pub unsafe fn raw_create_device(
         &self,
         p_create_info: *const DeviceCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_device: *mut DeviceHandle,
     ) -> ResultCode {
         let command = unsafe {
@@ -429,7 +413,14 @@ impl PhysicalDevice {
                 InstanceCommand::vkCreateDevice as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_device) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_device,
+            )
+        }
     }
 }
 
@@ -439,20 +430,16 @@ pub type FN_DestroyDevice = unsafe extern "C" fn(DeviceHandle, *const Allocation
 impl Device {
     /// [`vkDestroyDevice`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDevice.html)
     ///
-    /// # Optional parameters
-    /// - device
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyDevice")]
     #[inline(always)]
-    pub unsafe fn destroy_device(&self, p_allocator: *const AllocationCallbacks) {
+    pub unsafe fn destroy_device(&self, p_allocator: Option<*const AllocationCallbacks>) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyDevice>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyDevice as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_allocator) }
+        unsafe { (command)(self.handle, p_allocator.unwrap_or_default()) }
     }
 }
 
@@ -461,10 +448,6 @@ impl Device {
 pub type FN_EnumerateInstanceExtensionProperties =
     unsafe extern "C" fn(*const c_char, *mut u32, *mut ExtensionProperties) -> ResultCode;
 /// [`vkEnumerateInstanceExtensionProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateInstanceExtensionProperties.html)
-///
-/// # Optional parameters
-/// - p_layer_name
-/// - p_properties
 ///
 /// # Result codes
 /// ## Success
@@ -508,10 +491,6 @@ pub type FN_EnumerateDeviceExtensionProperties = unsafe extern "C" fn(
 impl PhysicalDevice {
     /// [`vkEnumerateDeviceExtensionProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateDeviceExtensionProperties.html)
     ///
-    /// # Optional parameters
-    /// - p_layer_name
-    /// - p_properties
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -527,9 +506,9 @@ impl PhysicalDevice {
     #[inline(always)]
     pub unsafe fn enumerate_device_extension_properties(
         &self,
-        p_layer_name: *const c_char,
+        p_layer_name: Option<*const c_char>,
         p_property_count: *mut u32,
-        p_properties: *mut ExtensionProperties,
+        p_properties: Option<*mut ExtensionProperties>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_EnumerateDeviceExtensionProperties>(
@@ -539,7 +518,14 @@ impl PhysicalDevice {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_layer_name, p_property_count, p_properties) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_layer_name.unwrap_or_default(),
+                p_property_count,
+                p_properties.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -548,9 +534,6 @@ impl PhysicalDevice {
 pub type FN_EnumerateInstanceLayerProperties =
     unsafe extern "C" fn(*mut u32, *mut LayerProperties) -> ResultCode;
 /// [`vkEnumerateInstanceLayerProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateInstanceLayerProperties.html)
-///
-/// # Optional parameters
-/// - p_properties
 ///
 /// # Result codes
 /// ## Success
@@ -588,9 +571,6 @@ pub type FN_EnumerateDeviceLayerProperties =
 impl PhysicalDevice {
     /// [`vkEnumerateDeviceLayerProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateDeviceLayerProperties.html)
     ///
-    /// # Optional parameters
-    /// - p_properties
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -606,7 +586,7 @@ impl PhysicalDevice {
     pub unsafe fn enumerate_device_layer_properties(
         &self,
         p_property_count: *mut u32,
-        p_properties: *mut LayerProperties,
+        p_properties: Option<*mut LayerProperties>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_EnumerateDeviceLayerProperties>(vtable_get(
@@ -614,7 +594,13 @@ impl PhysicalDevice {
                 InstanceCommand::vkEnumerateDeviceLayerProperties as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_property_count, p_properties) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_property_count,
+                p_properties.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -656,10 +642,6 @@ impl Queue {
     ///
     /// It has been superseded by [`vkQueueSubmit2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSubmit2.html).
     ///
-    /// # Optional parameters
-    /// - submit_count
-    /// - fence
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -674,9 +656,9 @@ impl Queue {
     #[inline(always)]
     pub unsafe fn submit(
         &self,
-        submit_count: u32,
+        submit_count: Option<u32>,
         p_submits: *const SubmitInfo,
-        fence: Fence,
+        fence: Option<Fence>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_QueueSubmit>(vtable_get(
@@ -684,7 +666,14 @@ impl Queue {
                 InstanceCommand::vkQueueSubmit as usize,
             ))
         };
-        unsafe { (command)(self.handle, submit_count, p_submits, fence) }
+        unsafe {
+            (command)(
+                self.handle,
+                submit_count.unwrap_or_default(),
+                p_submits,
+                fence.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -757,9 +746,6 @@ pub type FN_AllocateMemory = unsafe extern "C" fn(
 impl Device {
     /// [`vkAllocateMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAllocateMemory.html)
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -776,7 +762,7 @@ impl Device {
     pub unsafe fn allocate_memory(
         &self,
         p_allocate_info: *const MemoryAllocateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_memory: *mut DeviceMemory,
     ) -> ResultCode {
         let command = unsafe {
@@ -785,7 +771,14 @@ impl Device {
                 InstanceCommand::vkAllocateMemory as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_allocate_info, p_allocator, p_memory) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_allocate_info,
+                p_allocator.unwrap_or_default(),
+                p_memory,
+            )
+        }
     }
 }
 
@@ -796,16 +789,12 @@ pub type FN_FreeMemory =
 impl Device {
     /// [`vkFreeMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkFreeMemory.html)
     ///
-    /// # Optional parameters
-    /// - memory
-    /// - p_allocator
-    ///
     #[doc(alias = "vkFreeMemory")]
     #[inline(always)]
     pub unsafe fn free_memory(
         &self,
-        memory: DeviceMemory,
-        p_allocator: *const AllocationCallbacks,
+        memory: Option<DeviceMemory>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_FreeMemory>(vtable_get(
@@ -813,7 +802,13 @@ impl Device {
                 InstanceCommand::vkFreeMemory as usize,
             ))
         };
-        unsafe { (command)(self.handle, memory, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                memory.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -829,9 +824,6 @@ pub type FN_MapMemory = unsafe extern "C" fn(
 ) -> ResultCode;
 impl Device {
     /// [`vkMapMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkMapMemory.html)
-    ///
-    /// # Optional parameters
-    /// - flags
     ///
     /// # Result codes
     /// ## Success
@@ -850,7 +842,7 @@ impl Device {
         memory: DeviceMemory,
         offset: DeviceSize,
         size: DeviceSize,
-        flags: MemoryMapFlags,
+        flags: Option<MemoryMapFlags>,
         pp_data: *mut *mut c_void,
     ) -> ResultCode {
         let command = unsafe {
@@ -859,7 +851,16 @@ impl Device {
                 InstanceCommand::vkMapMemory as usize,
             ))
         };
-        unsafe { (command)(self.handle, memory, offset, size, flags, pp_data) }
+        unsafe {
+            (command)(
+                self.handle,
+                memory,
+                offset,
+                size,
+                flags.unwrap_or_default(),
+                pp_data,
+            )
+        }
     }
 }
 
@@ -1096,16 +1097,13 @@ pub type FN_GetImageSparseMemoryRequirements =
 impl Device {
     /// [`vkGetImageSparseMemoryRequirements`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetImageSparseMemoryRequirements.html)
     ///
-    /// # Optional parameters
-    /// - p_sparse_memory_requirements
-    ///
     #[doc(alias = "vkGetImageSparseMemoryRequirements")]
     #[inline(always)]
     pub unsafe fn get_image_sparse_memory_requirements(
         &self,
         image: Image,
         p_sparse_memory_requirement_count: *mut u32,
-        p_sparse_memory_requirements: *mut SparseImageMemoryRequirements,
+        p_sparse_memory_requirements: Option<*mut SparseImageMemoryRequirements>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetImageSparseMemoryRequirements>(vtable_get(
@@ -1118,7 +1116,7 @@ impl Device {
                 self.handle,
                 image,
                 p_sparse_memory_requirement_count,
-                p_sparse_memory_requirements,
+                p_sparse_memory_requirements.unwrap_or_default(),
             )
         }
     }
@@ -1146,9 +1144,6 @@ impl PhysicalDevice {
     ///
     /// It has been superseded by [`vkGetPhysicalDeviceSparseImageFormatProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceSparseImageFormatProperties2.html).
     ///
-    /// # Optional parameters
-    /// - p_properties
-    ///
     #[doc(alias = "vkGetPhysicalDeviceSparseImageFormatProperties")]
     #[inline(always)]
     pub unsafe fn get_sparse_image_format_properties(
@@ -1159,7 +1154,7 @@ impl PhysicalDevice {
         usage: ImageUsageFlags,
         tiling: ImageTiling,
         p_property_count: *mut u32,
-        p_properties: *mut SparseImageFormatProperties,
+        p_properties: Option<*mut SparseImageFormatProperties>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSparseImageFormatProperties>(
@@ -1178,7 +1173,7 @@ impl PhysicalDevice {
                 usage,
                 tiling,
                 p_property_count,
-                p_properties,
+                p_properties.unwrap_or_default(),
             )
         }
     }
@@ -1190,10 +1185,6 @@ pub type FN_QueueBindSparse =
     unsafe extern "C" fn(QueueHandle, u32, *const BindSparseInfo, Fence) -> ResultCode;
 impl Queue {
     /// [`vkQueueBindSparse`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueBindSparse.html)
-    ///
-    /// # Optional parameters
-    /// - bind_info_count
-    /// - fence
     ///
     /// # Allowed queues
     /// - [`SPARSE_BINDING`](QueueFlag::SPARSE_BINDING)
@@ -1212,9 +1203,9 @@ impl Queue {
     #[inline(always)]
     pub unsafe fn bind_sparse(
         &self,
-        bind_info_count: u32,
+        bind_info_count: Option<u32>,
         p_bind_info: *const BindSparseInfo,
-        fence: Fence,
+        fence: Option<Fence>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_QueueBindSparse>(vtable_get(
@@ -1222,7 +1213,14 @@ impl Queue {
                 InstanceCommand::vkQueueBindSparse as usize,
             ))
         };
-        unsafe { (command)(self.handle, bind_info_count, p_bind_info, fence) }
+        unsafe {
+            (command)(
+                self.handle,
+                bind_info_count.unwrap_or_default(),
+                p_bind_info,
+                fence.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -1236,9 +1234,6 @@ pub type FN_CreateFence = unsafe extern "C" fn(
 ) -> ResultCode;
 impl Device {
     /// [`vkCreateFence`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateFence.html)
-    ///
-    /// # Optional parameters
-    /// - p_allocator
     ///
     /// # Result codes
     /// ## Success
@@ -1254,7 +1249,7 @@ impl Device {
     pub unsafe fn create_fence(
         &self,
         p_create_info: *const FenceCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_fence: *mut Fence,
     ) -> ResultCode {
         let command = unsafe {
@@ -1263,7 +1258,14 @@ impl Device {
                 InstanceCommand::vkCreateFence as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_fence) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_fence,
+            )
+        }
     }
 }
 
@@ -1273,20 +1275,26 @@ pub type FN_DestroyFence = unsafe extern "C" fn(DeviceHandle, Fence, *const Allo
 impl Device {
     /// [`vkDestroyFence`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyFence.html)
     ///
-    /// # Optional parameters
-    /// - fence
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyFence")]
     #[inline(always)]
-    pub unsafe fn destroy_fence(&self, fence: Fence, p_allocator: *const AllocationCallbacks) {
+    pub unsafe fn destroy_fence(
+        &self,
+        fence: Option<Fence>,
+        p_allocator: Option<*const AllocationCallbacks>,
+    ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyFence>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyFence as usize,
             ))
         };
-        unsafe { (command)(self.handle, fence, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                fence.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -1395,9 +1403,6 @@ pub type FN_CreateSemaphore = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateSemaphore`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSemaphore.html)
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -1412,7 +1417,7 @@ impl Device {
     pub unsafe fn create_semaphore(
         &self,
         p_create_info: *const SemaphoreCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_semaphore: *mut Semaphore,
     ) -> ResultCode {
         let command = unsafe {
@@ -1421,7 +1426,14 @@ impl Device {
                 InstanceCommand::vkCreateSemaphore as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_semaphore) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_semaphore,
+            )
+        }
     }
 }
 
@@ -1432,16 +1444,12 @@ pub type FN_DestroySemaphore =
 impl Device {
     /// [`vkDestroySemaphore`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySemaphore.html)
     ///
-    /// # Optional parameters
-    /// - semaphore
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroySemaphore")]
     #[inline(always)]
     pub unsafe fn destroy_semaphore(
         &self,
-        semaphore: Semaphore,
-        p_allocator: *const AllocationCallbacks,
+        semaphore: Option<Semaphore>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroySemaphore>(vtable_get(
@@ -1449,7 +1457,13 @@ impl Device {
                 InstanceCommand::vkDestroySemaphore as usize,
             ))
         };
-        unsafe { (command)(self.handle, semaphore, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                semaphore.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -1463,9 +1477,6 @@ pub type FN_CreateQueryPool = unsafe extern "C" fn(
 ) -> ResultCode;
 impl Device {
     /// [`vkCreateQueryPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateQueryPool.html)
-    ///
-    /// # Optional parameters
-    /// - p_allocator
     ///
     /// # Result codes
     /// ## Success
@@ -1481,7 +1492,7 @@ impl Device {
     pub unsafe fn create_query_pool(
         &self,
         p_create_info: *const QueryPoolCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_query_pool: *mut QueryPool,
     ) -> ResultCode {
         let command = unsafe {
@@ -1490,7 +1501,14 @@ impl Device {
                 InstanceCommand::vkCreateQueryPool as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_query_pool) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_query_pool,
+            )
+        }
     }
 }
 
@@ -1501,16 +1519,12 @@ pub type FN_DestroyQueryPool =
 impl Device {
     /// [`vkDestroyQueryPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyQueryPool.html)
     ///
-    /// # Optional parameters
-    /// - query_pool
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyQueryPool")]
     #[inline(always)]
     pub unsafe fn destroy_query_pool(
         &self,
-        query_pool: QueryPool,
-        p_allocator: *const AllocationCallbacks,
+        query_pool: Option<QueryPool>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyQueryPool>(vtable_get(
@@ -1518,7 +1532,13 @@ impl Device {
                 InstanceCommand::vkDestroyQueryPool as usize,
             ))
         };
-        unsafe { (command)(self.handle, query_pool, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                query_pool.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -1536,9 +1556,6 @@ pub type FN_GetQueryPoolResults = unsafe extern "C" fn(
 ) -> ResultCode;
 impl Device {
     /// [`vkGetQueryPoolResults`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetQueryPoolResults.html)
-    ///
-    /// # Optional parameters
-    /// - flags
     ///
     /// # Result codes
     /// ## Success
@@ -1561,7 +1578,7 @@ impl Device {
         data_size: usize,
         p_data: *mut c_void,
         stride: DeviceSize,
-        flags: QueryResultFlags,
+        flags: Option<QueryResultFlags>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetQueryPoolResults>(vtable_get(
@@ -1578,7 +1595,7 @@ impl Device {
                 data_size,
                 p_data,
                 stride,
-                flags,
+                flags.unwrap_or_default(),
             )
         }
     }
@@ -1595,9 +1612,6 @@ pub type FN_CreateBuffer = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateBuffer.html)
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -1613,7 +1627,7 @@ impl Device {
     pub unsafe fn create_buffer(
         &self,
         p_create_info: *const BufferCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_buffer: *mut Buffer,
     ) -> ResultCode {
         let command = unsafe {
@@ -1622,7 +1636,14 @@ impl Device {
                 InstanceCommand::vkCreateBuffer as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_buffer) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_buffer,
+            )
+        }
     }
 }
 
@@ -1632,20 +1653,26 @@ pub type FN_DestroyBuffer = unsafe extern "C" fn(DeviceHandle, Buffer, *const Al
 impl Device {
     /// [`vkDestroyBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyBuffer.html)
     ///
-    /// # Optional parameters
-    /// - buffer
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyBuffer")]
     #[inline(always)]
-    pub unsafe fn destroy_buffer(&self, buffer: Buffer, p_allocator: *const AllocationCallbacks) {
+    pub unsafe fn destroy_buffer(
+        &self,
+        buffer: Option<Buffer>,
+        p_allocator: Option<*const AllocationCallbacks>,
+    ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyBuffer>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyBuffer as usize,
             ))
         };
-        unsafe { (command)(self.handle, buffer, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                buffer.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -1659,9 +1686,6 @@ pub type FN_CreateImage = unsafe extern "C" fn(
 ) -> ResultCode;
 impl Device {
     /// [`vkCreateImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateImage.html)
-    ///
-    /// # Optional parameters
-    /// - p_allocator
     ///
     /// # Result codes
     /// ## Success
@@ -1679,7 +1703,7 @@ impl Device {
     pub unsafe fn create_image(
         &self,
         p_create_info: *const ImageCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_image: *mut Image,
     ) -> ResultCode {
         let command = unsafe {
@@ -1688,7 +1712,14 @@ impl Device {
                 InstanceCommand::vkCreateImage as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_image) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_image,
+            )
+        }
     }
 }
 
@@ -1698,20 +1729,26 @@ pub type FN_DestroyImage = unsafe extern "C" fn(DeviceHandle, Image, *const Allo
 impl Device {
     /// [`vkDestroyImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyImage.html)
     ///
-    /// # Optional parameters
-    /// - image
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyImage")]
     #[inline(always)]
-    pub unsafe fn destroy_image(&self, image: Image, p_allocator: *const AllocationCallbacks) {
+    pub unsafe fn destroy_image(
+        &self,
+        image: Option<Image>,
+        p_allocator: Option<*const AllocationCallbacks>,
+    ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyImage>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyImage as usize,
             ))
         };
-        unsafe { (command)(self.handle, image, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                image.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -1751,9 +1788,6 @@ pub type FN_CreateImageView = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateImageView`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateImageView.html)
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -1769,7 +1803,7 @@ impl Device {
     pub unsafe fn create_image_view(
         &self,
         p_create_info: *const ImageViewCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_view: *mut ImageView,
     ) -> ResultCode {
         let command = unsafe {
@@ -1778,7 +1812,14 @@ impl Device {
                 InstanceCommand::vkCreateImageView as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_view) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_view,
+            )
+        }
     }
 }
 
@@ -1789,16 +1830,12 @@ pub type FN_DestroyImageView =
 impl Device {
     /// [`vkDestroyImageView`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyImageView.html)
     ///
-    /// # Optional parameters
-    /// - image_view
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyImageView")]
     #[inline(always)]
     pub unsafe fn destroy_image_view(
         &self,
-        image_view: ImageView,
-        p_allocator: *const AllocationCallbacks,
+        image_view: Option<ImageView>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyImageView>(vtable_get(
@@ -1806,7 +1843,13 @@ impl Device {
                 InstanceCommand::vkDestroyImageView as usize,
             ))
         };
-        unsafe { (command)(self.handle, image_view, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                image_view.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -1820,9 +1863,6 @@ pub type FN_CreateCommandPool = unsafe extern "C" fn(
 ) -> ResultCode;
 impl Device {
     /// [`vkCreateCommandPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateCommandPool.html)
-    ///
-    /// # Optional parameters
-    /// - p_allocator
     ///
     /// # Result codes
     /// ## Success
@@ -1838,7 +1878,7 @@ impl Device {
     pub unsafe fn create_command_pool(
         &self,
         p_create_info: *const CommandPoolCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_command_pool: *mut CommandPool,
     ) -> ResultCode {
         let command = unsafe {
@@ -1847,7 +1887,14 @@ impl Device {
                 InstanceCommand::vkCreateCommandPool as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_command_pool) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_command_pool,
+            )
+        }
     }
 }
 
@@ -1858,16 +1905,12 @@ pub type FN_DestroyCommandPool =
 impl Device {
     /// [`vkDestroyCommandPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyCommandPool.html)
     ///
-    /// # Optional parameters
-    /// - command_pool
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyCommandPool")]
     #[inline(always)]
     pub unsafe fn destroy_command_pool(
         &self,
-        command_pool: CommandPool,
-        p_allocator: *const AllocationCallbacks,
+        command_pool: Option<CommandPool>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyCommandPool>(vtable_get(
@@ -1875,7 +1918,13 @@ impl Device {
                 InstanceCommand::vkDestroyCommandPool as usize,
             ))
         };
-        unsafe { (command)(self.handle, command_pool, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                command_pool.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -1885,9 +1934,6 @@ pub type FN_ResetCommandPool =
     unsafe extern "C" fn(DeviceHandle, CommandPool, CommandPoolResetFlags) -> ResultCode;
 impl Device {
     /// [`vkResetCommandPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetCommandPool.html)
-    ///
-    /// # Optional parameters
-    /// - flags
     ///
     /// # Result codes
     /// ## Success
@@ -1902,7 +1948,7 @@ impl Device {
     pub unsafe fn reset_command_pool(
         &self,
         command_pool: CommandPool,
-        flags: CommandPoolResetFlags,
+        flags: Option<CommandPoolResetFlags>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ResetCommandPool>(vtable_get(
@@ -1910,7 +1956,7 @@ impl Device {
                 InstanceCommand::vkResetCommandPool as usize,
             ))
         };
-        unsafe { (command)(self.handle, command_pool, flags) }
+        unsafe { (command)(self.handle, command_pool, flags.unwrap_or_default()) }
     }
 }
 
@@ -2047,9 +2093,6 @@ pub type FN_ResetCommandBuffer =
 impl CommandBuffer {
     /// [`vkResetCommandBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetCommandBuffer.html)
     ///
-    /// # Optional parameters
-    /// - flags
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -2060,14 +2103,14 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkResetCommandBuffer")]
     #[inline(always)]
-    pub unsafe fn reset(&self, flags: CommandBufferResetFlags) -> ResultCode {
+    pub unsafe fn reset(&self, flags: Option<CommandBufferResetFlags>) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ResetCommandBuffer>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkResetCommandBuffer as usize,
             ))
         };
-        unsafe { (command)(self.handle, flags) }
+        unsafe { (command)(self.handle, flags.unwrap_or_default()) }
     }
 }
 
@@ -2386,14 +2429,6 @@ impl CommandBuffer {
     ///
     /// It has been superseded by [`vkCmdPipelineBarrier2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdPipelineBarrier2.html).
     ///
-    /// # Optional parameters
-    /// - src_stage_mask
-    /// - dst_stage_mask
-    /// - dependency_flags
-    /// - memory_barrier_count
-    /// - buffer_memory_barrier_count
-    /// - image_memory_barrier_count
-    ///
     /// # Performed tasks
     /// - `synchronization`
     ///
@@ -2412,14 +2447,14 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_pipeline_barrier(
         &self,
-        src_stage_mask: PipelineStageFlags,
-        dst_stage_mask: PipelineStageFlags,
-        dependency_flags: DependencyFlags,
-        memory_barrier_count: u32,
+        src_stage_mask: Option<PipelineStageFlags>,
+        dst_stage_mask: Option<PipelineStageFlags>,
+        dependency_flags: Option<DependencyFlags>,
+        memory_barrier_count: Option<u32>,
         p_memory_barriers: *const MemoryBarrier,
-        buffer_memory_barrier_count: u32,
+        buffer_memory_barrier_count: Option<u32>,
         p_buffer_memory_barriers: *const BufferMemoryBarrier,
-        image_memory_barrier_count: u32,
+        image_memory_barrier_count: Option<u32>,
         p_image_memory_barriers: *const ImageMemoryBarrier,
     ) {
         let command = unsafe {
@@ -2431,14 +2466,14 @@ impl CommandBuffer {
         unsafe {
             (command)(
                 self.handle,
-                src_stage_mask,
-                dst_stage_mask,
-                dependency_flags,
-                memory_barrier_count,
+                src_stage_mask.unwrap_or_default(),
+                dst_stage_mask.unwrap_or_default(),
+                dependency_flags.unwrap_or_default(),
+                memory_barrier_count.unwrap_or_default(),
                 p_memory_barriers,
-                buffer_memory_barrier_count,
+                buffer_memory_barrier_count.unwrap_or_default(),
                 p_buffer_memory_barriers,
-                image_memory_barrier_count,
+                image_memory_barrier_count.unwrap_or_default(),
                 p_image_memory_barriers,
             )
         }
@@ -2451,9 +2486,6 @@ pub type FN_CmdBeginQuery =
     unsafe extern "C" fn(CommandBufferHandle, QueryPool, u32, QueryControlFlags);
 impl CommandBuffer {
     /// [`vkCmdBeginQuery`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBeginQuery.html)
-    ///
-    /// # Optional parameters
-    /// - flags
     ///
     /// # Performed tasks
     /// - `action`
@@ -2475,7 +2507,7 @@ impl CommandBuffer {
         &self,
         query_pool: QueryPool,
         query: u32,
-        flags: QueryControlFlags,
+        flags: Option<QueryControlFlags>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBeginQuery>(vtable_get(
@@ -2483,7 +2515,7 @@ impl CommandBuffer {
                 InstanceCommand::vkCmdBeginQuery as usize,
             ))
         };
-        unsafe { (command)(self.handle, query_pool, query, flags) }
+        unsafe { (command)(self.handle, query_pool, query, flags.unwrap_or_default()) }
     }
 }
 
@@ -2620,9 +2652,6 @@ pub type FN_CmdCopyQueryPoolResults = unsafe extern "C" fn(
 impl CommandBuffer {
     /// [`vkCmdCopyQueryPoolResults`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdCopyQueryPoolResults.html)
     ///
-    /// # Optional parameters
-    /// - flags
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -2650,7 +2679,7 @@ impl CommandBuffer {
         dst_buffer: Buffer,
         dst_offset: DeviceSize,
         stride: DeviceSize,
-        flags: QueryResultFlags,
+        flags: Option<QueryResultFlags>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyQueryPoolResults>(vtable_get(
@@ -2667,7 +2696,7 @@ impl CommandBuffer {
                 dst_buffer,
                 dst_offset,
                 stride,
-                flags,
+                flags.unwrap_or_default(),
             )
         }
     }
@@ -2720,9 +2749,6 @@ pub type FN_CreateEvent = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateEvent.html)
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -2737,7 +2763,7 @@ impl Device {
     pub unsafe fn create_event(
         &self,
         p_create_info: *const EventCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_event: *mut Event,
     ) -> ResultCode {
         let command = unsafe {
@@ -2746,7 +2772,14 @@ impl Device {
                 InstanceCommand::vkCreateEvent as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_event) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_event,
+            )
+        }
     }
 }
 
@@ -2756,20 +2789,26 @@ pub type FN_DestroyEvent = unsafe extern "C" fn(DeviceHandle, Event, *const Allo
 impl Device {
     /// [`vkDestroyEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyEvent.html)
     ///
-    /// # Optional parameters
-    /// - event
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyEvent")]
     #[inline(always)]
-    pub unsafe fn destroy_event(&self, event: Event, p_allocator: *const AllocationCallbacks) {
+    pub unsafe fn destroy_event(
+        &self,
+        event: Option<Event>,
+        p_allocator: Option<*const AllocationCallbacks>,
+    ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyEvent>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkDestroyEvent as usize,
             ))
         };
-        unsafe { (command)(self.handle, event, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                event.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -2869,9 +2908,6 @@ pub type FN_CreateBufferView = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateBufferView`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateBufferView.html)
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -2890,7 +2926,7 @@ impl Device {
     pub unsafe fn create_buffer_view(
         &self,
         p_create_info: *const BufferViewCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_view: *mut BufferView,
     ) -> ResultCode {
         let command = unsafe {
@@ -2899,7 +2935,14 @@ impl Device {
                 InstanceCommand::vkCreateBufferView as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_view) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_view,
+            )
+        }
     }
 }
 
@@ -2910,10 +2953,6 @@ pub type FN_DestroyBufferView =
 impl Device {
     /// [`vkDestroyBufferView`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyBufferView.html)
     ///
-    /// # Optional parameters
-    /// - buffer_view
-    /// - p_allocator
-    ///
     /// # Legacy API (`legacy-resource-objects`)
     /// This command is legacy when any of the following extensions are enabled:
     /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
@@ -2922,8 +2961,8 @@ impl Device {
     #[inline(always)]
     pub unsafe fn destroy_buffer_view(
         &self,
-        buffer_view: BufferView,
-        p_allocator: *const AllocationCallbacks,
+        buffer_view: Option<BufferView>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyBufferView>(vtable_get(
@@ -2931,7 +2970,13 @@ impl Device {
                 InstanceCommand::vkDestroyBufferView as usize,
             ))
         };
-        unsafe { (command)(self.handle, buffer_view, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                buffer_view.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -2945,9 +2990,6 @@ pub type FN_CreateShaderModule = unsafe extern "C" fn(
 ) -> ResultCode;
 impl Device {
     /// [`vkCreateShaderModule`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateShaderModule.html)
-    ///
-    /// # Optional parameters
-    /// - p_allocator
     ///
     /// # Result codes
     /// ## Success
@@ -2964,7 +3006,7 @@ impl Device {
     pub unsafe fn create_shader_module(
         &self,
         p_create_info: *const ShaderModuleCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_shader_module: *mut ShaderModule,
     ) -> ResultCode {
         let command = unsafe {
@@ -2973,7 +3015,14 @@ impl Device {
                 InstanceCommand::vkCreateShaderModule as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_shader_module) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_shader_module,
+            )
+        }
     }
 }
 
@@ -2984,16 +3033,12 @@ pub type FN_DestroyShaderModule =
 impl Device {
     /// [`vkDestroyShaderModule`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyShaderModule.html)
     ///
-    /// # Optional parameters
-    /// - shader_module
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyShaderModule")]
     #[inline(always)]
     pub unsafe fn destroy_shader_module(
         &self,
-        shader_module: ShaderModule,
-        p_allocator: *const AllocationCallbacks,
+        shader_module: Option<ShaderModule>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyShaderModule>(vtable_get(
@@ -3001,7 +3046,13 @@ impl Device {
                 InstanceCommand::vkDestroyShaderModule as usize,
             ))
         };
-        unsafe { (command)(self.handle, shader_module, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                shader_module.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -3015,9 +3066,6 @@ pub type FN_CreatePipelineCache = unsafe extern "C" fn(
 ) -> ResultCode;
 impl Device {
     /// [`vkCreatePipelineCache`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePipelineCache.html)
-    ///
-    /// # Optional parameters
-    /// - p_allocator
     ///
     /// # Result codes
     /// ## Success
@@ -3033,7 +3081,7 @@ impl Device {
     pub unsafe fn create_pipeline_cache(
         &self,
         p_create_info: *const PipelineCacheCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_pipeline_cache: *mut PipelineCache,
     ) -> ResultCode {
         let command = unsafe {
@@ -3042,7 +3090,14 @@ impl Device {
                 InstanceCommand::vkCreatePipelineCache as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_pipeline_cache) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_pipeline_cache,
+            )
+        }
     }
 }
 
@@ -3053,16 +3108,12 @@ pub type FN_DestroyPipelineCache =
 impl Device {
     /// [`vkDestroyPipelineCache`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPipelineCache.html)
     ///
-    /// # Optional parameters
-    /// - pipeline_cache
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyPipelineCache")]
     #[inline(always)]
     pub unsafe fn destroy_pipeline_cache(
         &self,
-        pipeline_cache: PipelineCache,
-        p_allocator: *const AllocationCallbacks,
+        pipeline_cache: Option<PipelineCache>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyPipelineCache>(vtable_get(
@@ -3070,7 +3121,13 @@ impl Device {
                 InstanceCommand::vkDestroyPipelineCache as usize,
             ))
         };
-        unsafe { (command)(self.handle, pipeline_cache, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                pipeline_cache.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -3080,9 +3137,6 @@ pub type FN_GetPipelineCacheData =
     unsafe extern "C" fn(DeviceHandle, PipelineCache, *mut usize, *mut c_void) -> ResultCode;
 impl Device {
     /// [`vkGetPipelineCacheData`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPipelineCacheData.html)
-    ///
-    /// # Optional parameters
-    /// - p_data
     ///
     /// # Result codes
     /// ## Success
@@ -3100,7 +3154,7 @@ impl Device {
         &self,
         pipeline_cache: PipelineCache,
         p_data_size: *mut usize,
-        p_data: *mut c_void,
+        p_data: Option<*mut c_void>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPipelineCacheData>(vtable_get(
@@ -3108,7 +3162,14 @@ impl Device {
                 InstanceCommand::vkGetPipelineCacheData as usize,
             ))
         };
-        unsafe { (command)(self.handle, pipeline_cache, p_data_size, p_data) }
+        unsafe {
+            (command)(
+                self.handle,
+                pipeline_cache,
+                p_data_size,
+                p_data.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -3159,10 +3220,6 @@ pub type FN_CreateComputePipelines = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateComputePipelines`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateComputePipelines.html)
     ///
-    /// # Optional parameters
-    /// - pipeline_cache
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -3178,10 +3235,10 @@ impl Device {
     #[inline(always)]
     pub unsafe fn create_compute_pipelines(
         &self,
-        pipeline_cache: PipelineCache,
+        pipeline_cache: Option<PipelineCache>,
         create_info_count: u32,
         p_create_infos: *const ComputePipelineCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_pipelines: *mut Pipeline,
     ) -> ResultCode {
         let command = unsafe {
@@ -3193,10 +3250,10 @@ impl Device {
         unsafe {
             (command)(
                 self.handle,
-                pipeline_cache,
+                pipeline_cache.unwrap_or_default(),
                 create_info_count,
                 p_create_infos,
-                p_allocator,
+                p_allocator.unwrap_or_default(),
                 p_pipelines,
             )
         }
@@ -3210,16 +3267,12 @@ pub type FN_DestroyPipeline =
 impl Device {
     /// [`vkDestroyPipeline`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPipeline.html)
     ///
-    /// # Optional parameters
-    /// - pipeline
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyPipeline")]
     #[inline(always)]
     pub unsafe fn destroy_pipeline(
         &self,
-        pipeline: Pipeline,
-        p_allocator: *const AllocationCallbacks,
+        pipeline: Option<Pipeline>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyPipeline>(vtable_get(
@@ -3227,7 +3280,13 @@ impl Device {
                 InstanceCommand::vkDestroyPipeline as usize,
             ))
         };
-        unsafe { (command)(self.handle, pipeline, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                pipeline.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -3241,9 +3300,6 @@ pub type FN_CreatePipelineLayout = unsafe extern "C" fn(
 ) -> ResultCode;
 impl Device {
     /// [`vkCreatePipelineLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePipelineLayout.html)
-    ///
-    /// # Optional parameters
-    /// - p_allocator
     ///
     /// # Result codes
     /// ## Success
@@ -3263,7 +3319,7 @@ impl Device {
     pub unsafe fn create_pipeline_layout(
         &self,
         p_create_info: *const PipelineLayoutCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_pipeline_layout: *mut PipelineLayout,
     ) -> ResultCode {
         let command = unsafe {
@@ -3272,7 +3328,14 @@ impl Device {
                 InstanceCommand::vkCreatePipelineLayout as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_pipeline_layout) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_pipeline_layout,
+            )
+        }
     }
 }
 
@@ -3283,10 +3346,6 @@ pub type FN_DestroyPipelineLayout =
 impl Device {
     /// [`vkDestroyPipelineLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyPipelineLayout.html)
     ///
-    /// # Optional parameters
-    /// - pipeline_layout
-    /// - p_allocator
-    ///
     /// # Legacy API (`legacy-descriptor-sets`)
     /// This command is legacy when any of the following extensions are enabled:
     /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
@@ -3295,8 +3354,8 @@ impl Device {
     #[inline(always)]
     pub unsafe fn destroy_pipeline_layout(
         &self,
-        pipeline_layout: PipelineLayout,
-        p_allocator: *const AllocationCallbacks,
+        pipeline_layout: Option<PipelineLayout>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyPipelineLayout>(vtable_get(
@@ -3304,7 +3363,13 @@ impl Device {
                 InstanceCommand::vkDestroyPipelineLayout as usize,
             ))
         };
-        unsafe { (command)(self.handle, pipeline_layout, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                pipeline_layout.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -3318,9 +3383,6 @@ pub type FN_CreateSampler = unsafe extern "C" fn(
 ) -> ResultCode;
 impl Device {
     /// [`vkCreateSampler`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSampler.html)
-    ///
-    /// # Optional parameters
-    /// - p_allocator
     ///
     /// # Result codes
     /// ## Success
@@ -3341,7 +3403,7 @@ impl Device {
     pub unsafe fn create_sampler(
         &self,
         p_create_info: *const SamplerCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_sampler: *mut Sampler,
     ) -> ResultCode {
         let command = unsafe {
@@ -3350,7 +3412,14 @@ impl Device {
                 InstanceCommand::vkCreateSampler as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_sampler) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_sampler,
+            )
+        }
     }
 }
 
@@ -3361,10 +3430,6 @@ pub type FN_DestroySampler =
 impl Device {
     /// [`vkDestroySampler`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroySampler.html)
     ///
-    /// # Optional parameters
-    /// - sampler
-    /// - p_allocator
-    ///
     /// # Legacy API (`legacy-resource-objects`)
     /// This command is legacy when any of the following extensions are enabled:
     /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
@@ -3373,8 +3438,8 @@ impl Device {
     #[inline(always)]
     pub unsafe fn destroy_sampler(
         &self,
-        sampler: Sampler,
-        p_allocator: *const AllocationCallbacks,
+        sampler: Option<Sampler>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroySampler>(vtable_get(
@@ -3382,7 +3447,13 @@ impl Device {
                 InstanceCommand::vkDestroySampler as usize,
             ))
         };
-        unsafe { (command)(self.handle, sampler, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                sampler.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -3396,9 +3467,6 @@ pub type FN_CreateDescriptorSetLayout = unsafe extern "C" fn(
 ) -> ResultCode;
 impl Device {
     /// [`vkCreateDescriptorSetLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDescriptorSetLayout.html)
-    ///
-    /// # Optional parameters
-    /// - p_allocator
     ///
     /// # Result codes
     /// ## Success
@@ -3418,7 +3486,7 @@ impl Device {
     pub unsafe fn create_descriptor_set_layout(
         &self,
         p_create_info: *const DescriptorSetLayoutCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_set_layout: *mut DescriptorSetLayout,
     ) -> ResultCode {
         let command = unsafe {
@@ -3427,7 +3495,14 @@ impl Device {
                 InstanceCommand::vkCreateDescriptorSetLayout as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_set_layout) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_set_layout,
+            )
+        }
     }
 }
 
@@ -3438,10 +3513,6 @@ pub type FN_DestroyDescriptorSetLayout =
 impl Device {
     /// [`vkDestroyDescriptorSetLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorSetLayout.html)
     ///
-    /// # Optional parameters
-    /// - descriptor_set_layout
-    /// - p_allocator
-    ///
     /// # Legacy API (`legacy-descriptor-sets`)
     /// This command is legacy when any of the following extensions are enabled:
     /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
@@ -3450,8 +3521,8 @@ impl Device {
     #[inline(always)]
     pub unsafe fn destroy_descriptor_set_layout(
         &self,
-        descriptor_set_layout: DescriptorSetLayout,
-        p_allocator: *const AllocationCallbacks,
+        descriptor_set_layout: Option<DescriptorSetLayout>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyDescriptorSetLayout>(vtable_get(
@@ -3459,7 +3530,13 @@ impl Device {
                 InstanceCommand::vkDestroyDescriptorSetLayout as usize,
             ))
         };
-        unsafe { (command)(self.handle, descriptor_set_layout, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                descriptor_set_layout.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -3473,9 +3550,6 @@ pub type FN_CreateDescriptorPool = unsafe extern "C" fn(
 ) -> ResultCode;
 impl Device {
     /// [`vkCreateDescriptorPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDescriptorPool.html)
-    ///
-    /// # Optional parameters
-    /// - p_allocator
     ///
     /// # Result codes
     /// ## Success
@@ -3496,7 +3570,7 @@ impl Device {
     pub unsafe fn create_descriptor_pool(
         &self,
         p_create_info: *const DescriptorPoolCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_descriptor_pool: *mut DescriptorPool,
     ) -> ResultCode {
         let command = unsafe {
@@ -3505,7 +3579,14 @@ impl Device {
                 InstanceCommand::vkCreateDescriptorPool as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_descriptor_pool) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_descriptor_pool,
+            )
+        }
     }
 }
 
@@ -3516,10 +3597,6 @@ pub type FN_DestroyDescriptorPool =
 impl Device {
     /// [`vkDestroyDescriptorPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyDescriptorPool.html)
     ///
-    /// # Optional parameters
-    /// - descriptor_pool
-    /// - p_allocator
-    ///
     /// # Legacy API (`legacy-descriptor-sets`)
     /// This command is legacy when any of the following extensions are enabled:
     /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
@@ -3528,8 +3605,8 @@ impl Device {
     #[inline(always)]
     pub unsafe fn destroy_descriptor_pool(
         &self,
-        descriptor_pool: DescriptorPool,
-        p_allocator: *const AllocationCallbacks,
+        descriptor_pool: Option<DescriptorPool>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyDescriptorPool>(vtable_get(
@@ -3537,7 +3614,13 @@ impl Device {
                 InstanceCommand::vkDestroyDescriptorPool as usize,
             ))
         };
-        unsafe { (command)(self.handle, descriptor_pool, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                descriptor_pool.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -3547,9 +3630,6 @@ pub type FN_ResetDescriptorPool =
     unsafe extern "C" fn(DeviceHandle, DescriptorPool, DescriptorPoolResetFlags) -> ResultCode;
 impl Device {
     /// [`vkResetDescriptorPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetDescriptorPool.html)
-    ///
-    /// # Optional parameters
-    /// - flags
     ///
     /// # Result codes
     /// ## Success
@@ -3567,7 +3647,7 @@ impl Device {
     pub unsafe fn reset_descriptor_pool(
         &self,
         descriptor_pool: DescriptorPool,
-        flags: DescriptorPoolResetFlags,
+        flags: Option<DescriptorPoolResetFlags>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ResetDescriptorPool>(vtable_get(
@@ -3575,7 +3655,7 @@ impl Device {
                 InstanceCommand::vkResetDescriptorPool as usize,
             ))
         };
-        unsafe { (command)(self.handle, descriptor_pool, flags) }
+        unsafe { (command)(self.handle, descriptor_pool, flags.unwrap_or_default()) }
     }
 }
 
@@ -3676,10 +3756,6 @@ pub type FN_UpdateDescriptorSets = unsafe extern "C" fn(
 impl Device {
     /// [`vkUpdateDescriptorSets`](https://docs.vulkan.org/refpages/latest/refpages/source/vkUpdateDescriptorSets.html)
     ///
-    /// # Optional parameters
-    /// - descriptor_write_count
-    /// - descriptor_copy_count
-    ///
     /// # Legacy API (`legacy-descriptor-sets`)
     /// This command is legacy when any of the following extensions are enabled:
     /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
@@ -3688,9 +3764,9 @@ impl Device {
     #[inline(always)]
     pub unsafe fn update_descriptor_sets(
         &self,
-        descriptor_write_count: u32,
+        descriptor_write_count: Option<u32>,
         p_descriptor_writes: *const WriteDescriptorSet,
-        descriptor_copy_count: u32,
+        descriptor_copy_count: Option<u32>,
         p_descriptor_copies: *const CopyDescriptorSet,
     ) {
         let command = unsafe {
@@ -3702,9 +3778,9 @@ impl Device {
         unsafe {
             (command)(
                 self.handle,
-                descriptor_write_count,
+                descriptor_write_count.unwrap_or_default(),
                 p_descriptor_writes,
-                descriptor_copy_count,
+                descriptor_copy_count.unwrap_or_default(),
                 p_descriptor_copies,
             )
         }
@@ -3762,9 +3838,6 @@ pub type FN_CmdBindDescriptorSets = unsafe extern "C" fn(
 impl CommandBuffer {
     /// [`vkCmdBindDescriptorSets`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindDescriptorSets.html)
     ///
-    /// # Optional parameters
-    /// - dynamic_offset_count
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -3790,7 +3863,7 @@ impl CommandBuffer {
         first_set: u32,
         descriptor_set_count: u32,
         p_descriptor_sets: *const DescriptorSet,
-        dynamic_offset_count: u32,
+        dynamic_offset_count: Option<u32>,
         p_dynamic_offsets: *const u32,
     ) {
         let command = unsafe {
@@ -3807,7 +3880,7 @@ impl CommandBuffer {
                 first_set,
                 descriptor_set_count,
                 p_descriptor_sets,
-                dynamic_offset_count,
+                dynamic_offset_count.unwrap_or_default(),
                 p_dynamic_offsets,
             )
         }
@@ -3944,9 +4017,6 @@ impl CommandBuffer {
     ///
     /// It has been superseded by [`vkCmdSetEvent2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetEvent2.html).
     ///
-    /// # Optional parameters
-    /// - stage_mask
-    ///
     /// # Performed tasks
     /// - `synchronization`
     ///
@@ -3962,14 +4032,14 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetEvent")]
     #[inline(always)]
-    pub unsafe fn cmd_set_event(&self, event: Event, stage_mask: PipelineStageFlags) {
+    pub unsafe fn cmd_set_event(&self, event: Event, stage_mask: Option<PipelineStageFlags>) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetEvent>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetEvent as usize,
             ))
         };
-        unsafe { (command)(self.handle, event, stage_mask) }
+        unsafe { (command)(self.handle, event, stage_mask.unwrap_or_default()) }
     }
 }
 
@@ -3986,9 +4056,6 @@ impl CommandBuffer {
     ///
     /// It has been superseded by [`vkCmdResetEvent2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdResetEvent2.html).
     ///
-    /// # Optional parameters
-    /// - stage_mask
-    ///
     /// # Performed tasks
     /// - `synchronization`
     ///
@@ -4004,14 +4071,14 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdResetEvent")]
     #[inline(always)]
-    pub unsafe fn cmd_reset_event(&self, event: Event, stage_mask: PipelineStageFlags) {
+    pub unsafe fn cmd_reset_event(&self, event: Event, stage_mask: Option<PipelineStageFlags>) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdResetEvent>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdResetEvent as usize,
             ))
         };
-        unsafe { (command)(self.handle, event, stage_mask) }
+        unsafe { (command)(self.handle, event, stage_mask.unwrap_or_default()) }
     }
 }
 
@@ -4040,13 +4107,6 @@ impl CommandBuffer {
     ///
     /// It has been superseded by [`vkCmdWaitEvents2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWaitEvents2.html).
     ///
-    /// # Optional parameters
-    /// - src_stage_mask
-    /// - dst_stage_mask
-    /// - memory_barrier_count
-    /// - buffer_memory_barrier_count
-    /// - image_memory_barrier_count
-    ///
     /// # Performed tasks
     /// - `synchronization`
     ///
@@ -4066,13 +4126,13 @@ impl CommandBuffer {
         &self,
         event_count: u32,
         p_events: *const Event,
-        src_stage_mask: PipelineStageFlags,
-        dst_stage_mask: PipelineStageFlags,
-        memory_barrier_count: u32,
+        src_stage_mask: Option<PipelineStageFlags>,
+        dst_stage_mask: Option<PipelineStageFlags>,
+        memory_barrier_count: Option<u32>,
         p_memory_barriers: *const MemoryBarrier,
-        buffer_memory_barrier_count: u32,
+        buffer_memory_barrier_count: Option<u32>,
         p_buffer_memory_barriers: *const BufferMemoryBarrier,
-        image_memory_barrier_count: u32,
+        image_memory_barrier_count: Option<u32>,
         p_image_memory_barriers: *const ImageMemoryBarrier,
     ) {
         let command = unsafe {
@@ -4086,13 +4146,13 @@ impl CommandBuffer {
                 self.handle,
                 event_count,
                 p_events,
-                src_stage_mask,
-                dst_stage_mask,
-                memory_barrier_count,
+                src_stage_mask.unwrap_or_default(),
+                dst_stage_mask.unwrap_or_default(),
+                memory_barrier_count.unwrap_or_default(),
                 p_memory_barriers,
-                buffer_memory_barrier_count,
+                buffer_memory_barrier_count.unwrap_or_default(),
                 p_buffer_memory_barriers,
-                image_memory_barrier_count,
+                image_memory_barrier_count.unwrap_or_default(),
                 p_image_memory_barriers,
             )
         }
@@ -4160,10 +4220,6 @@ pub type FN_CreateGraphicsPipelines = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateGraphicsPipelines`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateGraphicsPipelines.html)
     ///
-    /// # Optional parameters
-    /// - pipeline_cache
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -4179,10 +4235,10 @@ impl Device {
     #[inline(always)]
     pub unsafe fn create_graphics_pipelines(
         &self,
-        pipeline_cache: PipelineCache,
+        pipeline_cache: Option<PipelineCache>,
         create_info_count: u32,
         p_create_infos: *const GraphicsPipelineCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_pipelines: *mut Pipeline,
     ) -> ResultCode {
         let command = unsafe {
@@ -4194,10 +4250,10 @@ impl Device {
         unsafe {
             (command)(
                 self.handle,
-                pipeline_cache,
+                pipeline_cache.unwrap_or_default(),
                 create_info_count,
                 p_create_infos,
-                p_allocator,
+                p_allocator.unwrap_or_default(),
                 p_pipelines,
             )
         }
@@ -4221,9 +4277,6 @@ impl Device {
     /// - Extension [`KHR_DynamicRenderingLocalRead`](Extension::KHR_DynamicRenderingLocalRead)
     ///
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -4238,7 +4291,7 @@ impl Device {
     pub unsafe fn create_framebuffer(
         &self,
         p_create_info: *const FramebufferCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_framebuffer: *mut Framebuffer,
     ) -> ResultCode {
         let command = unsafe {
@@ -4247,7 +4300,14 @@ impl Device {
                 InstanceCommand::vkCreateFramebuffer as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_framebuffer) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_framebuffer,
+            )
+        }
     }
 }
 
@@ -4264,16 +4324,12 @@ impl Device {
     /// - Extension [`KHR_DynamicRenderingLocalRead`](Extension::KHR_DynamicRenderingLocalRead)
     ///
     ///
-    /// # Optional parameters
-    /// - framebuffer
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyFramebuffer")]
     #[inline(always)]
     pub unsafe fn destroy_framebuffer(
         &self,
-        framebuffer: Framebuffer,
-        p_allocator: *const AllocationCallbacks,
+        framebuffer: Option<Framebuffer>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyFramebuffer>(vtable_get(
@@ -4281,7 +4337,13 @@ impl Device {
                 InstanceCommand::vkDestroyFramebuffer as usize,
             ))
         };
-        unsafe { (command)(self.handle, framebuffer, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                framebuffer.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -4303,9 +4365,6 @@ impl Device {
     ///
     /// It has been superseded by [`vkCreateRenderPass2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateRenderPass2.html).
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -4320,7 +4379,7 @@ impl Device {
     pub unsafe fn create_render_pass(
         &self,
         p_create_info: *const RenderPassCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_render_pass: *mut RenderPass,
     ) -> ResultCode {
         let command = unsafe {
@@ -4329,7 +4388,14 @@ impl Device {
                 InstanceCommand::vkCreateRenderPass as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_render_pass) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_render_pass,
+            )
+        }
     }
 }
 
@@ -4346,16 +4412,12 @@ impl Device {
     /// - Extension [`KHR_DynamicRenderingLocalRead`](Extension::KHR_DynamicRenderingLocalRead)
     ///
     ///
-    /// # Optional parameters
-    /// - render_pass
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyRenderPass")]
     #[inline(always)]
     pub unsafe fn destroy_render_pass(
         &self,
-        render_pass: RenderPass,
-        p_allocator: *const AllocationCallbacks,
+        render_pass: Option<RenderPass>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyRenderPass>(vtable_get(
@@ -4363,7 +4425,13 @@ impl Device {
                 InstanceCommand::vkDestroyRenderPass as usize,
             ))
         };
-        unsafe { (command)(self.handle, render_pass, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                render_pass.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -4695,9 +4763,6 @@ pub type FN_CmdBindIndexBuffer =
 impl CommandBuffer {
     /// [`vkCmdBindIndexBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindIndexBuffer.html)
     ///
-    /// # Optional parameters
-    /// - buffer
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -4712,7 +4777,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_bind_index_buffer(
         &self,
-        buffer: Buffer,
+        buffer: Option<Buffer>,
         offset: DeviceSize,
         index_type: IndexType,
     ) {
@@ -4722,7 +4787,7 @@ impl CommandBuffer {
                 InstanceCommand::vkCmdBindIndexBuffer as usize,
             ))
         };
-        unsafe { (command)(self.handle, buffer, offset, index_type) }
+        unsafe { (command)(self.handle, buffer.unwrap_or_default(), offset, index_type) }
     }
 }
 
@@ -5474,9 +5539,6 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_physical_device_group_properties
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -5493,7 +5555,7 @@ impl Instance {
     pub unsafe fn enumerate_physical_device_groups(
         &self,
         p_physical_device_group_count: *mut u32,
-        p_physical_device_group_properties: *mut PhysicalDeviceGroupProperties,
+        p_physical_device_group_properties: Option<*mut PhysicalDeviceGroupProperties>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_EnumeratePhysicalDeviceGroups>(vtable_get(
@@ -5505,7 +5567,7 @@ impl Instance {
             (command)(
                 self.handle,
                 p_physical_device_group_count,
-                p_physical_device_group_properties,
+                p_physical_device_group_properties.unwrap_or_default(),
             )
         }
     }
@@ -5594,16 +5656,13 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_sparse_memory_requirements
-    ///
     #[doc(alias = "vkGetImageSparseMemoryRequirements2")]
     #[inline(always)]
     pub unsafe fn get_image_sparse_memory_requirements_2(
         &self,
         p_info: *const ImageSparseMemoryRequirementsInfo2,
         p_sparse_memory_requirement_count: *mut u32,
-        p_sparse_memory_requirements: *mut SparseImageMemoryRequirements2,
+        p_sparse_memory_requirements: Option<*mut SparseImageMemoryRequirements2>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetImageSparseMemoryRequirements2>(vtable_get(
@@ -5616,7 +5675,7 @@ impl Device {
                 self.handle,
                 p_info,
                 p_sparse_memory_requirement_count,
-                p_sparse_memory_requirements,
+                p_sparse_memory_requirements.unwrap_or_default(),
             )
         }
     }
@@ -5769,15 +5828,12 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_queue_family_properties
-    ///
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyProperties2")]
     #[inline(always)]
     pub unsafe fn get_queue_family_properties_2(
         &self,
         p_queue_family_property_count: *mut u32,
-        p_queue_family_properties: *mut QueueFamilyProperties2,
+        p_queue_family_properties: Option<*mut QueueFamilyProperties2>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceQueueFamilyProperties2>(
@@ -5791,7 +5847,7 @@ impl PhysicalDevice {
             (command)(
                 self.handle,
                 p_queue_family_property_count,
-                p_queue_family_properties,
+                p_queue_family_properties.unwrap_or_default(),
             )
         }
     }
@@ -5845,16 +5901,13 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_properties
-    ///
     #[doc(alias = "vkGetPhysicalDeviceSparseImageFormatProperties2")]
     #[inline(always)]
     pub unsafe fn get_sparse_image_format_properties_2(
         &self,
         p_format_info: *const PhysicalDeviceSparseImageFormatInfo2,
         p_property_count: *mut u32,
-        p_properties: *mut SparseImageFormatProperties2,
+        p_properties: Option<*mut SparseImageFormatProperties2>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSparseImageFormatProperties2>(
@@ -5864,7 +5917,14 @@ impl PhysicalDevice {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_format_info, p_property_count, p_properties) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_format_info,
+                p_property_count,
+                p_properties.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -5880,19 +5940,20 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - flags
-    ///
     #[doc(alias = "vkTrimCommandPool")]
     #[inline(always)]
-    pub unsafe fn trim_command_pool(&self, command_pool: CommandPool, flags: CommandPoolTrimFlags) {
+    pub unsafe fn trim_command_pool(
+        &self,
+        command_pool: CommandPool,
+        flags: Option<CommandPoolTrimFlags>,
+    ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_TrimCommandPool>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkTrimCommandPool as usize,
             ))
         };
-        unsafe { (command)(self.handle, command_pool, flags) }
+        unsafe { (command)(self.handle, command_pool, flags.unwrap_or_default()) }
     }
 }
 
@@ -6120,9 +6181,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -6137,7 +6195,7 @@ impl Device {
     pub unsafe fn create_descriptor_update_template(
         &self,
         p_create_info: *const DescriptorUpdateTemplateCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_descriptor_update_template: *mut DescriptorUpdateTemplate,
     ) -> ResultCode {
         let command = unsafe {
@@ -6150,7 +6208,7 @@ impl Device {
             (command)(
                 self.handle,
                 p_create_info,
-                p_allocator,
+                p_allocator.unwrap_or_default(),
                 p_descriptor_update_template,
             )
         }
@@ -6170,16 +6228,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - descriptor_update_template
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyDescriptorUpdateTemplate")]
     #[inline(always)]
     pub unsafe fn destroy_descriptor_update_template(
         &self,
-        descriptor_update_template: DescriptorUpdateTemplate,
-        p_allocator: *const AllocationCallbacks,
+        descriptor_update_template: Option<DescriptorUpdateTemplate>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyDescriptorUpdateTemplate>(vtable_get(
@@ -6187,7 +6241,13 @@ impl Device {
                 InstanceCommand::vkDestroyDescriptorUpdateTemplate as usize,
             ))
         };
-        unsafe { (command)(self.handle, descriptor_update_template, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                descriptor_update_template.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -6279,9 +6339,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -6296,7 +6353,7 @@ impl Device {
     pub unsafe fn create_sampler_ycbcr_conversion(
         &self,
         p_create_info: *const SamplerYcbcrConversionCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_ycbcr_conversion: *mut SamplerYcbcrConversion,
     ) -> ResultCode {
         let command = unsafe {
@@ -6305,7 +6362,14 @@ impl Device {
                 InstanceCommand::vkCreateSamplerYcbcrConversion as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_ycbcr_conversion) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_ycbcr_conversion,
+            )
+        }
     }
 }
 
@@ -6322,16 +6386,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - ycbcr_conversion
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroySamplerYcbcrConversion")]
     #[inline(always)]
     pub unsafe fn destroy_sampler_ycbcr_conversion(
         &self,
-        ycbcr_conversion: SamplerYcbcrConversion,
-        p_allocator: *const AllocationCallbacks,
+        ycbcr_conversion: Option<SamplerYcbcrConversion>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroySamplerYcbcrConversion>(vtable_get(
@@ -6339,7 +6399,13 @@ impl Device {
                 InstanceCommand::vkDestroySamplerYcbcrConversion as usize,
             ))
         };
-        unsafe { (command)(self.handle, ycbcr_conversion, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                ycbcr_conversion.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -6721,9 +6787,6 @@ impl Device {
     /// - Extension [`KHR_DynamicRenderingLocalRead`](Extension::KHR_DynamicRenderingLocalRead)
     ///
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -6738,7 +6801,7 @@ impl Device {
     pub unsafe fn create_render_pass_2(
         &self,
         p_create_info: *const RenderPassCreateInfo2,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_render_pass: *mut RenderPass,
     ) -> ResultCode {
         let command = unsafe {
@@ -6747,7 +6810,14 @@ impl Device {
                 InstanceCommand::vkCreateRenderPass2 as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_render_pass) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_render_pass,
+            )
+        }
     }
 }
 
@@ -6903,9 +6973,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_tool_properties
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -6920,7 +6987,7 @@ impl PhysicalDevice {
     pub unsafe fn get_tool_properties(
         &self,
         p_tool_count: *mut u32,
-        p_tool_properties: *mut PhysicalDeviceToolProperties,
+        p_tool_properties: Option<*mut PhysicalDeviceToolProperties>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceToolProperties>(vtable_get(
@@ -6928,7 +6995,13 @@ impl PhysicalDevice {
                 InstanceCommand::vkGetPhysicalDeviceToolProperties as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_tool_count, p_tool_properties) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_tool_count,
+                p_tool_properties.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -6949,9 +7022,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -6965,7 +7035,7 @@ impl Device {
     pub unsafe fn create_private_data_slot(
         &self,
         p_create_info: *const PrivateDataSlotCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_private_data_slot: *mut PrivateDataSlot,
     ) -> ResultCode {
         let command = unsafe {
@@ -6974,7 +7044,14 @@ impl Device {
                 InstanceCommand::vkCreatePrivateDataSlot as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_private_data_slot) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_private_data_slot,
+            )
+        }
     }
 }
 
@@ -6991,16 +7068,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - private_data_slot
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyPrivateDataSlot")]
     #[inline(always)]
     pub unsafe fn destroy_private_data_slot(
         &self,
-        private_data_slot: PrivateDataSlot,
-        p_allocator: *const AllocationCallbacks,
+        private_data_slot: Option<PrivateDataSlot>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyPrivateDataSlot>(vtable_get(
@@ -7008,7 +7081,13 @@ impl Device {
                 InstanceCommand::vkDestroyPrivateDataSlot as usize,
             ))
         };
-        unsafe { (command)(self.handle, private_data_slot, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                private_data_slot.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -7152,9 +7231,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - stage
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -7173,7 +7249,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_write_timestamp_2(
         &self,
-        stage: PipelineStageFlags2,
+        stage: Option<PipelineStageFlags2>,
         query_pool: QueryPool,
         query: u32,
     ) {
@@ -7183,7 +7259,7 @@ impl CommandBuffer {
                 InstanceCommand::vkCmdWriteTimestamp2 as usize,
             ))
         };
-        unsafe { (command)(self.handle, stage, query_pool, query) }
+        unsafe { (command)(self.handle, stage.unwrap_or_default(), query_pool, query) }
     }
 }
 
@@ -7200,10 +7276,6 @@ impl Queue {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - submit_count
-    /// - fence
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -7218,9 +7290,9 @@ impl Queue {
     #[inline(always)]
     pub unsafe fn submit_2(
         &self,
-        submit_count: u32,
+        submit_count: Option<u32>,
         p_submits: *const SubmitInfo2,
-        fence: Fence,
+        fence: Option<Fence>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_QueueSubmit2>(vtable_get(
@@ -7228,7 +7300,14 @@ impl Queue {
                 InstanceCommand::vkQueueSubmit2 as usize,
             ))
         };
-        unsafe { (command)(self.handle, submit_count, p_submits, fence) }
+        unsafe {
+            (command)(
+                self.handle,
+                submit_count.unwrap_or_default(),
+                p_submits,
+                fence.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -7489,16 +7568,13 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_sparse_memory_requirements
-    ///
     #[doc(alias = "vkGetDeviceImageSparseMemoryRequirements")]
     #[inline(always)]
     pub unsafe fn get_device_image_sparse_memory_requirements(
         &self,
         p_info: *const DeviceImageMemoryRequirements,
         p_sparse_memory_requirement_count: *mut u32,
-        p_sparse_memory_requirements: *mut SparseImageMemoryRequirements2,
+        p_sparse_memory_requirements: Option<*mut SparseImageMemoryRequirements2>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceImageSparseMemoryRequirements>(
@@ -7513,7 +7589,7 @@ impl Device {
                 self.handle,
                 p_info,
                 p_sparse_memory_requirement_count,
-                p_sparse_memory_requirements,
+                p_sparse_memory_requirements.unwrap_or_default(),
             )
         }
     }
@@ -7569,9 +7645,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - stage_mask
-    ///
     /// # Performed tasks
     /// - `synchronization`
     ///
@@ -7587,14 +7660,14 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdResetEvent2")]
     #[inline(always)]
-    pub unsafe fn cmd_reset_event_2(&self, event: Event, stage_mask: PipelineStageFlags2) {
+    pub unsafe fn cmd_reset_event_2(&self, event: Event, stage_mask: Option<PipelineStageFlags2>) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdResetEvent2>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdResetEvent2 as usize,
             ))
         };
-        unsafe { (command)(self.handle, event, stage_mask) }
+        unsafe { (command)(self.handle, event, stage_mask.unwrap_or_default()) }
     }
 }
 
@@ -7796,9 +7869,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - cull_mode
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -7811,14 +7881,14 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetCullMode")]
     #[inline(always)]
-    pub unsafe fn cmd_set_cull_mode(&self, cull_mode: CullModeFlags) {
+    pub unsafe fn cmd_set_cull_mode(&self, cull_mode: Option<CullModeFlags>) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetCullMode>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetCullMode as usize,
             ))
         };
-        unsafe { (command)(self.handle, cull_mode) }
+        unsafe { (command)(self.handle, cull_mode.unwrap_or_default()) }
     }
 }
 
@@ -7987,10 +8057,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_sizes
-    /// - p_strides
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -8009,8 +8075,8 @@ impl CommandBuffer {
         binding_count: u32,
         p_buffers: *const Buffer,
         p_offsets: *const DeviceSize,
-        p_sizes: *const DeviceSize,
-        p_strides: *const DeviceSize,
+        p_sizes: Option<*const DeviceSize>,
+        p_strides: Option<*const DeviceSize>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindVertexBuffers2>(vtable_get(
@@ -8025,8 +8091,8 @@ impl CommandBuffer {
                 binding_count,
                 p_buffers,
                 p_offsets,
-                p_sizes,
-                p_strides,
+                p_sizes.unwrap_or_default(),
+                p_strides.unwrap_or_default(),
             )
         }
     }
@@ -8984,9 +9050,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - buffer
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -9007,7 +9070,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_bind_index_buffer_2(
         &self,
-        buffer: Buffer,
+        buffer: Option<Buffer>,
         offset: DeviceSize,
         size: DeviceSize,
         index_type: IndexType,
@@ -9018,7 +9081,15 @@ impl CommandBuffer {
                 InstanceCommand::vkCmdBindIndexBuffer2 as usize,
             ))
         };
-        unsafe { (command)(self.handle, buffer, offset, size, index_type) }
+        unsafe {
+            (command)(
+                self.handle,
+                buffer.unwrap_or_default(),
+                offset,
+                size,
+                index_type,
+            )
+        }
     }
 }
 
@@ -9147,16 +9218,12 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - surface
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroySurfaceKHR")]
     #[inline(always)]
     pub unsafe fn destroy_surface_khr(
         &self,
-        surface: SurfaceKHR,
-        p_allocator: *const AllocationCallbacks,
+        surface: Option<SurfaceKHR>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroySurfaceKHR>(vtable_get(
@@ -9164,7 +9231,13 @@ impl Instance {
                 InstanceCommand::vkDestroySurfaceKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, surface, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                surface.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -9279,10 +9352,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - surface
-    /// - p_surface_formats
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -9304,9 +9373,9 @@ impl PhysicalDevice {
     #[inline(always)]
     pub unsafe fn get_surface_formats_khr(
         &self,
-        surface: SurfaceKHR,
+        surface: Option<SurfaceKHR>,
         p_surface_format_count: *mut u32,
-        p_surface_formats: *mut SurfaceFormatKHR,
+        p_surface_formats: Option<*mut SurfaceFormatKHR>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSurfaceFormatsKHR>(
@@ -9319,9 +9388,9 @@ impl PhysicalDevice {
         unsafe {
             (command)(
                 self.handle,
-                surface,
+                surface.unwrap_or_default(),
                 p_surface_format_count,
-                p_surface_formats,
+                p_surface_formats.unwrap_or_default(),
             )
         }
     }
@@ -9344,10 +9413,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - surface
-    /// - p_present_modes
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -9363,9 +9428,9 @@ impl PhysicalDevice {
     #[inline(always)]
     pub unsafe fn get_surface_present_modes_khr(
         &self,
-        surface: SurfaceKHR,
+        surface: Option<SurfaceKHR>,
         p_present_mode_count: *mut u32,
-        p_present_modes: *mut PresentModeKHR,
+        p_present_modes: Option<*mut PresentModeKHR>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSurfacePresentModesKHR>(
@@ -9375,7 +9440,14 @@ impl PhysicalDevice {
                 ),
             )
         };
-        unsafe { (command)(self.handle, surface, p_present_mode_count, p_present_modes) }
+        unsafe {
+            (command)(
+                self.handle,
+                surface.unwrap_or_default(),
+                p_present_mode_count,
+                p_present_modes.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -9396,9 +9468,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -9418,7 +9487,7 @@ impl Device {
     pub unsafe fn create_swapchain_khr(
         &self,
         p_create_info: *const SwapchainCreateInfoKHR,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_swapchain: *mut SwapchainKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -9427,7 +9496,14 @@ impl Device {
                 InstanceCommand::vkCreateSwapchainKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_swapchain) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_swapchain,
+            )
+        }
     }
 }
 
@@ -9444,16 +9520,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - swapchain
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroySwapchainKHR")]
     #[inline(always)]
     pub unsafe fn destroy_swapchain_khr(
         &self,
-        swapchain: SwapchainKHR,
-        p_allocator: *const AllocationCallbacks,
+        swapchain: Option<SwapchainKHR>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroySwapchainKHR>(vtable_get(
@@ -9461,7 +9533,13 @@ impl Device {
                 InstanceCommand::vkDestroySwapchainKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, swapchain, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                swapchain.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -9477,9 +9555,6 @@ impl Device {
     /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
-    ///
-    /// # Optional parameters
-    /// - p_swapchain_images
     ///
     /// # Result codes
     /// ## Success
@@ -9497,7 +9572,7 @@ impl Device {
         &self,
         swapchain: SwapchainKHR,
         p_swapchain_image_count: *mut u32,
-        p_swapchain_images: *mut Image,
+        p_swapchain_images: Option<*mut Image>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetSwapchainImagesKHR>(vtable_get(
@@ -9510,7 +9585,7 @@ impl Device {
                 self.handle,
                 swapchain,
                 p_swapchain_image_count,
-                p_swapchain_images,
+                p_swapchain_images.unwrap_or_default(),
             )
         }
     }
@@ -9528,10 +9603,6 @@ impl Device {
     /// - Extension [`KHR_Swapchain`](Extension::KHR_Swapchain)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
-    ///
-    /// # Optional parameters
-    /// - semaphore
-    /// - fence
     ///
     /// # Result codes
     /// ## Success
@@ -9555,8 +9626,8 @@ impl Device {
         &self,
         swapchain: SwapchainKHR,
         timeout: u64,
-        semaphore: Semaphore,
-        fence: Fence,
+        semaphore: Option<Semaphore>,
+        fence: Option<Fence>,
         p_image_index: *mut u32,
     ) -> ResultCode {
         let command = unsafe {
@@ -9570,8 +9641,8 @@ impl Device {
                 self.handle,
                 swapchain,
                 timeout,
-                semaphore,
-                fence,
+                semaphore.unwrap_or_default(),
+                fence.unwrap_or_default(),
                 p_image_index,
             )
         }
@@ -9723,9 +9794,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_rects
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -9742,7 +9810,7 @@ impl PhysicalDevice {
         &self,
         surface: SurfaceKHR,
         p_rect_count: *mut u32,
-        p_rects: *mut Rect2D,
+        p_rects: Option<*mut Rect2D>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDevicePresentRectanglesKHR>(
@@ -9752,7 +9820,14 @@ impl PhysicalDevice {
                 ),
             )
         };
-        unsafe { (command)(self.handle, surface, p_rect_count, p_rects) }
+        unsafe {
+            (command)(
+                self.handle,
+                surface,
+                p_rect_count,
+                p_rects.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -9817,9 +9892,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_properties
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -9835,7 +9907,7 @@ impl PhysicalDevice {
     pub unsafe fn get_display_properties_khr(
         &self,
         p_property_count: *mut u32,
-        p_properties: *mut DisplayPropertiesKHR,
+        p_properties: Option<*mut DisplayPropertiesKHR>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceDisplayPropertiesKHR>(
@@ -9845,7 +9917,13 @@ impl PhysicalDevice {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_property_count, p_properties) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_property_count,
+                p_properties.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -9865,9 +9943,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_properties
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -9883,7 +9958,7 @@ impl PhysicalDevice {
     pub unsafe fn get_display_plane_properties_khr(
         &self,
         p_property_count: *mut u32,
-        p_properties: *mut DisplayPlanePropertiesKHR,
+        p_properties: Option<*mut DisplayPlanePropertiesKHR>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceDisplayPlanePropertiesKHR>(
@@ -9893,7 +9968,13 @@ impl PhysicalDevice {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_property_count, p_properties) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_property_count,
+                p_properties.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -9909,9 +9990,6 @@ impl PhysicalDevice {
     /// - Extension [`KHR_Display`](Extension::KHR_Display)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
-    ///
-    /// # Optional parameters
-    /// - p_displays
     ///
     /// # Result codes
     /// ## Success
@@ -9929,7 +10007,7 @@ impl PhysicalDevice {
         &self,
         plane_index: u32,
         p_display_count: *mut u32,
-        p_displays: *mut DisplayKHR,
+        p_displays: Option<*mut DisplayKHR>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDisplayPlaneSupportedDisplaysKHR>(
@@ -9939,7 +10017,14 @@ impl PhysicalDevice {
                 ),
             )
         };
-        unsafe { (command)(self.handle, plane_index, p_display_count, p_displays) }
+        unsafe {
+            (command)(
+                self.handle,
+                plane_index,
+                p_display_count,
+                p_displays.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -9960,9 +10045,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_properties
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -9979,7 +10061,7 @@ impl PhysicalDevice {
         &self,
         display: DisplayKHR,
         p_property_count: *mut u32,
-        p_properties: *mut DisplayModePropertiesKHR,
+        p_properties: Option<*mut DisplayModePropertiesKHR>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDisplayModePropertiesKHR>(vtable_get(
@@ -9987,7 +10069,14 @@ impl PhysicalDevice {
                 InstanceCommand::vkGetDisplayModePropertiesKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, display, p_property_count, p_properties) }
+        unsafe {
+            (command)(
+                self.handle,
+                display,
+                p_property_count,
+                p_properties.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -10009,9 +10098,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -10028,7 +10114,7 @@ impl PhysicalDevice {
         &self,
         display: DisplayKHR,
         p_create_info: *const DisplayModeCreateInfoKHR,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_mode: *mut DisplayModeKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -10037,7 +10123,15 @@ impl PhysicalDevice {
                 InstanceCommand::vkCreateDisplayModeKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, display, p_create_info, p_allocator, p_mode) }
+        unsafe {
+            (command)(
+                self.handle,
+                display,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_mode,
+            )
+        }
     }
 }
 
@@ -10102,9 +10196,6 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -10119,7 +10210,7 @@ impl Instance {
     pub unsafe fn create_display_plane_surface_khr(
         &self,
         p_create_info: *const DisplaySurfaceCreateInfoKHR,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -10128,7 +10219,14 @@ impl Instance {
                 InstanceCommand::vkCreateDisplayPlaneSurfaceKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_surface,
+            )
+        }
     }
 }
 
@@ -10150,9 +10248,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -10171,7 +10266,7 @@ impl Device {
         &self,
         swapchain_count: u32,
         p_create_infos: *const SwapchainCreateInfoKHR,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_swapchains: *mut SwapchainKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -10185,7 +10280,7 @@ impl Device {
                 self.handle,
                 swapchain_count,
                 p_create_infos,
-                p_allocator,
+                p_allocator.unwrap_or_default(),
                 p_swapchains,
             )
         }
@@ -10209,9 +10304,6 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -10226,7 +10318,7 @@ impl Instance {
     pub unsafe fn create_xlib_surface_khr(
         &self,
         p_create_info: *const XlibSurfaceCreateInfoKHR,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -10235,7 +10327,14 @@ impl Instance {
                 InstanceCommand::vkCreateXlibSurfaceKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_surface,
+            )
+        }
     }
 }
 
@@ -10289,9 +10388,6 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -10306,7 +10402,7 @@ impl Instance {
     pub unsafe fn create_xcb_surface_khr(
         &self,
         p_create_info: *const XcbSurfaceCreateInfoKHR,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -10315,7 +10411,14 @@ impl Instance {
                 InstanceCommand::vkCreateXcbSurfaceKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_surface,
+            )
+        }
     }
 }
 
@@ -10373,9 +10476,6 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -10390,7 +10490,7 @@ impl Instance {
     pub unsafe fn create_wayland_surface_khr(
         &self,
         p_create_info: *const WaylandSurfaceCreateInfoKHR,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -10399,7 +10499,14 @@ impl Instance {
                 InstanceCommand::vkCreateWaylandSurfaceKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_surface,
+            )
+        }
     }
 }
 
@@ -10452,9 +10559,6 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -10470,7 +10574,7 @@ impl Instance {
     pub unsafe fn create_android_surface_khr(
         &self,
         p_create_info: *const AndroidSurfaceCreateInfoKHR,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -10479,7 +10583,14 @@ impl Instance {
                 InstanceCommand::vkCreateAndroidSurfaceKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_surface,
+            )
+        }
     }
 }
 
@@ -10500,9 +10611,6 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -10517,7 +10625,7 @@ impl Instance {
     pub unsafe fn create_win_32_surface_khr(
         &self,
         p_create_info: *const Win32SurfaceCreateInfoKHR,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -10526,7 +10634,14 @@ impl Instance {
                 InstanceCommand::vkCreateWin32SurfaceKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_surface,
+            )
+        }
     }
 }
 
@@ -10623,9 +10738,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_video_format_properties
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -10647,7 +10759,7 @@ impl PhysicalDevice {
         &self,
         p_video_format_info: *const PhysicalDeviceVideoFormatInfoKHR,
         p_video_format_property_count: *mut u32,
-        p_video_format_properties: *mut VideoFormatPropertiesKHR,
+        p_video_format_properties: Option<*mut VideoFormatPropertiesKHR>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceVideoFormatPropertiesKHR>(
@@ -10662,7 +10774,7 @@ impl PhysicalDevice {
                 self.handle,
                 p_video_format_info,
                 p_video_format_property_count,
-                p_video_format_properties,
+                p_video_format_properties.unwrap_or_default(),
             )
         }
     }
@@ -10685,9 +10797,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -10705,7 +10814,7 @@ impl Device {
     pub unsafe fn create_video_session_khr(
         &self,
         p_create_info: *const VideoSessionCreateInfoKHR,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_video_session: *mut VideoSessionKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -10714,7 +10823,14 @@ impl Device {
                 InstanceCommand::vkCreateVideoSessionKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_video_session) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_video_session,
+            )
+        }
     }
 }
 
@@ -10731,16 +10847,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - video_session
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyVideoSessionKHR")]
     #[inline(always)]
     pub unsafe fn destroy_video_session_khr(
         &self,
-        video_session: VideoSessionKHR,
-        p_allocator: *const AllocationCallbacks,
+        video_session: Option<VideoSessionKHR>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyVideoSessionKHR>(vtable_get(
@@ -10748,7 +10860,13 @@ impl Device {
                 InstanceCommand::vkDestroyVideoSessionKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, video_session, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                video_session.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -10769,9 +10887,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_memory_requirements
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -10786,7 +10901,7 @@ impl Device {
         &self,
         video_session: VideoSessionKHR,
         p_memory_requirements_count: *mut u32,
-        p_memory_requirements: *mut VideoSessionMemoryRequirementsKHR,
+        p_memory_requirements: Option<*mut VideoSessionMemoryRequirementsKHR>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetVideoSessionMemoryRequirementsKHR>(
@@ -10801,7 +10916,7 @@ impl Device {
                 self.handle,
                 video_session,
                 p_memory_requirements_count,
-                p_memory_requirements,
+                p_memory_requirements.unwrap_or_default(),
             )
         }
     }
@@ -10875,9 +10990,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -10894,7 +11006,7 @@ impl Device {
     pub unsafe fn create_video_session_parameters_khr(
         &self,
         p_create_info: *const VideoSessionParametersCreateInfoKHR,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_video_session_parameters: *mut VideoSessionParametersKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -10907,7 +11019,7 @@ impl Device {
             (command)(
                 self.handle,
                 p_create_info,
-                p_allocator,
+                p_allocator.unwrap_or_default(),
                 p_video_session_parameters,
             )
         }
@@ -10970,16 +11082,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - video_session_parameters
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyVideoSessionParametersKHR")]
     #[inline(always)]
     pub unsafe fn destroy_video_session_parameters_khr(
         &self,
-        video_session_parameters: VideoSessionParametersKHR,
-        p_allocator: *const AllocationCallbacks,
+        video_session_parameters: Option<VideoSessionParametersKHR>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyVideoSessionParametersKHR>(vtable_get(
@@ -10987,7 +11095,13 @@ impl Device {
                 InstanceCommand::vkDestroyVideoSessionParametersKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, video_session_parameters, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                video_session_parameters.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -11365,15 +11479,12 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_queue_family_properties
-    ///
     #[doc(alias = "vkGetPhysicalDeviceQueueFamilyProperties2KHR")]
     #[inline(always)]
     pub unsafe fn get_queue_family_properties_2_khr(
         &self,
         p_queue_family_property_count: *mut u32,
-        p_queue_family_properties: *mut QueueFamilyProperties2,
+        p_queue_family_properties: Option<*mut QueueFamilyProperties2>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceQueueFamilyProperties2KHR>(
@@ -11387,7 +11498,7 @@ impl PhysicalDevice {
             (command)(
                 self.handle,
                 p_queue_family_property_count,
-                p_queue_family_properties,
+                p_queue_family_properties.unwrap_or_default(),
             )
         }
     }
@@ -11443,16 +11554,13 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_properties
-    ///
     #[doc(alias = "vkGetPhysicalDeviceSparseImageFormatProperties2KHR")]
     #[inline(always)]
     pub unsafe fn get_sparse_image_format_properties_2_khr(
         &self,
         p_format_info: *const PhysicalDeviceSparseImageFormatInfo2,
         p_property_count: *mut u32,
-        p_properties: *mut SparseImageFormatProperties2,
+        p_properties: Option<*mut SparseImageFormatProperties2>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSparseImageFormatProperties2KHR>(
@@ -11462,7 +11570,14 @@ impl PhysicalDevice {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_format_info, p_property_count, p_properties) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_format_info,
+                p_property_count,
+                p_properties.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -11616,15 +11731,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - flags
-    ///
     #[doc(alias = "vkTrimCommandPoolKHR")]
     #[inline(always)]
     pub unsafe fn trim_command_pool_khr(
         &self,
         command_pool: CommandPool,
-        flags: CommandPoolTrimFlags,
+        flags: Option<CommandPoolTrimFlags>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_TrimCommandPoolKHR>(vtable_get(
@@ -11632,7 +11744,7 @@ impl Device {
                 InstanceCommand::vkTrimCommandPoolKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, command_pool, flags) }
+        unsafe { (command)(self.handle, command_pool, flags.unwrap_or_default()) }
     }
 }
 
@@ -11653,9 +11765,6 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_physical_device_group_properties
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -11672,7 +11781,7 @@ impl Instance {
     pub unsafe fn enumerate_physical_device_groups_khr(
         &self,
         p_physical_device_group_count: *mut u32,
-        p_physical_device_group_properties: *mut PhysicalDeviceGroupProperties,
+        p_physical_device_group_properties: Option<*mut PhysicalDeviceGroupProperties>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_EnumeratePhysicalDeviceGroupsKHR>(vtable_get(
@@ -11684,7 +11793,7 @@ impl Instance {
             (command)(
                 self.handle,
                 p_physical_device_group_count,
-                p_physical_device_group_properties,
+                p_physical_device_group_properties.unwrap_or_default(),
             )
         }
     }
@@ -12237,9 +12346,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -12254,7 +12360,7 @@ impl Device {
     pub unsafe fn create_descriptor_update_template_khr(
         &self,
         p_create_info: *const DescriptorUpdateTemplateCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_descriptor_update_template: *mut DescriptorUpdateTemplate,
     ) -> ResultCode {
         let command = unsafe {
@@ -12267,7 +12373,7 @@ impl Device {
             (command)(
                 self.handle,
                 p_create_info,
-                p_allocator,
+                p_allocator.unwrap_or_default(),
                 p_descriptor_update_template,
             )
         }
@@ -12288,16 +12394,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - descriptor_update_template
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyDescriptorUpdateTemplateKHR")]
     #[inline(always)]
     pub unsafe fn destroy_descriptor_update_template_khr(
         &self,
-        descriptor_update_template: DescriptorUpdateTemplate,
-        p_allocator: *const AllocationCallbacks,
+        descriptor_update_template: Option<DescriptorUpdateTemplate>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyDescriptorUpdateTemplateKHR>(
@@ -12307,7 +12409,13 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, descriptor_update_template, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                descriptor_update_template.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -12370,9 +12478,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -12387,7 +12492,7 @@ impl Device {
     pub unsafe fn create_render_pass_2_khr(
         &self,
         p_create_info: *const RenderPassCreateInfo2,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_render_pass: *mut RenderPass,
     ) -> ResultCode {
         let command = unsafe {
@@ -12396,7 +12501,14 @@ impl Device {
                 InstanceCommand::vkCreateRenderPass2KHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_render_pass) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_render_pass,
+            )
+        }
     }
 }
 
@@ -12778,10 +12890,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_counters
-    /// - p_counter_descriptions
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -12799,8 +12907,8 @@ impl PhysicalDevice {
         &self,
         queue_family_index: u32,
         p_counter_count: *mut u32,
-        p_counters: *mut PerformanceCounterKHR,
-        p_counter_descriptions: *mut PerformanceCounterDescriptionKHR,
+        p_counters: Option<*mut PerformanceCounterKHR>,
+        p_counter_descriptions: Option<*mut PerformanceCounterDescriptionKHR>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<
@@ -12817,8 +12925,8 @@ impl PhysicalDevice {
                 self.handle,
                 queue_family_index,
                 p_counter_count,
-                p_counters,
-                p_counter_descriptions,
+                p_counters.unwrap_or_default(),
+                p_counter_descriptions.unwrap_or_default(),
             )
         }
     }
@@ -12982,9 +13090,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_surface_formats
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -13002,7 +13107,7 @@ impl PhysicalDevice {
         &self,
         p_surface_info: *const PhysicalDeviceSurfaceInfo2KHR,
         p_surface_format_count: *mut u32,
-        p_surface_formats: *mut SurfaceFormat2KHR,
+        p_surface_formats: Option<*mut SurfaceFormat2KHR>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSurfaceFormats2KHR>(
@@ -13017,7 +13122,7 @@ impl PhysicalDevice {
                 self.handle,
                 p_surface_info,
                 p_surface_format_count,
-                p_surface_formats,
+                p_surface_formats.unwrap_or_default(),
             )
         }
     }
@@ -13036,9 +13141,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_properties
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -13054,7 +13156,7 @@ impl PhysicalDevice {
     pub unsafe fn get_display_properties_2_khr(
         &self,
         p_property_count: *mut u32,
-        p_properties: *mut DisplayProperties2KHR,
+        p_properties: Option<*mut DisplayProperties2KHR>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceDisplayProperties2KHR>(
@@ -13064,7 +13166,13 @@ impl PhysicalDevice {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_property_count, p_properties) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_property_count,
+                p_properties.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -13084,9 +13192,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_properties
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -13102,7 +13207,7 @@ impl PhysicalDevice {
     pub unsafe fn get_display_plane_properties_2_khr(
         &self,
         p_property_count: *mut u32,
-        p_properties: *mut DisplayPlaneProperties2KHR,
+        p_properties: Option<*mut DisplayPlaneProperties2KHR>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceDisplayPlaneProperties2KHR>(
@@ -13112,7 +13217,13 @@ impl PhysicalDevice {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_property_count, p_properties) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_property_count,
+                p_properties.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -13133,9 +13244,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_properties
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -13152,7 +13260,7 @@ impl PhysicalDevice {
         &self,
         display: DisplayKHR,
         p_property_count: *mut u32,
-        p_properties: *mut DisplayModeProperties2KHR,
+        p_properties: Option<*mut DisplayModeProperties2KHR>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDisplayModeProperties2KHR>(vtable_get(
@@ -13160,7 +13268,14 @@ impl PhysicalDevice {
                 InstanceCommand::vkGetDisplayModeProperties2KHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, display, p_property_count, p_properties) }
+        unsafe {
+            (command)(
+                self.handle,
+                display,
+                p_property_count,
+                p_properties.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -13292,16 +13407,13 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_sparse_memory_requirements
-    ///
     #[doc(alias = "vkGetImageSparseMemoryRequirements2KHR")]
     #[inline(always)]
     pub unsafe fn get_image_sparse_memory_requirements_2_khr(
         &self,
         p_info: *const ImageSparseMemoryRequirementsInfo2,
         p_sparse_memory_requirement_count: *mut u32,
-        p_sparse_memory_requirements: *mut SparseImageMemoryRequirements2,
+        p_sparse_memory_requirements: Option<*mut SparseImageMemoryRequirements2>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetImageSparseMemoryRequirements2KHR>(
@@ -13316,7 +13428,7 @@ impl Device {
                 self.handle,
                 p_info,
                 p_sparse_memory_requirement_count,
-                p_sparse_memory_requirements,
+                p_sparse_memory_requirements.unwrap_or_default(),
             )
         }
     }
@@ -13340,9 +13452,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -13357,7 +13466,7 @@ impl Device {
     pub unsafe fn create_sampler_ycbcr_conversion_khr(
         &self,
         p_create_info: *const SamplerYcbcrConversionCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_ycbcr_conversion: *mut SamplerYcbcrConversion,
     ) -> ResultCode {
         let command = unsafe {
@@ -13366,7 +13475,14 @@ impl Device {
                 InstanceCommand::vkCreateSamplerYcbcrConversionKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_ycbcr_conversion) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_ycbcr_conversion,
+            )
+        }
     }
 }
 
@@ -13384,16 +13500,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - ycbcr_conversion
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroySamplerYcbcrConversionKHR")]
     #[inline(always)]
     pub unsafe fn destroy_sampler_ycbcr_conversion_khr(
         &self,
-        ycbcr_conversion: SamplerYcbcrConversion,
-        p_allocator: *const AllocationCallbacks,
+        ycbcr_conversion: Option<SamplerYcbcrConversion>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroySamplerYcbcrConversionKHR>(vtable_get(
@@ -13401,7 +13513,13 @@ impl Device {
                 InstanceCommand::vkDestroySamplerYcbcrConversionKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, ycbcr_conversion, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                ycbcr_conversion.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -13768,9 +13886,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_fragment_shading_rates
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -13785,7 +13900,7 @@ impl PhysicalDevice {
     pub unsafe fn get_fragment_shading_rates_khr(
         &self,
         p_fragment_shading_rate_count: *mut u32,
-        p_fragment_shading_rates: *mut PhysicalDeviceFragmentShadingRateKHR,
+        p_fragment_shading_rates: Option<*mut PhysicalDeviceFragmentShadingRateKHR>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceFragmentShadingRatesKHR>(
@@ -13799,7 +13914,7 @@ impl PhysicalDevice {
             (command)(
                 self.handle,
                 p_fragment_shading_rate_count,
-                p_fragment_shading_rates,
+                p_fragment_shading_rates.unwrap_or_default(),
             )
         }
     }
@@ -14086,9 +14201,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -14101,7 +14213,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn create_deferred_operation_khr(
         &self,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_deferred_operation: *mut DeferredOperationKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -14110,7 +14222,13 @@ impl Device {
                 InstanceCommand::vkCreateDeferredOperationKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_allocator, p_deferred_operation) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_allocator.unwrap_or_default(),
+                p_deferred_operation,
+            )
+        }
     }
 }
 
@@ -14127,16 +14245,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - operation
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyDeferredOperationKHR")]
     #[inline(always)]
     pub unsafe fn destroy_deferred_operation_khr(
         &self,
-        operation: DeferredOperationKHR,
-        p_allocator: *const AllocationCallbacks,
+        operation: Option<DeferredOperationKHR>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyDeferredOperationKHR>(vtable_get(
@@ -14144,7 +14258,13 @@ impl Device {
                 InstanceCommand::vkDestroyDeferredOperationKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, operation, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                operation.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -14273,9 +14393,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_properties
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -14292,7 +14409,7 @@ impl Device {
         &self,
         p_pipeline_info: *const PipelineInfoKHR,
         p_executable_count: *mut u32,
-        p_properties: *mut PipelineExecutablePropertiesKHR,
+        p_properties: Option<*mut PipelineExecutablePropertiesKHR>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPipelineExecutablePropertiesKHR>(
@@ -14307,7 +14424,7 @@ impl Device {
                 self.handle,
                 p_pipeline_info,
                 p_executable_count,
-                p_properties,
+                p_properties.unwrap_or_default(),
             )
         }
     }
@@ -14330,9 +14447,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_statistics
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -14349,7 +14463,7 @@ impl Device {
         &self,
         p_executable_info: *const PipelineExecutableInfoKHR,
         p_statistic_count: *mut u32,
-        p_statistics: *mut PipelineExecutableStatisticKHR,
+        p_statistics: Option<*mut PipelineExecutableStatisticKHR>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPipelineExecutableStatisticsKHR>(
@@ -14364,7 +14478,7 @@ impl Device {
                 self.handle,
                 p_executable_info,
                 p_statistic_count,
-                p_statistics,
+                p_statistics.unwrap_or_default(),
             )
         }
     }
@@ -14387,9 +14501,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_internal_representations
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -14406,7 +14517,7 @@ impl Device {
         &self,
         p_executable_info: *const PipelineExecutableInfoKHR,
         p_internal_representation_count: *mut u32,
-        p_internal_representations: *mut PipelineExecutableInternalRepresentationKHR,
+        p_internal_representations: Option<*mut PipelineExecutableInternalRepresentationKHR>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPipelineExecutableInternalRepresentationsKHR>(
@@ -14421,7 +14532,7 @@ impl Device {
                 self.handle,
                 p_executable_info,
                 p_internal_representation_count,
-                p_internal_representations,
+                p_internal_representations.unwrap_or_default(),
             )
         }
     }
@@ -14580,10 +14691,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_feedback_info
-    /// - p_data
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -14599,9 +14706,9 @@ impl Device {
     pub unsafe fn get_encoded_video_session_parameters_khr(
         &self,
         p_video_session_parameters_info: *const VideoEncodeSessionParametersGetInfoKHR,
-        p_feedback_info: *mut VideoEncodeSessionParametersFeedbackInfoKHR,
+        p_feedback_info: Option<*mut VideoEncodeSessionParametersFeedbackInfoKHR>,
         p_data_size: *mut usize,
-        p_data: *mut c_void,
+        p_data: Option<*mut c_void>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetEncodedVideoSessionParametersKHR>(
@@ -14615,9 +14722,9 @@ impl Device {
             (command)(
                 self.handle,
                 p_video_session_parameters_info,
-                p_feedback_info,
+                p_feedback_info.unwrap_or_default(),
                 p_data_size,
-                p_data,
+                p_data.unwrap_or_default(),
             )
         }
     }
@@ -14716,9 +14823,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - stage_mask
-    ///
     /// # Performed tasks
     /// - `synchronization`
     ///
@@ -14734,14 +14838,18 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdResetEvent2KHR")]
     #[inline(always)]
-    pub unsafe fn cmd_reset_event_2_khr(&self, event: Event, stage_mask: PipelineStageFlags2) {
+    pub unsafe fn cmd_reset_event_2_khr(
+        &self,
+        event: Event,
+        stage_mask: Option<PipelineStageFlags2>,
+    ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdResetEvent2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdResetEvent2KHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, event, stage_mask) }
+        unsafe { (command)(self.handle, event, stage_mask.unwrap_or_default()) }
     }
 }
 
@@ -14845,9 +14953,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - stage
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -14866,7 +14971,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_write_timestamp_2_khr(
         &self,
-        stage: PipelineStageFlags2,
+        stage: Option<PipelineStageFlags2>,
         query_pool: QueryPool,
         query: u32,
     ) {
@@ -14876,7 +14981,7 @@ impl CommandBuffer {
                 InstanceCommand::vkCmdWriteTimestamp2KHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, stage, query_pool, query) }
+        unsafe { (command)(self.handle, stage.unwrap_or_default(), query_pool, query) }
     }
 }
 
@@ -14894,10 +14999,6 @@ impl Queue {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - submit_count
-    /// - fence
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -14912,9 +15013,9 @@ impl Queue {
     #[inline(always)]
     pub unsafe fn submit_2_khr(
         &self,
-        submit_count: u32,
+        submit_count: Option<u32>,
         p_submits: *const SubmitInfo2,
-        fence: Fence,
+        fence: Option<Fence>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_QueueSubmit2KHR>(vtable_get(
@@ -14922,7 +15023,14 @@ impl Queue {
                 InstanceCommand::vkQueueSubmit2KHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, submit_count, p_submits, fence) }
+        unsafe {
+            (command)(
+                self.handle,
+                submit_count.unwrap_or_default(),
+                p_submits,
+                fence.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -15124,9 +15232,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_copy_memory_info
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -15139,14 +15244,17 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdCopyMemoryKHR")]
     #[inline(always)]
-    pub unsafe fn cmd_copy_memory_khr(&self, p_copy_memory_info: *const CopyDeviceMemoryInfoKHR) {
+    pub unsafe fn cmd_copy_memory_khr(
+        &self,
+        p_copy_memory_info: Option<*const CopyDeviceMemoryInfoKHR>,
+    ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyMemoryKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdCopyMemoryKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_copy_memory_info) }
+        unsafe { (command)(self.handle, p_copy_memory_info.unwrap_or_default()) }
     }
 }
 
@@ -15163,9 +15271,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_copy_memory_info
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -15180,7 +15285,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_copy_memory_to_image_khr(
         &self,
-        p_copy_memory_info: *const CopyDeviceMemoryImageInfoKHR,
+        p_copy_memory_info: Option<*const CopyDeviceMemoryImageInfoKHR>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyMemoryToImageKHR>(vtable_get(
@@ -15188,7 +15293,7 @@ impl CommandBuffer {
                 InstanceCommand::vkCmdCopyMemoryToImageKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_copy_memory_info) }
+        unsafe { (command)(self.handle, p_copy_memory_info.unwrap_or_default()) }
     }
 }
 
@@ -15205,9 +15310,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_copy_memory_info
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -15222,7 +15324,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_copy_image_to_memory_khr(
         &self,
-        p_copy_memory_info: *const CopyDeviceMemoryImageInfoKHR,
+        p_copy_memory_info: Option<*const CopyDeviceMemoryImageInfoKHR>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyImageToMemoryKHR>(vtable_get(
@@ -15230,7 +15332,7 @@ impl CommandBuffer {
                 InstanceCommand::vkCmdCopyImageToMemoryKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_copy_memory_info) }
+        unsafe { (command)(self.handle, p_copy_memory_info.unwrap_or_default()) }
     }
 }
 
@@ -15252,9 +15354,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - dst_flags
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -15270,7 +15369,7 @@ impl CommandBuffer {
     pub unsafe fn cmd_update_memory_khr(
         &self,
         p_dst_range: *const DeviceAddressRangeKHR,
-        dst_flags: AddressCommandFlagsKHR,
+        dst_flags: Option<AddressCommandFlagsKHR>,
         data_size: DeviceSize,
         p_data: *const c_void,
     ) {
@@ -15280,7 +15379,15 @@ impl CommandBuffer {
                 InstanceCommand::vkCmdUpdateMemoryKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_dst_range, dst_flags, data_size, p_data) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_dst_range,
+                dst_flags.unwrap_or_default(),
+                data_size,
+                p_data,
+            )
+        }
     }
 }
 
@@ -15301,9 +15408,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - dst_flags
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -15319,7 +15423,7 @@ impl CommandBuffer {
     pub unsafe fn cmd_fill_memory_khr(
         &self,
         p_dst_range: *const DeviceAddressRangeKHR,
-        dst_flags: AddressCommandFlagsKHR,
+        dst_flags: Option<AddressCommandFlagsKHR>,
         data: u32,
     ) {
         let command = unsafe {
@@ -15328,7 +15432,14 @@ impl CommandBuffer {
                 InstanceCommand::vkCmdFillMemoryKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_dst_range, dst_flags, data) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_dst_range,
+                dst_flags.unwrap_or_default(),
+                data,
+            )
+        }
     }
 }
 
@@ -15352,10 +15463,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - dst_flags
-    /// - query_result_flags
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -15374,8 +15481,8 @@ impl CommandBuffer {
         first_query: u32,
         query_count: u32,
         p_dst_range: *const StridedDeviceAddressRangeKHR,
-        dst_flags: AddressCommandFlagsKHR,
-        query_result_flags: QueryResultFlags,
+        dst_flags: Option<AddressCommandFlagsKHR>,
+        query_result_flags: Option<QueryResultFlags>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyQueryPoolResultsToMemoryKHR>(
@@ -15392,8 +15499,8 @@ impl CommandBuffer {
                 first_query,
                 query_count,
                 p_dst_range,
-                dst_flags,
-                query_result_flags,
+                dst_flags.unwrap_or_default(),
+                query_result_flags.unwrap_or_default(),
             )
         }
     }
@@ -15528,9 +15635,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_binding_infos
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -15547,7 +15651,7 @@ impl CommandBuffer {
         &self,
         first_binding: u32,
         binding_count: u32,
-        p_binding_infos: *const BindTransformFeedbackBuffer2InfoEXT,
+        p_binding_infos: Option<*const BindTransformFeedbackBuffer2InfoEXT>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindTransformFeedbackBuffers2EXT>(
@@ -15557,7 +15661,14 @@ impl CommandBuffer {
                 ),
             )
         };
-        unsafe { (command)(self.handle, first_binding, binding_count, p_binding_infos) }
+        unsafe {
+            (command)(
+                self.handle,
+                first_binding,
+                binding_count,
+                p_binding_infos.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -15574,10 +15685,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - counter_range_count
-    /// - p_counter_infos
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -15593,8 +15700,8 @@ impl CommandBuffer {
     pub unsafe fn cmd_begin_transform_feedback_2_ext(
         &self,
         first_counter_range: u32,
-        counter_range_count: u32,
-        p_counter_infos: *const BindTransformFeedbackBuffer2InfoEXT,
+        counter_range_count: Option<u32>,
+        p_counter_infos: Option<*const BindTransformFeedbackBuffer2InfoEXT>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBeginTransformFeedback2EXT>(vtable_get(
@@ -15606,8 +15713,8 @@ impl CommandBuffer {
             (command)(
                 self.handle,
                 first_counter_range,
-                counter_range_count,
-                p_counter_infos,
+                counter_range_count.unwrap_or_default(),
+                p_counter_infos.unwrap_or_default(),
             )
         }
     }
@@ -15626,10 +15733,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - counter_range_count
-    /// - p_counter_infos
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -15645,8 +15748,8 @@ impl CommandBuffer {
     pub unsafe fn cmd_end_transform_feedback_2_ext(
         &self,
         first_counter_range: u32,
-        counter_range_count: u32,
-        p_counter_infos: *const BindTransformFeedbackBuffer2InfoEXT,
+        counter_range_count: Option<u32>,
+        p_counter_infos: Option<*const BindTransformFeedbackBuffer2InfoEXT>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdEndTransformFeedback2EXT>(vtable_get(
@@ -15658,8 +15761,8 @@ impl CommandBuffer {
             (command)(
                 self.handle,
                 first_counter_range,
-                counter_range_count,
-                p_counter_infos,
+                counter_range_count.unwrap_or_default(),
+                p_counter_infos.unwrap_or_default(),
             )
         }
     }
@@ -15853,9 +15956,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -15870,7 +15970,7 @@ impl Device {
     pub unsafe fn create_acceleration_structure_2_khr(
         &self,
         p_create_info: *const AccelerationStructureCreateInfo2KHR,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_acceleration_structure: *mut AccelerationStructureKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -15883,7 +15983,7 @@ impl Device {
             (command)(
                 self.handle,
                 p_create_info,
-                p_allocator,
+                p_allocator.unwrap_or_default(),
                 p_acceleration_structure,
             )
         }
@@ -16248,16 +16348,13 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_sparse_memory_requirements
-    ///
     #[doc(alias = "vkGetDeviceImageSparseMemoryRequirementsKHR")]
     #[inline(always)]
     pub unsafe fn get_device_image_sparse_memory_requirements_khr(
         &self,
         p_info: *const DeviceImageMemoryRequirements,
         p_sparse_memory_requirement_count: *mut u32,
-        p_sparse_memory_requirements: *mut SparseImageMemoryRequirements2,
+        p_sparse_memory_requirements: Option<*mut SparseImageMemoryRequirements2>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceImageSparseMemoryRequirementsKHR>(
@@ -16272,7 +16369,7 @@ impl Device {
                 self.handle,
                 p_info,
                 p_sparse_memory_requirement_count,
-                p_sparse_memory_requirements,
+                p_sparse_memory_requirements.unwrap_or_default(),
             )
         }
     }
@@ -16292,9 +16389,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - buffer
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -16309,7 +16403,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_bind_index_buffer_2_khr(
         &self,
-        buffer: Buffer,
+        buffer: Option<Buffer>,
         offset: DeviceSize,
         size: DeviceSize,
         index_type: IndexType,
@@ -16320,7 +16414,15 @@ impl CommandBuffer {
                 InstanceCommand::vkCmdBindIndexBuffer2KHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, buffer, offset, size, index_type) }
+        unsafe {
+            (command)(
+                self.handle,
+                buffer.unwrap_or_default(),
+                offset,
+                size,
+                index_type,
+            )
+        }
     }
 }
 
@@ -16482,9 +16584,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -16502,7 +16601,7 @@ impl Device {
     pub unsafe fn create_pipeline_binaries_khr(
         &self,
         p_create_info: *const PipelineBinaryCreateInfoKHR,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_binaries: *mut PipelineBinaryHandlesInfoKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -16511,7 +16610,14 @@ impl Device {
                 InstanceCommand::vkCreatePipelineBinariesKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_binaries) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_binaries,
+            )
+        }
     }
 }
 
@@ -16528,16 +16634,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - pipeline_binary
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyPipelineBinaryKHR")]
     #[inline(always)]
     pub unsafe fn destroy_pipeline_binary_khr(
         &self,
-        pipeline_binary: PipelineBinaryKHR,
-        p_allocator: *const AllocationCallbacks,
+        pipeline_binary: Option<PipelineBinaryKHR>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyPipelineBinaryKHR>(vtable_get(
@@ -16545,7 +16647,13 @@ impl Device {
                 InstanceCommand::vkDestroyPipelineBinaryKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, pipeline_binary, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                pipeline_binary.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -16565,9 +16673,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_pipeline_create_info
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -16581,7 +16686,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn get_pipeline_key_khr(
         &self,
-        p_pipeline_create_info: *const PipelineCreateInfoKHR,
+        p_pipeline_create_info: Option<*const PipelineCreateInfoKHR>,
         p_pipeline_key: *mut PipelineBinaryKeyKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -16590,7 +16695,13 @@ impl Device {
                 InstanceCommand::vkGetPipelineKeyKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_pipeline_create_info, p_pipeline_key) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_pipeline_create_info.unwrap_or_default(),
+                p_pipeline_key,
+            )
+        }
     }
 }
 
@@ -16612,9 +16723,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_pipeline_binary_data
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -16632,7 +16740,7 @@ impl Device {
         p_info: *const PipelineBinaryDataInfoKHR,
         p_pipeline_binary_key: *mut PipelineBinaryKeyKHR,
         p_pipeline_binary_data_size: *mut usize,
-        p_pipeline_binary_data: *mut c_void,
+        p_pipeline_binary_data: Option<*mut c_void>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPipelineBinaryDataKHR>(vtable_get(
@@ -16646,7 +16754,7 @@ impl Device {
                 p_info,
                 p_pipeline_binary_key,
                 p_pipeline_binary_data_size,
-                p_pipeline_binary_data,
+                p_pipeline_binary_data.unwrap_or_default(),
             )
         }
     }
@@ -16668,9 +16776,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -16683,7 +16788,7 @@ impl Device {
     pub unsafe fn release_captured_pipeline_data_khr(
         &self,
         p_info: *const ReleaseCapturedPipelineDataInfoKHR,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ReleaseCapturedPipelineDataKHR>(vtable_get(
@@ -16691,7 +16796,7 @@ impl Device {
                 InstanceCommand::vkReleaseCapturedPipelineDataKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_info, p_allocator) }
+        unsafe { (command)(self.handle, p_info, p_allocator.unwrap_or_default()) }
     }
 }
 
@@ -16748,9 +16853,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_properties
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -16766,7 +16868,7 @@ impl PhysicalDevice {
     pub unsafe fn get_cooperative_matrix_properties_khr(
         &self,
         p_property_count: *mut u32,
-        p_properties: *mut CooperativeMatrixPropertiesKHR,
+        p_properties: Option<*mut CooperativeMatrixPropertiesKHR>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceCooperativeMatrixPropertiesKHR>(
@@ -16776,7 +16878,13 @@ impl PhysicalDevice {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_property_count, p_properties) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_property_count,
+                p_properties.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -16833,9 +16941,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_time_domains
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -16851,7 +16956,7 @@ impl PhysicalDevice {
     pub unsafe fn get_calibrateable_time_domains_khr(
         &self,
         p_time_domain_count: *mut u32,
-        p_time_domains: *mut TimeDomainKHR,
+        p_time_domains: Option<*mut TimeDomainKHR>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceCalibrateableTimeDomainsKHR>(
@@ -16861,7 +16966,13 @@ impl PhysicalDevice {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_time_domain_count, p_time_domains) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_time_domain_count,
+                p_time_domains.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -17270,9 +17381,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_fault_info
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -17289,7 +17397,7 @@ impl Device {
         &self,
         timeout: u64,
         p_fault_counts: *mut u32,
-        p_fault_info: *mut DeviceFaultInfoKHR,
+        p_fault_info: Option<*mut DeviceFaultInfoKHR>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceFaultReportsKHR>(vtable_get(
@@ -17297,7 +17405,14 @@ impl Device {
                 InstanceCommand::vkGetDeviceFaultReportsKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, timeout, p_fault_counts, p_fault_info) }
+        unsafe {
+            (command)(
+                self.handle,
+                timeout,
+                p_fault_counts,
+                p_fault_info.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -17353,9 +17468,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_rendering_end_info
-    ///
     /// # Performed tasks
     /// - `action`
     /// - `state`
@@ -17369,14 +17481,17 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdEndRendering2KHR")]
     #[inline(always)]
-    pub unsafe fn cmd_end_rendering_2_khr(&self, p_rendering_end_info: *const RenderingEndInfoKHR) {
+    pub unsafe fn cmd_end_rendering_2_khr(
+        &self,
+        p_rendering_end_info: Option<*const RenderingEndInfoKHR>,
+    ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdEndRendering2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdEndRendering2KHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_rendering_end_info) }
+        unsafe { (command)(self.handle, p_rendering_end_info.unwrap_or_default()) }
     }
 }
 
@@ -17398,9 +17513,6 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -17414,7 +17526,7 @@ impl Instance {
     pub unsafe fn create_debug_report_callback_ext(
         &self,
         p_create_info: *const DebugReportCallbackCreateInfoEXT,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_callback: *mut DebugReportCallbackEXT,
     ) -> ResultCode {
         let command = unsafe {
@@ -17423,7 +17535,14 @@ impl Instance {
                 InstanceCommand::vkCreateDebugReportCallbackEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_callback) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_callback,
+            )
+        }
     }
 }
 
@@ -17441,16 +17560,12 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - callback
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyDebugReportCallbackEXT")]
     #[inline(always)]
     pub unsafe fn destroy_debug_report_callback_ext(
         &self,
-        callback: DebugReportCallbackEXT,
-        p_allocator: *const AllocationCallbacks,
+        callback: Option<DebugReportCallbackEXT>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyDebugReportCallbackEXT>(vtable_get(
@@ -17458,7 +17573,13 @@ impl Instance {
                 InstanceCommand::vkDestroyDebugReportCallbackEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, callback, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                callback.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -17745,9 +17866,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_sizes
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -17772,7 +17890,7 @@ impl CommandBuffer {
         binding_count: u32,
         p_buffers: *const Buffer,
         p_offsets: *const DeviceSize,
-        p_sizes: *const DeviceSize,
+        p_sizes: Option<*const DeviceSize>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindTransformFeedbackBuffersEXT>(
@@ -17789,7 +17907,7 @@ impl CommandBuffer {
                 binding_count,
                 p_buffers,
                 p_offsets,
-                p_sizes,
+                p_sizes.unwrap_or_default(),
             )
         }
     }
@@ -17807,10 +17925,6 @@ impl CommandBuffer {
     /// - Extension [`EXT_TransformFeedback`](Extension::EXT_TransformFeedback)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
-    ///
-    /// # Optional parameters
-    /// - counter_buffer_count
-    /// - p_counter_buffer_offsets
     ///
     /// # Performed tasks
     /// - `state`
@@ -17833,9 +17947,9 @@ impl CommandBuffer {
     pub unsafe fn cmd_begin_transform_feedback_ext(
         &self,
         first_counter_buffer: u32,
-        counter_buffer_count: u32,
+        counter_buffer_count: Option<u32>,
         p_counter_buffers: *const Buffer,
-        p_counter_buffer_offsets: *const DeviceSize,
+        p_counter_buffer_offsets: Option<*const DeviceSize>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBeginTransformFeedbackEXT>(vtable_get(
@@ -17847,9 +17961,9 @@ impl CommandBuffer {
             (command)(
                 self.handle,
                 first_counter_buffer,
-                counter_buffer_count,
+                counter_buffer_count.unwrap_or_default(),
                 p_counter_buffers,
-                p_counter_buffer_offsets,
+                p_counter_buffer_offsets.unwrap_or_default(),
             )
         }
     }
@@ -17867,10 +17981,6 @@ impl CommandBuffer {
     /// - Extension [`EXT_TransformFeedback`](Extension::EXT_TransformFeedback)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
-    ///
-    /// # Optional parameters
-    /// - counter_buffer_count
-    /// - p_counter_buffer_offsets
     ///
     /// # Performed tasks
     /// - `state`
@@ -17893,9 +18003,9 @@ impl CommandBuffer {
     pub unsafe fn cmd_end_transform_feedback_ext(
         &self,
         first_counter_buffer: u32,
-        counter_buffer_count: u32,
+        counter_buffer_count: Option<u32>,
         p_counter_buffers: *const Buffer,
-        p_counter_buffer_offsets: *const DeviceSize,
+        p_counter_buffer_offsets: Option<*const DeviceSize>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdEndTransformFeedbackEXT>(vtable_get(
@@ -17907,9 +18017,9 @@ impl CommandBuffer {
             (command)(
                 self.handle,
                 first_counter_buffer,
-                counter_buffer_count,
+                counter_buffer_count.unwrap_or_default(),
                 p_counter_buffers,
-                p_counter_buffer_offsets,
+                p_counter_buffer_offsets.unwrap_or_default(),
             )
         }
     }
@@ -17927,9 +18037,6 @@ impl CommandBuffer {
     /// - Extension [`EXT_TransformFeedback`](Extension::EXT_TransformFeedback)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
-    ///
-    /// # Optional parameters
-    /// - flags
     ///
     /// # Performed tasks
     /// - `action`
@@ -17951,7 +18058,7 @@ impl CommandBuffer {
         &self,
         query_pool: QueryPool,
         query: u32,
-        flags: QueryControlFlags,
+        flags: Option<QueryControlFlags>,
         index: u32,
     ) {
         let command = unsafe {
@@ -17960,7 +18067,15 @@ impl CommandBuffer {
                 InstanceCommand::vkCmdBeginQueryIndexedEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, query_pool, query, flags, index) }
+        unsafe {
+            (command)(
+                self.handle,
+                query_pool,
+                query,
+                flags.unwrap_or_default(),
+                index,
+            )
+        }
     }
 }
 
@@ -18080,9 +18195,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -18097,7 +18209,7 @@ impl Device {
     pub unsafe fn create_cu_module_nvx(
         &self,
         p_create_info: *const CuModuleCreateInfoNVX,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_module: *mut CuModuleNVX,
     ) -> ResultCode {
         let command = unsafe {
@@ -18106,7 +18218,14 @@ impl Device {
                 InstanceCommand::vkCreateCuModuleNVX as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_module) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_module,
+            )
+        }
     }
 }
 
@@ -18127,9 +18246,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -18144,7 +18260,7 @@ impl Device {
     pub unsafe fn create_cu_function_nvx(
         &self,
         p_create_info: *const CuFunctionCreateInfoNVX,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_function: *mut CuFunctionNVX,
     ) -> ResultCode {
         let command = unsafe {
@@ -18153,7 +18269,14 @@ impl Device {
                 InstanceCommand::vkCreateCuFunctionNVX as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_function) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_function,
+            )
+        }
     }
 }
 
@@ -18170,15 +18293,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyCuModuleNVX")]
     #[inline(always)]
     pub unsafe fn destroy_cu_module_nvx(
         &self,
         module: CuModuleNVX,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyCuModuleNVX>(vtable_get(
@@ -18186,7 +18306,7 @@ impl Device {
                 InstanceCommand::vkDestroyCuModuleNVX as usize,
             ))
         };
-        unsafe { (command)(self.handle, module, p_allocator) }
+        unsafe { (command)(self.handle, module, p_allocator.unwrap_or_default()) }
     }
 }
 
@@ -18203,15 +18323,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyCuFunctionNVX")]
     #[inline(always)]
     pub unsafe fn destroy_cu_function_nvx(
         &self,
         function: CuFunctionNVX,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyCuFunctionNVX>(vtable_get(
@@ -18219,7 +18336,7 @@ impl Device {
                 InstanceCommand::vkDestroyCuFunctionNVX as usize,
             ))
         };
-        unsafe { (command)(self.handle, function, p_allocator) }
+        unsafe { (command)(self.handle, function, p_allocator.unwrap_or_default()) }
     }
 }
 
@@ -18514,9 +18631,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_info
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -18535,7 +18649,7 @@ impl Device {
         shader_stage: ShaderStageFlags,
         info_type: ShaderInfoTypeAMD,
         p_info_size: *mut usize,
-        p_info: *mut c_void,
+        p_info: Option<*mut c_void>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetShaderInfoAMD>(vtable_get(
@@ -18550,7 +18664,7 @@ impl Device {
                 shader_stage,
                 info_type,
                 p_info_size,
-                p_info,
+                p_info.unwrap_or_default(),
             )
         }
     }
@@ -18573,9 +18687,6 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -18591,7 +18702,7 @@ impl Instance {
     pub unsafe fn create_stream_descriptor_surface_ggp(
         &self,
         p_create_info: *const StreamDescriptorSurfaceCreateInfoGGP,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -18600,7 +18711,14 @@ impl Instance {
                 InstanceCommand::vkCreateStreamDescriptorSurfaceGGP as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_surface,
+            )
+        }
     }
 }
 
@@ -18626,10 +18744,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - flags
-    /// - external_handle_type
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -18648,8 +18762,8 @@ impl PhysicalDevice {
         type_: ImageType,
         tiling: ImageTiling,
         usage: ImageUsageFlags,
-        flags: ImageCreateFlags,
-        external_handle_type: ExternalMemoryHandleTypeFlagsNV,
+        flags: Option<ImageCreateFlags>,
+        external_handle_type: Option<ExternalMemoryHandleTypeFlagsNV>,
         p_external_image_format_properties: *mut ExternalImageFormatPropertiesNV,
     ) -> ResultCode {
         let command = unsafe {
@@ -18667,8 +18781,8 @@ impl PhysicalDevice {
                 type_,
                 tiling,
                 usage,
-                flags,
-                external_handle_type,
+                flags.unwrap_or_default(),
+                external_handle_type.unwrap_or_default(),
                 p_external_image_format_properties,
             )
         }
@@ -18737,9 +18851,6 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -18755,7 +18866,7 @@ impl Instance {
     pub unsafe fn create_vi_surface_nn(
         &self,
         p_create_info: *const ViSurfaceCreateInfoNN,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -18764,7 +18875,14 @@ impl Instance {
                 InstanceCommand::vkCreateViSurfaceNN as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_surface,
+            )
+        }
     }
 }
 
@@ -19115,9 +19233,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -19131,7 +19246,7 @@ impl Device {
     pub unsafe fn register_device_event_ext(
         &self,
         p_device_event_info: *const DeviceEventInfoEXT,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_fence: *mut Fence,
     ) -> ResultCode {
         let command = unsafe {
@@ -19140,7 +19255,14 @@ impl Device {
                 InstanceCommand::vkRegisterDeviceEventEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_device_event_info, p_allocator, p_fence) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_device_event_info,
+                p_allocator.unwrap_or_default(),
+                p_fence,
+            )
+        }
     }
 }
 
@@ -19162,9 +19284,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -19179,7 +19298,7 @@ impl Device {
         &self,
         display: DisplayKHR,
         p_display_event_info: *const DisplayEventInfoEXT,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_fence: *mut Fence,
     ) -> ResultCode {
         let command = unsafe {
@@ -19193,7 +19312,7 @@ impl Device {
                 self.handle,
                 display,
                 p_display_event_info,
-                p_allocator,
+                p_allocator.unwrap_or_default(),
                 p_fence,
             )
         }
@@ -19302,9 +19421,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_presentation_timings
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -19323,7 +19439,7 @@ impl Device {
         &self,
         swapchain: SwapchainKHR,
         p_presentation_timing_count: *mut u32,
-        p_presentation_timings: *mut PastPresentationTimingGOOGLE,
+        p_presentation_timings: Option<*mut PastPresentationTimingGOOGLE>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPastPresentationTimingGOOGLE>(vtable_get(
@@ -19336,7 +19452,7 @@ impl Device {
                 self.handle,
                 swapchain,
                 p_presentation_timing_count,
-                p_presentation_timings,
+                p_presentation_timings.unwrap_or_default(),
             )
         }
     }
@@ -19513,9 +19629,6 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -19531,7 +19644,7 @@ impl Instance {
     pub unsafe fn create_ios_surface_mvk(
         &self,
         p_create_info: *const IOSSurfaceCreateInfoMVK,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -19540,7 +19653,14 @@ impl Instance {
                 InstanceCommand::vkCreateIOSSurfaceMVK as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_surface,
+            )
+        }
     }
 }
 
@@ -19562,9 +19682,6 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -19580,7 +19697,7 @@ impl Instance {
     pub unsafe fn create_mac_os_surface_mvk(
         &self,
         p_create_info: *const MacOSSurfaceCreateInfoMVK,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -19589,7 +19706,14 @@ impl Instance {
                 InstanceCommand::vkCreateMacOSSurfaceMVK as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_surface,
+            )
+        }
     }
 }
 
@@ -19885,9 +20009,6 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -19901,7 +20022,7 @@ impl Instance {
     pub unsafe fn create_debug_utils_messenger_ext(
         &self,
         p_create_info: *const DebugUtilsMessengerCreateInfoEXT,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_messenger: *mut DebugUtilsMessengerEXT,
     ) -> ResultCode {
         let command = unsafe {
@@ -19910,7 +20031,14 @@ impl Instance {
                 InstanceCommand::vkCreateDebugUtilsMessengerEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_messenger) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_messenger,
+            )
+        }
     }
 }
 
@@ -19927,16 +20055,12 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - messenger
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyDebugUtilsMessengerEXT")]
     #[inline(always)]
     pub unsafe fn destroy_debug_utils_messenger_ext(
         &self,
-        messenger: DebugUtilsMessengerEXT,
-        p_allocator: *const AllocationCallbacks,
+        messenger: Option<DebugUtilsMessengerEXT>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyDebugUtilsMessengerEXT>(vtable_get(
@@ -19944,7 +20068,13 @@ impl Instance {
                 InstanceCommand::vkDestroyDebugUtilsMessengerEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, messenger, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                messenger.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -20095,9 +20225,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -20112,7 +20239,7 @@ impl Device {
     pub unsafe fn create_gpa_session_amd(
         &self,
         p_create_info: *const GpaSessionCreateInfoAMD,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_gpa_session: *mut GpaSessionAMD,
     ) -> ResultCode {
         let command = unsafe {
@@ -20121,7 +20248,14 @@ impl Device {
                 InstanceCommand::vkCreateGpaSessionAMD as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_gpa_session) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_gpa_session,
+            )
+        }
     }
 }
 
@@ -20138,16 +20272,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - gpa_session
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyGpaSessionAMD")]
     #[inline(always)]
     pub unsafe fn destroy_gpa_session_amd(
         &self,
-        gpa_session: GpaSessionAMD,
-        p_allocator: *const AllocationCallbacks,
+        gpa_session: Option<GpaSessionAMD>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyGpaSessionAMD>(vtable_get(
@@ -20155,7 +20285,13 @@ impl Device {
                 InstanceCommand::vkDestroyGpaSessionAMD as usize,
             ))
         };
-        unsafe { (command)(self.handle, gpa_session, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                gpa_session.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -20477,9 +20613,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_data
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -20496,7 +20629,7 @@ impl Device {
         gpa_session: GpaSessionAMD,
         sample_id: u32,
         p_size_in_bytes: *mut usize,
-        p_data: *mut c_void,
+        p_data: Option<*mut c_void>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetGpaSessionResultsAMD>(vtable_get(
@@ -20504,7 +20637,15 @@ impl Device {
                 InstanceCommand::vkGetGpaSessionResultsAMD as usize,
             ))
         };
-        unsafe { (command)(self.handle, gpa_session, sample_id, p_size_in_bytes, p_data) }
+        unsafe {
+            (command)(
+                self.handle,
+                gpa_session,
+                sample_id,
+                p_size_in_bytes,
+                p_data.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -20599,10 +20740,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - pipeline_cache
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -20617,10 +20754,10 @@ impl Device {
     #[inline(always)]
     pub unsafe fn create_execution_graph_pipelines_amdx(
         &self,
-        pipeline_cache: PipelineCache,
+        pipeline_cache: Option<PipelineCache>,
         create_info_count: u32,
         p_create_infos: *const ExecutionGraphPipelineCreateInfoAMDX,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_pipelines: *mut Pipeline,
     ) -> ResultCode {
         let command = unsafe {
@@ -20632,10 +20769,10 @@ impl Device {
         unsafe {
             (command)(
                 self.handle,
-                pipeline_cache,
+                pipeline_cache.unwrap_or_default(),
                 create_info_count,
                 p_create_infos,
-                p_allocator,
+                p_allocator.unwrap_or_default(),
                 p_pipelines,
             )
         }
@@ -21416,9 +21553,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -21432,7 +21566,7 @@ impl Device {
     pub unsafe fn create_validation_cache_ext(
         &self,
         p_create_info: *const ValidationCacheCreateInfoEXT,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_validation_cache: *mut ValidationCacheEXT,
     ) -> ResultCode {
         let command = unsafe {
@@ -21441,7 +21575,14 @@ impl Device {
                 InstanceCommand::vkCreateValidationCacheEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_validation_cache) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_validation_cache,
+            )
+        }
     }
 }
 
@@ -21458,16 +21599,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - validation_cache
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyValidationCacheEXT")]
     #[inline(always)]
     pub unsafe fn destroy_validation_cache_ext(
         &self,
-        validation_cache: ValidationCacheEXT,
-        p_allocator: *const AllocationCallbacks,
+        validation_cache: Option<ValidationCacheEXT>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyValidationCacheEXT>(vtable_get(
@@ -21475,7 +21612,13 @@ impl Device {
                 InstanceCommand::vkDestroyValidationCacheEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, validation_cache, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                validation_cache.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -21536,9 +21679,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_data
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -21555,7 +21695,7 @@ impl Device {
         &self,
         validation_cache: ValidationCacheEXT,
         p_data_size: *mut usize,
-        p_data: *mut c_void,
+        p_data: Option<*mut c_void>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetValidationCacheDataEXT>(vtable_get(
@@ -21563,7 +21703,14 @@ impl Device {
                 InstanceCommand::vkGetValidationCacheDataEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, validation_cache, p_data_size, p_data) }
+        unsafe {
+            (command)(
+                self.handle,
+                validation_cache,
+                p_data_size,
+                p_data.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -21580,9 +21727,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - image_view
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -21597,7 +21741,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_bind_shading_rate_image_nv(
         &self,
-        image_view: ImageView,
+        image_view: Option<ImageView>,
         image_layout: ImageLayout,
     ) {
         let command = unsafe {
@@ -21606,7 +21750,7 @@ impl CommandBuffer {
                 InstanceCommand::vkCmdBindShadingRateImageNV as usize,
             ))
         };
-        unsafe { (command)(self.handle, image_view, image_layout) }
+        unsafe { (command)(self.handle, image_view.unwrap_or_default(), image_layout) }
     }
 }
 
@@ -21677,9 +21821,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - custom_sample_order_count
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -21695,7 +21836,7 @@ impl CommandBuffer {
     pub unsafe fn cmd_set_coarse_sample_order_nv(
         &self,
         sample_order_type: CoarseSampleOrderTypeNV,
-        custom_sample_order_count: u32,
+        custom_sample_order_count: Option<u32>,
         p_custom_sample_orders: *const CoarseSampleOrderCustomNV,
     ) {
         let command = unsafe {
@@ -21708,7 +21849,7 @@ impl CommandBuffer {
             (command)(
                 self.handle,
                 sample_order_type,
-                custom_sample_order_count,
+                custom_sample_order_count.unwrap_or_default(),
                 p_custom_sample_orders,
             )
         }
@@ -21733,9 +21874,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -21749,7 +21887,7 @@ impl Device {
     pub unsafe fn create_acceleration_structure_nv(
         &self,
         p_create_info: *const AccelerationStructureCreateInfoNV,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_acceleration_structure: *mut AccelerationStructureNV,
     ) -> ResultCode {
         let command = unsafe {
@@ -21762,7 +21900,7 @@ impl Device {
             (command)(
                 self.handle,
                 p_create_info,
-                p_allocator,
+                p_allocator.unwrap_or_default(),
                 p_acceleration_structure,
             )
         }
@@ -21783,16 +21921,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - acceleration_structure
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyAccelerationStructureNV")]
     #[inline(always)]
     pub unsafe fn destroy_acceleration_structure_nv(
         &self,
-        acceleration_structure: AccelerationStructureNV,
-        p_allocator: *const AllocationCallbacks,
+        acceleration_structure: Option<AccelerationStructureNV>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyAccelerationStructureNV>(vtable_get(
@@ -21800,7 +21934,13 @@ impl Device {
                 InstanceCommand::vkDestroyAccelerationStructureNV as usize,
             ))
         };
-        unsafe { (command)(self.handle, acceleration_structure, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                acceleration_structure.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -21906,10 +22046,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - instance_data
-    /// - src
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -21925,11 +22061,11 @@ impl CommandBuffer {
     pub unsafe fn cmd_build_acceleration_structure_nv(
         &self,
         p_info: *const AccelerationStructureInfoNV,
-        instance_data: Buffer,
+        instance_data: Option<Buffer>,
         instance_offset: DeviceSize,
         update: Bool32,
         dst: AccelerationStructureNV,
-        src: AccelerationStructureNV,
+        src: Option<AccelerationStructureNV>,
         scratch: Buffer,
         scratch_offset: DeviceSize,
     ) {
@@ -21943,11 +22079,11 @@ impl CommandBuffer {
             (command)(
                 self.handle,
                 p_info,
-                instance_data,
+                instance_data.unwrap_or_default(),
                 instance_offset,
                 update,
                 dst,
-                src,
+                src.unwrap_or_default(),
                 scratch,
                 scratch_offset,
             )
@@ -22030,11 +22166,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - miss_shader_binding_table_buffer
-    /// - hit_shader_binding_table_buffer
-    /// - callable_shader_binding_table_buffer
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -22051,13 +22182,13 @@ impl CommandBuffer {
         &self,
         raygen_shader_binding_table_buffer: Buffer,
         raygen_shader_binding_offset: DeviceSize,
-        miss_shader_binding_table_buffer: Buffer,
+        miss_shader_binding_table_buffer: Option<Buffer>,
         miss_shader_binding_offset: DeviceSize,
         miss_shader_binding_stride: DeviceSize,
-        hit_shader_binding_table_buffer: Buffer,
+        hit_shader_binding_table_buffer: Option<Buffer>,
         hit_shader_binding_offset: DeviceSize,
         hit_shader_binding_stride: DeviceSize,
-        callable_shader_binding_table_buffer: Buffer,
+        callable_shader_binding_table_buffer: Option<Buffer>,
         callable_shader_binding_offset: DeviceSize,
         callable_shader_binding_stride: DeviceSize,
         width: u32,
@@ -22075,13 +22206,13 @@ impl CommandBuffer {
                 self.handle,
                 raygen_shader_binding_table_buffer,
                 raygen_shader_binding_offset,
-                miss_shader_binding_table_buffer,
+                miss_shader_binding_table_buffer.unwrap_or_default(),
                 miss_shader_binding_offset,
                 miss_shader_binding_stride,
-                hit_shader_binding_table_buffer,
+                hit_shader_binding_table_buffer.unwrap_or_default(),
                 hit_shader_binding_offset,
                 hit_shader_binding_stride,
-                callable_shader_binding_table_buffer,
+                callable_shader_binding_table_buffer.unwrap_or_default(),
                 callable_shader_binding_offset,
                 callable_shader_binding_stride,
                 width,
@@ -22112,10 +22243,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - pipeline_cache
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -22131,10 +22258,10 @@ impl Device {
     #[inline(always)]
     pub unsafe fn create_ray_tracing_pipelines_nv(
         &self,
-        pipeline_cache: PipelineCache,
+        pipeline_cache: Option<PipelineCache>,
         create_info_count: u32,
         p_create_infos: *const RayTracingPipelineCreateInfoNV,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_pipelines: *mut Pipeline,
     ) -> ResultCode {
         let command = unsafe {
@@ -22146,10 +22273,10 @@ impl Device {
         unsafe {
             (command)(
                 self.handle,
-                pipeline_cache,
+                pipeline_cache.unwrap_or_default(),
                 create_info_count,
                 p_create_infos,
-                p_allocator,
+                p_allocator.unwrap_or_default(),
                 p_pipelines,
             )
         }
@@ -22462,9 +22589,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - pipeline_stage
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -22481,7 +22605,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_write_buffer_marker_amd(
         &self,
-        pipeline_stage: PipelineStageFlags,
+        pipeline_stage: Option<PipelineStageFlags>,
         dst_buffer: Buffer,
         dst_offset: DeviceSize,
         marker: u32,
@@ -22492,7 +22616,15 @@ impl CommandBuffer {
                 InstanceCommand::vkCmdWriteBufferMarkerAMD as usize,
             ))
         };
-        unsafe { (command)(self.handle, pipeline_stage, dst_buffer, dst_offset, marker) }
+        unsafe {
+            (command)(
+                self.handle,
+                pipeline_stage.unwrap_or_default(),
+                dst_buffer,
+                dst_offset,
+                marker,
+            )
+        }
     }
 }
 
@@ -22508,9 +22640,6 @@ impl CommandBuffer {
     /// - Extension [`AMD_BufferMarker`](Extension::AMD_BufferMarker)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
-    ///
-    /// # Optional parameters
-    /// - stage
     ///
     /// # Performed tasks
     /// - `action`
@@ -22534,7 +22663,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_write_buffer_marker_2_amd(
         &self,
-        stage: PipelineStageFlags2,
+        stage: Option<PipelineStageFlags2>,
         dst_buffer: Buffer,
         dst_offset: DeviceSize,
         marker: u32,
@@ -22545,7 +22674,15 @@ impl CommandBuffer {
                 InstanceCommand::vkCmdWriteBufferMarker2AMD as usize,
             ))
         };
-        unsafe { (command)(self.handle, stage, dst_buffer, dst_offset, marker) }
+        unsafe {
+            (command)(
+                self.handle,
+                stage.unwrap_or_default(),
+                dst_buffer,
+                dst_offset,
+                marker,
+            )
+        }
     }
 }
 
@@ -22563,9 +22700,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_time_domains
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -22581,7 +22715,7 @@ impl PhysicalDevice {
     pub unsafe fn get_calibrateable_time_domains_ext(
         &self,
         p_time_domain_count: *mut u32,
-        p_time_domains: *mut TimeDomainKHR,
+        p_time_domains: Option<*mut TimeDomainKHR>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceCalibrateableTimeDomainsEXT>(
@@ -22591,7 +22725,13 @@ impl PhysicalDevice {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_time_domain_count, p_time_domains) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_time_domain_count,
+                p_time_domains.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -22927,15 +23067,12 @@ impl Queue {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_checkpoint_data
-    ///
     #[doc(alias = "vkGetQueueCheckpointDataNV")]
     #[inline(always)]
     pub unsafe fn get_checkpoint_data_nv(
         &self,
         p_checkpoint_data_count: *mut u32,
-        p_checkpoint_data: *mut CheckpointDataNV,
+        p_checkpoint_data: Option<*mut CheckpointDataNV>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetQueueCheckpointDataNV>(vtable_get(
@@ -22943,7 +23080,13 @@ impl Queue {
                 InstanceCommand::vkGetQueueCheckpointDataNV as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_checkpoint_data_count, p_checkpoint_data) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_checkpoint_data_count,
+                p_checkpoint_data.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -22960,15 +23103,12 @@ impl Queue {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_checkpoint_data
-    ///
     #[doc(alias = "vkGetQueueCheckpointData2NV")]
     #[inline(always)]
     pub unsafe fn get_checkpoint_data_2_nv(
         &self,
         p_checkpoint_data_count: *mut u32,
-        p_checkpoint_data: *mut CheckpointData2NV,
+        p_checkpoint_data: Option<*mut CheckpointData2NV>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetQueueCheckpointData2NV>(vtable_get(
@@ -22976,7 +23116,13 @@ impl Queue {
                 InstanceCommand::vkGetQueueCheckpointData2NV as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_checkpoint_data_count, p_checkpoint_data) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_checkpoint_data_count,
+                p_checkpoint_data.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -23039,9 +23185,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_swapchain_timing_properties_counter
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -23059,7 +23202,7 @@ impl Device {
         &self,
         swapchain: SwapchainKHR,
         p_swapchain_timing_properties: *mut SwapchainTimingPropertiesEXT,
-        p_swapchain_timing_properties_counter: *mut u64,
+        p_swapchain_timing_properties_counter: Option<*mut u64>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetSwapchainTimingPropertiesEXT>(vtable_get(
@@ -23072,7 +23215,7 @@ impl Device {
                 self.handle,
                 swapchain,
                 p_swapchain_timing_properties,
-                p_swapchain_timing_properties_counter,
+                p_swapchain_timing_properties_counter.unwrap_or_default(),
             )
         }
     }
@@ -23095,9 +23238,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_time_domains_counter
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -23115,7 +23255,7 @@ impl Device {
         &self,
         swapchain: SwapchainKHR,
         p_swapchain_time_domain_properties: *mut SwapchainTimeDomainPropertiesEXT,
-        p_time_domains_counter: *mut u64,
+        p_time_domains_counter: Option<*mut u64>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetSwapchainTimeDomainPropertiesEXT>(
@@ -23130,7 +23270,7 @@ impl Device {
                 self.handle,
                 swapchain,
                 p_swapchain_time_domain_properties,
-                p_time_domains_counter,
+                p_time_domains_counter.unwrap_or_default(),
             )
         }
     }
@@ -23462,9 +23602,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - configuration
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -23478,7 +23615,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn release_performance_configuration_intel(
         &self,
-        configuration: PerformanceConfigurationINTEL,
+        configuration: Option<PerformanceConfigurationINTEL>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ReleasePerformanceConfigurationINTEL>(
@@ -23488,7 +23625,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, configuration) }
+        unsafe { (command)(self.handle, configuration.unwrap_or_default()) }
     }
 }
 
@@ -23620,9 +23757,6 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -23637,7 +23771,7 @@ impl Instance {
     pub unsafe fn create_image_pipe_surface_fuchsia(
         &self,
         p_create_info: *const ImagePipeSurfaceCreateInfoFUCHSIA,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -23646,7 +23780,14 @@ impl Instance {
                 InstanceCommand::vkCreateImagePipeSurfaceFUCHSIA as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_surface,
+            )
+        }
     }
 }
 
@@ -23667,9 +23808,6 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -23685,7 +23823,7 @@ impl Instance {
     pub unsafe fn create_metal_surface_ext(
         &self,
         p_create_info: *const MetalSurfaceCreateInfoEXT,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -23694,7 +23832,14 @@ impl Instance {
                 InstanceCommand::vkCreateMetalSurfaceEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_surface,
+            )
+        }
     }
 }
 
@@ -23745,9 +23890,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_tool_properties
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -23762,7 +23904,7 @@ impl PhysicalDevice {
     pub unsafe fn get_tool_properties_ext(
         &self,
         p_tool_count: *mut u32,
-        p_tool_properties: *mut PhysicalDeviceToolProperties,
+        p_tool_properties: Option<*mut PhysicalDeviceToolProperties>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceToolPropertiesEXT>(
@@ -23772,7 +23914,13 @@ impl PhysicalDevice {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_tool_count, p_tool_properties) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_tool_count,
+                p_tool_properties.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -23792,9 +23940,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_properties
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -23810,7 +23955,7 @@ impl PhysicalDevice {
     pub unsafe fn get_cooperative_matrix_properties_nv(
         &self,
         p_property_count: *mut u32,
-        p_properties: *mut CooperativeMatrixPropertiesNV,
+        p_properties: Option<*mut CooperativeMatrixPropertiesNV>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceCooperativeMatrixPropertiesNV>(
@@ -23820,7 +23965,13 @@ impl PhysicalDevice {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_property_count, p_properties) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_property_count,
+                p_properties.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -23841,9 +23992,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_combinations
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -23859,7 +24007,7 @@ impl PhysicalDevice {
     pub unsafe fn get_supported_framebuffer_mixed_samples_combinations_nv(
         &self,
         p_combination_count: *mut u32,
-        p_combinations: *mut FramebufferMixedSamplesCombinationNV,
+        p_combinations: Option<*mut FramebufferMixedSamplesCombinationNV>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<
@@ -23871,7 +24019,13 @@ impl PhysicalDevice {
                     as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_combination_count, p_combinations) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_combination_count,
+                p_combinations.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -23892,9 +24046,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_present_modes
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -23912,7 +24063,7 @@ impl PhysicalDevice {
         &self,
         p_surface_info: *const PhysicalDeviceSurfaceInfo2KHR,
         p_present_mode_count: *mut u32,
-        p_present_modes: *mut PresentModeKHR,
+        p_present_modes: Option<*mut PresentModeKHR>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSurfacePresentModes2EXT>(
@@ -23927,7 +24078,7 @@ impl PhysicalDevice {
                 self.handle,
                 p_surface_info,
                 p_present_mode_count,
-                p_present_modes,
+                p_present_modes.unwrap_or_default(),
             )
         }
     }
@@ -24074,9 +24225,6 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -24091,7 +24239,7 @@ impl Instance {
     pub unsafe fn create_headless_surface_ext(
         &self,
         p_create_info: *const HeadlessSurfaceCreateInfoEXT,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -24100,7 +24248,14 @@ impl Instance {
                 InstanceCommand::vkCreateHeadlessSurfaceEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_surface,
+            )
+        }
     }
 }
 
@@ -24189,9 +24344,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - cull_mode
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -24204,14 +24356,14 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetCullModeEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_cull_mode_ext(&self, cull_mode: CullModeFlags) {
+    pub unsafe fn cmd_set_cull_mode_ext(&self, cull_mode: Option<CullModeFlags>) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetCullModeEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetCullModeEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, cull_mode) }
+        unsafe { (command)(self.handle, cull_mode.unwrap_or_default()) }
     }
 }
 
@@ -24396,10 +24548,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_sizes
-    /// - p_strides
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -24424,8 +24572,8 @@ impl CommandBuffer {
         binding_count: u32,
         p_buffers: *const Buffer,
         p_offsets: *const DeviceSize,
-        p_sizes: *const DeviceSize,
-        p_strides: *const DeviceSize,
+        p_sizes: Option<*const DeviceSize>,
+        p_strides: Option<*const DeviceSize>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindVertexBuffers2EXT>(vtable_get(
@@ -24440,8 +24588,8 @@ impl CommandBuffer {
                 binding_count,
                 p_buffers,
                 p_offsets,
-                p_sizes,
-                p_strides,
+                p_sizes.unwrap_or_default(),
+                p_strides.unwrap_or_default(),
             )
         }
     }
@@ -25104,9 +25252,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -25121,7 +25266,7 @@ impl Device {
     pub unsafe fn create_indirect_commands_layout_nv(
         &self,
         p_create_info: *const IndirectCommandsLayoutCreateInfoNV,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_indirect_commands_layout: *mut IndirectCommandsLayoutNV,
     ) -> ResultCode {
         let command = unsafe {
@@ -25134,7 +25279,7 @@ impl Device {
             (command)(
                 self.handle,
                 p_create_info,
-                p_allocator,
+                p_allocator.unwrap_or_default(),
                 p_indirect_commands_layout,
             )
         }
@@ -25154,16 +25299,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - indirect_commands_layout
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyIndirectCommandsLayoutNV")]
     #[inline(always)]
     pub unsafe fn destroy_indirect_commands_layout_nv(
         &self,
-        indirect_commands_layout: IndirectCommandsLayoutNV,
-        p_allocator: *const AllocationCallbacks,
+        indirect_commands_layout: Option<IndirectCommandsLayoutNV>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyIndirectCommandsLayoutNV>(vtable_get(
@@ -25171,7 +25312,13 @@ impl Device {
                 InstanceCommand::vkDestroyIndirectCommandsLayoutNV as usize,
             ))
         };
-        unsafe { (command)(self.handle, indirect_commands_layout, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                indirect_commands_layout.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -25303,9 +25450,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -25319,7 +25463,7 @@ impl Device {
     pub unsafe fn create_private_data_slot_ext(
         &self,
         p_create_info: *const PrivateDataSlotCreateInfo,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_private_data_slot: *mut PrivateDataSlot,
     ) -> ResultCode {
         let command = unsafe {
@@ -25328,7 +25472,14 @@ impl Device {
                 InstanceCommand::vkCreatePrivateDataSlotEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_private_data_slot) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_private_data_slot,
+            )
+        }
     }
 }
 
@@ -25346,16 +25497,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - private_data_slot
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyPrivateDataSlotEXT")]
     #[inline(always)]
     pub unsafe fn destroy_private_data_slot_ext(
         &self,
-        private_data_slot: PrivateDataSlot,
-        p_allocator: *const AllocationCallbacks,
+        private_data_slot: Option<PrivateDataSlot>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyPrivateDataSlotEXT>(vtable_get(
@@ -25363,7 +25510,13 @@ impl Device {
                 InstanceCommand::vkDestroyPrivateDataSlotEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, private_data_slot, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                private_data_slot.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -25511,9 +25664,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -25528,7 +25678,7 @@ impl Device {
     pub unsafe fn create_cuda_module_nv(
         &self,
         p_create_info: *const CudaModuleCreateInfoNV,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_module: *mut CudaModuleNV,
     ) -> ResultCode {
         let command = unsafe {
@@ -25537,7 +25687,14 @@ impl Device {
                 InstanceCommand::vkCreateCudaModuleNV as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_module) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_module,
+            )
+        }
     }
 }
 
@@ -25554,9 +25711,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_cache_data
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -25572,7 +25726,7 @@ impl Device {
         &self,
         module: CudaModuleNV,
         p_cache_size: *mut usize,
-        p_cache_data: *mut c_void,
+        p_cache_data: Option<*mut c_void>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetCudaModuleCacheNV>(vtable_get(
@@ -25580,7 +25734,14 @@ impl Device {
                 InstanceCommand::vkGetCudaModuleCacheNV as usize,
             ))
         };
-        unsafe { (command)(self.handle, module, p_cache_size, p_cache_data) }
+        unsafe {
+            (command)(
+                self.handle,
+                module,
+                p_cache_size,
+                p_cache_data.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -25601,9 +25762,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -25618,7 +25776,7 @@ impl Device {
     pub unsafe fn create_cuda_function_nv(
         &self,
         p_create_info: *const CudaFunctionCreateInfoNV,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_function: *mut CudaFunctionNV,
     ) -> ResultCode {
         let command = unsafe {
@@ -25627,7 +25785,14 @@ impl Device {
                 InstanceCommand::vkCreateCudaFunctionNV as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_function) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_function,
+            )
+        }
     }
 }
 
@@ -25644,15 +25809,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyCudaModuleNV")]
     #[inline(always)]
     pub unsafe fn destroy_cuda_module_nv(
         &self,
         module: CudaModuleNV,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyCudaModuleNV>(vtable_get(
@@ -25660,7 +25822,7 @@ impl Device {
                 InstanceCommand::vkDestroyCudaModuleNV as usize,
             ))
         };
-        unsafe { (command)(self.handle, module, p_allocator) }
+        unsafe { (command)(self.handle, module, p_allocator.unwrap_or_default()) }
     }
 }
 
@@ -25677,15 +25839,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyCudaFunctionNV")]
     #[inline(always)]
     pub unsafe fn destroy_cuda_function_nv(
         &self,
         function: CudaFunctionNV,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyCudaFunctionNV>(vtable_get(
@@ -25693,7 +25852,7 @@ impl Device {
                 InstanceCommand::vkDestroyCudaFunctionNV as usize,
             ))
         };
-        unsafe { (command)(self.handle, function, p_allocator) }
+        unsafe { (command)(self.handle, function, p_allocator.unwrap_or_default()) }
     }
 }
 
@@ -26653,9 +26812,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_fault_info
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -26670,7 +26826,7 @@ impl Device {
     pub unsafe fn get_device_fault_info_ext(
         &self,
         p_fault_counts: *mut DeviceFaultCountsEXT,
-        p_fault_info: *mut DeviceFaultInfoEXT,
+        p_fault_info: Option<*mut DeviceFaultInfoEXT>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceFaultInfoEXT>(vtable_get(
@@ -26678,7 +26834,13 @@ impl Device {
                 InstanceCommand::vkGetDeviceFaultInfoEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_fault_counts, p_fault_info) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_fault_counts,
+                p_fault_info.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -26775,9 +26937,6 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -26792,7 +26951,7 @@ impl Instance {
     pub unsafe fn create_direct_fb_surface_ext(
         &self,
         p_create_info: *const DirectFBSurfaceCreateInfoEXT,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -26801,7 +26960,14 @@ impl Instance {
                 InstanceCommand::vkCreateDirectFBSurfaceEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_surface,
+            )
+        }
     }
 }
 
@@ -26856,10 +27022,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - vertex_binding_description_count
-    /// - vertex_attribute_description_count
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -26874,9 +27036,9 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_vertex_input_ext(
         &self,
-        vertex_binding_description_count: u32,
+        vertex_binding_description_count: Option<u32>,
         p_vertex_binding_descriptions: *const VertexInputBindingDescription2EXT,
-        vertex_attribute_description_count: u32,
+        vertex_attribute_description_count: Option<u32>,
         p_vertex_attribute_descriptions: *const VertexInputAttributeDescription2EXT,
     ) {
         let command = unsafe {
@@ -26888,9 +27050,9 @@ impl CommandBuffer {
         unsafe {
             (command)(
                 self.handle,
-                vertex_binding_description_count,
+                vertex_binding_description_count.unwrap_or_default(),
                 p_vertex_binding_descriptions,
-                vertex_attribute_description_count,
+                vertex_attribute_description_count.unwrap_or_default(),
                 p_vertex_attribute_descriptions,
             )
         }
@@ -27090,9 +27252,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -27108,7 +27267,7 @@ impl Device {
     pub unsafe fn create_buffer_collection_fuchsia(
         &self,
         p_create_info: *const BufferCollectionCreateInfoFUCHSIA,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_collection: *mut BufferCollectionFUCHSIA,
     ) -> ResultCode {
         let command = unsafe {
@@ -27117,7 +27276,14 @@ impl Device {
                 InstanceCommand::vkCreateBufferCollectionFUCHSIA as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_collection) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_collection,
+            )
+        }
     }
 }
 
@@ -27224,15 +27390,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyBufferCollectionFUCHSIA")]
     #[inline(always)]
     pub unsafe fn destroy_buffer_collection_fuchsia(
         &self,
         collection: BufferCollectionFUCHSIA,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyBufferCollectionFUCHSIA>(vtable_get(
@@ -27240,7 +27403,7 @@ impl Device {
                 InstanceCommand::vkDestroyBufferCollectionFUCHSIA as usize,
             ))
         };
-        unsafe { (command)(self.handle, collection, p_allocator) }
+        unsafe { (command)(self.handle, collection, p_allocator.unwrap_or_default()) }
     }
 }
 
@@ -27378,9 +27541,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - image_view
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -27395,7 +27555,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_bind_invocation_mask_huawei(
         &self,
-        image_view: ImageView,
+        image_view: Option<ImageView>,
         image_layout: ImageLayout,
     ) {
         let command = unsafe {
@@ -27404,7 +27564,7 @@ impl CommandBuffer {
                 InstanceCommand::vkCmdBindInvocationMaskHUAWEI as usize,
             ))
         };
-        unsafe { (command)(self.handle, image_view, image_layout) }
+        unsafe { (command)(self.handle, image_view.unwrap_or_default(), image_layout) }
     }
 }
 
@@ -27689,9 +27849,6 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -27706,7 +27863,7 @@ impl Instance {
     pub unsafe fn create_screen_surface_qnx(
         &self,
         p_create_info: *const ScreenSurfaceCreateInfoQNX,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -27715,7 +27872,14 @@ impl Instance {
                 InstanceCommand::vkCreateScreenSurfaceQNX as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_surface,
+            )
+        }
     }
 }
 
@@ -27804,9 +27968,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - draw_count
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -27821,7 +27982,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_draw_multi_ext(
         &self,
-        draw_count: u32,
+        draw_count: Option<u32>,
         p_vertex_info: *const MultiDrawInfoEXT,
         instance_count: u32,
         first_instance: u32,
@@ -27836,7 +27997,7 @@ impl CommandBuffer {
         unsafe {
             (command)(
                 self.handle,
-                draw_count,
+                draw_count.unwrap_or_default(),
                 p_vertex_info,
                 instance_count,
                 first_instance,
@@ -27866,10 +28027,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - draw_count
-    /// - p_vertex_offset
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -27884,12 +28041,12 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_draw_multi_indexed_ext(
         &self,
-        draw_count: u32,
+        draw_count: Option<u32>,
         p_index_info: *const MultiDrawIndexedInfoEXT,
         instance_count: u32,
         first_instance: u32,
         stride: u32,
-        p_vertex_offset: *const i32,
+        p_vertex_offset: Option<*const i32>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawMultiIndexedEXT>(vtable_get(
@@ -27900,12 +28057,12 @@ impl CommandBuffer {
         unsafe {
             (command)(
                 self.handle,
-                draw_count,
+                draw_count.unwrap_or_default(),
                 p_index_info,
                 instance_count,
                 first_instance,
                 stride,
-                p_vertex_offset,
+                p_vertex_offset.unwrap_or_default(),
             )
         }
     }
@@ -27929,9 +28086,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -27946,7 +28100,7 @@ impl Device {
     pub unsafe fn create_micromap_ext(
         &self,
         p_create_info: *const MicromapCreateInfoEXT,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_micromap: *mut MicromapEXT,
     ) -> ResultCode {
         let command = unsafe {
@@ -27955,7 +28109,14 @@ impl Device {
                 InstanceCommand::vkCreateMicromapEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_micromap) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_micromap,
+            )
+        }
     }
 }
 
@@ -27973,16 +28134,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - micromap
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyMicromapEXT")]
     #[inline(always)]
     pub unsafe fn destroy_micromap_ext(
         &self,
-        micromap: MicromapEXT,
-        p_allocator: *const AllocationCallbacks,
+        micromap: Option<MicromapEXT>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyMicromapEXT>(vtable_get(
@@ -27990,7 +28147,13 @@ impl Device {
                 InstanceCommand::vkDestroyMicromapEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, micromap, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                micromap.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -28053,9 +28216,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - deferred_operation
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -28077,7 +28237,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn build_micromaps_ext(
         &self,
-        deferred_operation: DeferredOperationKHR,
+        deferred_operation: Option<DeferredOperationKHR>,
         info_count: u32,
         p_infos: *const MicromapBuildInfoEXT,
     ) -> ResultCode {
@@ -28087,7 +28247,14 @@ impl Device {
                 InstanceCommand::vkBuildMicromapsEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, deferred_operation, info_count, p_infos) }
+        unsafe {
+            (command)(
+                self.handle,
+                deferred_operation.unwrap_or_default(),
+                info_count,
+                p_infos,
+            )
+        }
     }
 }
 
@@ -28107,9 +28274,6 @@ impl Device {
     /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
-    ///
-    /// # Optional parameters
-    /// - deferred_operation
     ///
     /// # Result codes
     /// ## Success
@@ -28132,7 +28296,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn copy_micromap_ext(
         &self,
-        deferred_operation: DeferredOperationKHR,
+        deferred_operation: Option<DeferredOperationKHR>,
         p_info: *const CopyMicromapInfoEXT,
     ) -> ResultCode {
         let command = unsafe {
@@ -28141,7 +28305,7 @@ impl Device {
                 InstanceCommand::vkCopyMicromapEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, deferred_operation, p_info) }
+        unsafe { (command)(self.handle, deferred_operation.unwrap_or_default(), p_info) }
     }
 }
 
@@ -28161,9 +28325,6 @@ impl Device {
     /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
-    ///
-    /// # Optional parameters
-    /// - deferred_operation
     ///
     /// # Result codes
     /// ## Success
@@ -28186,7 +28347,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn copy_micromap_to_memory_ext(
         &self,
-        deferred_operation: DeferredOperationKHR,
+        deferred_operation: Option<DeferredOperationKHR>,
         p_info: *const CopyMicromapToMemoryInfoEXT,
     ) -> ResultCode {
         let command = unsafe {
@@ -28195,7 +28356,7 @@ impl Device {
                 InstanceCommand::vkCopyMicromapToMemoryEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, deferred_operation, p_info) }
+        unsafe { (command)(self.handle, deferred_operation.unwrap_or_default(), p_info) }
     }
 }
 
@@ -28215,9 +28376,6 @@ impl Device {
     /// - Extension [`KHR_OpacityMicromap`](Extension::KHR_OpacityMicromap)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
-    ///
-    /// # Optional parameters
-    /// - deferred_operation
     ///
     /// # Result codes
     /// ## Success
@@ -28240,7 +28398,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn copy_memory_to_micromap_ext(
         &self,
-        deferred_operation: DeferredOperationKHR,
+        deferred_operation: Option<DeferredOperationKHR>,
         p_info: *const CopyMemoryToMicromapInfoEXT,
     ) -> ResultCode {
         let command = unsafe {
@@ -28249,7 +28407,7 @@ impl Device {
                 InstanceCommand::vkCopyMemoryToMicromapEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, deferred_operation, p_info) }
+        unsafe { (command)(self.handle, deferred_operation.unwrap_or_default(), p_info) }
     }
 }
 
@@ -29287,9 +29445,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_sample_mask
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -29305,7 +29460,7 @@ impl CommandBuffer {
     pub unsafe fn cmd_set_sample_mask_ext(
         &self,
         samples: SampleCountFlags,
-        p_sample_mask: *const SampleMask,
+        p_sample_mask: Option<*const SampleMask>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetSampleMaskEXT>(vtable_get(
@@ -29313,7 +29468,7 @@ impl CommandBuffer {
                 InstanceCommand::vkCmdSetSampleMaskEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, samples, p_sample_mask) }
+        unsafe { (command)(self.handle, samples, p_sample_mask.unwrap_or_default()) }
     }
 }
 
@@ -30428,9 +30583,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -30445,7 +30597,7 @@ impl Device {
     pub unsafe fn create_tensor_arm(
         &self,
         p_create_info: *const TensorCreateInfoARM,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_tensor: *mut TensorARM,
     ) -> ResultCode {
         let command = unsafe {
@@ -30454,7 +30606,14 @@ impl Device {
                 InstanceCommand::vkCreateTensorARM as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_tensor) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_tensor,
+            )
+        }
     }
 }
 
@@ -30471,16 +30630,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - tensor
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyTensorARM")]
     #[inline(always)]
     pub unsafe fn destroy_tensor_arm(
         &self,
-        tensor: TensorARM,
-        p_allocator: *const AllocationCallbacks,
+        tensor: Option<TensorARM>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyTensorARM>(vtable_get(
@@ -30488,7 +30643,13 @@ impl Device {
                 InstanceCommand::vkDestroyTensorARM as usize,
             ))
         };
-        unsafe { (command)(self.handle, tensor, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                tensor.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -30509,9 +30670,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -30526,7 +30684,7 @@ impl Device {
     pub unsafe fn create_tensor_view_arm(
         &self,
         p_create_info: *const TensorViewCreateInfoARM,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_view: *mut TensorViewARM,
     ) -> ResultCode {
         let command = unsafe {
@@ -30535,7 +30693,14 @@ impl Device {
                 InstanceCommand::vkCreateTensorViewARM as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_view) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_view,
+            )
+        }
     }
 }
 
@@ -30552,16 +30717,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - tensor_view
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyTensorViewARM")]
     #[inline(always)]
     pub unsafe fn destroy_tensor_view_arm(
         &self,
-        tensor_view: TensorViewARM,
-        p_allocator: *const AllocationCallbacks,
+        tensor_view: Option<TensorViewARM>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyTensorViewARM>(vtable_get(
@@ -30569,7 +30730,13 @@ impl Device {
                 InstanceCommand::vkDestroyTensorViewARM as usize,
             ))
         };
-        unsafe { (command)(self.handle, tensor_view, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                tensor_view.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -30928,9 +31095,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_image_format_properties
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -30948,7 +31112,7 @@ impl PhysicalDevice {
         &self,
         p_optical_flow_image_format_info: *const OpticalFlowImageFormatInfoNV,
         p_format_count: *mut u32,
-        p_image_format_properties: *mut OpticalFlowImageFormatPropertiesNV,
+        p_image_format_properties: Option<*mut OpticalFlowImageFormatPropertiesNV>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceOpticalFlowImageFormatsNV>(
@@ -30963,7 +31127,7 @@ impl PhysicalDevice {
                 self.handle,
                 p_optical_flow_image_format_info,
                 p_format_count,
-                p_image_format_properties,
+                p_image_format_properties.unwrap_or_default(),
             )
         }
     }
@@ -30986,9 +31150,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -31003,7 +31164,7 @@ impl Device {
     pub unsafe fn create_optical_flow_session_nv(
         &self,
         p_create_info: *const OpticalFlowSessionCreateInfoNV,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_session: *mut OpticalFlowSessionNV,
     ) -> ResultCode {
         let command = unsafe {
@@ -31012,7 +31173,14 @@ impl Device {
                 InstanceCommand::vkCreateOpticalFlowSessionNV as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_session) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_session,
+            )
+        }
     }
 }
 
@@ -31029,15 +31197,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyOpticalFlowSessionNV")]
     #[inline(always)]
     pub unsafe fn destroy_optical_flow_session_nv(
         &self,
         session: OpticalFlowSessionNV,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyOpticalFlowSessionNV>(vtable_get(
@@ -31045,7 +31210,7 @@ impl Device {
                 InstanceCommand::vkDestroyOpticalFlowSessionNV as usize,
             ))
         };
-        unsafe { (command)(self.handle, session, p_allocator) }
+        unsafe { (command)(self.handle, session, p_allocator.unwrap_or_default()) }
     }
 }
 
@@ -31067,9 +31232,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - view
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -31085,7 +31247,7 @@ impl Device {
         &self,
         session: OpticalFlowSessionNV,
         binding_point: OpticalFlowSessionBindingPointNV,
-        view: ImageView,
+        view: Option<ImageView>,
         layout: ImageLayout,
     ) -> ResultCode {
         let command = unsafe {
@@ -31094,7 +31256,15 @@ impl Device {
                 InstanceCommand::vkBindOpticalFlowSessionImageNV as usize,
             ))
         };
-        unsafe { (command)(self.handle, session, binding_point, view, layout) }
+        unsafe {
+            (command)(
+                self.handle,
+                session,
+                binding_point,
+                view.unwrap_or_default(),
+                layout,
+            )
+        }
     }
 }
 
@@ -31184,9 +31354,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -31204,7 +31371,7 @@ impl Device {
         &self,
         create_info_count: u32,
         p_create_infos: *const ShaderCreateInfoEXT,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_shaders: *mut ShaderEXT,
     ) -> ResultCode {
         let command = unsafe {
@@ -31218,7 +31385,7 @@ impl Device {
                 self.handle,
                 create_info_count,
                 p_create_infos,
-                p_allocator,
+                p_allocator.unwrap_or_default(),
                 p_shaders,
             )
         }
@@ -31238,16 +31405,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - shader
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyShaderEXT")]
     #[inline(always)]
     pub unsafe fn destroy_shader_ext(
         &self,
-        shader: ShaderEXT,
-        p_allocator: *const AllocationCallbacks,
+        shader: Option<ShaderEXT>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyShaderEXT>(vtable_get(
@@ -31255,7 +31418,13 @@ impl Device {
                 InstanceCommand::vkDestroyShaderEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, shader, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                shader.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -31271,9 +31440,6 @@ impl Device {
     /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
-    ///
-    /// # Optional parameters
-    /// - p_data
     ///
     /// # Result codes
     /// ## Success
@@ -31291,7 +31457,7 @@ impl Device {
         &self,
         shader: ShaderEXT,
         p_data_size: *mut usize,
-        p_data: *mut c_void,
+        p_data: Option<*mut c_void>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetShaderBinaryDataEXT>(vtable_get(
@@ -31299,7 +31465,7 @@ impl Device {
                 InstanceCommand::vkGetShaderBinaryDataEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, shader, p_data_size, p_data) }
+        unsafe { (command)(self.handle, shader, p_data_size, p_data.unwrap_or_default()) }
     }
 }
 
@@ -31315,9 +31481,6 @@ impl CommandBuffer {
     /// - Extension [`EXT_ShaderObject`](Extension::EXT_ShaderObject)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
-    ///
-    /// # Optional parameters
-    /// - p_shaders
     ///
     /// # Performed tasks
     /// - `state`
@@ -31336,7 +31499,7 @@ impl CommandBuffer {
         &self,
         stage_count: u32,
         p_stages: *const ShaderStageFlags,
-        p_shaders: *const ShaderEXT,
+        p_shaders: Option<*const ShaderEXT>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindShadersEXT>(vtable_get(
@@ -31344,7 +31507,14 @@ impl CommandBuffer {
                 InstanceCommand::vkCmdBindShadersEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, stage_count, p_stages, p_shaders) }
+        unsafe {
+            (command)(
+                self.handle,
+                stage_count,
+                p_stages,
+                p_shaders.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -31362,9 +31532,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_depth_clamp_range
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -31380,7 +31547,7 @@ impl CommandBuffer {
     pub unsafe fn cmd_set_depth_clamp_range_ext(
         &self,
         depth_clamp_mode: DepthClampModeEXT,
-        p_depth_clamp_range: *const DepthClampRangeEXT,
+        p_depth_clamp_range: Option<*const DepthClampRangeEXT>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthClampRangeEXT>(vtable_get(
@@ -31388,7 +31555,13 @@ impl CommandBuffer {
                 InstanceCommand::vkCmdSetDepthClampRangeEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, depth_clamp_mode, p_depth_clamp_range) }
+        unsafe {
+            (command)(
+                self.handle,
+                depth_clamp_mode,
+                p_depth_clamp_range.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -31409,9 +31582,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_properties
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -31426,7 +31596,7 @@ impl Device {
         &self,
         framebuffer: Framebuffer,
         p_properties_count: *mut u32,
-        p_properties: *mut TilePropertiesQCOM,
+        p_properties: Option<*mut TilePropertiesQCOM>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetFramebufferTilePropertiesQCOM>(vtable_get(
@@ -31434,7 +31604,14 @@ impl Device {
                 InstanceCommand::vkGetFramebufferTilePropertiesQCOM as usize,
             ))
         };
-        unsafe { (command)(self.handle, framebuffer, p_properties_count, p_properties) }
+        unsafe {
+            (command)(
+                self.handle,
+                framebuffer,
+                p_properties_count,
+                p_properties.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -31493,9 +31670,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_properties
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -31511,7 +31685,7 @@ impl PhysicalDevice {
     pub unsafe fn get_cooperative_vector_properties_nv(
         &self,
         p_property_count: *mut u32,
-        p_properties: *mut CooperativeVectorPropertiesNV,
+        p_properties: Option<*mut CooperativeVectorPropertiesNV>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceCooperativeVectorPropertiesNV>(
@@ -31521,7 +31695,13 @@ impl PhysicalDevice {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_property_count, p_properties) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_property_count,
+                p_properties.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -31787,11 +31967,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - deferred_operation
-    /// - pipeline_cache
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -31806,11 +31981,11 @@ impl Device {
     #[inline(always)]
     pub unsafe fn create_data_graph_pipelines_arm(
         &self,
-        deferred_operation: DeferredOperationKHR,
-        pipeline_cache: PipelineCache,
+        deferred_operation: Option<DeferredOperationKHR>,
+        pipeline_cache: Option<PipelineCache>,
         create_info_count: u32,
         p_create_infos: *const DataGraphPipelineCreateInfoARM,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_pipelines: *mut Pipeline,
     ) -> ResultCode {
         let command = unsafe {
@@ -31822,11 +31997,11 @@ impl Device {
         unsafe {
             (command)(
                 self.handle,
-                deferred_operation,
-                pipeline_cache,
+                deferred_operation.unwrap_or_default(),
+                pipeline_cache.unwrap_or_default(),
                 create_info_count,
                 p_create_infos,
-                p_allocator,
+                p_allocator.unwrap_or_default(),
                 p_pipelines,
             )
         }
@@ -31850,9 +32025,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -31867,7 +32039,7 @@ impl Device {
     pub unsafe fn create_data_graph_pipeline_session_arm(
         &self,
         p_create_info: *const DataGraphPipelineSessionCreateInfoARM,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_session: *mut DataGraphPipelineSessionARM,
     ) -> ResultCode {
         let command = unsafe {
@@ -31876,7 +32048,14 @@ impl Device {
                 InstanceCommand::vkCreateDataGraphPipelineSessionARM as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_session) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_session,
+            )
+        }
     }
 }
 
@@ -31898,9 +32077,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_bind_point_requirements
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -31917,7 +32093,7 @@ impl Device {
         &self,
         p_info: *const DataGraphPipelineSessionBindPointRequirementsInfoARM,
         p_bind_point_requirement_count: *mut u32,
-        p_bind_point_requirements: *mut DataGraphPipelineSessionBindPointRequirementARM,
+        p_bind_point_requirements: Option<*mut DataGraphPipelineSessionBindPointRequirementARM>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<
@@ -31933,7 +32109,7 @@ impl Device {
                 self.handle,
                 p_info,
                 p_bind_point_requirement_count,
-                p_bind_point_requirements,
+                p_bind_point_requirements.unwrap_or_default(),
             )
         }
     }
@@ -32031,15 +32207,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyDataGraphPipelineSessionARM")]
     #[inline(always)]
     pub unsafe fn destroy_data_graph_pipeline_session_arm(
         &self,
         session: DataGraphPipelineSessionARM,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyDataGraphPipelineSessionARM>(
@@ -32049,7 +32222,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, session, p_allocator) }
+        unsafe { (command)(self.handle, session, p_allocator.unwrap_or_default()) }
     }
 }
 
@@ -32069,9 +32242,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_info
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -32087,7 +32257,7 @@ impl CommandBuffer {
     pub unsafe fn cmd_dispatch_data_graph_arm(
         &self,
         session: DataGraphPipelineSessionARM,
-        p_info: *const DataGraphPipelineDispatchInfoARM,
+        p_info: Option<*const DataGraphPipelineDispatchInfoARM>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDispatchDataGraphARM>(vtable_get(
@@ -32095,7 +32265,7 @@ impl CommandBuffer {
                 InstanceCommand::vkCmdDispatchDataGraphARM as usize,
             ))
         };
-        unsafe { (command)(self.handle, session, p_info) }
+        unsafe { (command)(self.handle, session, p_info.unwrap_or_default()) }
     }
 }
 
@@ -32116,9 +32286,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_properties
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -32135,7 +32302,7 @@ impl Device {
         &self,
         p_pipeline_info: *const DataGraphPipelineInfoARM,
         p_properties_count: *mut u32,
-        p_properties: *mut DataGraphPipelinePropertyARM,
+        p_properties: Option<*mut DataGraphPipelinePropertyARM>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDataGraphPipelineAvailablePropertiesARM>(
@@ -32150,7 +32317,7 @@ impl Device {
                 self.handle,
                 p_pipeline_info,
                 p_properties_count,
-                p_properties,
+                p_properties.unwrap_or_default(),
             )
         }
     }
@@ -32219,9 +32386,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_queue_family_data_graph_properties
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -32238,7 +32402,7 @@ impl PhysicalDevice {
         &self,
         queue_family_index: u32,
         p_queue_family_data_graph_property_count: *mut u32,
-        p_queue_family_data_graph_properties: *mut QueueFamilyDataGraphPropertiesARM,
+        p_queue_family_data_graph_properties: Option<*mut QueueFamilyDataGraphPropertiesARM>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<
@@ -32254,7 +32418,7 @@ impl PhysicalDevice {
                 self.handle,
                 queue_family_index,
                 p_queue_family_data_graph_property_count,
-                p_queue_family_data_graph_properties,
+                p_queue_family_data_graph_properties.unwrap_or_default(),
             )
         }
     }
@@ -32367,9 +32531,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - aspect_mask
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -32384,7 +32545,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_attachment_feedback_loop_enable_ext(
         &self,
-        aspect_mask: ImageAspectFlags,
+        aspect_mask: Option<ImageAspectFlags>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetAttachmentFeedbackLoopEnableEXT>(
@@ -32394,7 +32555,7 @@ impl CommandBuffer {
                 ),
             )
         };
-        unsafe { (command)(self.handle, aspect_mask) }
+        unsafe { (command)(self.handle, aspect_mask.unwrap_or_default()) }
     }
 }
 
@@ -32453,9 +32614,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_tile_memory_bind_info
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -32471,7 +32629,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_bind_tile_memory_qcom(
         &self,
-        p_tile_memory_bind_info: *const TileMemoryBindInfoQCOM,
+        p_tile_memory_bind_info: Option<*const TileMemoryBindInfoQCOM>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindTileMemoryQCOM>(vtable_get(
@@ -32479,7 +32637,7 @@ impl CommandBuffer {
                 InstanceCommand::vkCmdBindTileMemoryQCOM as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_tile_memory_bind_info) }
+        unsafe { (command)(self.handle, p_tile_memory_bind_info.unwrap_or_default()) }
     }
 }
 
@@ -32601,9 +32759,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -32618,7 +32773,7 @@ impl Device {
     pub unsafe fn create_external_compute_queue_nv(
         &self,
         p_create_info: *const ExternalComputeQueueCreateInfoNV,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_external_queue: *mut ExternalComputeQueueNV,
     ) -> ResultCode {
         let command = unsafe {
@@ -32627,7 +32782,14 @@ impl Device {
                 InstanceCommand::vkCreateExternalComputeQueueNV as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_external_queue) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_external_queue,
+            )
+        }
     }
 }
 
@@ -32644,15 +32806,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyExternalComputeQueueNV")]
     #[inline(always)]
     pub unsafe fn destroy_external_compute_queue_nv(
         &self,
         external_queue: ExternalComputeQueueNV,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyExternalComputeQueueNV>(vtable_get(
@@ -32660,7 +32819,7 @@ impl Device {
                 InstanceCommand::vkDestroyExternalComputeQueueNV as usize,
             ))
         };
-        unsafe { (command)(self.handle, external_queue, p_allocator) }
+        unsafe { (command)(self.handle, external_queue, p_allocator.unwrap_or_default()) }
     }
 }
 
@@ -32984,9 +33143,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -33001,7 +33157,7 @@ impl Device {
     pub unsafe fn create_indirect_commands_layout_ext(
         &self,
         p_create_info: *const IndirectCommandsLayoutCreateInfoEXT,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_indirect_commands_layout: *mut IndirectCommandsLayoutEXT,
     ) -> ResultCode {
         let command = unsafe {
@@ -33014,7 +33170,7 @@ impl Device {
             (command)(
                 self.handle,
                 p_create_info,
-                p_allocator,
+                p_allocator.unwrap_or_default(),
                 p_indirect_commands_layout,
             )
         }
@@ -33034,16 +33190,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - indirect_commands_layout
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyIndirectCommandsLayoutEXT")]
     #[inline(always)]
     pub unsafe fn destroy_indirect_commands_layout_ext(
         &self,
-        indirect_commands_layout: IndirectCommandsLayoutEXT,
-        p_allocator: *const AllocationCallbacks,
+        indirect_commands_layout: Option<IndirectCommandsLayoutEXT>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyIndirectCommandsLayoutEXT>(vtable_get(
@@ -33051,7 +33203,13 @@ impl Device {
                 InstanceCommand::vkDestroyIndirectCommandsLayoutEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, indirect_commands_layout, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                indirect_commands_layout.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -33072,9 +33230,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -33089,7 +33244,7 @@ impl Device {
     pub unsafe fn create_indirect_execution_set_ext(
         &self,
         p_create_info: *const IndirectExecutionSetCreateInfoEXT,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_indirect_execution_set: *mut IndirectExecutionSetEXT,
     ) -> ResultCode {
         let command = unsafe {
@@ -33102,7 +33257,7 @@ impl Device {
             (command)(
                 self.handle,
                 p_create_info,
-                p_allocator,
+                p_allocator.unwrap_or_default(),
                 p_indirect_execution_set,
             )
         }
@@ -33122,16 +33277,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - indirect_execution_set
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyIndirectExecutionSetEXT")]
     #[inline(always)]
     pub unsafe fn destroy_indirect_execution_set_ext(
         &self,
-        indirect_execution_set: IndirectExecutionSetEXT,
-        p_allocator: *const AllocationCallbacks,
+        indirect_execution_set: Option<IndirectExecutionSetEXT>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyIndirectExecutionSetEXT>(vtable_get(
@@ -33139,7 +33290,13 @@ impl Device {
                 InstanceCommand::vkDestroyIndirectExecutionSetEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, indirect_execution_set, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                indirect_execution_set.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -33248,9 +33405,6 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -33265,7 +33419,7 @@ impl Instance {
     pub unsafe fn create_surface_ohos(
         &self,
         p_create_info: *const SurfaceCreateInfoOHOS,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -33274,7 +33428,14 @@ impl Instance {
                 InstanceCommand::vkCreateSurfaceOHOS as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_surface,
+            )
+        }
     }
 }
 
@@ -33295,9 +33456,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_properties
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -33313,7 +33471,7 @@ impl PhysicalDevice {
     pub unsafe fn get_cooperative_matrix_flexible_dimensions_properties_nv(
         &self,
         p_property_count: *mut u32,
-        p_properties: *mut CooperativeMatrixFlexibleDimensionsPropertiesNV,
+        p_properties: Option<*mut CooperativeMatrixFlexibleDimensionsPropertiesNV>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<
@@ -33325,7 +33483,13 @@ impl PhysicalDevice {
                     as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_property_count, p_properties) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_property_count,
+                p_properties.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -33441,10 +33605,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_counters
-    /// - p_counter_descriptions
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -33462,8 +33622,8 @@ impl PhysicalDevice {
         &self,
         queue_family_index: u32,
         p_counter_count: *mut u32,
-        p_counters: *mut PerformanceCounterARM,
-        p_counter_descriptions: *mut PerformanceCounterDescriptionARM,
+        p_counters: Option<*mut PerformanceCounterARM>,
+        p_counter_descriptions: Option<*mut PerformanceCounterDescriptionARM>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<
@@ -33480,8 +33640,8 @@ impl PhysicalDevice {
                 self.handle,
                 queue_family_index,
                 p_counter_count,
-                p_counters,
-                p_counter_descriptions,
+                p_counters.unwrap_or_default(),
+                p_counter_descriptions.unwrap_or_default(),
             )
         }
     }
@@ -33504,9 +33664,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_descriptions
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -33523,7 +33680,7 @@ impl PhysicalDevice {
     pub unsafe fn enumerate_shader_instrumentation_metrics_arm(
         &self,
         p_description_count: *mut u32,
-        p_descriptions: *mut ShaderInstrumentationMetricDescriptionARM,
+        p_descriptions: Option<*mut ShaderInstrumentationMetricDescriptionARM>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<
@@ -33534,7 +33691,13 @@ impl PhysicalDevice {
                 InstanceCommand::vkEnumeratePhysicalDeviceShaderInstrumentationMetricsARM as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_description_count, p_descriptions) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_description_count,
+                p_descriptions.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -33555,9 +33718,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -33572,7 +33732,7 @@ impl Device {
     pub unsafe fn create_shader_instrumentation_arm(
         &self,
         p_create_info: *const ShaderInstrumentationCreateInfoARM,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_instrumentation: *mut ShaderInstrumentationARM,
     ) -> ResultCode {
         let command = unsafe {
@@ -33581,7 +33741,14 @@ impl Device {
                 InstanceCommand::vkCreateShaderInstrumentationARM as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_instrumentation) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_instrumentation,
+            )
+        }
     }
 }
 
@@ -33598,16 +33765,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - instrumentation
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyShaderInstrumentationARM")]
     #[inline(always)]
     pub unsafe fn destroy_shader_instrumentation_arm(
         &self,
-        instrumentation: ShaderInstrumentationARM,
-        p_allocator: *const AllocationCallbacks,
+        instrumentation: Option<ShaderInstrumentationARM>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyShaderInstrumentationARM>(vtable_get(
@@ -33615,7 +33778,13 @@ impl Device {
                 InstanceCommand::vkDestroyShaderInstrumentationARM as usize,
             ))
         };
-        unsafe { (command)(self.handle, instrumentation, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                instrumentation.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -33717,10 +33886,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_metric_values
-    /// - flags
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -33737,8 +33902,8 @@ impl Device {
         &self,
         instrumentation: ShaderInstrumentationARM,
         p_metric_block_count: *mut u32,
-        p_metric_values: *mut c_void,
-        flags: ShaderInstrumentationValuesFlagsARM,
+        p_metric_values: Option<*mut c_void>,
+        flags: Option<ShaderInstrumentationValuesFlagsARM>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetShaderInstrumentationValuesARM>(vtable_get(
@@ -33751,8 +33916,8 @@ impl Device {
                 self.handle,
                 instrumentation,
                 p_metric_block_count,
-                p_metric_values,
-                flags,
+                p_metric_values.unwrap_or_default(),
+                flags.unwrap_or_default(),
             )
         }
     }
@@ -33802,9 +33967,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_rendering_end_info
-    ///
     /// # Performed tasks
     /// - `action`
     /// - `state`
@@ -33818,14 +33980,17 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdEndRendering2EXT")]
     #[inline(always)]
-    pub unsafe fn cmd_end_rendering_2_ext(&self, p_rendering_end_info: *const RenderingEndInfoKHR) {
+    pub unsafe fn cmd_end_rendering_2_ext(
+        &self,
+        p_rendering_end_info: Option<*const RenderingEndInfoKHR>,
+    ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdEndRendering2EXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdEndRendering2EXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_rendering_end_info) }
+        unsafe { (command)(self.handle, p_rendering_end_info.unwrap_or_default()) }
     }
 }
 
@@ -33842,9 +34007,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_begin_custom_resolve_info
-    ///
     /// # Performed tasks
     /// - `action`
     ///
@@ -33859,7 +34021,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_begin_custom_resolve_ext(
         &self,
-        p_begin_custom_resolve_info: *const BeginCustomResolveInfoEXT,
+        p_begin_custom_resolve_info: Option<*const BeginCustomResolveInfoEXT>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBeginCustomResolveEXT>(vtable_get(
@@ -33867,7 +34029,7 @@ impl CommandBuffer {
                 InstanceCommand::vkCmdBeginCustomResolveEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_begin_custom_resolve_info) }
+        unsafe { (command)(self.handle, p_begin_custom_resolve_info.unwrap_or_default()) }
     }
 }
 
@@ -33891,9 +34053,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_image_format_properties
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -33913,7 +34072,7 @@ impl PhysicalDevice {
         p_queue_family_data_graph_properties: *const QueueFamilyDataGraphPropertiesARM,
         p_optical_flow_image_format_info: *const DataGraphOpticalFlowImageFormatInfoARM,
         p_format_count: *mut u32,
-        p_image_format_properties: *mut DataGraphOpticalFlowImageFormatPropertiesARM,
+        p_image_format_properties: Option<*mut DataGraphOpticalFlowImageFormatPropertiesARM>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<
@@ -33932,7 +34091,7 @@ impl PhysicalDevice {
                 p_queue_family_data_graph_properties,
                 p_optical_flow_image_format_info,
                 p_format_count,
-                p_image_format_properties,
+                p_image_format_properties.unwrap_or_default(),
             )
         }
     }
@@ -33994,9 +34153,6 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_properties
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -34013,7 +34169,7 @@ impl PhysicalDevice {
         &self,
         p_cooperative_matrix_info: *const PhysicalDeviceCooperativeMatrixInfo2EXT,
         p_property_count: *mut u32,
-        p_properties: *mut CooperativeMatrixProperties2EXT,
+        p_properties: Option<*mut CooperativeMatrixProperties2EXT>,
     ) -> ResultCode {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceCooperativeMatrixProperties2EXT>(
@@ -34028,7 +34184,7 @@ impl PhysicalDevice {
                 self.handle,
                 p_cooperative_matrix_info,
                 p_property_count,
-                p_properties,
+                p_properties.unwrap_or_default(),
             )
         }
     }
@@ -34051,9 +34207,6 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -34068,7 +34221,7 @@ impl Instance {
     pub unsafe fn create_ubm_surface_sec(
         &self,
         p_create_info: *const UbmSurfaceCreateInfoSEC,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -34077,7 +34230,14 @@ impl Instance {
                 InstanceCommand::vkCreateUbmSurfaceSEC as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_create_info, p_allocator, p_surface) }
+        unsafe {
+            (command)(
+                self.handle,
+                p_create_info,
+                p_allocator.unwrap_or_default(),
+                p_surface,
+            )
+        }
     }
 }
 
@@ -34125,9 +34285,6 @@ impl CommandBuffer {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - primitive_restart_index
-    ///
     /// # Performed tasks
     /// - `state`
     ///
@@ -34140,14 +34297,14 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetPrimitiveRestartIndexEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_primitive_restart_index_ext(&self, primitive_restart_index: u32) {
+    pub unsafe fn cmd_set_primitive_restart_index_ext(&self, primitive_restart_index: Option<u32>) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetPrimitiveRestartIndexEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkCmdSetPrimitiveRestartIndexEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, primitive_restart_index) }
+        unsafe { (command)(self.handle, primitive_restart_index.unwrap_or_default()) }
     }
 }
 
@@ -34167,9 +34324,6 @@ impl Device {
     /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
-    ///
-    /// # Optional parameters
-    /// - p_allocator
     ///
     /// # Result codes
     /// ## Success
@@ -34191,7 +34345,7 @@ impl Device {
     pub unsafe fn create_acceleration_structure_khr(
         &self,
         p_create_info: *const AccelerationStructureCreateInfoKHR,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_acceleration_structure: *mut AccelerationStructureKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -34204,7 +34358,7 @@ impl Device {
             (command)(
                 self.handle,
                 p_create_info,
-                p_allocator,
+                p_allocator.unwrap_or_default(),
                 p_acceleration_structure,
             )
         }
@@ -34224,16 +34378,12 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - acceleration_structure
-    /// - p_allocator
-    ///
     #[doc(alias = "vkDestroyAccelerationStructureKHR")]
     #[inline(always)]
     pub unsafe fn destroy_acceleration_structure_khr(
         &self,
-        acceleration_structure: AccelerationStructureKHR,
-        p_allocator: *const AllocationCallbacks,
+        acceleration_structure: Option<AccelerationStructureKHR>,
+        p_allocator: Option<*const AllocationCallbacks>,
     ) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyAccelerationStructureKHR>(vtable_get(
@@ -34241,7 +34391,13 @@ impl Device {
                 InstanceCommand::vkDestroyAccelerationStructureKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, acceleration_structure, p_allocator) }
+        unsafe {
+            (command)(
+                self.handle,
+                acceleration_structure.unwrap_or_default(),
+                p_allocator.unwrap_or_default(),
+            )
+        }
     }
 }
 
@@ -34368,9 +34524,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - deferred_operation
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -34392,7 +34545,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn build_acceleration_structures_khr(
         &self,
-        deferred_operation: DeferredOperationKHR,
+        deferred_operation: Option<DeferredOperationKHR>,
         info_count: u32,
         p_infos: *const AccelerationStructureBuildGeometryInfoKHR,
         pp_build_range_infos: *const *const AccelerationStructureBuildRangeInfoKHR,
@@ -34406,7 +34559,7 @@ impl Device {
         unsafe {
             (command)(
                 self.handle,
-                deferred_operation,
+                deferred_operation.unwrap_or_default(),
                 info_count,
                 p_infos,
                 pp_build_range_infos,
@@ -34431,9 +34584,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - deferred_operation
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -34455,7 +34605,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn copy_acceleration_structure_khr(
         &self,
-        deferred_operation: DeferredOperationKHR,
+        deferred_operation: Option<DeferredOperationKHR>,
         p_info: *const CopyAccelerationStructureInfoKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -34464,7 +34614,7 @@ impl Device {
                 InstanceCommand::vkCopyAccelerationStructureKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, deferred_operation, p_info) }
+        unsafe { (command)(self.handle, deferred_operation.unwrap_or_default(), p_info) }
     }
 }
 
@@ -34483,9 +34633,6 @@ impl Device {
     /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
-    ///
-    /// # Optional parameters
-    /// - deferred_operation
     ///
     /// # Result codes
     /// ## Success
@@ -34508,7 +34655,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn copy_acceleration_structure_to_memory_khr(
         &self,
-        deferred_operation: DeferredOperationKHR,
+        deferred_operation: Option<DeferredOperationKHR>,
         p_info: *const CopyAccelerationStructureToMemoryInfoKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -34519,7 +34666,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, deferred_operation, p_info) }
+        unsafe { (command)(self.handle, deferred_operation.unwrap_or_default(), p_info) }
     }
 }
 
@@ -34538,9 +34685,6 @@ impl Device {
     /// - Extension [`KHR_AccelerationStructure`](Extension::KHR_AccelerationStructure)
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
-    ///
-    /// # Optional parameters
-    /// - deferred_operation
     ///
     /// # Result codes
     /// ## Success
@@ -34563,7 +34707,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn copy_memory_to_acceleration_structure_khr(
         &self,
-        deferred_operation: DeferredOperationKHR,
+        deferred_operation: Option<DeferredOperationKHR>,
         p_info: *const CopyMemoryToAccelerationStructureInfoKHR,
     ) -> ResultCode {
         let command = unsafe {
@@ -34574,7 +34718,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, deferred_operation, p_info) }
+        unsafe { (command)(self.handle, deferred_operation.unwrap_or_default(), p_info) }
     }
 }
 
@@ -34913,16 +35057,13 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - p_max_primitive_counts
-    ///
     #[doc(alias = "vkGetAccelerationStructureBuildSizesKHR")]
     #[inline(always)]
     pub unsafe fn get_acceleration_structure_build_sizes_khr(
         &self,
         build_type: AccelerationStructureBuildTypeKHR,
         p_build_info: *const AccelerationStructureBuildGeometryInfoKHR,
-        p_max_primitive_counts: *const u32,
+        p_max_primitive_counts: Option<*const u32>,
         p_size_info: *mut AccelerationStructureBuildSizesInfoKHR,
     ) {
         let command = unsafe {
@@ -34938,7 +35079,7 @@ impl Device {
                 self.handle,
                 build_type,
                 p_build_info,
-                p_max_primitive_counts,
+                p_max_primitive_counts.unwrap_or_default(),
                 p_size_info,
             )
         }
@@ -35029,11 +35170,6 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Optional parameters
-    /// - deferred_operation
-    /// - pipeline_cache
-    /// - p_allocator
-    ///
     /// # Result codes
     /// ## Success
     /// - [`SUCCESS`](ResultCode::SUCCESS)
@@ -35051,11 +35187,11 @@ impl Device {
     #[inline(always)]
     pub unsafe fn create_ray_tracing_pipelines_khr(
         &self,
-        deferred_operation: DeferredOperationKHR,
-        pipeline_cache: PipelineCache,
+        deferred_operation: Option<DeferredOperationKHR>,
+        pipeline_cache: Option<PipelineCache>,
         create_info_count: u32,
         p_create_infos: *const RayTracingPipelineCreateInfoKHR,
-        p_allocator: *const AllocationCallbacks,
+        p_allocator: Option<*const AllocationCallbacks>,
         p_pipelines: *mut Pipeline,
     ) -> ResultCode {
         let command = unsafe {
@@ -35067,11 +35203,11 @@ impl Device {
         unsafe {
             (command)(
                 self.handle,
-                deferred_operation,
-                pipeline_cache,
+                deferred_operation.unwrap_or_default(),
+                pipeline_cache.unwrap_or_default(),
                 create_info_count,
                 p_create_infos,
-                p_allocator,
+                p_allocator.unwrap_or_default(),
                 p_pipelines,
             )
         }

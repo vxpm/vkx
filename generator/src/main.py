@@ -306,8 +306,6 @@ class Context:
             out.writeln("///")
 
     def command_doc_header(self, out: CodeWriter, command: vkobj.Command):
-        optional_params = [param for param in command.params if param.optional]
-
         legacy_high_prio = (
             command.legacy is not None and command.legacy.version is not None
         )
@@ -341,13 +339,6 @@ class Context:
                     f"/// It has been superseded by [`{command.legacy.supersededBy}`]({self.vulkan_doc_link(command.legacy.supersededBy)})."
                 )
 
-            out.writeln("///")
-
-        if len(optional_params) > 0:
-            out.writeln("/// # Optional parameters")
-            for param in optional_params:
-                name = names.command_param(param.name)
-                out.writeln(f"/// - {name}")
             out.writeln("///")
 
         if len(command.tasks) > 0:
@@ -861,7 +852,7 @@ class Context:
 
         # preprocess parameters
         handle = None
-        params: list[tuple[str, RustType]] = []
+        params: list[tuple[str, RustType, bool]] = []  # name, rust type, is optional
         for param in x.params:
             param_name = names.command_param(param.name)
 
@@ -884,7 +875,7 @@ class Context:
                 handle = handle_with_dispatch
                 continue
 
-            params.append((param_name, ty))
+            params.append((param_name, ty, param.optional))
 
         return_ty = (
             "" if x.returnType == "void" else f"-> {self.ty_parser.parse(x.returnType)}"
@@ -917,7 +908,11 @@ class Context:
                 if command_name == old_method_name:
                     command_name = command_name.replace(f"_{handle_snake}", "", count=1)
 
-            signature = f"pub unsafe fn {command_name}(&self, {', '.join(f'{x[0]}: {x[1]}' for x in params)}) {return_ty}"
+            param_strs = [
+                f"{x[0]}: {f'{x[1]}' if not x[2] else f'Option<{x[1]}>'}"
+                for x in params
+            ]
+            signature = f"pub unsafe fn {command_name}(&self, {', '.join(param_strs)}) {return_ty}"
 
             out.writeln(f"impl {handle} {{")
             out.indent()
@@ -933,12 +928,13 @@ class Context:
             out.writeln(f"{signature} {{")
             out.indent()
 
+            params_use = [
+                x[0] if not x[2] else f"{x[0]}.unwrap_or_default()" for x in params
+            ]
             out.writeln(
                 f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FN_{command_fn_alias_name}>(vtable_get(self.vtable(), InstanceCommand::{x.name} as usize)) }};"
             )
-            out.writeln(
-                f"unsafe {{ (command)(self.handle, {', '.join(x[0] for x in params)}) }}"
-            )
+            out.writeln(f"unsafe {{ (command)(self.handle, {', '.join(params_use)}) }}")
 
             out.deindent()
             out.writeln("}")

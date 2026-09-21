@@ -134,13 +134,13 @@ impl Instance {
     ) -> Result<Vec<PhysicalDevice>, crate::ErrorCode> {
         let mut count = 0;
         unsafe {
-            self.raw_enumerate_physical_devices(&mut count, std::ptr::null_mut())
+            self.raw_enumerate_physical_devices(&mut count, None)
                 .success()?;
         }
 
         let mut devices = vec![crate::PhysicalDeviceHandle::default(); count as usize];
         unsafe {
-            self.raw_enumerate_physical_devices(&mut count, devices.as_mut_ptr())
+            self.raw_enumerate_physical_devices(&mut count, Some(devices.as_mut_ptr()))
                 .success()?;
         }
 
@@ -157,7 +157,7 @@ impl Instance {
 impl Drop for Instance {
     fn drop(&mut self) {
         unsafe {
-            self.destroy(std::ptr::null());
+            self.destroy(None);
             std::mem::drop(Box::from_raw(self.vtable.cast_mut()))
         }
     }
@@ -194,11 +194,10 @@ impl PhysicalDevice {
     pub fn create_device(
         &self,
         create_info: *const crate::DeviceCreateInfo,
-        allocator: *const crate::AllocationCallbacks,
     ) -> Result<Device, crate::ErrorCode> {
         let mut device = crate::DeviceHandle::default();
         unsafe {
-            self.raw_create_device(create_info, allocator, &mut device)
+            self.raw_create_device(create_info, None, &mut device)
                 .success()?;
         }
 
@@ -280,7 +279,7 @@ impl Device {
 
 impl Drop for Device {
     fn drop(&mut self) {
-        unsafe { self.destroy_device(std::ptr::null()) };
+        unsafe { self.destroy_device(None) };
     }
 }
 

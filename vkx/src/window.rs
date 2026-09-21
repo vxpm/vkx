@@ -65,7 +65,7 @@ pub unsafe fn create_surface(
 
             unsafe {
                 instance
-                    .create_wayland_surface_khr(&info, std::ptr::null(), &mut surface)
+                    .create_wayland_surface_khr(&info, None, &mut surface)
                     .success()?
             }
         }
@@ -79,7 +79,7 @@ pub unsafe fn create_surface(
 
             unsafe {
                 instance
-                    .create_xlib_surface_khr(&info, std::ptr::null(), &mut surface)
+                    .create_xlib_surface_khr(&info, None, &mut surface)
                     .success()?
             }
         }
@@ -93,7 +93,7 @@ pub unsafe fn create_surface(
 
             unsafe {
                 instance
-                    .create_xcb_surface_khr(&info, std::ptr::null(), &mut surface)
+                    .create_xcb_surface_khr(&info, None, &mut surface)
                     .success()?
             }
         }
@@ -106,7 +106,7 @@ pub unsafe fn create_surface(
 
             unsafe {
                 instance
-                    .create_android_surface_khr(&info, std::ptr::null(), &mut surface)
+                    .create_android_surface_khr(&info, None, &mut surface)
                     .success()?
             }
         }
@@ -120,7 +120,7 @@ pub unsafe fn create_surface(
 
             unsafe {
                 instance
-                    .create_win_32_surface_khr(&info, std::ptr::null(), &mut surface)
+                    .create_win_32_surface_khr(&info, None, &mut surface)
                     .success()?
             }
         }
@@ -135,7 +135,7 @@ pub unsafe fn create_surface(
 
             unsafe {
                 instance
-                    .create_metal_surface_ext(&info, std::ptr::null(), &mut surface)
+                    .create_metal_surface_ext(&info, None, &mut surface)
                     .success()?
             }
         }
@@ -150,7 +150,7 @@ pub unsafe fn create_surface(
 
             unsafe {
                 instance
-                    .create_metal_surface_ext(&info, std::ptr::null(), &mut surface)
+                    .create_metal_surface_ext(&info, None, &mut surface)
                     .success()?
             }
         }

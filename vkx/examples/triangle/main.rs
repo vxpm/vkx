@@ -73,11 +73,8 @@ impl App {
                 })
                 .filter(|(dev, properties)| {
                     let extensions = unsafe {
-                        vkx::auto_count!(|count, vec| dev.enumerate_device_extension_properties(
-                            std::ptr::null(),
-                            &mut count,
-                            vec
-                        ))
+                        vkx::auto_count!(|count, vec| dev
+                            .enumerate_device_extension_properties(None, &mut count, vec))
                     };
 
                     let extensions = vkx::Extension::from_ext_properties(extensions);
@@ -161,9 +158,7 @@ impl App {
         device_create_info.push_next(&mut enabled_features_1_3);
 
         // create the device
-        let device = physical_device
-            .create_device(&device_create_info, std::ptr::null())
-            .unwrap();
+        let device = physical_device.create_device(&device_create_info).unwrap();
 
         // and get the queue
         let queue = unsafe { device.get_device_queue(family_idx, 0) };
