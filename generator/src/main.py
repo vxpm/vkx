@@ -889,6 +889,8 @@ class Context:
                 "get_device_queue",
                 "get_device_queue_2",
                 "allocate_command_buffers",
+                "destroy_instance",
+                "destroy_device",
             }
 
             if command_name in raw_prefixed_commands:

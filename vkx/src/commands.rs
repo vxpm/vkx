@@ -65,7 +65,7 @@ impl Instance {
     ///
     #[doc(alias = "vkDestroyInstance")]
     #[inline(always)]
-    pub unsafe fn destroy(&self, p_allocator: Option<*const AllocationCallbacks>) {
+    pub unsafe fn raw_destroy(&self, p_allocator: Option<*const AllocationCallbacks>) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyInstance>(vtable_get(
                 self.vtable(),
@@ -432,7 +432,7 @@ impl Device {
     ///
     #[doc(alias = "vkDestroyDevice")]
     #[inline(always)]
-    pub unsafe fn destroy_device(&self, p_allocator: Option<*const AllocationCallbacks>) {
+    pub unsafe fn raw_destroy_device(&self, p_allocator: Option<*const AllocationCallbacks>) {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyDevice>(vtable_get(
                 self.vtable(),

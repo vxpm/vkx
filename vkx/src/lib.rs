@@ -53,13 +53,15 @@
 //! itself: [`InstanceHandle`], [`PhysicalDeviceHandle`], [`DeviceHandle`], [`QueueHandle`] and
 //! [`CommandBufferHandle`].
 //!
-//! However, `vkx` also provides a loader for instance-level commands that can be used by using
-//! special dispatchable handle wrappers: [`Instance`], [`PhysicalDevice`], [`Device`], [`Queue`]
-//! and [`CommandBuffer`].
+//! However, `vkx` also provides a loader for instance and device level commands that can be used
+//! through the special dispatchable handle wrappers: [`Instance`], [`PhysicalDevice`], [`Device`],
+//! [`Queue`] and [`CommandBuffer`].
 //!
 //! These special wrappers can only be created from special methods on their respective parents,
 //! e.g. to create a [`Device`], use [`PhysicalDevice::create_device`]. The only exception is
 //! [`Instance`] since it is the "entrypoint" and uses [`Instance::create`].
+//!
+//! These handles do _not_ destroy themselves - you still need to destroy them properly when needed.
 //!
 //! # Special items
 //! These items are not in the Vulkan API - they're purely `vkx` utilities:

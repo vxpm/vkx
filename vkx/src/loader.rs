@@ -78,16 +78,20 @@ pub unsafe fn setup() -> Result<(), libloading::Error> {
 /// creation time.
 ///
 /// This type is like a smart version of an [`InstanceHandle`](crate::InstanceHandle): it knows how
-/// to call every instance function and will also destroy itself at drop time.
+/// to call every instance function.
 ///
 /// Child handles of this instance carry a reference to the same vtable, but calling any
-/// function on them _after_ this instance is destroyed is _undefined behaviour_.
+/// function on them _after_ this instance is [destroyed](Self::destroy) is _undefined behaviour_.
+#[derive(Clone)]
 pub struct Instance {
     pub(crate) handle: crate::InstanceHandle,
     pub(crate) vtable: *const InstanceVTable,
 }
 
 impl Instance {
+    /// Returns the raw [`InstanceHandle`](crate::InstanceHandle) backing this [`Instance`]. Unlike
+    /// other methods, this is _always_ safe to call - even if the underlying object has been
+    /// destroyed.
     #[inline(always)]
     pub fn handle(&self) -> crate::InstanceHandle {
         self.handle
@@ -152,12 +156,15 @@ impl Instance {
             })
             .collect())
     }
-}
 
-impl Drop for Instance {
-    fn drop(&mut self) {
+    /// Destroys this instance. This will destroy the handle _and_ deallocate the vtable.
+    ///
+    /// # Safety
+    /// You must not call any method on a child of this instance or on another handle to this same
+    /// instance after this method is called (otherwise it will cause an use-after-free).
+    pub unsafe fn destroy(self, allocator: Option<*const crate::AllocationCallbacks>) {
         unsafe {
-            self.destroy(None);
+            self.raw_destroy(allocator);
             std::mem::drop(Box::from_raw(self.vtable.cast_mut()))
         }
     }
@@ -171,12 +178,16 @@ impl Drop for Instance {
 ///
 /// Child handles of this instance carry a reference to the same vtable, so calling any
 /// function on them _after_ this instance is destroyed is an use-after-free (UB).
+#[derive(Clone)]
 pub struct PhysicalDevice {
     pub(crate) handle: crate::PhysicalDeviceHandle,
     pub(crate) vtable: *const VTable<{ crate::InstanceCommand::VARIANTS.len() }>,
 }
 
 impl PhysicalDevice {
+    /// Returns the raw [`PhysicalDeviceHandle`](crate::PhysicalDeviceHandle) backing this
+    /// [`PhysicalDevice`]. Unlike other methods, this is _always_ safe to call - even if the
+    /// underlying object has been destroyed.
     #[inline(always)]
     pub fn handle(&self) -> crate::PhysicalDeviceHandle {
         self.handle
@@ -194,10 +205,11 @@ impl PhysicalDevice {
     pub fn create_device(
         &self,
         create_info: *const crate::DeviceCreateInfo,
+        allocator: Option<*const crate::AllocationCallbacks>,
     ) -> Result<Device, crate::ErrorCode> {
         let mut device = crate::DeviceHandle::default();
         unsafe {
-            self.raw_create_device(create_info, None, &mut device)
+            self.raw_create_device(create_info, allocator, &mut device)
                 .success()?;
         }
 
@@ -212,16 +224,19 @@ impl PhysicalDevice {
 /// time.
 ///
 /// This type is like a smart version of a [`DeviceHandle`](crate::DeviceHandle): it knows how
-/// to call every device function and will also destroy itself at drop time.
+/// to call every device function.
 ///
 /// Child handles of this instance carry a reference to the same vtable, but calling any
 /// function on them _after_ this device is destroyed is an use-after-free (UB).
+#[derive(Clone)]
 pub struct Device {
     pub(crate) handle: crate::DeviceHandle,
     pub(crate) vtable: *const VTable<{ crate::InstanceCommand::VARIANTS.len() }>,
 }
 
 impl Device {
+    /// Returns the raw [`DeviceHandle`](crate::DeviceHandle) backing this [`Device`]. Unlike other
+    /// methods, this is _always_ safe to call - even if the underlying object has been destroyed.
     #[inline(always)]
     pub fn handle(&self) -> crate::DeviceHandle {
         self.handle
@@ -275,11 +290,17 @@ impl Device {
             })
             .collect())
     }
-}
 
-impl Drop for Device {
-    fn drop(&mut self) {
-        unsafe { self.destroy_device(None) };
+    /// Destroys this device. This will destroy the handle _and_ deallocate the vtable.
+    ///
+    /// # Safety
+    /// You must not call any method on a child of this device or on another handle to this same
+    /// device after this method is called (otherwise it will cause an use-after-free).
+    pub unsafe fn destroy(self, allocator: Option<*const crate::AllocationCallbacks>) {
+        unsafe {
+            self.raw_destroy_device(allocator);
+            std::mem::drop(Box::from_raw(self.vtable.cast_mut()))
+        }
     }
 }
 
@@ -287,12 +308,15 @@ impl Drop for Device {
 ///
 /// This type is like a smart version of a [`QueueHandle`](crate::QueueHandle): it knows how
 /// to call every queue function.
+#[derive(Clone)]
 pub struct Queue {
     pub(crate) handle: crate::QueueHandle,
     pub(crate) vtable: *const VTable<{ crate::InstanceCommand::VARIANTS.len() }>,
 }
 
 impl Queue {
+    /// Returns the raw [`QueueHandle`](crate::QueueHandle) backing this [`Queue`]. Unlike other
+    /// methods, this is _always_ safe to call - even if the underlying object has been destroyed.
     #[inline(always)]
     pub fn handle(&self) -> crate::QueueHandle {
         self.handle
@@ -311,12 +335,16 @@ impl Queue {
 ///
 /// This type is like a smart version of a [`CommandBufferHandle`](crate::CommandBufferHandle): it
 /// knows how to call every command buffer function.
+#[derive(Clone)]
 pub struct CommandBuffer {
     pub(crate) handle: crate::CommandBufferHandle,
     pub(crate) vtable: *const VTable<{ crate::InstanceCommand::VARIANTS.len() }>,
 }
 
 impl CommandBuffer {
+    /// Returns the raw [`CommandBufferHandle`](crate::CommandBufferHandle) backing this
+    /// [`CommandBuffer`]. Unlike other methods, this is _always_ safe to call - even if the
+    /// underlying object has been destroyed.
     #[inline(always)]
     pub fn handle(&self) -> crate::CommandBufferHandle {
         self.handle
