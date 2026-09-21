@@ -8,6 +8,7 @@ pub(crate) type VTable<const N: usize> = [crate::vkVoidFunction; N];
 
 type GlobalVTable = VTable<{ crate::GlobalCommand::VARIANTS.len() }>;
 type InstanceVTable = VTable<{ crate::InstanceCommand::VARIANTS.len() }>;
+type DeviceVTable = VTable<{ crate::DeviceCommand::VARIANTS.len() }>;
 
 #[inline(always)]
 pub(crate) fn vtable_get<const N: usize>(table: &VTable<N>, index: usize) -> crate::vkVoidFunction {
@@ -26,6 +27,7 @@ pub(crate) fn vtable_get<const N: usize>(table: &VTable<N>, index: usize) -> cra
 pub(crate) struct Global {
     pub _lib: Library,
     pub get_instance_proc_addr: crate::FN_GetInstanceProcAddr,
+    pub get_device_proc_addr: crate::FN_GetDeviceProcAddr,
     pub commands: GlobalVTable,
 }
 
@@ -51,6 +53,8 @@ pub unsafe fn setup() -> Result<(), libloading::Error> {
     let lib = unsafe { Library::new(PATH) }?;
     let get_instance_proc_addr =
         *unsafe { lib.get::<crate::FN_GetInstanceProcAddr>("vkGetInstanceProcAddr") }?;
+    let get_device_proc_addr =
+        *unsafe { lib.get::<crate::FN_GetDeviceProcAddr>("vkGetDeviceProcAddr") }?;
 
     let mut global_commands = Vec::with_capacity(crate::GlobalCommand::VARIANTS.len());
     for command in crate::GlobalCommand::VARIANTS {
@@ -66,6 +70,7 @@ pub unsafe fn setup() -> Result<(), libloading::Error> {
         .set(Global {
             _lib: lib,
             get_instance_proc_addr,
+            get_device_proc_addr,
             commands: global_commands,
         })
         .ok()
@@ -178,7 +183,7 @@ impl Instance {
 #[derive(Clone)]
 pub struct PhysicalDevice {
     pub(crate) handle: crate::PhysicalDeviceHandle,
-    pub(crate) vtable: *const VTable<{ crate::InstanceCommand::VARIANTS.len() }>,
+    pub(crate) vtable: *const InstanceVTable,
 }
 
 impl PhysicalDevice {
@@ -210,9 +215,23 @@ impl PhysicalDevice {
                 .success()?;
         }
 
+        let get_device_proc_addr = GLOBAL
+            .get()
+            .expect("vkx setup should have been run")
+            .get_device_proc_addr;
+
+        let mut device_commands = Vec::with_capacity(crate::DeviceCommand::VARIANTS.len());
+        for command in crate::DeviceCommand::VARIANTS {
+            let command = unsafe { get_device_proc_addr(device, command.name().as_ptr()) };
+            device_commands.push(command);
+        }
+
+        let boxed_array: Box<[_; _]> = device_commands.into_boxed_slice().try_into().unwrap();
+        let device_commands = Box::leak(boxed_array);
+
         Ok(Device {
             handle: device,
-            vtable: self.vtable,
+            vtable: device_commands,
         })
     }
 }
@@ -228,7 +247,7 @@ impl PhysicalDevice {
 #[derive(Clone)]
 pub struct Device {
     pub(crate) handle: crate::DeviceHandle,
-    pub(crate) vtable: *const VTable<{ crate::InstanceCommand::VARIANTS.len() }>,
+    pub(crate) vtable: *const DeviceVTable,
 }
 
 impl Device {
@@ -240,7 +259,7 @@ impl Device {
     }
 
     #[inline(always)]
-    pub(crate) fn vtable(&self) -> &InstanceVTable {
+    pub(crate) fn vtable(&self) -> &DeviceVTable {
         // SAFETY: user contract - parent instance must be alive
         unsafe { self.vtable.as_ref_unchecked() }
     }
@@ -308,7 +327,7 @@ impl Device {
 #[derive(Clone)]
 pub struct Queue {
     pub(crate) handle: crate::QueueHandle,
-    pub(crate) vtable: *const VTable<{ crate::InstanceCommand::VARIANTS.len() }>,
+    pub(crate) vtable: *const DeviceVTable,
 }
 
 impl Queue {
@@ -321,7 +340,7 @@ impl Queue {
 
     #[track_caller]
     #[inline(always)]
-    pub(crate) fn vtable(&self) -> &InstanceVTable {
+    pub(crate) fn vtable(&self) -> &DeviceVTable {
         // SAFETY: user contract - parent device (and instance) must be alive
         unsafe { self.vtable.as_ref_unchecked() }
     }
@@ -335,7 +354,7 @@ impl Queue {
 #[derive(Clone)]
 pub struct CommandBuffer {
     pub(crate) handle: crate::CommandBufferHandle,
-    pub(crate) vtable: *const VTable<{ crate::InstanceCommand::VARIANTS.len() }>,
+    pub(crate) vtable: *const DeviceVTable,
 }
 
 impl CommandBuffer {
@@ -349,7 +368,7 @@ impl CommandBuffer {
 
     #[track_caller]
     #[inline(always)]
-    pub(crate) fn vtable(&self) -> &InstanceVTable {
+    pub(crate) fn vtable(&self) -> &DeviceVTable {
         // SAFETY: user contract - parent instance must be alive
         unsafe { self.vtable.as_ref_unchecked() }
     }

@@ -906,9 +906,10 @@ class Context:
                 command_name = f"raw_{command_name}"
 
             # method on a handle
-            self.instance_commands.append(x.name)
             if x.device:
                 self.device_commands.append(x.name)
+            else:
+                self.instance_commands.append(x.name)
 
             self.vulkan_doc_header(out, x.name)
             out.writeln(
@@ -938,9 +939,15 @@ class Context:
             out.writeln(f"{signature} {{")
             out.indent()
 
-            out.writeln(
-                f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FN_{command_fn_alias_name}>(vtable_get(self.vtable(), InstanceCommand::{x.name} as usize)) }};"
-            )
+            if x.device:
+                out.writeln(
+                    f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FN_{command_fn_alias_name}>(vtable_get(self.vtable(), DeviceCommand::{x.name} as usize)) }};"
+                )
+            else:
+                out.writeln(
+                    f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FN_{command_fn_alias_name}>(vtable_get(self.vtable(), InstanceCommand::{x.name} as usize)) }};"
+                )
+
             out.writeln(f"unsafe {{ (command)(self.handle, {', '.join(params_use)}) }}")
 
             out.deindent()

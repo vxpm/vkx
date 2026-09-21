@@ -49,7 +49,7 @@ impl App {
                 flags: vkx::InstanceCreateFlag::ENUMERATE_PORTABILITY_KHR.into(),
                 ..Default::default()
             },
-            std::ptr::null(),
+            None,
         )
         .unwrap();
 

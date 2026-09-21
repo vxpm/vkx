@@ -367,7 +367,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceProcAddr>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetDeviceProcAddr as usize,
+                DeviceCommand::vkGetDeviceProcAddr as usize,
             ))
         };
         unsafe { (command)(self.handle, p_name) }
@@ -436,7 +436,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyDevice>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyDevice as usize,
+                DeviceCommand::vkDestroyDevice as usize,
             ))
         };
         unsafe { (command)(self.handle, p_allocator.unwrap_or_default()) }
@@ -627,7 +627,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceQueue>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetDeviceQueue as usize,
+                DeviceCommand::vkGetDeviceQueue as usize,
             ))
         };
         unsafe { (command)(self.handle, queue_family_index, queue_index, p_queue) }
@@ -669,7 +669,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_QueueSubmit>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkQueueSubmit as usize,
+                DeviceCommand::vkQueueSubmit as usize,
             ))
         };
         unsafe {
@@ -705,7 +705,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_QueueWaitIdle>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkQueueWaitIdle as usize,
+                DeviceCommand::vkQueueWaitIdle as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -734,7 +734,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DeviceWaitIdle>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDeviceWaitIdle as usize,
+                DeviceCommand::vkDeviceWaitIdle as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -774,7 +774,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_AllocateMemory>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkAllocateMemory as usize,
+                DeviceCommand::vkAllocateMemory as usize,
             ))
         };
         unsafe {
@@ -805,7 +805,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_FreeMemory>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkFreeMemory as usize,
+                DeviceCommand::vkFreeMemory as usize,
             ))
         };
         unsafe {
@@ -854,7 +854,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_MapMemory>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkMapMemory as usize,
+                DeviceCommand::vkMapMemory as usize,
             ))
         };
         unsafe {
@@ -882,7 +882,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_UnmapMemory>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkUnmapMemory as usize,
+                DeviceCommand::vkUnmapMemory as usize,
             ))
         };
         unsafe { (command)(self.handle, memory) }
@@ -915,7 +915,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_FlushMappedMemoryRanges>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkFlushMappedMemoryRanges as usize,
+                DeviceCommand::vkFlushMappedMemoryRanges as usize,
             ))
         };
         unsafe { (command)(self.handle, memory_range_count, p_memory_ranges) }
@@ -948,7 +948,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_InvalidateMappedMemoryRanges>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkInvalidateMappedMemoryRanges as usize,
+                DeviceCommand::vkInvalidateMappedMemoryRanges as usize,
             ))
         };
         unsafe { (command)(self.handle, memory_range_count, p_memory_ranges) }
@@ -972,7 +972,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceMemoryCommitment>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetDeviceMemoryCommitment as usize,
+                DeviceCommand::vkGetDeviceMemoryCommitment as usize,
             ))
         };
         unsafe { (command)(self.handle, memory, p_committed_memory_in_bytes) }
@@ -1007,7 +1007,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BindBufferMemory>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkBindBufferMemory as usize,
+                DeviceCommand::vkBindBufferMemory as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer, memory, memory_offset) }
@@ -1041,7 +1041,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BindImageMemory>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkBindImageMemory as usize,
+                DeviceCommand::vkBindImageMemory as usize,
             ))
         };
         unsafe { (command)(self.handle, image, memory, memory_offset) }
@@ -1065,7 +1065,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetBufferMemoryRequirements>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetBufferMemoryRequirements as usize,
+                DeviceCommand::vkGetBufferMemoryRequirements as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer, p_memory_requirements) }
@@ -1089,7 +1089,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetImageMemoryRequirements>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetImageMemoryRequirements as usize,
+                DeviceCommand::vkGetImageMemoryRequirements as usize,
             ))
         };
         unsafe { (command)(self.handle, image, p_memory_requirements) }
@@ -1114,7 +1114,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetImageSparseMemoryRequirements>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetImageSparseMemoryRequirements as usize,
+                DeviceCommand::vkGetImageSparseMemoryRequirements as usize,
             ))
         };
         unsafe {
@@ -1216,7 +1216,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_QueueBindSparse>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkQueueBindSparse as usize,
+                DeviceCommand::vkQueueBindSparse as usize,
             ))
         };
         unsafe {
@@ -1261,7 +1261,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateFence>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateFence as usize,
+                DeviceCommand::vkCreateFence as usize,
             ))
         };
         unsafe {
@@ -1291,7 +1291,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyFence>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyFence as usize,
+                DeviceCommand::vkDestroyFence as usize,
             ))
         };
         unsafe {
@@ -1324,7 +1324,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ResetFences>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkResetFences as usize,
+                DeviceCommand::vkResetFences as usize,
             ))
         };
         unsafe { (command)(self.handle, fence_count, p_fences) }
@@ -1354,7 +1354,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetFenceStatus>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetFenceStatus as usize,
+                DeviceCommand::vkGetFenceStatus as usize,
             ))
         };
         unsafe { (command)(self.handle, fence) }
@@ -1391,7 +1391,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_WaitForFences>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkWaitForFences as usize,
+                DeviceCommand::vkWaitForFences as usize,
             ))
         };
         unsafe { (command)(self.handle, fence_count, p_fences, wait_all, timeout) }
@@ -1429,7 +1429,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateSemaphore>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateSemaphore as usize,
+                DeviceCommand::vkCreateSemaphore as usize,
             ))
         };
         unsafe {
@@ -1460,7 +1460,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroySemaphore>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroySemaphore as usize,
+                DeviceCommand::vkDestroySemaphore as usize,
             ))
         };
         unsafe {
@@ -1504,7 +1504,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateQueryPool>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateQueryPool as usize,
+                DeviceCommand::vkCreateQueryPool as usize,
             ))
         };
         unsafe {
@@ -1535,7 +1535,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyQueryPool>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyQueryPool as usize,
+                DeviceCommand::vkDestroyQueryPool as usize,
             ))
         };
         unsafe {
@@ -1589,7 +1589,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetQueryPoolResults>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetQueryPoolResults as usize,
+                DeviceCommand::vkGetQueryPoolResults as usize,
             ))
         };
         unsafe {
@@ -1639,7 +1639,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateBuffer>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateBuffer as usize,
+                DeviceCommand::vkCreateBuffer as usize,
             ))
         };
         unsafe {
@@ -1669,7 +1669,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyBuffer>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyBuffer as usize,
+                DeviceCommand::vkDestroyBuffer as usize,
             ))
         };
         unsafe {
@@ -1715,7 +1715,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateImage>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateImage as usize,
+                DeviceCommand::vkCreateImage as usize,
             ))
         };
         unsafe {
@@ -1745,7 +1745,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyImage>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyImage as usize,
+                DeviceCommand::vkDestroyImage as usize,
             ))
         };
         unsafe {
@@ -1776,7 +1776,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetImageSubresourceLayout>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetImageSubresourceLayout as usize,
+                DeviceCommand::vkGetImageSubresourceLayout as usize,
             ))
         };
         unsafe { (command)(self.handle, image, p_subresource, p_layout) }
@@ -1815,7 +1815,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateImageView>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateImageView as usize,
+                DeviceCommand::vkCreateImageView as usize,
             ))
         };
         unsafe {
@@ -1846,7 +1846,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyImageView>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyImageView as usize,
+                DeviceCommand::vkDestroyImageView as usize,
             ))
         };
         unsafe {
@@ -1890,7 +1890,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateCommandPool>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateCommandPool as usize,
+                DeviceCommand::vkCreateCommandPool as usize,
             ))
         };
         unsafe {
@@ -1921,7 +1921,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyCommandPool>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyCommandPool as usize,
+                DeviceCommand::vkDestroyCommandPool as usize,
             ))
         };
         unsafe {
@@ -1959,7 +1959,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ResetCommandPool>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkResetCommandPool as usize,
+                DeviceCommand::vkResetCommandPool as usize,
             ))
         };
         unsafe { (command)(self.handle, command_pool, flags.unwrap_or_default()) }
@@ -1995,7 +1995,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_AllocateCommandBuffers>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkAllocateCommandBuffers as usize,
+                DeviceCommand::vkAllocateCommandBuffers as usize,
             ))
         };
         unsafe { (command)(self.handle, p_allocate_info, p_command_buffers) }
@@ -2020,7 +2020,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_FreeCommandBuffers>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkFreeCommandBuffers as usize,
+                DeviceCommand::vkFreeCommandBuffers as usize,
             ))
         };
         unsafe {
@@ -2056,7 +2056,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BeginCommandBuffer>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkBeginCommandBuffer as usize,
+                DeviceCommand::vkBeginCommandBuffer as usize,
             ))
         };
         unsafe { (command)(self.handle, p_begin_info) }
@@ -2085,7 +2085,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_EndCommandBuffer>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkEndCommandBuffer as usize,
+                DeviceCommand::vkEndCommandBuffer as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -2113,7 +2113,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ResetCommandBuffer>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkResetCommandBuffer as usize,
+                DeviceCommand::vkResetCommandBuffer as usize,
             ))
         };
         unsafe { (command)(self.handle, flags.unwrap_or_default()) }
@@ -2151,7 +2151,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyBuffer>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyBuffer as usize,
+                DeviceCommand::vkCmdCopyBuffer as usize,
             ))
         };
         unsafe { (command)(self.handle, src_buffer, dst_buffer, region_count, p_regions) }
@@ -2198,7 +2198,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyImage>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyImage as usize,
+                DeviceCommand::vkCmdCopyImage as usize,
             ))
         };
         unsafe {
@@ -2253,7 +2253,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyBufferToImage>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyBufferToImage as usize,
+                DeviceCommand::vkCmdCopyBufferToImage as usize,
             ))
         };
         unsafe {
@@ -2307,7 +2307,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyImageToBuffer>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyImageToBuffer as usize,
+                DeviceCommand::vkCmdCopyImageToBuffer as usize,
             ))
         };
         unsafe {
@@ -2360,7 +2360,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdUpdateBuffer>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdUpdateBuffer as usize,
+                DeviceCommand::vkCmdUpdateBuffer as usize,
             ))
         };
         unsafe { (command)(self.handle, dst_buffer, dst_offset, data_size, p_data) }
@@ -2404,7 +2404,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdFillBuffer>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdFillBuffer as usize,
+                DeviceCommand::vkCmdFillBuffer as usize,
             ))
         };
         unsafe { (command)(self.handle, dst_buffer, dst_offset, size, data) }
@@ -2466,7 +2466,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdPipelineBarrier>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdPipelineBarrier as usize,
+                DeviceCommand::vkCmdPipelineBarrier as usize,
             ))
         };
         unsafe {
@@ -2518,7 +2518,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBeginQuery>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBeginQuery as usize,
+                DeviceCommand::vkCmdBeginQuery as usize,
             ))
         };
         unsafe { (command)(self.handle, query_pool, query, flags.unwrap_or_default()) }
@@ -2551,7 +2551,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdEndQuery>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdEndQuery as usize,
+                DeviceCommand::vkCmdEndQuery as usize,
             ))
         };
         unsafe { (command)(self.handle, query_pool, query) }
@@ -2589,7 +2589,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdResetQueryPool>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdResetQueryPool as usize,
+                DeviceCommand::vkCmdResetQueryPool as usize,
             ))
         };
         unsafe { (command)(self.handle, query_pool, first_query, query_count) }
@@ -2636,7 +2636,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdWriteTimestamp>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdWriteTimestamp as usize,
+                DeviceCommand::vkCmdWriteTimestamp as usize,
             ))
         };
         unsafe { (command)(self.handle, pipeline_stage, query_pool, query) }
@@ -2690,7 +2690,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyQueryPoolResults>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyQueryPoolResults as usize,
+                DeviceCommand::vkCmdCopyQueryPoolResults as usize,
             ))
         };
         unsafe {
@@ -2737,7 +2737,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdExecuteCommands>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdExecuteCommands as usize,
+                DeviceCommand::vkCmdExecuteCommands as usize,
             ))
         };
         unsafe { (command)(self.handle, command_buffer_count, p_command_buffers) }
@@ -2775,7 +2775,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateEvent>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateEvent as usize,
+                DeviceCommand::vkCreateEvent as usize,
             ))
         };
         unsafe {
@@ -2805,7 +2805,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyEvent>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyEvent as usize,
+                DeviceCommand::vkDestroyEvent as usize,
             ))
         };
         unsafe {
@@ -2841,7 +2841,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetEventStatus>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetEventStatus as usize,
+                DeviceCommand::vkGetEventStatus as usize,
             ))
         };
         unsafe { (command)(self.handle, event) }
@@ -2869,7 +2869,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SetEvent>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkSetEvent as usize,
+                DeviceCommand::vkSetEvent as usize,
             ))
         };
         unsafe { (command)(self.handle, event) }
@@ -2896,7 +2896,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ResetEvent>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkResetEvent as usize,
+                DeviceCommand::vkResetEvent as usize,
             ))
         };
         unsafe { (command)(self.handle, event) }
@@ -2938,7 +2938,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateBufferView>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateBufferView as usize,
+                DeviceCommand::vkCreateBufferView as usize,
             ))
         };
         unsafe {
@@ -2973,7 +2973,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyBufferView>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyBufferView as usize,
+                DeviceCommand::vkDestroyBufferView as usize,
             ))
         };
         unsafe {
@@ -3018,7 +3018,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateShaderModule>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateShaderModule as usize,
+                DeviceCommand::vkCreateShaderModule as usize,
             ))
         };
         unsafe {
@@ -3049,7 +3049,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyShaderModule>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyShaderModule as usize,
+                DeviceCommand::vkDestroyShaderModule as usize,
             ))
         };
         unsafe {
@@ -3093,7 +3093,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreatePipelineCache>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreatePipelineCache as usize,
+                DeviceCommand::vkCreatePipelineCache as usize,
             ))
         };
         unsafe {
@@ -3124,7 +3124,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyPipelineCache>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyPipelineCache as usize,
+                DeviceCommand::vkDestroyPipelineCache as usize,
             ))
         };
         unsafe {
@@ -3165,7 +3165,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPipelineCacheData>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetPipelineCacheData as usize,
+                DeviceCommand::vkGetPipelineCacheData as usize,
             ))
         };
         unsafe {
@@ -3206,7 +3206,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_MergePipelineCaches>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkMergePipelineCaches as usize,
+                DeviceCommand::vkMergePipelineCaches as usize,
             ))
         };
         unsafe { (command)(self.handle, dst_cache, src_cache_count, p_src_caches) }
@@ -3250,7 +3250,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateComputePipelines>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateComputePipelines as usize,
+                DeviceCommand::vkCreateComputePipelines as usize,
             ))
         };
         unsafe {
@@ -3283,7 +3283,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyPipeline>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyPipeline as usize,
+                DeviceCommand::vkDestroyPipeline as usize,
             ))
         };
         unsafe {
@@ -3331,7 +3331,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreatePipelineLayout>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreatePipelineLayout as usize,
+                DeviceCommand::vkCreatePipelineLayout as usize,
             ))
         };
         unsafe {
@@ -3366,7 +3366,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyPipelineLayout>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyPipelineLayout as usize,
+                DeviceCommand::vkDestroyPipelineLayout as usize,
             ))
         };
         unsafe {
@@ -3415,7 +3415,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateSampler>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateSampler as usize,
+                DeviceCommand::vkCreateSampler as usize,
             ))
         };
         unsafe {
@@ -3450,7 +3450,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroySampler>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroySampler as usize,
+                DeviceCommand::vkDestroySampler as usize,
             ))
         };
         unsafe {
@@ -3498,7 +3498,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateDescriptorSetLayout>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateDescriptorSetLayout as usize,
+                DeviceCommand::vkCreateDescriptorSetLayout as usize,
             ))
         };
         unsafe {
@@ -3533,7 +3533,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyDescriptorSetLayout>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyDescriptorSetLayout as usize,
+                DeviceCommand::vkDestroyDescriptorSetLayout as usize,
             ))
         };
         unsafe {
@@ -3582,7 +3582,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateDescriptorPool>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateDescriptorPool as usize,
+                DeviceCommand::vkCreateDescriptorPool as usize,
             ))
         };
         unsafe {
@@ -3617,7 +3617,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyDescriptorPool>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyDescriptorPool as usize,
+                DeviceCommand::vkDestroyDescriptorPool as usize,
             ))
         };
         unsafe {
@@ -3658,7 +3658,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ResetDescriptorPool>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkResetDescriptorPool as usize,
+                DeviceCommand::vkResetDescriptorPool as usize,
             ))
         };
         unsafe { (command)(self.handle, descriptor_pool, flags.unwrap_or_default()) }
@@ -3700,7 +3700,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_AllocateDescriptorSets>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkAllocateDescriptorSets as usize,
+                DeviceCommand::vkAllocateDescriptorSets as usize,
             ))
         };
         unsafe { (command)(self.handle, p_allocate_info, p_descriptor_sets) }
@@ -3736,7 +3736,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_FreeDescriptorSets>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkFreeDescriptorSets as usize,
+                DeviceCommand::vkFreeDescriptorSets as usize,
             ))
         };
         unsafe {
@@ -3778,7 +3778,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_UpdateDescriptorSets>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkUpdateDescriptorSets as usize,
+                DeviceCommand::vkUpdateDescriptorSets as usize,
             ))
         };
         unsafe {
@@ -3822,7 +3822,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindPipeline>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBindPipeline as usize,
+                DeviceCommand::vkCmdBindPipeline as usize,
             ))
         };
         unsafe { (command)(self.handle, pipeline_bind_point, pipeline) }
@@ -3875,7 +3875,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindDescriptorSets>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBindDescriptorSets as usize,
+                DeviceCommand::vkCmdBindDescriptorSets as usize,
             ))
         };
         unsafe {
@@ -3930,7 +3930,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdClearColorImage>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdClearColorImage as usize,
+                DeviceCommand::vkCmdClearColorImage as usize,
             ))
         };
         unsafe {
@@ -3968,7 +3968,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDispatch>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDispatch as usize,
+                DeviceCommand::vkCmdDispatch as usize,
             ))
         };
         unsafe { (command)(self.handle, group_count_x, group_count_y, group_count_z) }
@@ -4003,7 +4003,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDispatchIndirect>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDispatchIndirect as usize,
+                DeviceCommand::vkCmdDispatchIndirect as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer, offset) }
@@ -4042,7 +4042,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetEvent>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetEvent as usize,
+                DeviceCommand::vkCmdSetEvent as usize,
             ))
         };
         unsafe { (command)(self.handle, event, stage_mask.unwrap_or_default()) }
@@ -4081,7 +4081,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdResetEvent>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdResetEvent as usize,
+                DeviceCommand::vkCmdResetEvent as usize,
             ))
         };
         unsafe { (command)(self.handle, event, stage_mask.unwrap_or_default()) }
@@ -4144,7 +4144,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdWaitEvents>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdWaitEvents as usize,
+                DeviceCommand::vkCmdWaitEvents as usize,
             ))
         };
         unsafe {
@@ -4206,7 +4206,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdPushConstants>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdPushConstants as usize,
+                DeviceCommand::vkCmdPushConstants as usize,
             ))
         };
         unsafe { (command)(self.handle, layout, stage_flags, offset, size, p_values) }
@@ -4250,7 +4250,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateGraphicsPipelines>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateGraphicsPipelines as usize,
+                DeviceCommand::vkCreateGraphicsPipelines as usize,
             ))
         };
         unsafe {
@@ -4303,7 +4303,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateFramebuffer>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateFramebuffer as usize,
+                DeviceCommand::vkCreateFramebuffer as usize,
             ))
         };
         unsafe {
@@ -4340,7 +4340,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyFramebuffer>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyFramebuffer as usize,
+                DeviceCommand::vkDestroyFramebuffer as usize,
             ))
         };
         unsafe {
@@ -4391,7 +4391,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateRenderPass>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateRenderPass as usize,
+                DeviceCommand::vkCreateRenderPass as usize,
             ))
         };
         unsafe {
@@ -4428,7 +4428,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyRenderPass>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyRenderPass as usize,
+                DeviceCommand::vkDestroyRenderPass as usize,
             ))
         };
         unsafe {
@@ -4464,7 +4464,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetRenderAreaGranularity>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetRenderAreaGranularity as usize,
+                DeviceCommand::vkGetRenderAreaGranularity as usize,
             ))
         };
         unsafe { (command)(self.handle, render_pass, p_granularity) }
@@ -4498,7 +4498,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetViewport>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetViewport as usize,
+                DeviceCommand::vkCmdSetViewport as usize,
             ))
         };
         unsafe { (command)(self.handle, first_viewport, viewport_count, p_viewports) }
@@ -4532,7 +4532,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetScissor>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetScissor as usize,
+                DeviceCommand::vkCmdSetScissor as usize,
             ))
         };
         unsafe { (command)(self.handle, first_scissor, scissor_count, p_scissors) }
@@ -4561,7 +4561,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetLineWidth>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetLineWidth as usize,
+                DeviceCommand::vkCmdSetLineWidth as usize,
             ))
         };
         unsafe { (command)(self.handle, line_width) }
@@ -4595,7 +4595,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthBias>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetDepthBias as usize,
+                DeviceCommand::vkCmdSetDepthBias as usize,
             ))
         };
         unsafe {
@@ -4632,7 +4632,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetBlendConstants>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetBlendConstants as usize,
+                DeviceCommand::vkCmdSetBlendConstants as usize,
             ))
         };
         unsafe { (command)(self.handle, blend_constants) }
@@ -4661,7 +4661,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthBounds>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetDepthBounds as usize,
+                DeviceCommand::vkCmdSetDepthBounds as usize,
             ))
         };
         unsafe { (command)(self.handle, min_depth_bounds, max_depth_bounds) }
@@ -4695,7 +4695,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetStencilCompareMask>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetStencilCompareMask as usize,
+                DeviceCommand::vkCmdSetStencilCompareMask as usize,
             ))
         };
         unsafe { (command)(self.handle, face_mask, compare_mask) }
@@ -4725,7 +4725,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetStencilWriteMask>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetStencilWriteMask as usize,
+                DeviceCommand::vkCmdSetStencilWriteMask as usize,
             ))
         };
         unsafe { (command)(self.handle, face_mask, write_mask) }
@@ -4755,7 +4755,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetStencilReference>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetStencilReference as usize,
+                DeviceCommand::vkCmdSetStencilReference as usize,
             ))
         };
         unsafe { (command)(self.handle, face_mask, reference) }
@@ -4790,7 +4790,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindIndexBuffer>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBindIndexBuffer as usize,
+                DeviceCommand::vkCmdBindIndexBuffer as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer.unwrap_or_default(), offset, index_type) }
@@ -4826,7 +4826,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindVertexBuffers>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBindVertexBuffers as usize,
+                DeviceCommand::vkCmdBindVertexBuffers as usize,
             ))
         };
         unsafe {
@@ -4869,7 +4869,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDraw>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDraw as usize,
+                DeviceCommand::vkCmdDraw as usize,
             ))
         };
         unsafe {
@@ -4913,7 +4913,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndexed>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawIndexed as usize,
+                DeviceCommand::vkCmdDrawIndexed as usize,
             ))
         };
         unsafe {
@@ -4964,7 +4964,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndirect>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawIndirect as usize,
+                DeviceCommand::vkCmdDrawIndirect as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer, offset, draw_count, stride) }
@@ -5006,7 +5006,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndexedIndirect>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawIndexedIndirect as usize,
+                DeviceCommand::vkCmdDrawIndexedIndirect as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer, offset, draw_count, stride) }
@@ -5053,7 +5053,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBlitImage>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBlitImage as usize,
+                DeviceCommand::vkCmdBlitImage as usize,
             ))
         };
         unsafe {
@@ -5107,7 +5107,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdClearDepthStencilImage>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdClearDepthStencilImage as usize,
+                DeviceCommand::vkCmdClearDepthStencilImage as usize,
             ))
         };
         unsafe {
@@ -5152,7 +5152,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdClearAttachments>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdClearAttachments as usize,
+                DeviceCommand::vkCmdClearAttachments as usize,
             ))
         };
         unsafe {
@@ -5205,7 +5205,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdResolveImage>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdResolveImage as usize,
+                DeviceCommand::vkCmdResolveImage as usize,
             ))
         };
         unsafe {
@@ -5257,7 +5257,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBeginRenderPass>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBeginRenderPass as usize,
+                DeviceCommand::vkCmdBeginRenderPass as usize,
             ))
         };
         unsafe { (command)(self.handle, p_render_pass_begin, contents) }
@@ -5294,7 +5294,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdNextSubpass>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdNextSubpass as usize,
+                DeviceCommand::vkCmdNextSubpass as usize,
             ))
         };
         unsafe { (command)(self.handle, contents) }
@@ -5331,7 +5331,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdEndRenderPass>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdEndRenderPass as usize,
+                DeviceCommand::vkCmdEndRenderPass as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -5406,7 +5406,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BindBufferMemory2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkBindBufferMemory2 as usize,
+                DeviceCommand::vkBindBufferMemory2 as usize,
             ))
         };
         unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
@@ -5445,7 +5445,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BindImageMemory2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkBindImageMemory2 as usize,
+                DeviceCommand::vkBindImageMemory2 as usize,
             ))
         };
         unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
@@ -5477,7 +5477,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceGroupPeerMemoryFeatures>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetDeviceGroupPeerMemoryFeatures as usize,
+                DeviceCommand::vkGetDeviceGroupPeerMemoryFeatures as usize,
             ))
         };
         unsafe {
@@ -5522,7 +5522,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDeviceMask>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetDeviceMask as usize,
+                DeviceCommand::vkCmdSetDeviceMask as usize,
             ))
         };
         unsafe { (command)(self.handle, device_mask) }
@@ -5605,7 +5605,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetImageMemoryRequirements2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetImageMemoryRequirements2 as usize,
+                DeviceCommand::vkGetImageMemoryRequirements2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
@@ -5638,7 +5638,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetBufferMemoryRequirements2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetBufferMemoryRequirements2 as usize,
+                DeviceCommand::vkGetBufferMemoryRequirements2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
@@ -5673,7 +5673,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetImageSparseMemoryRequirements2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetImageSparseMemoryRequirements2 as usize,
+                DeviceCommand::vkGetImageSparseMemoryRequirements2 as usize,
             ))
         };
         unsafe {
@@ -5956,7 +5956,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_TrimCommandPool>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkTrimCommandPool as usize,
+                DeviceCommand::vkTrimCommandPool as usize,
             ))
         };
         unsafe { (command)(self.handle, command_pool, flags.unwrap_or_default()) }
@@ -5986,7 +5986,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceQueue2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetDeviceQueue2 as usize,
+                DeviceCommand::vkGetDeviceQueue2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_queue_info, p_queue) }
@@ -6153,7 +6153,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDispatchBase>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDispatchBase as usize,
+                DeviceCommand::vkCmdDispatchBase as usize,
             ))
         };
         unsafe {
@@ -6207,7 +6207,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateDescriptorUpdateTemplate>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateDescriptorUpdateTemplate as usize,
+                DeviceCommand::vkCreateDescriptorUpdateTemplate as usize,
             ))
         };
         unsafe {
@@ -6244,7 +6244,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyDescriptorUpdateTemplate>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyDescriptorUpdateTemplate as usize,
+                DeviceCommand::vkDestroyDescriptorUpdateTemplate as usize,
             ))
         };
         unsafe {
@@ -6281,7 +6281,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_UpdateDescriptorSetWithTemplate>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkUpdateDescriptorSetWithTemplate as usize,
+                DeviceCommand::vkUpdateDescriptorSetWithTemplate as usize,
             ))
         };
         unsafe {
@@ -6321,7 +6321,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDescriptorSetLayoutSupport>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetDescriptorSetLayoutSupport as usize,
+                DeviceCommand::vkGetDescriptorSetLayoutSupport as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_support) }
@@ -6365,7 +6365,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateSamplerYcbcrConversion>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateSamplerYcbcrConversion as usize,
+                DeviceCommand::vkCreateSamplerYcbcrConversion as usize,
             ))
         };
         unsafe {
@@ -6402,7 +6402,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroySamplerYcbcrConversion>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroySamplerYcbcrConversion as usize,
+                DeviceCommand::vkDestroySamplerYcbcrConversion as usize,
             ))
         };
         unsafe {
@@ -6438,7 +6438,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ResetQueryPool>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkResetQueryPool as usize,
+                DeviceCommand::vkResetQueryPool as usize,
             ))
         };
         unsafe { (command)(self.handle, query_pool, first_query, query_count) }
@@ -6478,7 +6478,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetSemaphoreCounterValue>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetSemaphoreCounterValue as usize,
+                DeviceCommand::vkGetSemaphoreCounterValue as usize,
             ))
         };
         unsafe { (command)(self.handle, semaphore, p_value) }
@@ -6519,7 +6519,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_WaitSemaphores>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkWaitSemaphores as usize,
+                DeviceCommand::vkWaitSemaphores as usize,
             ))
         };
         unsafe { (command)(self.handle, p_wait_info, timeout) }
@@ -6554,7 +6554,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SignalSemaphore>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkSignalSemaphore as usize,
+                DeviceCommand::vkSignalSemaphore as usize,
             ))
         };
         unsafe { (command)(self.handle, p_signal_info) }
@@ -6583,7 +6583,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetBufferDeviceAddress>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetBufferDeviceAddress as usize,
+                DeviceCommand::vkGetBufferDeviceAddress as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -6612,7 +6612,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetBufferOpaqueCaptureAddress>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetBufferOpaqueCaptureAddress as usize,
+                DeviceCommand::vkGetBufferOpaqueCaptureAddress as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -6642,7 +6642,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceMemoryOpaqueCaptureAddress>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetDeviceMemoryOpaqueCaptureAddress as usize,
+                    DeviceCommand::vkGetDeviceMemoryOpaqueCaptureAddress as usize,
                 ),
             )
         };
@@ -6693,7 +6693,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndirectCount>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawIndirectCount as usize,
+                DeviceCommand::vkCmdDrawIndirectCount as usize,
             ))
         };
         unsafe {
@@ -6753,7 +6753,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndexedIndirectCount>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawIndexedIndirectCount as usize,
+                DeviceCommand::vkCmdDrawIndexedIndirectCount as usize,
             ))
         };
         unsafe {
@@ -6813,7 +6813,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateRenderPass2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateRenderPass2 as usize,
+                DeviceCommand::vkCreateRenderPass2 as usize,
             ))
         };
         unsafe {
@@ -6867,7 +6867,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBeginRenderPass2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBeginRenderPass2 as usize,
+                DeviceCommand::vkCmdBeginRenderPass2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_render_pass_begin, p_subpass_begin_info) }
@@ -6914,7 +6914,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdNextSubpass2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdNextSubpass2 as usize,
+                DeviceCommand::vkCmdNextSubpass2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_subpass_begin_info, p_subpass_end_info) }
@@ -6956,7 +6956,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdEndRenderPass2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdEndRenderPass2 as usize,
+                DeviceCommand::vkCmdEndRenderPass2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_subpass_end_info) }
@@ -7047,7 +7047,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreatePrivateDataSlot>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreatePrivateDataSlot as usize,
+                DeviceCommand::vkCreatePrivateDataSlot as usize,
             ))
         };
         unsafe {
@@ -7084,7 +7084,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyPrivateDataSlot>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyPrivateDataSlot as usize,
+                DeviceCommand::vkDestroyPrivateDataSlot as usize,
             ))
         };
         unsafe {
@@ -7130,7 +7130,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SetPrivateData>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkSetPrivateData as usize,
+                DeviceCommand::vkSetPrivateData as usize,
             ))
         };
         unsafe {
@@ -7170,7 +7170,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPrivateData>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetPrivateData as usize,
+                DeviceCommand::vkGetPrivateData as usize,
             ))
         };
         unsafe {
@@ -7217,7 +7217,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdPipelineBarrier2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdPipelineBarrier2 as usize,
+                DeviceCommand::vkCmdPipelineBarrier2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_dependency_info) }
@@ -7262,7 +7262,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdWriteTimestamp2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdWriteTimestamp2 as usize,
+                DeviceCommand::vkCmdWriteTimestamp2 as usize,
             ))
         };
         unsafe { (command)(self.handle, stage.unwrap_or_default(), query_pool, query) }
@@ -7303,7 +7303,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_QueueSubmit2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkQueueSubmit2 as usize,
+                DeviceCommand::vkQueueSubmit2 as usize,
             ))
         };
         unsafe {
@@ -7353,7 +7353,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyBuffer2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyBuffer2 as usize,
+                DeviceCommand::vkCmdCopyBuffer2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_buffer_info) }
@@ -7390,7 +7390,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyImage2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyImage2 as usize,
+                DeviceCommand::vkCmdCopyImage2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_image_info) }
@@ -7437,7 +7437,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyBufferToImage2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyBufferToImage2 as usize,
+                DeviceCommand::vkCmdCopyBufferToImage2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_buffer_to_image_info) }
@@ -7484,7 +7484,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyImageToBuffer2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyImageToBuffer2 as usize,
+                DeviceCommand::vkCmdCopyImageToBuffer2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_image_to_buffer_info) }
@@ -7517,7 +7517,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceBufferMemoryRequirements>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetDeviceBufferMemoryRequirements as usize,
+                DeviceCommand::vkGetDeviceBufferMemoryRequirements as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
@@ -7550,7 +7550,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceImageMemoryRequirements>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetDeviceImageMemoryRequirements as usize,
+                DeviceCommand::vkGetDeviceImageMemoryRequirements as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
@@ -7586,7 +7586,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceImageSparseMemoryRequirements>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetDeviceImageSparseMemoryRequirements as usize,
+                    DeviceCommand::vkGetDeviceImageSparseMemoryRequirements as usize,
                 ),
             )
         };
@@ -7632,7 +7632,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetEvent2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetEvent2 as usize,
+                DeviceCommand::vkCmdSetEvent2 as usize,
             ))
         };
         unsafe { (command)(self.handle, event, p_dependency_info) }
@@ -7670,7 +7670,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdResetEvent2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdResetEvent2 as usize,
+                DeviceCommand::vkCmdResetEvent2 as usize,
             ))
         };
         unsafe { (command)(self.handle, event, stage_mask.unwrap_or_default()) }
@@ -7714,7 +7714,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdWaitEvents2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdWaitEvents2 as usize,
+                DeviceCommand::vkCmdWaitEvents2 as usize,
             ))
         };
         unsafe { (command)(self.handle, event_count, p_events, p_dependency_infos) }
@@ -7749,7 +7749,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBlitImage2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBlitImage2 as usize,
+                DeviceCommand::vkCmdBlitImage2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_blit_image_info) }
@@ -7784,7 +7784,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdResolveImage2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdResolveImage2 as usize,
+                DeviceCommand::vkCmdResolveImage2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_resolve_image_info) }
@@ -7820,7 +7820,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBeginRendering>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBeginRendering as usize,
+                DeviceCommand::vkCmdBeginRendering as usize,
             ))
         };
         unsafe { (command)(self.handle, p_rendering_info) }
@@ -7856,7 +7856,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdEndRendering>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdEndRendering as usize,
+                DeviceCommand::vkCmdEndRendering as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -7891,7 +7891,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetCullMode>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetCullMode as usize,
+                DeviceCommand::vkCmdSetCullMode as usize,
             ))
         };
         unsafe { (command)(self.handle, cull_mode.unwrap_or_default()) }
@@ -7926,7 +7926,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetFrontFace>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetFrontFace as usize,
+                DeviceCommand::vkCmdSetFrontFace as usize,
             ))
         };
         unsafe { (command)(self.handle, front_face) }
@@ -7961,7 +7961,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetPrimitiveTopology>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetPrimitiveTopology as usize,
+                DeviceCommand::vkCmdSetPrimitiveTopology as usize,
             ))
         };
         unsafe { (command)(self.handle, primitive_topology) }
@@ -8001,7 +8001,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetViewportWithCount>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetViewportWithCount as usize,
+                DeviceCommand::vkCmdSetViewportWithCount as usize,
             ))
         };
         unsafe { (command)(self.handle, viewport_count, p_viewports) }
@@ -8036,7 +8036,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetScissorWithCount>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetScissorWithCount as usize,
+                DeviceCommand::vkCmdSetScissorWithCount as usize,
             ))
         };
         unsafe { (command)(self.handle, scissor_count, p_scissors) }
@@ -8087,7 +8087,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindVertexBuffers2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBindVertexBuffers2 as usize,
+                DeviceCommand::vkCmdBindVertexBuffers2 as usize,
             ))
         };
         unsafe {
@@ -8132,7 +8132,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthTestEnable>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetDepthTestEnable as usize,
+                DeviceCommand::vkCmdSetDepthTestEnable as usize,
             ))
         };
         unsafe { (command)(self.handle, depth_test_enable) }
@@ -8167,7 +8167,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthWriteEnable>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetDepthWriteEnable as usize,
+                DeviceCommand::vkCmdSetDepthWriteEnable as usize,
             ))
         };
         unsafe { (command)(self.handle, depth_write_enable) }
@@ -8202,7 +8202,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthCompareOp>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetDepthCompareOp as usize,
+                DeviceCommand::vkCmdSetDepthCompareOp as usize,
             ))
         };
         unsafe { (command)(self.handle, depth_compare_op) }
@@ -8237,7 +8237,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthBoundsTestEnable>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetDepthBoundsTestEnable as usize,
+                DeviceCommand::vkCmdSetDepthBoundsTestEnable as usize,
             ))
         };
         unsafe { (command)(self.handle, depth_bounds_test_enable) }
@@ -8272,7 +8272,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetStencilTestEnable>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetStencilTestEnable as usize,
+                DeviceCommand::vkCmdSetStencilTestEnable as usize,
             ))
         };
         unsafe { (command)(self.handle, stencil_test_enable) }
@@ -8321,7 +8321,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetStencilOp>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetStencilOp as usize,
+                DeviceCommand::vkCmdSetStencilOp as usize,
             ))
         };
         unsafe {
@@ -8365,7 +8365,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetRasterizerDiscardEnable>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetRasterizerDiscardEnable as usize,
+                DeviceCommand::vkCmdSetRasterizerDiscardEnable as usize,
             ))
         };
         unsafe { (command)(self.handle, rasterizer_discard_enable) }
@@ -8400,7 +8400,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthBiasEnable>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetDepthBiasEnable as usize,
+                DeviceCommand::vkCmdSetDepthBiasEnable as usize,
             ))
         };
         unsafe { (command)(self.handle, depth_bias_enable) }
@@ -8435,7 +8435,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetPrimitiveRestartEnable>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetPrimitiveRestartEnable as usize,
+                DeviceCommand::vkCmdSetPrimitiveRestartEnable as usize,
             ))
         };
         unsafe { (command)(self.handle, primitive_restart_enable) }
@@ -8475,7 +8475,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_MapMemory2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkMapMemory2 as usize,
+                DeviceCommand::vkMapMemory2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_memory_map_info, pp_data) }
@@ -8508,7 +8508,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_UnmapMemory2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkUnmapMemory2 as usize,
+                DeviceCommand::vkUnmapMemory2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_memory_unmap_info) }
@@ -8538,7 +8538,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceImageSubresourceLayout>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetDeviceImageSubresourceLayout as usize,
+                DeviceCommand::vkGetDeviceImageSubresourceLayout as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info, p_layout) }
@@ -8569,7 +8569,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetImageSubresourceLayout2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetImageSubresourceLayout2 as usize,
+                DeviceCommand::vkGetImageSubresourceLayout2 as usize,
             ))
         };
         unsafe { (command)(self.handle, image, p_subresource, p_layout) }
@@ -8609,7 +8609,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CopyMemoryToImage>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCopyMemoryToImage as usize,
+                DeviceCommand::vkCopyMemoryToImage as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_memory_to_image_info) }
@@ -8649,7 +8649,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CopyImageToMemory>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCopyImageToMemory as usize,
+                DeviceCommand::vkCopyImageToMemory as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_image_to_memory_info) }
@@ -8689,7 +8689,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CopyImageToImage>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCopyImageToImage as usize,
+                DeviceCommand::vkCopyImageToImage as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_image_to_image_info) }
@@ -8730,7 +8730,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_TransitionImageLayout>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkTransitionImageLayout as usize,
+                DeviceCommand::vkTransitionImageLayout as usize,
             ))
         };
         unsafe { (command)(self.handle, transition_count, p_transitions) }
@@ -8780,7 +8780,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdPushDescriptorSet>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdPushDescriptorSet as usize,
+                DeviceCommand::vkCmdPushDescriptorSet as usize,
             ))
         };
         unsafe {
@@ -8837,7 +8837,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdPushDescriptorSetWithTemplate>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdPushDescriptorSetWithTemplate as usize,
+                DeviceCommand::vkCmdPushDescriptorSetWithTemplate as usize,
             ))
         };
         unsafe { (command)(self.handle, descriptor_update_template, layout, set, p_data) }
@@ -8881,7 +8881,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindDescriptorSets2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBindDescriptorSets2 as usize,
+                DeviceCommand::vkCmdBindDescriptorSets2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_bind_descriptor_sets_info) }
@@ -8921,7 +8921,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdPushConstants2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdPushConstants2 as usize,
+                DeviceCommand::vkCmdPushConstants2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_push_constants_info) }
@@ -8961,7 +8961,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdPushDescriptorSet2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdPushDescriptorSet2 as usize,
+                DeviceCommand::vkCmdPushDescriptorSet2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_push_descriptor_set_info) }
@@ -9001,7 +9001,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdPushDescriptorSetWithTemplate2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdPushDescriptorSetWithTemplate2 as usize,
+                DeviceCommand::vkCmdPushDescriptorSetWithTemplate2 as usize,
             ))
         };
         unsafe { (command)(self.handle, p_push_descriptor_set_with_template_info) }
@@ -9036,7 +9036,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetLineStipple>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetLineStipple as usize,
+                DeviceCommand::vkCmdSetLineStipple as usize,
             ))
         };
         unsafe { (command)(self.handle, line_stipple_factor, line_stipple_pattern) }
@@ -9084,7 +9084,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindIndexBuffer2>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBindIndexBuffer2 as usize,
+                DeviceCommand::vkCmdBindIndexBuffer2 as usize,
             ))
         };
         unsafe {
@@ -9122,7 +9122,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetRenderingAreaGranularity>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetRenderingAreaGranularity as usize,
+                DeviceCommand::vkGetRenderingAreaGranularity as usize,
             ))
         };
         unsafe { (command)(self.handle, p_rendering_area_info, p_granularity) }
@@ -9162,7 +9162,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetRenderingAttachmentLocations>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdSetRenderingAttachmentLocations as usize,
+                    DeviceCommand::vkCmdSetRenderingAttachmentLocations as usize,
                 ),
             )
         };
@@ -9203,7 +9203,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetRenderingInputAttachmentIndices>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdSetRenderingInputAttachmentIndices as usize,
+                    DeviceCommand::vkCmdSetRenderingInputAttachmentIndices as usize,
                 ),
             )
         };
@@ -9499,7 +9499,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateSwapchainKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateSwapchainKHR as usize,
+                DeviceCommand::vkCreateSwapchainKHR as usize,
             ))
         };
         unsafe {
@@ -9536,7 +9536,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroySwapchainKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroySwapchainKHR as usize,
+                DeviceCommand::vkDestroySwapchainKHR as usize,
             ))
         };
         unsafe {
@@ -9583,7 +9583,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetSwapchainImagesKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetSwapchainImagesKHR as usize,
+                DeviceCommand::vkGetSwapchainImagesKHR as usize,
             ))
         };
         unsafe {
@@ -9639,7 +9639,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_AcquireNextImageKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkAcquireNextImageKHR as usize,
+                DeviceCommand::vkAcquireNextImageKHR as usize,
             ))
         };
         unsafe {
@@ -9689,7 +9689,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_QueuePresentKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkQueuePresentKHR as usize,
+                DeviceCommand::vkQueuePresentKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_present_info) }
@@ -9730,7 +9730,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceGroupPresentCapabilitiesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetDeviceGroupPresentCapabilitiesKHR as usize,
+                    DeviceCommand::vkGetDeviceGroupPresentCapabilitiesKHR as usize,
                 ),
             )
         };
@@ -9777,7 +9777,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceGroupSurfacePresentModesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetDeviceGroupSurfacePresentModesKHR as usize,
+                    DeviceCommand::vkGetDeviceGroupSurfacePresentModesKHR as usize,
                 ),
             )
         };
@@ -9878,7 +9878,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_AcquireNextImage2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkAcquireNextImage2KHR as usize,
+                DeviceCommand::vkAcquireNextImage2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_acquire_info, p_image_index) }
@@ -10278,7 +10278,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateSharedSwapchainsKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateSharedSwapchainsKHR as usize,
+                DeviceCommand::vkCreateSharedSwapchainsKHR as usize,
             ))
         };
         unsafe {
@@ -10826,7 +10826,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateVideoSessionKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateVideoSessionKHR as usize,
+                DeviceCommand::vkCreateVideoSessionKHR as usize,
             ))
         };
         unsafe {
@@ -10863,7 +10863,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyVideoSessionKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyVideoSessionKHR as usize,
+                DeviceCommand::vkDestroyVideoSessionKHR as usize,
             ))
         };
         unsafe {
@@ -10913,7 +10913,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetVideoSessionMemoryRequirementsKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetVideoSessionMemoryRequirementsKHR as usize,
+                    DeviceCommand::vkGetVideoSessionMemoryRequirementsKHR as usize,
                 ),
             )
         };
@@ -10965,7 +10965,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BindVideoSessionMemoryKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkBindVideoSessionMemoryKHR as usize,
+                DeviceCommand::vkBindVideoSessionMemoryKHR as usize,
             ))
         };
         unsafe {
@@ -11018,7 +11018,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateVideoSessionParametersKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateVideoSessionParametersKHR as usize,
+                DeviceCommand::vkCreateVideoSessionParametersKHR as usize,
             ))
         };
         unsafe {
@@ -11068,7 +11068,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_UpdateVideoSessionParametersKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkUpdateVideoSessionParametersKHR as usize,
+                DeviceCommand::vkUpdateVideoSessionParametersKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, video_session_parameters, p_update_info) }
@@ -11098,7 +11098,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyVideoSessionParametersKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyVideoSessionParametersKHR as usize,
+                DeviceCommand::vkDestroyVideoSessionParametersKHR as usize,
             ))
         };
         unsafe {
@@ -11141,7 +11141,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBeginVideoCodingKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBeginVideoCodingKHR as usize,
+                DeviceCommand::vkCmdBeginVideoCodingKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_begin_info) }
@@ -11178,7 +11178,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdEndVideoCodingKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdEndVideoCodingKHR as usize,
+                DeviceCommand::vkCmdEndVideoCodingKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_end_coding_info) }
@@ -11217,7 +11217,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdControlVideoCodingKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdControlVideoCodingKHR as usize,
+                DeviceCommand::vkCmdControlVideoCodingKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_coding_control_info) }
@@ -11252,7 +11252,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDecodeVideoKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDecodeVideoKHR as usize,
+                DeviceCommand::vkCmdDecodeVideoKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_decode_info) }
@@ -11289,7 +11289,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBeginRenderingKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBeginRenderingKHR as usize,
+                DeviceCommand::vkCmdBeginRenderingKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_rendering_info) }
@@ -11326,7 +11326,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdEndRenderingKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdEndRenderingKHR as usize,
+                DeviceCommand::vkCmdEndRenderingKHR as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -11614,7 +11614,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceGroupPeerMemoryFeaturesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetDeviceGroupPeerMemoryFeaturesKHR as usize,
+                    DeviceCommand::vkGetDeviceGroupPeerMemoryFeaturesKHR as usize,
                 ),
             )
         };
@@ -11661,7 +11661,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDeviceMaskKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetDeviceMaskKHR as usize,
+                DeviceCommand::vkCmdSetDeviceMaskKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, device_mask) }
@@ -11706,7 +11706,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDispatchBaseKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDispatchBaseKHR as usize,
+                DeviceCommand::vkCmdDispatchBaseKHR as usize,
             ))
         };
         unsafe {
@@ -11747,7 +11747,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_TrimCommandPoolKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkTrimCommandPoolKHR as usize,
+                DeviceCommand::vkTrimCommandPoolKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, command_pool, flags.unwrap_or_default()) }
@@ -11882,7 +11882,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryWin32HandleKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetMemoryWin32HandleKHR as usize,
+                DeviceCommand::vkGetMemoryWin32HandleKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_get_win_32_handle_info, p_handle) }
@@ -11926,7 +11926,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryWin32HandlePropertiesKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetMemoryWin32HandlePropertiesKHR as usize,
+                DeviceCommand::vkGetMemoryWin32HandlePropertiesKHR as usize,
             ))
         };
         unsafe {
@@ -11972,7 +11972,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryFdKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetMemoryFdKHR as usize,
+                DeviceCommand::vkGetMemoryFdKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_get_fd_info, p_fd) }
@@ -12016,7 +12016,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryFdPropertiesKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetMemoryFdPropertiesKHR as usize,
+                DeviceCommand::vkGetMemoryFdPropertiesKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, handle_type, fd, p_memory_fd_properties) }
@@ -12096,7 +12096,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ImportSemaphoreWin32HandleKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkImportSemaphoreWin32HandleKHR as usize,
+                DeviceCommand::vkImportSemaphoreWin32HandleKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_import_semaphore_win_32_handle_info) }
@@ -12138,7 +12138,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetSemaphoreWin32HandleKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetSemaphoreWin32HandleKHR as usize,
+                DeviceCommand::vkGetSemaphoreWin32HandleKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_get_win_32_handle_info, p_handle) }
@@ -12176,7 +12176,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ImportSemaphoreFdKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkImportSemaphoreFdKHR as usize,
+                DeviceCommand::vkImportSemaphoreFdKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_import_semaphore_fd_info) }
@@ -12215,7 +12215,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetSemaphoreFdKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetSemaphoreFdKHR as usize,
+                DeviceCommand::vkGetSemaphoreFdKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_get_fd_info, p_fd) }
@@ -12266,7 +12266,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdPushDescriptorSetKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdPushDescriptorSetKHR as usize,
+                DeviceCommand::vkCmdPushDescriptorSetKHR as usize,
             ))
         };
         unsafe {
@@ -12326,7 +12326,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdPushDescriptorSetWithTemplateKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdPushDescriptorSetWithTemplateKHR as usize,
+                    DeviceCommand::vkCmdPushDescriptorSetWithTemplateKHR as usize,
                 ),
             )
         };
@@ -12372,7 +12372,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateDescriptorUpdateTemplateKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateDescriptorUpdateTemplateKHR as usize,
+                DeviceCommand::vkCreateDescriptorUpdateTemplateKHR as usize,
             ))
         };
         unsafe {
@@ -12411,7 +12411,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_DestroyDescriptorUpdateTemplateKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkDestroyDescriptorUpdateTemplateKHR as usize,
+                    DeviceCommand::vkDestroyDescriptorUpdateTemplateKHR as usize,
                 ),
             )
         };
@@ -12451,7 +12451,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_UpdateDescriptorSetWithTemplateKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkUpdateDescriptorSetWithTemplateKHR as usize,
+                    DeviceCommand::vkUpdateDescriptorSetWithTemplateKHR as usize,
                 ),
             )
         };
@@ -12504,7 +12504,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateRenderPass2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateRenderPass2KHR as usize,
+                DeviceCommand::vkCreateRenderPass2KHR as usize,
             ))
         };
         unsafe {
@@ -12553,7 +12553,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBeginRenderPass2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBeginRenderPass2KHR as usize,
+                DeviceCommand::vkCmdBeginRenderPass2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_render_pass_begin, p_subpass_begin_info) }
@@ -12595,7 +12595,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdNextSubpass2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdNextSubpass2KHR as usize,
+                DeviceCommand::vkCmdNextSubpass2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_subpass_begin_info, p_subpass_end_info) }
@@ -12632,7 +12632,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdEndRenderPass2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdEndRenderPass2KHR as usize,
+                DeviceCommand::vkCmdEndRenderPass2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_subpass_end_info) }
@@ -12671,7 +12671,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetSwapchainStatusKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetSwapchainStatusKHR as usize,
+                DeviceCommand::vkGetSwapchainStatusKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, swapchain) }
@@ -12751,7 +12751,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ImportFenceWin32HandleKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkImportFenceWin32HandleKHR as usize,
+                DeviceCommand::vkImportFenceWin32HandleKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_import_fence_win_32_handle_info) }
@@ -12793,7 +12793,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetFenceWin32HandleKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetFenceWin32HandleKHR as usize,
+                DeviceCommand::vkGetFenceWin32HandleKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_get_win_32_handle_info, p_handle) }
@@ -12831,7 +12831,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ImportFenceFdKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkImportFenceFdKHR as usize,
+                DeviceCommand::vkImportFenceFdKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_import_fence_fd_info) }
@@ -12870,7 +12870,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetFenceFdKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetFenceFdKHR as usize,
+                DeviceCommand::vkGetFenceFdKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_get_fd_info, p_fd) }
@@ -13002,7 +13002,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_AcquireProfilingLockKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkAcquireProfilingLockKHR as usize,
+                DeviceCommand::vkAcquireProfilingLockKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -13027,7 +13027,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ReleaseProfilingLockKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkReleaseProfilingLockKHR as usize,
+                DeviceCommand::vkReleaseProfilingLockKHR as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -13354,7 +13354,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetImageMemoryRequirements2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetImageMemoryRequirements2KHR as usize,
+                DeviceCommand::vkGetImageMemoryRequirements2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
@@ -13388,7 +13388,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetBufferMemoryRequirements2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetBufferMemoryRequirements2KHR as usize,
+                DeviceCommand::vkGetBufferMemoryRequirements2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
@@ -13425,7 +13425,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetImageSparseMemoryRequirements2KHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetImageSparseMemoryRequirements2KHR as usize,
+                    DeviceCommand::vkGetImageSparseMemoryRequirements2KHR as usize,
                 ),
             )
         };
@@ -13478,7 +13478,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateSamplerYcbcrConversionKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateSamplerYcbcrConversionKHR as usize,
+                DeviceCommand::vkCreateSamplerYcbcrConversionKHR as usize,
             ))
         };
         unsafe {
@@ -13516,7 +13516,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroySamplerYcbcrConversionKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroySamplerYcbcrConversionKHR as usize,
+                DeviceCommand::vkDestroySamplerYcbcrConversionKHR as usize,
             ))
         };
         unsafe {
@@ -13563,7 +13563,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BindBufferMemory2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkBindBufferMemory2KHR as usize,
+                DeviceCommand::vkBindBufferMemory2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
@@ -13603,7 +13603,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BindImageMemory2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkBindImageMemory2KHR as usize,
+                DeviceCommand::vkBindImageMemory2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
@@ -13637,7 +13637,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDescriptorSetLayoutSupportKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetDescriptorSetLayoutSupportKHR as usize,
+                DeviceCommand::vkGetDescriptorSetLayoutSupportKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_create_info, p_support) }
@@ -13682,7 +13682,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndirectCountKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawIndirectCountKHR as usize,
+                DeviceCommand::vkCmdDrawIndirectCountKHR as usize,
             ))
         };
         unsafe {
@@ -13737,7 +13737,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndexedIndirectCountKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawIndexedIndirectCountKHR as usize,
+                DeviceCommand::vkCmdDrawIndexedIndirectCountKHR as usize,
             ))
         };
         unsafe {
@@ -13788,7 +13788,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetSemaphoreCounterValueKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetSemaphoreCounterValueKHR as usize,
+                DeviceCommand::vkGetSemaphoreCounterValueKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, semaphore, p_value) }
@@ -13830,7 +13830,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_WaitSemaphoresKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkWaitSemaphoresKHR as usize,
+                DeviceCommand::vkWaitSemaphoresKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_wait_info, timeout) }
@@ -13869,7 +13869,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SignalSemaphoreKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkSignalSemaphoreKHR as usize,
+                DeviceCommand::vkSignalSemaphoreKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_signal_info) }
@@ -13962,7 +13962,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetFragmentShadingRateKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetFragmentShadingRateKHR as usize,
+                DeviceCommand::vkCmdSetFragmentShadingRateKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_fragment_size, combiner_ops) }
@@ -14003,7 +14003,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetRenderingAttachmentLocationsKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdSetRenderingAttachmentLocationsKHR as usize,
+                    DeviceCommand::vkCmdSetRenderingAttachmentLocationsKHR as usize,
                 ),
             )
         };
@@ -14045,7 +14045,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetRenderingInputAttachmentIndicesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdSetRenderingInputAttachmentIndicesKHR as usize,
+                    DeviceCommand::vkCmdSetRenderingInputAttachmentIndicesKHR as usize,
                 ),
             )
         };
@@ -14092,7 +14092,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_WaitForPresentKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkWaitForPresentKHR as usize,
+                DeviceCommand::vkWaitForPresentKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, swapchain, present_id, timeout) }
@@ -14122,7 +14122,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetBufferDeviceAddressKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetBufferDeviceAddressKHR as usize,
+                DeviceCommand::vkGetBufferDeviceAddressKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -14152,7 +14152,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetBufferOpaqueCaptureAddressKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetBufferOpaqueCaptureAddressKHR as usize,
+                DeviceCommand::vkGetBufferOpaqueCaptureAddressKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -14183,7 +14183,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceMemoryOpaqueCaptureAddressKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetDeviceMemoryOpaqueCaptureAddressKHR as usize,
+                    DeviceCommand::vkGetDeviceMemoryOpaqueCaptureAddressKHR as usize,
                 ),
             )
         };
@@ -14225,7 +14225,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateDeferredOperationKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateDeferredOperationKHR as usize,
+                DeviceCommand::vkCreateDeferredOperationKHR as usize,
             ))
         };
         unsafe {
@@ -14261,7 +14261,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyDeferredOperationKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyDeferredOperationKHR as usize,
+                DeviceCommand::vkDestroyDeferredOperationKHR as usize,
             ))
         };
         unsafe {
@@ -14297,7 +14297,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetDeferredOperationMaxConcurrencyKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetDeferredOperationMaxConcurrencyKHR as usize,
+                    DeviceCommand::vkGetDeferredOperationMaxConcurrencyKHR as usize,
                 ),
             )
         };
@@ -14335,7 +14335,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDeferredOperationResultKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetDeferredOperationResultKHR as usize,
+                DeviceCommand::vkGetDeferredOperationResultKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, operation) }
@@ -14375,7 +14375,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DeferredOperationJoinKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDeferredOperationJoinKHR as usize,
+                DeviceCommand::vkDeferredOperationJoinKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, operation) }
@@ -14421,7 +14421,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetPipelineExecutablePropertiesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetPipelineExecutablePropertiesKHR as usize,
+                    DeviceCommand::vkGetPipelineExecutablePropertiesKHR as usize,
                 ),
             )
         };
@@ -14475,7 +14475,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetPipelineExecutableStatisticsKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetPipelineExecutableStatisticsKHR as usize,
+                    DeviceCommand::vkGetPipelineExecutableStatisticsKHR as usize,
                 ),
             )
         };
@@ -14529,7 +14529,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetPipelineExecutableInternalRepresentationsKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetPipelineExecutableInternalRepresentationsKHR as usize,
+                    DeviceCommand::vkGetPipelineExecutableInternalRepresentationsKHR as usize,
                 ),
             )
         };
@@ -14578,7 +14578,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_MapMemory2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkMapMemory2KHR as usize,
+                DeviceCommand::vkMapMemory2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_memory_map_info, pp_data) }
@@ -14616,7 +14616,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_UnmapMemory2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkUnmapMemory2KHR as usize,
+                DeviceCommand::vkUnmapMemory2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_memory_unmap_info) }
@@ -14720,7 +14720,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetEncodedVideoSessionParametersKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetEncodedVideoSessionParametersKHR as usize,
+                    DeviceCommand::vkGetEncodedVideoSessionParametersKHR as usize,
                 ),
             )
         };
@@ -14764,7 +14764,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdEncodeVideoKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdEncodeVideoKHR as usize,
+                DeviceCommand::vkCmdEncodeVideoKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_encode_info) }
@@ -14808,7 +14808,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetEvent2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetEvent2KHR as usize,
+                DeviceCommand::vkCmdSetEvent2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, event, p_dependency_info) }
@@ -14852,7 +14852,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdResetEvent2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdResetEvent2KHR as usize,
+                DeviceCommand::vkCmdResetEvent2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, event, stage_mask.unwrap_or_default()) }
@@ -14897,7 +14897,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdWaitEvents2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdWaitEvents2KHR as usize,
+                DeviceCommand::vkCmdWaitEvents2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, event_count, p_events, p_dependency_infos) }
@@ -14938,7 +14938,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdPipelineBarrier2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdPipelineBarrier2KHR as usize,
+                DeviceCommand::vkCmdPipelineBarrier2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_dependency_info) }
@@ -14984,7 +14984,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdWriteTimestamp2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdWriteTimestamp2KHR as usize,
+                DeviceCommand::vkCmdWriteTimestamp2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, stage.unwrap_or_default(), query_pool, query) }
@@ -15026,7 +15026,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_QueueSubmit2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkQueueSubmit2KHR as usize,
+                DeviceCommand::vkQueueSubmit2KHR as usize,
             ))
         };
         unsafe {
@@ -15069,7 +15069,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindIndexBuffer3KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBindIndexBuffer3KHR as usize,
+                DeviceCommand::vkCmdBindIndexBuffer3KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -15110,7 +15110,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindVertexBuffers3KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBindVertexBuffers3KHR as usize,
+                DeviceCommand::vkCmdBindVertexBuffers3KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, first_binding, binding_count, p_binding_infos) }
@@ -15146,7 +15146,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndirect2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawIndirect2KHR as usize,
+                DeviceCommand::vkCmdDrawIndirect2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -15182,7 +15182,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndexedIndirect2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawIndexedIndirect2KHR as usize,
+                DeviceCommand::vkCmdDrawIndexedIndirect2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -15218,7 +15218,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDispatchIndirect2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDispatchIndirect2KHR as usize,
+                DeviceCommand::vkCmdDispatchIndirect2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -15257,7 +15257,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyMemoryKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyMemoryKHR as usize,
+                DeviceCommand::vkCmdCopyMemoryKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_memory_info.unwrap_or_default()) }
@@ -15296,7 +15296,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyMemoryToImageKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyMemoryToImageKHR as usize,
+                DeviceCommand::vkCmdCopyMemoryToImageKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_memory_info.unwrap_or_default()) }
@@ -15335,7 +15335,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyImageToMemoryKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyImageToMemoryKHR as usize,
+                DeviceCommand::vkCmdCopyImageToMemoryKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_memory_info.unwrap_or_default()) }
@@ -15382,7 +15382,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdUpdateMemoryKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdUpdateMemoryKHR as usize,
+                DeviceCommand::vkCmdUpdateMemoryKHR as usize,
             ))
         };
         unsafe {
@@ -15435,7 +15435,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdFillMemoryKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdFillMemoryKHR as usize,
+                DeviceCommand::vkCmdFillMemoryKHR as usize,
             ))
         };
         unsafe {
@@ -15494,7 +15494,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyQueryPoolResultsToMemoryKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdCopyQueryPoolResultsToMemoryKHR as usize,
+                    DeviceCommand::vkCmdCopyQueryPoolResultsToMemoryKHR as usize,
                 ),
             )
         };
@@ -15541,7 +15541,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndirectCount2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawIndirectCount2KHR as usize,
+                DeviceCommand::vkCmdDrawIndirectCount2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -15580,7 +15580,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndexedIndirectCount2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawIndexedIndirectCount2KHR as usize,
+                DeviceCommand::vkCmdDrawIndexedIndirectCount2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -15621,7 +15621,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBeginConditionalRendering2EXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBeginConditionalRendering2EXT as usize,
+                DeviceCommand::vkCmdBeginConditionalRendering2EXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_conditional_rendering_begin) }
@@ -15663,7 +15663,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindTransformFeedbackBuffers2EXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdBindTransformFeedbackBuffers2EXT as usize,
+                    DeviceCommand::vkCmdBindTransformFeedbackBuffers2EXT as usize,
                 ),
             )
         };
@@ -15712,7 +15712,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBeginTransformFeedback2EXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBeginTransformFeedback2EXT as usize,
+                DeviceCommand::vkCmdBeginTransformFeedback2EXT as usize,
             ))
         };
         unsafe {
@@ -15760,7 +15760,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdEndTransformFeedback2EXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdEndTransformFeedback2EXT as usize,
+                DeviceCommand::vkCmdEndTransformFeedback2EXT as usize,
             ))
         };
         unsafe {
@@ -15816,7 +15816,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndirectByteCount2EXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawIndirectByteCount2EXT as usize,
+                DeviceCommand::vkCmdDrawIndirectByteCount2EXT as usize,
             ))
         };
         unsafe {
@@ -15861,7 +15861,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawMeshTasksIndirect2EXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawMeshTasksIndirect2EXT as usize,
+                DeviceCommand::vkCmdDrawMeshTasksIndirect2EXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -15900,7 +15900,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawMeshTasksIndirectCount2EXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawMeshTasksIndirectCount2EXT as usize,
+                DeviceCommand::vkCmdDrawMeshTasksIndirectCount2EXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -15938,7 +15938,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdWriteMarkerToMemoryAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdWriteMarkerToMemoryAMD as usize,
+                DeviceCommand::vkCmdWriteMarkerToMemoryAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -15982,7 +15982,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateAccelerationStructure2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateAccelerationStructure2KHR as usize,
+                DeviceCommand::vkCreateAccelerationStructure2KHR as usize,
             ))
         };
         unsafe {
@@ -16027,7 +16027,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyBuffer2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyBuffer2KHR as usize,
+                DeviceCommand::vkCmdCopyBuffer2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_buffer_info) }
@@ -16065,7 +16065,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyImage2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyImage2KHR as usize,
+                DeviceCommand::vkCmdCopyImage2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_image_info) }
@@ -16107,7 +16107,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyBufferToImage2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyBufferToImage2KHR as usize,
+                DeviceCommand::vkCmdCopyBufferToImage2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_buffer_to_image_info) }
@@ -16149,7 +16149,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyImageToBuffer2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyImageToBuffer2KHR as usize,
+                DeviceCommand::vkCmdCopyImageToBuffer2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_image_to_buffer_info) }
@@ -16185,7 +16185,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBlitImage2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBlitImage2KHR as usize,
+                DeviceCommand::vkCmdBlitImage2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_blit_image_info) }
@@ -16222,7 +16222,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdResolveImage2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdResolveImage2KHR as usize,
+                DeviceCommand::vkCmdResolveImage2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_resolve_image_info) }
@@ -16257,7 +16257,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdTraceRaysIndirect2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdTraceRaysIndirect2KHR as usize,
+                DeviceCommand::vkCmdTraceRaysIndirect2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, indirect_device_address) }
@@ -16292,7 +16292,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceBufferMemoryRequirementsKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetDeviceBufferMemoryRequirementsKHR as usize,
+                    DeviceCommand::vkGetDeviceBufferMemoryRequirementsKHR as usize,
                 ),
             )
         };
@@ -16328,7 +16328,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceImageMemoryRequirementsKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetDeviceImageMemoryRequirementsKHR as usize,
+                    DeviceCommand::vkGetDeviceImageMemoryRequirementsKHR as usize,
                 ),
             )
         };
@@ -16366,7 +16366,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceImageSparseMemoryRequirementsKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetDeviceImageSparseMemoryRequirementsKHR as usize,
+                    DeviceCommand::vkGetDeviceImageSparseMemoryRequirementsKHR as usize,
                 ),
             )
         };
@@ -16417,7 +16417,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindIndexBuffer2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBindIndexBuffer2KHR as usize,
+                DeviceCommand::vkCmdBindIndexBuffer2KHR as usize,
             ))
         };
         unsafe {
@@ -16456,7 +16456,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetRenderingAreaGranularityKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetRenderingAreaGranularityKHR as usize,
+                DeviceCommand::vkGetRenderingAreaGranularityKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_rendering_area_info, p_granularity) }
@@ -16488,7 +16488,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceImageSubresourceLayoutKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetDeviceImageSubresourceLayoutKHR as usize,
+                    DeviceCommand::vkGetDeviceImageSubresourceLayoutKHR as usize,
                 ),
             )
         };
@@ -16521,7 +16521,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetImageSubresourceLayout2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetImageSubresourceLayout2KHR as usize,
+                DeviceCommand::vkGetImageSubresourceLayout2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, image, p_subresource, p_layout) }
@@ -16566,7 +16566,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_WaitForPresent2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkWaitForPresent2KHR as usize,
+                DeviceCommand::vkWaitForPresent2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, swapchain, p_present_wait_2_info) }
@@ -16613,7 +16613,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreatePipelineBinariesKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreatePipelineBinariesKHR as usize,
+                DeviceCommand::vkCreatePipelineBinariesKHR as usize,
             ))
         };
         unsafe {
@@ -16650,7 +16650,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyPipelineBinaryKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyPipelineBinaryKHR as usize,
+                DeviceCommand::vkDestroyPipelineBinaryKHR as usize,
             ))
         };
         unsafe {
@@ -16698,7 +16698,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPipelineKeyKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetPipelineKeyKHR as usize,
+                DeviceCommand::vkGetPipelineKeyKHR as usize,
             ))
         };
         unsafe {
@@ -16751,7 +16751,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPipelineBinaryDataKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetPipelineBinaryDataKHR as usize,
+                DeviceCommand::vkGetPipelineBinaryDataKHR as usize,
             ))
         };
         unsafe {
@@ -16799,7 +16799,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ReleaseCapturedPipelineDataKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkReleaseCapturedPipelineDataKHR as usize,
+                DeviceCommand::vkReleaseCapturedPipelineDataKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info, p_allocator.unwrap_or_default()) }
@@ -16836,7 +16836,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ReleaseSwapchainImagesKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkReleaseSwapchainImagesKHR as usize,
+                DeviceCommand::vkReleaseSwapchainImagesKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_release_info) }
@@ -16927,7 +16927,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetLineStippleKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetLineStippleKHR as usize,
+                DeviceCommand::vkCmdSetLineStippleKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, line_stipple_factor, line_stipple_pattern) }
@@ -17021,7 +17021,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetCalibratedTimestampsKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetCalibratedTimestampsKHR as usize,
+                DeviceCommand::vkGetCalibratedTimestampsKHR as usize,
             ))
         };
         unsafe {
@@ -17070,7 +17070,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindDescriptorSets2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBindDescriptorSets2KHR as usize,
+                DeviceCommand::vkCmdBindDescriptorSets2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_bind_descriptor_sets_info) }
@@ -17108,7 +17108,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdPushConstants2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdPushConstants2KHR as usize,
+                DeviceCommand::vkCmdPushConstants2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_push_constants_info) }
@@ -17149,7 +17149,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdPushDescriptorSet2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdPushDescriptorSet2KHR as usize,
+                DeviceCommand::vkCmdPushDescriptorSet2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_push_descriptor_set_info) }
@@ -17191,7 +17191,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdPushDescriptorSetWithTemplate2KHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdPushDescriptorSetWithTemplate2KHR as usize,
+                    DeviceCommand::vkCmdPushDescriptorSetWithTemplate2KHR as usize,
                 ),
             )
         };
@@ -17238,7 +17238,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDescriptorBufferOffsets2EXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetDescriptorBufferOffsets2EXT as usize,
+                DeviceCommand::vkCmdSetDescriptorBufferOffsets2EXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_set_descriptor_buffer_offsets_info) }
@@ -17284,7 +17284,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindDescriptorBufferEmbeddedSamplers2EXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdBindDescriptorBufferEmbeddedSamplers2EXT as usize,
+                    DeviceCommand::vkCmdBindDescriptorBufferEmbeddedSamplers2EXT as usize,
                 ),
             )
         };
@@ -17326,7 +17326,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyMemoryIndirectKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyMemoryIndirectKHR as usize,
+                DeviceCommand::vkCmdCopyMemoryIndirectKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_memory_indirect_info) }
@@ -17367,7 +17367,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyMemoryToImageIndirectKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyMemoryToImageIndirectKHR as usize,
+                DeviceCommand::vkCmdCopyMemoryToImageIndirectKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_memory_to_image_indirect_info) }
@@ -17408,7 +17408,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceFaultReportsKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetDeviceFaultReportsKHR as usize,
+                DeviceCommand::vkGetDeviceFaultReportsKHR as usize,
             ))
         };
         unsafe {
@@ -17454,7 +17454,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceFaultDebugInfoKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetDeviceFaultDebugInfoKHR as usize,
+                DeviceCommand::vkGetDeviceFaultDebugInfoKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_debug_info) }
@@ -17494,7 +17494,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdEndRendering2KHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdEndRendering2KHR as usize,
+                DeviceCommand::vkCmdEndRendering2KHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_rendering_end_info.unwrap_or_default()) }
@@ -17676,7 +17676,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DebugMarkerSetObjectTagEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDebugMarkerSetObjectTagEXT as usize,
+                DeviceCommand::vkDebugMarkerSetObjectTagEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_tag_info) }
@@ -17715,7 +17715,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DebugMarkerSetObjectNameEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDebugMarkerSetObjectNameEXT as usize,
+                DeviceCommand::vkDebugMarkerSetObjectNameEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_name_info) }
@@ -17760,7 +17760,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDebugMarkerBeginEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDebugMarkerBeginEXT as usize,
+                DeviceCommand::vkCmdDebugMarkerBeginEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_marker_info) }
@@ -17801,7 +17801,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDebugMarkerEndEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDebugMarkerEndEXT as usize,
+                DeviceCommand::vkCmdDebugMarkerEndEXT as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -17846,7 +17846,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDebugMarkerInsertEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDebugMarkerInsertEXT as usize,
+                DeviceCommand::vkCmdDebugMarkerInsertEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_marker_info) }
@@ -17902,7 +17902,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindTransformFeedbackBuffersEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdBindTransformFeedbackBuffersEXT as usize,
+                    DeviceCommand::vkCmdBindTransformFeedbackBuffersEXT as usize,
                 ),
             )
         };
@@ -17960,7 +17960,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBeginTransformFeedbackEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBeginTransformFeedbackEXT as usize,
+                DeviceCommand::vkCmdBeginTransformFeedbackEXT as usize,
             ))
         };
         unsafe {
@@ -18016,7 +18016,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdEndTransformFeedbackEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdEndTransformFeedbackEXT as usize,
+                DeviceCommand::vkCmdEndTransformFeedbackEXT as usize,
             ))
         };
         unsafe {
@@ -18070,7 +18070,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBeginQueryIndexedEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBeginQueryIndexedEXT as usize,
+                DeviceCommand::vkCmdBeginQueryIndexedEXT as usize,
             ))
         };
         unsafe {
@@ -18117,7 +18117,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdEndQueryIndexedEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdEndQueryIndexedEXT as usize,
+                DeviceCommand::vkCmdEndQueryIndexedEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, query_pool, query, index) }
@@ -18167,7 +18167,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndirectByteCountEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawIndirectByteCountEXT as usize,
+                DeviceCommand::vkCmdDrawIndirectByteCountEXT as usize,
             ))
         };
         unsafe {
@@ -18221,7 +18221,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateCuModuleNVX>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateCuModuleNVX as usize,
+                DeviceCommand::vkCreateCuModuleNVX as usize,
             ))
         };
         unsafe {
@@ -18272,7 +18272,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateCuFunctionNVX>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateCuFunctionNVX as usize,
+                DeviceCommand::vkCreateCuFunctionNVX as usize,
             ))
         };
         unsafe {
@@ -18309,7 +18309,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyCuModuleNVX>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyCuModuleNVX as usize,
+                DeviceCommand::vkDestroyCuModuleNVX as usize,
             ))
         };
         unsafe { (command)(self.handle, module, p_allocator.unwrap_or_default()) }
@@ -18339,7 +18339,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyCuFunctionNVX>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyCuFunctionNVX as usize,
+                DeviceCommand::vkDestroyCuFunctionNVX as usize,
             ))
         };
         unsafe { (command)(self.handle, function, p_allocator.unwrap_or_default()) }
@@ -18376,7 +18376,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCuLaunchKernelNVX>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCuLaunchKernelNVX as usize,
+                DeviceCommand::vkCmdCuLaunchKernelNVX as usize,
             ))
         };
         unsafe { (command)(self.handle, p_launch_info) }
@@ -18402,7 +18402,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetImageViewHandleNVX>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetImageViewHandleNVX as usize,
+                DeviceCommand::vkGetImageViewHandleNVX as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -18431,7 +18431,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetImageViewHandle64NVX>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetImageViewHandle64NVX as usize,
+                DeviceCommand::vkGetImageViewHandle64NVX as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -18469,7 +18469,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetImageViewAddressNVX>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetImageViewAddressNVX as usize,
+                DeviceCommand::vkGetImageViewAddressNVX as usize,
             ))
         };
         unsafe { (command)(self.handle, image_view, p_properties) }
@@ -18500,7 +18500,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceCombinedImageSamplerIndexNVX>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetDeviceCombinedImageSamplerIndexNVX as usize,
+                    DeviceCommand::vkGetDeviceCombinedImageSamplerIndexNVX as usize,
                 ),
             )
         };
@@ -18546,7 +18546,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndirectCountAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawIndirectCountAMD as usize,
+                DeviceCommand::vkCmdDrawIndirectCountAMD as usize,
             ))
         };
         unsafe {
@@ -18601,7 +18601,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawIndexedIndirectCountAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawIndexedIndirectCountAMD as usize,
+                DeviceCommand::vkCmdDrawIndexedIndirectCountAMD as usize,
             ))
         };
         unsafe {
@@ -18660,7 +18660,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetShaderInfoAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetShaderInfoAMD as usize,
+                DeviceCommand::vkGetShaderInfoAMD as usize,
             ))
         };
         unsafe {
@@ -18833,7 +18833,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryWin32HandleNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetMemoryWin32HandleNV as usize,
+                DeviceCommand::vkGetMemoryWin32HandleNV as usize,
             ))
         };
         unsafe { (command)(self.handle, memory, handle_type, p_handle) }
@@ -18932,7 +18932,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBeginConditionalRenderingEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBeginConditionalRenderingEXT as usize,
+                DeviceCommand::vkCmdBeginConditionalRenderingEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_conditional_rendering_begin) }
@@ -18969,7 +18969,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdEndConditionalRenderingEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdEndConditionalRenderingEXT as usize,
+                DeviceCommand::vkCmdEndConditionalRenderingEXT as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -19010,7 +19010,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetViewportWScalingNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetViewportWScalingNV as usize,
+                DeviceCommand::vkCmdSetViewportWScalingNV as usize,
             ))
         };
         unsafe {
@@ -19215,7 +19215,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DisplayPowerControlEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDisplayPowerControlEXT as usize,
+                DeviceCommand::vkDisplayPowerControlEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, display, p_display_power_info) }
@@ -19258,7 +19258,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_RegisterDeviceEventEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkRegisterDeviceEventEXT as usize,
+                DeviceCommand::vkRegisterDeviceEventEXT as usize,
             ))
         };
         unsafe {
@@ -19310,7 +19310,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_RegisterDisplayEventEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkRegisterDisplayEventEXT as usize,
+                DeviceCommand::vkRegisterDisplayEventEXT as usize,
             ))
         };
         unsafe {
@@ -19363,7 +19363,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetSwapchainCounterEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetSwapchainCounterEXT as usize,
+                DeviceCommand::vkGetSwapchainCounterEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, swapchain, counter, p_counter_value) }
@@ -19403,7 +19403,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetRefreshCycleDurationGOOGLE>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetRefreshCycleDurationGOOGLE as usize,
+                DeviceCommand::vkGetRefreshCycleDurationGOOGLE as usize,
             ))
         };
         unsafe { (command)(self.handle, swapchain, p_display_timing_properties) }
@@ -19450,7 +19450,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPastPresentationTimingGOOGLE>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetPastPresentationTimingGOOGLE as usize,
+                DeviceCommand::vkGetPastPresentationTimingGOOGLE as usize,
             ))
         };
         unsafe {
@@ -19498,7 +19498,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDiscardRectangleEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetDiscardRectangleEXT as usize,
+                DeviceCommand::vkCmdSetDiscardRectangleEXT as usize,
             ))
         };
         unsafe {
@@ -19540,7 +19540,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDiscardRectangleEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetDiscardRectangleEnableEXT as usize,
+                DeviceCommand::vkCmdSetDiscardRectangleEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, discard_rectangle_enable) }
@@ -19579,7 +19579,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDiscardRectangleModeEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetDiscardRectangleModeEXT as usize,
+                DeviceCommand::vkCmdSetDiscardRectangleModeEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, discard_rectangle_mode) }
@@ -19610,7 +19610,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SetHdrMetadataEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkSetHdrMetadataEXT as usize,
+                DeviceCommand::vkSetHdrMetadataEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, swapchain_count, p_swapchains, p_metadata) }
@@ -19754,7 +19754,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SetDebugUtilsObjectNameEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkSetDebugUtilsObjectNameEXT as usize,
+                DeviceCommand::vkSetDebugUtilsObjectNameEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_name_info) }
@@ -19792,7 +19792,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SetDebugUtilsObjectTagEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkSetDebugUtilsObjectTagEXT as usize,
+                DeviceCommand::vkSetDebugUtilsObjectTagEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_tag_info) }
@@ -19818,7 +19818,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_QueueBeginDebugUtilsLabelEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkQueueBeginDebugUtilsLabelEXT as usize,
+                DeviceCommand::vkQueueBeginDebugUtilsLabelEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_label_info) }
@@ -19843,7 +19843,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_QueueEndDebugUtilsLabelEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkQueueEndDebugUtilsLabelEXT as usize,
+                DeviceCommand::vkQueueEndDebugUtilsLabelEXT as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -19869,7 +19869,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_QueueInsertDebugUtilsLabelEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkQueueInsertDebugUtilsLabelEXT as usize,
+                DeviceCommand::vkQueueInsertDebugUtilsLabelEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_label_info) }
@@ -19910,7 +19910,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBeginDebugUtilsLabelEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBeginDebugUtilsLabelEXT as usize,
+                DeviceCommand::vkCmdBeginDebugUtilsLabelEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_label_info) }
@@ -19950,7 +19950,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdEndDebugUtilsLabelEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdEndDebugUtilsLabelEXT as usize,
+                DeviceCommand::vkCmdEndDebugUtilsLabelEXT as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -19991,7 +19991,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdInsertDebugUtilsLabelEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdInsertDebugUtilsLabelEXT as usize,
+                DeviceCommand::vkCmdInsertDebugUtilsLabelEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_label_info) }
@@ -20162,7 +20162,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetAndroidHardwareBufferPropertiesANDROID>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetAndroidHardwareBufferPropertiesANDROID as usize,
+                    DeviceCommand::vkGetAndroidHardwareBufferPropertiesANDROID as usize,
                 ),
             )
         };
@@ -20206,7 +20206,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryAndroidHardwareBufferANDROID>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetMemoryAndroidHardwareBufferANDROID as usize,
+                    DeviceCommand::vkGetMemoryAndroidHardwareBufferANDROID as usize,
                 ),
             )
         };
@@ -20251,7 +20251,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateGpaSessionAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateGpaSessionAMD as usize,
+                DeviceCommand::vkCreateGpaSessionAMD as usize,
             ))
         };
         unsafe {
@@ -20288,7 +20288,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyGpaSessionAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyGpaSessionAMD as usize,
+                DeviceCommand::vkDestroyGpaSessionAMD as usize,
             ))
         };
         unsafe {
@@ -20332,7 +20332,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SetGpaDeviceClockModeAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkSetGpaDeviceClockModeAMD as usize,
+                DeviceCommand::vkSetGpaDeviceClockModeAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -20370,7 +20370,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetGpaDeviceClockInfoAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetGpaDeviceClockInfoAMD as usize,
+                DeviceCommand::vkGetGpaDeviceClockInfoAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -20417,7 +20417,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBeginGpaSessionAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBeginGpaSessionAMD as usize,
+                DeviceCommand::vkCmdBeginGpaSessionAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, gpa_session) }
@@ -20464,7 +20464,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdEndGpaSessionAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdEndGpaSessionAMD as usize,
+                DeviceCommand::vkCmdEndGpaSessionAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, gpa_session) }
@@ -20520,7 +20520,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBeginGpaSampleAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBeginGpaSampleAMD as usize,
+                DeviceCommand::vkCmdBeginGpaSampleAMD as usize,
             ))
         };
         unsafe {
@@ -20564,7 +20564,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdEndGpaSampleAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdEndGpaSampleAMD as usize,
+                DeviceCommand::vkCmdEndGpaSampleAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, gpa_session, sample_id) }
@@ -20599,7 +20599,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetGpaSessionStatusAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetGpaSessionStatusAMD as usize,
+                DeviceCommand::vkGetGpaSessionStatusAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, gpa_session) }
@@ -20640,7 +20640,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetGpaSessionResultsAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetGpaSessionResultsAMD as usize,
+                DeviceCommand::vkGetGpaSessionResultsAMD as usize,
             ))
         };
         unsafe {
@@ -20682,7 +20682,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ResetGpaSessionAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkResetGpaSessionAMD as usize,
+                DeviceCommand::vkResetGpaSessionAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, gpa_session) }
@@ -20720,7 +20720,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyGpaSessionResultsAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyGpaSessionResultsAMD as usize,
+                DeviceCommand::vkCmdCopyGpaSessionResultsAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, gpa_session) }
@@ -20769,7 +20769,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateExecutionGraphPipelinesAMDX>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateExecutionGraphPipelinesAMDX as usize,
+                DeviceCommand::vkCreateExecutionGraphPipelinesAMDX as usize,
             ))
         };
         unsafe {
@@ -20820,7 +20820,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetExecutionGraphPipelineScratchSizeAMDX>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetExecutionGraphPipelineScratchSizeAMDX as usize,
+                    DeviceCommand::vkGetExecutionGraphPipelineScratchSizeAMDX as usize,
                 ),
             )
         };
@@ -20865,7 +20865,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetExecutionGraphPipelineNodeIndexAMDX>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetExecutionGraphPipelineNodeIndexAMDX as usize,
+                    DeviceCommand::vkGetExecutionGraphPipelineNodeIndexAMDX as usize,
                 ),
             )
         };
@@ -20908,7 +20908,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdInitializeGraphScratchMemoryAMDX>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdInitializeGraphScratchMemoryAMDX as usize,
+                    DeviceCommand::vkCmdInitializeGraphScratchMemoryAMDX as usize,
                 ),
             )
         };
@@ -20954,7 +20954,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDispatchGraphAMDX>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDispatchGraphAMDX as usize,
+                DeviceCommand::vkCmdDispatchGraphAMDX as usize,
             ))
         };
         unsafe { (command)(self.handle, scratch, scratch_size, p_count_info) }
@@ -20999,7 +20999,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDispatchGraphIndirectAMDX>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDispatchGraphIndirectAMDX as usize,
+                DeviceCommand::vkCmdDispatchGraphIndirectAMDX as usize,
             ))
         };
         unsafe { (command)(self.handle, scratch, scratch_size, p_count_info) }
@@ -21040,7 +21040,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDispatchGraphIndirectCountAMDX>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDispatchGraphIndirectCountAMDX as usize,
+                DeviceCommand::vkCmdDispatchGraphIndirectCountAMDX as usize,
             ))
         };
         unsafe { (command)(self.handle, scratch, scratch_size, count_info) }
@@ -21084,7 +21084,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_WriteSamplerDescriptorsEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkWriteSamplerDescriptorsEXT as usize,
+                DeviceCommand::vkWriteSamplerDescriptorsEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, sampler_count, p_samplers, p_descriptors) }
@@ -21128,7 +21128,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_WriteResourceDescriptorsEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkWriteResourceDescriptorsEXT as usize,
+                DeviceCommand::vkWriteResourceDescriptorsEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, resource_count, p_resources, p_descriptors) }
@@ -21165,7 +21165,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindSamplerHeapEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBindSamplerHeapEXT as usize,
+                DeviceCommand::vkCmdBindSamplerHeapEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_bind_info) }
@@ -21202,7 +21202,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindResourceHeapEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBindResourceHeapEXT as usize,
+                DeviceCommand::vkCmdBindResourceHeapEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_bind_info) }
@@ -21238,7 +21238,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdPushDataEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdPushDataEXT as usize,
+                DeviceCommand::vkCmdPushDataEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_push_data_info) }
@@ -21278,7 +21278,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetImageOpaqueCaptureDataEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetImageOpaqueCaptureDataEXT as usize,
+                DeviceCommand::vkGetImageOpaqueCaptureDataEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, image_count, p_images, p_datas) }
@@ -21352,7 +21352,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_RegisterCustomBorderColorEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkRegisterCustomBorderColorEXT as usize,
+                DeviceCommand::vkRegisterCustomBorderColorEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_border_color, request_index, p_index) }
@@ -21377,7 +21377,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_UnregisterCustomBorderColorEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkUnregisterCustomBorderColorEXT as usize,
+                DeviceCommand::vkUnregisterCustomBorderColorEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, index) }
@@ -21421,7 +21421,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetTensorOpaqueCaptureDataARM>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetTensorOpaqueCaptureDataARM as usize,
+                DeviceCommand::vkGetTensorOpaqueCaptureDataARM as usize,
             ))
         };
         unsafe { (command)(self.handle, tensor_count, p_tensors, p_datas) }
@@ -21460,7 +21460,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetSampleLocationsEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetSampleLocationsEXT as usize,
+                DeviceCommand::vkCmdSetSampleLocationsEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_sample_locations_info) }
@@ -21534,7 +21534,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetImageDrmFormatModifierPropertiesEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetImageDrmFormatModifierPropertiesEXT as usize,
+                    DeviceCommand::vkGetImageDrmFormatModifierPropertiesEXT as usize,
                 ),
             )
         };
@@ -21578,7 +21578,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateValidationCacheEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateValidationCacheEXT as usize,
+                DeviceCommand::vkCreateValidationCacheEXT as usize,
             ))
         };
         unsafe {
@@ -21615,7 +21615,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyValidationCacheEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyValidationCacheEXT as usize,
+                DeviceCommand::vkDestroyValidationCacheEXT as usize,
             ))
         };
         unsafe {
@@ -21665,7 +21665,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_MergeValidationCachesEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkMergeValidationCachesEXT as usize,
+                DeviceCommand::vkMergeValidationCachesEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, dst_cache, src_cache_count, p_src_caches) }
@@ -21706,7 +21706,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetValidationCacheDataEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetValidationCacheDataEXT as usize,
+                DeviceCommand::vkGetValidationCacheDataEXT as usize,
             ))
         };
         unsafe {
@@ -21753,7 +21753,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindShadingRateImageNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBindShadingRateImageNV as usize,
+                DeviceCommand::vkCmdBindShadingRateImageNV as usize,
             ))
         };
         unsafe { (command)(self.handle, image_view.unwrap_or_default(), image_layout) }
@@ -21795,7 +21795,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetViewportShadingRatePaletteNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdSetViewportShadingRatePaletteNV as usize,
+                    DeviceCommand::vkCmdSetViewportShadingRatePaletteNV as usize,
                 ),
             )
         };
@@ -21848,7 +21848,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetCoarseSampleOrderNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetCoarseSampleOrderNV as usize,
+                DeviceCommand::vkCmdSetCoarseSampleOrderNV as usize,
             ))
         };
         unsafe {
@@ -21899,7 +21899,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateAccelerationStructureNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateAccelerationStructureNV as usize,
+                DeviceCommand::vkCreateAccelerationStructureNV as usize,
             ))
         };
         unsafe {
@@ -21937,7 +21937,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyAccelerationStructureNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyAccelerationStructureNV as usize,
+                DeviceCommand::vkDestroyAccelerationStructureNV as usize,
             ))
         };
         unsafe {
@@ -21978,7 +21978,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetAccelerationStructureMemoryRequirementsNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetAccelerationStructureMemoryRequirementsNV as usize,
+                    DeviceCommand::vkGetAccelerationStructureMemoryRequirementsNV as usize,
                 ),
             )
         };
@@ -22022,7 +22022,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BindAccelerationStructureMemoryNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkBindAccelerationStructureMemoryNV as usize,
+                DeviceCommand::vkBindAccelerationStructureMemoryNV as usize,
             ))
         };
         unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
@@ -22078,7 +22078,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBuildAccelerationStructureNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBuildAccelerationStructureNV as usize,
+                DeviceCommand::vkCmdBuildAccelerationStructureNV as usize,
             ))
         };
         unsafe {
@@ -22136,7 +22136,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyAccelerationStructureNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyAccelerationStructureNV as usize,
+                DeviceCommand::vkCmdCopyAccelerationStructureNV as usize,
             ))
         };
         unsafe { (command)(self.handle, dst, src, mode) }
@@ -22204,7 +22204,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdTraceRaysNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdTraceRaysNV as usize,
+                DeviceCommand::vkCmdTraceRaysNV as usize,
             ))
         };
         unsafe {
@@ -22273,7 +22273,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateRayTracingPipelinesNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateRayTracingPipelinesNV as usize,
+                DeviceCommand::vkCreateRayTracingPipelinesNV as usize,
             ))
         };
         unsafe {
@@ -22325,7 +22325,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetRayTracingShaderGroupHandlesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetRayTracingShaderGroupHandlesKHR as usize,
+                    DeviceCommand::vkGetRayTracingShaderGroupHandlesKHR as usize,
                 ),
             )
         };
@@ -22378,7 +22378,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetRayTracingShaderGroupHandlesNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetRayTracingShaderGroupHandlesNV as usize,
+                DeviceCommand::vkGetRayTracingShaderGroupHandlesNV as usize,
             ))
         };
         unsafe {
@@ -22428,7 +22428,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetAccelerationStructureHandleNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetAccelerationStructureHandleNV as usize,
+                DeviceCommand::vkGetAccelerationStructureHandleNV as usize,
             ))
         };
         unsafe { (command)(self.handle, acceleration_structure, data_size, p_data) }
@@ -22479,7 +22479,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdWriteAccelerationStructuresPropertiesNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdWriteAccelerationStructuresPropertiesNV as usize,
+                    DeviceCommand::vkCmdWriteAccelerationStructuresPropertiesNV as usize,
                 ),
             )
         };
@@ -22524,7 +22524,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CompileDeferredNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCompileDeferredNV as usize,
+                DeviceCommand::vkCompileDeferredNV as usize,
             ))
         };
         unsafe { (command)(self.handle, pipeline, shader) }
@@ -22568,7 +22568,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryHostPointerPropertiesEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetMemoryHostPointerPropertiesEXT as usize,
+                DeviceCommand::vkGetMemoryHostPointerPropertiesEXT as usize,
             ))
         };
         unsafe {
@@ -22619,7 +22619,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdWriteBufferMarkerAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdWriteBufferMarkerAMD as usize,
+                DeviceCommand::vkCmdWriteBufferMarkerAMD as usize,
             ))
         };
         unsafe {
@@ -22677,7 +22677,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdWriteBufferMarker2AMD>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdWriteBufferMarker2AMD as usize,
+                DeviceCommand::vkCmdWriteBufferMarker2AMD as usize,
             ))
         };
         unsafe {
@@ -22781,7 +22781,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetCalibratedTimestampsEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetCalibratedTimestampsEXT as usize,
+                DeviceCommand::vkGetCalibratedTimestampsEXT as usize,
             ))
         };
         unsafe {
@@ -22824,7 +22824,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawMeshTasksNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawMeshTasksNV as usize,
+                DeviceCommand::vkCmdDrawMeshTasksNV as usize,
             ))
         };
         unsafe { (command)(self.handle, task_count, first_task) }
@@ -22866,7 +22866,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawMeshTasksIndirectNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawMeshTasksIndirectNV as usize,
+                DeviceCommand::vkCmdDrawMeshTasksIndirectNV as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer, offset, draw_count, stride) }
@@ -22910,7 +22910,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawMeshTasksIndirectCountNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawMeshTasksIndirectCountNV as usize,
+                DeviceCommand::vkCmdDrawMeshTasksIndirectCountNV as usize,
             ))
         };
         unsafe {
@@ -22961,7 +22961,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetExclusiveScissorEnableNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetExclusiveScissorEnableNV as usize,
+                DeviceCommand::vkCmdSetExclusiveScissorEnableNV as usize,
             ))
         };
         unsafe {
@@ -23009,7 +23009,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetExclusiveScissorNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetExclusiveScissorNV as usize,
+                DeviceCommand::vkCmdSetExclusiveScissorNV as usize,
             ))
         };
         unsafe {
@@ -23053,7 +23053,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetCheckpointNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetCheckpointNV as usize,
+                DeviceCommand::vkCmdSetCheckpointNV as usize,
             ))
         };
         unsafe { (command)(self.handle, p_checkpoint_marker) }
@@ -23083,7 +23083,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetQueueCheckpointDataNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetQueueCheckpointDataNV as usize,
+                DeviceCommand::vkGetQueueCheckpointDataNV as usize,
             ))
         };
         unsafe {
@@ -23119,7 +23119,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetQueueCheckpointData2NV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetQueueCheckpointData2NV as usize,
+                DeviceCommand::vkGetQueueCheckpointData2NV as usize,
             ))
         };
         unsafe {
@@ -23166,7 +23166,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_SetSwapchainPresentTimingQueueSizeEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkSetSwapchainPresentTimingQueueSizeEXT as usize,
+                    DeviceCommand::vkSetSwapchainPresentTimingQueueSizeEXT as usize,
                 ),
             )
         };
@@ -23213,7 +23213,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetSwapchainTimingPropertiesEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetSwapchainTimingPropertiesEXT as usize,
+                DeviceCommand::vkGetSwapchainTimingPropertiesEXT as usize,
             ))
         };
         unsafe {
@@ -23267,7 +23267,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetSwapchainTimeDomainPropertiesEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetSwapchainTimeDomainPropertiesEXT as usize,
+                    DeviceCommand::vkGetSwapchainTimeDomainPropertiesEXT as usize,
                 ),
             )
         };
@@ -23319,7 +23319,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPastPresentationTimingEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetPastPresentationTimingEXT as usize,
+                DeviceCommand::vkGetPastPresentationTimingEXT as usize,
             ))
         };
         unsafe {
@@ -23363,7 +23363,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_InitializePerformanceApiINTEL>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkInitializePerformanceApiINTEL as usize,
+                DeviceCommand::vkInitializePerformanceApiINTEL as usize,
             ))
         };
         unsafe { (command)(self.handle, p_initialize_info) }
@@ -23388,7 +23388,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_UninitializePerformanceApiINTEL>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkUninitializePerformanceApiINTEL as usize,
+                DeviceCommand::vkUninitializePerformanceApiINTEL as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -23439,7 +23439,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetPerformanceMarkerINTEL>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetPerformanceMarkerINTEL as usize,
+                DeviceCommand::vkCmdSetPerformanceMarkerINTEL as usize,
             ))
         };
         unsafe { (command)(self.handle, p_marker_info) }
@@ -23493,7 +23493,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetPerformanceStreamMarkerINTEL>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdSetPerformanceStreamMarkerINTEL as usize,
+                    DeviceCommand::vkCmdSetPerformanceStreamMarkerINTEL as usize,
                 ),
             )
         };
@@ -23544,7 +23544,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetPerformanceOverrideINTEL>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetPerformanceOverrideINTEL as usize,
+                DeviceCommand::vkCmdSetPerformanceOverrideINTEL as usize,
             ))
         };
         unsafe { (command)(self.handle, p_override_info) }
@@ -23587,7 +23587,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_AcquirePerformanceConfigurationINTEL>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkAcquirePerformanceConfigurationINTEL as usize,
+                    DeviceCommand::vkAcquirePerformanceConfigurationINTEL as usize,
                 ),
             )
         };
@@ -23627,7 +23627,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_ReleasePerformanceConfigurationINTEL>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkReleasePerformanceConfigurationINTEL as usize,
+                    DeviceCommand::vkReleasePerformanceConfigurationINTEL as usize,
                 ),
             )
         };
@@ -23667,7 +23667,7 @@ impl Queue {
             std::mem::transmute::<vkVoidFunction, FN_QueueSetPerformanceConfigurationINTEL>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkQueueSetPerformanceConfigurationINTEL as usize,
+                    DeviceCommand::vkQueueSetPerformanceConfigurationINTEL as usize,
                 ),
             )
         };
@@ -23710,7 +23710,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPerformanceParameterINTEL>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetPerformanceParameterINTEL as usize,
+                DeviceCommand::vkGetPerformanceParameterINTEL as usize,
             ))
         };
         unsafe { (command)(self.handle, parameter, p_value) }
@@ -23739,7 +23739,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SetLocalDimmingAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkSetLocalDimmingAMD as usize,
+                DeviceCommand::vkSetLocalDimmingAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, swap_chain, local_dimming_enable) }
@@ -23872,7 +23872,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetBufferDeviceAddressEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetBufferDeviceAddressEXT as usize,
+                DeviceCommand::vkGetBufferDeviceAddressEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -24123,7 +24123,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_AcquireFullScreenExclusiveModeEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkAcquireFullScreenExclusiveModeEXT as usize,
+                DeviceCommand::vkAcquireFullScreenExclusiveModeEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, swapchain) }
@@ -24162,7 +24162,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ReleaseFullScreenExclusiveModeEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkReleaseFullScreenExclusiveModeEXT as usize,
+                DeviceCommand::vkReleaseFullScreenExclusiveModeEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, swapchain) }
@@ -24206,7 +24206,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceGroupSurfacePresentModes2EXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetDeviceGroupSurfacePresentModes2EXT as usize,
+                    DeviceCommand::vkGetDeviceGroupSurfacePresentModes2EXT as usize,
                 ),
             )
         };
@@ -24298,7 +24298,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetLineStippleEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetLineStippleEXT as usize,
+                DeviceCommand::vkCmdSetLineStippleEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, line_stipple_factor, line_stipple_pattern) }
@@ -24329,7 +24329,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ResetQueryPoolEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkResetQueryPoolEXT as usize,
+                DeviceCommand::vkResetQueryPoolEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, query_pool, first_query, query_count) }
@@ -24366,7 +24366,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetCullModeEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetCullModeEXT as usize,
+                DeviceCommand::vkCmdSetCullModeEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, cull_mode.unwrap_or_default()) }
@@ -24403,7 +24403,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetFrontFaceEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetFrontFaceEXT as usize,
+                DeviceCommand::vkCmdSetFrontFaceEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, front_face) }
@@ -24441,7 +24441,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetPrimitiveTopologyEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetPrimitiveTopologyEXT as usize,
+                DeviceCommand::vkCmdSetPrimitiveTopologyEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, primitive_topology) }
@@ -24483,7 +24483,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetViewportWithCountEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetViewportWithCountEXT as usize,
+                DeviceCommand::vkCmdSetViewportWithCountEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, viewport_count, p_viewports) }
@@ -24525,7 +24525,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetScissorWithCountEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetScissorWithCountEXT as usize,
+                DeviceCommand::vkCmdSetScissorWithCountEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, scissor_count, p_scissors) }
@@ -24584,7 +24584,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindVertexBuffers2EXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBindVertexBuffers2EXT as usize,
+                DeviceCommand::vkCmdBindVertexBuffers2EXT as usize,
             ))
         };
         unsafe {
@@ -24631,7 +24631,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthTestEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetDepthTestEnableEXT as usize,
+                DeviceCommand::vkCmdSetDepthTestEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, depth_test_enable) }
@@ -24668,7 +24668,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthWriteEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetDepthWriteEnableEXT as usize,
+                DeviceCommand::vkCmdSetDepthWriteEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, depth_write_enable) }
@@ -24705,7 +24705,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthCompareOpEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetDepthCompareOpEXT as usize,
+                DeviceCommand::vkCmdSetDepthCompareOpEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, depth_compare_op) }
@@ -24742,7 +24742,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthBoundsTestEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetDepthBoundsTestEnableEXT as usize,
+                DeviceCommand::vkCmdSetDepthBoundsTestEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, depth_bounds_test_enable) }
@@ -24779,7 +24779,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetStencilTestEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetStencilTestEnableEXT as usize,
+                DeviceCommand::vkCmdSetStencilTestEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, stencil_test_enable) }
@@ -24830,7 +24830,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetStencilOpEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetStencilOpEXT as usize,
+                DeviceCommand::vkCmdSetStencilOpEXT as usize,
             ))
         };
         unsafe {
@@ -24880,7 +24880,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CopyMemoryToImageEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCopyMemoryToImageEXT as usize,
+                DeviceCommand::vkCopyMemoryToImageEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_memory_to_image_info) }
@@ -24921,7 +24921,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CopyImageToMemoryEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCopyImageToMemoryEXT as usize,
+                DeviceCommand::vkCopyImageToMemoryEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_image_to_memory_info) }
@@ -24962,7 +24962,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CopyImageToImageEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCopyImageToImageEXT as usize,
+                DeviceCommand::vkCopyImageToImageEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_image_to_image_info) }
@@ -25004,7 +25004,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_TransitionImageLayoutEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkTransitionImageLayoutEXT as usize,
+                DeviceCommand::vkTransitionImageLayoutEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, transition_count, p_transitions) }
@@ -25037,7 +25037,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetImageSubresourceLayout2EXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetImageSubresourceLayout2EXT as usize,
+                DeviceCommand::vkGetImageSubresourceLayout2EXT as usize,
             ))
         };
         unsafe { (command)(self.handle, image, p_subresource, p_layout) }
@@ -25075,7 +25075,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ReleaseSwapchainImagesEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkReleaseSwapchainImagesEXT as usize,
+                DeviceCommand::vkReleaseSwapchainImagesEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_release_info) }
@@ -25109,7 +25109,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetGeneratedCommandsMemoryRequirementsNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetGeneratedCommandsMemoryRequirementsNV as usize,
+                    DeviceCommand::vkGetGeneratedCommandsMemoryRequirementsNV as usize,
                 ),
             )
         };
@@ -25150,7 +25150,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdPreprocessGeneratedCommandsNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdPreprocessGeneratedCommandsNV as usize,
+                DeviceCommand::vkCmdPreprocessGeneratedCommandsNV as usize,
             ))
         };
         unsafe { (command)(self.handle, p_generated_commands_info) }
@@ -25192,7 +25192,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdExecuteGeneratedCommandsNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdExecuteGeneratedCommandsNV as usize,
+                DeviceCommand::vkCmdExecuteGeneratedCommandsNV as usize,
             ))
         };
         unsafe { (command)(self.handle, is_preprocessed, p_generated_commands_info) }
@@ -25234,7 +25234,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindPipelineShaderGroupNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBindPipelineShaderGroupNV as usize,
+                DeviceCommand::vkCmdBindPipelineShaderGroupNV as usize,
             ))
         };
         unsafe { (command)(self.handle, pipeline_bind_point, pipeline, group_index) }
@@ -25278,7 +25278,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateIndirectCommandsLayoutNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateIndirectCommandsLayoutNV as usize,
+                DeviceCommand::vkCreateIndirectCommandsLayoutNV as usize,
             ))
         };
         unsafe {
@@ -25315,7 +25315,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyIndirectCommandsLayoutNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyIndirectCommandsLayoutNV as usize,
+                DeviceCommand::vkDestroyIndirectCommandsLayoutNV as usize,
             ))
         };
         unsafe {
@@ -25357,7 +25357,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthBias2EXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetDepthBias2EXT as usize,
+                DeviceCommand::vkCmdSetDepthBias2EXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_depth_bias_info) }
@@ -25475,7 +25475,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreatePrivateDataSlotEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreatePrivateDataSlotEXT as usize,
+                DeviceCommand::vkCreatePrivateDataSlotEXT as usize,
             ))
         };
         unsafe {
@@ -25513,7 +25513,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyPrivateDataSlotEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyPrivateDataSlotEXT as usize,
+                DeviceCommand::vkDestroyPrivateDataSlotEXT as usize,
             ))
         };
         unsafe {
@@ -25560,7 +25560,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SetPrivateDataEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkSetPrivateDataEXT as usize,
+                DeviceCommand::vkSetPrivateDataEXT as usize,
             ))
         };
         unsafe {
@@ -25601,7 +25601,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPrivateDataEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetPrivateDataEXT as usize,
+                DeviceCommand::vkGetPrivateDataEXT as usize,
             ))
         };
         unsafe {
@@ -25646,7 +25646,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_QueueSetPerfHintQCOM>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkQueueSetPerfHintQCOM as usize,
+                DeviceCommand::vkQueueSetPerfHintQCOM as usize,
             ))
         };
         unsafe { (command)(self.handle, p_perf_hint_info) }
@@ -25690,7 +25690,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateCudaModuleNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateCudaModuleNV as usize,
+                DeviceCommand::vkCreateCudaModuleNV as usize,
             ))
         };
         unsafe {
@@ -25737,7 +25737,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetCudaModuleCacheNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetCudaModuleCacheNV as usize,
+                DeviceCommand::vkGetCudaModuleCacheNV as usize,
             ))
         };
         unsafe {
@@ -25788,7 +25788,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateCudaFunctionNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateCudaFunctionNV as usize,
+                DeviceCommand::vkCreateCudaFunctionNV as usize,
             ))
         };
         unsafe {
@@ -25825,7 +25825,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyCudaModuleNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyCudaModuleNV as usize,
+                DeviceCommand::vkDestroyCudaModuleNV as usize,
             ))
         };
         unsafe { (command)(self.handle, module, p_allocator.unwrap_or_default()) }
@@ -25855,7 +25855,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyCudaFunctionNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyCudaFunctionNV as usize,
+                DeviceCommand::vkDestroyCudaFunctionNV as usize,
             ))
         };
         unsafe { (command)(self.handle, function, p_allocator.unwrap_or_default()) }
@@ -25892,7 +25892,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCudaLaunchKernelNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCudaLaunchKernelNV as usize,
+                DeviceCommand::vkCmdCudaLaunchKernelNV as usize,
             ))
         };
         unsafe { (command)(self.handle, p_launch_info) }
@@ -25928,7 +25928,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDispatchTileQCOM>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDispatchTileQCOM as usize,
+                DeviceCommand::vkCmdDispatchTileQCOM as usize,
             ))
         };
         unsafe { (command)(self.handle, p_dispatch_tile_info) }
@@ -25968,7 +25968,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBeginPerTileExecutionQCOM>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBeginPerTileExecutionQCOM as usize,
+                DeviceCommand::vkCmdBeginPerTileExecutionQCOM as usize,
             ))
         };
         unsafe { (command)(self.handle, p_per_tile_begin_info) }
@@ -26008,7 +26008,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdEndPerTileExecutionQCOM>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdEndPerTileExecutionQCOM as usize,
+                DeviceCommand::vkCmdEndPerTileExecutionQCOM as usize,
             ))
         };
         unsafe { (command)(self.handle, p_per_tile_end_info) }
@@ -26039,7 +26039,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SetLatencySleepModeLegacyNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkSetLatencySleepModeLegacyNV as usize,
+                DeviceCommand::vkSetLatencySleepModeLegacyNV as usize,
             ))
         };
         unsafe {
@@ -26072,7 +26072,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_LatencySleepLegacyNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkLatencySleepLegacyNV as usize,
+                DeviceCommand::vkLatencySleepLegacyNV as usize,
             ))
         };
         unsafe { (command)(self.handle, signal_semaphore, value) }
@@ -26098,7 +26098,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SetLatencyMarkerLegacyNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkSetLatencyMarkerLegacyNV as usize,
+                DeviceCommand::vkSetLatencyMarkerLegacyNV as usize,
             ))
         };
         unsafe { (command)(self.handle, frame_id, marker) }
@@ -26124,7 +26124,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetLatencyTimingsLegacyNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetLatencyTimingsLegacyNV as usize,
+                DeviceCommand::vkGetLatencyTimingsLegacyNV as usize,
             ))
         };
         unsafe { (command)(self.handle, p_timings) }
@@ -26150,7 +26150,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_QueueNotifyOutOfBandLegacyNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkQueueNotifyOutOfBandLegacyNV as usize,
+                DeviceCommand::vkQueueNotifyOutOfBandLegacyNV as usize,
             ))
         };
         unsafe { (command)(self.handle, queue_type) }
@@ -26176,7 +26176,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetSleepStatusLegacyNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetSleepStatusLegacyNV as usize,
+                DeviceCommand::vkGetSleepStatusLegacyNV as usize,
             ))
         };
         unsafe { (command)(self.handle, p_low_latency_mode) }
@@ -26202,7 +26202,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ShutdownLatencyDeviceLegacyNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkShutdownLatencyDeviceLegacyNV as usize,
+                DeviceCommand::vkShutdownLatencyDeviceLegacyNV as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -26231,7 +26231,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ExportMetalObjectsEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkExportMetalObjectsEXT as usize,
+                DeviceCommand::vkExportMetalObjectsEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_metal_objects_info) }
@@ -26266,7 +26266,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDescriptorSetLayoutSizeEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetDescriptorSetLayoutSizeEXT as usize,
+                DeviceCommand::vkGetDescriptorSetLayoutSizeEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, layout, p_layout_size_in_bytes) }
@@ -26303,7 +26303,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetDescriptorSetLayoutBindingOffsetEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetDescriptorSetLayoutBindingOffsetEXT as usize,
+                    DeviceCommand::vkGetDescriptorSetLayoutBindingOffsetEXT as usize,
                 ),
             )
         };
@@ -26340,7 +26340,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDescriptorEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetDescriptorEXT as usize,
+                DeviceCommand::vkGetDescriptorEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_descriptor_info, data_size, p_descriptor) }
@@ -26387,7 +26387,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindDescriptorBuffersEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBindDescriptorBuffersEXT as usize,
+                DeviceCommand::vkCmdBindDescriptorBuffersEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer_count, p_binding_infos) }
@@ -26445,7 +26445,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDescriptorBufferOffsetsEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetDescriptorBufferOffsetsEXT as usize,
+                DeviceCommand::vkCmdSetDescriptorBufferOffsetsEXT as usize,
             ))
         };
         unsafe {
@@ -26503,7 +26503,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindDescriptorBufferEmbeddedSamplersEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdBindDescriptorBufferEmbeddedSamplersEXT as usize,
+                    DeviceCommand::vkCmdBindDescriptorBufferEmbeddedSamplersEXT as usize,
                 ),
             )
         };
@@ -26552,7 +26552,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetBufferOpaqueCaptureDescriptorDataEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetBufferOpaqueCaptureDescriptorDataEXT as usize,
+                    DeviceCommand::vkGetBufferOpaqueCaptureDescriptorDataEXT as usize,
                 ),
             )
         };
@@ -26601,7 +26601,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetImageOpaqueCaptureDescriptorDataEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetImageOpaqueCaptureDescriptorDataEXT as usize,
+                    DeviceCommand::vkGetImageOpaqueCaptureDescriptorDataEXT as usize,
                 ),
             )
         };
@@ -26650,7 +26650,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetImageViewOpaqueCaptureDescriptorDataEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetImageViewOpaqueCaptureDescriptorDataEXT as usize,
+                    DeviceCommand::vkGetImageViewOpaqueCaptureDescriptorDataEXT as usize,
                 ),
             )
         };
@@ -26699,7 +26699,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetSamplerOpaqueCaptureDescriptorDataEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetSamplerOpaqueCaptureDescriptorDataEXT as usize,
+                    DeviceCommand::vkGetSamplerOpaqueCaptureDescriptorDataEXT as usize,
                 ),
             )
         };
@@ -26751,7 +26751,7 @@ impl Device {
                 FN_GetAccelerationStructureOpaqueCaptureDescriptorDataEXT,
             >(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT as usize,
+                DeviceCommand::vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info, p_data) }
@@ -26794,7 +26794,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetFragmentShadingRateEnumNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetFragmentShadingRateEnumNV as usize,
+                DeviceCommand::vkCmdSetFragmentShadingRateEnumNV as usize,
             ))
         };
         unsafe { (command)(self.handle, shading_rate, combiner_ops) }
@@ -26837,7 +26837,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceFaultInfoEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetDeviceFaultInfoEXT as usize,
+                DeviceCommand::vkGetDeviceFaultInfoEXT as usize,
             ))
         };
         unsafe {
@@ -27050,7 +27050,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetVertexInputEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetVertexInputEXT as usize,
+                DeviceCommand::vkCmdSetVertexInputEXT as usize,
             ))
         };
         unsafe {
@@ -27100,7 +27100,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryZirconHandleFUCHSIA>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetMemoryZirconHandleFUCHSIA as usize,
+                DeviceCommand::vkGetMemoryZirconHandleFUCHSIA as usize,
             ))
         };
         unsafe { (command)(self.handle, p_get_zircon_handle_info, p_zircon_handle) }
@@ -27144,7 +27144,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryZirconHandlePropertiesFUCHSIA>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetMemoryZirconHandlePropertiesFUCHSIA as usize,
+                    DeviceCommand::vkGetMemoryZirconHandlePropertiesFUCHSIA as usize,
                 ),
             )
         };
@@ -27191,7 +27191,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_ImportSemaphoreZirconHandleFUCHSIA>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkImportSemaphoreZirconHandleFUCHSIA as usize,
+                    DeviceCommand::vkImportSemaphoreZirconHandleFUCHSIA as usize,
                 ),
             )
         };
@@ -27234,7 +27234,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetSemaphoreZirconHandleFUCHSIA>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetSemaphoreZirconHandleFUCHSIA as usize,
+                DeviceCommand::vkGetSemaphoreZirconHandleFUCHSIA as usize,
             ))
         };
         unsafe { (command)(self.handle, p_get_zircon_handle_info, p_zircon_handle) }
@@ -27279,7 +27279,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateBufferCollectionFUCHSIA>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateBufferCollectionFUCHSIA as usize,
+                DeviceCommand::vkCreateBufferCollectionFUCHSIA as usize,
             ))
         };
         unsafe {
@@ -27330,7 +27330,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_SetBufferCollectionImageConstraintsFUCHSIA>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkSetBufferCollectionImageConstraintsFUCHSIA as usize,
+                    DeviceCommand::vkSetBufferCollectionImageConstraintsFUCHSIA as usize,
                 ),
             )
         };
@@ -27375,7 +27375,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_SetBufferCollectionBufferConstraintsFUCHSIA>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkSetBufferCollectionBufferConstraintsFUCHSIA as usize,
+                    DeviceCommand::vkSetBufferCollectionBufferConstraintsFUCHSIA as usize,
                 ),
             )
         };
@@ -27406,7 +27406,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyBufferCollectionFUCHSIA>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyBufferCollectionFUCHSIA as usize,
+                DeviceCommand::vkDestroyBufferCollectionFUCHSIA as usize,
             ))
         };
         unsafe { (command)(self.handle, collection, p_allocator.unwrap_or_default()) }
@@ -27449,7 +27449,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetBufferCollectionPropertiesFUCHSIA>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetBufferCollectionPropertiesFUCHSIA as usize,
+                    DeviceCommand::vkGetBufferCollectionPropertiesFUCHSIA as usize,
                 ),
             )
         };
@@ -27491,7 +27491,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI as usize,
+                    DeviceCommand::vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI as usize,
                 ),
             )
         };
@@ -27527,7 +27527,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSubpassShadingHUAWEI>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSubpassShadingHUAWEI as usize,
+                DeviceCommand::vkCmdSubpassShadingHUAWEI as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -27567,7 +27567,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindInvocationMaskHUAWEI>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBindInvocationMaskHUAWEI as usize,
+                DeviceCommand::vkCmdBindInvocationMaskHUAWEI as usize,
             ))
         };
         unsafe { (command)(self.handle, image_view.unwrap_or_default(), image_layout) }
@@ -27608,7 +27608,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryRemoteAddressNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetMemoryRemoteAddressNV as usize,
+                DeviceCommand::vkGetMemoryRemoteAddressNV as usize,
             ))
         };
         unsafe { (command)(self.handle, p_memory_get_remote_address_info, p_address) }
@@ -27646,7 +27646,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPipelinePropertiesEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetPipelinePropertiesEXT as usize,
+                DeviceCommand::vkGetPipelinePropertiesEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_pipeline_info, p_pipeline_properties) }
@@ -27683,7 +27683,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetPatchControlPointsEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetPatchControlPointsEXT as usize,
+                DeviceCommand::vkCmdSetPatchControlPointsEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, patch_control_points) }
@@ -27720,7 +27720,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetRasterizerDiscardEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetRasterizerDiscardEnableEXT as usize,
+                DeviceCommand::vkCmdSetRasterizerDiscardEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, rasterizer_discard_enable) }
@@ -27757,7 +27757,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthBiasEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetDepthBiasEnableEXT as usize,
+                DeviceCommand::vkCmdSetDepthBiasEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, depth_bias_enable) }
@@ -27794,7 +27794,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetLogicOpEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetLogicOpEXT as usize,
+                DeviceCommand::vkCmdSetLogicOpEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, logic_op) }
@@ -27831,7 +27831,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetPrimitiveRestartEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetPrimitiveRestartEnableEXT as usize,
+                DeviceCommand::vkCmdSetPrimitiveRestartEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, primitive_restart_enable) }
@@ -27954,7 +27954,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetColorWriteEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetColorWriteEnableEXT as usize,
+                DeviceCommand::vkCmdSetColorWriteEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, attachment_count, p_color_write_enables) }
@@ -27997,7 +27997,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawMultiEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawMultiEXT as usize,
+                DeviceCommand::vkCmdDrawMultiEXT as usize,
             ))
         };
         unsafe {
@@ -28057,7 +28057,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawMultiIndexedEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawMultiIndexedEXT as usize,
+                DeviceCommand::vkCmdDrawMultiIndexedEXT as usize,
             ))
         };
         unsafe {
@@ -28112,7 +28112,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateMicromapEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateMicromapEXT as usize,
+                DeviceCommand::vkCreateMicromapEXT as usize,
             ))
         };
         unsafe {
@@ -28150,7 +28150,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyMicromapEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyMicromapEXT as usize,
+                DeviceCommand::vkDestroyMicromapEXT as usize,
             ))
         };
         unsafe {
@@ -28197,7 +28197,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBuildMicromapsEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBuildMicromapsEXT as usize,
+                DeviceCommand::vkCmdBuildMicromapsEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, info_count, p_infos) }
@@ -28250,7 +28250,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BuildMicromapsEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkBuildMicromapsEXT as usize,
+                DeviceCommand::vkBuildMicromapsEXT as usize,
             ))
         };
         unsafe {
@@ -28308,7 +28308,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CopyMicromapEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCopyMicromapEXT as usize,
+                DeviceCommand::vkCopyMicromapEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, deferred_operation.unwrap_or_default(), p_info) }
@@ -28359,7 +28359,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CopyMicromapToMemoryEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCopyMicromapToMemoryEXT as usize,
+                DeviceCommand::vkCopyMicromapToMemoryEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, deferred_operation.unwrap_or_default(), p_info) }
@@ -28410,7 +28410,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CopyMemoryToMicromapEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCopyMemoryToMicromapEXT as usize,
+                DeviceCommand::vkCopyMemoryToMicromapEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, deferred_operation.unwrap_or_default(), p_info) }
@@ -28467,7 +28467,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_WriteMicromapsPropertiesEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkWriteMicromapsPropertiesEXT as usize,
+                DeviceCommand::vkWriteMicromapsPropertiesEXT as usize,
             ))
         };
         unsafe {
@@ -28514,7 +28514,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyMicromapEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyMicromapEXT as usize,
+                DeviceCommand::vkCmdCopyMicromapEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -28554,7 +28554,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyMicromapToMemoryEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyMicromapToMemoryEXT as usize,
+                DeviceCommand::vkCmdCopyMicromapToMemoryEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -28594,7 +28594,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyMemoryToMicromapEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyMemoryToMicromapEXT as usize,
+                DeviceCommand::vkCmdCopyMemoryToMicromapEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -28638,7 +28638,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdWriteMicromapsPropertiesEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdWriteMicromapsPropertiesEXT as usize,
+                DeviceCommand::vkCmdWriteMicromapsPropertiesEXT as usize,
             ))
         };
         unsafe {
@@ -28681,7 +28681,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceMicromapCompatibilityEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetDeviceMicromapCompatibilityEXT as usize,
+                DeviceCommand::vkGetDeviceMicromapCompatibilityEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_version_info, p_compatibility) }
@@ -28717,7 +28717,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetMicromapBuildSizesEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetMicromapBuildSizesEXT as usize,
+                DeviceCommand::vkGetMicromapBuildSizesEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, build_type, p_build_info, p_size_info) }
@@ -28757,7 +28757,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawClusterHUAWEI>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawClusterHUAWEI as usize,
+                DeviceCommand::vkCmdDrawClusterHUAWEI as usize,
             ))
         };
         unsafe { (command)(self.handle, group_count_x, group_count_y, group_count_z) }
@@ -28793,7 +28793,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawClusterIndirectHUAWEI>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawClusterIndirectHUAWEI as usize,
+                DeviceCommand::vkCmdDrawClusterIndirectHUAWEI as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer, offset) }
@@ -28818,7 +28818,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SetDeviceMemoryPriorityEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkSetDeviceMemoryPriorityEXT as usize,
+                DeviceCommand::vkSetDeviceMemoryPriorityEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, memory, priority) }
@@ -28857,7 +28857,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDispatchParametersARM>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetDispatchParametersARM as usize,
+                DeviceCommand::vkCmdSetDispatchParametersARM as usize,
             ))
         };
         unsafe { (command)(self.handle, p_dispatch_parameters) }
@@ -28891,7 +28891,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetDescriptorSetLayoutHostMappingInfoVALVE>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetDescriptorSetLayoutHostMappingInfoVALVE as usize,
+                    DeviceCommand::vkGetDescriptorSetLayoutHostMappingInfoVALVE as usize,
                 ),
             )
         };
@@ -28922,7 +28922,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDescriptorSetHostMappingVALVE>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetDescriptorSetHostMappingVALVE as usize,
+                DeviceCommand::vkGetDescriptorSetHostMappingVALVE as usize,
             ))
         };
         unsafe { (command)(self.handle, descriptor_set, pp_data) }
@@ -28966,7 +28966,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyMemoryIndirectNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyMemoryIndirectNV as usize,
+                DeviceCommand::vkCmdCopyMemoryIndirectNV as usize,
             ))
         };
         unsafe { (command)(self.handle, copy_buffer_address, copy_count, stride) }
@@ -29020,7 +29020,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyMemoryToImageIndirectNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyMemoryToImageIndirectNV as usize,
+                DeviceCommand::vkCmdCopyMemoryToImageIndirectNV as usize,
             ))
         };
         unsafe {
@@ -29072,7 +29072,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDecompressMemoryNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDecompressMemoryNV as usize,
+                DeviceCommand::vkCmdDecompressMemoryNV as usize,
             ))
         };
         unsafe {
@@ -29122,7 +29122,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdDecompressMemoryIndirectCountNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdDecompressMemoryIndirectCountNV as usize,
+                    DeviceCommand::vkCmdDecompressMemoryIndirectCountNV as usize,
                 ),
             )
         };
@@ -29161,7 +29161,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetPipelineIndirectMemoryRequirementsNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetPipelineIndirectMemoryRequirementsNV as usize,
+                    DeviceCommand::vkGetPipelineIndirectMemoryRequirementsNV as usize,
                 ),
             )
         };
@@ -29204,7 +29204,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdUpdatePipelineIndirectBufferNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdUpdatePipelineIndirectBufferNV as usize,
+                DeviceCommand::vkCmdUpdatePipelineIndirectBufferNV as usize,
             ))
         };
         unsafe { (command)(self.handle, pipeline_bind_point, pipeline) }
@@ -29234,7 +29234,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetPipelineIndirectDeviceAddressNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetPipelineIndirectDeviceAddressNV as usize,
+                    DeviceCommand::vkGetPipelineIndirectDeviceAddressNV as usize,
                 ),
             )
         };
@@ -29277,7 +29277,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetNativeBufferPropertiesOHOS>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetNativeBufferPropertiesOHOS as usize,
+                DeviceCommand::vkGetNativeBufferPropertiesOHOS as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer, p_properties) }
@@ -29318,7 +29318,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryNativeBufferOHOS>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetMemoryNativeBufferOHOS as usize,
+                DeviceCommand::vkGetMemoryNativeBufferOHOS as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info, p_buffer) }
@@ -29354,7 +29354,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthClampEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetDepthClampEnableEXT as usize,
+                DeviceCommand::vkCmdSetDepthClampEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, depth_clamp_enable) }
@@ -29390,7 +29390,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetPolygonModeEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetPolygonModeEXT as usize,
+                DeviceCommand::vkCmdSetPolygonModeEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, polygon_mode) }
@@ -29430,7 +29430,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetRasterizationSamplesEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetRasterizationSamplesEXT as usize,
+                DeviceCommand::vkCmdSetRasterizationSamplesEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, rasterization_samples) }
@@ -29471,7 +29471,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetSampleMaskEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetSampleMaskEXT as usize,
+                DeviceCommand::vkCmdSetSampleMaskEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, samples, p_sample_mask.unwrap_or_default()) }
@@ -29507,7 +29507,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetAlphaToCoverageEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetAlphaToCoverageEnableEXT as usize,
+                DeviceCommand::vkCmdSetAlphaToCoverageEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, alpha_to_coverage_enable) }
@@ -29543,7 +29543,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetAlphaToOneEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetAlphaToOneEnableEXT as usize,
+                DeviceCommand::vkCmdSetAlphaToOneEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, alpha_to_one_enable) }
@@ -29579,7 +29579,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetLogicOpEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetLogicOpEnableEXT as usize,
+                DeviceCommand::vkCmdSetLogicOpEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, logic_op_enable) }
@@ -29621,7 +29621,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetColorBlendEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetColorBlendEnableEXT as usize,
+                DeviceCommand::vkCmdSetColorBlendEnableEXT as usize,
             ))
         };
         unsafe {
@@ -29670,7 +29670,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetColorBlendEquationEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetColorBlendEquationEXT as usize,
+                DeviceCommand::vkCmdSetColorBlendEquationEXT as usize,
             ))
         };
         unsafe {
@@ -29719,7 +29719,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetColorWriteMaskEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetColorWriteMaskEXT as usize,
+                DeviceCommand::vkCmdSetColorWriteMaskEXT as usize,
             ))
         };
         unsafe {
@@ -29766,7 +29766,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetTessellationDomainOriginEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetTessellationDomainOriginEXT as usize,
+                DeviceCommand::vkCmdSetTessellationDomainOriginEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, domain_origin) }
@@ -29802,7 +29802,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetRasterizationStreamEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetRasterizationStreamEXT as usize,
+                DeviceCommand::vkCmdSetRasterizationStreamEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, rasterization_stream) }
@@ -29843,7 +29843,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetConservativeRasterizationModeEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdSetConservativeRasterizationModeEXT as usize,
+                    DeviceCommand::vkCmdSetConservativeRasterizationModeEXT as usize,
                 ),
             )
         };
@@ -29885,7 +29885,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetExtraPrimitiveOverestimationSizeEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdSetExtraPrimitiveOverestimationSizeEXT as usize,
+                    DeviceCommand::vkCmdSetExtraPrimitiveOverestimationSizeEXT as usize,
                 ),
             )
         };
@@ -29922,7 +29922,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthClipEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetDepthClipEnableEXT as usize,
+                DeviceCommand::vkCmdSetDepthClipEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, depth_clip_enable) }
@@ -29958,7 +29958,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetSampleLocationsEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetSampleLocationsEnableEXT as usize,
+                DeviceCommand::vkCmdSetSampleLocationsEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, sample_locations_enable) }
@@ -30000,7 +30000,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetColorBlendAdvancedEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetColorBlendAdvancedEXT as usize,
+                DeviceCommand::vkCmdSetColorBlendAdvancedEXT as usize,
             ))
         };
         unsafe {
@@ -30047,7 +30047,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetProvokingVertexModeEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetProvokingVertexModeEXT as usize,
+                DeviceCommand::vkCmdSetProvokingVertexModeEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, provoking_vertex_mode) }
@@ -30087,7 +30087,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetLineRasterizationModeEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetLineRasterizationModeEXT as usize,
+                DeviceCommand::vkCmdSetLineRasterizationModeEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, line_rasterization_mode) }
@@ -30123,7 +30123,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetLineStippleEnableEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetLineStippleEnableEXT as usize,
+                DeviceCommand::vkCmdSetLineStippleEnableEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, stippled_line_enable) }
@@ -30160,7 +30160,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthClipNegativeOneToOneEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdSetDepthClipNegativeOneToOneEXT as usize,
+                    DeviceCommand::vkCmdSetDepthClipNegativeOneToOneEXT as usize,
                 ),
             )
         };
@@ -30197,7 +30197,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetViewportWScalingEnableNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetViewportWScalingEnableNV as usize,
+                DeviceCommand::vkCmdSetViewportWScalingEnableNV as usize,
             ))
         };
         unsafe { (command)(self.handle, viewport_w_scaling_enable) }
@@ -30239,7 +30239,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetViewportSwizzleNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetViewportSwizzleNV as usize,
+                DeviceCommand::vkCmdSetViewportSwizzleNV as usize,
             ))
         };
         unsafe {
@@ -30282,7 +30282,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetCoverageToColorEnableNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetCoverageToColorEnableNV as usize,
+                DeviceCommand::vkCmdSetCoverageToColorEnableNV as usize,
             ))
         };
         unsafe { (command)(self.handle, coverage_to_color_enable) }
@@ -30318,7 +30318,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetCoverageToColorLocationNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetCoverageToColorLocationNV as usize,
+                DeviceCommand::vkCmdSetCoverageToColorLocationNV as usize,
             ))
         };
         unsafe { (command)(self.handle, coverage_to_color_location) }
@@ -30358,7 +30358,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetCoverageModulationModeNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetCoverageModulationModeNV as usize,
+                DeviceCommand::vkCmdSetCoverageModulationModeNV as usize,
             ))
         };
         unsafe { (command)(self.handle, coverage_modulation_mode) }
@@ -30399,7 +30399,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetCoverageModulationTableEnableNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdSetCoverageModulationTableEnableNV as usize,
+                    DeviceCommand::vkCmdSetCoverageModulationTableEnableNV as usize,
                 ),
             )
         };
@@ -30441,7 +30441,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetCoverageModulationTableNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetCoverageModulationTableNV as usize,
+                DeviceCommand::vkCmdSetCoverageModulationTableNV as usize,
             ))
         };
         unsafe {
@@ -30483,7 +30483,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetShadingRateImageEnableNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetShadingRateImageEnableNV as usize,
+                DeviceCommand::vkCmdSetShadingRateImageEnableNV as usize,
             ))
         };
         unsafe { (command)(self.handle, shading_rate_image_enable) }
@@ -30524,7 +30524,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetRepresentativeFragmentTestEnableNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdSetRepresentativeFragmentTestEnableNV as usize,
+                    DeviceCommand::vkCmdSetRepresentativeFragmentTestEnableNV as usize,
                 ),
             )
         };
@@ -30565,7 +30565,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetCoverageReductionModeNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetCoverageReductionModeNV as usize,
+                DeviceCommand::vkCmdSetCoverageReductionModeNV as usize,
             ))
         };
         unsafe { (command)(self.handle, coverage_reduction_mode) }
@@ -30609,7 +30609,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateTensorARM>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateTensorARM as usize,
+                DeviceCommand::vkCreateTensorARM as usize,
             ))
         };
         unsafe {
@@ -30646,7 +30646,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyTensorARM>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyTensorARM as usize,
+                DeviceCommand::vkDestroyTensorARM as usize,
             ))
         };
         unsafe {
@@ -30696,7 +30696,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateTensorViewARM>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateTensorViewARM as usize,
+                DeviceCommand::vkCreateTensorViewARM as usize,
             ))
         };
         unsafe {
@@ -30733,7 +30733,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyTensorViewARM>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyTensorViewARM as usize,
+                DeviceCommand::vkDestroyTensorViewARM as usize,
             ))
         };
         unsafe {
@@ -30772,7 +30772,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetTensorMemoryRequirementsARM>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetTensorMemoryRequirementsARM as usize,
+                DeviceCommand::vkGetTensorMemoryRequirementsARM as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info, p_memory_requirements) }
@@ -30811,7 +30811,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BindTensorMemoryARM>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkBindTensorMemoryARM as usize,
+                DeviceCommand::vkBindTensorMemoryARM as usize,
             ))
         };
         unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
@@ -30845,7 +30845,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceTensorMemoryRequirementsARM>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetDeviceTensorMemoryRequirementsARM as usize,
+                    DeviceCommand::vkGetDeviceTensorMemoryRequirementsARM as usize,
                 ),
             )
         };
@@ -30883,7 +30883,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyTensorARM>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyTensorARM as usize,
+                DeviceCommand::vkCmdCopyTensorARM as usize,
             ))
         };
         unsafe { (command)(self.handle, p_copy_tensor_info) }
@@ -30967,7 +30967,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetTensorOpaqueCaptureDescriptorDataARM>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetTensorOpaqueCaptureDescriptorDataARM as usize,
+                    DeviceCommand::vkGetTensorOpaqueCaptureDescriptorDataARM as usize,
                 ),
             )
         };
@@ -31011,7 +31011,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetTensorViewOpaqueCaptureDescriptorDataARM>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetTensorViewOpaqueCaptureDescriptorDataARM as usize,
+                    DeviceCommand::vkGetTensorViewOpaqueCaptureDescriptorDataARM as usize,
                 ),
             )
         };
@@ -31042,7 +31042,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetShaderModuleIdentifierEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetShaderModuleIdentifierEXT as usize,
+                DeviceCommand::vkGetShaderModuleIdentifierEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, shader_module, p_identifier) }
@@ -31076,7 +31076,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetShaderModuleCreateInfoIdentifierEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetShaderModuleCreateInfoIdentifierEXT as usize,
+                    DeviceCommand::vkGetShaderModuleCreateInfoIdentifierEXT as usize,
                 ),
             )
         };
@@ -31176,7 +31176,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateOpticalFlowSessionNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateOpticalFlowSessionNV as usize,
+                DeviceCommand::vkCreateOpticalFlowSessionNV as usize,
             ))
         };
         unsafe {
@@ -31213,7 +31213,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyOpticalFlowSessionNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyOpticalFlowSessionNV as usize,
+                DeviceCommand::vkDestroyOpticalFlowSessionNV as usize,
             ))
         };
         unsafe { (command)(self.handle, session, p_allocator.unwrap_or_default()) }
@@ -31259,7 +31259,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BindOpticalFlowSessionImageNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkBindOpticalFlowSessionImageNV as usize,
+                DeviceCommand::vkBindOpticalFlowSessionImageNV as usize,
             ))
         };
         unsafe {
@@ -31310,7 +31310,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdOpticalFlowExecuteNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdOpticalFlowExecuteNV as usize,
+                DeviceCommand::vkCmdOpticalFlowExecuteNV as usize,
             ))
         };
         unsafe { (command)(self.handle, session, p_execute_info) }
@@ -31335,7 +31335,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_AntiLagUpdateAMD>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkAntiLagUpdateAMD as usize,
+                DeviceCommand::vkAntiLagUpdateAMD as usize,
             ))
         };
         unsafe { (command)(self.handle, p_data) }
@@ -31383,7 +31383,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateShadersEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateShadersEXT as usize,
+                DeviceCommand::vkCreateShadersEXT as usize,
             ))
         };
         unsafe {
@@ -31421,7 +31421,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyShaderEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyShaderEXT as usize,
+                DeviceCommand::vkDestroyShaderEXT as usize,
             ))
         };
         unsafe {
@@ -31468,7 +31468,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetShaderBinaryDataEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetShaderBinaryDataEXT as usize,
+                DeviceCommand::vkGetShaderBinaryDataEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, shader, p_data_size, p_data.unwrap_or_default()) }
@@ -31510,7 +31510,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindShadersEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBindShadersEXT as usize,
+                DeviceCommand::vkCmdBindShadersEXT as usize,
             ))
         };
         unsafe {
@@ -31558,7 +31558,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetDepthClampRangeEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetDepthClampRangeEXT as usize,
+                DeviceCommand::vkCmdSetDepthClampRangeEXT as usize,
             ))
         };
         unsafe {
@@ -31607,7 +31607,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetFramebufferTilePropertiesQCOM>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetFramebufferTilePropertiesQCOM as usize,
+                DeviceCommand::vkGetFramebufferTilePropertiesQCOM as usize,
             ))
         };
         unsafe {
@@ -31652,7 +31652,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetDynamicRenderingTilePropertiesQCOM>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetDynamicRenderingTilePropertiesQCOM as usize,
+                    DeviceCommand::vkGetDynamicRenderingTilePropertiesQCOM as usize,
                 ),
             )
         };
@@ -31742,7 +31742,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ConvertCooperativeVectorMatrixNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkConvertCooperativeVectorMatrixNV as usize,
+                DeviceCommand::vkConvertCooperativeVectorMatrixNV as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -31784,7 +31784,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdConvertCooperativeVectorMatrixNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdConvertCooperativeVectorMatrixNV as usize,
+                    DeviceCommand::vkCmdConvertCooperativeVectorMatrixNV as usize,
                 ),
             )
         };
@@ -31823,7 +31823,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SetLatencySleepModeNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkSetLatencySleepModeNV as usize,
+                DeviceCommand::vkSetLatencySleepModeNV as usize,
             ))
         };
         unsafe { (command)(self.handle, swapchain, p_sleep_mode_info) }
@@ -31860,7 +31860,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_LatencySleepNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkLatencySleepNV as usize,
+                DeviceCommand::vkLatencySleepNV as usize,
             ))
         };
         unsafe { (command)(self.handle, swapchain, p_sleep_info) }
@@ -31890,7 +31890,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SetLatencyMarkerNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkSetLatencyMarkerNV as usize,
+                DeviceCommand::vkSetLatencyMarkerNV as usize,
             ))
         };
         unsafe { (command)(self.handle, swapchain, p_latency_marker_info) }
@@ -31920,7 +31920,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetLatencyTimingsNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetLatencyTimingsNV as usize,
+                DeviceCommand::vkGetLatencyTimingsNV as usize,
             ))
         };
         unsafe { (command)(self.handle, swapchain, p_latency_marker_info) }
@@ -31946,7 +31946,7 @@ impl Queue {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_QueueNotifyOutOfBandNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkQueueNotifyOutOfBandNV as usize,
+                DeviceCommand::vkQueueNotifyOutOfBandNV as usize,
             ))
         };
         unsafe { (command)(self.handle, p_queue_type_info) }
@@ -31997,7 +31997,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateDataGraphPipelinesARM>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateDataGraphPipelinesARM as usize,
+                DeviceCommand::vkCreateDataGraphPipelinesARM as usize,
             ))
         };
         unsafe {
@@ -32051,7 +32051,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateDataGraphPipelineSessionARM>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateDataGraphPipelineSessionARM as usize,
+                DeviceCommand::vkCreateDataGraphPipelineSessionARM as usize,
             ))
         };
         unsafe {
@@ -32107,7 +32107,7 @@ impl Device {
                 FN_GetDataGraphPipelineSessionBindPointRequirementsARM,
             >(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetDataGraphPipelineSessionBindPointRequirementsARM as usize,
+                DeviceCommand::vkGetDataGraphPipelineSessionBindPointRequirementsARM as usize,
             ))
         };
         unsafe {
@@ -32148,7 +32148,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetDataGraphPipelineSessionMemoryRequirementsARM>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetDataGraphPipelineSessionMemoryRequirementsARM as usize,
+                    DeviceCommand::vkGetDataGraphPipelineSessionMemoryRequirementsARM as usize,
                 ),
             )
         };
@@ -32192,7 +32192,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_BindDataGraphPipelineSessionMemoryARM>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkBindDataGraphPipelineSessionMemoryARM as usize,
+                    DeviceCommand::vkBindDataGraphPipelineSessionMemoryARM as usize,
                 ),
             )
         };
@@ -32224,7 +32224,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_DestroyDataGraphPipelineSessionARM>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkDestroyDataGraphPipelineSessionARM as usize,
+                    DeviceCommand::vkDestroyDataGraphPipelineSessionARM as usize,
                 ),
             )
         };
@@ -32268,7 +32268,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDispatchDataGraphARM>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDispatchDataGraphARM as usize,
+                DeviceCommand::vkCmdDispatchDataGraphARM as usize,
             ))
         };
         unsafe { (command)(self.handle, session, p_info.unwrap_or_default()) }
@@ -32314,7 +32314,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetDataGraphPipelineAvailablePropertiesARM>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetDataGraphPipelineAvailablePropertiesARM as usize,
+                    DeviceCommand::vkGetDataGraphPipelineAvailablePropertiesARM as usize,
                 ),
             )
         };
@@ -32367,7 +32367,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDataGraphPipelinePropertiesARM>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetDataGraphPipelinePropertiesARM as usize,
+                DeviceCommand::vkGetDataGraphPipelinePropertiesARM as usize,
             ))
         };
         unsafe { (command)(self.handle, p_pipeline_info, properties_count, p_properties) }
@@ -32557,7 +32557,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetAttachmentFeedbackLoopEnableEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdSetAttachmentFeedbackLoopEnableEXT as usize,
+                    DeviceCommand::vkCmdSetAttachmentFeedbackLoopEnableEXT as usize,
                 ),
             )
         };
@@ -32600,7 +32600,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetScreenBufferPropertiesQNX>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetScreenBufferPropertiesQNX as usize,
+                DeviceCommand::vkGetScreenBufferPropertiesQNX as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer, p_properties) }
@@ -32640,7 +32640,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBindTileMemoryQCOM>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBindTileMemoryQCOM as usize,
+                DeviceCommand::vkCmdBindTileMemoryQCOM as usize,
             ))
         };
         unsafe { (command)(self.handle, p_tile_memory_bind_info.unwrap_or_default()) }
@@ -32680,7 +32680,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDecompressMemoryEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDecompressMemoryEXT as usize,
+                DeviceCommand::vkCmdDecompressMemoryEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_decompress_memory_info_ext) }
@@ -32731,7 +32731,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdDecompressMemoryIndirectCountEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdDecompressMemoryIndirectCountEXT as usize,
+                    DeviceCommand::vkCmdDecompressMemoryIndirectCountEXT as usize,
                 ),
             )
         };
@@ -32785,7 +32785,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateExternalComputeQueueNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateExternalComputeQueueNV as usize,
+                DeviceCommand::vkCreateExternalComputeQueueNV as usize,
             ))
         };
         unsafe {
@@ -32822,7 +32822,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyExternalComputeQueueNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyExternalComputeQueueNV as usize,
+                DeviceCommand::vkDestroyExternalComputeQueueNV as usize,
             ))
         };
         unsafe { (command)(self.handle, external_queue, p_allocator.unwrap_or_default()) }
@@ -32891,7 +32891,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetClusterAccelerationStructureBuildSizesNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetClusterAccelerationStructureBuildSizesNV as usize,
+                    DeviceCommand::vkGetClusterAccelerationStructureBuildSizesNV as usize,
                 ),
             )
         };
@@ -32932,7 +32932,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdBuildClusterAccelerationStructureIndirectNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdBuildClusterAccelerationStructureIndirectNV as usize,
+                    DeviceCommand::vkCmdBuildClusterAccelerationStructureIndirectNV as usize,
                 ),
             )
         };
@@ -32967,7 +32967,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetPartitionedAccelerationStructuresBuildSizesNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetPartitionedAccelerationStructuresBuildSizesNV as usize,
+                    DeviceCommand::vkGetPartitionedAccelerationStructuresBuildSizesNV as usize,
                 ),
             )
         };
@@ -33008,7 +33008,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdBuildPartitionedAccelerationStructuresNV>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdBuildPartitionedAccelerationStructuresNV as usize,
+                    DeviceCommand::vkCmdBuildPartitionedAccelerationStructuresNV as usize,
                 ),
             )
         };
@@ -33043,7 +33043,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetGeneratedCommandsMemoryRequirementsEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetGeneratedCommandsMemoryRequirementsEXT as usize,
+                    DeviceCommand::vkGetGeneratedCommandsMemoryRequirementsEXT as usize,
                 ),
             )
         };
@@ -33084,7 +33084,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdPreprocessGeneratedCommandsEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdPreprocessGeneratedCommandsEXT as usize,
+                DeviceCommand::vkCmdPreprocessGeneratedCommandsEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_generated_commands_info, state_command_buffer) }
@@ -33125,7 +33125,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdExecuteGeneratedCommandsEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdExecuteGeneratedCommandsEXT as usize,
+                DeviceCommand::vkCmdExecuteGeneratedCommandsEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, is_preprocessed, p_generated_commands_info) }
@@ -33169,7 +33169,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateIndirectCommandsLayoutEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateIndirectCommandsLayoutEXT as usize,
+                DeviceCommand::vkCreateIndirectCommandsLayoutEXT as usize,
             ))
         };
         unsafe {
@@ -33206,7 +33206,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyIndirectCommandsLayoutEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyIndirectCommandsLayoutEXT as usize,
+                DeviceCommand::vkDestroyIndirectCommandsLayoutEXT as usize,
             ))
         };
         unsafe {
@@ -33256,7 +33256,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateIndirectExecutionSetEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateIndirectExecutionSetEXT as usize,
+                DeviceCommand::vkCreateIndirectExecutionSetEXT as usize,
             ))
         };
         unsafe {
@@ -33293,7 +33293,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyIndirectExecutionSetEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyIndirectExecutionSetEXT as usize,
+                DeviceCommand::vkDestroyIndirectExecutionSetEXT as usize,
             ))
         };
         unsafe {
@@ -33335,7 +33335,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_UpdateIndirectExecutionSetPipelineEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkUpdateIndirectExecutionSetPipelineEXT as usize,
+                    DeviceCommand::vkUpdateIndirectExecutionSetPipelineEXT as usize,
                 ),
             )
         };
@@ -33379,7 +33379,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_UpdateIndirectExecutionSetShaderEXT>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkUpdateIndirectExecutionSetShaderEXT as usize,
+                    DeviceCommand::vkUpdateIndirectExecutionSetShaderEXT as usize,
                 ),
             )
         };
@@ -33534,7 +33534,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryMetalHandleEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetMemoryMetalHandleEXT as usize,
+                DeviceCommand::vkGetMemoryMetalHandleEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_get_metal_handle_info, p_handle) }
@@ -33578,7 +33578,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryMetalHandlePropertiesEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetMemoryMetalHandlePropertiesEXT as usize,
+                DeviceCommand::vkGetMemoryMetalHandlePropertiesEXT as usize,
             ))
         };
         unsafe {
@@ -33744,7 +33744,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateShaderInstrumentationARM>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateShaderInstrumentationARM as usize,
+                DeviceCommand::vkCreateShaderInstrumentationARM as usize,
             ))
         };
         unsafe {
@@ -33781,7 +33781,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyShaderInstrumentationARM>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyShaderInstrumentationARM as usize,
+                DeviceCommand::vkDestroyShaderInstrumentationARM as usize,
             ))
         };
         unsafe {
@@ -33829,7 +33829,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBeginShaderInstrumentationARM>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBeginShaderInstrumentationARM as usize,
+                DeviceCommand::vkCmdBeginShaderInstrumentationARM as usize,
             ))
         };
         unsafe { (command)(self.handle, instrumentation) }
@@ -33867,7 +33867,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdEndShaderInstrumentationARM>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdEndShaderInstrumentationARM as usize,
+                DeviceCommand::vkCmdEndShaderInstrumentationARM as usize,
             ))
         };
         unsafe { (command)(self.handle) }
@@ -33914,7 +33914,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetShaderInstrumentationValuesARM>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkGetShaderInstrumentationValuesARM as usize,
+                DeviceCommand::vkGetShaderInstrumentationValuesARM as usize,
             ))
         };
         unsafe {
@@ -33952,7 +33952,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_ClearShaderInstrumentationMetricsARM>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkClearShaderInstrumentationMetricsARM as usize,
+                    DeviceCommand::vkClearShaderInstrumentationMetricsARM as usize,
                 ),
             )
         };
@@ -33993,7 +33993,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdEndRendering2EXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdEndRendering2EXT as usize,
+                DeviceCommand::vkCmdEndRendering2EXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_rendering_end_info.unwrap_or_default()) }
@@ -34032,7 +34032,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBeginCustomResolveEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBeginCustomResolveEXT as usize,
+                DeviceCommand::vkCmdBeginCustomResolveEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, p_begin_custom_resolve_info.unwrap_or_default()) }
@@ -34135,7 +34135,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetComputeOccupancyPriorityNV>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetComputeOccupancyPriorityNV as usize,
+                DeviceCommand::vkCmdSetComputeOccupancyPriorityNV as usize,
             ))
         };
         unsafe { (command)(self.handle, p_parameters) }
@@ -34307,7 +34307,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetPrimitiveRestartIndexEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdSetPrimitiveRestartIndexEXT as usize,
+                DeviceCommand::vkCmdSetPrimitiveRestartIndexEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, primitive_restart_index.unwrap_or_default()) }
@@ -34357,7 +34357,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateAccelerationStructureKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateAccelerationStructureKHR as usize,
+                DeviceCommand::vkCreateAccelerationStructureKHR as usize,
             ))
         };
         unsafe {
@@ -34394,7 +34394,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DestroyAccelerationStructureKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkDestroyAccelerationStructureKHR as usize,
+                DeviceCommand::vkDestroyAccelerationStructureKHR as usize,
             ))
         };
         unsafe {
@@ -34445,7 +34445,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBuildAccelerationStructuresKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdBuildAccelerationStructuresKHR as usize,
+                DeviceCommand::vkCmdBuildAccelerationStructuresKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, info_count, p_infos, pp_build_range_infos) }
@@ -34495,7 +34495,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdBuildAccelerationStructuresIndirectKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdBuildAccelerationStructuresIndirectKHR as usize,
+                    DeviceCommand::vkCmdBuildAccelerationStructuresIndirectKHR as usize,
                 ),
             )
         };
@@ -34559,7 +34559,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BuildAccelerationStructuresKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkBuildAccelerationStructuresKHR as usize,
+                DeviceCommand::vkBuildAccelerationStructuresKHR as usize,
             ))
         };
         unsafe {
@@ -34617,7 +34617,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CopyAccelerationStructureKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCopyAccelerationStructureKHR as usize,
+                DeviceCommand::vkCopyAccelerationStructureKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, deferred_operation.unwrap_or_default(), p_info) }
@@ -34668,7 +34668,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_CopyAccelerationStructureToMemoryKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCopyAccelerationStructureToMemoryKHR as usize,
+                    DeviceCommand::vkCopyAccelerationStructureToMemoryKHR as usize,
                 ),
             )
         };
@@ -34720,7 +34720,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_CopyMemoryToAccelerationStructureKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCopyMemoryToAccelerationStructureKHR as usize,
+                    DeviceCommand::vkCopyMemoryToAccelerationStructureKHR as usize,
                 ),
             )
         };
@@ -34778,7 +34778,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_WriteAccelerationStructuresPropertiesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkWriteAccelerationStructuresPropertiesKHR as usize,
+                    DeviceCommand::vkWriteAccelerationStructuresPropertiesKHR as usize,
                 ),
             )
         };
@@ -34828,7 +34828,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyAccelerationStructureKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdCopyAccelerationStructureKHR as usize,
+                DeviceCommand::vkCmdCopyAccelerationStructureKHR as usize,
             ))
         };
         unsafe { (command)(self.handle, p_info) }
@@ -34868,7 +34868,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyAccelerationStructureToMemoryKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdCopyAccelerationStructureToMemoryKHR as usize,
+                    DeviceCommand::vkCmdCopyAccelerationStructureToMemoryKHR as usize,
                 ),
             )
         };
@@ -34909,7 +34909,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdCopyMemoryToAccelerationStructureKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdCopyMemoryToAccelerationStructureKHR as usize,
+                    DeviceCommand::vkCmdCopyMemoryToAccelerationStructureKHR as usize,
                 ),
             )
         };
@@ -34942,7 +34942,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetAccelerationStructureDeviceAddressKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetAccelerationStructureDeviceAddressKHR as usize,
+                    DeviceCommand::vkGetAccelerationStructureDeviceAddressKHR as usize,
                 ),
             )
         };
@@ -34993,7 +34993,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdWriteAccelerationStructuresPropertiesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdWriteAccelerationStructuresPropertiesKHR as usize,
+                    DeviceCommand::vkCmdWriteAccelerationStructuresPropertiesKHR as usize,
                 ),
             )
         };
@@ -35037,7 +35037,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceAccelerationStructureCompatibilityKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetDeviceAccelerationStructureCompatibilityKHR as usize,
+                    DeviceCommand::vkGetDeviceAccelerationStructureCompatibilityKHR as usize,
                 ),
             )
         };
@@ -35076,7 +35076,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetAccelerationStructureBuildSizesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetAccelerationStructureBuildSizesKHR as usize,
+                    DeviceCommand::vkGetAccelerationStructureBuildSizesKHR as usize,
                 ),
             )
         };
@@ -35138,7 +35138,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdTraceRaysKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdTraceRaysKHR as usize,
+                DeviceCommand::vkCmdTraceRaysKHR as usize,
             ))
         };
         unsafe {
@@ -35203,7 +35203,7 @@ impl Device {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateRayTracingPipelinesKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCreateRayTracingPipelinesKHR as usize,
+                DeviceCommand::vkCreateRayTracingPipelinesKHR as usize,
             ))
         };
         unsafe {
@@ -35256,7 +35256,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetRayTracingCaptureReplayShaderGroupHandlesKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetRayTracingCaptureReplayShaderGroupHandlesKHR as usize,
+                    DeviceCommand::vkGetRayTracingCaptureReplayShaderGroupHandlesKHR as usize,
                 ),
             )
         };
@@ -35315,7 +35315,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdTraceRaysIndirectKHR>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdTraceRaysIndirectKHR as usize,
+                DeviceCommand::vkCmdTraceRaysIndirectKHR as usize,
             ))
         };
         unsafe {
@@ -35356,7 +35356,7 @@ impl Device {
             std::mem::transmute::<vkVoidFunction, FN_GetRayTracingShaderGroupStackSizeKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkGetRayTracingShaderGroupStackSizeKHR as usize,
+                    DeviceCommand::vkGetRayTracingShaderGroupStackSizeKHR as usize,
                 ),
             )
         };
@@ -35393,7 +35393,7 @@ impl CommandBuffer {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetRayTracingPipelineStackSizeKHR>(
                 vtable_get(
                     self.vtable(),
-                    InstanceCommand::vkCmdSetRayTracingPipelineStackSizeKHR as usize,
+                    DeviceCommand::vkCmdSetRayTracingPipelineStackSizeKHR as usize,
                 ),
             )
         };
@@ -35434,7 +35434,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawMeshTasksEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawMeshTasksEXT as usize,
+                DeviceCommand::vkCmdDrawMeshTasksEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, group_count_x, group_count_y, group_count_z) }
@@ -35482,7 +35482,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawMeshTasksIndirectEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawMeshTasksIndirectEXT as usize,
+                DeviceCommand::vkCmdDrawMeshTasksIndirectEXT as usize,
             ))
         };
         unsafe { (command)(self.handle, buffer, offset, draw_count, stride) }
@@ -35532,7 +35532,7 @@ impl CommandBuffer {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdDrawMeshTasksIndirectCountEXT>(vtable_get(
                 self.vtable(),
-                InstanceCommand::vkCmdDrawMeshTasksIndirectCountEXT as usize,
+                DeviceCommand::vkCmdDrawMeshTasksIndirectCountEXT as usize,
             ))
         };
         unsafe {
