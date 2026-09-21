@@ -200,6 +200,7 @@ class Context:
     dispatchable_handles: dict[str, str]
     global_commands: list[str]
     instance_commands: list[str]
+    device_commands: list[str]
 
     def __init__(self, root: Path):
         self.ty_parser.add_mapping("VkResult", "ResultCode")
@@ -208,6 +209,7 @@ class Context:
         self.dispatchable_handles = {}
         self.global_commands = []
         self.instance_commands = []
+        self.device_commands = []
 
     def remove_vendor_tag(self, name: str) -> str:
         split = name.rsplit("_", maxsplit=1)
@@ -881,6 +883,13 @@ class Context:
             "" if x.returnType == "void" else f"-> {self.ty_parser.parse(x.returnType)}"
         )
 
+        params_with_option = [
+            f"{x[0]}: {f'{x[1]}' if not x[2] else f'Option<{x[1]}>'}" for x in params
+        ]
+        params_use = [
+            x[0] if not x[2] else f"{x[0]}.unwrap_or_default()" for x in params
+        ]
+
         if handle is not None:
             # these commands are prefixed with raw to not clash with their smart handle implementation
             raw_prefixed_commands = {
@@ -898,6 +907,9 @@ class Context:
 
             # method on a handle
             self.instance_commands.append(x.name)
+            if x.device:
+                self.device_commands.append(x.name)
+
             self.vulkan_doc_header(out, x.name)
             out.writeln(
                 f'pub type FN_{command_fn_alias_name} = unsafe extern "C" fn({handle}Handle, {", ".join(str(x[1]) for x in params)}) {return_ty};'
@@ -910,11 +922,7 @@ class Context:
                 if command_name == old_method_name:
                     command_name = command_name.replace(f"_{handle_snake}", "", count=1)
 
-            param_strs = [
-                f"{x[0]}: {f'{x[1]}' if not x[2] else f'Option<{x[1]}>'}"
-                for x in params
-            ]
-            signature = f"pub unsafe fn {command_name}(&self, {', '.join(param_strs)}) {return_ty}"
+            signature = f"pub unsafe fn {command_name}(&self, {', '.join(params_with_option)}) {return_ty}"
 
             out.writeln(f"impl {handle} {{")
             out.indent()
@@ -930,9 +938,6 @@ class Context:
             out.writeln(f"{signature} {{")
             out.indent()
 
-            params_use = [
-                x[0] if not x[2] else f"{x[0]}.unwrap_or_default()" for x in params
-            ]
             out.writeln(
                 f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FN_{command_fn_alias_name}>(vtable_get(self.vtable(), InstanceCommand::{x.name} as usize)) }};"
             )
@@ -951,7 +956,7 @@ class Context:
                 f'pub type FN_{command_fn_alias_name} = unsafe extern "C" fn({", ".join(str(x[1]) for x in params)}) {return_ty};'
             )
 
-            signature = f"pub unsafe fn {command_name}({', '.join(f'{x[0]}: {x[1]}' for x in params)}) {return_ty}"
+            signature = f"pub unsafe fn {command_name}({', '.join(params_with_option)}) {return_ty}"
 
             # docs
             self.vulkan_doc_header(out, x.name)
@@ -969,7 +974,7 @@ class Context:
             out.writeln(
                 f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FN_{command_fn_alias_name}>(vtable_get(&commands, GlobalCommand::{x.name} as usize)) }};"
             )
-            out.writeln(f"unsafe {{ (command)({', '.join(x[0] for x in params)}) }}")
+            out.writeln(f"unsafe {{ (command)({', '.join(params_use)}) }}")
             out.deindent()
             out.writeln("}")
 
@@ -1276,7 +1281,20 @@ class Context:
         instance_commands_enum = self.generate_commands_enum(
             "InstanceCommand", self.instance_commands
         )
-        return f"{success_enum}\n{error_enum}\n{split_impl}\n{extensions_enum}\n{global_commands_enum}\n{instance_commands_enum}"
+        device_commands_enum = self.generate_commands_enum(
+            "DeviceCommand", self.device_commands
+        )
+        return "\n".join(  # noqa: FLY002
+            [
+                success_enum,
+                error_enum,
+                split_impl,
+                extensions_enum,
+                global_commands_enum,
+                instance_commands_enum,
+                device_commands_enum,
+            ]
+        )
 
     def write_file(self, path: str, content: str):
         path = f"{self.root}/{path}"

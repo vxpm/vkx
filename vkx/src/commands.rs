@@ -41,7 +41,7 @@ pub type FN_CreateInstance = unsafe extern "C" fn(
 #[inline(always)]
 pub unsafe fn create_instance(
     p_create_info: *const InstanceCreateInfo,
-    p_allocator: *const AllocationCallbacks,
+    p_allocator: Option<*const AllocationCallbacks>,
     p_instance: *mut InstanceHandle,
 ) -> ResultCode {
     let commands = GLOBAL
@@ -54,7 +54,7 @@ pub unsafe fn create_instance(
             GlobalCommand::vkCreateInstance as usize,
         ))
     };
-    unsafe { (command)(p_create_info, p_allocator, p_instance) }
+    unsafe { (command)(p_create_info, p_allocator.unwrap_or_default(), p_instance) }
 }
 
 /// [`vkDestroyInstance`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyInstance.html)
@@ -463,9 +463,9 @@ pub type FN_EnumerateInstanceExtensionProperties =
 #[doc(alias = "vkEnumerateInstanceExtensionProperties")]
 #[inline(always)]
 pub unsafe fn enumerate_instance_extension_properties(
-    p_layer_name: *const c_char,
+    p_layer_name: Option<*const c_char>,
     p_property_count: *mut u32,
-    p_properties: *mut ExtensionProperties,
+    p_properties: Option<*mut ExtensionProperties>,
 ) -> ResultCode {
     let commands = GLOBAL
         .get()
@@ -477,7 +477,13 @@ pub unsafe fn enumerate_instance_extension_properties(
             GlobalCommand::vkEnumerateInstanceExtensionProperties as usize,
         ))
     };
-    unsafe { (command)(p_layer_name, p_property_count, p_properties) }
+    unsafe {
+        (command)(
+            p_layer_name.unwrap_or_default(),
+            p_property_count,
+            p_properties.unwrap_or_default(),
+        )
+    }
 }
 
 /// [`vkEnumerateDeviceExtensionProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateDeviceExtensionProperties.html)
@@ -549,7 +555,7 @@ pub type FN_EnumerateInstanceLayerProperties =
 #[inline(always)]
 pub unsafe fn enumerate_instance_layer_properties(
     p_property_count: *mut u32,
-    p_properties: *mut LayerProperties,
+    p_properties: Option<*mut LayerProperties>,
 ) -> ResultCode {
     let commands = GLOBAL
         .get()
@@ -561,7 +567,7 @@ pub unsafe fn enumerate_instance_layer_properties(
             GlobalCommand::vkEnumerateInstanceLayerProperties as usize,
         ))
     };
-    unsafe { (command)(p_property_count, p_properties) }
+    unsafe { (command)(p_property_count, p_properties.unwrap_or_default()) }
 }
 
 /// [`vkEnumerateDeviceLayerProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateDeviceLayerProperties.html)

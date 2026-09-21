@@ -106,7 +106,7 @@ impl Instance {
     /// Creates a new [`Instance`]. This is a wrapper around [`create_instance`](crate::create_instance).
     pub fn create(
         create_info: *const crate::InstanceCreateInfo,
-        allocator: *const crate::AllocationCallbacks,
+        allocator: Option<*const crate::AllocationCallbacks>,
     ) -> Result<Self, crate::ErrorCode> {
         let mut instance = crate::InstanceHandle::default();
         unsafe { crate::create_instance(create_info, allocator, &mut instance).success()? };
@@ -170,14 +170,11 @@ impl Instance {
     }
 }
 
-/// An [`InstanceHandle`](crate::InstanceHandle) wrapper that carries a vtable generated at creation
-/// time.
+/// A [`PhysicalDeviceHandle`](crate::PhysicalDeviceHandle) wrapper that carries it's parent
+/// [`Instance`]'s vtable.
 ///
-/// This type is like a smart version of an [`InstanceHandle`](crate::InstanceHandle): it knows how
-/// to call every instance function and will also destroy itself at drop time.
-///
-/// Child handles of this instance carry a reference to the same vtable, so calling any
-/// function on them _after_ this instance is destroyed is an use-after-free (UB).
+/// This type is like a smart version of a [`PhysicalDeviceHandle`](crate::PhysicalDeviceHandle): it
+/// knows how to call every physical device function.
 #[derive(Clone)]
 pub struct PhysicalDevice {
     pub(crate) handle: crate::PhysicalDeviceHandle,
@@ -220,7 +217,7 @@ impl PhysicalDevice {
     }
 }
 
-/// An [`DeviceHandle`](crate::DeviceHandle) wrapper that carries a vtable generated at creation
+/// A [`DeviceHandle`](crate::DeviceHandle) wrapper that carries a vtable generated at creation
 /// time.
 ///
 /// This type is like a smart version of a [`DeviceHandle`](crate::DeviceHandle): it knows how

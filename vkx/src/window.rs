@@ -161,6 +161,8 @@ pub unsafe fn create_surface(
     Ok(surface)
 }
 
+/// Returns whether a given queue family on a physical device supports presentation to the given
+/// display.
 pub unsafe fn queue_family_supports_presentation(
     device: &crate::PhysicalDevice,
     family_idx: u32,
