@@ -431,6 +431,9 @@ class Context:
         out = CodeWriter()
 
         type_name = names.struct(x.name)
+        s_type = (
+            x.sType.removeprefix("VK_STRUCTURE_TYPE_") if x.sType is not None else None
+        )
 
         # docs
         self.vulkan_doc_header(out, x.name, x.videoStdHeader is not None)
@@ -518,8 +521,7 @@ class Context:
             out.indent()
             for member in x.members:
                 field_name = names.struct_field(member.name)
-                if field_name == "s_type" and x.sType is not None:
-                    s_type = x.sType.removeprefix("VK_STRUCTURE_TYPE_")
+                if field_name == "s_type" and s_type is not None:
                     out.writeln(f"{field_name}: StructureType::{s_type},")
                     continue
 
@@ -543,28 +545,12 @@ class Context:
             out.writeln("}")
 
         # extends
-        if has_p_next:
+        if has_p_next and s_type is not None:
             out.writeln(f"unsafe impl Extendable for {type_name} {{")
             out.indent()
-            out.writeln("#[inline(always)]")
-            out.writeln("fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self {")
-            out.indent()
-            out.writeln("unsafe {")
-            out.indent()
-
-            out.writeln("let base_next: *mut crate::BaseOutStructure = next.cast();")
             out.writeln(
-                "let old = std::ptr::replace(&raw mut (*base_next).p_next, self.p_next as _);"
+                f"const STRUCTURE_TYPE: StructureType = StructureType::{s_type};"
             )
-            out.writeln(
-                'assert!(old.is_null(), "pushed a structure in a chain into another chain");'
-            )
-            out.writeln(" Self { p_next: next as _, ..self }")
-
-            out.deindent()
-            out.writeln("}")
-            out.deindent()
-            out.writeln("}")
             out.deindent()
             out.writeln("}")
 

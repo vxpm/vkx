@@ -12,9 +12,14 @@ type InstanceVTable = VTable<{ crate::InstanceCommand::VARIANTS.len() }>;
 #[inline(always)]
 pub(crate) fn vtable_get<const N: usize>(table: &VTable<N>, index: usize) -> crate::vkVoidFunction {
     let func = table[index];
-    let ptr =
-        unsafe { std::mem::transmute::<crate::vkVoidFunction, *const std::ffi::c_void>(func) };
-    assert!(!ptr.is_null(), "command should not be null");
+
+    if cfg!(debug_assertions) {
+        let ptr =
+            unsafe { std::mem::transmute::<crate::vkVoidFunction, *const std::ffi::c_void>(func) };
+
+        assert!(!ptr.is_null(), "command should not be null");
+    }
+
     func
 }
 

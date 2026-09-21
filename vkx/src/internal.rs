@@ -3,15 +3,40 @@
 use core::ffi::CStr;
 use std::collections::HashSet;
 
-/// Marker trait indicating a vulkan structure that can be extended.
+/// Trait indicating a vulkan structure that can be extended.
+///
+/// # Safety
+/// Types implementing this trait must be able to be treated as both a
+/// [`BaseInStructure`](crate::BaseOutStructure) and a [`BaseOutStructure`](crate::BaseInStructure).
 #[diagnostic::on_unimplemented(
     message = "Vulkan structure `{Self}` cannot be extended",
-    note = "It does not have a `next` pointer"
+    note = "It does not have a `p_next` pointer"
 )]
 pub unsafe trait Extendable: Copy + Sized {
-    fn with_next<T: Extends<Self>>(self, next: *mut T) -> Self;
-    fn push_next<T: Extends<Self>>(&mut self, next: *mut T) {
-        *self = self.with_next(next);
+    const STRUCTURE_TYPE: crate::StructureType;
+
+    #[inline(always)]
+    fn with_next<T: Extends<Self>>(self, next: &mut T) -> Self {
+        let mut new = self;
+        new.push_next(next);
+        new
+    }
+
+    #[inline(always)]
+    fn push_next<T: Extends<Self>>(&mut self, next: &mut T) {
+        let base_self = (self as *mut Self).cast::<crate::BaseOutStructure>();
+        let base_next = (next as *mut T).cast::<crate::BaseOutStructure>();
+
+        // SAFETY: trait contract
+        unsafe {
+            let self_old_next = std::ptr::replace(&raw mut (*base_self).p_next, base_next);
+            let next_old_next = std::ptr::replace(&raw mut (*base_next).p_next, self_old_next);
+
+            assert!(
+                next_old_next.is_null(),
+                "pushed a structure in a chain into another chain"
+            );
+        }
     }
 }
 
