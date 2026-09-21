@@ -23,7 +23,7 @@
 //!
 //! ```rust
 //! // always run setup before using vkx!
-//! unsafe { vkx::setup() };
+//! unsafe { vkx::setup().unwrap() };
 //!
 //! let app_info = vkx::ApplicationInfo {
 //!     p_application_name: c"example".as_ptr(),

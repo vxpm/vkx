@@ -1,6 +1,7 @@
 use core::ffi::CStr;
 use std::collections::HashSet;
 
+use vkx::Extendable;
 use winit::application::ApplicationHandler;
 use winit::event::WindowEvent;
 use winit::event_loop::{ActiveEventLoop, EventLoop};
@@ -13,6 +14,7 @@ struct App {
 
 impl App {
     fn new(event_loop: &EventLoop<()>) -> Self {
+        // 01. creating an instance
         let app_info = vkx::ApplicationInfo {
             p_application_name: c"triangle".as_ptr(),
             application_version: vkx::Version::V1_0.get(),
@@ -51,13 +53,14 @@ impl App {
         )
         .unwrap();
 
-        // enumerate the physical devices!
+        // 02. creating the logical device
+        // enumerate the physical devices
         let physical_devices = unsafe { instance.enumerate_physical_devices().unwrap() };
 
         // list of device extensions we want
         let device_extensions = HashSet::from_iter([vkx::Extension::KHR_Swapchain]);
 
-        // choose the device that fits best
+        // choose the physical device that fits best
         let (physical_device, properties, family_idx) =
             physical_devices
                 .into_iter()
@@ -93,13 +96,23 @@ impl App {
 
                     queue_families
                         .iter()
-                        .position(|family| {
-                            // we need a queue that supports graphics and presentation
-                            // TODO: test for presentation support
-                            family
+                        .enumerate()
+                        .position(|(idx, family)| {
+                            // we need a queue that supports graphics
+                            let is_graphics = family
                                 .queue_family_properties
                                 .queue_flags
-                                .contains(vkx::QueueFlag::GRAPHICS)
+                                .contains(vkx::QueueFlag::GRAPHICS);
+
+                            // we also need it to support presentation
+                            let supports_presentation = unsafe {
+                                vkx::window::queue_family_supports_presentation(
+                                    &dev, idx as u32, event_loop,
+                                )
+                                .unwrap()
+                            };
+
+                            is_graphics && supports_presentation
                         })
                         .map(|family_idx| (dev, properties, family_idx as u32))
                 })
@@ -118,20 +131,42 @@ impl App {
 
         println!("Device chosen: {}", name.to_string_lossy());
 
-        // let physical = physical_devices.remove(0);
-        // physical
-        //     .create_device(
-        //         &vkx::DeviceCreateInfo {
-        //             queue_create_info_count: 0,
-        //             p_queue_create_infos: std::ptr::null(),
-        //             enabled_extension_count: 0,
-        //             pp_enabled_extension_names: std::ptr::null(),
-        //             p_enabled_features: std::ptr::null(),
-        //             ..Default::default()
-        //         },
-        //         std::ptr::null(),
-        //     )
-        //     .unwrap();
+        // setup queue creation info
+        let queue_priorities = [0.5];
+        let queue_create_info = [vkx::DeviceQueueCreateInfo {
+            queue_family_index: family_idx,
+            queue_count: 1,
+            p_queue_priorities: queue_priorities.as_ptr(),
+            ..Default::default()
+        }];
+
+        // setup enabled features
+        let enabled_features = vkx::PhysicalDeviceFeatures::default();
+        let mut enabled_features_1_3 = vkx::PhysicalDeviceVulkan13Features {
+            dynamic_rendering: true.into(),
+            ..Default::default()
+        };
+
+        // setup creation info
+        let device_extensions_names = vkx::Extension::to_ptrs(device_extensions);
+        let mut device_create_info = vkx::DeviceCreateInfo {
+            queue_create_info_count: 1,
+            p_queue_create_infos: queue_create_info.as_ptr(),
+            enabled_extension_count: device_extensions_names.len() as u32,
+            pp_enabled_extension_names: device_extensions_names.as_ptr(),
+            p_enabled_features: &enabled_features,
+            ..Default::default()
+        };
+
+        device_create_info.push_next(&mut enabled_features_1_3);
+
+        // create the device
+        let device = physical_device
+            .create_device(&device_create_info, std::ptr::null())
+            .unwrap();
+
+        // and get the queue
+        let queue = unsafe { device.get_device_queue(family_idx, 0) };
 
         todo!()
     }

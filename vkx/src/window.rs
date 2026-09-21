@@ -11,10 +11,31 @@ pub enum Error {
     Handle(#[from] raw_window_handle::HandleError),
     #[error("vulkan error {0:?}")]
     Vulkan(#[from] crate::ErrorCode),
-    #[error("platform not supported")]
+    #[error("platform not supported by vkx")]
     NotSupported,
     #[error("handle was in an invalid state")]
     InvalidHandle,
+}
+
+/// Get the required instance extensions for creating a surface using `display`.
+pub fn get_required_extensions(
+    display: impl HasDisplayHandle,
+) -> Result<&'static [Extension], Error> {
+    let handle = display.display_handle()?;
+    let extensions = match handle.as_raw() {
+        RawDisplayHandle::Windows(_) => &[Extension::KHR_Surface, Extension::KHR_Win32Surface],
+        RawDisplayHandle::Wayland(_) => &[Extension::KHR_Surface, Extension::KHR_WaylandSurface],
+        RawDisplayHandle::Xlib(_) => &[Extension::KHR_Surface, Extension::KHR_XlibSurface],
+        RawDisplayHandle::Xcb(_) => &[Extension::KHR_Surface, Extension::KHR_XcbSurface],
+        RawDisplayHandle::Android(_) => &[Extension::KHR_Surface, Extension::KHR_AndroidSurface],
+        RawDisplayHandle::Ohos(_) => &[Extension::KHR_Surface, Extension::OHOS_Surface],
+        RawDisplayHandle::AppKit(_) | RawDisplayHandle::UiKit(_) => {
+            &[Extension::KHR_Surface, Extension::EXT_MetalSurface]
+        }
+        _ => return Err(Error::NotSupported),
+    };
+
+    Ok(extensions)
 }
 
 /// Creates a [`surface handle`](crate::SurfaceKHR) for the given `window` and `display` using
@@ -28,6 +49,8 @@ pub unsafe fn create_surface(
     display: impl HasDisplayHandle,
     window: impl HasWindowHandle,
 ) -> Result<crate::SurfaceKHR, Error> {
+    // https://docs.vulkan.org/spec/latest/chapters/VK_KHR_surface/wsi.html#_wsi_surface
+
     let display = display.display_handle()?;
     let window = window.window_handle()?;
 
@@ -132,42 +155,59 @@ pub unsafe fn create_surface(
             }
         }
 
-        (RawDisplayHandle::Ohos(_), RawWindowHandle::OhosNdk(window)) => {
-            let info = crate::SurfaceCreateInfoOHOS {
-                window: window.native_window.as_ptr().cast(),
-                ..Default::default()
-            };
-
-            unsafe {
-                instance
-                    .create_surface_ohos(&info, std::ptr::null(), &mut surface)
-                    .success()?
-            }
-        }
-
         _ => return Err(Error::NotSupported),
     }
 
     Ok(surface)
 }
 
-/// Get the required instance extensions for creating a surface using `display`.
-pub fn get_required_extensions(
+pub unsafe fn queue_family_supports_presentation(
+    device: &crate::PhysicalDevice,
+    family_idx: u32,
     display: impl HasDisplayHandle,
-) -> Result<&'static [Extension], Error> {
-    let handle = display.display_handle()?;
-    let extensions = match handle.as_raw() {
-        RawDisplayHandle::Windows(_) => &[Extension::KHR_Surface, Extension::KHR_Win32Surface],
-        RawDisplayHandle::Wayland(_) => &[Extension::KHR_Surface, Extension::KHR_WaylandSurface],
-        RawDisplayHandle::Xlib(_) => &[Extension::KHR_Surface, Extension::KHR_XlibSurface],
-        RawDisplayHandle::Xcb(_) => &[Extension::KHR_Surface, Extension::KHR_XcbSurface],
-        RawDisplayHandle::Android(_) => &[Extension::KHR_Surface, Extension::KHR_AndroidSurface],
-        RawDisplayHandle::Ohos(_) => &[Extension::KHR_Surface, Extension::OHOS_Surface],
-        RawDisplayHandle::AppKit(_) | RawDisplayHandle::UiKit(_) => {
-            &[Extension::KHR_Surface, Extension::EXT_MetalSurface]
-        }
+) -> Result<bool, Error> {
+    // https://docs.vulkan.org/spec/latest/chapters/VK_KHR_surface/wsi.html#_querying_for_wsi_support
+
+    let display = display.display_handle()?;
+    let supported = match display.as_raw() {
+        RawDisplayHandle::Wayland(display) => unsafe {
+            device
+                .get_wayland_presentation_support_khr(family_idx, display.display.as_ptr())
+                .into()
+        },
+
+        RawDisplayHandle::Xlib(display) => unsafe {
+            device
+                .get_xlib_presentation_support_khr(
+                    family_idx,
+                    display.display.ok_or(Error::InvalidHandle)?.as_ptr(),
+                    0,
+                )
+                .into()
+        },
+
+        RawDisplayHandle::Xcb(display) => unsafe {
+            device
+                .get_xcb_presentation_support_khr(
+                    family_idx,
+                    display.connection.ok_or(Error::InvalidHandle)?.as_ptr(),
+                    0,
+                )
+                .into()
+        },
+
+        RawDisplayHandle::Android(_) => true,
+        RawDisplayHandle::Windows(_) => unsafe {
+            device
+                .get_win_32_presentation_support_khr(family_idx)
+                .into()
+        },
+
+        RawDisplayHandle::AppKit(_) => true,
+        RawDisplayHandle::UiKit(_) => true,
+
         _ => return Err(Error::NotSupported),
     };
 
-    Ok(extensions)
+    Ok(supported)
 }
