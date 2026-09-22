@@ -245,17 +245,15 @@ impl crate::Extension {
 
 #[macro_export]
 macro_rules! auto_count {
-    (|$count:ident, $placeholder:ident| $recv:ident.$method:ident($($arg:expr),* $(,)?)) => {
-        {
-            let mut $count = 0u32;
-            let mut $placeholder = None;
-            $recv.$method($($arg),*);
+    (|$count:ident, $placeholder:ident| $expr:expr) => {{
+        let mut $count = 0u32;
+        let mut $placeholder = None;
+        $expr;
 
-            let mut result = vec![Default::default(); $count as usize];
-            let mut $placeholder = Some(result.as_mut_ptr());
-            $recv.$method($($arg),*);
+        let mut result = vec![Default::default(); $count as usize];
+        let mut $placeholder = Some(result.as_mut_ptr());
+        $expr;
 
-            result
-        }
-    };
+        result
+    }};
 }

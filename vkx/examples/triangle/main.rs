@@ -7,9 +7,21 @@ use winit::event::WindowEvent;
 use winit::event_loop::{ActiveEventLoop, EventLoop};
 use winit::window::{Window, WindowId};
 
-#[derive(Default)]
+struct SwapchainState {
+    surface: vkx::SurfaceKHR,
+    surface_caps: vkx::SurfaceCapabilitiesKHR,
+    swapchain: vkx::SwapchainKHR,
+    images: Vec<vkx::Image>,
+    views: Vec<vkx::ImageView>,
+}
+
 struct App {
+    instance: vkx::Instance,
+    physical_device: vkx::PhysicalDevice,
+    device: vkx::Device,
+    queue: vkx::Queue,
     window: Option<Window>,
+    swapchain: Option<SwapchainState>,
 }
 
 impl App {
@@ -165,17 +177,117 @@ impl App {
         // and get the queue
         let queue = unsafe { device.get_device_queue(family_idx, 0) };
 
-        Self { window: None }
+        Self {
+            instance,
+            physical_device,
+            device,
+            queue,
+            window: None,
+            swapchain: None,
+        }
+    }
+
+    fn create_swapchain(&mut self, event_loop: &ActiveEventLoop) {
+        let window = self.window.as_ref().unwrap();
+
+        // create a surface
+        let surface =
+            unsafe { vkx::window::create_surface(&self.instance, event_loop, &window).unwrap() };
+
+        let mut surface_caps = Default::default();
+        unsafe {
+            self.physical_device
+                .get_surface_capabilities_khr(surface, &mut surface_caps)
+                .success()
+                .unwrap()
+        };
+
+        // create the swapchain
+        let window_size = window.inner_size();
+        let mut swapchain = vkx::SwapchainKHR::default();
+        unsafe {
+            self.device.create_swapchain_khr(
+                &vkx::SwapchainCreateInfoKHR {
+                    surface: surface,
+                    min_image_count: surface_caps.min_image_count,
+                    image_format: vkx::Format::B8G8R8A8_SRGB,
+                    image_color_space: vkx::ColorSpaceKHR::COLOR_SPACE_SRGB_NONLINEAR_KHR,
+                    image_extent: vkx::Extent2D {
+                        width: window_size.width,
+                        height: window_size.height,
+                    },
+                    image_array_layers: 1,
+                    image_usage: vkx::ImageUsageFlag::COLOR_ATTACHMENT.into(),
+                    image_sharing_mode: vkx::SharingMode::EXCLUSIVE,
+                    pre_transform: surface_caps.current_transform,
+                    composite_alpha: vkx::CompositeAlphaFlagKHR::OPAQUE_KHR.into(),
+                    present_mode: vkx::PresentModeKHR::PRESENT_MODE_FIFO_KHR,
+                    ..Default::default()
+                },
+                None,
+                &mut swapchain,
+            )
+        };
+
+        // get the swapchain images and create views for them
+        let swapchain_images = unsafe {
+            vkx::auto_count!(|count, vec| self
+                .device
+                .get_swapchain_images_khr(swapchain, &mut count, vec))
+        };
+
+        let swapchain_image_views = swapchain_images
+            .iter()
+            .map(|i| {
+                let mut img_view = vkx::ImageView::default();
+                unsafe {
+                    self.device
+                        .create_image_view(
+                            &vkx::ImageViewCreateInfo {
+                                image: *i,
+                                view_type: vkx::ImageViewType::_2D,
+                                format: vkx::Format::B8G8R8A8_SRGB,
+                                subresource_range: vkx::ImageSubresourceRange {
+                                    aspect_mask: vkx::ImageAspectFlag::COLOR.into(),
+                                    level_count: 1,
+                                    layer_count: 1,
+                                    ..Default::default()
+                                },
+                                ..Default::default()
+                            },
+                            None,
+                            &mut img_view,
+                        )
+                        .success()
+                        .unwrap()
+                };
+
+                img_view
+            })
+            .collect::<Vec<_>>();
+
+        self.swapchain = Some(SwapchainState {
+            surface,
+            surface_caps,
+            swapchain,
+            images: swapchain_images,
+            views: swapchain_image_views,
+        })
     }
 }
 
 impl ApplicationHandler for App {
     fn resumed(&mut self, event_loop: &ActiveEventLoop) {
-        self.window = Some(
-            event_loop
-                .create_window(Window::default_attributes())
-                .unwrap(),
-        );
+        if self.window.is_none() {
+            // create a window
+            self.window = Some(
+                event_loop
+                    .create_window(Window::default_attributes())
+                    .unwrap(),
+            );
+        }
+
+        self.create_swapchain(event_loop);
     }
 
     fn window_event(&mut self, event_loop: &ActiveEventLoop, id: WindowId, event: WindowEvent) {
@@ -209,5 +321,6 @@ fn main() {
     unsafe { vkx::setup().unwrap() };
 
     let event_loop = EventLoop::new().unwrap();
-    let app = App::new(&event_loop);
+    let mut app = App::new(&event_loop);
+    event_loop.run_app(&mut app).unwrap();
 }
