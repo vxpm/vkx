@@ -114,7 +114,7 @@ impl Instance {
         allocator: Option<*const crate::AllocationCallbacks>,
     ) -> Result<Self, crate::ErrorCode> {
         let mut instance = crate::InstanceHandle::default();
-        unsafe { crate::create_instance(create_info, allocator, &mut instance).success()? };
+        unsafe { crate::create_instance(create_info, allocator, &mut instance)? };
 
         let get_instance_proc_addr = GLOBAL
             .get()
@@ -142,16 +142,10 @@ impl Instance {
         &self,
     ) -> Result<Vec<PhysicalDevice>, crate::ErrorCode> {
         let mut count = 0;
-        unsafe {
-            self.raw_enumerate_physical_devices(&mut count, None)
-                .success()?;
-        }
+        unsafe { self.raw_enumerate_physical_devices(&mut count, None)? };
 
         let mut devices = vec![crate::PhysicalDeviceHandle::default(); count as usize];
-        unsafe {
-            self.raw_enumerate_physical_devices(&mut count, Some(devices.as_mut_ptr()))
-                .success()?;
-        }
+        unsafe { self.raw_enumerate_physical_devices(&mut count, Some(devices.as_mut_ptr()))? };
 
         Ok(devices
             .into_iter()
@@ -210,10 +204,7 @@ impl PhysicalDevice {
         allocator: Option<*const crate::AllocationCallbacks>,
     ) -> Result<Device, crate::ErrorCode> {
         let mut device = crate::DeviceHandle::default();
-        unsafe {
-            self.raw_create_device(create_info, allocator, &mut device)
-                .success()?;
-        }
+        unsafe { self.raw_create_device(create_info, allocator, &mut device)? };
 
         let get_device_proc_addr = GLOBAL
             .get()
@@ -294,8 +285,7 @@ impl Device {
         let count = unsafe { (*p_allocate_info).command_buffer_count as usize };
         let mut command_buffers = vec![crate::CommandBufferHandle::null(); count];
         unsafe {
-            self.raw_allocate_command_buffers(p_allocate_info, command_buffers.as_mut_ptr())
-                .success()?
+            self.raw_allocate_command_buffers(p_allocate_info, command_buffers.as_mut_ptr())?
         };
 
         Ok(command_buffers

@@ -9,8 +9,8 @@ use std::collections::HashSet;
 /// Types implementing this trait must be able to be treated as both a
 /// [`BaseInStructure`](crate::BaseOutStructure) and a [`BaseOutStructure`](crate::BaseInStructure).
 #[diagnostic::on_unimplemented(
-    message = "Vulkan structure `{Self}` cannot be extended",
-    note = "It does not have a `p_next` pointer"
+    message = "Type `{Self}` is not a Vulkan structure that can be extended",
+    note = "If `{Self}` is a Vulkan structure, then it does not have a `p_next` pointer"
 )]
 pub unsafe trait Extendable: Copy + Sized {
     const STRUCTURE_TYPE: crate::StructureType;
@@ -42,7 +42,7 @@ pub unsafe trait Extendable: Copy + Sized {
 
 /// Marker trait indicating a vulkan structure extends another.
 #[diagnostic::on_unimplemented(
-    message = "Vulkan structure `{Self}` does not extend structure `{T}`",
+    message = "Type `{Self}` does not extend structure `{T}`",
     note = "Documentation of `{T}` contains a list of all structures extending it"
 )]
 pub unsafe trait Extends<T>: Extendable {}
@@ -208,6 +208,15 @@ impl crate::ResultCode {
     }
 }
 
+impl crate::SuccessCode {
+    /// Returns whether this [`SuccessCode`](crate::SuccessCode) is
+    /// [`SUCCESS`](crate::SuccessCode::SUCCESS).
+    #[inline(always)]
+    pub fn is_success(self) -> bool {
+        self == crate::SuccessCode::SUCCESS
+    }
+}
+
 impl std::fmt::Display for crate::ErrorCode {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{self:?}")
@@ -215,6 +224,17 @@ impl std::fmt::Display for crate::ErrorCode {
 }
 
 impl std::error::Error for crate::ErrorCode {}
+
+impl From<Result<crate::SuccessCode, crate::ErrorCode>> for crate::ResultCode {
+    fn from(value: Result<crate::SuccessCode, crate::ErrorCode>) -> Self {
+        let raw = match value {
+            Ok(x) => x as u32,
+            Err(x) => x as u32,
+        };
+
+        unsafe { std::mem::transmute::<u32, Self>(raw) }
+    }
+}
 
 impl crate::Extension {
     pub fn to_ptrs(extensions: impl IntoIterator<Item = Self>) -> Vec<*const std::ffi::c_char> {
@@ -248,12 +268,12 @@ macro_rules! auto_count {
     (|$count:ident, $placeholder:ident| $expr:expr) => {{
         let mut $count = 0u32;
         let mut $placeholder = None;
-        $expr;
+        _ = $expr;
 
-        let mut result = vec![Default::default(); $count as usize];
-        let mut $placeholder = Some(result.as_mut_ptr());
-        $expr;
+        let mut out = vec![Default::default(); $count as usize];
+        let mut $placeholder = Some(out.as_mut_ptr());
+        let result = $expr;
 
-        result
+        (out, result)
     }};
 }

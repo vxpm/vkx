@@ -13,7 +13,7 @@ from vulkan_object import get_vulkan_object
 from vulkan_object import vulkan_object as vkobj
 
 import names
-from rust_types import CTypeParser, RustPointer, RustType
+from rust_types import CTypeParser, RustAtom, RustPointer, RustType
 
 MODULE_PREFIX: str = """ // WARNING: AUTO GENERATED MODULE
 #![allow(nonstandard_style)]
@@ -369,7 +369,22 @@ class Context:
 
             out.writeln("///")
 
-        if len(command.successCodes) > 0 or len(command.errorCodes) > 0:
+        if len(command.successCodes) == 1 and len(command.errorCodes) > 0:
+            assert len(command.successCodes) > 0
+            assert len(command.errorCodes) > 0
+            out.writeln("/// # Errors")
+            for error in command.errorCodes:
+                if error.startswith("VK_ERROR_"):
+                    error = error.removeprefix("VK_ERROR_")
+                    variant = f"ERROR_{error}"
+                else:
+                    error = error.removeprefix("VK_")
+                    variant = error
+
+                out.writeln(f"/// - [`{error}`](ResultCode::{variant})")
+
+            out.writeln("///")
+        elif len(command.successCodes) > 0 or len(command.errorCodes) > 0:
             assert len(command.successCodes) > 0
             assert len(command.errorCodes) > 0
             out.writeln("/// # Result codes")
@@ -879,16 +894,33 @@ class Context:
 
             params.append((param_name, ty, param.optional))
 
-        return_ty = (
-            "" if x.returnType == "void" else f"-> {self.ty_parser.parse(x.returnType)}"
-        )
+        # define return type mode
+        return_ty = self.ty_parser.parse(x.returnType)
+        if x.returnType == "VkResult":
+            if len(x.successCodes) == 1:
+                return_mode = "success"
+            else:
+                return_mode = "split"
+        else:
+            return_mode = "default"
 
+        # definition
         params_with_option = [
             f"{x[0]}: {f'{x[1]}' if not x[2] else f'Option<{x[1]}>'}" for x in params
         ]
         params_use = [
             x[0] if not x[2] else f"{x[0]}.unwrap_or_default()" for x in params
         ]
+
+        return_str_raw = "" if x.returnType == "void" else f"-> {return_ty}"
+        match return_mode:
+            case "success":
+                return_str = "-> Result<(), ErrorCode>"
+            case "split":
+                return_str = "-> Result<SuccessCode, ErrorCode>"
+            case _:
+                return_str = return_str_raw
+                pass
 
         if handle is not None:
             # these commands are prefixed with raw to not clash with their smart handle implementation
@@ -913,7 +945,7 @@ class Context:
 
             self.vulkan_doc_header(out, x.name)
             out.writeln(
-                f'pub type FN_{command_fn_alias_name} = unsafe extern "C" fn({handle}Handle, {", ".join(str(x[1]) for x in params)}) {return_ty};'
+                f'pub type FN_{command_fn_alias_name} = unsafe extern "C" fn({handle}Handle, {", ".join(str(x[1]) for x in params)}) {return_str_raw};'
             )
 
             if str(handle) != "Device":
@@ -923,7 +955,7 @@ class Context:
                 if command_name == old_method_name:
                     command_name = command_name.replace(f"_{handle_snake}", "", count=1)
 
-            signature = f"pub unsafe fn {command_name}(&self, {', '.join(params_with_option)}) {return_ty}"
+            signature = f"pub unsafe fn {command_name}(&self, {', '.join(params_with_option)}) {return_str}"
 
             out.writeln(f"impl {handle} {{")
             out.indent()
@@ -950,6 +982,14 @@ class Context:
 
             out.writeln(f"unsafe {{ (command)(self.handle, {', '.join(params_use)}) }}")
 
+            match return_mode:
+                case "success":
+                    out.writeln(".success()")
+                case "split":
+                    out.writeln(".split()")
+                case _:
+                    pass
+
             out.deindent()
             out.writeln("}")
 
@@ -960,10 +1000,10 @@ class Context:
             self.global_commands.append(x.name)
             self.vulkan_doc_header(out, x.name)
             out.writeln(
-                f'pub type FN_{command_fn_alias_name} = unsafe extern "C" fn({", ".join(str(x[1]) for x in params)}) {return_ty};'
+                f'pub type FN_{command_fn_alias_name} = unsafe extern "C" fn({", ".join(str(x[1]) for x in params)}) {return_str_raw};'
             )
 
-            signature = f"pub unsafe fn {command_name}({', '.join(params_with_option)}) {return_ty}"
+            signature = f"pub unsafe fn {command_name}({', '.join(params_with_option)}) {return_str}"
 
             # docs
             self.vulkan_doc_header(out, x.name)
@@ -982,6 +1022,15 @@ class Context:
                 f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FN_{command_fn_alias_name}>(vtable_get(&commands, GlobalCommand::{x.name} as usize)) }};"
             )
             out.writeln(f"unsafe {{ (command)({', '.join(params_use)}) }}")
+
+            match return_mode:
+                case "success":
+                    out.writeln(".success()")
+                case "split":
+                    out.writeln(".split()")
+                case _:
+                    pass
+
             out.deindent()
             out.writeln("}")
 

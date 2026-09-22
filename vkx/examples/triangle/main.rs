@@ -1,5 +1,4 @@
 use core::ffi::CStr;
-use core::mem::swap;
 use std::collections::HashSet;
 
 use vkx::Extendable;
@@ -118,11 +117,12 @@ impl App {
                     (dev, properties)
                 })
                 .filter(|(dev, properties)| {
-                    let extensions = unsafe {
+                    let (extensions, result) = unsafe {
                         vkx::auto_count!(|count, vec| dev
                             .enumerate_device_extension_properties(None, &mut count, vec))
                     };
 
+                    assert!(result.unwrap().is_success());
                     let extensions = vkx::Extension::from_ext_properties(extensions);
 
                     // we want a device that supports at least vulkan 1.3 and has all the device
@@ -131,7 +131,7 @@ impl App {
                         && extensions.is_superset(&device_extensions)
                 })
                 .filter_map(|(dev, properties)| {
-                    let queue_families = unsafe {
+                    let (queue_families, _) = unsafe {
                         vkx::auto_count!(
                             |count, vec| dev.get_queue_family_properties_2(&mut count, vec)
                         )
@@ -227,7 +227,6 @@ impl App {
                     None,
                     &mut command_pool,
                 )
-                .success()
                 .unwrap()
         };
 
@@ -253,7 +252,6 @@ impl App {
                     None,
                     &mut swapchain_semaphore,
                 )
-                .success()
                 .unwrap()
         };
 
@@ -281,7 +279,6 @@ impl App {
         unsafe {
             self.physical_device
                 .get_surface_capabilities_khr(surface, &mut surface_caps)
-                .success()
                 .unwrap()
         };
 
@@ -289,36 +286,39 @@ impl App {
         let window_size = window.inner_size();
         let mut swapchain = vkx::SwapchainKHR::null();
         unsafe {
-            self.device.create_swapchain_khr(
-                &vkx::SwapchainCreateInfoKHR {
-                    surface: surface,
-                    min_image_count: surface_caps.min_image_count,
-                    image_format: vkx::Format::B8G8R8A8_SRGB,
-                    image_color_space: vkx::ColorSpaceKHR::COLOR_SPACE_SRGB_NONLINEAR_KHR,
-                    image_extent: vkx::Extent2D {
-                        width: window_size.width,
-                        height: window_size.height,
+            self.device
+                .create_swapchain_khr(
+                    &vkx::SwapchainCreateInfoKHR {
+                        surface: surface,
+                        min_image_count: surface_caps.min_image_count,
+                        image_format: vkx::Format::B8G8R8A8_SRGB,
+                        image_color_space: vkx::ColorSpaceKHR::COLOR_SPACE_SRGB_NONLINEAR_KHR,
+                        image_extent: vkx::Extent2D {
+                            width: window_size.width,
+                            height: window_size.height,
+                        },
+                        image_array_layers: 1,
+                        image_usage: vkx::ImageUsageFlag::COLOR_ATTACHMENT.into(),
+                        image_sharing_mode: vkx::SharingMode::EXCLUSIVE,
+                        pre_transform: surface_caps.current_transform,
+                        composite_alpha: vkx::CompositeAlphaFlagKHR::OPAQUE_KHR.into(),
+                        present_mode: vkx::PresentModeKHR::PRESENT_MODE_FIFO_KHR,
+                        ..Default::default()
                     },
-                    image_array_layers: 1,
-                    image_usage: vkx::ImageUsageFlag::COLOR_ATTACHMENT.into(),
-                    image_sharing_mode: vkx::SharingMode::EXCLUSIVE,
-                    pre_transform: surface_caps.current_transform,
-                    composite_alpha: vkx::CompositeAlphaFlagKHR::OPAQUE_KHR.into(),
-                    present_mode: vkx::PresentModeKHR::PRESENT_MODE_FIFO_KHR,
-                    ..Default::default()
-                },
-                None,
-                &mut swapchain,
-            )
+                    None,
+                    &mut swapchain,
+                )
+                .unwrap()
         };
 
         // get the swapchain images and create views for them
-        let swapchain_images = unsafe {
+        let (swapchain_images, result) = unsafe {
             vkx::auto_count!(|count, vec| self
                 .device
                 .get_swapchain_images_khr(swapchain, &mut count, vec))
         };
 
+        assert!(result.unwrap().is_success());
         let swapchain_image_views = swapchain_images
             .iter()
             .map(|i| {
@@ -341,7 +341,6 @@ impl App {
                             None,
                             &mut img_view,
                         )
-                        .success()
                         .unwrap()
                 };
 
@@ -362,13 +361,11 @@ impl App {
         // pipeline layout
         let mut layout = vkx::PipelineLayout::null();
         unsafe {
-            device
-                .create_pipeline_layout(
-                    &vkx::PipelineLayoutCreateInfo::default(),
-                    None,
-                    &mut layout,
-                )
-                .success()?
+            device.create_pipeline_layout(
+                &vkx::PipelineLayoutCreateInfo::default(),
+                None,
+                &mut layout,
+            )?
         }
 
         // color blend
@@ -407,16 +404,16 @@ impl App {
 
         let mut vertex_shader_mod = vkx::ShaderModule::null();
         unsafe {
-            device
-                .create_shader_module(&vertex_shader_create_info, None, &mut vertex_shader_mod)
-                .success()?
+            device.create_shader_module(&vertex_shader_create_info, None, &mut vertex_shader_mod)?
         };
 
         let mut fragment_shader_mod = vkx::ShaderModule::null();
         unsafe {
-            device
-                .create_shader_module(&fragment_shader_create_info, None, &mut fragment_shader_mod)
-                .success()?
+            device.create_shader_module(
+                &fragment_shader_create_info,
+                None,
+                &mut fragment_shader_mod,
+            )?
         };
 
         let stages = [
@@ -475,9 +472,7 @@ impl App {
 
         let mut pipeline = vkx::Pipeline::null();
         unsafe {
-            device
-                .create_graphics_pipelines(None, 1, &pipeline_create_info, None, &mut pipeline)
-                .success()?
+            device.create_graphics_pipelines(None, 1, &pipeline_create_info, None, &mut pipeline)?
         };
 
         Ok(pipeline)
@@ -491,15 +486,13 @@ impl App {
         let mut swapchain_img_idx = 0;
         loop {
             let success_code = unsafe {
-                self.device
-                    .acquire_next_image_khr(
-                        swapchain.handle,
-                        u64::MAX,
-                        Some(self.swapchain_semaphore),
-                        None,
-                        &mut swapchain_img_idx,
-                    )
-                    .split()?
+                self.device.acquire_next_image_khr(
+                    swapchain.handle,
+                    u64::MAX,
+                    Some(self.swapchain_semaphore),
+                    None,
+                    &mut swapchain_img_idx,
+                )?
             };
 
             if success_code != vkx::SuccessCode::NOT_READY {
@@ -509,16 +502,14 @@ impl App {
 
         // 02. record a command buffer
         // reset the command buffer
-        unsafe { self.command_buffer.reset(None).success()? };
+        unsafe { self.command_buffer.reset(None)? };
 
         // and start recording
         unsafe {
-            self.command_buffer
-                .begin(&vkx::CommandBufferBeginInfo {
-                    flags: vkx::CommandBufferUsageFlag::ONE_TIME_SUBMIT.into(),
-                    ..Default::default()
-                })
-                .success()?
+            self.command_buffer.begin(&vkx::CommandBufferBeginInfo {
+                flags: vkx::CommandBufferUsageFlag::ONE_TIME_SUBMIT.into(),
+                ..Default::default()
+            })?
         };
 
         // transition the swapchain image into it's optimal layout

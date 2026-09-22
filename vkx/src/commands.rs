@@ -24,10 +24,7 @@ pub type FN_CreateInstance = unsafe extern "C" fn(
 ) -> ResultCode;
 /// [`vkCreateInstance`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateInstance.html)
 ///
-/// # Result codes
-/// ## Success
-/// - [`SUCCESS`](ResultCode::SUCCESS)
-/// ## Error
+/// # Errors
 /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
 /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
 /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
@@ -43,7 +40,7 @@ pub unsafe fn create_instance(
     p_create_info: *const InstanceCreateInfo,
     p_allocator: Option<*const AllocationCallbacks>,
     p_instance: *mut InstanceHandle,
-) -> ResultCode {
+) -> Result<(), ErrorCode> {
     let commands = GLOBAL
         .get()
         .expect("vkx setup should have been run")
@@ -54,7 +51,7 @@ pub unsafe fn create_instance(
             GlobalCommand::vkCreateInstance as usize,
         ))
     };
-    unsafe { (command)(p_create_info, p_allocator.unwrap_or_default(), p_instance) }
+    unsafe { (command)(p_create_info, p_allocator.unwrap_or_default(), p_instance) }.success()
 }
 
 /// [`vkDestroyInstance`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDestroyInstance.html)
@@ -100,7 +97,7 @@ impl Instance {
         &self,
         p_physical_device_count: *mut u32,
         p_physical_devices: Option<*mut PhysicalDeviceHandle>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_EnumeratePhysicalDevices>(vtable_get(
                 self.vtable(),
@@ -114,6 +111,7 @@ impl Instance {
                 p_physical_devices.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -196,10 +194,7 @@ impl PhysicalDevice {
     ///
     /// It has been superseded by [`vkGetPhysicalDeviceImageFormatProperties2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceImageFormatProperties2.html).
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`FORMAT_NOT_SUPPORTED`](ResultCode::ERROR_FORMAT_NOT_SUPPORTED)
@@ -216,7 +211,7 @@ impl PhysicalDevice {
         usage: ImageUsageFlags,
         flags: Option<ImageCreateFlags>,
         p_image_format_properties: *mut ImageFormatProperties,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceImageFormatProperties>(
                 vtable_get(
@@ -236,6 +231,7 @@ impl PhysicalDevice {
                 p_image_format_properties,
             )
         }
+        .success()
     }
 }
 
@@ -385,10 +381,7 @@ pub type FN_CreateDevice = unsafe extern "C" fn(
 impl PhysicalDevice {
     /// [`vkCreateDevice`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDevice.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
@@ -406,7 +399,7 @@ impl PhysicalDevice {
         p_create_info: *const DeviceCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_device: *mut DeviceHandle,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateDevice>(vtable_get(
                 self.vtable(),
@@ -421,6 +414,7 @@ impl PhysicalDevice {
                 p_device,
             )
         }
+        .success()
     }
 }
 
@@ -466,7 +460,7 @@ pub unsafe fn enumerate_instance_extension_properties(
     p_layer_name: Option<*const c_char>,
     p_property_count: *mut u32,
     p_properties: Option<*mut ExtensionProperties>,
-) -> ResultCode {
+) -> Result<SuccessCode, ErrorCode> {
     let commands = GLOBAL
         .get()
         .expect("vkx setup should have been run")
@@ -484,6 +478,7 @@ pub unsafe fn enumerate_instance_extension_properties(
             p_properties.unwrap_or_default(),
         )
     }
+    .split()
 }
 
 /// [`vkEnumerateDeviceExtensionProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateDeviceExtensionProperties.html)
@@ -515,7 +510,7 @@ impl PhysicalDevice {
         p_layer_name: Option<*const c_char>,
         p_property_count: *mut u32,
         p_properties: Option<*mut ExtensionProperties>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_EnumerateDeviceExtensionProperties>(
                 vtable_get(
@@ -532,6 +527,7 @@ impl PhysicalDevice {
                 p_properties.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -556,7 +552,7 @@ pub type FN_EnumerateInstanceLayerProperties =
 pub unsafe fn enumerate_instance_layer_properties(
     p_property_count: *mut u32,
     p_properties: Option<*mut LayerProperties>,
-) -> ResultCode {
+) -> Result<SuccessCode, ErrorCode> {
     let commands = GLOBAL
         .get()
         .expect("vkx setup should have been run")
@@ -567,7 +563,7 @@ pub unsafe fn enumerate_instance_layer_properties(
             GlobalCommand::vkEnumerateInstanceLayerProperties as usize,
         ))
     };
-    unsafe { (command)(p_property_count, p_properties.unwrap_or_default()) }
+    unsafe { (command)(p_property_count, p_properties.unwrap_or_default()) }.split()
 }
 
 /// [`vkEnumerateDeviceLayerProperties`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEnumerateDeviceLayerProperties.html)
@@ -593,7 +589,7 @@ impl PhysicalDevice {
         &self,
         p_property_count: *mut u32,
         p_properties: Option<*mut LayerProperties>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_EnumerateDeviceLayerProperties>(vtable_get(
                 self.vtable(),
@@ -607,6 +603,7 @@ impl PhysicalDevice {
                 p_properties.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -648,10 +645,7 @@ impl Queue {
     ///
     /// It has been superseded by [`vkQueueSubmit2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueSubmit2.html).
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
@@ -665,7 +659,7 @@ impl Queue {
         submit_count: Option<u32>,
         p_submits: *const SubmitInfo,
         fence: Option<Fence>,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_QueueSubmit>(vtable_get(
                 self.vtable(),
@@ -680,6 +674,7 @@ impl Queue {
                 fence.unwrap_or_default(),
             )
         }
+        .success()
     }
 }
 
@@ -689,10 +684,7 @@ pub type FN_QueueWaitIdle = unsafe extern "C" fn(QueueHandle) -> ResultCode;
 impl Queue {
     /// [`vkQueueWaitIdle`](https://docs.vulkan.org/refpages/latest/refpages/source/vkQueueWaitIdle.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
@@ -701,14 +693,14 @@ impl Queue {
     ///
     #[doc(alias = "vkQueueWaitIdle")]
     #[inline(always)]
-    pub unsafe fn wait_idle(&self) -> ResultCode {
+    pub unsafe fn wait_idle(&self) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_QueueWaitIdle>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkQueueWaitIdle as usize,
             ))
         };
-        unsafe { (command)(self.handle) }
+        unsafe { (command)(self.handle) }.success()
     }
 }
 
@@ -718,10 +710,7 @@ pub type FN_DeviceWaitIdle = unsafe extern "C" fn(DeviceHandle) -> ResultCode;
 impl Device {
     /// [`vkDeviceWaitIdle`](https://docs.vulkan.org/refpages/latest/refpages/source/vkDeviceWaitIdle.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
@@ -730,14 +719,14 @@ impl Device {
     ///
     #[doc(alias = "vkDeviceWaitIdle")]
     #[inline(always)]
-    pub unsafe fn device_wait_idle(&self) -> ResultCode {
+    pub unsafe fn device_wait_idle(&self) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DeviceWaitIdle>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkDeviceWaitIdle as usize,
             ))
         };
-        unsafe { (command)(self.handle) }
+        unsafe { (command)(self.handle) }.success()
     }
 }
 
@@ -752,10 +741,7 @@ pub type FN_AllocateMemory = unsafe extern "C" fn(
 impl Device {
     /// [`vkAllocateMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAllocateMemory.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`INVALID_EXTERNAL_HANDLE`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE)
@@ -770,7 +756,7 @@ impl Device {
         p_allocate_info: *const MemoryAllocateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_memory: *mut DeviceMemory,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_AllocateMemory>(vtable_get(
                 self.vtable(),
@@ -785,6 +771,7 @@ impl Device {
                 p_memory,
             )
         }
+        .success()
     }
 }
 
@@ -831,10 +818,7 @@ pub type FN_MapMemory = unsafe extern "C" fn(
 impl Device {
     /// [`vkMapMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkMapMemory.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`MEMORY_MAP_FAILED`](ResultCode::ERROR_MEMORY_MAP_FAILED)
@@ -850,7 +834,7 @@ impl Device {
         size: DeviceSize,
         flags: Option<MemoryMapFlags>,
         pp_data: *mut *mut c_void,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_MapMemory>(vtable_get(
                 self.vtable(),
@@ -867,6 +851,7 @@ impl Device {
                 pp_data,
             )
         }
+        .success()
     }
 }
 
@@ -896,10 +881,7 @@ pub type FN_FlushMappedMemoryRanges =
 impl Device {
     /// [`vkFlushMappedMemoryRanges`](https://docs.vulkan.org/refpages/latest/refpages/source/vkFlushMappedMemoryRanges.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -911,14 +893,14 @@ impl Device {
         &self,
         memory_range_count: u32,
         p_memory_ranges: *const MappedMemoryRange,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_FlushMappedMemoryRanges>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkFlushMappedMemoryRanges as usize,
             ))
         };
-        unsafe { (command)(self.handle, memory_range_count, p_memory_ranges) }
+        unsafe { (command)(self.handle, memory_range_count, p_memory_ranges) }.success()
     }
 }
 
@@ -929,10 +911,7 @@ pub type FN_InvalidateMappedMemoryRanges =
 impl Device {
     /// [`vkInvalidateMappedMemoryRanges`](https://docs.vulkan.org/refpages/latest/refpages/source/vkInvalidateMappedMemoryRanges.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -944,14 +923,14 @@ impl Device {
         &self,
         memory_range_count: u32,
         p_memory_ranges: *const MappedMemoryRange,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_InvalidateMappedMemoryRanges>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkInvalidateMappedMemoryRanges as usize,
             ))
         };
-        unsafe { (command)(self.handle, memory_range_count, p_memory_ranges) }
+        unsafe { (command)(self.handle, memory_range_count, p_memory_ranges) }.success()
     }
 }
 
@@ -986,10 +965,7 @@ pub type FN_BindBufferMemory =
 impl Device {
     /// [`vkBindBufferMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindBufferMemory.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`](ResultCode::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR)
@@ -1003,14 +979,14 @@ impl Device {
         buffer: Buffer,
         memory: DeviceMemory,
         memory_offset: DeviceSize,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BindBufferMemory>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkBindBufferMemory as usize,
             ))
         };
-        unsafe { (command)(self.handle, buffer, memory, memory_offset) }
+        unsafe { (command)(self.handle, buffer, memory, memory_offset) }.success()
     }
 }
 
@@ -1021,10 +997,7 @@ pub type FN_BindImageMemory =
 impl Device {
     /// [`vkBindImageMemory`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindImageMemory.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -1037,14 +1010,14 @@ impl Device {
         image: Image,
         memory: DeviceMemory,
         memory_offset: DeviceSize,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BindImageMemory>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkBindImageMemory as usize,
             ))
         };
-        unsafe { (command)(self.handle, image, memory, memory_offset) }
+        unsafe { (command)(self.handle, image, memory, memory_offset) }.success()
     }
 }
 
@@ -1195,10 +1168,7 @@ impl Queue {
     /// # Allowed queues
     /// - [`SPARSE_BINDING`](QueueFlag::SPARSE_BINDING)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
@@ -1212,7 +1182,7 @@ impl Queue {
         bind_info_count: Option<u32>,
         p_bind_info: *const BindSparseInfo,
         fence: Option<Fence>,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_QueueBindSparse>(vtable_get(
                 self.vtable(),
@@ -1227,6 +1197,7 @@ impl Queue {
                 fence.unwrap_or_default(),
             )
         }
+        .success()
     }
 }
 
@@ -1241,10 +1212,7 @@ pub type FN_CreateFence = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateFence`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateFence.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -1257,7 +1225,7 @@ impl Device {
         p_create_info: *const FenceCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_fence: *mut Fence,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateFence>(vtable_get(
                 self.vtable(),
@@ -1272,6 +1240,7 @@ impl Device {
                 p_fence,
             )
         }
+        .success()
     }
 }
 
@@ -1310,24 +1279,25 @@ pub type FN_ResetFences = unsafe extern "C" fn(DeviceHandle, u32, *const Fence) 
 impl Device {
     /// [`vkResetFences`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetFences.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     ///
     #[doc(alias = "vkResetFences")]
     #[inline(always)]
-    pub unsafe fn reset_fences(&self, fence_count: u32, p_fences: *const Fence) -> ResultCode {
+    pub unsafe fn reset_fences(
+        &self,
+        fence_count: u32,
+        p_fences: *const Fence,
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ResetFences>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkResetFences as usize,
             ))
         };
-        unsafe { (command)(self.handle, fence_count, p_fences) }
+        unsafe { (command)(self.handle, fence_count, p_fences) }.success()
     }
 }
 
@@ -1350,14 +1320,14 @@ impl Device {
     ///
     #[doc(alias = "vkGetFenceStatus")]
     #[inline(always)]
-    pub unsafe fn get_fence_status(&self, fence: Fence) -> ResultCode {
+    pub unsafe fn get_fence_status(&self, fence: Fence) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetFenceStatus>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetFenceStatus as usize,
             ))
         };
-        unsafe { (command)(self.handle, fence) }
+        unsafe { (command)(self.handle, fence) }.split()
     }
 }
 
@@ -1387,14 +1357,14 @@ impl Device {
         p_fences: *const Fence,
         wait_all: Bool32,
         timeout: u64,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_WaitForFences>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkWaitForFences as usize,
             ))
         };
-        unsafe { (command)(self.handle, fence_count, p_fences, wait_all, timeout) }
+        unsafe { (command)(self.handle, fence_count, p_fences, wait_all, timeout) }.split()
     }
 }
 
@@ -1409,10 +1379,7 @@ pub type FN_CreateSemaphore = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateSemaphore`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSemaphore.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -1425,7 +1392,7 @@ impl Device {
         p_create_info: *const SemaphoreCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_semaphore: *mut Semaphore,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateSemaphore>(vtable_get(
                 self.vtable(),
@@ -1440,6 +1407,7 @@ impl Device {
                 p_semaphore,
             )
         }
+        .success()
     }
 }
 
@@ -1484,10 +1452,7 @@ pub type FN_CreateQueryPool = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateQueryPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateQueryPool.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -1500,7 +1465,7 @@ impl Device {
         p_create_info: *const QueryPoolCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_query_pool: *mut QueryPool,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateQueryPool>(vtable_get(
                 self.vtable(),
@@ -1515,6 +1480,7 @@ impl Device {
                 p_query_pool,
             )
         }
+        .success()
     }
 }
 
@@ -1585,7 +1551,7 @@ impl Device {
         p_data: *mut c_void,
         stride: DeviceSize,
         flags: Option<QueryResultFlags>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetQueryPoolResults>(vtable_get(
                 self.vtable(),
@@ -1604,6 +1570,7 @@ impl Device {
                 flags.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -1618,10 +1585,7 @@ pub type FN_CreateBuffer = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateBuffer.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`](ResultCode::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR)
@@ -1635,7 +1599,7 @@ impl Device {
         p_create_info: *const BufferCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_buffer: *mut Buffer,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateBuffer>(vtable_get(
                 self.vtable(),
@@ -1650,6 +1614,7 @@ impl Device {
                 p_buffer,
             )
         }
+        .success()
     }
 }
 
@@ -1693,10 +1658,7 @@ pub type FN_CreateImage = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateImage`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateImage.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`COMPRESSION_EXHAUSTED_EXT`](ResultCode::ERROR_COMPRESSION_EXHAUSTED_EXT)
@@ -1711,7 +1673,7 @@ impl Device {
         p_create_info: *const ImageCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_image: *mut Image,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateImage>(vtable_get(
                 self.vtable(),
@@ -1726,6 +1688,7 @@ impl Device {
                 p_image,
             )
         }
+        .success()
     }
 }
 
@@ -1794,10 +1757,7 @@ pub type FN_CreateImageView = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateImageView`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateImageView.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`](ResultCode::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR)
@@ -1811,7 +1771,7 @@ impl Device {
         p_create_info: *const ImageViewCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_view: *mut ImageView,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateImageView>(vtable_get(
                 self.vtable(),
@@ -1826,6 +1786,7 @@ impl Device {
                 p_view,
             )
         }
+        .success()
     }
 }
 
@@ -1870,10 +1831,7 @@ pub type FN_CreateCommandPool = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateCommandPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateCommandPool.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -1886,7 +1844,7 @@ impl Device {
         p_create_info: *const CommandPoolCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_command_pool: *mut CommandPool,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateCommandPool>(vtable_get(
                 self.vtable(),
@@ -1901,6 +1859,7 @@ impl Device {
                 p_command_pool,
             )
         }
+        .success()
     }
 }
 
@@ -1941,10 +1900,7 @@ pub type FN_ResetCommandPool =
 impl Device {
     /// [`vkResetCommandPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetCommandPool.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -1955,14 +1911,14 @@ impl Device {
         &self,
         command_pool: CommandPool,
         flags: Option<CommandPoolResetFlags>,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ResetCommandPool>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkResetCommandPool as usize,
             ))
         };
-        unsafe { (command)(self.handle, command_pool, flags.unwrap_or_default()) }
+        unsafe { (command)(self.handle, command_pool, flags.unwrap_or_default()) }.success()
     }
 }
 
@@ -1976,10 +1932,7 @@ pub type FN_AllocateCommandBuffers = unsafe extern "C" fn(
 impl Device {
     /// [`vkAllocateCommandBuffers`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAllocateCommandBuffers.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -1991,14 +1944,14 @@ impl Device {
         &self,
         p_allocate_info: *const CommandBufferAllocateInfo,
         p_command_buffers: *mut CommandBufferHandle,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_AllocateCommandBuffers>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkAllocateCommandBuffers as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_allocate_info, p_command_buffers) }
+        unsafe { (command)(self.handle, p_allocate_info, p_command_buffers) }.success()
     }
 }
 
@@ -2041,10 +1994,7 @@ pub type FN_BeginCommandBuffer =
 impl CommandBuffer {
     /// [`vkBeginCommandBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBeginCommandBuffer.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -2052,14 +2002,17 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkBeginCommandBuffer")]
     #[inline(always)]
-    pub unsafe fn begin(&self, p_begin_info: *const CommandBufferBeginInfo) -> ResultCode {
+    pub unsafe fn begin(
+        &self,
+        p_begin_info: *const CommandBufferBeginInfo,
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BeginCommandBuffer>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkBeginCommandBuffer as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_begin_info) }
+        unsafe { (command)(self.handle, p_begin_info) }.success()
     }
 }
 
@@ -2069,10 +2022,7 @@ pub type FN_EndCommandBuffer = unsafe extern "C" fn(CommandBufferHandle) -> Resu
 impl CommandBuffer {
     /// [`vkEndCommandBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkEndCommandBuffer.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`INVALID_VIDEO_STD_PARAMETERS_KHR`](ResultCode::ERROR_INVALID_VIDEO_STD_PARAMETERS_KHR)
@@ -2081,14 +2031,14 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkEndCommandBuffer")]
     #[inline(always)]
-    pub unsafe fn end(&self) -> ResultCode {
+    pub unsafe fn end(&self) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_EndCommandBuffer>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkEndCommandBuffer as usize,
             ))
         };
-        unsafe { (command)(self.handle) }
+        unsafe { (command)(self.handle) }.success()
     }
 }
 
@@ -2099,24 +2049,21 @@ pub type FN_ResetCommandBuffer =
 impl CommandBuffer {
     /// [`vkResetCommandBuffer`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetCommandBuffer.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     ///
     #[doc(alias = "vkResetCommandBuffer")]
     #[inline(always)]
-    pub unsafe fn reset(&self, flags: Option<CommandBufferResetFlags>) -> ResultCode {
+    pub unsafe fn reset(&self, flags: Option<CommandBufferResetFlags>) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ResetCommandBuffer>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkResetCommandBuffer as usize,
             ))
         };
-        unsafe { (command)(self.handle, flags.unwrap_or_default()) }
+        unsafe { (command)(self.handle, flags.unwrap_or_default()) }.success()
     }
 }
 
@@ -2755,10 +2702,7 @@ pub type FN_CreateEvent = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateEvent.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -2771,7 +2715,7 @@ impl Device {
         p_create_info: *const EventCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_event: *mut Event,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateEvent>(vtable_get(
                 self.vtable(),
@@ -2786,6 +2730,7 @@ impl Device {
                 p_event,
             )
         }
+        .success()
     }
 }
 
@@ -2837,14 +2782,14 @@ impl Device {
     ///
     #[doc(alias = "vkGetEventStatus")]
     #[inline(always)]
-    pub unsafe fn get_event_status(&self, event: Event) -> ResultCode {
+    pub unsafe fn get_event_status(&self, event: Event) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetEventStatus>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetEventStatus as usize,
             ))
         };
-        unsafe { (command)(self.handle, event) }
+        unsafe { (command)(self.handle, event) }.split()
     }
 }
 
@@ -2854,10 +2799,7 @@ pub type FN_SetEvent = unsafe extern "C" fn(DeviceHandle, Event) -> ResultCode;
 impl Device {
     /// [`vkSetEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkSetEvent.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -2865,14 +2807,14 @@ impl Device {
     ///
     #[doc(alias = "vkSetEvent")]
     #[inline(always)]
-    pub unsafe fn set_event(&self, event: Event) -> ResultCode {
+    pub unsafe fn set_event(&self, event: Event) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SetEvent>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkSetEvent as usize,
             ))
         };
-        unsafe { (command)(self.handle, event) }
+        unsafe { (command)(self.handle, event) }.success()
     }
 }
 
@@ -2882,24 +2824,21 @@ pub type FN_ResetEvent = unsafe extern "C" fn(DeviceHandle, Event) -> ResultCode
 impl Device {
     /// [`vkResetEvent`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetEvent.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     ///
     #[doc(alias = "vkResetEvent")]
     #[inline(always)]
-    pub unsafe fn reset_event(&self, event: Event) -> ResultCode {
+    pub unsafe fn reset_event(&self, event: Event) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ResetEvent>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkResetEvent as usize,
             ))
         };
-        unsafe { (command)(self.handle, event) }
+        unsafe { (command)(self.handle, event) }.success()
     }
 }
 
@@ -2914,10 +2853,7 @@ pub type FN_CreateBufferView = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateBufferView`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateBufferView.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -2934,7 +2870,7 @@ impl Device {
         p_create_info: *const BufferViewCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_view: *mut BufferView,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateBufferView>(vtable_get(
                 self.vtable(),
@@ -2949,6 +2885,7 @@ impl Device {
                 p_view,
             )
         }
+        .success()
     }
 }
 
@@ -2997,10 +2934,7 @@ pub type FN_CreateShaderModule = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateShaderModule`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateShaderModule.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`INVALID_SHADER_NV`](ResultCode::ERROR_INVALID_SHADER_NV)
@@ -3014,7 +2948,7 @@ impl Device {
         p_create_info: *const ShaderModuleCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_shader_module: *mut ShaderModule,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateShaderModule>(vtable_get(
                 self.vtable(),
@@ -3029,6 +2963,7 @@ impl Device {
                 p_shader_module,
             )
         }
+        .success()
     }
 }
 
@@ -3073,10 +3008,7 @@ pub type FN_CreatePipelineCache = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreatePipelineCache`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePipelineCache.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -3089,7 +3021,7 @@ impl Device {
         p_create_info: *const PipelineCacheCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_pipeline_cache: *mut PipelineCache,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreatePipelineCache>(vtable_get(
                 self.vtable(),
@@ -3104,6 +3036,7 @@ impl Device {
                 p_pipeline_cache,
             )
         }
+        .success()
     }
 }
 
@@ -3161,7 +3094,7 @@ impl Device {
         pipeline_cache: PipelineCache,
         p_data_size: *mut usize,
         p_data: Option<*mut c_void>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPipelineCacheData>(vtable_get(
                 self.vtable(),
@@ -3176,6 +3109,7 @@ impl Device {
                 p_data.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -3186,10 +3120,7 @@ pub type FN_MergePipelineCaches =
 impl Device {
     /// [`vkMergePipelineCaches`](https://docs.vulkan.org/refpages/latest/refpages/source/vkMergePipelineCaches.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -3202,14 +3133,14 @@ impl Device {
         dst_cache: PipelineCache,
         src_cache_count: u32,
         p_src_caches: *const PipelineCache,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_MergePipelineCaches>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkMergePipelineCaches as usize,
             ))
         };
-        unsafe { (command)(self.handle, dst_cache, src_cache_count, p_src_caches) }
+        unsafe { (command)(self.handle, dst_cache, src_cache_count, p_src_caches) }.success()
     }
 }
 
@@ -3246,7 +3177,7 @@ impl Device {
         p_create_infos: *const ComputePipelineCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_pipelines: *mut Pipeline,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateComputePipelines>(vtable_get(
                 self.vtable(),
@@ -3263,6 +3194,7 @@ impl Device {
                 p_pipelines,
             )
         }
+        .split()
     }
 }
 
@@ -3307,10 +3239,7 @@ pub type FN_CreatePipelineLayout = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreatePipelineLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreatePipelineLayout.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -3327,7 +3256,7 @@ impl Device {
         p_create_info: *const PipelineLayoutCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_pipeline_layout: *mut PipelineLayout,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreatePipelineLayout>(vtable_get(
                 self.vtable(),
@@ -3342,6 +3271,7 @@ impl Device {
                 p_pipeline_layout,
             )
         }
+        .success()
     }
 }
 
@@ -3390,10 +3320,7 @@ pub type FN_CreateSampler = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateSampler`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateSampler.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`](ResultCode::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR)
@@ -3411,7 +3338,7 @@ impl Device {
         p_create_info: *const SamplerCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_sampler: *mut Sampler,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateSampler>(vtable_get(
                 self.vtable(),
@@ -3426,6 +3353,7 @@ impl Device {
                 p_sampler,
             )
         }
+        .success()
     }
 }
 
@@ -3474,10 +3402,7 @@ pub type FN_CreateDescriptorSetLayout = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateDescriptorSetLayout`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDescriptorSetLayout.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -3494,7 +3419,7 @@ impl Device {
         p_create_info: *const DescriptorSetLayoutCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_set_layout: *mut DescriptorSetLayout,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateDescriptorSetLayout>(vtable_get(
                 self.vtable(),
@@ -3509,6 +3434,7 @@ impl Device {
                 p_set_layout,
             )
         }
+        .success()
     }
 }
 
@@ -3557,10 +3483,7 @@ pub type FN_CreateDescriptorPool = unsafe extern "C" fn(
 impl Device {
     /// [`vkCreateDescriptorPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateDescriptorPool.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`FRAGMENTATION_EXT`](ResultCode::ERROR_FRAGMENTATION_EXT)
@@ -3578,7 +3501,7 @@ impl Device {
         p_create_info: *const DescriptorPoolCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_descriptor_pool: *mut DescriptorPool,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateDescriptorPool>(vtable_get(
                 self.vtable(),
@@ -3593,6 +3516,7 @@ impl Device {
                 p_descriptor_pool,
             )
         }
+        .success()
     }
 }
 
@@ -3637,10 +3561,7 @@ pub type FN_ResetDescriptorPool =
 impl Device {
     /// [`vkResetDescriptorPool`](https://docs.vulkan.org/refpages/latest/refpages/source/vkResetDescriptorPool.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     ///
@@ -3654,14 +3575,14 @@ impl Device {
         &self,
         descriptor_pool: DescriptorPool,
         flags: Option<DescriptorPoolResetFlags>,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ResetDescriptorPool>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkResetDescriptorPool as usize,
             ))
         };
-        unsafe { (command)(self.handle, descriptor_pool, flags.unwrap_or_default()) }
+        unsafe { (command)(self.handle, descriptor_pool, flags.unwrap_or_default()) }.success()
     }
 }
 
@@ -3675,10 +3596,7 @@ pub type FN_AllocateDescriptorSets = unsafe extern "C" fn(
 impl Device {
     /// [`vkAllocateDescriptorSets`](https://docs.vulkan.org/refpages/latest/refpages/source/vkAllocateDescriptorSets.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`FRAGMENTED_POOL`](ResultCode::ERROR_FRAGMENTED_POOL)
@@ -3696,14 +3614,14 @@ impl Device {
         &self,
         p_allocate_info: *const DescriptorSetAllocateInfo,
         p_descriptor_sets: *mut DescriptorSet,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_AllocateDescriptorSets>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkAllocateDescriptorSets as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_allocate_info, p_descriptor_sets) }
+        unsafe { (command)(self.handle, p_allocate_info, p_descriptor_sets) }.success()
     }
 }
 
@@ -3714,10 +3632,7 @@ pub type FN_FreeDescriptorSets =
 impl Device {
     /// [`vkFreeDescriptorSets`](https://docs.vulkan.org/refpages/latest/refpages/source/vkFreeDescriptorSets.html)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     ///
@@ -3732,7 +3647,7 @@ impl Device {
         descriptor_pool: DescriptorPool,
         descriptor_set_count: u32,
         p_descriptor_sets: *const DescriptorSet,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_FreeDescriptorSets>(vtable_get(
                 self.vtable(),
@@ -3747,6 +3662,7 @@ impl Device {
                 p_descriptor_sets,
             )
         }
+        .success()
     }
 }
 
@@ -4246,7 +4162,7 @@ impl Device {
         p_create_infos: *const GraphicsPipelineCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_pipelines: *mut Pipeline,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateGraphicsPipelines>(vtable_get(
                 self.vtable(),
@@ -4263,6 +4179,7 @@ impl Device {
                 p_pipelines,
             )
         }
+        .split()
     }
 }
 
@@ -4283,10 +4200,7 @@ impl Device {
     /// - Extension [`KHR_DynamicRenderingLocalRead`](Extension::KHR_DynamicRenderingLocalRead)
     ///
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -4299,7 +4213,7 @@ impl Device {
         p_create_info: *const FramebufferCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_framebuffer: *mut Framebuffer,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateFramebuffer>(vtable_get(
                 self.vtable(),
@@ -4314,6 +4228,7 @@ impl Device {
                 p_framebuffer,
             )
         }
+        .success()
     }
 }
 
@@ -4371,10 +4286,7 @@ impl Device {
     ///
     /// It has been superseded by [`vkCreateRenderPass2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCreateRenderPass2.html).
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -4387,7 +4299,7 @@ impl Device {
         p_create_info: *const RenderPassCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_render_pass: *mut RenderPass,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateRenderPass>(vtable_get(
                 self.vtable(),
@@ -4402,6 +4314,7 @@ impl Device {
                 p_render_pass,
             )
         }
+        .success()
     }
 }
 
@@ -5349,17 +5262,14 @@ pub type FN_EnumerateInstanceVersion = unsafe extern "C" fn(*mut u32) -> ResultC
 ///
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
-/// # Result codes
-/// ## Success
-/// - [`SUCCESS`](ResultCode::SUCCESS)
-/// ## Error
+/// # Errors
 /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
 /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
 /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
 ///
 #[doc(alias = "vkEnumerateInstanceVersion")]
 #[inline(always)]
-pub unsafe fn enumerate_instance_version(p_api_version: *mut u32) -> ResultCode {
+pub unsafe fn enumerate_instance_version(p_api_version: *mut u32) -> Result<(), ErrorCode> {
     let commands = GLOBAL
         .get()
         .expect("vkx setup should have been run")
@@ -5370,7 +5280,7 @@ pub unsafe fn enumerate_instance_version(p_api_version: *mut u32) -> ResultCode 
             GlobalCommand::vkEnumerateInstanceVersion as usize,
         ))
     };
-    unsafe { (command)(p_api_version) }
+    unsafe { (command)(p_api_version) }.success()
 }
 
 /// [`vkBindBufferMemory2`](https://docs.vulkan.org/refpages/latest/refpages/source/vkBindBufferMemory2.html)
@@ -5386,10 +5296,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`](ResultCode::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR)
@@ -5402,14 +5309,14 @@ impl Device {
         &self,
         bind_info_count: u32,
         p_bind_infos: *const BindBufferMemoryInfo,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BindBufferMemory2>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkBindBufferMemory2 as usize,
             ))
         };
-        unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
+        unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }.success()
     }
 }
 
@@ -5426,10 +5333,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -5441,14 +5345,14 @@ impl Device {
         &self,
         bind_info_count: u32,
         p_bind_infos: *const BindImageMemoryInfo,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BindImageMemory2>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkBindImageMemory2 as usize,
             ))
         };
-        unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
+        unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }.success()
     }
 }
 
@@ -5562,7 +5466,7 @@ impl Instance {
         &self,
         p_physical_device_group_count: *mut u32,
         p_physical_device_group_properties: Option<*mut PhysicalDeviceGroupProperties>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_EnumeratePhysicalDeviceGroups>(vtable_get(
                 self.vtable(),
@@ -5576,6 +5480,7 @@ impl Instance {
                 p_physical_device_group_properties.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -5787,10 +5692,7 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`FORMAT_NOT_SUPPORTED`](ResultCode::ERROR_FORMAT_NOT_SUPPORTED)
@@ -5808,7 +5710,7 @@ impl PhysicalDevice {
         &self,
         p_image_format_info: *const PhysicalDeviceImageFormatInfo2,
         p_image_format_properties: *mut ImageFormatProperties2,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceImageFormatProperties2>(
                 vtable_get(
@@ -5817,7 +5719,7 @@ impl PhysicalDevice {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_image_format_info, p_image_format_properties) }
+        unsafe { (command)(self.handle, p_image_format_info, p_image_format_properties) }.success()
     }
 }
 
@@ -6187,10 +6089,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -6203,7 +6102,7 @@ impl Device {
         p_create_info: *const DescriptorUpdateTemplateCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_descriptor_update_template: *mut DescriptorUpdateTemplate,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateDescriptorUpdateTemplate>(vtable_get(
                 self.vtable(),
@@ -6218,6 +6117,7 @@ impl Device {
                 p_descriptor_update_template,
             )
         }
+        .success()
     }
 }
 
@@ -6345,10 +6245,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -6361,7 +6258,7 @@ impl Device {
         p_create_info: *const SamplerYcbcrConversionCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_ycbcr_conversion: *mut SamplerYcbcrConversion,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateSamplerYcbcrConversion>(vtable_get(
                 self.vtable(),
@@ -6376,6 +6273,7 @@ impl Device {
                 p_ycbcr_conversion,
             )
         }
+        .success()
     }
 }
 
@@ -6458,10 +6356,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
@@ -6474,14 +6369,14 @@ impl Device {
         &self,
         semaphore: Semaphore,
         p_value: *mut u64,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetSemaphoreCounterValue>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetSemaphoreCounterValue as usize,
             ))
         };
-        unsafe { (command)(self.handle, semaphore, p_value) }
+        unsafe { (command)(self.handle, semaphore, p_value) }.success()
     }
 }
 
@@ -6515,14 +6410,14 @@ impl Device {
         &self,
         p_wait_info: *const SemaphoreWaitInfo,
         timeout: u64,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_WaitSemaphores>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkWaitSemaphores as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_wait_info, timeout) }
+        unsafe { (command)(self.handle, p_wait_info, timeout) }.split()
     }
 }
 
@@ -6539,10 +6434,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -6550,14 +6442,17 @@ impl Device {
     ///
     #[doc(alias = "vkSignalSemaphore")]
     #[inline(always)]
-    pub unsafe fn signal_semaphore(&self, p_signal_info: *const SemaphoreSignalInfo) -> ResultCode {
+    pub unsafe fn signal_semaphore(
+        &self,
+        p_signal_info: *const SemaphoreSignalInfo,
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SignalSemaphore>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkSignalSemaphore as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_signal_info) }
+        unsafe { (command)(self.handle, p_signal_info) }.success()
     }
 }
 
@@ -6793,10 +6688,7 @@ impl Device {
     /// - Extension [`KHR_DynamicRenderingLocalRead`](Extension::KHR_DynamicRenderingLocalRead)
     ///
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -6809,7 +6701,7 @@ impl Device {
         p_create_info: *const RenderPassCreateInfo2,
         p_allocator: Option<*const AllocationCallbacks>,
         p_render_pass: *mut RenderPass,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateRenderPass2>(vtable_get(
                 self.vtable(),
@@ -6824,6 +6716,7 @@ impl Device {
                 p_render_pass,
             )
         }
+        .success()
     }
 }
 
@@ -6994,7 +6887,7 @@ impl PhysicalDevice {
         &self,
         p_tool_count: *mut u32,
         p_tool_properties: Option<*mut PhysicalDeviceToolProperties>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceToolProperties>(vtable_get(
                 self.vtable(),
@@ -7008,6 +6901,7 @@ impl PhysicalDevice {
                 p_tool_properties.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -7028,10 +6922,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -7043,7 +6934,7 @@ impl Device {
         p_create_info: *const PrivateDataSlotCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_private_data_slot: *mut PrivateDataSlot,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreatePrivateDataSlot>(vtable_get(
                 self.vtable(),
@@ -7058,6 +6949,7 @@ impl Device {
                 p_private_data_slot,
             )
         }
+        .success()
     }
 }
 
@@ -7110,10 +7002,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -7126,7 +7015,7 @@ impl Device {
         object_handle: u64,
         private_data_slot: PrivateDataSlot,
         data: u64,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SetPrivateData>(vtable_get(
                 self.vtable(),
@@ -7142,6 +7031,7 @@ impl Device {
                 data,
             )
         }
+        .success()
     }
 }
 
@@ -7282,10 +7172,7 @@ impl Queue {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
@@ -7299,7 +7186,7 @@ impl Queue {
         submit_count: Option<u32>,
         p_submits: *const SubmitInfo2,
         fence: Option<Fence>,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_QueueSubmit2>(vtable_get(
                 self.vtable(),
@@ -7314,6 +7201,7 @@ impl Queue {
                 fence.unwrap_or_default(),
             )
         }
+        .success()
     }
 }
 
@@ -8455,10 +8343,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`MEMORY_MAP_FAILED`](ResultCode::ERROR_MEMORY_MAP_FAILED)
@@ -8471,14 +8356,14 @@ impl Device {
         &self,
         p_memory_map_info: *const MemoryMapInfo,
         pp_data: *mut *mut c_void,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_MapMemory2>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkMapMemory2 as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_memory_map_info, pp_data) }
+        unsafe { (command)(self.handle, p_memory_map_info, pp_data) }.success()
     }
 }
 
@@ -8494,24 +8379,24 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`MEMORY_MAP_FAILED`](ResultCode::ERROR_MEMORY_MAP_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     ///
     #[doc(alias = "vkUnmapMemory2")]
     #[inline(always)]
-    pub unsafe fn unmap_memory_2(&self, p_memory_unmap_info: *const MemoryUnmapInfo) -> ResultCode {
+    pub unsafe fn unmap_memory_2(
+        &self,
+        p_memory_unmap_info: *const MemoryUnmapInfo,
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_UnmapMemory2>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkUnmapMemory2 as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_memory_unmap_info) }
+        unsafe { (command)(self.handle, p_memory_unmap_info) }.success()
     }
 }
 
@@ -8589,10 +8474,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
@@ -8605,14 +8487,14 @@ impl Device {
     pub unsafe fn copy_memory_to_image(
         &self,
         p_copy_memory_to_image_info: *const CopyMemoryToImageInfo,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CopyMemoryToImage>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkCopyMemoryToImage as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_copy_memory_to_image_info) }
+        unsafe { (command)(self.handle, p_copy_memory_to_image_info) }.success()
     }
 }
 
@@ -8629,10 +8511,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
@@ -8645,14 +8524,14 @@ impl Device {
     pub unsafe fn copy_image_to_memory(
         &self,
         p_copy_image_to_memory_info: *const CopyImageToMemoryInfo,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CopyImageToMemory>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkCopyImageToMemory as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_copy_image_to_memory_info) }
+        unsafe { (command)(self.handle, p_copy_image_to_memory_info) }.success()
     }
 }
 
@@ -8669,10 +8548,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
@@ -8685,14 +8561,14 @@ impl Device {
     pub unsafe fn copy_image_to_image(
         &self,
         p_copy_image_to_image_info: *const CopyImageToImageInfo,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CopyImageToImage>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkCopyImageToImage as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_copy_image_to_image_info) }
+        unsafe { (command)(self.handle, p_copy_image_to_image_info) }.success()
     }
 }
 
@@ -8709,10 +8585,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
@@ -8726,14 +8599,14 @@ impl Device {
         &self,
         transition_count: u32,
         p_transitions: *const HostImageLayoutTransitionInfo,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_TransitionImageLayout>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkTransitionImageLayout as usize,
             ))
         };
-        unsafe { (command)(self.handle, transition_count, p_transitions) }
+        unsafe { (command)(self.handle, transition_count, p_transitions) }.success()
     }
 }
 
@@ -9260,10 +9133,7 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
@@ -9277,7 +9147,7 @@ impl PhysicalDevice {
         queue_family_index: u32,
         surface: SurfaceKHR,
         p_supported: *mut Bool32,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSurfaceSupportKHR>(
                 vtable_get(
@@ -9286,7 +9156,7 @@ impl PhysicalDevice {
                 ),
             )
         };
-        unsafe { (command)(self.handle, queue_family_index, surface, p_supported) }
+        unsafe { (command)(self.handle, queue_family_index, surface, p_supported) }.success()
     }
 }
 
@@ -9306,10 +9176,7 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
@@ -9328,7 +9195,7 @@ impl PhysicalDevice {
         &self,
         surface: SurfaceKHR,
         p_surface_capabilities: *mut SurfaceCapabilitiesKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSurfaceCapabilitiesKHR>(
                 vtable_get(
@@ -9337,7 +9204,7 @@ impl PhysicalDevice {
                 ),
             )
         };
-        unsafe { (command)(self.handle, surface, p_surface_capabilities) }
+        unsafe { (command)(self.handle, surface, p_surface_capabilities) }.success()
     }
 }
 
@@ -9382,7 +9249,7 @@ impl PhysicalDevice {
         surface: Option<SurfaceKHR>,
         p_surface_format_count: *mut u32,
         p_surface_formats: Option<*mut SurfaceFormatKHR>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSurfaceFormatsKHR>(
                 vtable_get(
@@ -9399,6 +9266,7 @@ impl PhysicalDevice {
                 p_surface_formats.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -9437,7 +9305,7 @@ impl PhysicalDevice {
         surface: Option<SurfaceKHR>,
         p_present_mode_count: *mut u32,
         p_present_modes: Option<*mut PresentModeKHR>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSurfacePresentModesKHR>(
                 vtable_get(
@@ -9454,6 +9322,7 @@ impl PhysicalDevice {
                 p_present_modes.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -9474,10 +9343,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
@@ -9495,7 +9361,7 @@ impl Device {
         p_create_info: *const SwapchainCreateInfoKHR,
         p_allocator: Option<*const AllocationCallbacks>,
         p_swapchain: *mut SwapchainKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateSwapchainKHR>(vtable_get(
                 self.vtable(),
@@ -9510,6 +9376,7 @@ impl Device {
                 p_swapchain,
             )
         }
+        .success()
     }
 }
 
@@ -9579,7 +9446,7 @@ impl Device {
         swapchain: SwapchainKHR,
         p_swapchain_image_count: *mut u32,
         p_swapchain_images: Option<*mut Image>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetSwapchainImagesKHR>(vtable_get(
                 self.vtable(),
@@ -9594,6 +9461,7 @@ impl Device {
                 p_swapchain_images.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -9635,7 +9503,7 @@ impl Device {
         semaphore: Option<Semaphore>,
         fence: Option<Fence>,
         p_image_index: *mut u32,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_AcquireNextImageKHR>(vtable_get(
                 self.vtable(),
@@ -9652,6 +9520,7 @@ impl Device {
                 p_image_index,
             )
         }
+        .split()
     }
 }
 
@@ -9685,14 +9554,17 @@ impl Queue {
     ///
     #[doc(alias = "vkQueuePresentKHR")]
     #[inline(always)]
-    pub unsafe fn present_khr(&self, p_present_info: *const PresentInfoKHR) -> ResultCode {
+    pub unsafe fn present_khr(
+        &self,
+        p_present_info: *const PresentInfoKHR,
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_QueuePresentKHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkQueuePresentKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_present_info) }
+        unsafe { (command)(self.handle, p_present_info) }.split()
     }
 }
 
@@ -9711,10 +9583,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -9725,7 +9594,7 @@ impl Device {
     pub unsafe fn get_device_group_present_capabilities_khr(
         &self,
         p_device_group_present_capabilities: *mut DeviceGroupPresentCapabilitiesKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceGroupPresentCapabilitiesKHR>(
                 vtable_get(
@@ -9734,7 +9603,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_device_group_present_capabilities) }
+        unsafe { (command)(self.handle, p_device_group_present_capabilities) }.success()
     }
 }
 
@@ -9756,10 +9625,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
@@ -9772,7 +9638,7 @@ impl Device {
         &self,
         surface: SurfaceKHR,
         p_modes: *mut DeviceGroupPresentModeFlagsKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceGroupSurfacePresentModesKHR>(
                 vtable_get(
@@ -9781,7 +9647,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, surface, p_modes) }
+        unsafe { (command)(self.handle, surface, p_modes) }.success()
     }
 }
 
@@ -9817,7 +9683,7 @@ impl PhysicalDevice {
         surface: SurfaceKHR,
         p_rect_count: *mut u32,
         p_rects: Option<*mut Rect2D>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDevicePresentRectanglesKHR>(
                 vtable_get(
@@ -9834,6 +9700,7 @@ impl PhysicalDevice {
                 p_rects.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -9874,14 +9741,14 @@ impl Device {
         &self,
         p_acquire_info: *const AcquireNextImageInfoKHR,
         p_image_index: *mut u32,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_AcquireNextImage2KHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkAcquireNextImage2KHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_acquire_info, p_image_index) }
+        unsafe { (command)(self.handle, p_acquire_info, p_image_index) }.split()
     }
 }
 
@@ -9914,7 +9781,7 @@ impl PhysicalDevice {
         &self,
         p_property_count: *mut u32,
         p_properties: Option<*mut DisplayPropertiesKHR>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceDisplayPropertiesKHR>(
                 vtable_get(
@@ -9930,6 +9797,7 @@ impl PhysicalDevice {
                 p_properties.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -9965,7 +9833,7 @@ impl PhysicalDevice {
         &self,
         p_property_count: *mut u32,
         p_properties: Option<*mut DisplayPlanePropertiesKHR>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceDisplayPlanePropertiesKHR>(
                 vtable_get(
@@ -9981,6 +9849,7 @@ impl PhysicalDevice {
                 p_properties.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -10014,7 +9883,7 @@ impl PhysicalDevice {
         plane_index: u32,
         p_display_count: *mut u32,
         p_displays: Option<*mut DisplayKHR>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDisplayPlaneSupportedDisplaysKHR>(
                 vtable_get(
@@ -10031,6 +9900,7 @@ impl PhysicalDevice {
                 p_displays.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -10068,7 +9938,7 @@ impl PhysicalDevice {
         display: DisplayKHR,
         p_property_count: *mut u32,
         p_properties: Option<*mut DisplayModePropertiesKHR>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDisplayModePropertiesKHR>(vtable_get(
                 self.vtable(),
@@ -10083,6 +9953,7 @@ impl PhysicalDevice {
                 p_properties.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -10104,10 +9975,7 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
@@ -10122,7 +9990,7 @@ impl PhysicalDevice {
         p_create_info: *const DisplayModeCreateInfoKHR,
         p_allocator: Option<*const AllocationCallbacks>,
         p_mode: *mut DisplayModeKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateDisplayModeKHR>(vtable_get(
                 self.vtable(),
@@ -10138,6 +10006,7 @@ impl PhysicalDevice {
                 p_mode,
             )
         }
+        .success()
     }
 }
 
@@ -10158,10 +10027,7 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -10174,14 +10040,14 @@ impl PhysicalDevice {
         mode: DisplayModeKHR,
         plane_index: u32,
         p_capabilities: *mut DisplayPlaneCapabilitiesKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDisplayPlaneCapabilitiesKHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetDisplayPlaneCapabilitiesKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, mode, plane_index, p_capabilities) }
+        unsafe { (command)(self.handle, mode, plane_index, p_capabilities) }.success()
     }
 }
 
@@ -10202,10 +10068,7 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -10218,7 +10081,7 @@ impl Instance {
         p_create_info: *const DisplaySurfaceCreateInfoKHR,
         p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateDisplayPlaneSurfaceKHR>(vtable_get(
                 self.vtable(),
@@ -10233,6 +10096,7 @@ impl Instance {
                 p_surface,
             )
         }
+        .success()
     }
 }
 
@@ -10254,10 +10118,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`INCOMPATIBLE_DISPLAY_KHR`](ResultCode::ERROR_INCOMPATIBLE_DISPLAY_KHR)
@@ -10274,7 +10135,7 @@ impl Device {
         p_create_infos: *const SwapchainCreateInfoKHR,
         p_allocator: Option<*const AllocationCallbacks>,
         p_swapchains: *mut SwapchainKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateSharedSwapchainsKHR>(vtable_get(
                 self.vtable(),
@@ -10290,6 +10151,7 @@ impl Device {
                 p_swapchains,
             )
         }
+        .success()
     }
 }
 
@@ -10310,10 +10172,7 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -10326,7 +10185,7 @@ impl Instance {
         p_create_info: *const XlibSurfaceCreateInfoKHR,
         p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateXlibSurfaceKHR>(vtable_get(
                 self.vtable(),
@@ -10341,6 +10200,7 @@ impl Instance {
                 p_surface,
             )
         }
+        .success()
     }
 }
 
@@ -10394,10 +10254,7 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -10410,7 +10267,7 @@ impl Instance {
         p_create_info: *const XcbSurfaceCreateInfoKHR,
         p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateXcbSurfaceKHR>(vtable_get(
                 self.vtable(),
@@ -10425,6 +10282,7 @@ impl Instance {
                 p_surface,
             )
         }
+        .success()
     }
 }
 
@@ -10482,10 +10340,7 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -10498,7 +10353,7 @@ impl Instance {
         p_create_info: *const WaylandSurfaceCreateInfoKHR,
         p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateWaylandSurfaceKHR>(vtable_get(
                 self.vtable(),
@@ -10513,6 +10368,7 @@ impl Instance {
                 p_surface,
             )
         }
+        .success()
     }
 }
 
@@ -10565,10 +10421,7 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`NATIVE_WINDOW_IN_USE_KHR`](ResultCode::ERROR_NATIVE_WINDOW_IN_USE_KHR)
@@ -10582,7 +10435,7 @@ impl Instance {
         p_create_info: *const AndroidSurfaceCreateInfoKHR,
         p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateAndroidSurfaceKHR>(vtable_get(
                 self.vtable(),
@@ -10597,6 +10450,7 @@ impl Instance {
                 p_surface,
             )
         }
+        .success()
     }
 }
 
@@ -10617,10 +10471,7 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -10633,7 +10484,7 @@ impl Instance {
         p_create_info: *const Win32SurfaceCreateInfoKHR,
         p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateWin32SurfaceKHR>(vtable_get(
                 self.vtable(),
@@ -10648,6 +10499,7 @@ impl Instance {
                 p_surface,
             )
         }
+        .success()
     }
 }
 
@@ -10695,10 +10547,7 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`VIDEO_PROFILE_OPERATION_NOT_SUPPORTED_KHR`](ResultCode::ERROR_VIDEO_PROFILE_OPERATION_NOT_SUPPORTED_KHR)
@@ -10714,7 +10563,7 @@ impl PhysicalDevice {
         &self,
         p_video_profile: *const VideoProfileInfoKHR,
         p_capabilities: *mut VideoCapabilitiesKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceVideoCapabilitiesKHR>(
                 vtable_get(
@@ -10723,7 +10572,7 @@ impl PhysicalDevice {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_video_profile, p_capabilities) }
+        unsafe { (command)(self.handle, p_video_profile, p_capabilities) }.success()
     }
 }
 
@@ -10766,7 +10615,7 @@ impl PhysicalDevice {
         p_video_format_info: *const PhysicalDeviceVideoFormatInfoKHR,
         p_video_format_property_count: *mut u32,
         p_video_format_properties: Option<*mut VideoFormatPropertiesKHR>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceVideoFormatPropertiesKHR>(
                 vtable_get(
@@ -10783,6 +10632,7 @@ impl PhysicalDevice {
                 p_video_format_properties.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -10803,10 +10653,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
@@ -10822,7 +10669,7 @@ impl Device {
         p_create_info: *const VideoSessionCreateInfoKHR,
         p_allocator: Option<*const AllocationCallbacks>,
         p_video_session: *mut VideoSessionKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateVideoSessionKHR>(vtable_get(
                 self.vtable(),
@@ -10837,6 +10684,7 @@ impl Device {
                 p_video_session,
             )
         }
+        .success()
     }
 }
 
@@ -10908,7 +10756,7 @@ impl Device {
         video_session: VideoSessionKHR,
         p_memory_requirements_count: *mut u32,
         p_memory_requirements: Option<*mut VideoSessionMemoryRequirementsKHR>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetVideoSessionMemoryRequirementsKHR>(
                 vtable_get(
@@ -10925,6 +10773,7 @@ impl Device {
                 p_memory_requirements.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -10945,10 +10794,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -10961,7 +10807,7 @@ impl Device {
         video_session: VideoSessionKHR,
         bind_session_memory_info_count: u32,
         p_bind_session_memory_infos: *const BindVideoSessionMemoryInfoKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BindVideoSessionMemoryKHR>(vtable_get(
                 self.vtable(),
@@ -10976,6 +10822,7 @@ impl Device {
                 p_bind_session_memory_infos,
             )
         }
+        .success()
     }
 }
 
@@ -10996,10 +10843,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
@@ -11014,7 +10858,7 @@ impl Device {
         p_create_info: *const VideoSessionParametersCreateInfoKHR,
         p_allocator: Option<*const AllocationCallbacks>,
         p_video_session_parameters: *mut VideoSessionParametersKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateVideoSessionParametersKHR>(vtable_get(
                 self.vtable(),
@@ -11029,6 +10873,7 @@ impl Device {
                 p_video_session_parameters,
             )
         }
+        .success()
     }
 }
 
@@ -11048,10 +10893,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`INVALID_VIDEO_STD_PARAMETERS_KHR`](ResultCode::ERROR_INVALID_VIDEO_STD_PARAMETERS_KHR)
@@ -11064,14 +10906,14 @@ impl Device {
         &self,
         video_session_parameters: VideoSessionParametersKHR,
         p_update_info: *const VideoSessionParametersUpdateInfoKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_UpdateVideoSessionParametersKHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkUpdateVideoSessionParametersKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, video_session_parameters, p_update_info) }
+        unsafe { (command)(self.handle, video_session_parameters, p_update_info) }.success()
     }
 }
 
@@ -11437,10 +11279,7 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`FORMAT_NOT_SUPPORTED`](ResultCode::ERROR_FORMAT_NOT_SUPPORTED)
@@ -11458,7 +11297,7 @@ impl PhysicalDevice {
         &self,
         p_image_format_info: *const PhysicalDeviceImageFormatInfo2,
         p_image_format_properties: *mut ImageFormatProperties2,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceImageFormatProperties2KHR>(
                 vtable_get(
@@ -11467,7 +11306,7 @@ impl PhysicalDevice {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_image_format_info, p_image_format_properties) }
+        unsafe { (command)(self.handle, p_image_format_info, p_image_format_properties) }.success()
     }
 }
 
@@ -11788,7 +11627,7 @@ impl Instance {
         &self,
         p_physical_device_group_count: *mut u32,
         p_physical_device_group_properties: Option<*mut PhysicalDeviceGroupProperties>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_EnumeratePhysicalDeviceGroupsKHR>(vtable_get(
                 self.vtable(),
@@ -11802,6 +11641,7 @@ impl Instance {
                 p_physical_device_group_properties.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -11863,10 +11703,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`TOO_MANY_OBJECTS`](ResultCode::ERROR_TOO_MANY_OBJECTS)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -11878,14 +11715,14 @@ impl Device {
         &self,
         p_get_win_32_handle_info: *const MemoryGetWin32HandleInfoKHR,
         p_handle: *mut HANDLE,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryWin32HandleKHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetMemoryWin32HandleKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_get_win_32_handle_info, p_handle) }
+        unsafe { (command)(self.handle, p_get_win_32_handle_info, p_handle) }.success()
     }
 }
 
@@ -11906,10 +11743,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`INVALID_EXTERNAL_HANDLE`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -11922,7 +11756,7 @@ impl Device {
         handle_type: ExternalMemoryHandleTypeFlags,
         handle: HANDLE,
         p_memory_win_32_handle_properties: *mut MemoryWin32HandlePropertiesKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryWin32HandlePropertiesKHR>(vtable_get(
                 self.vtable(),
@@ -11937,6 +11771,7 @@ impl Device {
                 p_memory_win_32_handle_properties,
             )
         }
+        .success()
     }
 }
 
@@ -11953,10 +11788,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`TOO_MANY_OBJECTS`](ResultCode::ERROR_TOO_MANY_OBJECTS)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -11968,14 +11800,14 @@ impl Device {
         &self,
         p_get_fd_info: *const MemoryGetFdInfoKHR,
         p_fd: *mut c_int,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryFdKHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetMemoryFdKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_get_fd_info, p_fd) }
+        unsafe { (command)(self.handle, p_get_fd_info, p_fd) }.success()
     }
 }
 
@@ -11996,10 +11828,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`INVALID_EXTERNAL_HANDLE`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -12012,14 +11841,14 @@ impl Device {
         handle_type: ExternalMemoryHandleTypeFlags,
         fd: c_int,
         p_memory_fd_properties: *mut MemoryFdPropertiesKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryFdPropertiesKHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetMemoryFdPropertiesKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, handle_type, fd, p_memory_fd_properties) }
+        unsafe { (command)(self.handle, handle_type, fd, p_memory_fd_properties) }.success()
     }
 }
 
@@ -12078,10 +11907,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`INVALID_EXTERNAL_HANDLE`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -12092,14 +11918,14 @@ impl Device {
     pub unsafe fn import_semaphore_win_32_handle_khr(
         &self,
         p_import_semaphore_win_32_handle_info: *const ImportSemaphoreWin32HandleInfoKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ImportSemaphoreWin32HandleKHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkImportSemaphoreWin32HandleKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_import_semaphore_win_32_handle_info) }
+        unsafe { (command)(self.handle, p_import_semaphore_win_32_handle_info) }.success()
     }
 }
 
@@ -12119,10 +11945,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`TOO_MANY_OBJECTS`](ResultCode::ERROR_TOO_MANY_OBJECTS)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -12134,14 +11957,14 @@ impl Device {
         &self,
         p_get_win_32_handle_info: *const SemaphoreGetWin32HandleInfoKHR,
         p_handle: *mut HANDLE,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetSemaphoreWin32HandleKHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetSemaphoreWin32HandleKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_get_win_32_handle_info, p_handle) }
+        unsafe { (command)(self.handle, p_get_win_32_handle_info, p_handle) }.success()
     }
 }
 
@@ -12158,10 +11981,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`INVALID_EXTERNAL_HANDLE`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -12172,14 +11992,14 @@ impl Device {
     pub unsafe fn import_semaphore_fd_khr(
         &self,
         p_import_semaphore_fd_info: *const ImportSemaphoreFdInfoKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ImportSemaphoreFdKHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkImportSemaphoreFdKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_import_semaphore_fd_info) }
+        unsafe { (command)(self.handle, p_import_semaphore_fd_info) }.success()
     }
 }
 
@@ -12196,10 +12016,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`TOO_MANY_OBJECTS`](ResultCode::ERROR_TOO_MANY_OBJECTS)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -12211,14 +12028,14 @@ impl Device {
         &self,
         p_get_fd_info: *const SemaphoreGetFdInfoKHR,
         p_fd: *mut c_int,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetSemaphoreFdKHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetSemaphoreFdKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_get_fd_info, p_fd) }
+        unsafe { (command)(self.handle, p_get_fd_info, p_fd) }.success()
     }
 }
 
@@ -12352,10 +12169,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -12368,7 +12182,7 @@ impl Device {
         p_create_info: *const DescriptorUpdateTemplateCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_descriptor_update_template: *mut DescriptorUpdateTemplate,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateDescriptorUpdateTemplateKHR>(vtable_get(
                 self.vtable(),
@@ -12383,6 +12197,7 @@ impl Device {
                 p_descriptor_update_template,
             )
         }
+        .success()
     }
 }
 
@@ -12484,10 +12299,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -12500,7 +12312,7 @@ impl Device {
         p_create_info: *const RenderPassCreateInfo2,
         p_allocator: Option<*const AllocationCallbacks>,
         p_render_pass: *mut RenderPass,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateRenderPass2KHR>(vtable_get(
                 self.vtable(),
@@ -12515,6 +12327,7 @@ impl Device {
                 p_render_pass,
             )
         }
+        .success()
     }
 }
 
@@ -12667,14 +12480,17 @@ impl Device {
     ///
     #[doc(alias = "vkGetSwapchainStatusKHR")]
     #[inline(always)]
-    pub unsafe fn get_swapchain_status_khr(&self, swapchain: SwapchainKHR) -> ResultCode {
+    pub unsafe fn get_swapchain_status_khr(
+        &self,
+        swapchain: SwapchainKHR,
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetSwapchainStatusKHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetSwapchainStatusKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, swapchain) }
+        unsafe { (command)(self.handle, swapchain) }.split()
     }
 }
 
@@ -12733,10 +12549,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`INVALID_EXTERNAL_HANDLE`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -12747,14 +12560,14 @@ impl Device {
     pub unsafe fn import_fence_win_32_handle_khr(
         &self,
         p_import_fence_win_32_handle_info: *const ImportFenceWin32HandleInfoKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ImportFenceWin32HandleKHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkImportFenceWin32HandleKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_import_fence_win_32_handle_info) }
+        unsafe { (command)(self.handle, p_import_fence_win_32_handle_info) }.success()
     }
 }
 
@@ -12774,10 +12587,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`TOO_MANY_OBJECTS`](ResultCode::ERROR_TOO_MANY_OBJECTS)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -12789,14 +12599,14 @@ impl Device {
         &self,
         p_get_win_32_handle_info: *const FenceGetWin32HandleInfoKHR,
         p_handle: *mut HANDLE,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetFenceWin32HandleKHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetFenceWin32HandleKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_get_win_32_handle_info, p_handle) }
+        unsafe { (command)(self.handle, p_get_win_32_handle_info, p_handle) }.success()
     }
 }
 
@@ -12813,10 +12623,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`INVALID_EXTERNAL_HANDLE`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -12827,14 +12634,14 @@ impl Device {
     pub unsafe fn import_fence_fd_khr(
         &self,
         p_import_fence_fd_info: *const ImportFenceFdInfoKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ImportFenceFdKHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkImportFenceFdKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_import_fence_fd_info) }
+        unsafe { (command)(self.handle, p_import_fence_fd_info) }.success()
     }
 }
 
@@ -12851,10 +12658,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`TOO_MANY_OBJECTS`](ResultCode::ERROR_TOO_MANY_OBJECTS)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -12866,14 +12670,14 @@ impl Device {
         &self,
         p_get_fd_info: *const FenceGetFdInfoKHR,
         p_fd: *mut c_int,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetFenceFdKHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetFenceFdKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_get_fd_info, p_fd) }
+        unsafe { (command)(self.handle, p_get_fd_info, p_fd) }.success()
     }
 }
 
@@ -12915,7 +12719,7 @@ impl PhysicalDevice {
         p_counter_count: *mut u32,
         p_counters: Option<*mut PerformanceCounterKHR>,
         p_counter_descriptions: Option<*mut PerformanceCounterDescriptionKHR>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
@@ -12935,6 +12739,7 @@ impl PhysicalDevice {
                 p_counter_descriptions.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -12984,10 +12789,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`TIMEOUT`](ResultCode::TIMEOUT)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -12998,14 +12800,14 @@ impl Device {
     pub unsafe fn acquire_profiling_lock_khr(
         &self,
         p_info: *const AcquireProfilingLockInfoKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_AcquireProfilingLockKHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkAcquireProfilingLockKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_info) }
+        unsafe { (command)(self.handle, p_info) }.success()
     }
 }
 
@@ -13050,10 +12852,7 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
@@ -13066,7 +12865,7 @@ impl PhysicalDevice {
         &self,
         p_surface_info: *const PhysicalDeviceSurfaceInfo2KHR,
         p_surface_capabilities: *mut SurfaceCapabilities2KHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSurfaceCapabilities2KHR>(
                 vtable_get(
@@ -13075,7 +12874,7 @@ impl PhysicalDevice {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_surface_info, p_surface_capabilities) }
+        unsafe { (command)(self.handle, p_surface_info, p_surface_capabilities) }.success()
     }
 }
 
@@ -13114,7 +12913,7 @@ impl PhysicalDevice {
         p_surface_info: *const PhysicalDeviceSurfaceInfo2KHR,
         p_surface_format_count: *mut u32,
         p_surface_formats: Option<*mut SurfaceFormat2KHR>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSurfaceFormats2KHR>(
                 vtable_get(
@@ -13131,6 +12930,7 @@ impl PhysicalDevice {
                 p_surface_formats.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -13163,7 +12963,7 @@ impl PhysicalDevice {
         &self,
         p_property_count: *mut u32,
         p_properties: Option<*mut DisplayProperties2KHR>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceDisplayProperties2KHR>(
                 vtable_get(
@@ -13179,6 +12979,7 @@ impl PhysicalDevice {
                 p_properties.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -13214,7 +13015,7 @@ impl PhysicalDevice {
         &self,
         p_property_count: *mut u32,
         p_properties: Option<*mut DisplayPlaneProperties2KHR>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceDisplayPlaneProperties2KHR>(
                 vtable_get(
@@ -13230,6 +13031,7 @@ impl PhysicalDevice {
                 p_properties.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -13267,7 +13069,7 @@ impl PhysicalDevice {
         display: DisplayKHR,
         p_property_count: *mut u32,
         p_properties: Option<*mut DisplayModeProperties2KHR>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDisplayModeProperties2KHR>(vtable_get(
                 self.vtable(),
@@ -13282,6 +13084,7 @@ impl PhysicalDevice {
                 p_properties.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -13301,10 +13104,7 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -13316,14 +13116,14 @@ impl PhysicalDevice {
         &self,
         p_display_plane_info: *const DisplayPlaneInfo2KHR,
         p_capabilities: *mut DisplayPlaneCapabilities2KHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDisplayPlaneCapabilities2KHR>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetDisplayPlaneCapabilities2KHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_display_plane_info, p_capabilities) }
+        unsafe { (command)(self.handle, p_display_plane_info, p_capabilities) }.success()
     }
 }
 
@@ -13458,10 +13258,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -13474,7 +13271,7 @@ impl Device {
         p_create_info: *const SamplerYcbcrConversionCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_ycbcr_conversion: *mut SamplerYcbcrConversion,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateSamplerYcbcrConversionKHR>(vtable_get(
                 self.vtable(),
@@ -13489,6 +13286,7 @@ impl Device {
                 p_ycbcr_conversion,
             )
         }
+        .success()
     }
 }
 
@@ -13543,10 +13341,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`](ResultCode::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR)
@@ -13559,14 +13354,14 @@ impl Device {
         &self,
         bind_info_count: u32,
         p_bind_infos: *const BindBufferMemoryInfo,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BindBufferMemory2KHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkBindBufferMemory2KHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
+        unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }.success()
     }
 }
 
@@ -13584,10 +13379,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -13599,14 +13391,14 @@ impl Device {
         &self,
         bind_info_count: u32,
         p_bind_infos: *const BindImageMemoryInfo,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BindImageMemory2KHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkBindImageMemory2KHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
+        unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }.success()
     }
 }
 
@@ -13768,10 +13560,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
@@ -13784,14 +13573,14 @@ impl Device {
         &self,
         semaphore: Semaphore,
         p_value: *mut u64,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetSemaphoreCounterValueKHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetSemaphoreCounterValueKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, semaphore, p_value) }
+        unsafe { (command)(self.handle, semaphore, p_value) }.success()
     }
 }
 
@@ -13826,14 +13615,14 @@ impl Device {
         &self,
         p_wait_info: *const SemaphoreWaitInfo,
         timeout: u64,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_WaitSemaphoresKHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkWaitSemaphoresKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_wait_info, timeout) }
+        unsafe { (command)(self.handle, p_wait_info, timeout) }.split()
     }
 }
 
@@ -13851,10 +13640,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -13865,14 +13651,14 @@ impl Device {
     pub unsafe fn signal_semaphore_khr(
         &self,
         p_signal_info: *const SemaphoreSignalInfo,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SignalSemaphoreKHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkSignalSemaphoreKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_signal_info) }
+        unsafe { (command)(self.handle, p_signal_info) }.success()
     }
 }
 
@@ -13907,7 +13693,7 @@ impl PhysicalDevice {
         &self,
         p_fragment_shading_rate_count: *mut u32,
         p_fragment_shading_rates: Option<*mut PhysicalDeviceFragmentShadingRateKHR>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceFragmentShadingRatesKHR>(
                 vtable_get(
@@ -13923,6 +13709,7 @@ impl PhysicalDevice {
                 p_fragment_shading_rates.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -14088,14 +13875,14 @@ impl Device {
         swapchain: SwapchainKHR,
         present_id: u64,
         timeout: u64,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_WaitForPresentKHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkWaitForPresentKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, swapchain, present_id, timeout) }
+        unsafe { (command)(self.handle, swapchain, present_id, timeout) }.split()
     }
 }
 
@@ -14207,10 +13994,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -14221,7 +14005,7 @@ impl Device {
         &self,
         p_allocator: Option<*const AllocationCallbacks>,
         p_deferred_operation: *mut DeferredOperationKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateDeferredOperationKHR>(vtable_get(
                 self.vtable(),
@@ -14235,6 +14019,7 @@ impl Device {
                 p_deferred_operation,
             )
         }
+        .success()
     }
 }
 
@@ -14331,14 +14116,14 @@ impl Device {
     pub unsafe fn get_deferred_operation_result_khr(
         &self,
         operation: DeferredOperationKHR,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDeferredOperationResultKHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetDeferredOperationResultKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, operation) }
+        unsafe { (command)(self.handle, operation) }.split()
     }
 }
 
@@ -14371,14 +14156,14 @@ impl Device {
     pub unsafe fn deferred_operation_join_khr(
         &self,
         operation: DeferredOperationKHR,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DeferredOperationJoinKHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkDeferredOperationJoinKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, operation) }
+        unsafe { (command)(self.handle, operation) }.split()
     }
 }
 
@@ -14416,7 +14201,7 @@ impl Device {
         p_pipeline_info: *const PipelineInfoKHR,
         p_executable_count: *mut u32,
         p_properties: Option<*mut PipelineExecutablePropertiesKHR>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPipelineExecutablePropertiesKHR>(
                 vtable_get(
@@ -14433,6 +14218,7 @@ impl Device {
                 p_properties.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -14470,7 +14256,7 @@ impl Device {
         p_executable_info: *const PipelineExecutableInfoKHR,
         p_statistic_count: *mut u32,
         p_statistics: Option<*mut PipelineExecutableStatisticKHR>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPipelineExecutableStatisticsKHR>(
                 vtable_get(
@@ -14487,6 +14273,7 @@ impl Device {
                 p_statistics.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -14524,7 +14311,7 @@ impl Device {
         p_executable_info: *const PipelineExecutableInfoKHR,
         p_internal_representation_count: *mut u32,
         p_internal_representations: Option<*mut PipelineExecutableInternalRepresentationKHR>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPipelineExecutableInternalRepresentationsKHR>(
                 vtable_get(
@@ -14541,6 +14328,7 @@ impl Device {
                 p_internal_representations.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -14558,10 +14346,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`MEMORY_MAP_FAILED`](ResultCode::ERROR_MEMORY_MAP_FAILED)
@@ -14574,14 +14359,14 @@ impl Device {
         &self,
         p_memory_map_info: *const MemoryMapInfo,
         pp_data: *mut *mut c_void,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_MapMemory2KHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkMapMemory2KHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_memory_map_info, pp_data) }
+        unsafe { (command)(self.handle, p_memory_map_info, pp_data) }.success()
     }
 }
 
@@ -14599,10 +14384,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`MEMORY_MAP_FAILED`](ResultCode::ERROR_MEMORY_MAP_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -14612,14 +14394,14 @@ impl Device {
     pub unsafe fn unmap_memory_2_khr(
         &self,
         p_memory_unmap_info: *const MemoryUnmapInfo,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_UnmapMemory2KHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkUnmapMemory2KHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_memory_unmap_info) }
+        unsafe { (command)(self.handle, p_memory_unmap_info) }.success()
     }
 }
 
@@ -14640,10 +14422,7 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`VIDEO_PROFILE_OPERATION_NOT_SUPPORTED_KHR`](ResultCode::ERROR_VIDEO_PROFILE_OPERATION_NOT_SUPPORTED_KHR)
@@ -14659,7 +14438,7 @@ impl PhysicalDevice {
         &self,
         p_quality_level_info: *const PhysicalDeviceVideoEncodeQualityLevelInfoKHR,
         p_quality_level_properties: *mut VideoEncodeQualityLevelPropertiesKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
@@ -14676,6 +14455,7 @@ impl PhysicalDevice {
                 p_quality_level_properties,
             )
         }
+        .success()
     }
 }
 
@@ -14715,7 +14495,7 @@ impl Device {
         p_feedback_info: Option<*mut VideoEncodeSessionParametersFeedbackInfoKHR>,
         p_data_size: *mut usize,
         p_data: Option<*mut c_void>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetEncodedVideoSessionParametersKHR>(
                 vtable_get(
@@ -14733,6 +14513,7 @@ impl Device {
                 p_data.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -15005,10 +14786,7 @@ impl Queue {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
@@ -15022,7 +14800,7 @@ impl Queue {
         submit_count: Option<u32>,
         p_submits: *const SubmitInfo2,
         fence: Option<Fence>,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_QueueSubmit2KHR>(vtable_get(
                 self.vtable(),
@@ -15037,6 +14815,7 @@ impl Queue {
                 fence.unwrap_or_default(),
             )
         }
+        .success()
     }
 }
 
@@ -15962,10 +15741,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`](ResultCode::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -15978,7 +15754,7 @@ impl Device {
         p_create_info: *const AccelerationStructureCreateInfo2KHR,
         p_allocator: Option<*const AllocationCallbacks>,
         p_acceleration_structure: *mut AccelerationStructureKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateAccelerationStructure2KHR>(vtable_get(
                 self.vtable(),
@@ -15993,6 +15769,7 @@ impl Device {
                 p_acceleration_structure,
             )
         }
+        .success()
     }
 }
 
@@ -16562,14 +16339,14 @@ impl Device {
         &self,
         swapchain: SwapchainKHR,
         p_present_wait_2_info: *const PresentWait2InfoKHR,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_WaitForPresent2KHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkWaitForPresent2KHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, swapchain, p_present_wait_2_info) }
+        unsafe { (command)(self.handle, swapchain, p_present_wait_2_info) }.split()
     }
 }
 
@@ -16609,7 +16386,7 @@ impl Device {
         p_create_info: *const PipelineBinaryCreateInfoKHR,
         p_allocator: Option<*const AllocationCallbacks>,
         p_binaries: *mut PipelineBinaryHandlesInfoKHR,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreatePipelineBinariesKHR>(vtable_get(
                 self.vtable(),
@@ -16624,6 +16401,7 @@ impl Device {
                 p_binaries,
             )
         }
+        .split()
     }
 }
 
@@ -16679,10 +16457,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -16694,7 +16469,7 @@ impl Device {
         &self,
         p_pipeline_create_info: Option<*const PipelineCreateInfoKHR>,
         p_pipeline_key: *mut PipelineBinaryKeyKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPipelineKeyKHR>(vtable_get(
                 self.vtable(),
@@ -16708,6 +16483,7 @@ impl Device {
                 p_pipeline_key,
             )
         }
+        .success()
     }
 }
 
@@ -16729,10 +16505,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`NOT_ENOUGH_SPACE_KHR`](ResultCode::ERROR_NOT_ENOUGH_SPACE_KHR)
@@ -16747,7 +16520,7 @@ impl Device {
         p_pipeline_binary_key: *mut PipelineBinaryKeyKHR,
         p_pipeline_binary_data_size: *mut usize,
         p_pipeline_binary_data: Option<*mut c_void>,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPipelineBinaryDataKHR>(vtable_get(
                 self.vtable(),
@@ -16763,6 +16536,7 @@ impl Device {
                 p_pipeline_binary_data.unwrap_or_default(),
             )
         }
+        .success()
     }
 }
 
@@ -16782,10 +16556,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     ///
@@ -16795,14 +16566,14 @@ impl Device {
         &self,
         p_info: *const ReleaseCapturedPipelineDataInfoKHR,
         p_allocator: Option<*const AllocationCallbacks>,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ReleaseCapturedPipelineDataKHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkReleaseCapturedPipelineDataKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_info, p_allocator.unwrap_or_default()) }
+        unsafe { (command)(self.handle, p_info, p_allocator.unwrap_or_default()) }.success()
     }
 }
 
@@ -16819,10 +16590,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -16832,14 +16600,14 @@ impl Device {
     pub unsafe fn release_swapchain_images_khr(
         &self,
         p_release_info: *const ReleaseSwapchainImagesInfoKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ReleaseSwapchainImagesKHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkReleaseSwapchainImagesKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_release_info) }
+        unsafe { (command)(self.handle, p_release_info) }.success()
     }
 }
 
@@ -16875,7 +16643,7 @@ impl PhysicalDevice {
         &self,
         p_property_count: *mut u32,
         p_properties: Option<*mut CooperativeMatrixPropertiesKHR>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceCooperativeMatrixPropertiesKHR>(
                 vtable_get(
@@ -16891,6 +16659,7 @@ impl PhysicalDevice {
                 p_properties.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -16963,7 +16732,7 @@ impl PhysicalDevice {
         &self,
         p_time_domain_count: *mut u32,
         p_time_domains: Option<*mut TimeDomainKHR>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceCalibrateableTimeDomainsKHR>(
                 vtable_get(
@@ -16979,6 +16748,7 @@ impl PhysicalDevice {
                 p_time_domains.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -17000,10 +16770,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -17017,7 +16784,7 @@ impl Device {
         p_timestamp_infos: *const CalibratedTimestampInfoKHR,
         p_timestamps: *mut u64,
         p_max_deviation: *mut u64,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetCalibratedTimestampsKHR>(vtable_get(
                 self.vtable(),
@@ -17033,6 +16800,7 @@ impl Device {
                 p_max_deviation,
             )
         }
+        .success()
     }
 }
 
@@ -17404,7 +17172,7 @@ impl Device {
         timeout: u64,
         p_fault_counts: *mut u32,
         p_fault_info: Option<*mut DeviceFaultInfoKHR>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceFaultReportsKHR>(vtable_get(
                 self.vtable(),
@@ -17419,6 +17187,7 @@ impl Device {
                 p_fault_info.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -17450,14 +17219,14 @@ impl Device {
     pub unsafe fn get_device_fault_debug_info_khr(
         &self,
         p_debug_info: *mut DeviceFaultDebugInfoKHR,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceFaultDebugInfoKHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetDeviceFaultDebugInfoKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_debug_info) }
+        unsafe { (command)(self.handle, p_debug_info) }.split()
     }
 }
 
@@ -17519,10 +17288,7 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -17534,7 +17300,7 @@ impl Instance {
         p_create_info: *const DebugReportCallbackCreateInfoEXT,
         p_allocator: Option<*const AllocationCallbacks>,
         p_callback: *mut DebugReportCallbackEXT,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateDebugReportCallbackEXT>(vtable_get(
                 self.vtable(),
@@ -17549,6 +17315,7 @@ impl Instance {
                 p_callback,
             )
         }
+        .success()
     }
 }
 
@@ -17658,10 +17425,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -17672,14 +17436,14 @@ impl Device {
     pub unsafe fn debug_marker_set_object_tag_ext(
         &self,
         p_tag_info: *const DebugMarkerObjectTagInfoEXT,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DebugMarkerSetObjectTagEXT>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkDebugMarkerSetObjectTagEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_tag_info) }
+        unsafe { (command)(self.handle, p_tag_info) }.success()
     }
 }
 
@@ -17697,10 +17461,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -17711,14 +17472,14 @@ impl Device {
     pub unsafe fn debug_marker_set_object_name_ext(
         &self,
         p_name_info: *const DebugMarkerObjectNameInfoEXT,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DebugMarkerSetObjectNameEXT>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkDebugMarkerSetObjectNameEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_name_info) }
+        unsafe { (command)(self.handle, p_name_info) }.success()
     }
 }
 
@@ -18201,10 +17962,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -18217,7 +17975,7 @@ impl Device {
         p_create_info: *const CuModuleCreateInfoNVX,
         p_allocator: Option<*const AllocationCallbacks>,
         p_module: *mut CuModuleNVX,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateCuModuleNVX>(vtable_get(
                 self.vtable(),
@@ -18232,6 +17990,7 @@ impl Device {
                 p_module,
             )
         }
+        .success()
     }
 }
 
@@ -18252,10 +18011,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -18268,7 +18024,7 @@ impl Device {
         p_create_info: *const CuFunctionCreateInfoNVX,
         p_allocator: Option<*const AllocationCallbacks>,
         p_function: *mut CuFunctionNVX,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateCuFunctionNVX>(vtable_get(
                 self.vtable(),
@@ -18283,6 +18039,7 @@ impl Device {
                 p_function,
             )
         }
+        .success()
     }
 }
 
@@ -18451,10 +18208,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -18465,14 +18219,14 @@ impl Device {
         &self,
         image_view: ImageView,
         p_properties: *mut ImageViewAddressPropertiesNVX,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetImageViewAddressNVX>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetImageViewAddressNVX as usize,
             ))
         };
-        unsafe { (command)(self.handle, image_view, p_properties) }
+        unsafe { (command)(self.handle, image_view, p_properties) }.success()
     }
 }
 
@@ -18656,7 +18410,7 @@ impl Device {
         info_type: ShaderInfoTypeAMD,
         p_info_size: *mut usize,
         p_info: Option<*mut c_void>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetShaderInfoAMD>(vtable_get(
                 self.vtable(),
@@ -18673,6 +18427,7 @@ impl Device {
                 p_info.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -18693,10 +18448,7 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`NATIVE_WINDOW_IN_USE_KHR`](ResultCode::ERROR_NATIVE_WINDOW_IN_USE_KHR)
@@ -18710,7 +18462,7 @@ impl Instance {
         p_create_info: *const StreamDescriptorSurfaceCreateInfoGGP,
         p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateStreamDescriptorSurfaceGGP>(vtable_get(
                 self.vtable(),
@@ -18725,6 +18477,7 @@ impl Instance {
                 p_surface,
             )
         }
+        .success()
     }
 }
 
@@ -18750,10 +18503,7 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`FORMAT_NOT_SUPPORTED`](ResultCode::ERROR_FORMAT_NOT_SUPPORTED)
@@ -18771,7 +18521,7 @@ impl PhysicalDevice {
         flags: Option<ImageCreateFlags>,
         external_handle_type: Option<ExternalMemoryHandleTypeFlagsNV>,
         p_external_image_format_properties: *mut ExternalImageFormatPropertiesNV,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceExternalImageFormatPropertiesNV>(
                 vtable_get(
@@ -18792,6 +18542,7 @@ impl PhysicalDevice {
                 p_external_image_format_properties,
             )
         }
+        .success()
     }
 }
 
@@ -18813,10 +18564,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`TOO_MANY_OBJECTS`](ResultCode::ERROR_TOO_MANY_OBJECTS)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -18829,14 +18577,14 @@ impl Device {
         memory: DeviceMemory,
         handle_type: ExternalMemoryHandleTypeFlagsNV,
         p_handle: *mut HANDLE,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryWin32HandleNV>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetMemoryWin32HandleNV as usize,
             ))
         };
-        unsafe { (command)(self.handle, memory, handle_type, p_handle) }
+        unsafe { (command)(self.handle, memory, handle_type, p_handle) }.success()
     }
 }
 
@@ -18857,10 +18605,7 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`NATIVE_WINDOW_IN_USE_KHR`](ResultCode::ERROR_NATIVE_WINDOW_IN_USE_KHR)
@@ -18874,7 +18619,7 @@ impl Instance {
         p_create_info: *const ViSurfaceCreateInfoNN,
         p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateViSurfaceNN>(vtable_get(
                 self.vtable(),
@@ -18889,6 +18634,7 @@ impl Instance {
                 p_surface,
             )
         }
+        .success()
     }
 }
 
@@ -19037,23 +18783,20 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     ///
     #[doc(alias = "vkReleaseDisplayEXT")]
     #[inline(always)]
-    pub unsafe fn release_display_ext(&self, display: DisplayKHR) -> ResultCode {
+    pub unsafe fn release_display_ext(&self, display: DisplayKHR) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ReleaseDisplayEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkReleaseDisplayEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, display) }
+        unsafe { (command)(self.handle, display) }.success()
     }
 }
 
@@ -19070,10 +18813,7 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -19085,14 +18825,14 @@ impl PhysicalDevice {
         &self,
         dpy: *mut Display,
         display: DisplayKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_AcquireXlibDisplayEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkAcquireXlibDisplayEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, dpy, display) }
+        unsafe { (command)(self.handle, dpy, display) }.success()
     }
 }
 
@@ -19113,10 +18853,7 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -19128,14 +18865,14 @@ impl PhysicalDevice {
         dpy: *mut Display,
         rr_output: RROutput,
         p_display: *mut DisplayKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetRandROutputDisplayEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetRandROutputDisplayEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, dpy, rr_output, p_display) }
+        unsafe { (command)(self.handle, dpy, rr_output, p_display) }.success()
     }
 }
 
@@ -19155,10 +18892,7 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
@@ -19171,7 +18905,7 @@ impl PhysicalDevice {
         &self,
         surface: SurfaceKHR,
         p_surface_capabilities: *mut SurfaceCapabilities2EXT,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSurfaceCapabilities2EXT>(
                 vtable_get(
@@ -19180,7 +18914,7 @@ impl PhysicalDevice {
                 ),
             )
         };
-        unsafe { (command)(self.handle, surface, p_surface_capabilities) }
+        unsafe { (command)(self.handle, surface, p_surface_capabilities) }.success()
     }
 }
 
@@ -19197,10 +18931,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -19211,14 +18942,14 @@ impl Device {
         &self,
         display: DisplayKHR,
         p_display_power_info: *const DisplayPowerInfoEXT,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_DisplayPowerControlEXT>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkDisplayPowerControlEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, display, p_display_power_info) }
+        unsafe { (command)(self.handle, display, p_display_power_info) }.success()
     }
 }
 
@@ -19239,10 +18970,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -19254,7 +18982,7 @@ impl Device {
         p_device_event_info: *const DeviceEventInfoEXT,
         p_allocator: Option<*const AllocationCallbacks>,
         p_fence: *mut Fence,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_RegisterDeviceEventEXT>(vtable_get(
                 self.vtable(),
@@ -19269,6 +18997,7 @@ impl Device {
                 p_fence,
             )
         }
+        .success()
     }
 }
 
@@ -19290,10 +19019,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -19306,7 +19032,7 @@ impl Device {
         p_display_event_info: *const DisplayEventInfoEXT,
         p_allocator: Option<*const AllocationCallbacks>,
         p_fence: *mut Fence,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_RegisterDisplayEventEXT>(vtable_get(
                 self.vtable(),
@@ -19322,6 +19048,7 @@ impl Device {
                 p_fence,
             )
         }
+        .success()
     }
 }
 
@@ -19342,10 +19069,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
     /// - [`OUT_OF_DATE_KHR`](ResultCode::ERROR_OUT_OF_DATE_KHR)
@@ -19359,14 +19083,14 @@ impl Device {
         swapchain: SwapchainKHR,
         counter: SurfaceCounterFlagsEXT,
         p_counter_value: *mut u64,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetSwapchainCounterEXT>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetSwapchainCounterEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, swapchain, counter, p_counter_value) }
+        unsafe { (command)(self.handle, swapchain, counter, p_counter_value) }.success()
     }
 }
 
@@ -19383,10 +19107,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
@@ -19399,14 +19120,14 @@ impl Device {
         &self,
         swapchain: SwapchainKHR,
         p_display_timing_properties: *mut RefreshCycleDurationGOOGLE,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetRefreshCycleDurationGOOGLE>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetRefreshCycleDurationGOOGLE as usize,
             ))
         };
-        unsafe { (command)(self.handle, swapchain, p_display_timing_properties) }
+        unsafe { (command)(self.handle, swapchain, p_display_timing_properties) }.success()
     }
 }
 
@@ -19446,7 +19167,7 @@ impl Device {
         swapchain: SwapchainKHR,
         p_presentation_timing_count: *mut u32,
         p_presentation_timings: Option<*mut PastPresentationTimingGOOGLE>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPastPresentationTimingGOOGLE>(vtable_get(
                 self.vtable(),
@@ -19461,6 +19182,7 @@ impl Device {
                 p_presentation_timings.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -19635,10 +19357,7 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`NATIVE_WINDOW_IN_USE_KHR`](ResultCode::ERROR_NATIVE_WINDOW_IN_USE_KHR)
@@ -19652,7 +19371,7 @@ impl Instance {
         p_create_info: *const IOSSurfaceCreateInfoMVK,
         p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateIOSSurfaceMVK>(vtable_get(
                 self.vtable(),
@@ -19667,6 +19386,7 @@ impl Instance {
                 p_surface,
             )
         }
+        .success()
     }
 }
 
@@ -19688,10 +19408,7 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`NATIVE_WINDOW_IN_USE_KHR`](ResultCode::ERROR_NATIVE_WINDOW_IN_USE_KHR)
@@ -19705,7 +19422,7 @@ impl Instance {
         p_create_info: *const MacOSSurfaceCreateInfoMVK,
         p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateMacOSSurfaceMVK>(vtable_get(
                 self.vtable(),
@@ -19720,6 +19437,7 @@ impl Instance {
                 p_surface,
             )
         }
+        .success()
     }
 }
 
@@ -19736,10 +19454,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -19750,14 +19465,14 @@ impl Device {
     pub unsafe fn set_debug_utils_object_name_ext(
         &self,
         p_name_info: *const DebugUtilsObjectNameInfoEXT,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SetDebugUtilsObjectNameEXT>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkSetDebugUtilsObjectNameEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_name_info) }
+        unsafe { (command)(self.handle, p_name_info) }.success()
     }
 }
 
@@ -19774,10 +19489,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -19788,14 +19500,14 @@ impl Device {
     pub unsafe fn set_debug_utils_object_tag_ext(
         &self,
         p_tag_info: *const DebugUtilsObjectTagInfoEXT,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SetDebugUtilsObjectTagEXT>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkSetDebugUtilsObjectTagEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_tag_info) }
+        unsafe { (command)(self.handle, p_tag_info) }.success()
     }
 }
 
@@ -20015,10 +19727,7 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -20030,7 +19739,7 @@ impl Instance {
         p_create_info: *const DebugUtilsMessengerCreateInfoEXT,
         p_allocator: Option<*const AllocationCallbacks>,
         p_messenger: *mut DebugUtilsMessengerEXT,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateDebugUtilsMessengerEXT>(vtable_get(
                 self.vtable(),
@@ -20045,6 +19754,7 @@ impl Instance {
                 p_messenger,
             )
         }
+        .success()
     }
 }
 
@@ -20142,10 +19852,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`INVALID_EXTERNAL_HANDLE_KHR`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -20157,7 +19864,7 @@ impl Device {
         &self,
         buffer: *const AHardwareBuffer,
         p_properties: *mut AndroidHardwareBufferPropertiesANDROID,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetAndroidHardwareBufferPropertiesANDROID>(
                 vtable_get(
@@ -20166,7 +19873,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, buffer, p_properties) }
+        unsafe { (command)(self.handle, buffer, p_properties) }.success()
     }
 }
 
@@ -20186,10 +19893,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`TOO_MANY_OBJECTS`](ResultCode::ERROR_TOO_MANY_OBJECTS)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -20201,7 +19905,7 @@ impl Device {
         &self,
         p_info: *const MemoryGetAndroidHardwareBufferInfoANDROID,
         p_buffer: *mut *mut AHardwareBuffer,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryAndroidHardwareBufferANDROID>(
                 vtable_get(
@@ -20210,7 +19914,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_info, p_buffer) }
+        unsafe { (command)(self.handle, p_info, p_buffer) }.success()
     }
 }
 
@@ -20231,10 +19935,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -20247,7 +19948,7 @@ impl Device {
         p_create_info: *const GpaSessionCreateInfoAMD,
         p_allocator: Option<*const AllocationCallbacks>,
         p_gpa_session: *mut GpaSessionAMD,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateGpaSessionAMD>(vtable_get(
                 self.vtable(),
@@ -20262,6 +19963,7 @@ impl Device {
                 p_gpa_session,
             )
         }
+        .success()
     }
 }
 
@@ -20314,10 +20016,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -20328,14 +20027,14 @@ impl Device {
     pub unsafe fn set_gpa_device_clock_mode_amd(
         &self,
         p_info: *mut GpaDeviceClockModeInfoAMD,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SetGpaDeviceClockModeAMD>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkSetGpaDeviceClockModeAMD as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_info) }
+        unsafe { (command)(self.handle, p_info) }.success()
     }
 }
 
@@ -20352,10 +20051,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -20366,14 +20062,14 @@ impl Device {
     pub unsafe fn get_gpa_device_clock_info_amd(
         &self,
         p_info: *mut GpaDeviceGetClockInfoAMD,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetGpaDeviceClockInfoAMD>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetGpaDeviceClockInfoAMD as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_info) }
+        unsafe { (command)(self.handle, p_info) }.success()
     }
 }
 
@@ -20402,10 +20098,7 @@ impl CommandBuffer {
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -20413,14 +20106,17 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdBeginGpaSessionAMD")]
     #[inline(always)]
-    pub unsafe fn cmd_begin_gpa_session_amd(&self, gpa_session: GpaSessionAMD) -> ResultCode {
+    pub unsafe fn cmd_begin_gpa_session_amd(
+        &self,
+        gpa_session: GpaSessionAMD,
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBeginGpaSessionAMD>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkCmdBeginGpaSessionAMD as usize,
             ))
         };
-        unsafe { (command)(self.handle, gpa_session) }
+        unsafe { (command)(self.handle, gpa_session) }.success()
     }
 }
 
@@ -20449,10 +20145,7 @@ impl CommandBuffer {
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -20460,14 +20153,17 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdEndGpaSessionAMD")]
     #[inline(always)]
-    pub unsafe fn cmd_end_gpa_session_amd(&self, gpa_session: GpaSessionAMD) -> ResultCode {
+    pub unsafe fn cmd_end_gpa_session_amd(
+        &self,
+        gpa_session: GpaSessionAMD,
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdEndGpaSessionAMD>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkCmdEndGpaSessionAMD as usize,
             ))
         };
-        unsafe { (command)(self.handle, gpa_session) }
+        unsafe { (command)(self.handle, gpa_session) }.success()
     }
 }
 
@@ -20500,10 +20196,7 @@ impl CommandBuffer {
     /// - [`GRAPHICS`](QueueFlag::GRAPHICS)
     /// - [`COMPUTE`](QueueFlag::COMPUTE)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -20516,7 +20209,7 @@ impl CommandBuffer {
         gpa_session: GpaSessionAMD,
         p_gpa_sample_begin_info: *const GpaSampleBeginInfoAMD,
         p_sample_id: *mut u32,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdBeginGpaSampleAMD>(vtable_get(
                 self.vtable(),
@@ -20531,6 +20224,7 @@ impl CommandBuffer {
                 p_sample_id,
             )
         }
+        .success()
     }
 }
 
@@ -20584,10 +20278,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -20595,14 +20286,17 @@ impl Device {
     ///
     #[doc(alias = "vkGetGpaSessionStatusAMD")]
     #[inline(always)]
-    pub unsafe fn get_gpa_session_status_amd(&self, gpa_session: GpaSessionAMD) -> ResultCode {
+    pub unsafe fn get_gpa_session_status_amd(
+        &self,
+        gpa_session: GpaSessionAMD,
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetGpaSessionStatusAMD>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetGpaSessionStatusAMD as usize,
             ))
         };
-        unsafe { (command)(self.handle, gpa_session) }
+        unsafe { (command)(self.handle, gpa_session) }.success()
     }
 }
 
@@ -20619,10 +20313,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -20636,7 +20327,7 @@ impl Device {
         sample_id: u32,
         p_size_in_bytes: *mut usize,
         p_data: Option<*mut c_void>,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetGpaSessionResultsAMD>(vtable_get(
                 self.vtable(),
@@ -20652,6 +20343,7 @@ impl Device {
                 p_data.unwrap_or_default(),
             )
         }
+        .success()
     }
 }
 
@@ -20667,10 +20359,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -20678,14 +20367,17 @@ impl Device {
     ///
     #[doc(alias = "vkResetGpaSessionAMD")]
     #[inline(always)]
-    pub unsafe fn reset_gpa_session_amd(&self, gpa_session: GpaSessionAMD) -> ResultCode {
+    pub unsafe fn reset_gpa_session_amd(
+        &self,
+        gpa_session: GpaSessionAMD,
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ResetGpaSessionAMD>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkResetGpaSessionAMD as usize,
             ))
         };
-        unsafe { (command)(self.handle, gpa_session) }
+        unsafe { (command)(self.handle, gpa_session) }.success()
     }
 }
 
@@ -20765,7 +20457,7 @@ impl Device {
         p_create_infos: *const ExecutionGraphPipelineCreateInfoAMDX,
         p_allocator: Option<*const AllocationCallbacks>,
         p_pipelines: *mut Pipeline,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateExecutionGraphPipelinesAMDX>(vtable_get(
                 self.vtable(),
@@ -20782,6 +20474,7 @@ impl Device {
                 p_pipelines,
             )
         }
+        .split()
     }
 }
 
@@ -20801,10 +20494,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -20815,7 +20505,7 @@ impl Device {
         &self,
         execution_graph: Pipeline,
         p_size_info: *mut ExecutionGraphPipelineScratchSizeAMDX,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetExecutionGraphPipelineScratchSizeAMDX>(
                 vtable_get(
@@ -20824,7 +20514,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, execution_graph, p_size_info) }
+        unsafe { (command)(self.handle, execution_graph, p_size_info) }.success()
     }
 }
 
@@ -20845,10 +20535,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -20860,7 +20547,7 @@ impl Device {
         execution_graph: Pipeline,
         p_node_info: *const PipelineShaderStageNodeCreateInfoAMDX,
         p_node_index: *mut u32,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetExecutionGraphPipelineNodeIndexAMDX>(
                 vtable_get(
@@ -20869,7 +20556,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, execution_graph, p_node_info, p_node_index) }
+        unsafe { (command)(self.handle, execution_graph, p_node_info, p_node_index) }.success()
     }
 }
 
@@ -21064,10 +20751,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -21080,14 +20764,14 @@ impl Device {
         sampler_count: u32,
         p_samplers: *const SamplerCreateInfo,
         p_descriptors: *const HostAddressRangeEXT,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_WriteSamplerDescriptorsEXT>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkWriteSamplerDescriptorsEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, sampler_count, p_samplers, p_descriptors) }
+        unsafe { (command)(self.handle, sampler_count, p_samplers, p_descriptors) }.success()
     }
 }
 
@@ -21108,10 +20792,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -21124,14 +20805,14 @@ impl Device {
         resource_count: u32,
         p_resources: *const ResourceDescriptorInfoEXT,
         p_descriptors: *const HostAddressRangeEXT,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_WriteResourceDescriptorsEXT>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkWriteResourceDescriptorsEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, resource_count, p_resources, p_descriptors) }
+        unsafe { (command)(self.handle, resource_count, p_resources, p_descriptors) }.success()
     }
 }
 
@@ -21258,10 +20939,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -21274,14 +20952,14 @@ impl Device {
         image_count: u32,
         p_images: *const Image,
         p_datas: *mut HostAddressRangeEXT,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetImageOpaqueCaptureDataEXT>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetImageOpaqueCaptureDataEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, image_count, p_images, p_datas) }
+        unsafe { (command)(self.handle, image_count, p_images, p_datas) }.success()
     }
 }
 
@@ -21330,10 +21008,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`TOO_MANY_OBJECTS`](ResultCode::ERROR_TOO_MANY_OBJECTS)
@@ -21348,14 +21023,14 @@ impl Device {
         p_border_color: *const SamplerCustomBorderColorCreateInfoEXT,
         request_index: Bool32,
         p_index: *mut u32,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_RegisterCustomBorderColorEXT>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkRegisterCustomBorderColorEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_border_color, request_index, p_index) }
+        unsafe { (command)(self.handle, p_border_color, request_index, p_index) }.success()
     }
 }
 
@@ -21401,10 +21076,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -21417,14 +21089,14 @@ impl Device {
         tensor_count: u32,
         p_tensors: *const TensorARM,
         p_datas: *mut HostAddressRangeEXT,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetTensorOpaqueCaptureDataARM>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetTensorOpaqueCaptureDataARM as usize,
             ))
         };
-        unsafe { (command)(self.handle, tensor_count, p_tensors, p_datas) }
+        unsafe { (command)(self.handle, tensor_count, p_tensors, p_datas) }.success()
     }
 }
 
@@ -21515,10 +21187,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -21529,7 +21198,7 @@ impl Device {
         &self,
         image: Image,
         p_properties: *mut ImageDrmFormatModifierPropertiesEXT,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetImageDrmFormatModifierPropertiesEXT>(
                 vtable_get(
@@ -21538,7 +21207,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, image, p_properties) }
+        unsafe { (command)(self.handle, image, p_properties) }.success()
     }
 }
 
@@ -21559,10 +21228,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -21574,7 +21240,7 @@ impl Device {
         p_create_info: *const ValidationCacheCreateInfoEXT,
         p_allocator: Option<*const AllocationCallbacks>,
         p_validation_cache: *mut ValidationCacheEXT,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateValidationCacheEXT>(vtable_get(
                 self.vtable(),
@@ -21589,6 +21255,7 @@ impl Device {
                 p_validation_cache,
             )
         }
+        .success()
     }
 }
 
@@ -21645,10 +21312,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -21661,14 +21325,14 @@ impl Device {
         dst_cache: ValidationCacheEXT,
         src_cache_count: u32,
         p_src_caches: *const ValidationCacheEXT,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_MergeValidationCachesEXT>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkMergeValidationCachesEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, dst_cache, src_cache_count, p_src_caches) }
+        unsafe { (command)(self.handle, dst_cache, src_cache_count, p_src_caches) }.success()
     }
 }
 
@@ -21702,7 +21366,7 @@ impl Device {
         validation_cache: ValidationCacheEXT,
         p_data_size: *mut usize,
         p_data: Option<*mut c_void>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetValidationCacheDataEXT>(vtable_get(
                 self.vtable(),
@@ -21717,6 +21381,7 @@ impl Device {
                 p_data.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -21880,10 +21545,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -21895,7 +21557,7 @@ impl Device {
         p_create_info: *const AccelerationStructureCreateInfoNV,
         p_allocator: Option<*const AllocationCallbacks>,
         p_acceleration_structure: *mut AccelerationStructureNV,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateAccelerationStructureNV>(vtable_get(
                 self.vtable(),
@@ -21910,6 +21572,7 @@ impl Device {
                 p_acceleration_structure,
             )
         }
+        .success()
     }
 }
 
@@ -22003,10 +21666,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -22018,14 +21678,14 @@ impl Device {
         &self,
         bind_info_count: u32,
         p_bind_infos: *const BindAccelerationStructureMemoryInfoNV,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BindAccelerationStructureMemoryNV>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkBindAccelerationStructureMemoryNV as usize,
             ))
         };
-        unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
+        unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }.success()
     }
 }
 
@@ -22269,7 +21929,7 @@ impl Device {
         p_create_infos: *const RayTracingPipelineCreateInfoNV,
         p_allocator: Option<*const AllocationCallbacks>,
         p_pipelines: *mut Pipeline,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateRayTracingPipelinesNV>(vtable_get(
                 self.vtable(),
@@ -22286,6 +21946,7 @@ impl Device {
                 p_pipelines,
             )
         }
+        .split()
     }
 }
 
@@ -22302,10 +21963,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -22320,7 +21978,7 @@ impl Device {
         group_count: u32,
         data_size: usize,
         p_data: *mut c_void,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetRayTracingShaderGroupHandlesKHR>(
                 vtable_get(
@@ -22339,6 +21997,7 @@ impl Device {
                 p_data,
             )
         }
+        .success()
     }
 }
 
@@ -22356,10 +22015,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -22374,7 +22030,7 @@ impl Device {
         group_count: u32,
         data_size: usize,
         p_data: *mut c_void,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetRayTracingShaderGroupHandlesNV>(vtable_get(
                 self.vtable(),
@@ -22391,6 +22047,7 @@ impl Device {
                 p_data,
             )
         }
+        .success()
     }
 }
 
@@ -22408,10 +22065,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -22424,14 +22078,14 @@ impl Device {
         acceleration_structure: AccelerationStructureNV,
         data_size: usize,
         p_data: *mut c_void,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetAccelerationStructureHandleNV>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetAccelerationStructureHandleNV as usize,
             ))
         };
-        unsafe { (command)(self.handle, acceleration_structure, data_size, p_data) }
+        unsafe { (command)(self.handle, acceleration_structure, data_size, p_data) }.success()
     }
 }
 
@@ -22509,10 +22163,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -22520,14 +22171,18 @@ impl Device {
     ///
     #[doc(alias = "vkCompileDeferredNV")]
     #[inline(always)]
-    pub unsafe fn compile_deferred_nv(&self, pipeline: Pipeline, shader: u32) -> ResultCode {
+    pub unsafe fn compile_deferred_nv(
+        &self,
+        pipeline: Pipeline,
+        shader: u32,
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CompileDeferredNV>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkCompileDeferredNV as usize,
             ))
         };
-        unsafe { (command)(self.handle, pipeline, shader) }
+        unsafe { (command)(self.handle, pipeline, shader) }.success()
     }
 }
 
@@ -22548,10 +22203,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`INVALID_EXTERNAL_HANDLE`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -22564,7 +22216,7 @@ impl Device {
         handle_type: ExternalMemoryHandleTypeFlags,
         p_host_pointer: *const c_void,
         p_memory_host_pointer_properties: *mut MemoryHostPointerPropertiesEXT,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryHostPointerPropertiesEXT>(vtable_get(
                 self.vtable(),
@@ -22579,6 +22231,7 @@ impl Device {
                 p_memory_host_pointer_properties,
             )
         }
+        .success()
     }
 }
 
@@ -22722,7 +22375,7 @@ impl PhysicalDevice {
         &self,
         p_time_domain_count: *mut u32,
         p_time_domains: Option<*mut TimeDomainKHR>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceCalibrateableTimeDomainsEXT>(
                 vtable_get(
@@ -22738,6 +22391,7 @@ impl PhysicalDevice {
                 p_time_domains.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -22760,10 +22414,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -22777,7 +22428,7 @@ impl Device {
         p_timestamp_infos: *const CalibratedTimestampInfoKHR,
         p_timestamps: *mut u64,
         p_max_deviation: *mut u64,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetCalibratedTimestampsEXT>(vtable_get(
                 self.vtable(),
@@ -22793,6 +22444,7 @@ impl Device {
                 p_max_deviation,
             )
         }
+        .success()
     }
 }
 
@@ -23161,7 +22813,7 @@ impl Device {
         &self,
         swapchain: SwapchainKHR,
         size: u32,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SetSwapchainPresentTimingQueueSizeEXT>(
                 vtable_get(
@@ -23170,7 +22822,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, swapchain, size) }
+        unsafe { (command)(self.handle, swapchain, size) }.split()
     }
 }
 
@@ -23209,7 +22861,7 @@ impl Device {
         swapchain: SwapchainKHR,
         p_swapchain_timing_properties: *mut SwapchainTimingPropertiesEXT,
         p_swapchain_timing_properties_counter: Option<*mut u64>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetSwapchainTimingPropertiesEXT>(vtable_get(
                 self.vtable(),
@@ -23224,6 +22876,7 @@ impl Device {
                 p_swapchain_timing_properties_counter.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -23262,7 +22915,7 @@ impl Device {
         swapchain: SwapchainKHR,
         p_swapchain_time_domain_properties: *mut SwapchainTimeDomainPropertiesEXT,
         p_time_domains_counter: Option<*mut u64>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetSwapchainTimeDomainPropertiesEXT>(
                 vtable_get(
@@ -23279,6 +22932,7 @@ impl Device {
                 p_time_domains_counter.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -23315,7 +22969,7 @@ impl Device {
         &self,
         p_past_presentation_timing_info: *const PastPresentationTimingInfoEXT,
         p_past_presentation_timing_properties: *mut PastPresentationTimingPropertiesEXT,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPastPresentationTimingEXT>(vtable_get(
                 self.vtable(),
@@ -23329,6 +22983,7 @@ impl Device {
                 p_past_presentation_timing_properties,
             )
         }
+        .split()
     }
 }
 
@@ -23345,10 +23000,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`TOO_MANY_OBJECTS`](ResultCode::ERROR_TOO_MANY_OBJECTS)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -23359,14 +23011,14 @@ impl Device {
     pub unsafe fn initialize_performance_api_intel(
         &self,
         p_initialize_info: *const InitializePerformanceApiInfoINTEL,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_InitializePerformanceApiINTEL>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkInitializePerformanceApiINTEL as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_initialize_info) }
+        unsafe { (command)(self.handle, p_initialize_info) }.success()
     }
 }
 
@@ -23421,10 +23073,7 @@ impl CommandBuffer {
     /// - [`COMPUTE`](QueueFlag::COMPUTE)
     /// - [`TRANSFER`](QueueFlag::TRANSFER)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`TOO_MANY_OBJECTS`](ResultCode::ERROR_TOO_MANY_OBJECTS)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -23435,14 +23084,14 @@ impl CommandBuffer {
     pub unsafe fn cmd_set_performance_marker_intel(
         &self,
         p_marker_info: *const PerformanceMarkerInfoINTEL,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetPerformanceMarkerINTEL>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkCmdSetPerformanceMarkerINTEL as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_marker_info) }
+        unsafe { (command)(self.handle, p_marker_info) }.success()
     }
 }
 
@@ -23474,10 +23123,7 @@ impl CommandBuffer {
     /// - [`COMPUTE`](QueueFlag::COMPUTE)
     /// - [`TRANSFER`](QueueFlag::TRANSFER)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`TOO_MANY_OBJECTS`](ResultCode::ERROR_TOO_MANY_OBJECTS)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -23488,7 +23134,7 @@ impl CommandBuffer {
     pub unsafe fn cmd_set_performance_stream_marker_intel(
         &self,
         p_marker_info: *const PerformanceStreamMarkerInfoINTEL,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetPerformanceStreamMarkerINTEL>(
                 vtable_get(
@@ -23497,7 +23143,7 @@ impl CommandBuffer {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_marker_info) }
+        unsafe { (command)(self.handle, p_marker_info) }.success()
     }
 }
 
@@ -23526,10 +23172,7 @@ impl CommandBuffer {
     /// - [`COMPUTE`](QueueFlag::COMPUTE)
     /// - [`TRANSFER`](QueueFlag::TRANSFER)
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`TOO_MANY_OBJECTS`](ResultCode::ERROR_TOO_MANY_OBJECTS)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -23540,14 +23183,14 @@ impl CommandBuffer {
     pub unsafe fn cmd_set_performance_override_intel(
         &self,
         p_override_info: *const PerformanceOverrideInfoINTEL,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CmdSetPerformanceOverrideINTEL>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkCmdSetPerformanceOverrideINTEL as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_override_info) }
+        unsafe { (command)(self.handle, p_override_info) }.success()
     }
 }
 
@@ -23567,10 +23210,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`TOO_MANY_OBJECTS`](ResultCode::ERROR_TOO_MANY_OBJECTS)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -23582,7 +23222,7 @@ impl Device {
         &self,
         p_acquire_info: *const PerformanceConfigurationAcquireInfoINTEL,
         p_configuration: *mut PerformanceConfigurationINTEL,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_AcquirePerformanceConfigurationINTEL>(
                 vtable_get(
@@ -23591,7 +23231,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_acquire_info, p_configuration) }
+        unsafe { (command)(self.handle, p_acquire_info, p_configuration) }.success()
     }
 }
 
@@ -23608,10 +23248,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`TOO_MANY_OBJECTS`](ResultCode::ERROR_TOO_MANY_OBJECTS)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -23622,7 +23259,7 @@ impl Device {
     pub unsafe fn release_performance_configuration_intel(
         &self,
         configuration: Option<PerformanceConfigurationINTEL>,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ReleasePerformanceConfigurationINTEL>(
                 vtable_get(
@@ -23631,7 +23268,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, configuration.unwrap_or_default()) }
+        unsafe { (command)(self.handle, configuration.unwrap_or_default()) }.success()
     }
 }
 
@@ -23648,10 +23285,7 @@ impl Queue {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`TOO_MANY_OBJECTS`](ResultCode::ERROR_TOO_MANY_OBJECTS)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -23662,7 +23296,7 @@ impl Queue {
     pub unsafe fn set_performance_configuration_intel(
         &self,
         configuration: PerformanceConfigurationINTEL,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_QueueSetPerformanceConfigurationINTEL>(
                 vtable_get(
@@ -23671,7 +23305,7 @@ impl Queue {
                 ),
             )
         };
-        unsafe { (command)(self.handle, configuration) }
+        unsafe { (command)(self.handle, configuration) }.success()
     }
 }
 
@@ -23691,10 +23325,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`TOO_MANY_OBJECTS`](ResultCode::ERROR_TOO_MANY_OBJECTS)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -23706,14 +23337,14 @@ impl Device {
         &self,
         parameter: PerformanceParameterTypeINTEL,
         p_value: *mut PerformanceValueINTEL,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPerformanceParameterINTEL>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetPerformanceParameterINTEL as usize,
             ))
         };
-        unsafe { (command)(self.handle, parameter, p_value) }
+        unsafe { (command)(self.handle, parameter, p_value) }.success()
     }
 }
 
@@ -23763,10 +23394,7 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -23779,7 +23407,7 @@ impl Instance {
         p_create_info: *const ImagePipeSurfaceCreateInfoFUCHSIA,
         p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateImagePipeSurfaceFUCHSIA>(vtable_get(
                 self.vtable(),
@@ -23794,6 +23422,7 @@ impl Instance {
                 p_surface,
             )
         }
+        .success()
     }
 }
 
@@ -23814,10 +23443,7 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`NATIVE_WINDOW_IN_USE_KHR`](ResultCode::ERROR_NATIVE_WINDOW_IN_USE_KHR)
@@ -23831,7 +23457,7 @@ impl Instance {
         p_create_info: *const MetalSurfaceCreateInfoEXT,
         p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateMetalSurfaceEXT>(vtable_get(
                 self.vtable(),
@@ -23846,6 +23472,7 @@ impl Instance {
                 p_surface,
             )
         }
+        .success()
     }
 }
 
@@ -23911,7 +23538,7 @@ impl PhysicalDevice {
         &self,
         p_tool_count: *mut u32,
         p_tool_properties: Option<*mut PhysicalDeviceToolProperties>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceToolPropertiesEXT>(
                 vtable_get(
@@ -23927,6 +23554,7 @@ impl PhysicalDevice {
                 p_tool_properties.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -23962,7 +23590,7 @@ impl PhysicalDevice {
         &self,
         p_property_count: *mut u32,
         p_properties: Option<*mut CooperativeMatrixPropertiesNV>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceCooperativeMatrixPropertiesNV>(
                 vtable_get(
@@ -23978,6 +23606,7 @@ impl PhysicalDevice {
                 p_properties.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -24014,7 +23643,7 @@ impl PhysicalDevice {
         &self,
         p_combination_count: *mut u32,
         p_combinations: Option<*mut FramebufferMixedSamplesCombinationNV>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
@@ -24032,6 +23661,7 @@ impl PhysicalDevice {
                 p_combinations.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -24070,7 +23700,7 @@ impl PhysicalDevice {
         p_surface_info: *const PhysicalDeviceSurfaceInfo2KHR,
         p_present_mode_count: *mut u32,
         p_present_modes: Option<*mut PresentModeKHR>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceSurfacePresentModes2EXT>(
                 vtable_get(
@@ -24087,6 +23717,7 @@ impl PhysicalDevice {
                 p_present_modes.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -24103,10 +23734,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
@@ -24119,14 +23747,14 @@ impl Device {
     pub unsafe fn acquire_full_screen_exclusive_mode_ext(
         &self,
         swapchain: SwapchainKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_AcquireFullScreenExclusiveModeEXT>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkAcquireFullScreenExclusiveModeEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, swapchain) }
+        unsafe { (command)(self.handle, swapchain) }.success()
     }
 }
 
@@ -24143,10 +23771,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
@@ -24158,14 +23783,14 @@ impl Device {
     pub unsafe fn release_full_screen_exclusive_mode_ext(
         &self,
         swapchain: SwapchainKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ReleaseFullScreenExclusiveModeEXT>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkReleaseFullScreenExclusiveModeEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, swapchain) }
+        unsafe { (command)(self.handle, swapchain) }.success()
     }
 }
 
@@ -24185,10 +23810,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
@@ -24201,7 +23823,7 @@ impl Device {
         &self,
         p_surface_info: *const PhysicalDeviceSurfaceInfo2KHR,
         p_modes: *mut DeviceGroupPresentModeFlagsKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceGroupSurfacePresentModes2EXT>(
                 vtable_get(
@@ -24210,7 +23832,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_surface_info, p_modes) }
+        unsafe { (command)(self.handle, p_surface_info, p_modes) }.success()
     }
 }
 
@@ -24231,10 +23853,7 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -24247,7 +23866,7 @@ impl Instance {
         p_create_info: *const HeadlessSurfaceCreateInfoEXT,
         p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateHeadlessSurfaceEXT>(vtable_get(
                 self.vtable(),
@@ -24262,6 +23881,7 @@ impl Instance {
                 p_surface,
             )
         }
+        .success()
     }
 }
 
@@ -24860,10 +24480,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
@@ -24876,14 +24493,14 @@ impl Device {
     pub unsafe fn copy_memory_to_image_ext(
         &self,
         p_copy_memory_to_image_info: *const CopyMemoryToImageInfo,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CopyMemoryToImageEXT>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkCopyMemoryToImageEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_copy_memory_to_image_info) }
+        unsafe { (command)(self.handle, p_copy_memory_to_image_info) }.success()
     }
 }
 
@@ -24901,10 +24518,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
@@ -24917,14 +24531,14 @@ impl Device {
     pub unsafe fn copy_image_to_memory_ext(
         &self,
         p_copy_image_to_memory_info: *const CopyImageToMemoryInfo,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CopyImageToMemoryEXT>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkCopyImageToMemoryEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_copy_image_to_memory_info) }
+        unsafe { (command)(self.handle, p_copy_image_to_memory_info) }.success()
     }
 }
 
@@ -24942,10 +24556,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
@@ -24958,14 +24569,14 @@ impl Device {
     pub unsafe fn copy_image_to_image_ext(
         &self,
         p_copy_image_to_image_info: *const CopyImageToImageInfo,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CopyImageToImageEXT>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkCopyImageToImageEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_copy_image_to_image_info) }
+        unsafe { (command)(self.handle, p_copy_image_to_image_info) }.success()
     }
 }
 
@@ -24983,10 +24594,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
@@ -25000,14 +24608,14 @@ impl Device {
         &self,
         transition_count: u32,
         p_transitions: *const HostImageLayoutTransitionInfo,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_TransitionImageLayoutEXT>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkTransitionImageLayoutEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, transition_count, p_transitions) }
+        unsafe { (command)(self.handle, transition_count, p_transitions) }.success()
     }
 }
 
@@ -25058,10 +24666,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -25071,14 +24676,14 @@ impl Device {
     pub unsafe fn release_swapchain_images_ext(
         &self,
         p_release_info: *const ReleaseSwapchainImagesInfoKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ReleaseSwapchainImagesEXT>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkReleaseSwapchainImagesEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_release_info) }
+        unsafe { (command)(self.handle, p_release_info) }.success()
     }
 }
 
@@ -25258,10 +24863,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -25274,7 +24876,7 @@ impl Device {
         p_create_info: *const IndirectCommandsLayoutCreateInfoNV,
         p_allocator: Option<*const AllocationCallbacks>,
         p_indirect_commands_layout: *mut IndirectCommandsLayoutNV,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateIndirectCommandsLayoutNV>(vtable_get(
                 self.vtable(),
@@ -25289,6 +24891,7 @@ impl Device {
                 p_indirect_commands_layout,
             )
         }
+        .success()
     }
 }
 
@@ -25377,24 +24980,25 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     ///
     #[doc(alias = "vkAcquireDrmDisplayEXT")]
     #[inline(always)]
-    pub unsafe fn acquire_drm_display_ext(&self, drm_fd: i32, display: DisplayKHR) -> ResultCode {
+    pub unsafe fn acquire_drm_display_ext(
+        &self,
+        drm_fd: i32,
+        display: DisplayKHR,
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_AcquireDrmDisplayEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkAcquireDrmDisplayEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, drm_fd, display) }
+        unsafe { (command)(self.handle, drm_fd, display) }.success()
     }
 }
 
@@ -25411,10 +25015,7 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -25427,14 +25028,14 @@ impl PhysicalDevice {
         drm_fd: i32,
         connector_id: u32,
         display: *mut DisplayKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDrmDisplayEXT>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetDrmDisplayEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, drm_fd, connector_id, display) }
+        unsafe { (command)(self.handle, drm_fd, connector_id, display) }.success()
     }
 }
 
@@ -25456,10 +25057,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -25471,7 +25069,7 @@ impl Device {
         p_create_info: *const PrivateDataSlotCreateInfo,
         p_allocator: Option<*const AllocationCallbacks>,
         p_private_data_slot: *mut PrivateDataSlot,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreatePrivateDataSlotEXT>(vtable_get(
                 self.vtable(),
@@ -25486,6 +25084,7 @@ impl Device {
                 p_private_data_slot,
             )
         }
+        .success()
     }
 }
 
@@ -25540,10 +25139,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -25556,7 +25152,7 @@ impl Device {
         object_handle: u64,
         private_data_slot: PrivateDataSlot,
         data: u64,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SetPrivateDataEXT>(vtable_get(
                 self.vtable(),
@@ -25572,6 +25168,7 @@ impl Device {
                 data,
             )
         }
+        .success()
     }
 }
 
@@ -25629,10 +25226,7 @@ impl Queue {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -25642,14 +25236,14 @@ impl Queue {
     pub unsafe fn set_perf_hint_qcom(
         &self,
         p_perf_hint_info: *const PerfHintInfoQCOM,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_QueueSetPerfHintQCOM>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkQueueSetPerfHintQCOM as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_perf_hint_info) }
+        unsafe { (command)(self.handle, p_perf_hint_info) }.success()
     }
 }
 
@@ -25670,10 +25264,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -25686,7 +25277,7 @@ impl Device {
         p_create_info: *const CudaModuleCreateInfoNV,
         p_allocator: Option<*const AllocationCallbacks>,
         p_module: *mut CudaModuleNV,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateCudaModuleNV>(vtable_get(
                 self.vtable(),
@@ -25701,6 +25292,7 @@ impl Device {
                 p_module,
             )
         }
+        .success()
     }
 }
 
@@ -25733,7 +25325,7 @@ impl Device {
         module: CudaModuleNV,
         p_cache_size: *mut usize,
         p_cache_data: Option<*mut c_void>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetCudaModuleCacheNV>(vtable_get(
                 self.vtable(),
@@ -25748,6 +25340,7 @@ impl Device {
                 p_cache_data.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -25768,10 +25361,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -25784,7 +25374,7 @@ impl Device {
         p_create_info: *const CudaFunctionCreateInfoNV,
         p_allocator: Option<*const AllocationCallbacks>,
         p_function: *mut CudaFunctionNV,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateCudaFunctionNV>(vtable_get(
                 self.vtable(),
@@ -25799,6 +25389,7 @@ impl Device {
                 p_function,
             )
         }
+        .success()
     }
 }
 
@@ -26528,10 +26119,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -26547,7 +26135,7 @@ impl Device {
         &self,
         p_info: *const BufferCaptureDescriptorDataInfoEXT,
         p_data: *mut c_void,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetBufferOpaqueCaptureDescriptorDataEXT>(
                 vtable_get(
@@ -26556,7 +26144,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_info, p_data) }
+        unsafe { (command)(self.handle, p_info, p_data) }.success()
     }
 }
 
@@ -26577,10 +26165,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -26596,7 +26181,7 @@ impl Device {
         &self,
         p_info: *const ImageCaptureDescriptorDataInfoEXT,
         p_data: *mut c_void,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetImageOpaqueCaptureDescriptorDataEXT>(
                 vtable_get(
@@ -26605,7 +26190,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_info, p_data) }
+        unsafe { (command)(self.handle, p_info, p_data) }.success()
     }
 }
 
@@ -26626,10 +26211,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -26645,7 +26227,7 @@ impl Device {
         &self,
         p_info: *const ImageViewCaptureDescriptorDataInfoEXT,
         p_data: *mut c_void,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetImageViewOpaqueCaptureDescriptorDataEXT>(
                 vtable_get(
@@ -26654,7 +26236,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_info, p_data) }
+        unsafe { (command)(self.handle, p_info, p_data) }.success()
     }
 }
 
@@ -26675,10 +26257,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -26694,7 +26273,7 @@ impl Device {
         &self,
         p_info: *const SamplerCaptureDescriptorDataInfoEXT,
         p_data: *mut c_void,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetSamplerOpaqueCaptureDescriptorDataEXT>(
                 vtable_get(
@@ -26703,7 +26282,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_info, p_data) }
+        unsafe { (command)(self.handle, p_info, p_data) }.success()
     }
 }
 
@@ -26725,10 +26304,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -26744,7 +26320,7 @@ impl Device {
         &self,
         p_info: *const AccelerationStructureCaptureDescriptorDataInfoEXT,
         p_data: *mut c_void,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
@@ -26754,7 +26330,7 @@ impl Device {
                 DeviceCommand::vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_info, p_data) }
+        unsafe { (command)(self.handle, p_info, p_data) }.success()
     }
 }
 
@@ -26833,7 +26409,7 @@ impl Device {
         &self,
         p_fault_counts: *mut DeviceFaultCountsEXT,
         p_fault_info: Option<*mut DeviceFaultInfoEXT>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceFaultInfoEXT>(vtable_get(
                 self.vtable(),
@@ -26847,6 +26423,7 @@ impl Device {
                 p_fault_info.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -26863,10 +26440,7 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
@@ -26875,14 +26449,14 @@ impl PhysicalDevice {
     ///
     #[doc(alias = "vkAcquireWinrtDisplayNV")]
     #[inline(always)]
-    pub unsafe fn acquire_winrt_display_nv(&self, display: DisplayKHR) -> ResultCode {
+    pub unsafe fn acquire_winrt_display_nv(&self, display: DisplayKHR) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_AcquireWinrtDisplayNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkAcquireWinrtDisplayNV as usize,
             ))
         };
-        unsafe { (command)(self.handle, display) }
+        unsafe { (command)(self.handle, display) }.success()
     }
 }
 
@@ -26899,10 +26473,7 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`DEVICE_LOST`](ResultCode::ERROR_DEVICE_LOST)
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
@@ -26915,14 +26486,14 @@ impl PhysicalDevice {
         &self,
         device_relative_id: u32,
         p_display: *mut DisplayKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetWinrtDisplayNV>(vtable_get(
                 self.vtable(),
                 InstanceCommand::vkGetWinrtDisplayNV as usize,
             ))
         };
-        unsafe { (command)(self.handle, device_relative_id, p_display) }
+        unsafe { (command)(self.handle, device_relative_id, p_display) }.success()
     }
 }
 
@@ -26943,10 +26514,7 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -26959,7 +26527,7 @@ impl Instance {
         p_create_info: *const DirectFBSurfaceCreateInfoEXT,
         p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateDirectFBSurfaceEXT>(vtable_get(
                 self.vtable(),
@@ -26974,6 +26542,7 @@ impl Instance {
                 p_surface,
             )
         }
+        .success()
     }
 }
 
@@ -27081,10 +26650,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`TOO_MANY_OBJECTS`](ResultCode::ERROR_TOO_MANY_OBJECTS)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -27096,14 +26662,14 @@ impl Device {
         &self,
         p_get_zircon_handle_info: *const MemoryGetZirconHandleInfoFUCHSIA,
         p_zircon_handle: *mut zx_handle_t,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryZirconHandleFUCHSIA>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetMemoryZirconHandleFUCHSIA as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_get_zircon_handle_info, p_zircon_handle) }
+        unsafe { (command)(self.handle, p_get_zircon_handle_info, p_zircon_handle) }.success()
     }
 }
 
@@ -27124,10 +26690,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`INVALID_EXTERNAL_HANDLE`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -27139,7 +26702,7 @@ impl Device {
         handle_type: ExternalMemoryHandleTypeFlags,
         zircon_handle: zx_handle_t,
         p_memory_zircon_handle_properties: *mut MemoryZirconHandlePropertiesFUCHSIA,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryZirconHandlePropertiesFUCHSIA>(
                 vtable_get(
@@ -27156,6 +26719,7 @@ impl Device {
                 p_memory_zircon_handle_properties,
             )
         }
+        .success()
     }
 }
 
@@ -27172,10 +26736,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`INVALID_EXTERNAL_HANDLE`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -27186,7 +26747,7 @@ impl Device {
     pub unsafe fn import_semaphore_zircon_handle_fuchsia(
         &self,
         p_import_semaphore_zircon_handle_info: *const ImportSemaphoreZirconHandleInfoFUCHSIA,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ImportSemaphoreZirconHandleFUCHSIA>(
                 vtable_get(
@@ -27195,7 +26756,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_import_semaphore_zircon_handle_info) }
+        unsafe { (command)(self.handle, p_import_semaphore_zircon_handle_info) }.success()
     }
 }
 
@@ -27215,10 +26776,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`TOO_MANY_OBJECTS`](ResultCode::ERROR_TOO_MANY_OBJECTS)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -27230,14 +26788,14 @@ impl Device {
         &self,
         p_get_zircon_handle_info: *const SemaphoreGetZirconHandleInfoFUCHSIA,
         p_zircon_handle: *mut zx_handle_t,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetSemaphoreZirconHandleFUCHSIA>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetSemaphoreZirconHandleFUCHSIA as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_get_zircon_handle_info, p_zircon_handle) }
+        unsafe { (command)(self.handle, p_get_zircon_handle_info, p_zircon_handle) }.success()
     }
 }
 
@@ -27258,10 +26816,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`INVALID_EXTERNAL_HANDLE`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE)
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
@@ -27275,7 +26830,7 @@ impl Device {
         p_create_info: *const BufferCollectionCreateInfoFUCHSIA,
         p_allocator: Option<*const AllocationCallbacks>,
         p_collection: *mut BufferCollectionFUCHSIA,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateBufferCollectionFUCHSIA>(vtable_get(
                 self.vtable(),
@@ -27290,6 +26845,7 @@ impl Device {
                 p_collection,
             )
         }
+        .success()
     }
 }
 
@@ -27309,10 +26865,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`FORMAT_NOT_SUPPORTED`](ResultCode::ERROR_FORMAT_NOT_SUPPORTED)
@@ -27325,7 +26878,7 @@ impl Device {
         &self,
         collection: BufferCollectionFUCHSIA,
         p_image_constraints_info: *const ImageConstraintsInfoFUCHSIA,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SetBufferCollectionImageConstraintsFUCHSIA>(
                 vtable_get(
@@ -27334,7 +26887,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, collection, p_image_constraints_info) }
+        unsafe { (command)(self.handle, collection, p_image_constraints_info) }.success()
     }
 }
 
@@ -27354,10 +26907,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`FORMAT_NOT_SUPPORTED`](ResultCode::ERROR_FORMAT_NOT_SUPPORTED)
@@ -27370,7 +26920,7 @@ impl Device {
         &self,
         collection: BufferCollectionFUCHSIA,
         p_buffer_constraints_info: *const BufferConstraintsInfoFUCHSIA,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SetBufferCollectionBufferConstraintsFUCHSIA>(
                 vtable_get(
@@ -27379,7 +26929,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, collection, p_buffer_constraints_info) }
+        unsafe { (command)(self.handle, collection, p_buffer_constraints_info) }.success()
     }
 }
 
@@ -27429,10 +26979,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -27444,7 +26991,7 @@ impl Device {
         &self,
         collection: BufferCollectionFUCHSIA,
         p_properties: *mut BufferCollectionPropertiesFUCHSIA,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetBufferCollectionPropertiesFUCHSIA>(
                 vtable_get(
@@ -27453,7 +27000,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, collection, p_properties) }
+        unsafe { (command)(self.handle, collection, p_properties) }.success()
     }
 }
 
@@ -27470,10 +27017,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
@@ -27486,7 +27030,7 @@ impl Device {
         &self,
         renderpass: RenderPass,
         p_max_workgroup_size: *mut Extent2D,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI>(
                 vtable_get(
@@ -27495,7 +27039,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, renderpass, p_max_workgroup_size) }
+        unsafe { (command)(self.handle, renderpass, p_max_workgroup_size) }.success()
     }
 }
 
@@ -27590,10 +27134,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`INVALID_EXTERNAL_HANDLE`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -27604,14 +27145,14 @@ impl Device {
         &self,
         p_memory_get_remote_address_info: *const MemoryGetRemoteAddressInfoNV,
         p_address: *mut RemoteAddressNV,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryRemoteAddressNV>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetMemoryRemoteAddressNV as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_memory_get_remote_address_info, p_address) }
+        unsafe { (command)(self.handle, p_memory_get_remote_address_info, p_address) }.success()
     }
 }
 
@@ -27628,10 +27169,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -27642,14 +27180,14 @@ impl Device {
         &self,
         p_pipeline_info: *const PipelineInfoKHR,
         p_pipeline_properties: *mut BaseOutStructure,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPipelinePropertiesEXT>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetPipelinePropertiesEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_pipeline_info, p_pipeline_properties) }
+        unsafe { (command)(self.handle, p_pipeline_info, p_pipeline_properties) }.success()
     }
 }
 
@@ -27855,10 +27393,7 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -27871,7 +27406,7 @@ impl Instance {
         p_create_info: *const ScreenSurfaceCreateInfoQNX,
         p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateScreenSurfaceQNX>(vtable_get(
                 self.vtable(),
@@ -27886,6 +27421,7 @@ impl Instance {
                 p_surface,
             )
         }
+        .success()
     }
 }
 
@@ -28092,10 +27628,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`](ResultCode::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -28108,7 +27641,7 @@ impl Device {
         p_create_info: *const MicromapCreateInfoEXT,
         p_allocator: Option<*const AllocationCallbacks>,
         p_micromap: *mut MicromapEXT,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateMicromapEXT>(vtable_get(
                 self.vtable(),
@@ -28123,6 +27656,7 @@ impl Device {
                 p_micromap,
             )
         }
+        .success()
     }
 }
 
@@ -28246,7 +27780,7 @@ impl Device {
         deferred_operation: Option<DeferredOperationKHR>,
         info_count: u32,
         p_infos: *const MicromapBuildInfoEXT,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BuildMicromapsEXT>(vtable_get(
                 self.vtable(),
@@ -28261,6 +27795,7 @@ impl Device {
                 p_infos,
             )
         }
+        .split()
     }
 }
 
@@ -28304,14 +27839,14 @@ impl Device {
         &self,
         deferred_operation: Option<DeferredOperationKHR>,
         p_info: *const CopyMicromapInfoEXT,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CopyMicromapEXT>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkCopyMicromapEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, deferred_operation.unwrap_or_default(), p_info) }
+        unsafe { (command)(self.handle, deferred_operation.unwrap_or_default(), p_info) }.split()
     }
 }
 
@@ -28355,14 +27890,14 @@ impl Device {
         &self,
         deferred_operation: Option<DeferredOperationKHR>,
         p_info: *const CopyMicromapToMemoryInfoEXT,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CopyMicromapToMemoryEXT>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkCopyMicromapToMemoryEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, deferred_operation.unwrap_or_default(), p_info) }
+        unsafe { (command)(self.handle, deferred_operation.unwrap_or_default(), p_info) }.split()
     }
 }
 
@@ -28406,14 +27941,14 @@ impl Device {
         &self,
         deferred_operation: Option<DeferredOperationKHR>,
         p_info: *const CopyMemoryToMicromapInfoEXT,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CopyMemoryToMicromapEXT>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkCopyMemoryToMicromapEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, deferred_operation.unwrap_or_default(), p_info) }
+        unsafe { (command)(self.handle, deferred_operation.unwrap_or_default(), p_info) }.split()
     }
 }
 
@@ -28438,10 +27973,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -28463,7 +27995,7 @@ impl Device {
         data_size: usize,
         p_data: *mut c_void,
         stride: usize,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_WriteMicromapsPropertiesEXT>(vtable_get(
                 self.vtable(),
@@ -28481,6 +28013,7 @@ impl Device {
                 stride,
             )
         }
+        .success()
     }
 }
 
@@ -29258,10 +28791,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`INVALID_EXTERNAL_HANDLE_KHR`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -29273,14 +28803,14 @@ impl Device {
         &self,
         buffer: *const OH_NativeBuffer,
         p_properties: *mut NativeBufferPropertiesOHOS,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetNativeBufferPropertiesOHOS>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetNativeBufferPropertiesOHOS as usize,
             ))
         };
-        unsafe { (command)(self.handle, buffer, p_properties) }
+        unsafe { (command)(self.handle, buffer, p_properties) }.success()
     }
 }
 
@@ -29300,10 +28830,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -29314,14 +28841,14 @@ impl Device {
         &self,
         p_info: *const MemoryGetNativeBufferInfoOHOS,
         p_buffer: *mut *mut OH_NativeBuffer,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryNativeBufferOHOS>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetMemoryNativeBufferOHOS as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_info, p_buffer) }
+        unsafe { (command)(self.handle, p_info, p_buffer) }.success()
     }
 }
 
@@ -30589,10 +30116,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -30605,7 +30129,7 @@ impl Device {
         p_create_info: *const TensorCreateInfoARM,
         p_allocator: Option<*const AllocationCallbacks>,
         p_tensor: *mut TensorARM,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateTensorARM>(vtable_get(
                 self.vtable(),
@@ -30620,6 +30144,7 @@ impl Device {
                 p_tensor,
             )
         }
+        .success()
     }
 }
 
@@ -30676,10 +30201,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -30692,7 +30214,7 @@ impl Device {
         p_create_info: *const TensorViewCreateInfoARM,
         p_allocator: Option<*const AllocationCallbacks>,
         p_view: *mut TensorViewARM,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateTensorViewARM>(vtable_get(
                 self.vtable(),
@@ -30707,6 +30229,7 @@ impl Device {
                 p_view,
             )
         }
+        .success()
     }
 }
 
@@ -30792,10 +30315,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -30807,14 +30327,14 @@ impl Device {
         &self,
         bind_info_count: u32,
         p_bind_infos: *const BindTensorMemoryInfoARM,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BindTensorMemoryARM>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkBindTensorMemoryARM as usize,
             ))
         };
-        unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
+        unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }.success()
     }
 }
 
@@ -30947,10 +30467,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -30962,7 +30479,7 @@ impl Device {
         &self,
         p_info: *const TensorCaptureDescriptorDataInfoARM,
         p_data: *mut c_void,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetTensorOpaqueCaptureDescriptorDataARM>(
                 vtable_get(
@@ -30971,7 +30488,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_info, p_data) }
+        unsafe { (command)(self.handle, p_info, p_data) }.success()
     }
 }
 
@@ -30991,10 +30508,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -31006,7 +30520,7 @@ impl Device {
         &self,
         p_info: *const TensorViewCaptureDescriptorDataInfoARM,
         p_data: *mut c_void,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetTensorViewOpaqueCaptureDescriptorDataARM>(
                 vtable_get(
@@ -31015,7 +30529,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_info, p_data) }
+        unsafe { (command)(self.handle, p_info, p_data) }.success()
     }
 }
 
@@ -31119,7 +30633,7 @@ impl PhysicalDevice {
         p_optical_flow_image_format_info: *const OpticalFlowImageFormatInfoNV,
         p_format_count: *mut u32,
         p_image_format_properties: Option<*mut OpticalFlowImageFormatPropertiesNV>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceOpticalFlowImageFormatsNV>(
                 vtable_get(
@@ -31136,6 +30650,7 @@ impl PhysicalDevice {
                 p_image_format_properties.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -31156,10 +30671,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -31172,7 +30684,7 @@ impl Device {
         p_create_info: *const OpticalFlowSessionCreateInfoNV,
         p_allocator: Option<*const AllocationCallbacks>,
         p_session: *mut OpticalFlowSessionNV,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateOpticalFlowSessionNV>(vtable_get(
                 self.vtable(),
@@ -31187,6 +30699,7 @@ impl Device {
                 p_session,
             )
         }
+        .success()
     }
 }
 
@@ -31238,10 +30751,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -31255,7 +30765,7 @@ impl Device {
         binding_point: OpticalFlowSessionBindingPointNV,
         view: Option<ImageView>,
         layout: ImageLayout,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BindOpticalFlowSessionImageNV>(vtable_get(
                 self.vtable(),
@@ -31271,6 +30781,7 @@ impl Device {
                 layout,
             )
         }
+        .success()
     }
 }
 
@@ -31379,7 +30890,7 @@ impl Device {
         p_create_infos: *const ShaderCreateInfoEXT,
         p_allocator: Option<*const AllocationCallbacks>,
         p_shaders: *mut ShaderEXT,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateShadersEXT>(vtable_get(
                 self.vtable(),
@@ -31395,6 +30906,7 @@ impl Device {
                 p_shaders,
             )
         }
+        .split()
     }
 }
 
@@ -31464,14 +30976,14 @@ impl Device {
         shader: ShaderEXT,
         p_data_size: *mut usize,
         p_data: Option<*mut c_void>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetShaderBinaryDataEXT>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetShaderBinaryDataEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, shader, p_data_size, p_data.unwrap_or_default()) }
+        unsafe { (command)(self.handle, shader, p_data_size, p_data.unwrap_or_default()) }.split()
     }
 }
 
@@ -31603,7 +31115,7 @@ impl Device {
         framebuffer: Framebuffer,
         p_properties_count: *mut u32,
         p_properties: Option<*mut TilePropertiesQCOM>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetFramebufferTilePropertiesQCOM>(vtable_get(
                 self.vtable(),
@@ -31618,6 +31130,7 @@ impl Device {
                 p_properties.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -31634,10 +31147,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     ///
@@ -31647,7 +31157,7 @@ impl Device {
         &self,
         p_rendering_info: *const RenderingInfo,
         p_properties: *mut TilePropertiesQCOM,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDynamicRenderingTilePropertiesQCOM>(
                 vtable_get(
@@ -31656,7 +31166,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, p_rendering_info, p_properties) }
+        unsafe { (command)(self.handle, p_rendering_info, p_properties) }.success()
     }
 }
 
@@ -31692,7 +31202,7 @@ impl PhysicalDevice {
         &self,
         p_property_count: *mut u32,
         p_properties: Option<*mut CooperativeVectorPropertiesNV>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceCooperativeVectorPropertiesNV>(
                 vtable_get(
@@ -31708,6 +31218,7 @@ impl PhysicalDevice {
                 p_properties.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -31738,14 +31249,14 @@ impl Device {
     pub unsafe fn convert_cooperative_vector_matrix_nv(
         &self,
         p_info: *const ConvertCooperativeVectorMatrixInfoNV,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_ConvertCooperativeVectorMatrixNV>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkConvertCooperativeVectorMatrixNV as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_info) }
+        unsafe { (command)(self.handle, p_info) }.split()
     }
 }
 
@@ -31805,10 +31316,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`INITIALIZATION_FAILED`](ResultCode::ERROR_INITIALIZATION_FAILED)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
@@ -31819,14 +31327,14 @@ impl Device {
         &self,
         swapchain: SwapchainKHR,
         p_sleep_mode_info: *const LatencySleepModeInfoNV,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_SetLatencySleepModeNV>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkSetLatencySleepModeNV as usize,
             ))
         };
-        unsafe { (command)(self.handle, swapchain, p_sleep_mode_info) }
+        unsafe { (command)(self.handle, swapchain, p_sleep_mode_info) }.success()
     }
 }
 
@@ -31843,10 +31351,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
     /// - [`VALIDATION_FAILED`](ResultCode::ERROR_VALIDATION_FAILED)
     ///
@@ -31856,14 +31361,14 @@ impl Device {
         &self,
         swapchain: SwapchainKHR,
         p_sleep_info: *const LatencySleepInfoNV,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_LatencySleepNV>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkLatencySleepNV as usize,
             ))
         };
-        unsafe { (command)(self.handle, swapchain, p_sleep_info) }
+        unsafe { (command)(self.handle, swapchain, p_sleep_info) }.success()
     }
 }
 
@@ -31993,7 +31498,7 @@ impl Device {
         p_create_infos: *const DataGraphPipelineCreateInfoARM,
         p_allocator: Option<*const AllocationCallbacks>,
         p_pipelines: *mut Pipeline,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateDataGraphPipelinesARM>(vtable_get(
                 self.vtable(),
@@ -32011,6 +31516,7 @@ impl Device {
                 p_pipelines,
             )
         }
+        .split()
     }
 }
 
@@ -32031,10 +31537,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -32047,7 +31550,7 @@ impl Device {
         p_create_info: *const DataGraphPipelineSessionCreateInfoARM,
         p_allocator: Option<*const AllocationCallbacks>,
         p_session: *mut DataGraphPipelineSessionARM,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateDataGraphPipelineSessionARM>(vtable_get(
                 self.vtable(),
@@ -32062,6 +31565,7 @@ impl Device {
                 p_session,
             )
         }
+        .success()
     }
 }
 
@@ -32100,7 +31604,7 @@ impl Device {
         p_info: *const DataGraphPipelineSessionBindPointRequirementsInfoARM,
         p_bind_point_requirement_count: *mut u32,
         p_bind_point_requirements: Option<*mut DataGraphPipelineSessionBindPointRequirementARM>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
@@ -32118,6 +31622,7 @@ impl Device {
                 p_bind_point_requirements.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -32172,10 +31677,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -32187,7 +31689,7 @@ impl Device {
         &self,
         bind_info_count: u32,
         p_bind_infos: *const BindDataGraphPipelineSessionMemoryInfoARM,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BindDataGraphPipelineSessionMemoryARM>(
                 vtable_get(
@@ -32196,7 +31698,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }
+        unsafe { (command)(self.handle, bind_info_count, p_bind_infos) }.success()
     }
 }
 
@@ -32309,7 +31811,7 @@ impl Device {
         p_pipeline_info: *const DataGraphPipelineInfoARM,
         p_properties_count: *mut u32,
         p_properties: Option<*mut DataGraphPipelinePropertyARM>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDataGraphPipelineAvailablePropertiesARM>(
                 vtable_get(
@@ -32326,6 +31828,7 @@ impl Device {
                 p_properties.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -32363,14 +31866,14 @@ impl Device {
         p_pipeline_info: *const DataGraphPipelineInfoARM,
         properties_count: u32,
         p_properties: *mut DataGraphPipelinePropertyQueryResultARM,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetDataGraphPipelinePropertiesARM>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetDataGraphPipelinePropertiesARM as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_pipeline_info, properties_count, p_properties) }
+        unsafe { (command)(self.handle, p_pipeline_info, properties_count, p_properties) }.split()
     }
 }
 
@@ -32409,7 +31912,7 @@ impl PhysicalDevice {
         queue_family_index: u32,
         p_queue_family_data_graph_property_count: *mut u32,
         p_queue_family_data_graph_properties: Option<*mut QueueFamilyDataGraphPropertiesARM>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
@@ -32427,6 +31930,7 @@ impl PhysicalDevice {
                 p_queue_family_data_graph_properties.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -32486,10 +31990,7 @@ impl PhysicalDevice {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -32502,7 +32003,7 @@ impl PhysicalDevice {
         queue_family_index: u32,
         p_queue_family_data_graph_properties: *const QueueFamilyDataGraphPropertiesARM,
         p_properties: *mut BaseOutStructure,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
@@ -32521,6 +32022,7 @@ impl PhysicalDevice {
                 p_properties,
             )
         }
+        .success()
     }
 }
 
@@ -32581,10 +32083,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`INVALID_EXTERNAL_HANDLE_KHR`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -32596,14 +32095,14 @@ impl Device {
         &self,
         buffer: *const _screen_buffer,
         p_properties: *mut ScreenBufferPropertiesQNX,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetScreenBufferPropertiesQNX>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetScreenBufferPropertiesQNX as usize,
             ))
         };
-        unsafe { (command)(self.handle, buffer, p_properties) }
+        unsafe { (command)(self.handle, buffer, p_properties) }.success()
     }
 }
 
@@ -32765,10 +32264,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`TOO_MANY_OBJECTS`](ResultCode::ERROR_TOO_MANY_OBJECTS)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -32781,7 +32277,7 @@ impl Device {
         p_create_info: *const ExternalComputeQueueCreateInfoNV,
         p_allocator: Option<*const AllocationCallbacks>,
         p_external_queue: *mut ExternalComputeQueueNV,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateExternalComputeQueueNV>(vtable_get(
                 self.vtable(),
@@ -32796,6 +32292,7 @@ impl Device {
                 p_external_queue,
             )
         }
+        .success()
     }
 }
 
@@ -33149,10 +32646,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -33165,7 +32659,7 @@ impl Device {
         p_create_info: *const IndirectCommandsLayoutCreateInfoEXT,
         p_allocator: Option<*const AllocationCallbacks>,
         p_indirect_commands_layout: *mut IndirectCommandsLayoutEXT,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateIndirectCommandsLayoutEXT>(vtable_get(
                 self.vtable(),
@@ -33180,6 +32674,7 @@ impl Device {
                 p_indirect_commands_layout,
             )
         }
+        .success()
     }
 }
 
@@ -33236,10 +32731,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -33252,7 +32744,7 @@ impl Device {
         p_create_info: *const IndirectExecutionSetCreateInfoEXT,
         p_allocator: Option<*const AllocationCallbacks>,
         p_indirect_execution_set: *mut IndirectExecutionSetEXT,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateIndirectExecutionSetEXT>(vtable_get(
                 self.vtable(),
@@ -33267,6 +32759,7 @@ impl Device {
                 p_indirect_execution_set,
             )
         }
+        .success()
     }
 }
 
@@ -33411,10 +32904,7 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`SURFACE_LOST_KHR`](ResultCode::ERROR_SURFACE_LOST_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -33427,7 +32917,7 @@ impl Instance {
         p_create_info: *const SurfaceCreateInfoOHOS,
         p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateSurfaceOHOS>(vtable_get(
                 self.vtable(),
@@ -33442,6 +32932,7 @@ impl Instance {
                 p_surface,
             )
         }
+        .success()
     }
 }
 
@@ -33478,7 +32969,7 @@ impl PhysicalDevice {
         &self,
         p_property_count: *mut u32,
         p_properties: Option<*mut CooperativeMatrixFlexibleDimensionsPropertiesNV>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
@@ -33496,6 +32987,7 @@ impl PhysicalDevice {
                 p_properties.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -33515,10 +33007,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`TOO_MANY_OBJECTS`](ResultCode::ERROR_TOO_MANY_OBJECTS)
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -33530,14 +33019,14 @@ impl Device {
         &self,
         p_get_metal_handle_info: *const MemoryGetMetalHandleInfoEXT,
         p_handle: *mut *mut c_void,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryMetalHandleEXT>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkGetMemoryMetalHandleEXT as usize,
             ))
         };
-        unsafe { (command)(self.handle, p_get_metal_handle_info, p_handle) }
+        unsafe { (command)(self.handle, p_get_metal_handle_info, p_handle) }.success()
     }
 }
 
@@ -33558,10 +33047,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`INVALID_EXTERNAL_HANDLE`](ResultCode::ERROR_INVALID_EXTERNAL_HANDLE)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -33574,7 +33060,7 @@ impl Device {
         handle_type: ExternalMemoryHandleTypeFlags,
         p_handle: *const c_void,
         p_memory_metal_handle_properties: *mut MemoryMetalHandlePropertiesEXT,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetMemoryMetalHandlePropertiesEXT>(vtable_get(
                 self.vtable(),
@@ -33589,6 +33075,7 @@ impl Device {
                 p_memory_metal_handle_properties,
             )
         }
+        .success()
     }
 }
 
@@ -33630,7 +33117,7 @@ impl PhysicalDevice {
         p_counter_count: *mut u32,
         p_counters: Option<*mut PerformanceCounterARM>,
         p_counter_descriptions: Option<*mut PerformanceCounterDescriptionARM>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
@@ -33650,6 +33137,7 @@ impl PhysicalDevice {
                 p_counter_descriptions.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -33687,7 +33175,7 @@ impl PhysicalDevice {
         &self,
         p_description_count: *mut u32,
         p_descriptions: Option<*mut ShaderInstrumentationMetricDescriptionARM>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
@@ -33704,6 +33192,7 @@ impl PhysicalDevice {
                 p_descriptions.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -33724,10 +33213,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -33740,7 +33226,7 @@ impl Device {
         p_create_info: *const ShaderInstrumentationCreateInfoARM,
         p_allocator: Option<*const AllocationCallbacks>,
         p_instrumentation: *mut ShaderInstrumentationARM,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateShaderInstrumentationARM>(vtable_get(
                 self.vtable(),
@@ -33755,6 +33241,7 @@ impl Device {
                 p_instrumentation,
             )
         }
+        .success()
     }
 }
 
@@ -33910,7 +33397,7 @@ impl Device {
         p_metric_block_count: *mut u32,
         p_metric_values: Option<*mut c_void>,
         flags: Option<ShaderInstrumentationValuesFlagsARM>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetShaderInstrumentationValuesARM>(vtable_get(
                 self.vtable(),
@@ -33926,6 +33413,7 @@ impl Device {
                 flags.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -34079,7 +33567,7 @@ impl PhysicalDevice {
         p_optical_flow_image_format_info: *const DataGraphOpticalFlowImageFormatInfoARM,
         p_format_count: *mut u32,
         p_image_format_properties: Option<*mut DataGraphOpticalFlowImageFormatPropertiesARM>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<
                 vkVoidFunction,
@@ -34100,6 +33588,7 @@ impl PhysicalDevice {
                 p_image_format_properties.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -34176,7 +33665,7 @@ impl PhysicalDevice {
         p_cooperative_matrix_info: *const PhysicalDeviceCooperativeMatrixInfo2EXT,
         p_property_count: *mut u32,
         p_properties: Option<*mut CooperativeMatrixProperties2EXT>,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetPhysicalDeviceCooperativeMatrixProperties2EXT>(
                 vtable_get(
@@ -34193,6 +33682,7 @@ impl PhysicalDevice {
                 p_properties.unwrap_or_default(),
             )
         }
+        .split()
     }
 }
 
@@ -34213,10 +33703,7 @@ impl Instance {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -34229,7 +33716,7 @@ impl Instance {
         p_create_info: *const UbmSurfaceCreateInfoSEC,
         p_allocator: Option<*const AllocationCallbacks>,
         p_surface: *mut SurfaceKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateUbmSurfaceSEC>(vtable_get(
                 self.vtable(),
@@ -34244,6 +33731,7 @@ impl Instance {
                 p_surface,
             )
         }
+        .success()
     }
 }
 
@@ -34331,10 +33819,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`INVALID_OPAQUE_CAPTURE_ADDRESS_KHR`](ResultCode::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -34353,7 +33838,7 @@ impl Device {
         p_create_info: *const AccelerationStructureCreateInfoKHR,
         p_allocator: Option<*const AllocationCallbacks>,
         p_acceleration_structure: *mut AccelerationStructureKHR,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateAccelerationStructureKHR>(vtable_get(
                 self.vtable(),
@@ -34368,6 +33853,7 @@ impl Device {
                 p_acceleration_structure,
             )
         }
+        .success()
     }
 }
 
@@ -34555,7 +34041,7 @@ impl Device {
         info_count: u32,
         p_infos: *const AccelerationStructureBuildGeometryInfoKHR,
         pp_build_range_infos: *const *const AccelerationStructureBuildRangeInfoKHR,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_BuildAccelerationStructuresKHR>(vtable_get(
                 self.vtable(),
@@ -34571,6 +34057,7 @@ impl Device {
                 pp_build_range_infos,
             )
         }
+        .split()
     }
 }
 
@@ -34613,14 +34100,14 @@ impl Device {
         &self,
         deferred_operation: Option<DeferredOperationKHR>,
         p_info: *const CopyAccelerationStructureInfoKHR,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CopyAccelerationStructureKHR>(vtable_get(
                 self.vtable(),
                 DeviceCommand::vkCopyAccelerationStructureKHR as usize,
             ))
         };
-        unsafe { (command)(self.handle, deferred_operation.unwrap_or_default(), p_info) }
+        unsafe { (command)(self.handle, deferred_operation.unwrap_or_default(), p_info) }.split()
     }
 }
 
@@ -34663,7 +34150,7 @@ impl Device {
         &self,
         deferred_operation: Option<DeferredOperationKHR>,
         p_info: *const CopyAccelerationStructureToMemoryInfoKHR,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CopyAccelerationStructureToMemoryKHR>(
                 vtable_get(
@@ -34672,7 +34159,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, deferred_operation.unwrap_or_default(), p_info) }
+        unsafe { (command)(self.handle, deferred_operation.unwrap_or_default(), p_info) }.split()
     }
 }
 
@@ -34715,7 +34202,7 @@ impl Device {
         &self,
         deferred_operation: Option<DeferredOperationKHR>,
         p_info: *const CopyMemoryToAccelerationStructureInfoKHR,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CopyMemoryToAccelerationStructureKHR>(
                 vtable_get(
@@ -34724,7 +34211,7 @@ impl Device {
                 ),
             )
         };
-        unsafe { (command)(self.handle, deferred_operation.unwrap_or_default(), p_info) }
+        unsafe { (command)(self.handle, deferred_operation.unwrap_or_default(), p_info) }.split()
     }
 }
 
@@ -34748,10 +34235,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -34773,7 +34257,7 @@ impl Device {
         data_size: usize,
         p_data: *mut c_void,
         stride: usize,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_WriteAccelerationStructuresPropertiesKHR>(
                 vtable_get(
@@ -34793,6 +34277,7 @@ impl Device {
                 stride,
             )
         }
+        .success()
     }
 }
 
@@ -35199,7 +34684,7 @@ impl Device {
         p_create_infos: *const RayTracingPipelineCreateInfoKHR,
         p_allocator: Option<*const AllocationCallbacks>,
         p_pipelines: *mut Pipeline,
-    ) -> ResultCode {
+    ) -> Result<SuccessCode, ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_CreateRayTracingPipelinesKHR>(vtable_get(
                 self.vtable(),
@@ -35217,6 +34702,7 @@ impl Device {
                 p_pipelines,
             )
         }
+        .split()
     }
 }
 
@@ -35233,10 +34719,7 @@ impl Device {
     ///
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
-    /// # Result codes
-    /// ## Success
-    /// - [`SUCCESS`](ResultCode::SUCCESS)
-    /// ## Error
+    /// # Errors
     /// - [`OUT_OF_HOST_MEMORY`](ResultCode::ERROR_OUT_OF_HOST_MEMORY)
     /// - [`OUT_OF_DEVICE_MEMORY`](ResultCode::ERROR_OUT_OF_DEVICE_MEMORY)
     /// - [`UNKNOWN`](ResultCode::ERROR_UNKNOWN)
@@ -35251,7 +34734,7 @@ impl Device {
         group_count: u32,
         data_size: usize,
         p_data: *mut c_void,
-    ) -> ResultCode {
+    ) -> Result<(), ErrorCode> {
         let command = unsafe {
             std::mem::transmute::<vkVoidFunction, FN_GetRayTracingCaptureReplayShaderGroupHandlesKHR>(
                 vtable_get(
@@ -35270,6 +34753,7 @@ impl Device {
                 p_data,
             )
         }
+        .success()
     }
 }
 

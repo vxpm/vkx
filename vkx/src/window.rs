@@ -63,11 +63,7 @@ pub unsafe fn create_surface(
                 ..Default::default()
             };
 
-            unsafe {
-                instance
-                    .create_wayland_surface_khr(&info, None, &mut surface)
-                    .success()?
-            }
+            unsafe { instance.create_wayland_surface_khr(&info, None, &mut surface)? }
         }
 
         (RawDisplayHandle::Xlib(display), RawWindowHandle::Xlib(window)) => {
@@ -77,11 +73,7 @@ pub unsafe fn create_surface(
                 ..Default::default()
             };
 
-            unsafe {
-                instance
-                    .create_xlib_surface_khr(&info, None, &mut surface)
-                    .success()?
-            }
+            unsafe { instance.create_xlib_surface_khr(&info, None, &mut surface)? }
         }
 
         (RawDisplayHandle::Xcb(display), RawWindowHandle::Xcb(window)) => {
@@ -91,11 +83,7 @@ pub unsafe fn create_surface(
                 ..Default::default()
             };
 
-            unsafe {
-                instance
-                    .create_xcb_surface_khr(&info, None, &mut surface)
-                    .success()?
-            }
+            unsafe { instance.create_xcb_surface_khr(&info, None, &mut surface)? }
         }
 
         (RawDisplayHandle::Android(_), RawWindowHandle::AndroidNdk(window)) => {
@@ -104,11 +92,7 @@ pub unsafe fn create_surface(
                 ..Default::default()
             };
 
-            unsafe {
-                instance
-                    .create_android_surface_khr(&info, None, &mut surface)
-                    .success()?
-            }
+            unsafe { instance.create_android_surface_khr(&info, None, &mut surface)? }
         }
 
         (RawDisplayHandle::Windows(_), RawWindowHandle::Win32(window)) => {
@@ -118,41 +102,29 @@ pub unsafe fn create_surface(
                 ..Default::default()
             };
 
-            unsafe {
-                instance
-                    .create_win_32_surface_khr(&info, None, &mut surface)
-                    .success()?
-            }
+            unsafe { instance.create_win_32_surface_khr(&info, None, &mut surface)? }
         }
 
         #[cfg(target_os = "macos")]
         (RawDisplayHandle::AppKit(_), RawWindowHandle::AppKit(window)) => {
             let layer = unsafe { raw_window_metal::Layer::from_ns_view(window.ns_view) };
-            let create_info = crate::MetalSurfaceCreateInfoEXT {
+            let info = crate::MetalSurfaceCreateInfoEXT {
                 p_layer: layer.into_raw().as_ptr().cast(),
                 ..Default::default()
             };
 
-            unsafe {
-                instance
-                    .create_metal_surface_ext(&info, None, &mut surface)
-                    .success()?
-            }
+            unsafe { instance.create_metal_surface_ext(&info, None, &mut surface)? }
         }
 
         #[cfg(target_os = "ios")]
         (RawDisplayHandle::UiKit(_), RawWindowHandle::UiKit(window)) => {
             let layer = unsafe { raw_window_metal::Layer::from_ui_view(window.ui_view) };
-            let create_info = crate::MetalSurfaceCreateInfoEXT {
+            let info = crate::MetalSurfaceCreateInfoEXT {
                 p_layer: layer.into_raw().as_ptr().cast(),
                 ..Default::default()
             };
 
-            unsafe {
-                instance
-                    .create_metal_surface_ext(&info, None, &mut surface)
-                    .success()?
-            }
+            unsafe { instance.create_metal_surface_ext(&info, None, &mut surface)? }
         }
 
         _ => return Err(Error::NotSupported),
