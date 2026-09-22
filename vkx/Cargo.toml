@@ -11,6 +11,7 @@ thiserror = { version = "2.0.20", optional = true }
 zerocopy = "0.8.57"
 
 [dev-dependencies]
+shaderc = "0.10"
 winit = {
   version = "0.30.13",
 }

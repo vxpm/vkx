@@ -7,6 +7,36 @@ use winit::event::WindowEvent;
 use winit::event_loop::{ActiveEventLoop, EventLoop};
 use winit::window::{Window, WindowId};
 
+fn vertex_shader() -> Vec<u32> {
+    let compiler = shaderc::Compiler::new().unwrap();
+    let artifact = compiler
+        .compile_into_spirv(
+            include_str!("./triangle.vert"),
+            shaderc::ShaderKind::Vertex,
+            "triangle.vert",
+            "main",
+            Default::default(),
+        )
+        .unwrap();
+
+    artifact.as_binary().to_vec()
+}
+
+fn fragment_shader() -> Vec<u32> {
+    let compiler = shaderc::Compiler::new().unwrap();
+    let artifact = compiler
+        .compile_into_spirv(
+            include_str!("./triangle.frag"),
+            shaderc::ShaderKind::Fragment,
+            "triangle.frag",
+            "main",
+            Default::default(),
+        )
+        .unwrap();
+
+    artifact.as_binary().to_vec()
+}
+
 struct SwapchainState {
     surface: vkx::SurfaceKHR,
     surface_caps: vkx::SurfaceCapabilitiesKHR,
@@ -177,6 +207,9 @@ impl App {
         // and get the queue
         let queue = unsafe { device.get_device_queue(family_idx, 0) };
 
+        // 03. creating a pipeline for rendering
+        let pipeline = Self::create_pipeline(&device);
+
         Self {
             instance,
             physical_device,
@@ -274,12 +307,77 @@ impl App {
             views: swapchain_image_views,
         })
     }
+
+    fn create_pipeline(device: &vkx::Device) -> vkx::Pipeline {
+        let mut stages = [
+            vkx::PipelineShaderStageCreateInfo {
+                stage: vkx::ShaderStageFlag::VERTEX.into(),
+                p_name: c"main".as_ptr(),
+                ..Default::default()
+            },
+            vkx::PipelineShaderStageCreateInfo {
+                stage: vkx::ShaderStageFlag::FRAGMENT.into(),
+                p_name: c"main".as_ptr(),
+                ..Default::default()
+            },
+        ];
+
+        let vertex_shader = vertex_shader();
+        let fragment_shader = fragment_shader();
+        let mut shaders = [
+            vkx::ShaderModuleCreateInfo {
+                code_size: vertex_shader.len() * 4,
+                p_code: vertex_shader.as_ptr(),
+                ..Default::default()
+            },
+            vkx::ShaderModuleCreateInfo {
+                code_size: fragment_shader.len() * 4,
+                p_code: fragment_shader.as_ptr(),
+                ..Default::default()
+            },
+        ];
+
+        stages[0].push_next(&mut shaders[0]);
+        stages[1].push_next(&mut shaders[1]);
+
+        let mut pipeline = vkx::Pipeline::default();
+        unsafe {
+            device.create_graphics_pipelines(
+                None,
+                1,
+                &vkx::GraphicsPipelineCreateInfo {
+                    flags: todo!(),
+                    stage_count: todo!(),
+                    p_stages: stages.as_ptr(),
+                    p_vertex_input_state: todo!(),
+                    p_input_assembly_state: todo!(),
+                    p_tessellation_state: todo!(),
+                    p_viewport_state: todo!(),
+                    p_rasterization_state: todo!(),
+                    p_multisample_state: todo!(),
+                    p_depth_stencil_state: todo!(),
+                    p_color_blend_state: todo!(),
+                    p_dynamic_state: todo!(),
+                    layout: todo!(),
+                    render_pass: todo!(),
+                    subpass: todo!(),
+                    base_pipeline_handle: todo!(),
+                    base_pipeline_index: todo!(),
+                    ..Default::default()
+                },
+                None,
+                &mut pipeline,
+            )
+        };
+
+        todo!()
+    }
 }
 
 impl ApplicationHandler for App {
     fn resumed(&mut self, event_loop: &ActiveEventLoop) {
+        // create a window if we havent yet
         if self.window.is_none() {
-            // create a window
             self.window = Some(
                 event_loop
                     .create_window(Window::default_attributes())
@@ -287,6 +385,7 @@ impl ApplicationHandler for App {
             );
         }
 
+        // (re)create the swapchain
         self.create_swapchain(event_loop);
     }
 
