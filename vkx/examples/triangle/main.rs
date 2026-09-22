@@ -50,6 +50,7 @@ struct App {
     physical_device: vkx::PhysicalDevice,
     device: vkx::Device,
     queue: vkx::Queue,
+    pipeline: vkx::Pipeline,
     window: Option<Window>,
     swapchain: Option<SwapchainState>,
 }
@@ -207,14 +208,15 @@ impl App {
         // and get the queue
         let queue = unsafe { device.get_device_queue(family_idx, 0) };
 
-        // 03. creating a pipeline for rendering
-        let pipeline = Self::create_pipeline(&device);
+        // 03. create objects used for rendering
+        let pipeline = Self::create_pipeline(&device).unwrap();
 
         Self {
             instance,
             physical_device,
             device,
             queue,
+            pipeline,
             window: None,
             swapchain: None,
         }
@@ -227,7 +229,7 @@ impl App {
         let surface =
             unsafe { vkx::window::create_surface(&self.instance, event_loop, &window).unwrap() };
 
-        let mut surface_caps = Default::default();
+        let mut surface_caps = vkx::SurfaceCapabilitiesKHR::default();
         unsafe {
             self.physical_device
                 .get_surface_capabilities_khr(surface, &mut surface_caps)
@@ -237,7 +239,7 @@ impl App {
 
         // create the swapchain
         let window_size = window.inner_size();
-        let mut swapchain = vkx::SwapchainKHR::default();
+        let mut swapchain = vkx::SwapchainKHR::null();
         unsafe {
             self.device.create_swapchain_khr(
                 &vkx::SwapchainCreateInfoKHR {
@@ -308,69 +310,129 @@ impl App {
         })
     }
 
-    fn create_pipeline(device: &vkx::Device) -> vkx::Pipeline {
-        let mut stages = [
+    fn create_pipeline(device: &vkx::Device) -> Result<vkx::Pipeline, vkx::ErrorCode> {
+        // pipeline layout
+        let mut layout = vkx::PipelineLayout::null();
+        unsafe {
+            device
+                .create_pipeline_layout(
+                    &vkx::PipelineLayoutCreateInfo::default(),
+                    None,
+                    &mut layout,
+                )
+                .success()?
+        }
+
+        // color blend
+        let color_blend_attachment = vkx::PipelineColorBlendAttachmentState {
+            blend_enable: false.into(),
+            color_write_mask: vkx::ColorComponentFlags::full(),
+            ..Default::default()
+        };
+
+        // dynamic states
+        let dynamic_states = [vkx::DynamicState::VIEWPORT, vkx::DynamicState::SCISSOR];
+
+        // dynamic rendering
+        let color_attachment_format = vkx::Format::B8G8R8A8_SRGB;
+        let mut dynamic_rendering_info = vkx::PipelineRenderingCreateInfo {
+            color_attachment_count: 1,
+            p_color_attachment_formats: &color_attachment_format,
+            ..Default::default()
+        };
+
+        // shaders
+        let vertex_shader = vertex_shader();
+        let fragment_shader = fragment_shader();
+
+        let vertex_shader_create_info = vkx::ShaderModuleCreateInfo {
+            code_size: vertex_shader.len() * 4,
+            p_code: vertex_shader.as_ptr(),
+            ..Default::default()
+        };
+
+        let fragment_shader_create_info = vkx::ShaderModuleCreateInfo {
+            code_size: fragment_shader.len() * 4,
+            p_code: fragment_shader.as_ptr(),
+            ..Default::default()
+        };
+
+        let mut vertex_shader_mod = vkx::ShaderModule::null();
+        unsafe {
+            device
+                .create_shader_module(&vertex_shader_create_info, None, &mut vertex_shader_mod)
+                .success()?
+        };
+
+        let mut fragment_shader_mod = vkx::ShaderModule::null();
+        unsafe {
+            device
+                .create_shader_module(&fragment_shader_create_info, None, &mut fragment_shader_mod)
+                .success()?
+        };
+
+        let stages = [
             vkx::PipelineShaderStageCreateInfo {
                 stage: vkx::ShaderStageFlag::VERTEX.into(),
                 p_name: c"main".as_ptr(),
+                module: vertex_shader_mod,
                 ..Default::default()
             },
             vkx::PipelineShaderStageCreateInfo {
                 stage: vkx::ShaderStageFlag::FRAGMENT.into(),
                 p_name: c"main".as_ptr(),
+                module: fragment_shader_mod,
                 ..Default::default()
             },
         ];
 
-        let vertex_shader = vertex_shader();
-        let fragment_shader = fragment_shader();
-        let mut shaders = [
-            vkx::ShaderModuleCreateInfo {
-                code_size: vertex_shader.len() * 4,
-                p_code: vertex_shader.as_ptr(),
+        // create it!
+        let mut pipeline_create_info = vkx::GraphicsPipelineCreateInfo {
+            stage_count: stages.len() as u32,
+            p_stages: stages.as_ptr(),
+            p_vertex_input_state: &vkx::PipelineVertexInputStateCreateInfo::default(),
+            p_input_assembly_state: &vkx::PipelineInputAssemblyStateCreateInfo {
+                topology: vkx::PrimitiveTopology::TRIANGLE_LIST,
+                primitive_restart_enable: false.into(),
                 ..Default::default()
             },
-            vkx::ShaderModuleCreateInfo {
-                code_size: fragment_shader.len() * 4,
-                p_code: fragment_shader.as_ptr(),
+            p_viewport_state: &vkx::PipelineViewportStateCreateInfo {
+                viewport_count: 1,
+                scissor_count: 1,
                 ..Default::default()
             },
-        ];
+            p_rasterization_state: &vkx::PipelineRasterizationStateCreateInfo {
+                line_width: 1.0,
+                ..Default::default()
+            },
+            p_multisample_state: &vkx::PipelineMultisampleStateCreateInfo {
+                rasterization_samples: vkx::SampleCountFlag::_1.into(),
+                ..Default::default()
+            },
+            p_depth_stencil_state: &vkx::PipelineDepthStencilStateCreateInfo::default(),
+            p_color_blend_state: &vkx::PipelineColorBlendStateCreateInfo {
+                attachment_count: 1,
+                p_attachments: &color_blend_attachment,
+                ..Default::default()
+            },
+            p_dynamic_state: &vkx::PipelineDynamicStateCreateInfo {
+                dynamic_state_count: dynamic_states.len() as u32,
+                p_dynamic_states: dynamic_states.as_ptr(),
+                ..Default::default()
+            },
+            layout,
+            ..Default::default()
+        };
+        pipeline_create_info.push_next(&mut dynamic_rendering_info);
 
-        stages[0].push_next(&mut shaders[0]);
-        stages[1].push_next(&mut shaders[1]);
-
-        let mut pipeline = vkx::Pipeline::default();
+        let mut pipeline = vkx::Pipeline::null();
         unsafe {
-            device.create_graphics_pipelines(
-                None,
-                1,
-                &vkx::GraphicsPipelineCreateInfo {
-                    flags: todo!(),
-                    stage_count: todo!(),
-                    p_stages: stages.as_ptr(),
-                    p_vertex_input_state: todo!(),
-                    p_input_assembly_state: todo!(),
-                    p_tessellation_state: todo!(),
-                    p_viewport_state: todo!(),
-                    p_rasterization_state: todo!(),
-                    p_multisample_state: todo!(),
-                    p_depth_stencil_state: todo!(),
-                    p_color_blend_state: todo!(),
-                    p_dynamic_state: todo!(),
-                    layout: todo!(),
-                    render_pass: todo!(),
-                    subpass: todo!(),
-                    base_pipeline_handle: todo!(),
-                    base_pipeline_index: todo!(),
-                    ..Default::default()
-                },
-                None,
-                &mut pipeline,
-            )
+            device
+                .create_graphics_pipelines(None, 1, &pipeline_create_info, None, &mut pipeline)
+                .success()?
         };
 
-        todo!()
+        Ok(pipeline)
     }
 }
 
@@ -396,20 +458,7 @@ impl ApplicationHandler for App {
                 event_loop.exit();
             }
             WindowEvent::RedrawRequested => {
-                // Redraw the application.
-                //
-                // It's preferable for applications that do not render continuously to render in
-                // this event rather than in AboutToWait, since rendering in here allows
-                // the program to gracefully handle redraws requested by the OS.
-
-                // Draw.
-
-                // Queue a RedrawRequested event.
-                //
-                // You only need to call this if you've determined that you need to redraw in
-                // applications which do not always need to. Applications that redraw continuously
-                // can render here instead.
-                self.window.as_ref().unwrap().request_redraw();
+                todo!()
             }
             _ => (),
         }

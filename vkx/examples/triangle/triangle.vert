@@ -16,7 +16,7 @@ layout (location = 0) out vec4 out_color;
 
 void main()
 {
-    out_color = colors[gl_VertexID];
-    vec2 position = positions[gl_VertexID];
+    out_color = colors[gl_VertexIndex];
+    vec2 position = positions[gl_VertexIndex];
     gl_Position = vec4(position, 0.0, 1.0);
 }
