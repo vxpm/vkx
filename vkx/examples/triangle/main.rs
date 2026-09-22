@@ -1,4 +1,5 @@
 use core::ffi::CStr;
+use core::mem::swap;
 use std::collections::HashSet;
 
 use vkx::Extendable;
@@ -40,7 +41,7 @@ fn fragment_shader() -> Vec<u32> {
 struct SwapchainState {
     surface: vkx::SurfaceKHR,
     surface_caps: vkx::SurfaceCapabilitiesKHR,
-    swapchain: vkx::SwapchainKHR,
+    handle: vkx::SwapchainKHR,
     images: Vec<vkx::Image>,
     views: Vec<vkx::ImageView>,
 }
@@ -51,6 +52,8 @@ struct App {
     device: vkx::Device,
     queue: vkx::Queue,
     pipeline: vkx::Pipeline,
+    command_buffer: vkx::CommandBuffer,
+    swapchain_semaphore: vkx::Semaphore,
     window: Option<Window>,
     swapchain: Option<SwapchainState>,
 }
@@ -183,6 +186,7 @@ impl App {
         // setup enabled features
         let enabled_features = vkx::PhysicalDeviceFeatures::default();
         let mut enabled_features_1_3 = vkx::PhysicalDeviceVulkan13Features {
+            synchronization_2: true.into(),
             dynamic_rendering: true.into(),
             ..Default::default()
         };
@@ -211,12 +215,56 @@ impl App {
         // 03. create objects used for rendering
         let pipeline = Self::create_pipeline(&device).unwrap();
 
+        let mut command_pool = vkx::CommandPool::null();
+        unsafe {
+            device
+                .create_command_pool(
+                    &vkx::CommandPoolCreateInfo {
+                        flags: vkx::CommandPoolCreateFlag::RESET_COMMAND_BUFFER.into(),
+                        queue_family_index: family_idx,
+                        ..Default::default()
+                    },
+                    None,
+                    &mut command_pool,
+                )
+                .success()
+                .unwrap()
+        };
+
+        let [command_buffer] = unsafe {
+            device
+                .allocate_command_buffers(&vkx::CommandBufferAllocateInfo {
+                    command_pool,
+                    level: vkx::CommandBufferLevel::PRIMARY,
+                    command_buffer_count: 1,
+                    ..Default::default()
+                })
+                .unwrap()
+                .try_into()
+                .ok()
+                .unwrap()
+        };
+
+        let mut swapchain_semaphore = vkx::Semaphore::null();
+        unsafe {
+            device
+                .create_semaphore(
+                    &vkx::SemaphoreCreateInfo::default(),
+                    None,
+                    &mut swapchain_semaphore,
+                )
+                .success()
+                .unwrap()
+        };
+
         Self {
             instance,
             physical_device,
             device,
             queue,
             pipeline,
+            command_buffer,
+            swapchain_semaphore,
             window: None,
             swapchain: None,
         }
@@ -304,7 +352,7 @@ impl App {
         self.swapchain = Some(SwapchainState {
             surface,
             surface_caps,
-            swapchain,
+            handle: swapchain,
             images: swapchain_images,
             views: swapchain_image_views,
         })
@@ -434,6 +482,107 @@ impl App {
 
         Ok(pipeline)
     }
+
+    fn draw(&mut self) -> Result<(), vkx::ErrorCode> {
+        let window = self.window.as_ref().unwrap();
+        let swapchain = self.swapchain.as_ref().unwrap();
+
+        // 01. acquire swapchain image
+        let mut swapchain_img_idx = 0;
+        loop {
+            let success_code = unsafe {
+                self.device
+                    .acquire_next_image_khr(
+                        swapchain.handle,
+                        u64::MAX,
+                        Some(self.swapchain_semaphore),
+                        None,
+                        &mut swapchain_img_idx,
+                    )
+                    .split()?
+            };
+
+            if success_code != vkx::SuccessCode::NOT_READY {
+                break;
+            }
+        }
+
+        // 02. record a command buffer
+        // reset the command buffer
+        unsafe { self.command_buffer.reset(None).success()? };
+
+        // and start recording
+        unsafe {
+            self.command_buffer
+                .begin(&vkx::CommandBufferBeginInfo {
+                    flags: vkx::CommandBufferUsageFlag::ONE_TIME_SUBMIT.into(),
+                    ..Default::default()
+                })
+                .success()?
+        };
+
+        // transition the swapchain image into it's optimal layout
+        let image_barrier = vkx::ImageMemoryBarrier2 {
+            src_stage_mask: vkx::PipelineStageFlag2::COLOR_ATTACHMENT_OUTPUT.into(),
+            dst_stage_mask: vkx::PipelineStageFlag2::COLOR_ATTACHMENT_OUTPUT.into(),
+            dst_access_mask: vkx::AccessFlag2::COLOR_ATTACHMENT_READ
+                | vkx::AccessFlag2::COLOR_ATTACHMENT_WRITE,
+            old_layout: vkx::ImageLayout::UNDEFINED,
+            new_layout: vkx::ImageLayout::ATTACHMENT_OPTIMAL,
+            image: swapchain.images[swapchain_img_idx as usize],
+            subresource_range: vkx::ImageSubresourceRange {
+                aspect_mask: vkx::ImageAspectFlag::COLOR.into(),
+                base_mip_level: 0,
+                level_count: 1,
+                base_array_layer: 0,
+                layer_count: 1,
+            },
+            ..Default::default()
+        };
+
+        unsafe {
+            self.command_buffer
+                .cmd_pipeline_barrier_2(&vkx::DependencyInfo {
+                    image_memory_barrier_count: 1,
+                    p_image_memory_barriers: &image_barrier,
+                    ..Default::default()
+                });
+        }
+
+        // begin rendering
+        let color_attachment_info = vkx::RenderingAttachmentInfo {
+            image_view: swapchain.views[swapchain_img_idx as usize],
+            image_layout: vkx::ImageLayout::ATTACHMENT_OPTIMAL,
+            load_op: vkx::AttachmentLoadOp::CLEAR,
+            store_op: vkx::AttachmentStoreOp::STORE,
+            clear_value: vkx::ClearValue {
+                color: vkx::ClearColorValue {
+                    float_32: [0.0, 0.0, 0.1, 1.0],
+                },
+            },
+            ..Default::default()
+        };
+
+        let window_size = window.inner_size();
+        unsafe {
+            self.command_buffer
+                .cmd_begin_rendering(&vkx::RenderingInfo {
+                    render_area: vkx::Rect2D {
+                        offset: vkx::Offset2D::default(),
+                        extent: vkx::Extent2D {
+                            width: window_size.width,
+                            height: window_size.height,
+                        },
+                    },
+                    layer_count: 1,
+                    color_attachment_count: 1,
+                    p_color_attachments: &color_attachment_info,
+                    ..Default::default()
+                });
+        }
+
+        todo!()
+    }
 }
 
 impl ApplicationHandler for App {
@@ -458,6 +607,7 @@ impl ApplicationHandler for App {
                 event_loop.exit();
             }
             WindowEvent::RedrawRequested => {
+                self.draw().unwrap();
                 todo!()
             }
             _ => (),
