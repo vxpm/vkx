@@ -7,6 +7,9 @@ use winit::event::WindowEvent;
 use winit::event_loop::{ActiveEventLoop, EventLoop};
 use winit::window::{Window, WindowId};
 
+static VALIDATION_LAYER_NAME: &CStr = c"VK_LAYER_KHRONOS_validation";
+
+// compiles the vertex shader to spirv and returns it
 fn vertex_shader() -> Vec<u32> {
     let compiler = shaderc::Compiler::new().unwrap();
     let artifact = compiler
@@ -22,6 +25,7 @@ fn vertex_shader() -> Vec<u32> {
     artifact.as_binary().to_vec()
 }
 
+// compiles the fragment shader to spirv and returns it
 fn fragment_shader() -> Vec<u32> {
     let compiler = shaderc::Compiler::new().unwrap();
     let artifact = compiler
@@ -59,12 +63,60 @@ struct App {
     cmdbuf: vkx::CommandBuffer,
     window: Option<WindowState>,
     swapchain: Option<SwapchainState>,
-    submit_fence: vkx::Fence,
     swapchain_acquire_semaphore: vkx::Semaphore,
+    submit_fence: vkx::Fence,
     recreate_swapchain: bool,
 }
 
 impl App {
+    // ensures instance supports `extensions` and returns whether the validation layer is available
+    fn check_instance(extensions: &HashSet<vkx::Extension>) -> bool {
+        // 01. check available extensions
+        let (available_instance_extensions, result) = vkx::auto_count!(|count, vec| {
+            unsafe { vkx::enumerate_instance_extension_properties(None, &mut count, vec) }
+        });
+
+        assert!(
+            result
+                .expect("instance extensions enumeration should not fail")
+                .is_success()
+        );
+
+        let available_instance_extensions =
+            vkx::Extension::from_ext_properties(available_instance_extensions);
+
+        // ensure the instance supports all the extensions we want
+        if !available_instance_extensions.is_superset(&extensions) {
+            let difference = available_instance_extensions
+                .difference(&extensions)
+                .collect::<Vec<_>>();
+
+            panic!("instance does not support some needed extensions: {difference:?}")
+        }
+
+        // 02. check validation layer is available
+        let (available_instance_layers, result) = vkx::auto_count!(|count, vec| {
+            unsafe { vkx::enumerate_instance_layer_properties(&mut count, vec) }
+        });
+
+        assert!(
+            result
+                .expect("instance layers enumeration should not fail")
+                .is_success()
+        );
+
+        for layer in available_instance_layers.iter() {
+            let name =
+                CStr::from_bytes_until_nul(zerocopy::transmute_ref!(&layer.layer_name)).unwrap();
+
+            if name == VALIDATION_LAYER_NAME {
+                return true;
+            }
+        }
+
+        false
+    }
+
     fn new(event_loop: &EventLoop<()>) -> Self {
         // 01. creating an instance
         let app_info = vkx::ApplicationInfo {
@@ -75,29 +127,25 @@ impl App {
             ..Default::default()
         };
 
-        // build a list of instance extensions
-        let mut instance_extensions = vec![vkx::Extension::EXT_DebugUtils];
+        // set of instance extensions we want
+        let instance_extensions = HashSet::from_iter(
+            vkx::window::get_required_extensions(event_loop)
+                .unwrap()
+                .into_iter()
+                .copied(),
+        );
 
-        instance_extensions.extend(vkx::window::get_required_extensions(event_loop).unwrap());
-
-        // convert it into a vec of C string pointers
-        let instance_extensions = vkx::Extension::to_ptrs(instance_extensions);
-
-        // list of instance layers
-        let instance_layers = &[c"VK_LAYER_KHRONOS_validation".as_ptr()];
-
-        let (extensions, _) = vkx::auto_count!(|count, vec| {
-            unsafe { vkx::enumerate_instance_extension_properties(None, &mut count, vec) }
-        });
-
-        for ext in extensions {
-            let name =
-                CStr::from_bytes_until_nul(zerocopy::transmute_ref!(&ext.extension_name)).unwrap();
-
-            println!("Extension: {}", name.to_string_lossy());
-        }
+        // check the available extensions and validation layer
+        let validation_layer_available = Self::check_instance(&instance_extensions);
 
         // create the instance
+        let instance_extensions = vkx::Extension::to_ptrs(instance_extensions);
+        let instance_layers: &[_] = if validation_layer_available {
+            &[VALIDATION_LAYER_NAME.as_ptr()]
+        } else {
+            &[]
+        };
+
         let instance = unsafe {
             vkx::Instance::create(
                 &vkx::InstanceCreateInfo {
@@ -117,7 +165,7 @@ impl App {
         // enumerate the physical devices
         let physical_devices = unsafe { instance.enumerate_physical_devices().unwrap() };
 
-        // list of device extensions we want
+        // set of device extensions we want
         let device_extensions = HashSet::from_iter([vkx::Extension::KHR_Swapchain]);
 
         // choose the physical device that fits best
@@ -137,7 +185,12 @@ impl App {
                             .enumerate_device_extension_properties(None, &mut count, vec))
                     };
 
-                    assert!(result.unwrap().is_success());
+                    assert!(
+                        result
+                            .expect("enumerating device extension properties should not fail")
+                            .is_success()
+                    );
+
                     let extensions = vkx::Extension::from_ext_properties(extensions);
 
                     // we want a device that supports at least vulkan 1.3 and has all the device
@@ -184,10 +237,10 @@ impl App {
                 })
                 .unwrap();
 
-        let name =
+        let device_name =
             CStr::from_bytes_until_nul(zerocopy::transmute_ref!(&properties.device_name)).unwrap();
 
-        println!("Device chosen: {}", name.to_string_lossy());
+        println!("Device chosen: {}", device_name.to_string_lossy());
 
         // setup queue creation info
         let queue_priorities = [0.5];
@@ -293,8 +346,8 @@ impl App {
             cmdbuf,
             window: None,
             swapchain: None,
-            submit_fence,
             swapchain_acquire_semaphore,
+            submit_fence,
             recreate_swapchain: false,
         }
     }
@@ -373,6 +426,10 @@ impl App {
             })
             .collect::<Vec<_>>();
 
+        // create the rendering finished semaphores for each swapchain image. this is needed because
+        // the presentation engine might still be using the swapchain passed to it: we have no way
+        // to wait until it's done using it, however, its guaranteed that when we get the same image
+        // idx from acquire_image then the presentation is finished and the semaphore can be reused
         let mut rendering_finished_semaphores =
             vec![vkx::Semaphore::null(); swapchain_images.len()];
 
@@ -391,6 +448,7 @@ impl App {
             rendering_finished_semaphores,
         });
 
+        // destroy old swapchain, if any
         if let Some(swapchain) = old_swapchain {
             for view in swapchain.views.into_iter() {
                 unsafe { self.device.destroy_image_view(Some(view), None) };
@@ -478,7 +536,7 @@ impl App {
             },
         ];
 
-        // create it!
+        // create the pipeline
         let mut pipeline_create_info = vkx::GraphicsPipelineCreateInfo {
             stage_count: stages.len() as u32,
             p_stages: stages.as_ptr(),
@@ -554,8 +612,8 @@ impl App {
             match success_code {
                 vkx::SuccessCode::SUCCESS => break,
                 vkx::SuccessCode::SUBOPTIMAL_KHR => break,
-                vkx::SuccessCode::NOT_READY => println!("not ready"),
-                vkx::SuccessCode::TIMEOUT => println!("timedout"),
+                vkx::SuccessCode::NOT_READY => (),
+                vkx::SuccessCode::TIMEOUT => println!("timed out..?"),
                 _ => unreachable!("{success_code:?}"),
             }
         }
@@ -574,7 +632,7 @@ impl App {
 
         // synchronize and transition the swapchain image into an optimal layout for attachments
         let image_barrier = vkx::ImageMemoryBarrier2 {
-            // wait until all uses of the image are done
+            // wait until all uses of the image are done before using it
             src_stage_mask: vkx::PipelineStageFlag2::COLOR_ATTACHMENT_OUTPUT.into(),
             dst_stage_mask: vkx::PipelineStageFlag2::COLOR_ATTACHMENT_OUTPUT.into(),
             // we could make previous writes available to the layout transition, but since we are
@@ -603,7 +661,7 @@ impl App {
             });
         }
 
-        // begin rendering
+        // setup rendering
         let color_attachment_info = vkx::RenderingAttachmentInfo {
             image_view: swapchain.views[swapchain_img_idx as usize],
             image_layout: vkx::ImageLayout::ATTACHMENT_OPTIMAL,
@@ -619,6 +677,7 @@ impl App {
 
         let window_size = window.window.inner_size();
         unsafe {
+            // begin rendering
             self.cmdbuf.cmd_begin_rendering(&vkx::RenderingInfo {
                 render_area: vkx::Rect2D {
                     offset: vkx::Offset2D::default(),
@@ -632,10 +691,8 @@ impl App {
                 p_color_attachments: &color_attachment_info,
                 ..Default::default()
             });
-        }
 
-        // setup the viewport and scissor
-        unsafe {
+            // setup the viewport and scissor
             self.cmdbuf.cmd_set_viewport(
                 0,
                 1,
@@ -660,10 +717,8 @@ impl App {
                     },
                 },
             );
-        }
 
-        // bind the pipeline, draw and finish rendering
-        unsafe {
+            // bind the pipeline, draw and finish rendering
             self.cmdbuf
                 .cmd_bind_pipeline(vkx::PipelineBindPoint::GRAPHICS, self.pipeline);
             self.cmdbuf.cmd_draw(3, 1, 0, 0);
@@ -780,10 +835,7 @@ impl ApplicationHandler for App {
 
     fn window_event(&mut self, event_loop: &ActiveEventLoop, _id: WindowId, event: WindowEvent) {
         match event {
-            WindowEvent::CloseRequested => {
-                println!("The close button was pressed; stopping");
-                event_loop.exit();
-            }
+            WindowEvent::CloseRequested => event_loop.exit(),
             WindowEvent::RedrawRequested => {
                 if std::mem::take(&mut self.recreate_swapchain) {
                     self.create_swapchain();
@@ -793,6 +845,7 @@ impl ApplicationHandler for App {
                 self.window.as_ref().unwrap().window.request_redraw();
             }
             WindowEvent::Resized(_) => {
+                // resizing means we have to recreate the swapchain
                 self.recreate_swapchain = true;
             }
             _ => (),
