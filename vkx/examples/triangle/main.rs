@@ -47,6 +47,7 @@ struct SwapchainState {
     handle: vkx::SwapchainKHR,
     images: Vec<vkx::Image>,
     views: Vec<vkx::ImageView>,
+    rendering_finished_semaphores: Vec<vkx::Semaphore>,
 }
 
 struct App {
@@ -58,9 +59,8 @@ struct App {
     cmdbuf: vkx::CommandBuffer,
     window: Option<WindowState>,
     swapchain: Option<SwapchainState>,
-    swapchain_fence: vkx::Fence,
+    submit_fence: vkx::Fence,
     swapchain_acquire_semaphore: vkx::Semaphore,
-    swapchain_finished_semaphore: vkx::Semaphore,
     recreate_swapchain: bool,
 }
 
@@ -76,12 +76,9 @@ impl App {
         };
 
         // build a list of instance extensions
-        let mut instance_extensions = vec![
-            vkx::Extension::EXT_DebugUtils,
-            vkx::Extension::KHR_PortabilityEnumeration,
-        ];
+        let mut instance_extensions = vec![vkx::Extension::EXT_DebugUtils];
 
-        instance_extensions.extend(vkx::window::get_required_extensions(&event_loop).unwrap());
+        instance_extensions.extend(vkx::window::get_required_extensions(event_loop).unwrap());
 
         // convert it into a vec of C string pointers
         let instance_extensions = vkx::Extension::to_ptrs(instance_extensions);
@@ -89,21 +86,32 @@ impl App {
         // list of instance layers
         let instance_layers = &[c"VK_LAYER_KHRONOS_validation".as_ptr()];
 
+        let (extensions, _) = vkx::auto_count!(|count, vec| {
+            unsafe { vkx::enumerate_instance_extension_properties(None, &mut count, vec) }
+        });
+
+        for ext in extensions {
+            let name =
+                CStr::from_bytes_until_nul(zerocopy::transmute_ref!(&ext.extension_name)).unwrap();
+
+            println!("Extension: {}", name.to_string_lossy());
+        }
+
         // create the instance
-        let instance = vkx::Instance::create(
-            &vkx::InstanceCreateInfo {
-                p_application_info: &app_info,
-                enabled_layer_count: instance_layers.len() as u32,
-                pp_enabled_layer_names: instance_layers.as_ptr(),
-                enabled_extension_count: instance_extensions.len() as u32,
-                pp_enabled_extension_names: instance_extensions.as_ptr(),
-                // this flag is needed to allow enumerating portability devices
-                flags: vkx::InstanceCreateFlag::ENUMERATE_PORTABILITY_KHR.into(),
-                ..Default::default()
-            },
-            None,
-        )
-        .unwrap();
+        let instance = unsafe {
+            vkx::Instance::create(
+                &vkx::InstanceCreateInfo {
+                    p_application_info: &app_info,
+                    enabled_layer_count: instance_layers.len() as u32,
+                    pp_enabled_layer_names: instance_layers.as_ptr(),
+                    enabled_extension_count: instance_extensions.len() as u32,
+                    pp_enabled_extension_names: instance_extensions.as_ptr(),
+                    ..Default::default()
+                },
+                None,
+            )
+            .unwrap()
+        };
 
         // 02. creating the logical device
         // enumerate the physical devices
@@ -212,9 +220,11 @@ impl App {
         device_create_info.push_next(&mut enabled_features_1_3);
 
         // create the device
-        let device = physical_device
-            .create_device(&device_create_info, None)
-            .unwrap();
+        let device = unsafe {
+            physical_device
+                .create_device(&device_create_info, None)
+                .unwrap()
+        };
 
         // and get the queue
         let queue = unsafe { device.get_device_queue(family_idx, 0) };
@@ -251,9 +261,8 @@ impl App {
                 .unwrap()
         };
 
-        let mut swapchain_fence = vkx::Fence::null();
+        let mut submit_fence = vkx::Fence::null();
         let mut swapchain_acquire_semaphore = vkx::Semaphore::null();
-        let mut swapchain_finished_semaphore = vkx::Semaphore::null();
         unsafe {
             device
                 .create_fence(
@@ -262,7 +271,7 @@ impl App {
                         ..Default::default()
                     },
                     None,
-                    &mut swapchain_fence,
+                    &mut submit_fence,
                 )
                 .unwrap();
 
@@ -271,14 +280,6 @@ impl App {
                     &vkx::SemaphoreCreateInfo::default(),
                     None,
                     &mut swapchain_acquire_semaphore,
-                )
-                .unwrap();
-
-            device
-                .create_semaphore(
-                    &vkx::SemaphoreCreateInfo::default(),
-                    None,
-                    &mut swapchain_finished_semaphore,
                 )
                 .unwrap();
         };
@@ -292,9 +293,8 @@ impl App {
             cmdbuf,
             window: None,
             swapchain: None,
-            swapchain_fence,
+            submit_fence,
             swapchain_acquire_semaphore,
-            swapchain_finished_semaphore,
             recreate_swapchain: false,
         }
     }
@@ -322,7 +322,7 @@ impl App {
                         image_sharing_mode: vkx::SharingMode::EXCLUSIVE,
                         pre_transform: window.surface_caps.current_transform,
                         composite_alpha: vkx::CompositeAlphaFlagKHR::OPAQUE_KHR.into(),
-                        present_mode: vkx::PresentModeKHR::PRESENT_MODE_FIFO_KHR,
+                        present_mode: vkx::PresentModeKHR::PRESENT_MODE_MAILBOX_KHR,
                         old_swapchain: self
                             .swapchain
                             .as_ref()
@@ -373,14 +373,23 @@ impl App {
             })
             .collect::<Vec<_>>();
 
-        let old_swapchain = std::mem::replace(
-            &mut self.swapchain,
-            Some(SwapchainState {
-                handle: swapchain,
-                images: swapchain_images,
-                views: swapchain_image_views,
-            }),
-        );
+        let mut rendering_finished_semaphores =
+            vec![vkx::Semaphore::null(); swapchain_images.len()];
+
+        for semaphore in rendering_finished_semaphores.iter_mut() {
+            unsafe {
+                self.device
+                    .create_semaphore(&vkx::SemaphoreCreateInfo::default(), None, semaphore)
+                    .unwrap();
+            }
+        }
+
+        let old_swapchain = self.swapchain.replace(SwapchainState {
+            handle: swapchain,
+            images: swapchain_images,
+            views: swapchain_image_views,
+            rendering_finished_semaphores,
+        });
 
         if let Some(swapchain) = old_swapchain {
             for view in swapchain.views.into_iter() {
@@ -520,18 +529,16 @@ impl App {
         let window = self.window.as_ref().unwrap();
         let swapchain = self.swapchain.as_ref().unwrap();
 
-        // 00. wait until previous draw is finished
+        // 01. wait until previous submit is done and the cmdbuf is available
         unsafe {
             self.device
-                .wait_for_fences(1, &self.swapchain_fence, true.into(), u64::MAX)
+                .wait_for_fences(1, &self.submit_fence, true.into(), u64::MAX)
                 .unwrap();
 
-            self.device.reset_fences(1, &self.swapchain_fence).unwrap();
+            self.device.reset_fences(1, &self.submit_fence).unwrap();
         };
 
-        unsafe { self.device.device_wait_idle().unwrap() };
-
-        // 01. acquire swapchain image
+        // 02. acquire next swapchain image
         let mut swapchain_img_idx = 0;
         loop {
             let success_code = unsafe {
@@ -544,12 +551,16 @@ impl App {
                 )?
             };
 
-            if success_code == vkx::SuccessCode::SUCCESS {
-                break;
+            match success_code {
+                vkx::SuccessCode::SUCCESS => break,
+                vkx::SuccessCode::SUBOPTIMAL_KHR => break,
+                vkx::SuccessCode::NOT_READY => println!("not ready"),
+                vkx::SuccessCode::TIMEOUT => println!("timedout"),
+                _ => unreachable!("{success_code:?}"),
             }
         }
 
-        // 02. record a command buffer
+        // 03. record a command buffer
         // reset the command buffer
         unsafe { self.cmdbuf.reset(None)? };
 
@@ -691,7 +702,7 @@ impl App {
         // end the command buffer
         unsafe { self.cmdbuf.end()? };
 
-        // 03. submit and present
+        // 04. submit and present
         unsafe {
             self.queue.submit_2(
                 Some(1),
@@ -710,19 +721,22 @@ impl App {
                     },
                     signal_semaphore_info_count: 1,
                     p_signal_semaphore_infos: &vkx::SemaphoreSubmitInfo {
-                        semaphore: self.swapchain_finished_semaphore,
+                        semaphore: swapchain.rendering_finished_semaphores
+                            [swapchain_img_idx as usize],
                         // stage to signal the semaphore
                         stage_mask: vkx::PipelineStageFlag2::COLOR_ATTACHMENT_OUTPUT.into(),
                         ..Default::default()
                     },
                     ..Default::default()
                 },
-                Some(self.swapchain_fence),
+                Some(self.submit_fence),
             )?;
 
             self.queue.present_khr(&vkx::PresentInfoKHR {
                 wait_semaphore_count: 1,
-                p_wait_semaphores: &self.swapchain_finished_semaphore,
+                // wait until rendering has finished before presenting
+                p_wait_semaphores: &swapchain.rendering_finished_semaphores
+                    [swapchain_img_idx as usize],
                 swapchain_count: 1,
                 p_swapchains: &swapchain.handle,
                 p_image_indices: &swapchain_img_idx,
@@ -764,7 +778,7 @@ impl ApplicationHandler for App {
         self.create_swapchain();
     }
 
-    fn window_event(&mut self, event_loop: &ActiveEventLoop, id: WindowId, event: WindowEvent) {
+    fn window_event(&mut self, event_loop: &ActiveEventLoop, _id: WindowId, event: WindowEvent) {
         match event {
             WindowEvent::CloseRequested => {
                 println!("The close button was pressed; stopping");
@@ -776,6 +790,7 @@ impl ApplicationHandler for App {
                 }
 
                 self.draw().unwrap();
+                self.window.as_ref().unwrap().window.request_redraw();
             }
             WindowEvent::Resized(_) => {
                 self.recreate_swapchain = true;
@@ -787,7 +802,6 @@ impl ApplicationHandler for App {
 
 fn main() {
     unsafe { vkx::setup().unwrap() };
-
     let event_loop = EventLoop::new().unwrap();
     let mut app = App::new(&event_loop);
     event_loop.run_app(&mut app).unwrap();

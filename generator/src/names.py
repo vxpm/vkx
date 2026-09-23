@@ -78,12 +78,16 @@ def extension(name: str) -> str:
     return f"{tag}_{textcase.pascal(name)}"
 
 
-def command_fn_alias(name: str) -> str:
-    return name.removeprefix("vk")
-
-
 def command(name: str) -> str:
-    return textcase.snake(command_fn_alias(name))
+    return textcase.snake(name.removeprefix("vk"))
+
+
+def command_fn_type(name: str) -> str:
+    return f"Fn{name.removeprefix('vk')}"
+
+
+def fnptr(name: str) -> str:
+    return f"Fn{name.removeprefix('PFN_vk')}"
 
 
 def command_param(name: str) -> str:

@@ -1,7 +1,7 @@
 // WARNING: AUTO GENERATED MODULE
 #![allow(nonstandard_style)]
 #![allow(unused_imports)]
-#![allow(unused_variables)]
+#![allow(clippy::all)]
 
 use crate::loader::*;
 use crate::platform::*;
@@ -17,30 +17,30 @@ use crate::structs::*;
 /// [`PFN_vkAllocationFunction`](https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkAllocationFunction.html)
 ///
 #[doc(alias = "PFN_vkAllocationFunction")]
-pub type vkAllocationFunction =
+pub type FnAllocationFunction =
     unsafe extern "C" fn(*mut c_void, usize, usize, SystemAllocationScope) -> *mut c_void;
 
 /// [`PFN_vkFreeFunction`](https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkFreeFunction.html)
 ///
 #[doc(alias = "PFN_vkFreeFunction")]
-pub type vkFreeFunction = unsafe extern "C" fn(*mut c_void, *mut c_void);
+pub type FnFreeFunction = unsafe extern "C" fn(*mut c_void, *mut c_void);
 
 /// [`PFN_vkInternalAllocationNotification`](https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkInternalAllocationNotification.html)
 ///
 #[doc(alias = "PFN_vkInternalAllocationNotification")]
-pub type vkInternalAllocationNotification =
+pub type FnInternalAllocationNotification =
     unsafe extern "C" fn(*mut c_void, usize, InternalAllocationType, SystemAllocationScope);
 
 /// [`PFN_vkInternalFreeNotification`](https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkInternalFreeNotification.html)
 ///
 #[doc(alias = "PFN_vkInternalFreeNotification")]
-pub type vkInternalFreeNotification =
+pub type FnInternalFreeNotification =
     unsafe extern "C" fn(*mut c_void, usize, InternalAllocationType, SystemAllocationScope);
 
 /// [`PFN_vkReallocationFunction`](https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkReallocationFunction.html)
 ///
 #[doc(alias = "PFN_vkReallocationFunction")]
-pub type vkReallocationFunction = unsafe extern "C" fn(
+pub type FnReallocationFunction = unsafe extern "C" fn(
     *mut c_void,
     *mut c_void,
     usize,
@@ -51,12 +51,12 @@ pub type vkReallocationFunction = unsafe extern "C" fn(
 /// [`PFN_vkVoidFunction`](https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkVoidFunction.html)
 ///
 #[doc(alias = "PFN_vkVoidFunction")]
-pub type vkVoidFunction = unsafe extern "C" fn();
+pub type FnVoidFunction = unsafe extern "C" fn();
 
 /// [`PFN_vkDebugReportCallbackEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkDebugReportCallbackEXT.html)
 ///
 #[doc(alias = "PFN_vkDebugReportCallbackEXT")]
-pub type vkDebugReportCallbackEXT = unsafe extern "C" fn(
+pub type FnDebugReportCallbackEXT = unsafe extern "C" fn(
     DebugReportFlagsEXT,
     DebugReportObjectTypeEXT,
     u64,
@@ -70,7 +70,7 @@ pub type vkDebugReportCallbackEXT = unsafe extern "C" fn(
 /// [`PFN_vkDebugUtilsMessengerCallbackEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkDebugUtilsMessengerCallbackEXT.html)
 ///
 #[doc(alias = "PFN_vkDebugUtilsMessengerCallbackEXT")]
-pub type vkDebugUtilsMessengerCallbackEXT = unsafe extern "C" fn(
+pub type FnDebugUtilsMessengerCallbackEXT = unsafe extern "C" fn(
     DebugUtilsMessageSeverityFlagsEXT,
     DebugUtilsMessageTypeFlagsEXT,
     *const DebugUtilsMessengerCallbackDataEXT,
@@ -80,11 +80,11 @@ pub type vkDebugUtilsMessengerCallbackEXT = unsafe extern "C" fn(
 /// [`PFN_vkDeviceMemoryReportCallbackEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkDeviceMemoryReportCallbackEXT.html)
 ///
 #[doc(alias = "PFN_vkDeviceMemoryReportCallbackEXT")]
-pub type vkDeviceMemoryReportCallbackEXT =
+pub type FnDeviceMemoryReportCallbackEXT =
     unsafe extern "C" fn(*const DeviceMemoryReportCallbackDataEXT, *mut c_void);
 
 /// [`PFN_vkGetInstanceProcAddrLUNARG`](https://docs.vulkan.org/refpages/latest/refpages/source/PFN_vkGetInstanceProcAddrLUNARG.html)
 ///
 #[doc(alias = "PFN_vkGetInstanceProcAddrLUNARG")]
-pub type vkGetInstanceProcAddrLUNARG =
-    unsafe extern "C" fn(InstanceHandle, *const c_char) -> vkVoidFunction;
+pub type FnGetInstanceProcAddrLUNARG =
+    unsafe extern "C" fn(InstanceHandle, *const c_char) -> FnVoidFunction;

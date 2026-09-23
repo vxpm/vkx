@@ -1,7 +1,7 @@
 // WARNING: AUTO GENERATED MODULE
 #![allow(nonstandard_style)]
 #![allow(unused_imports)]
-#![allow(unused_variables)]
+#![allow(clippy::all)]
 
 use crate::loader::*;
 use crate::platform::*;

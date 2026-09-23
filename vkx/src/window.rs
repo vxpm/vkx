@@ -135,6 +135,10 @@ pub unsafe fn create_surface(
 
 /// Returns whether a given queue family on a physical device supports presentation to the given
 /// display.
+///
+/// # Safety
+/// Same as all other Vulkan functions, plus `device` must be child of an `instance` created with
+/// the appropriate extensions for the given `display` (see [`get_required_extensions`]).
 pub unsafe fn queue_family_supports_presentation(
     device: &crate::PhysicalDevice,
     family_idx: u32,

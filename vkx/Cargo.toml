@@ -12,9 +12,7 @@ zerocopy = "0.8.57"
 
 [dev-dependencies]
 shaderc = "0.10"
-winit = {
-  version = "0.30.13",
-}
+winit = "0.30.13"
 
 [target.'cfg(any(target_os = "macos", target_os = "ios"))'.dependencies]
 raw-window-metal = { version = "1.1.0", features = ["std"], optional = true }

@@ -3,7 +3,7 @@
 use core::ffi::CStr;
 use std::collections::HashSet;
 
-/// Trait indicating a vulkan structure that can be extended.
+/// Trait for vulkan structures that can be extended.
 ///
 /// # Safety
 /// Types implementing this trait must be able to be treated as both a
@@ -41,6 +41,9 @@ pub unsafe trait Extendable: Copy + Sized {
 }
 
 /// Marker trait indicating a vulkan structure extends another.
+///
+/// # Safety
+/// Types implementing this trait _must_ be able to extend `T` according to the vulkan spec.
 #[diagnostic::on_unimplemented(
     message = "Type `{Self}` does not extend structure `{T}`",
     note = "Documentation of `{T}` contains a list of all structures extending it"

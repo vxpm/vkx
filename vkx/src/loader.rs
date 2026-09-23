@@ -4,20 +4,18 @@ use std::sync::OnceLock;
 
 use libloading::Library;
 
-pub(crate) type VTable<const N: usize> = [crate::vkVoidFunction; N];
+pub(crate) type VTable<const N: usize> = [crate::FnVoidFunction; N];
 
 type GlobalVTable = VTable<{ crate::GlobalCommand::VARIANTS.len() }>;
 type InstanceVTable = VTable<{ crate::InstanceCommand::VARIANTS.len() }>;
 type DeviceVTable = VTable<{ crate::DeviceCommand::VARIANTS.len() }>;
 
 #[inline(always)]
-pub(crate) fn vtable_get<const N: usize>(table: &VTable<N>, index: usize) -> crate::vkVoidFunction {
+pub(crate) fn vtable_get<const N: usize>(table: &VTable<N>, index: usize) -> crate::FnVoidFunction {
     let func = table[index];
 
     if cfg!(debug_assertions) {
-        let ptr =
-            unsafe { std::mem::transmute::<crate::vkVoidFunction, *const std::ffi::c_void>(func) };
-
+        let ptr = func as *const crate::FnVoidFunction;
         assert!(!ptr.is_null(), "command should not be null");
     }
 
@@ -26,8 +24,8 @@ pub(crate) fn vtable_get<const N: usize>(table: &VTable<N>, index: usize) -> cra
 
 pub(crate) struct Global {
     pub _lib: Library,
-    pub get_instance_proc_addr: crate::FN_GetInstanceProcAddr,
-    pub get_device_proc_addr: crate::FN_GetDeviceProcAddr,
+    pub get_instance_proc_addr: crate::FnGetInstanceProcAddr,
+    pub get_device_proc_addr: crate::FnGetDeviceProcAddr,
     pub commands: GlobalVTable,
 }
 
@@ -52,9 +50,9 @@ pub unsafe fn setup() -> Result<(), libloading::Error> {
 
     let lib = unsafe { Library::new(PATH) }?;
     let get_instance_proc_addr =
-        *unsafe { lib.get::<crate::FN_GetInstanceProcAddr>("vkGetInstanceProcAddr") }?;
+        *unsafe { lib.get::<crate::FnGetInstanceProcAddr>("vkGetInstanceProcAddr") }?;
     let get_device_proc_addr =
-        *unsafe { lib.get::<crate::FN_GetDeviceProcAddr>("vkGetDeviceProcAddr") }?;
+        *unsafe { lib.get::<crate::FnGetDeviceProcAddr>("vkGetDeviceProcAddr") }?;
 
     let mut global_commands = Vec::with_capacity(crate::GlobalCommand::VARIANTS.len());
     for command in crate::GlobalCommand::VARIANTS {
@@ -109,7 +107,10 @@ impl Instance {
     }
 
     /// Creates a new [`Instance`]. This is a wrapper around [`create_instance`](crate::create_instance).
-    pub fn create(
+    ///
+    /// # Safety
+    /// Same as all other Vulkan functions.
+    pub unsafe fn create(
         create_info: *const crate::InstanceCreateInfo,
         allocator: Option<*const crate::AllocationCallbacks>,
     ) -> Result<Self, crate::ErrorCode> {
@@ -137,6 +138,9 @@ impl Instance {
     }
 
     /// Enumerates physical devices - a wrapper around [`Self::raw_enumerate_physical_devices`].
+    ///
+    /// # Safety
+    /// Same as all other Vulkan functions.
     #[inline(always)]
     pub unsafe fn enumerate_physical_devices(
         &self,
@@ -197,8 +201,11 @@ impl PhysicalDevice {
     }
 
     /// Creates a [`Device`] - a wrapper around [`Self::raw_create_device`].
+    ///
+    /// # Safety
+    /// Same as all other Vulkan functions.
     #[inline(always)]
-    pub fn create_device(
+    pub unsafe fn create_device(
         &self,
         create_info: *const crate::DeviceCreateInfo,
         allocator: Option<*const crate::AllocationCallbacks>,
@@ -256,6 +263,9 @@ impl Device {
     }
 
     /// Gets a [`Queue`] - a wrapper around [`Self::raw_get_device_queue`].
+    ///
+    /// # Safety
+    /// Same as all other Vulkan functions.
     pub unsafe fn get_device_queue(&self, queue_family_index: u32, queue_index: u32) -> Queue {
         let mut queue = crate::QueueHandle::null();
         unsafe { self.raw_get_device_queue(queue_family_index, queue_index, &mut queue) };
@@ -267,6 +277,9 @@ impl Device {
     }
 
     /// Gets a [`Queue`] - a wrapper around [`Self::raw_get_device_queue_2`].
+    ///
+    /// # Safety
+    /// Same as all other Vulkan functions.
     pub unsafe fn get_device_queue_2(&self, p_queue_info: *const crate::DeviceQueueInfo2) -> Queue {
         let mut queue = crate::QueueHandle::null();
         unsafe { self.raw_get_device_queue_2(p_queue_info, &mut queue) };
@@ -278,6 +291,9 @@ impl Device {
     }
 
     /// Allocates command buffers - a wrapper around [`Self::allocate_command_buffers`].
+    ///
+    /// # Safety
+    /// Same as all other Vulkan functions.
     pub unsafe fn allocate_command_buffers(
         &self,
         p_allocate_info: *const crate::CommandBufferAllocateInfo,

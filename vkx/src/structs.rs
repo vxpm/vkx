@@ -1,7 +1,7 @@
 // WARNING: AUTO GENERATED MODULE
 #![allow(nonstandard_style)]
 #![allow(unused_imports)]
-#![allow(unused_variables)]
+#![allow(clippy::all)]
 
 use crate::loader::*;
 use crate::platform::*;
@@ -161,13 +161,13 @@ impl Default for BaseOutStructure {
 pub struct AllocationCallbacks {
     /// Optional
     pub p_user_data: *mut c_void,
-    pub pfn_allocation: vkAllocationFunction,
-    pub pfn_reallocation: vkReallocationFunction,
-    pub pfn_free: vkFreeFunction,
+    pub pfn_allocation: FnAllocationFunction,
+    pub pfn_reallocation: FnReallocationFunction,
+    pub pfn_free: FnFreeFunction,
     /// Optional
-    pub pfn_internal_allocation: vkInternalAllocationNotification,
+    pub pfn_internal_allocation: FnInternalAllocationNotification,
     /// Optional
-    pub pfn_internal_free: vkInternalFreeNotification,
+    pub pfn_internal_free: FnInternalFreeNotification,
 }
 impl Default for AllocationCallbacks {
     #[inline(always)]
@@ -27859,7 +27859,7 @@ pub struct DebugReportCallbackCreateInfoEXT {
     pub p_next: *const c_void,
     /// Optional
     pub flags: DebugReportFlagsEXT,
-    pub pfn_callback: vkDebugReportCallbackEXT,
+    pub pfn_callback: FnDebugReportCallbackEXT,
     /// Optional
     pub p_user_data: *mut c_void,
 }
@@ -30282,7 +30282,7 @@ pub struct DebugUtilsMessengerCreateInfoEXT {
     pub flags: DebugUtilsMessengerCreateFlagsEXT,
     pub message_severity: DebugUtilsMessageSeverityFlagsEXT,
     pub message_type: DebugUtilsMessageTypeFlagsEXT,
-    pub pfn_user_callback: vkDebugUtilsMessengerCallbackEXT,
+    pub pfn_user_callback: FnDebugUtilsMessengerCallbackEXT,
     /// Optional
     pub p_user_data: *mut c_void,
 }
@@ -38314,7 +38314,7 @@ pub struct DeviceDeviceMemoryReportCreateInfoEXT {
     /// Optional
     pub p_next: *const c_void,
     pub flags: DeviceMemoryReportFlagsEXT,
-    pub pfn_user_callback: vkDeviceMemoryReportCallbackEXT,
+    pub pfn_user_callback: FnDeviceMemoryReportCallbackEXT,
     /// Optional
     pub p_user_data: *mut c_void,
 }
@@ -46935,7 +46935,7 @@ pub struct DirectDriverLoadingInfoLUNARG {
     /// Optional
     pub p_next: *mut c_void,
     pub flags: DirectDriverLoadingFlagsLUNARG,
-    pub pfn_get_instance_proc_addr: vkGetInstanceProcAddrLUNARG,
+    pub pfn_get_instance_proc_addr: FnGetInstanceProcAddrLUNARG,
 }
 impl Default for DirectDriverLoadingInfoLUNARG {
     #[inline(always)]

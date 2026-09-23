@@ -13,12 +13,12 @@ from vulkan_object import get_vulkan_object
 from vulkan_object import vulkan_object as vkobj
 
 import names
-from rust_types import CTypeParser, RustAtom, RustPointer, RustType
+from rust_types import CTypeParser, RustPointer, RustType
 
 MODULE_PREFIX: str = """ // WARNING: AUTO GENERATED MODULE
 #![allow(nonstandard_style)]
 #![allow(unused_imports)]
-#![allow(unused_variables)]
+#![allow(clippy::all)]
 
 use std::ffi::{c_void, c_int, c_uint, c_char};
 use crate::loader::*;
@@ -825,7 +825,7 @@ class Context:
     def generate_fnptr(self, x: vkobj.FuncPointer) -> str:
         out = CodeWriter()
 
-        type_name = x.name.removeprefix("PFN_")
+        type_name = names.fnptr(x.name)
 
         # docs
         self.vulkan_doc_header(out, x.name)
@@ -878,7 +878,7 @@ class Context:
         out = CodeWriter()
 
         command_name = names.command(x.name)
-        command_fn_alias_name = names.command_fn_alias(x.name)
+        command_fn_type_name = names.command_fn_type(x.name)
 
         # preprocess parameters
         handle = None
@@ -933,7 +933,6 @@ class Context:
                 return_str = "-> Result<SuccessCode, ErrorCode>"
             case _:
                 return_str = return_str_raw
-                pass
 
         if handle is not None:
             # these commands are prefixed with raw to not clash with their smart handle implementation
@@ -958,7 +957,7 @@ class Context:
 
             self.vulkan_doc_header(out, x.name)
             out.writeln(
-                f'pub type FN_{command_fn_alias_name} = unsafe extern "C" fn({handle}Handle, {", ".join(str(x[1]) for x in params)}) {return_str_raw};'
+                f'pub type {command_fn_type_name} = unsafe extern "C" fn({handle}Handle, {", ".join(str(x[1]) for x in params)}) {return_str_raw};'
             )
 
             if str(handle) != "Device":
@@ -986,11 +985,11 @@ class Context:
 
             if x.device:
                 out.writeln(
-                    f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FN_{command_fn_alias_name}>(vtable_get(self.vtable(), DeviceCommand::{x.name} as usize)) }};"
+                    f"let command = unsafe {{ std::mem::transmute::<FnVoidFunction, {command_fn_type_name}>(vtable_get(self.vtable(), DeviceCommand::{x.name} as usize)) }};"
                 )
             else:
                 out.writeln(
-                    f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FN_{command_fn_alias_name}>(vtable_get(self.vtable(), InstanceCommand::{x.name} as usize)) }};"
+                    f"let command = unsafe {{ std::mem::transmute::<FnVoidFunction, {command_fn_type_name}>(vtable_get(self.vtable(), InstanceCommand::{x.name} as usize)) }};"
                 )
 
             out.writeln(f"unsafe {{ (command)(self.handle, {', '.join(params_use)}) }}")
@@ -1013,7 +1012,7 @@ class Context:
             self.global_commands.append(x.name)
             self.vulkan_doc_header(out, x.name)
             out.writeln(
-                f'pub type FN_{command_fn_alias_name} = unsafe extern "C" fn({", ".join(str(x[1]) for x in params)}) {return_str_raw};'
+                f'pub type {command_fn_type_name} = unsafe extern "C" fn({", ".join(str(x[1]) for x in params)}) {return_str_raw};'
             )
 
             signature = f"pub unsafe fn {command_name}({', '.join(params_with_option)}) {return_str}"
@@ -1032,7 +1031,7 @@ class Context:
                 'let commands = GLOBAL.get().expect("vkx setup should have been run").commands;'
             )
             out.writeln(
-                f"let command = unsafe {{ std::mem::transmute::<vkVoidFunction, FN_{command_fn_alias_name}>(vtable_get(&commands, GlobalCommand::{x.name} as usize)) }};"
+                f"let command = unsafe {{ std::mem::transmute::<FnVoidFunction, {command_fn_type_name}>(vtable_get(&commands, GlobalCommand::{x.name} as usize)) }};"
             )
             out.writeln(f"unsafe {{ (command)({', '.join(params_use)}) }}")
 

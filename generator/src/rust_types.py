@@ -3,6 +3,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import override
 
+import names
+
 
 # Parses C type declarations to their Rust equivalent
 class CTypeParser:
@@ -65,9 +67,11 @@ class CTypeParser:
                 type.removeprefix("struct ")
                 .removeprefix("Vk")
                 .removeprefix("StdVideo")
-                .removeprefix("PFN_")
                 .replace("FlagBits", "Flags")
             )
+
+            if atom.startswith("PFN_vk"):
+                atom = names.fnptr(atom)
 
         return RustAtom(atom)
 
