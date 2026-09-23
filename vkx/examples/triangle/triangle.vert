@@ -1,9 +1,9 @@
 #version 460
 
 const vec2 positions[3] = vec2[](
-    vec2( 0.0, +1.0),
-    vec2(-1.0, -1.0),
-    vec2(+1.0, -1.0)
+    vec2(-1.0, 1.0),
+    vec2( 1.0, 1.0),
+    vec2( 0.0,-1.0)
 );
 
 const vec4 colors[3] = vec4[](

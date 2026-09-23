@@ -37,9 +37,13 @@ fn fragment_shader() -> Vec<u32> {
     artifact.as_binary().to_vec()
 }
 
-struct SwapchainState {
+struct WindowState {
+    window: Window,
     surface: vkx::SurfaceKHR,
     surface_caps: vkx::SurfaceCapabilitiesKHR,
+}
+
+struct SwapchainState {
     handle: vkx::SwapchainKHR,
     images: Vec<vkx::Image>,
     views: Vec<vkx::ImageView>,
@@ -51,10 +55,13 @@ struct App {
     device: vkx::Device,
     queue: vkx::Queue,
     pipeline: vkx::Pipeline,
-    command_buffer: vkx::CommandBuffer,
-    swapchain_semaphore: vkx::Semaphore,
-    window: Option<Window>,
+    cmdbuf: vkx::CommandBuffer,
+    window: Option<WindowState>,
     swapchain: Option<SwapchainState>,
+    swapchain_fence: vkx::Fence,
+    swapchain_acquire_semaphore: vkx::Semaphore,
+    swapchain_finished_semaphore: vkx::Semaphore,
+    recreate_swapchain: bool,
 }
 
 impl App {
@@ -230,7 +237,7 @@ impl App {
                 .unwrap()
         };
 
-        let [command_buffer] = unsafe {
+        let [cmdbuf] = unsafe {
             device
                 .allocate_command_buffers(&vkx::CommandBufferAllocateInfo {
                     command_pool,
@@ -244,15 +251,36 @@ impl App {
                 .unwrap()
         };
 
-        let mut swapchain_semaphore = vkx::Semaphore::null();
+        let mut swapchain_fence = vkx::Fence::null();
+        let mut swapchain_acquire_semaphore = vkx::Semaphore::null();
+        let mut swapchain_finished_semaphore = vkx::Semaphore::null();
         unsafe {
+            device
+                .create_fence(
+                    &vkx::FenceCreateInfo {
+                        flags: vkx::FenceCreateFlag::SIGNALED.into(),
+                        ..Default::default()
+                    },
+                    None,
+                    &mut swapchain_fence,
+                )
+                .unwrap();
+
             device
                 .create_semaphore(
                     &vkx::SemaphoreCreateInfo::default(),
                     None,
-                    &mut swapchain_semaphore,
+                    &mut swapchain_acquire_semaphore,
                 )
-                .unwrap()
+                .unwrap();
+
+            device
+                .create_semaphore(
+                    &vkx::SemaphoreCreateInfo::default(),
+                    None,
+                    &mut swapchain_finished_semaphore,
+                )
+                .unwrap();
         };
 
         Self {
@@ -261,36 +289,28 @@ impl App {
             device,
             queue,
             pipeline,
-            command_buffer,
-            swapchain_semaphore,
+            cmdbuf,
             window: None,
             swapchain: None,
+            swapchain_fence,
+            swapchain_acquire_semaphore,
+            swapchain_finished_semaphore,
+            recreate_swapchain: false,
         }
     }
 
-    fn create_swapchain(&mut self, event_loop: &ActiveEventLoop) {
+    fn create_swapchain(&mut self) {
         let window = self.window.as_ref().unwrap();
 
-        // create a surface
-        let surface =
-            unsafe { vkx::window::create_surface(&self.instance, event_loop, &window).unwrap() };
-
-        let mut surface_caps = vkx::SurfaceCapabilitiesKHR::default();
-        unsafe {
-            self.physical_device
-                .get_surface_capabilities_khr(surface, &mut surface_caps)
-                .unwrap()
-        };
-
         // create the swapchain
-        let window_size = window.inner_size();
+        let window_size = window.window.inner_size();
         let mut swapchain = vkx::SwapchainKHR::null();
         unsafe {
             self.device
                 .create_swapchain_khr(
                     &vkx::SwapchainCreateInfoKHR {
-                        surface: surface,
-                        min_image_count: surface_caps.min_image_count,
+                        surface: window.surface,
+                        min_image_count: window.surface_caps.min_image_count,
                         image_format: vkx::Format::B8G8R8A8_SRGB,
                         image_color_space: vkx::ColorSpaceKHR::COLOR_SPACE_SRGB_NONLINEAR_KHR,
                         image_extent: vkx::Extent2D {
@@ -300,9 +320,14 @@ impl App {
                         image_array_layers: 1,
                         image_usage: vkx::ImageUsageFlag::COLOR_ATTACHMENT.into(),
                         image_sharing_mode: vkx::SharingMode::EXCLUSIVE,
-                        pre_transform: surface_caps.current_transform,
+                        pre_transform: window.surface_caps.current_transform,
                         composite_alpha: vkx::CompositeAlphaFlagKHR::OPAQUE_KHR.into(),
                         present_mode: vkx::PresentModeKHR::PRESENT_MODE_FIFO_KHR,
+                        old_swapchain: self
+                            .swapchain
+                            .as_ref()
+                            .map(|s| s.handle)
+                            .unwrap_or_default(),
                         ..Default::default()
                     },
                     None,
@@ -348,13 +373,26 @@ impl App {
             })
             .collect::<Vec<_>>();
 
-        self.swapchain = Some(SwapchainState {
-            surface,
-            surface_caps,
-            handle: swapchain,
-            images: swapchain_images,
-            views: swapchain_image_views,
-        })
+        let old_swapchain = std::mem::replace(
+            &mut self.swapchain,
+            Some(SwapchainState {
+                handle: swapchain,
+                images: swapchain_images,
+                views: swapchain_image_views,
+            }),
+        );
+
+        if let Some(swapchain) = old_swapchain {
+            for view in swapchain.views.into_iter() {
+                unsafe { self.device.destroy_image_view(Some(view), None) };
+            }
+
+            unsafe {
+                self.device.device_wait_idle().unwrap();
+                self.device
+                    .destroy_swapchain_khr(Some(swapchain.handle), None)
+            };
+        }
     }
 
     fn create_pipeline(device: &vkx::Device) -> Result<vkx::Pipeline, vkx::ErrorCode> {
@@ -482,6 +520,17 @@ impl App {
         let window = self.window.as_ref().unwrap();
         let swapchain = self.swapchain.as_ref().unwrap();
 
+        // 00. wait until previous draw is finished
+        unsafe {
+            self.device
+                .wait_for_fences(1, &self.swapchain_fence, true.into(), u64::MAX)
+                .unwrap();
+
+            self.device.reset_fences(1, &self.swapchain_fence).unwrap();
+        };
+
+        unsafe { self.device.device_wait_idle().unwrap() };
+
         // 01. acquire swapchain image
         let mut swapchain_img_idx = 0;
         loop {
@@ -489,35 +538,39 @@ impl App {
                 self.device.acquire_next_image_khr(
                     swapchain.handle,
                     u64::MAX,
-                    Some(self.swapchain_semaphore),
+                    Some(self.swapchain_acquire_semaphore),
                     None,
                     &mut swapchain_img_idx,
                 )?
             };
 
-            if success_code != vkx::SuccessCode::NOT_READY {
+            if success_code == vkx::SuccessCode::SUCCESS {
                 break;
             }
         }
 
         // 02. record a command buffer
         // reset the command buffer
-        unsafe { self.command_buffer.reset(None)? };
+        unsafe { self.cmdbuf.reset(None)? };
 
         // and start recording
         unsafe {
-            self.command_buffer.begin(&vkx::CommandBufferBeginInfo {
+            self.cmdbuf.begin(&vkx::CommandBufferBeginInfo {
                 flags: vkx::CommandBufferUsageFlag::ONE_TIME_SUBMIT.into(),
                 ..Default::default()
             })?
         };
 
-        // transition the swapchain image into it's optimal layout
+        // synchronize and transition the swapchain image into an optimal layout for attachments
         let image_barrier = vkx::ImageMemoryBarrier2 {
+            // wait until all uses of the image are done
             src_stage_mask: vkx::PipelineStageFlag2::COLOR_ATTACHMENT_OUTPUT.into(),
             dst_stage_mask: vkx::PipelineStageFlag2::COLOR_ATTACHMENT_OUTPUT.into(),
-            dst_access_mask: vkx::AccessFlag2::COLOR_ATTACHMENT_READ
-                | vkx::AccessFlag2::COLOR_ATTACHMENT_WRITE,
+            // we could make previous writes available to the layout transition, but since we are
+            // transitioning from UNDEFINED, we dont care
+            src_access_mask: Default::default(),
+            // signal we plan to write to the image. this makes the layout transition visible
+            dst_access_mask: vkx::AccessFlag2::COLOR_ATTACHMENT_WRITE.into(),
             old_layout: vkx::ImageLayout::UNDEFINED,
             new_layout: vkx::ImageLayout::ATTACHMENT_OPTIMAL,
             image: swapchain.images[swapchain_img_idx as usize],
@@ -532,12 +585,11 @@ impl App {
         };
 
         unsafe {
-            self.command_buffer
-                .cmd_pipeline_barrier_2(&vkx::DependencyInfo {
-                    image_memory_barrier_count: 1,
-                    p_image_memory_barriers: &image_barrier,
-                    ..Default::default()
-                });
+            self.cmdbuf.cmd_pipeline_barrier_2(&vkx::DependencyInfo {
+                image_memory_barrier_count: 1,
+                p_image_memory_barriers: &image_barrier,
+                ..Default::default()
+            });
         }
 
         // begin rendering
@@ -554,41 +606,162 @@ impl App {
             ..Default::default()
         };
 
-        let window_size = window.inner_size();
+        let window_size = window.window.inner_size();
         unsafe {
-            self.command_buffer
-                .cmd_begin_rendering(&vkx::RenderingInfo {
-                    render_area: vkx::Rect2D {
-                        offset: vkx::Offset2D::default(),
-                        extent: vkx::Extent2D {
-                            width: window_size.width,
-                            height: window_size.height,
-                        },
+            self.cmdbuf.cmd_begin_rendering(&vkx::RenderingInfo {
+                render_area: vkx::Rect2D {
+                    offset: vkx::Offset2D::default(),
+                    extent: vkx::Extent2D {
+                        width: window_size.width,
+                        height: window_size.height,
                     },
-                    layer_count: 1,
-                    color_attachment_count: 1,
-                    p_color_attachments: &color_attachment_info,
-                    ..Default::default()
-                });
+                },
+                layer_count: 1,
+                color_attachment_count: 1,
+                p_color_attachments: &color_attachment_info,
+                ..Default::default()
+            });
         }
 
-        todo!()
+        // setup the viewport and scissor
+        unsafe {
+            self.cmdbuf.cmd_set_viewport(
+                0,
+                1,
+                &vkx::Viewport {
+                    x: 0.0,
+                    y: 0.0,
+                    width: window_size.width as f32,
+                    height: window_size.height as f32,
+                    min_depth: 0.0,
+                    max_depth: 1.0,
+                },
+            );
+
+            self.cmdbuf.cmd_set_scissor(
+                0,
+                1,
+                &vkx::Rect2D {
+                    offset: vkx::Offset2D::default(),
+                    extent: vkx::Extent2D {
+                        width: window_size.width,
+                        height: window_size.height,
+                    },
+                },
+            );
+        }
+
+        // bind the pipeline, draw and finish rendering
+        unsafe {
+            self.cmdbuf
+                .cmd_bind_pipeline(vkx::PipelineBindPoint::GRAPHICS, self.pipeline);
+            self.cmdbuf.cmd_draw(3, 1, 0, 0);
+            self.cmdbuf.cmd_end_rendering();
+        }
+
+        // synchronize and transition the swapchain image into an optimal layout for presentation
+        let image_barrier = vkx::ImageMemoryBarrier2 {
+            // wait until all uses of the image are done
+            src_stage_mask: vkx::PipelineStageFlag2::COLOR_ATTACHMENT_OUTPUT.into(),
+            // make previous writes available to the layout transition
+            src_access_mask: vkx::AccessFlag2::COLOR_ATTACHMENT_WRITE.into(),
+            // ensure the 2nd sync scope waits until the layout transition is complete
+            dst_stage_mask: vkx::PipelineStageFlag2::COLOR_ATTACHMENT_OUTPUT.into(),
+            old_layout: vkx::ImageLayout::ATTACHMENT_OPTIMAL,
+            new_layout: vkx::ImageLayout::PRESENT_SRC_KHR,
+            image: swapchain.images[swapchain_img_idx as usize],
+            subresource_range: vkx::ImageSubresourceRange {
+                aspect_mask: vkx::ImageAspectFlag::COLOR.into(),
+                base_mip_level: 0,
+                level_count: 1,
+                base_array_layer: 0,
+                layer_count: 1,
+            },
+            ..Default::default()
+        };
+
+        unsafe {
+            self.cmdbuf.cmd_pipeline_barrier_2(&vkx::DependencyInfo {
+                image_memory_barrier_count: 1,
+                p_image_memory_barriers: &image_barrier,
+                ..Default::default()
+            });
+        }
+
+        // end the command buffer
+        unsafe { self.cmdbuf.end()? };
+
+        // 03. submit and present
+        unsafe {
+            self.queue.submit_2(
+                Some(1),
+                &vkx::SubmitInfo2 {
+                    wait_semaphore_info_count: 1,
+                    p_wait_semaphore_infos: &vkx::SemaphoreSubmitInfo {
+                        semaphore: self.swapchain_acquire_semaphore,
+                        // stage to wait for the sempahore
+                        stage_mask: vkx::PipelineStageFlag2::COLOR_ATTACHMENT_OUTPUT.into(),
+                        ..Default::default()
+                    },
+                    command_buffer_info_count: 1,
+                    p_command_buffer_infos: &vkx::CommandBufferSubmitInfo {
+                        command_buffer: self.cmdbuf.handle(),
+                        ..Default::default()
+                    },
+                    signal_semaphore_info_count: 1,
+                    p_signal_semaphore_infos: &vkx::SemaphoreSubmitInfo {
+                        semaphore: self.swapchain_finished_semaphore,
+                        // stage to signal the semaphore
+                        stage_mask: vkx::PipelineStageFlag2::COLOR_ATTACHMENT_OUTPUT.into(),
+                        ..Default::default()
+                    },
+                    ..Default::default()
+                },
+                Some(self.swapchain_fence),
+            )?;
+
+            self.queue.present_khr(&vkx::PresentInfoKHR {
+                wait_semaphore_count: 1,
+                p_wait_semaphores: &self.swapchain_finished_semaphore,
+                swapchain_count: 1,
+                p_swapchains: &swapchain.handle,
+                p_image_indices: &swapchain_img_idx,
+                ..Default::default()
+            })?;
+        }
+
+        Ok(())
     }
 }
 
 impl ApplicationHandler for App {
     fn resumed(&mut self, event_loop: &ActiveEventLoop) {
-        // create a window if we havent yet
+        // create a window and a surface if we havent yet
         if self.window.is_none() {
-            self.window = Some(
-                event_loop
-                    .create_window(Window::default_attributes())
-                    .unwrap(),
-            );
+            let window = event_loop
+                .create_window(Window::default_attributes())
+                .unwrap();
+
+            let surface = unsafe {
+                vkx::window::create_surface(&self.instance, event_loop, &window).unwrap()
+            };
+
+            let mut surface_caps = vkx::SurfaceCapabilitiesKHR::default();
+            unsafe {
+                self.physical_device
+                    .get_surface_capabilities_khr(surface, &mut surface_caps)
+                    .unwrap()
+            };
+
+            self.window = Some(WindowState {
+                window,
+                surface,
+                surface_caps,
+            });
         }
 
         // (re)create the swapchain
-        self.create_swapchain(event_loop);
+        self.create_swapchain();
     }
 
     fn window_event(&mut self, event_loop: &ActiveEventLoop, id: WindowId, event: WindowEvent) {
@@ -598,8 +771,14 @@ impl ApplicationHandler for App {
                 event_loop.exit();
             }
             WindowEvent::RedrawRequested => {
+                if std::mem::take(&mut self.recreate_swapchain) {
+                    self.create_swapchain();
+                }
+
                 self.draw().unwrap();
-                todo!()
+            }
+            WindowEvent::Resized(_) => {
+                self.recreate_swapchain = true;
             }
             _ => (),
         }

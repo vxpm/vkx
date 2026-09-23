@@ -602,7 +602,7 @@ class Context:
 
         # definition
         out.writeln(f'#[doc(alias = "{x.name}")]')
-        out.writeln("#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]")
+        out.writeln("#[derive(Clone, Copy, PartialEq, Eq, Default)]")
         out.writeln("#[repr(transparent)]")
 
         if x.dispatchable and len(x.extensions) == 0:
@@ -625,6 +625,19 @@ class Context:
         out.writeln("pub fn null() -> Self {")
         out.indent()
         out.writeln("Self::default()")
+        out.deindent()
+        out.writeln("}")
+        out.deindent()
+        out.writeln("}")
+
+        # debug impl
+        out.writeln(f"impl std::fmt::Debug for {raw_handle_name} {{")
+        out.indent()
+        out.writeln(
+            "fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {"
+        )
+        out.indent()
+        out.writeln(f'write!(f, "{raw_handle_name}({{:016X}})", self.0)')
         out.deindent()
         out.writeln("}")
         out.deindent()
