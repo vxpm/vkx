@@ -106,9 +106,7 @@ impl App {
         );
 
         for layer in available_instance_layers.iter() {
-            let name =
-                CStr::from_bytes_until_nul(zerocopy::transmute_ref!(&layer.layer_name)).unwrap();
-
+            let name = vkx::chars_as_cstr(&layer.layer_name).unwrap();
             if name == VALIDATION_LAYER_NAME {
                 return true;
             }
@@ -237,9 +235,7 @@ impl App {
                 })
                 .unwrap();
 
-        let device_name =
-            CStr::from_bytes_until_nul(zerocopy::transmute_ref!(&properties.device_name)).unwrap();
-
+        let device_name = vkx::chars_as_cstr(&properties.device_name).unwrap();
         println!("Device chosen: {}", device_name.to_string_lossy());
 
         // setup queue creation info

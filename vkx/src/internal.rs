@@ -252,9 +252,7 @@ impl crate::Extension {
     ) -> HashSet<Self> {
         let mut result = HashSet::default();
         for ext in extensions {
-            let name =
-                CStr::from_bytes_until_nul(zerocopy::transmute_ref!(&ext.extension_name)).unwrap();
-
+            let name = chars_as_cstr(&ext.extension_name).unwrap();
             let Some(variant) = Self::from_name(name) else {
                 panic!("unknown extension '{name:?}'");
             };
@@ -264,6 +262,12 @@ impl crate::Extension {
 
         result
     }
+}
+
+#[inline(always)]
+/// Helper function that creates a [`CStr`] from a slice of [`c_char`](std::ffi::c_char)s.
+pub fn chars_as_cstr(slice: &[std::ffi::c_char]) -> Option<&CStr> {
+    CStr::from_bytes_until_nul(zerocopy::transmute_ref!(slice)).ok()
 }
 
 #[macro_export]
