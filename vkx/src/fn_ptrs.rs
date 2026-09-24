@@ -71,7 +71,7 @@ pub type FnDebugReportCallbackEXT = unsafe extern "C" fn(
 ///
 #[doc(alias = "PFN_vkDebugUtilsMessengerCallbackEXT")]
 pub type FnDebugUtilsMessengerCallbackEXT = unsafe extern "C" fn(
-    DebugUtilsMessageSeverityFlagEXT,
+    DebugUtilsMessageSeverityFlagsEXT,
     DebugUtilsMessageTypeFlagsEXT,
     *const DebugUtilsMessengerCallbackDataEXT,
     *mut c_void,

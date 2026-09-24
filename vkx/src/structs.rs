@@ -1862,7 +1862,7 @@ pub struct ImageCreateInfo {
     pub extent: Extent3D,
     pub mip_levels: u32,
     pub array_layers: u32,
-    pub samples: SampleCountFlag,
+    pub samples: SampleCountFlags,
     pub tiling: ImageTiling,
     pub usage: ImageUsageFlags,
     pub sharing_mode: SharingMode,
@@ -2614,7 +2614,7 @@ pub struct PipelineShaderStageCreateInfo {
     pub p_next: *const c_void,
     /// Optional
     pub flags: PipelineShaderStageCreateFlags,
-    pub stage: ShaderStageFlag,
+    pub stage: ShaderStageFlags,
     /// Optional
     pub module: ShaderModule,
     /// Null terminated
@@ -3461,7 +3461,7 @@ pub struct PipelineMultisampleStateCreateInfo {
     pub p_next: *const c_void,
     /// Optional
     pub flags: PipelineMultisampleStateCreateFlags,
-    pub rasterization_samples: SampleCountFlag,
+    pub rasterization_samples: SampleCountFlags,
     pub sample_shading_enable: Bool32,
     pub min_sample_shading: f32,
     /// Optional
@@ -3762,7 +3762,7 @@ pub struct AttachmentDescription {
     /// Optional
     pub flags: AttachmentDescriptionFlags,
     pub format: Format,
-    pub samples: SampleCountFlag,
+    pub samples: SampleCountFlags,
     pub load_op: AttachmentLoadOp,
     pub store_op: AttachmentStoreOp,
     pub stencil_load_op: AttachmentLoadOp,
@@ -5633,7 +5633,7 @@ pub struct PhysicalDeviceSparseImageFormatInfo2 {
     pub p_next: *const c_void,
     pub format: Format,
     pub type_: ImageType,
-    pub samples: SampleCountFlag,
+    pub samples: SampleCountFlags,
     pub usage: ImageUsageFlags,
     pub tiling: ImageTiling,
 }
@@ -5859,7 +5859,7 @@ pub struct BindImagePlaneMemoryInfo {
     pub s_type: StructureType,
     /// Optional
     pub p_next: *const c_void,
-    pub plane_aspect: ImageAspectFlag,
+    pub plane_aspect: ImageAspectFlags,
 }
 impl Default for BindImagePlaneMemoryInfo {
     #[inline(always)]
@@ -5898,7 +5898,7 @@ pub struct ImagePlaneMemoryRequirementsInfo {
     pub s_type: StructureType,
     /// Optional
     pub p_next: *const c_void,
-    pub plane_aspect: ImageAspectFlag,
+    pub plane_aspect: ImageAspectFlags,
 }
 impl Default for ImagePlaneMemoryRequirementsInfo {
     #[inline(always)]
@@ -5973,7 +5973,7 @@ pub struct PhysicalDeviceExternalImageFormatInfo {
     /// Optional
     pub p_next: *const c_void,
     /// Optional
-    pub handle_type: ExternalMemoryHandleTypeFlag,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
 }
 impl Default for PhysicalDeviceExternalImageFormatInfo {
     #[inline(always)]
@@ -6057,7 +6057,7 @@ pub struct PhysicalDeviceExternalBufferInfo {
     pub flags: BufferCreateFlags,
     /// Optional
     pub usage: BufferUsageFlags,
-    pub handle_type: ExternalMemoryHandleTypeFlag,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
 }
 impl Default for PhysicalDeviceExternalBufferInfo {
     #[inline(always)]
@@ -6304,7 +6304,7 @@ pub struct PhysicalDeviceExternalFenceInfo {
     pub s_type: StructureType,
     /// Optional
     pub p_next: *const c_void,
-    pub handle_type: ExternalFenceHandleTypeFlag,
+    pub handle_type: ExternalFenceHandleTypeFlags,
 }
 impl Default for PhysicalDeviceExternalFenceInfo {
     #[inline(always)]
@@ -6465,7 +6465,7 @@ pub struct PhysicalDeviceExternalSemaphoreInfo {
     pub s_type: StructureType,
     /// Optional
     pub p_next: *const c_void,
-    pub handle_type: ExternalSemaphoreHandleTypeFlag,
+    pub handle_type: ExternalSemaphoreHandleTypeFlags,
 }
 impl Default for PhysicalDeviceExternalSemaphoreInfo {
     #[inline(always)]
@@ -9223,7 +9223,7 @@ pub struct AttachmentDescription2 {
     /// Optional
     pub flags: AttachmentDescriptionFlags,
     pub format: Format,
-    pub samples: SampleCountFlag,
+    pub samples: SampleCountFlags,
     pub load_op: AttachmentLoadOp,
     pub store_op: AttachmentStoreOp,
     pub stencil_load_op: AttachmentLoadOp,
@@ -9577,8 +9577,8 @@ pub struct SubpassDescriptionDepthStencilResolve {
     pub s_type: StructureType,
     /// Optional
     pub p_next: *const c_void,
-    pub depth_resolve_mode: ResolveModeFlag,
-    pub stencil_resolve_mode: ResolveModeFlag,
+    pub depth_resolve_mode: ResolveModeFlags,
+    pub stencil_resolve_mode: ResolveModeFlags,
     /// Optional
     pub p_depth_stencil_resolve_attachment: *const AttachmentReference2,
 }
@@ -11298,7 +11298,7 @@ pub struct DeviceImageMemoryRequirements {
     pub p_next: *const c_void,
     pub p_create_info: *const ImageCreateInfo,
     /// Optional
-    pub plane_aspect: ImageAspectFlag,
+    pub plane_aspect: ImageAspectFlags,
 }
 impl Default for DeviceImageMemoryRequirements {
     #[inline(always)]
@@ -12352,7 +12352,7 @@ pub struct RenderingAttachmentInfo {
     pub image_view: ImageView,
     pub image_layout: ImageLayout,
     /// Optional
-    pub resolve_mode: ResolveModeFlag,
+    pub resolve_mode: ResolveModeFlags,
     /// Optional
     pub resolve_image_view: ImageView,
     pub resolve_image_layout: ImageLayout,
@@ -12567,7 +12567,7 @@ pub struct CommandBufferInheritanceRenderingInfo {
     pub depth_attachment_format: Format,
     pub stencil_attachment_format: Format,
     /// Optional
-    pub rasterization_samples: SampleCountFlag,
+    pub rasterization_samples: SampleCountFlags,
 }
 impl Default for CommandBufferInheritanceRenderingInfo {
     #[inline(always)]
@@ -15016,7 +15016,7 @@ pub struct SurfaceCapabilitiesKHR {
     pub max_image_extent: Extent2D,
     pub max_image_array_layers: u32,
     pub supported_transforms: SurfaceTransformFlagsKHR,
-    pub current_transform: SurfaceTransformFlagKHR,
+    pub current_transform: SurfaceTransformFlagsKHR,
     pub supported_composite_alpha: CompositeAlphaFlagsKHR,
     pub supported_usage_flags: ImageUsageFlags,
 }
@@ -15106,8 +15106,8 @@ pub struct SwapchainCreateInfoKHR {
     /// Optional
     pub queue_family_index_count: u32,
     pub p_queue_family_indices: *const u32,
-    pub pre_transform: SurfaceTransformFlagKHR,
-    pub composite_alpha: CompositeAlphaFlagKHR,
+    pub pre_transform: SurfaceTransformFlagsKHR,
+    pub composite_alpha: CompositeAlphaFlagsKHR,
     pub present_mode: PresentModeKHR,
     pub clipped: Bool32,
     /// Optional
@@ -15376,7 +15376,7 @@ pub struct DeviceGroupPresentInfoKHR {
     /// Optional
     pub swapchain_count: u32,
     pub p_device_masks: *const u32,
-    pub mode: DeviceGroupPresentModeFlagKHR,
+    pub mode: DeviceGroupPresentModeFlagsKHR,
 }
 impl Default for DeviceGroupPresentInfoKHR {
     #[inline(always)]
@@ -15647,9 +15647,9 @@ pub struct DisplaySurfaceCreateInfoKHR {
     pub display_mode: DisplayModeKHR,
     pub plane_index: u32,
     pub plane_stack_index: u32,
-    pub transform: SurfaceTransformFlagKHR,
+    pub transform: SurfaceTransformFlagsKHR,
     pub global_alpha: f32,
-    pub alpha_mode: DisplayPlaneAlphaFlagKHR,
+    pub alpha_mode: DisplayPlaneAlphaFlagsKHR,
     pub image_extent: Extent2D,
 }
 impl Default for DisplaySurfaceCreateInfoKHR {
@@ -15990,7 +15990,7 @@ pub struct VideoProfileInfoKHR {
     pub s_type: StructureType,
     /// Optional
     pub p_next: *const c_void,
-    pub video_codec_operation: VideoCodecOperationFlagKHR,
+    pub video_codec_operation: VideoCodecOperationFlagsKHR,
     pub chroma_subsampling: VideoChromaSubsamplingFlagsKHR,
     pub luma_bit_depth: VideoComponentBitDepthFlagsKHR,
     /// Optional
@@ -18093,7 +18093,7 @@ pub struct VideoDecodeH264ProfileInfoKHR {
     pub p_next: *const c_void,
     pub std_profile_idc: H264ProfileIdc,
     /// Optional
-    pub picture_layout: VideoDecodeH264PictureLayoutFlagKHR,
+    pub picture_layout: VideoDecodeH264PictureLayoutFlagsKHR,
 }
 impl Default for VideoDecodeH264ProfileInfoKHR {
     #[inline(always)]
@@ -18329,7 +18329,7 @@ pub struct ImportMemoryWin32HandleInfoKHR {
     /// Optional
     pub p_next: *const c_void,
     /// Optional
-    pub handle_type: ExternalMemoryHandleTypeFlag,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
     /// Optional
     pub handle: HANDLE,
     /// Optional
@@ -18440,7 +18440,7 @@ pub struct MemoryGetWin32HandleInfoKHR {
     /// Optional
     pub p_next: *const c_void,
     pub memory: DeviceMemory,
-    pub handle_type: ExternalMemoryHandleTypeFlag,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
 }
 impl Default for MemoryGetWin32HandleInfoKHR {
     #[inline(always)]
@@ -18475,7 +18475,7 @@ pub struct ImportMemoryFdInfoKHR {
     /// Optional
     pub p_next: *const c_void,
     /// Optional
-    pub handle_type: ExternalMemoryHandleTypeFlag,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
     pub fd: c_int,
 }
 impl Default for ImportMemoryFdInfoKHR {
@@ -18543,7 +18543,7 @@ pub struct MemoryGetFdInfoKHR {
     /// Optional
     pub p_next: *const c_void,
     pub memory: DeviceMemory,
-    pub handle_type: ExternalMemoryHandleTypeFlag,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
 }
 impl Default for MemoryGetFdInfoKHR {
     #[inline(always)]
@@ -18628,7 +18628,7 @@ pub struct ImportSemaphoreWin32HandleInfoKHR {
     pub semaphore: Semaphore,
     /// Optional
     pub flags: SemaphoreImportFlags,
-    pub handle_type: ExternalSemaphoreHandleTypeFlag,
+    pub handle_type: ExternalSemaphoreHandleTypeFlags,
     /// Optional
     pub handle: HANDLE,
     /// Optional
@@ -18751,7 +18751,7 @@ pub struct SemaphoreGetWin32HandleInfoKHR {
     /// Optional
     pub p_next: *const c_void,
     pub semaphore: Semaphore,
-    pub handle_type: ExternalSemaphoreHandleTypeFlag,
+    pub handle_type: ExternalSemaphoreHandleTypeFlags,
 }
 impl Default for SemaphoreGetWin32HandleInfoKHR {
     #[inline(always)]
@@ -18786,7 +18786,7 @@ pub struct ImportSemaphoreFdInfoKHR {
     pub semaphore: Semaphore,
     /// Optional
     pub flags: SemaphoreImportFlags,
-    pub handle_type: ExternalSemaphoreHandleTypeFlag,
+    pub handle_type: ExternalSemaphoreHandleTypeFlags,
     pub fd: c_int,
 }
 impl Default for ImportSemaphoreFdInfoKHR {
@@ -18822,7 +18822,7 @@ pub struct SemaphoreGetFdInfoKHR {
     /// Optional
     pub p_next: *const c_void,
     pub semaphore: Semaphore,
-    pub handle_type: ExternalSemaphoreHandleTypeFlag,
+    pub handle_type: ExternalSemaphoreHandleTypeFlags,
 }
 impl Default for SemaphoreGetFdInfoKHR {
     #[inline(always)]
@@ -18985,7 +18985,7 @@ pub struct ImportFenceWin32HandleInfoKHR {
     pub fence: Fence,
     /// Optional
     pub flags: FenceImportFlags,
-    pub handle_type: ExternalFenceHandleTypeFlag,
+    pub handle_type: ExternalFenceHandleTypeFlags,
     /// Optional
     pub handle: HANDLE,
     /// Optional
@@ -19064,7 +19064,7 @@ pub struct FenceGetWin32HandleInfoKHR {
     /// Optional
     pub p_next: *const c_void,
     pub fence: Fence,
-    pub handle_type: ExternalFenceHandleTypeFlag,
+    pub handle_type: ExternalFenceHandleTypeFlags,
 }
 impl Default for FenceGetWin32HandleInfoKHR {
     #[inline(always)]
@@ -19099,7 +19099,7 @@ pub struct ImportFenceFdInfoKHR {
     pub fence: Fence,
     /// Optional
     pub flags: FenceImportFlags,
-    pub handle_type: ExternalFenceHandleTypeFlag,
+    pub handle_type: ExternalFenceHandleTypeFlags,
     pub fd: c_int,
 }
 impl Default for ImportFenceFdInfoKHR {
@@ -19135,7 +19135,7 @@ pub struct FenceGetFdInfoKHR {
     /// Optional
     pub p_next: *const c_void,
     pub fence: Fence,
-    pub handle_type: ExternalFenceHandleTypeFlag,
+    pub handle_type: ExternalFenceHandleTypeFlags,
 }
 impl Default for FenceGetFdInfoKHR {
     #[inline(always)]
@@ -20302,7 +20302,7 @@ pub struct PhysicalDeviceFragmentShadingRatePropertiesKHR {
     pub max_fragment_size: Extent2D,
     pub max_fragment_size_aspect_ratio: u32,
     pub max_fragment_shading_rate_coverage_samples: u32,
-    pub max_fragment_shading_rate_rasterization_samples: SampleCountFlag,
+    pub max_fragment_shading_rate_rasterization_samples: SampleCountFlags,
     pub fragment_shading_rate_with_shader_depth_stencil_writes: Bool32,
     pub fragment_shading_rate_with_sample_mask: Bool32,
     pub fragment_shading_rate_with_shader_sample_mask: Bool32,
@@ -21298,7 +21298,7 @@ pub struct VideoEncodeRateControlInfoKHR {
     /// Optional
     pub flags: VideoEncodeRateControlFlagsKHR,
     /// Optional
-    pub rate_control_mode: VideoEncodeRateControlModeFlagKHR,
+    pub rate_control_mode: VideoEncodeRateControlModeFlagsKHR,
     /// Optional
     pub layer_count: u32,
     pub p_layers: *const VideoEncodeRateControlLayerInfoKHR,
@@ -21381,7 +21381,7 @@ pub struct VideoEncodeQualityLevelPropertiesKHR {
     pub s_type: StructureType,
     /// Optional
     pub p_next: *mut c_void,
-    pub preferred_rate_control_mode: VideoEncodeRateControlModeFlagKHR,
+    pub preferred_rate_control_mode: VideoEncodeRateControlModeFlagsKHR,
     pub preferred_rate_control_layer_count: u32,
 }
 impl Default for VideoEncodeQualityLevelPropertiesKHR {
@@ -25297,7 +25297,7 @@ pub struct VideoEncodeSessionIntraRefreshCreateInfoKHR {
     /// Optional
     pub p_next: *const c_void,
     /// Optional
-    pub intra_refresh_mode: VideoEncodeIntraRefreshModeFlagKHR,
+    pub intra_refresh_mode: VideoEncodeIntraRefreshModeFlagsKHR,
 }
 impl Default for VideoEncodeSessionIntraRefreshCreateInfoKHR {
     #[inline(always)]
@@ -27420,9 +27420,9 @@ pub struct ResolveImageModeInfoKHR {
     /// Optional
     pub flags: ResolveImageFlagsKHR,
     /// Optional
-    pub resolve_mode: ResolveModeFlag,
+    pub resolve_mode: ResolveModeFlags,
     /// Optional
-    pub stencil_resolve_mode: ResolveModeFlag,
+    pub stencil_resolve_mode: ResolveModeFlags,
 }
 impl Default for ResolveImageModeInfoKHR {
     #[inline(always)]
@@ -29261,7 +29261,7 @@ pub struct SurfaceCapabilities2EXT {
     pub max_image_extent: Extent2D,
     pub max_image_array_layers: u32,
     pub supported_transforms: SurfaceTransformFlagsKHR,
-    pub current_transform: SurfaceTransformFlagKHR,
+    pub current_transform: SurfaceTransformFlagsKHR,
     pub supported_composite_alpha: CompositeAlphaFlagsKHR,
     pub supported_usage_flags: ImageUsageFlags,
     /// Optional
@@ -32350,9 +32350,9 @@ pub struct AttachmentSampleCountInfoAMD {
     pub p_next: *const c_void,
     /// Optional
     pub color_attachment_count: u32,
-    pub p_color_attachment_samples: *const SampleCountFlag,
+    pub p_color_attachment_samples: *const SampleCountFlags,
     /// Optional
-    pub depth_stencil_attachment_samples: SampleCountFlag,
+    pub depth_stencil_attachment_samples: SampleCountFlags,
 }
 impl Default for AttachmentSampleCountInfoAMD {
     #[inline(always)]
@@ -32419,7 +32419,7 @@ pub struct SampleLocationsInfoEXT {
     pub s_type: StructureType,
     /// Optional
     pub p_next: *const c_void,
-    pub sample_locations_per_pixel: SampleCountFlag,
+    pub sample_locations_per_pixel: SampleCountFlags,
     pub sample_location_grid_size: Extent2D,
     /// Optional
     pub sample_locations_count: u32,
@@ -34421,7 +34421,7 @@ pub struct ImportMemoryHostPointerInfoEXT {
     pub s_type: StructureType,
     /// Optional
     pub p_next: *const c_void,
-    pub handle_type: ExternalMemoryHandleTypeFlag,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
     pub p_host_pointer: *mut c_void,
 }
 impl Default for ImportMemoryHostPointerInfoEXT {
@@ -35012,7 +35012,7 @@ pub struct CheckpointDataNV {
     pub s_type: StructureType,
     /// Optional
     pub p_next: *mut c_void,
-    pub stage: PipelineStageFlag,
+    pub stage: PipelineStageFlags,
     pub p_checkpoint_marker: *mut c_void,
 }
 impl Default for CheckpointDataNV {
@@ -36780,7 +36780,7 @@ pub struct FramebufferMixedSamplesCombinationNV {
     /// Optional
     pub p_next: *mut c_void,
     pub coverage_reduction_mode: CoverageReductionModeNV,
-    pub rasterization_samples: SampleCountFlag,
+    pub rasterization_samples: SampleCountFlags,
     pub depth_stencil_samples: SampleCountFlags,
     pub color_samples: SampleCountFlags,
 }
@@ -38039,7 +38039,7 @@ pub struct RenderPassTransformBeginInfoQCOM {
     pub s_type: StructureType,
     /// Optional
     pub p_next: *const c_void,
-    pub transform: SurfaceTransformFlagKHR,
+    pub transform: SurfaceTransformFlagsKHR,
 }
 impl Default for RenderPassTransformBeginInfoQCOM {
     #[inline(always)]
@@ -38073,7 +38073,7 @@ pub struct CommandBufferInheritanceRenderPassTransformInfoQCOM {
     pub s_type: StructureType,
     /// Optional
     pub p_next: *const c_void,
-    pub transform: SurfaceTransformFlagKHR,
+    pub transform: SurfaceTransformFlagsKHR,
     pub render_area: Rect2D,
 }
 impl Default for CommandBufferInheritanceRenderPassTransformInfoQCOM {
@@ -39428,7 +39428,7 @@ pub struct ExportMetalObjectCreateInfoEXT {
     /// Optional
     pub p_next: *const c_void,
     /// Optional
-    pub export_object_type: ExportMetalObjectTypeFlagEXT,
+    pub export_object_type: ExportMetalObjectTypeFlagsEXT,
 }
 impl Default for ExportMetalObjectCreateInfoEXT {
     #[inline(always)]
@@ -39653,7 +39653,7 @@ pub struct ExportMetalTextureInfoEXT {
     pub image_view: ImageView,
     /// Optional
     pub buffer_view: BufferView,
-    pub plane: ImageAspectFlag,
+    pub plane: ImageAspectFlags,
     pub mtl_texture: MTLTexture_id,
 }
 impl Default for ExportMetalTextureInfoEXT {
@@ -39693,7 +39693,7 @@ pub struct ImportMetalTextureInfoEXT {
     pub s_type: StructureType,
     /// Optional
     pub p_next: *const c_void,
-    pub plane: ImageAspectFlag,
+    pub plane: ImageAspectFlags,
     pub mtl_texture: MTLTexture_id,
 }
 impl Default for ImportMetalTextureInfoEXT {
@@ -40683,7 +40683,7 @@ pub struct PhysicalDeviceFragmentShadingRateEnumsPropertiesNV {
     pub s_type: StructureType,
     /// Optional
     pub p_next: *mut c_void,
-    pub max_fragment_shading_rate_invocation_count: SampleCountFlag,
+    pub max_fragment_shading_rate_invocation_count: SampleCountFlags,
 }
 impl Default for PhysicalDeviceFragmentShadingRateEnumsPropertiesNV {
     #[inline(always)]
@@ -41207,7 +41207,7 @@ pub struct CopyCommandTransformInfoQCOM {
     pub s_type: StructureType,
     /// Optional
     pub p_next: *const c_void,
-    pub transform: SurfaceTransformFlagKHR,
+    pub transform: SurfaceTransformFlagsKHR,
 }
 impl Default for CopyCommandTransformInfoQCOM {
     #[inline(always)]
@@ -42166,7 +42166,7 @@ pub struct ImportMemoryZirconHandleInfoFUCHSIA {
     /// Optional
     pub p_next: *const c_void,
     /// Optional
-    pub handle_type: ExternalMemoryHandleTypeFlag,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
     /// Optional
     pub handle: zx_handle_t,
 }
@@ -42235,7 +42235,7 @@ pub struct MemoryGetZirconHandleInfoFUCHSIA {
     /// Optional
     pub p_next: *const c_void,
     pub memory: DeviceMemory,
-    pub handle_type: ExternalMemoryHandleTypeFlag,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
 }
 impl Default for MemoryGetZirconHandleInfoFUCHSIA {
     #[inline(always)]
@@ -42270,7 +42270,7 @@ pub struct ImportSemaphoreZirconHandleInfoFUCHSIA {
     pub semaphore: Semaphore,
     /// Optional
     pub flags: SemaphoreImportFlags,
-    pub handle_type: ExternalSemaphoreHandleTypeFlag,
+    pub handle_type: ExternalSemaphoreHandleTypeFlags,
     pub zircon_handle: zx_handle_t,
 }
 impl Default for ImportSemaphoreZirconHandleInfoFUCHSIA {
@@ -42307,7 +42307,7 @@ pub struct SemaphoreGetZirconHandleInfoFUCHSIA {
     /// Optional
     pub p_next: *const c_void,
     pub semaphore: Semaphore,
-    pub handle_type: ExternalSemaphoreHandleTypeFlag,
+    pub handle_type: ExternalSemaphoreHandleTypeFlags,
 }
 impl Default for SemaphoreGetZirconHandleInfoFUCHSIA {
     #[inline(always)]
@@ -42869,7 +42869,7 @@ pub struct MemoryGetRemoteAddressInfoNV {
     /// Optional
     pub p_next: *const c_void,
     pub memory: DeviceMemory,
-    pub handle_type: ExternalMemoryHandleTypeFlag,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
 }
 impl Default for MemoryGetRemoteAddressInfoNV {
     #[inline(always)]
@@ -43193,7 +43193,7 @@ pub struct MultisampledRenderToSingleSampledInfoEXT {
     /// Optional
     pub p_next: *const c_void,
     pub multisampled_render_to_single_sampled_enable: Bool32,
-    pub rasterization_samples: SampleCountFlag,
+    pub rasterization_samples: SampleCountFlags,
 }
 impl Default for MultisampledRenderToSingleSampledInfoEXT {
     #[inline(always)]
@@ -43541,10 +43541,10 @@ pub struct VideoEncodeSessionRgbConversionCreateInfoVALVE {
     pub s_type: StructureType,
     /// Optional
     pub p_next: *const c_void,
-    pub rgb_model: VideoEncodeRgbModelConversionFlagVALVE,
-    pub rgb_range: VideoEncodeRgbRangeCompressionFlagVALVE,
-    pub x_chroma_offset: VideoEncodeRgbChromaOffsetFlagVALVE,
-    pub y_chroma_offset: VideoEncodeRgbChromaOffsetFlagVALVE,
+    pub rgb_model: VideoEncodeRgbModelConversionFlagsVALVE,
+    pub rgb_range: VideoEncodeRgbRangeCompressionFlagsVALVE,
+    pub x_chroma_offset: VideoEncodeRgbChromaOffsetFlagsVALVE,
+    pub y_chroma_offset: VideoEncodeRgbChromaOffsetFlagsVALVE,
 }
 impl Default for VideoEncodeSessionRgbConversionCreateInfoVALVE {
     #[inline(always)]
@@ -47576,7 +47576,7 @@ pub struct PhysicalDeviceExternalTensorInfoARM {
     /// Optional
     pub flags: TensorCreateFlagsARM,
     pub p_description: *const TensorDescriptionARM,
-    pub handle_type: ExternalMemoryHandleTypeFlag,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
 }
 impl Default for PhysicalDeviceExternalTensorInfoARM {
     #[inline(always)]
@@ -48775,7 +48775,7 @@ pub struct ShaderCreateInfoEXT {
     pub p_next: *const c_void,
     /// Optional
     pub flags: ShaderCreateFlagsEXT,
-    pub stage: ShaderStageFlag,
+    pub stage: ShaderStageFlags,
     /// Optional
     pub next_stage: ShaderStageFlags,
     pub code_type: ShaderCodeTypeEXT,
@@ -53941,7 +53941,7 @@ impl Default for IndirectCommandsVertexBufferTokenEXT {
 #[repr(C)]
 #[derive(Debug, Clone, Copy)]
 pub struct IndirectCommandsIndexBufferTokenEXT {
-    pub mode: IndirectCommandsInputModeFlagEXT,
+    pub mode: IndirectCommandsInputModeFlagsEXT,
 }
 impl Default for IndirectCommandsIndexBufferTokenEXT {
     #[inline(always)]
@@ -54974,7 +54974,7 @@ pub struct ImportMemoryMetalHandleInfoEXT {
     /// Optional
     pub p_next: *const c_void,
     /// Optional
-    pub handle_type: ExternalMemoryHandleTypeFlag,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
     /// Optional
     pub handle: *mut c_void,
 }
@@ -55043,7 +55043,7 @@ pub struct MemoryGetMetalHandleInfoEXT {
     /// Optional
     pub p_next: *const c_void,
     pub memory: DeviceMemory,
-    pub handle_type: ExternalMemoryHandleTypeFlag,
+    pub handle_type: ExternalMemoryHandleTypeFlags,
 }
 impl Default for MemoryGetMetalHandleInfoEXT {
     #[inline(always)]
