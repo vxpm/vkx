@@ -738,10 +738,12 @@ class Context:
 
         # definition
         out.writeln(f'#[doc(alias = "{x.name}")]')
+        out.writeln("#[derive(Default)]")
         out.writeln("#[non_exhaustive]")
         out.writeln(f"pub enum {flag_enum_name}: {repr_type} {{")
         out.indent()
 
+        first_flag = True
         flag_aliases: list[tuple[str, str]] = []
         for flag in x.flags:
             name = names.flag_variant(flag.name, flag_prefix)
@@ -750,6 +752,11 @@ class Context:
 
             self.requirements_doc_header(out, None, flag.extensions)
             out.writeln(f'#[doc(alias = "{flag.name}")]')
+
+            if first_flag:
+                out.writeln("#[default]")
+                first_flag = False
+
             out.writeln(f"{name} = {flag.value},")
 
         out.deindent()

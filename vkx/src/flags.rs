@@ -13,9 +13,11 @@ flagset::flags! {
     /// [`VkFormatFeatureFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatFeatureFlagBits.html)
     ///
     #[doc(alias = "VkFormatFeatureFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum FormatFeatureFlag: u32 {
         #[doc(alias = "VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT")]
+        #[default]
         SAMPLED_IMAGE = 1,
         #[doc(alias = "VK_FORMAT_FEATURE_STORAGE_IMAGE_BIT")]
         STORAGE_IMAGE = 2,
@@ -263,9 +265,11 @@ flagset::flags! {
     /// [`VkImageCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCreateFlagBits.html)
     ///
     #[doc(alias = "VkImageCreateFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ImageCreateFlag: u32 {
         #[doc(alias = "VK_IMAGE_CREATE_SPARSE_BINDING_BIT")]
+        #[default]
         SPARSE_BINDING = 1,
         #[doc(alias = "VK_IMAGE_CREATE_SPARSE_RESIDENCY_BIT")]
         SPARSE_RESIDENCY = 2,
@@ -450,9 +454,11 @@ flagset::flags! {
     /// [`VkSampleCountFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSampleCountFlagBits.html)
     ///
     #[doc(alias = "VkSampleCountFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum SampleCountFlag: u32 {
         #[doc(alias = "VK_SAMPLE_COUNT_1_BIT")]
+        #[default]
         _1 = 1,
         #[doc(alias = "VK_SAMPLE_COUNT_2_BIT")]
         _2 = 2,
@@ -479,9 +485,11 @@ flagset::flags! {
     /// [`VkImageUsageFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageUsageFlagBits.html)
     ///
     #[doc(alias = "VkImageUsageFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ImageUsageFlag: u32 {
         #[doc(alias = "VK_IMAGE_USAGE_TRANSFER_SRC_BIT")]
+        #[default]
         TRANSFER_SRC = 1,
         #[doc(alias = "VK_IMAGE_USAGE_TRANSFER_DST_BIT")]
         TRANSFER_DST = 2,
@@ -656,6 +664,7 @@ flagset::flags! {
     /// [`VkInstanceCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkInstanceCreateFlagBits.html)
     ///
     #[doc(alias = "VkInstanceCreateFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum InstanceCreateFlag: u32 {
         /// # Requirements
@@ -665,6 +674,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_INSTANCE_CREATE_ENUMERATE_PORTABILITY_BIT_KHR")]
+        #[default]
         ENUMERATE_PORTABILITY_KHR = 1,
     }
 }
@@ -679,9 +689,11 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkMemoryHeapFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum MemoryHeapFlag: u32 {
         #[doc(alias = "VK_MEMORY_HEAP_DEVICE_LOCAL_BIT")]
+        #[default]
         DEVICE_LOCAL = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -721,9 +733,11 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkMemoryPropertyFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum MemoryPropertyFlag: u32 {
         #[doc(alias = "VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT")]
+        #[default]
         DEVICE_LOCAL = 1,
         #[doc(alias = "VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT")]
         HOST_VISIBLE = 2,
@@ -774,9 +788,11 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkQueueFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum QueueFlag: u32 {
         #[doc(alias = "VK_QUEUE_GRAPHICS_BIT")]
+        #[default]
         GRAPHICS = 1,
         #[doc(alias = "VK_QUEUE_COMPUTE_BIT")]
         COMPUTE = 2,
@@ -831,9 +847,11 @@ flagset::flags! {
     /// [`VkShaderStageFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderStageFlagBits.html)
     ///
     #[doc(alias = "VkShaderStageFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ShaderStageFlag: u32 {
         #[doc(alias = "VK_SHADER_STAGE_VERTEX_BIT")]
+        #[default]
         VERTEX = 1,
         #[doc(alias = "VK_SHADER_STAGE_TESSELLATION_CONTROL_BIT")]
         TESSELLATION_CONTROL = 2,
@@ -982,9 +1000,11 @@ flagset::flags! {
     /// [`VkDeviceQueueCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceQueueCreateFlagBits.html)
     ///
     #[doc(alias = "VkDeviceQueueCreateFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum DeviceQueueCreateFlag: u32 {
         #[doc(alias = "VK_DEVICE_QUEUE_CREATE_PROTECTED_BIT")]
+        #[default]
         PROTECTED = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -1005,9 +1025,11 @@ flagset::flags! {
     /// [`VkPipelineStageFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineStageFlagBits.html)
     ///
     #[doc(alias = "VkPipelineStageFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum PipelineStageFlag: u32 {
         #[doc(alias = "VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT")]
+        #[default]
         TOP_OF_PIPE = 1,
         #[doc(alias = "VK_PIPELINE_STAGE_DRAW_INDIRECT_BIT")]
         DRAW_INDIRECT = 2,
@@ -1170,6 +1192,7 @@ flagset::flags! {
     /// [`VkMemoryMapFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryMapFlagBits.html)
     ///
     #[doc(alias = "VkMemoryMapFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum MemoryMapFlag: u32 {
         /// # Requirements
@@ -1179,6 +1202,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_MEMORY_MAP_PLACED_BIT_EXT")]
+        #[default]
         PLACED_EXT = 1,
     }
 }
@@ -1191,9 +1215,11 @@ flagset::flags! {
     /// [`VkImageAspectFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageAspectFlagBits.html)
     ///
     #[doc(alias = "VkImageAspectFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ImageAspectFlag: u32 {
         #[doc(alias = "VK_IMAGE_ASPECT_COLOR_BIT")]
+        #[default]
         COLOR = 1,
         #[doc(alias = "VK_IMAGE_ASPECT_DEPTH_BIT")]
         DEPTH = 2,
@@ -1300,9 +1326,11 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkSparseImageFormatFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum SparseImageFormatFlag: u32 {
         #[doc(alias = "VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT")]
+        #[default]
         SINGLE_MIPTAIL = 1,
         #[doc(alias = "VK_SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT")]
         ALIGNED_MIP_SIZE = 2,
@@ -1321,9 +1349,11 @@ flagset::flags! {
     /// [`VkSparseMemoryBindFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSparseMemoryBindFlagBits.html)
     ///
     #[doc(alias = "VkSparseMemoryBindFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum SparseMemoryBindFlag: u32 {
         #[doc(alias = "VK_SPARSE_MEMORY_BIND_METADATA_BIT")]
+        #[default]
         METADATA = 1,
     }
 }
@@ -1336,9 +1366,11 @@ flagset::flags! {
     /// [`VkFenceCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFenceCreateFlagBits.html)
     ///
     #[doc(alias = "VkFenceCreateFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum FenceCreateFlag: u32 {
         #[doc(alias = "VK_FENCE_CREATE_SIGNALED_BIT")]
+        #[default]
         SIGNALED = 1,
     }
 }
@@ -1351,6 +1383,7 @@ flagset::flags! {
     /// [`VkQueryPoolCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryPoolCreateFlagBits.html)
     ///
     #[doc(alias = "VkQueryPoolCreateFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum QueryPoolCreateFlag: u32 {
         /// # Requirements
@@ -1360,6 +1393,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_QUERY_POOL_CREATE_RESET_BIT_KHR")]
+        #[default]
         RESET_KHR = 1,
     }
 }
@@ -1372,9 +1406,11 @@ flagset::flags! {
     /// [`VkQueryPipelineStatisticFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryPipelineStatisticFlagBits.html)
     ///
     #[doc(alias = "VkQueryPipelineStatisticFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum QueryPipelineStatisticFlag: u32 {
         #[doc(alias = "VK_QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_VERTICES_BIT")]
+        #[default]
         INPUT_ASSEMBLY_VERTICES = 1,
         #[doc(alias = "VK_QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_PRIMITIVES_BIT")]
         INPUT_ASSEMBLY_PRIMITIVES = 2,
@@ -1431,9 +1467,11 @@ flagset::flags! {
     /// [`VkQueryResultFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryResultFlagBits.html)
     ///
     #[doc(alias = "VkQueryResultFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum QueryResultFlag: u32 {
         #[doc(alias = "VK_QUERY_RESULT_64_BIT")]
+        #[default]
         _64 = 1,
         #[doc(alias = "VK_QUERY_RESULT_WAIT_BIT")]
         WAIT = 2,
@@ -1460,9 +1498,11 @@ flagset::flags! {
     /// [`VkBufferCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferCreateFlagBits.html)
     ///
     #[doc(alias = "VkBufferCreateFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum BufferCreateFlag: u32 {
         #[doc(alias = "VK_BUFFER_CREATE_SPARSE_BINDING_BIT")]
+        #[default]
         SPARSE_BINDING = 1,
         #[doc(alias = "VK_BUFFER_CREATE_SPARSE_RESIDENCY_BIT")]
         SPARSE_RESIDENCY = 2,
@@ -1518,9 +1558,11 @@ flagset::flags! {
     /// [`VkBufferUsageFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferUsageFlagBits.html)
     ///
     #[doc(alias = "VkBufferUsageFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum BufferUsageFlag: u32 {
         #[doc(alias = "VK_BUFFER_USAGE_TRANSFER_SRC_BIT")]
+        #[default]
         TRANSFER_SRC = 1,
         #[doc(alias = "VK_BUFFER_USAGE_TRANSFER_DST_BIT")]
         TRANSFER_DST = 2,
@@ -1723,6 +1765,7 @@ flagset::flags! {
     /// [`VkImageViewCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageViewCreateFlagBits.html)
     ///
     #[doc(alias = "VkImageViewCreateFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ImageViewCreateFlag: u32 {
         /// # Requirements
@@ -1732,6 +1775,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_IMAGE_VIEW_CREATE_FRAGMENT_DENSITY_MAP_DYNAMIC_BIT_EXT")]
+        #[default]
         FRAGMENT_DENSITY_MAP_DYNAMIC_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -1761,9 +1805,11 @@ flagset::flags! {
     /// [`VkAccessFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccessFlagBits.html)
     ///
     #[doc(alias = "VkAccessFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum AccessFlag: u32 {
         #[doc(alias = "VK_ACCESS_INDIRECT_COMMAND_READ_BIT")]
+        #[default]
         INDIRECT_COMMAND_READ = 1,
         #[doc(alias = "VK_ACCESS_INDEX_READ_BIT")]
         INDEX_READ = 2,
@@ -1938,9 +1984,11 @@ flagset::flags! {
     /// [`VkDependencyFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDependencyFlagBits.html)
     ///
     #[doc(alias = "VkDependencyFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum DependencyFlag: u32 {
         #[doc(alias = "VK_DEPENDENCY_BY_REGION_BIT")]
+        #[default]
         BY_REGION = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2005,9 +2053,11 @@ flagset::flags! {
     /// [`VkCommandPoolCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandPoolCreateFlagBits.html)
     ///
     #[doc(alias = "VkCommandPoolCreateFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum CommandPoolCreateFlag: u32 {
         #[doc(alias = "VK_COMMAND_POOL_CREATE_TRANSIENT_BIT")]
+        #[default]
         TRANSIENT = 1,
         #[doc(alias = "VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT")]
         RESET_COMMAND_BUFFER = 2,
@@ -2024,9 +2074,11 @@ flagset::flags! {
     /// [`VkCommandPoolResetFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandPoolResetFlagBits.html)
     ///
     #[doc(alias = "VkCommandPoolResetFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum CommandPoolResetFlag: u32 {
         #[doc(alias = "VK_COMMAND_POOL_RESET_RELEASE_RESOURCES_BIT")]
+        #[default]
         RELEASE_RESOURCES = 1,
     }
 }
@@ -2039,9 +2091,11 @@ flagset::flags! {
     /// [`VkQueryControlFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryControlFlagBits.html)
     ///
     #[doc(alias = "VkQueryControlFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum QueryControlFlag: u32 {
         #[doc(alias = "VK_QUERY_CONTROL_PRECISE_BIT")]
+        #[default]
         PRECISE = 1,
     }
 }
@@ -2054,9 +2108,11 @@ flagset::flags! {
     /// [`VkCommandBufferUsageFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferUsageFlagBits.html)
     ///
     #[doc(alias = "VkCommandBufferUsageFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum CommandBufferUsageFlag: u32 {
         #[doc(alias = "VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT")]
+        #[default]
         ONE_TIME_SUBMIT = 1,
         #[doc(alias = "VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT")]
         RENDER_PASS_CONTINUE = 2,
@@ -2073,9 +2129,11 @@ flagset::flags! {
     /// [`VkCommandBufferResetFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferResetFlagBits.html)
     ///
     #[doc(alias = "VkCommandBufferResetFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum CommandBufferResetFlag: u32 {
         #[doc(alias = "VK_COMMAND_BUFFER_RESET_RELEASE_RESOURCES_BIT")]
+        #[default]
         RELEASE_RESOURCES = 1,
     }
 }
@@ -2088,6 +2146,7 @@ flagset::flags! {
     /// [`VkEventCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkEventCreateFlagBits.html)
     ///
     #[doc(alias = "VkEventCreateFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum EventCreateFlag: u32 {
         /// # Requirements
@@ -2098,6 +2157,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_EVENT_CREATE_DEVICE_ONLY_BIT")]
+        #[default]
         DEVICE_ONLY = 1,
     }
 }
@@ -2116,6 +2176,7 @@ flagset::flags! {
     /// [`VkPipelineCacheCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCacheCreateFlagBits.html)
     ///
     #[doc(alias = "VkPipelineCacheCreateFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum PipelineCacheCreateFlag: u32 {
         /// # Requirements
@@ -2126,6 +2187,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_PIPELINE_CACHE_CREATE_EXTERNALLY_SYNCHRONIZED_BIT")]
+        #[default]
         EXTERNALLY_SYNCHRONIZED = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2152,9 +2214,11 @@ flagset::flags! {
     /// [`VkPipelineCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreateFlagBits.html)
     ///
     #[doc(alias = "VkPipelineCreateFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum PipelineCreateFlag: u32 {
         #[doc(alias = "VK_PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT")]
+        #[default]
         DISABLE_OPTIMIZATION = 1,
         #[doc(alias = "VK_PIPELINE_CREATE_ALLOW_DERIVATIVES_BIT")]
         ALLOW_DERIVATIVES = 2,
@@ -2447,6 +2511,7 @@ flagset::flags! {
     /// [`VkPipelineLayoutCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineLayoutCreateFlagBits.html)
     ///
     #[doc(alias = "VkPipelineLayoutCreateFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum PipelineLayoutCreateFlag: u32 {
         /// # Requirements
@@ -2457,6 +2522,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_PIPELINE_LAYOUT_CREATE_INDEPENDENT_SETS_BIT_EXT")]
+        #[default]
         INDEPENDENT_SETS_EXT = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2477,6 +2543,7 @@ flagset::flags! {
     /// [`VkPipelineShaderStageCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineShaderStageCreateFlagBits.html)
     ///
     #[doc(alias = "VkPipelineShaderStageCreateFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum PipelineShaderStageCreateFlag: u32 {
         /// # Requirements
@@ -2487,6 +2554,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_PIPELINE_SHADER_STAGE_CREATE_ALLOW_VARYING_SUBGROUP_SIZE_BIT")]
+        #[default]
         ALLOW_VARYING_SUBGROUP_SIZE = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2518,6 +2586,7 @@ flagset::flags! {
     /// [`VkSamplerCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerCreateFlagBits.html)
     ///
     #[doc(alias = "VkSamplerCreateFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum SamplerCreateFlag: u32 {
         /// # Requirements
@@ -2527,6 +2596,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_SAMPLER_CREATE_SUBSAMPLED_BIT_EXT")]
+        #[default]
         SUBSAMPLED_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2572,9 +2642,11 @@ flagset::flags! {
     /// [`VkDescriptorPoolCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorPoolCreateFlagBits.html)
     ///
     #[doc(alias = "VkDescriptorPoolCreateFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum DescriptorPoolCreateFlag: u32 {
         #[doc(alias = "VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT")]
+        #[default]
         FREE_DESCRIPTOR_SET = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2631,6 +2703,7 @@ flagset::flags! {
     /// [`VkDescriptorSetLayoutCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetLayoutCreateFlagBits.html)
     ///
     #[doc(alias = "VkDescriptorSetLayoutCreateFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum DescriptorSetLayoutCreateFlag: u32 {
         /// # Requirements
@@ -2641,6 +2714,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_DESCRIPTOR_SET_LAYOUT_CREATE_UPDATE_AFTER_BIND_POOL_BIT")]
+        #[default]
         UPDATE_AFTER_BIND_POOL = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2720,9 +2794,11 @@ flagset::flags! {
     /// [`VkColorComponentFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkColorComponentFlagBits.html)
     ///
     #[doc(alias = "VkColorComponentFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ColorComponentFlag: u32 {
         #[doc(alias = "VK_COLOR_COMPONENT_R_BIT")]
+        #[default]
         R = 1,
         #[doc(alias = "VK_COLOR_COMPONENT_G_BIT")]
         G = 2,
@@ -2741,9 +2817,11 @@ flagset::flags! {
     /// [`VkCullModeFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCullModeFlagBits.html)
     ///
     #[doc(alias = "VkCullModeFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum CullModeFlag: u32 {
         #[doc(alias = "VK_CULL_MODE_NONE")]
+        #[default]
         NONE = 0,
         #[doc(alias = "VK_CULL_MODE_FRONT_BIT")]
         FRONT = 1,
@@ -2762,6 +2840,7 @@ flagset::flags! {
     /// [`VkPipelineColorBlendStateCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineColorBlendStateCreateFlagBits.html)
     ///
     #[doc(alias = "VkPipelineColorBlendStateCreateFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum PipelineColorBlendStateCreateFlag: u32 {
         /// # Requirements
@@ -2772,6 +2851,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_PIPELINE_COLOR_BLEND_STATE_CREATE_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_BIT_EXT")]
+        #[default]
         RASTERIZATION_ORDER_ATTACHMENT_ACCESS_EXT = 1,
     }
 }
@@ -2793,6 +2873,7 @@ flagset::flags! {
     /// [`VkPipelineDepthStencilStateCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineDepthStencilStateCreateFlagBits.html)
     ///
     #[doc(alias = "VkPipelineDepthStencilStateCreateFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum PipelineDepthStencilStateCreateFlag: u32 {
         /// # Requirements
@@ -2803,6 +2884,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_PIPELINE_DEPTH_STENCIL_STATE_CREATE_RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS_BIT_EXT")]
+        #[default]
         RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2841,9 +2923,11 @@ flagset::flags! {
     /// [`VkAttachmentDescriptionFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentDescriptionFlagBits.html)
     ///
     #[doc(alias = "VkAttachmentDescriptionFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum AttachmentDescriptionFlag: u32 {
         #[doc(alias = "VK_ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT")]
+        #[default]
         MAY_ALIAS = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2872,6 +2956,7 @@ flagset::flags! {
     /// [`VkFramebufferCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFramebufferCreateFlagBits.html)
     ///
     #[doc(alias = "VkFramebufferCreateFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum FramebufferCreateFlag: u32 {
         /// # Requirements
@@ -2882,6 +2967,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_FRAMEBUFFER_CREATE_IMAGELESS_BIT")]
+        #[default]
         IMAGELESS = 1,
     }
 }
@@ -2900,6 +2986,7 @@ flagset::flags! {
     /// [`VkRenderPassCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassCreateFlagBits.html)
     ///
     #[doc(alias = "VkRenderPassCreateFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum RenderPassCreateFlag: u32 {
         /// # Requirements
@@ -2909,6 +2996,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_RENDER_PASS_CREATE_TRANSFORM_BIT_QCOM")]
+        #[default]
         TRANSFORM_QCOM = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2929,6 +3017,7 @@ flagset::flags! {
     /// [`VkSubpassDescriptionFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassDescriptionFlagBits.html)
     ///
     #[doc(alias = "VkSubpassDescriptionFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum SubpassDescriptionFlag: u32 {
         /// # Requirements
@@ -2938,6 +3027,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_SUBPASS_DESCRIPTION_PER_VIEW_ATTRIBUTES_BIT_NVX")]
+        #[default]
         PER_VIEW_ATTRIBUTES_NVX = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3044,9 +3134,11 @@ flagset::flags! {
     /// [`VkStencilFaceFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkStencilFaceFlagBits.html)
     ///
     #[doc(alias = "VkStencilFaceFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum StencilFaceFlag: u32 {
         #[doc(alias = "VK_STENCIL_FACE_FRONT_BIT")]
+        #[default]
         FRONT = 1,
         #[doc(alias = "VK_STENCIL_FACE_BACK_BIT")]
         BACK = 2,
@@ -3071,9 +3163,11 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkSubgroupFeatureFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum SubgroupFeatureFlag: u32 {
         #[doc(alias = "VK_SUBGROUP_FEATURE_BASIC_BIT")]
+        #[default]
         BASIC = 1,
         #[doc(alias = "VK_SUBGROUP_FEATURE_VOTE_BIT")]
         VOTE = 2,
@@ -3150,6 +3244,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkPeerMemoryFeatureFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum PeerMemoryFeatureFlag: u32 {
         /// # Requirements
@@ -3160,6 +3255,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_PEER_MEMORY_FEATURE_COPY_SRC_BIT")]
+        #[default]
         COPY_SRC = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3232,6 +3328,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkMemoryAllocateFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum MemoryAllocateFlag: u32 {
         /// # Requirements
@@ -3242,6 +3339,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT")]
+        #[default]
         DEVICE_MASK = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3309,6 +3407,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkExternalMemoryHandleTypeFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ExternalMemoryHandleTypeFlag: u32 {
         /// # Requirements
@@ -3319,6 +3418,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_FD_BIT")]
+        #[default]
         OPAQUE_FD = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3520,6 +3620,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkExternalMemoryFeatureFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ExternalMemoryFeatureFlag: u32 {
         /// # Requirements
@@ -3530,6 +3631,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT")]
+        #[default]
         DEDICATED_ONLY = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3591,6 +3693,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkExternalFenceHandleTypeFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ExternalFenceHandleTypeFlag: u32 {
         /// # Requirements
@@ -3601,6 +3704,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_FD_BIT")]
+        #[default]
         OPAQUE_FD = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3675,6 +3779,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkExternalFenceFeatureFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ExternalFenceFeatureFlag: u32 {
         /// # Requirements
@@ -3685,6 +3790,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_EXTERNAL_FENCE_FEATURE_EXPORTABLE_BIT")]
+        #[default]
         EXPORTABLE = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3733,6 +3839,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkFenceImportFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum FenceImportFlag: u32 {
         /// # Requirements
@@ -3743,6 +3850,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_FENCE_IMPORT_TEMPORARY_BIT")]
+        #[default]
         TEMPORARY = 1,
     }
 }
@@ -3776,6 +3884,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkSemaphoreImportFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum SemaphoreImportFlag: u32 {
         /// # Requirements
@@ -3786,6 +3895,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_SEMAPHORE_IMPORT_TEMPORARY_BIT")]
+        #[default]
         TEMPORARY = 1,
     }
 }
@@ -3819,6 +3929,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkExternalSemaphoreHandleTypeFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ExternalSemaphoreHandleTypeFlag: u32 {
         /// # Requirements
@@ -3829,6 +3940,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_FD_BIT")]
+        #[default]
         OPAQUE_FD = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3928,6 +4040,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkExternalSemaphoreFeatureFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ExternalSemaphoreFeatureFlag: u32 {
         /// # Requirements
@@ -3938,6 +4051,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_EXTERNAL_SEMAPHORE_FEATURE_EXPORTABLE_BIT")]
+        #[default]
         EXPORTABLE = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3986,6 +4100,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkResolveModeFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ResolveModeFlag: u32 {
         /// # Requirements
@@ -3996,6 +4111,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_RESOLVE_MODE_NONE")]
+        #[default]
         NONE = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -4099,6 +4215,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkSemaphoreWaitFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum SemaphoreWaitFlag: u32 {
         /// # Requirements
@@ -4109,6 +4226,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_SEMAPHORE_WAIT_ANY_BIT")]
+        #[default]
         ANY = 1,
     }
 }
@@ -4142,6 +4260,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkDescriptorBindingFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum DescriptorBindingFlag: u32 {
         /// # Requirements
@@ -4152,6 +4271,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_DESCRIPTOR_BINDING_UPDATE_AFTER_BIND_BIT")]
+        #[default]
         UPDATE_AFTER_BIND = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -4226,6 +4346,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkToolPurposeFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ToolPurposeFlag: u32 {
         /// # Requirements
@@ -4236,6 +4357,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_TOOL_PURPOSE_VALIDATION_BIT")]
+        #[default]
         VALIDATION = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -4341,6 +4463,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkPrivateDataSlotCreateFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum PrivateDataSlotCreateFlag: u32 {
         /// # Requirements
@@ -4350,6 +4473,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_PRIVATE_DATA_SLOT_CREATE_BASE_OBJECT_HANDLE_BIT_NV")]
+        #[default]
         BASE_OBJECT_HANDLE_NV = 1,
     }
 }
@@ -4377,6 +4501,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkPipelineStageFlagBits2")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum PipelineStageFlag2: u64 {
         /// # Requirements
@@ -4387,6 +4512,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_PIPELINE_STAGE_2_NONE")]
+        #[default]
         NONE = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -4946,6 +5072,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkAccessFlagBits2")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum AccessFlag2: u64 {
         /// # Requirements
@@ -4956,6 +5083,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_ACCESS_2_NONE")]
+        #[default]
         NONE = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -5523,6 +5651,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkSubmitFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum SubmitFlag: u32 {
         /// # Requirements
@@ -5533,6 +5662,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_SUBMIT_PROTECTED_BIT")]
+        #[default]
         PROTECTED = 1,
     }
 }
@@ -5568,6 +5698,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkFormatFeatureFlagBits2")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum FormatFeatureFlag2: u64 {
         /// # Requirements
@@ -5578,6 +5709,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_FORMAT_FEATURE_2_SAMPLED_IMAGE_BIT")]
+        #[default]
         SAMPLED_IMAGE = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -6224,6 +6356,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkPipelineCreationFeedbackFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum PipelineCreationFeedbackFlag: u32 {
         /// # Requirements
@@ -6234,6 +6367,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_PIPELINE_CREATION_FEEDBACK_VALID_BIT")]
+        #[default]
         VALID = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -6295,6 +6429,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkRenderingFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum RenderingFlag: u32 {
         /// # Requirements
@@ -6305,6 +6440,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_RENDERING_CONTENTS_SECONDARY_COMMAND_BUFFERS_BIT")]
+        #[default]
         CONTENTS_SECONDARY_COMMAND_BUFFERS = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -6418,6 +6554,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkMemoryUnmapFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum MemoryUnmapFlag: u32 {
         /// # Requirements
@@ -6427,6 +6564,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_MEMORY_UNMAP_RESERVE_BIT_EXT")]
+        #[default]
         RESERVE_EXT = 1,
     }
 }
@@ -6455,6 +6593,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkBufferUsageFlagBits2")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum BufferUsageFlag2: u64 {
         /// # Requirements
@@ -6466,6 +6605,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_BUFFER_USAGE_2_TRANSFER_SRC_BIT")]
+        #[default]
         TRANSFER_SRC = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -6835,6 +6975,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkHostImageCopyFlagBits")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum HostImageCopyFlag: u32 {
         /// # Requirements
@@ -6845,6 +6986,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_HOST_IMAGE_COPY_MEMCPY_BIT")]
+        #[default]
         MEMCPY = 1,
     }
 }
@@ -6879,6 +7021,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkPipelineCreateFlagBits2")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum PipelineCreateFlag2: u64 {
         /// # Requirements
@@ -6890,6 +7033,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_PIPELINE_CREATE_2_DISABLE_OPTIMIZATION_BIT")]
+        #[default]
         DISABLE_OPTIMIZATION = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -7355,6 +7499,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkSurfaceTransformFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum SurfaceTransformFlagKHR: u32 {
         /// # Requirements
@@ -7365,6 +7510,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR")]
+        #[default]
         IDENTITY_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -7464,6 +7610,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkCompositeAlphaFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum CompositeAlphaFlagKHR: u32 {
         /// # Requirements
@@ -7473,6 +7620,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR")]
+        #[default]
         OPAQUE_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -7523,6 +7671,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkSwapchainCreateFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum SwapchainCreateFlagKHR: u32 {
         /// # Requirements
@@ -7534,6 +7683,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_SWAPCHAIN_CREATE_SPLIT_INSTANCE_BIND_REGIONS_BIT_KHR")]
+        #[default]
         SPLIT_INSTANCE_BIND_REGIONS_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -7623,6 +7773,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkDeviceGroupPresentModeFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum DeviceGroupPresentModeFlagKHR: u32 {
         /// # Requirements
@@ -7634,6 +7785,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_DEVICE_GROUP_PRESENT_MODE_LOCAL_BIT_KHR")]
+        #[default]
         LOCAL_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -7690,6 +7842,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkDisplayPlaneAlphaFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum DisplayPlaneAlphaFlagKHR: u32 {
         /// # Requirements
@@ -7699,6 +7852,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_DISPLAY_PLANE_ALPHA_OPAQUE_BIT_KHR")]
+        #[default]
         OPAQUE_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -7749,6 +7903,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoCodecOperationFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoCodecOperationFlagKHR: u32 {
         /// # Requirements
@@ -7758,6 +7913,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_CODEC_OPERATION_NONE_KHR")]
+        #[default]
         NONE_KHR = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -7840,6 +7996,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoChromaSubsamplingFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoChromaSubsamplingFlagKHR: u32 {
         /// # Requirements
@@ -7849,6 +8006,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_CHROMA_SUBSAMPLING_INVALID_KHR")]
+        #[default]
         INVALID_KHR = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -7905,6 +8063,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoComponentBitDepthFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoComponentBitDepthFlagKHR: u32 {
         /// # Requirements
@@ -7914,6 +8073,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_COMPONENT_BIT_DEPTH_INVALID_KHR")]
+        #[default]
         INVALID_KHR = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -7964,6 +8124,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkVideoCapabilityFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoCapabilityFlagKHR: u32 {
         /// # Requirements
@@ -7973,6 +8134,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_CAPABILITY_PROTECTED_CONTENT_BIT_KHR")]
+        #[default]
         PROTECTED_CONTENT_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8007,6 +8169,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoSessionCreateFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoSessionCreateFlagKHR: u32 {
         /// # Requirements
@@ -8016,6 +8179,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_SESSION_CREATE_PROTECTED_CONTENT_BIT_KHR")]
+        #[default]
         PROTECTED_CONTENT_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8080,6 +8244,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoSessionParametersCreateFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoSessionParametersCreateFlagKHR: u32 {
         /// # Requirements
@@ -8089,6 +8254,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_SESSION_PARAMETERS_CREATE_QUANTIZATION_MAP_COMPATIBLE_BIT_KHR")]
+        #[default]
         QUANTIZATION_MAP_COMPATIBLE_KHR = 1,
     }
 }
@@ -8114,6 +8280,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoCodingControlFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoCodingControlFlagKHR: u32 {
         /// # Requirements
@@ -8123,6 +8290,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_CODING_CONTROL_RESET_BIT_KHR")]
+        #[default]
         RESET_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8165,6 +8333,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkVideoDecodeCapabilityFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoDecodeCapabilityFlagKHR: u32 {
         /// # Requirements
@@ -8174,6 +8343,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_DECODE_CAPABILITY_DPB_AND_OUTPUT_COINCIDE_BIT_KHR")]
+        #[default]
         DPB_AND_OUTPUT_COINCIDE_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8208,6 +8378,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoDecodeUsageFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoDecodeUsageFlagKHR: u32 {
         /// # Requirements
@@ -8217,6 +8388,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_DECODE_USAGE_DEFAULT_KHR")]
+        #[default]
         DEFAULT_KHR = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8267,6 +8439,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkVideoEncodeH264CapabilityFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoEncodeH264CapabilityFlagKHR: u32 {
         /// # Requirements
@@ -8276,6 +8449,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_ENCODE_H264_CAPABILITY_HRD_COMPLIANCE_BIT_KHR")]
+        #[default]
         VIDEO_ENCODE_H264_CAPABILITY_HRD_COMPLIANCE_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8384,6 +8558,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkVideoEncodeH264StdFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoEncodeH264StdFlagKHR: u32 {
         /// # Requirements
@@ -8393,6 +8568,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_ENCODE_H264_STD_SEPARATE_COLOR_PLANE_FLAG_SET_BIT_KHR")]
+        #[default]
         VIDEO_ENCODE_H264_STD_SEPARATE_COLOR_PLANE_FLAG_SET_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8571,6 +8747,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoEncodeH264RateControlFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoEncodeH264RateControlFlagKHR: u32 {
         /// # Requirements
@@ -8580,6 +8757,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_ENCODE_H264_RATE_CONTROL_ATTEMPT_HRD_COMPLIANCE_BIT_KHR")]
+        #[default]
         VIDEO_ENCODE_H264_RATE_CONTROL_ATTEMPT_HRD_COMPLIANCE_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8638,6 +8816,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkVideoEncodeH265CapabilityFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoEncodeH265CapabilityFlagKHR: u32 {
         /// # Requirements
@@ -8647,6 +8826,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_ENCODE_H265_CAPABILITY_HRD_COMPLIANCE_BIT_KHR")]
+        #[default]
         VIDEO_ENCODE_H265_CAPABILITY_HRD_COMPLIANCE_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8763,6 +8943,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkVideoEncodeH265StdFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoEncodeH265StdFlagKHR: u32 {
         /// # Requirements
@@ -8772,6 +8953,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_ENCODE_H265_STD_SEPARATE_COLOR_PLANE_FLAG_SET_BIT_KHR")]
+        #[default]
         VIDEO_ENCODE_H265_STD_SEPARATE_COLOR_PLANE_FLAG_SET_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8960,6 +9142,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkVideoEncodeH265CtbSizeFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoEncodeH265CtbSizeFlagKHR: u32 {
         /// # Requirements
@@ -8969,6 +9152,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_ENCODE_H265_CTB_SIZE_16_BIT_KHR")]
+        #[default]
         VIDEO_ENCODE_H265_CTB_SIZE_16_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9013,6 +9197,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkVideoEncodeH265TransformBlockSizeFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoEncodeH265TransformBlockSizeFlagKHR: u32 {
         /// # Requirements
@@ -9022,6 +9207,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_ENCODE_H265_TRANSFORM_BLOCK_SIZE_4_BIT_KHR")]
+        #[default]
         VIDEO_ENCODE_H265_TRANSFORM_BLOCK_SIZE_4_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9073,6 +9259,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoEncodeH265RateControlFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoEncodeH265RateControlFlagKHR: u32 {
         /// # Requirements
@@ -9082,6 +9269,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_ENCODE_H265_RATE_CONTROL_ATTEMPT_HRD_COMPLIANCE_BIT_KHR")]
+        #[default]
         VIDEO_ENCODE_H265_RATE_CONTROL_ATTEMPT_HRD_COMPLIANCE_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9138,6 +9326,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoDecodeH264PictureLayoutFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoDecodeH264PictureLayoutFlagKHR: u32 {
         /// # Requirements
@@ -9147,6 +9336,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_DECODE_H264_PICTURE_LAYOUT_PROGRESSIVE_KHR")]
+        #[default]
         VIDEO_DECODE_H264_PICTURE_LAYOUT_PROGRESSIVE_KHR = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9192,6 +9382,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkPerformanceCounterDescriptionFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum PerformanceCounterDescriptionFlagKHR: u32 {
         /// # Requirements
@@ -9201,6 +9392,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_PERFORMANCE_COUNTER_DESCRIPTION_PERFORMANCE_IMPACTING_BIT_KHR")]
+        #[default]
         PERFORMANCE_IMPACTING_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9237,6 +9429,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkAcquireProfilingLockFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum AcquireProfilingLockFlagKHR: u32 {
     }
@@ -9262,6 +9455,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoEncodeFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoEncodeFlagKHR: u32 {
         /// # Requirements
@@ -9271,6 +9465,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_ENCODE_INTRA_REFRESH_BIT_KHR")]
+        #[default]
         INTRA_REFRESH_KHR = 4,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9313,6 +9508,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkVideoEncodeCapabilityFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoEncodeCapabilityFlagKHR: u32 {
         /// # Requirements
@@ -9322,6 +9518,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_ENCODE_CAPABILITY_PRECEDING_EXTERNALLY_ENCODED_BYTES_BIT_KHR")]
+        #[default]
         PRECEDING_EXTERNALLY_ENCODED_BYTES_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9372,6 +9569,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoEncodeRateControlModeFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoEncodeRateControlModeFlagKHR: u32 {
         /// # Requirements
@@ -9381,6 +9579,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_ENCODE_RATE_CONTROL_MODE_DEFAULT_KHR")]
+        #[default]
         DEFAULT_KHR = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9431,6 +9630,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoEncodeFeedbackFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoEncodeFeedbackFlagKHR: u32 {
         /// # Requirements
@@ -9440,6 +9640,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_ENCODE_FEEDBACK_BITSTREAM_BUFFER_OFFSET_BIT_KHR")]
+        #[default]
         BITSTREAM_BUFFER_OFFSET_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9536,6 +9737,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoEncodeUsageFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoEncodeUsageFlagKHR: u32 {
         /// # Requirements
@@ -9545,6 +9747,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_ENCODE_USAGE_DEFAULT_KHR")]
+        #[default]
         DEFAULT_KHR = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9601,6 +9804,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoEncodeContentFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoEncodeContentFlagKHR: u32 {
         /// # Requirements
@@ -9610,6 +9814,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_ENCODE_CONTENT_DEFAULT_KHR")]
+        #[default]
         DEFAULT_KHR = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9658,6 +9863,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkAddressCommandFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum AddressCommandFlagKHR: u32 {
         /// # Requirements
@@ -9667,6 +9873,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_ADDRESS_COMMAND_PROTECTED_BIT_KHR")]
+        #[default]
         PROTECTED_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9731,6 +9938,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkConditionalRenderingFlagBitsEXT")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ConditionalRenderingFlagEXT: u32 {
         /// # Requirements
@@ -9740,6 +9948,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_CONDITIONAL_RENDERING_INVERTED_BIT_EXT")]
+        #[default]
         INVERTED_EXT = 1,
     }
 }
@@ -9765,6 +9974,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkAccelerationStructureCreateFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum AccelerationStructureCreateFlagKHR: u32 {
         /// # Requirements
@@ -9774,6 +9984,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_ACCELERATION_STRUCTURE_CREATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT_KHR")]
+        #[default]
         DEVICE_ADDRESS_CAPTURE_REPLAY_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9817,6 +10028,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkPresentScalingFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum PresentScalingFlagKHR: u32 {
         /// # Requirements
@@ -9826,6 +10038,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_PRESENT_SCALING_ONE_TO_ONE_BIT_KHR")]
+        #[default]
         ONE_TO_ONE_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9889,6 +10102,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkPresentGravityFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum PresentGravityFlagKHR: u32 {
         /// # Requirements
@@ -9898,6 +10112,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_PRESENT_GRAVITY_MIN_BIT_KHR")]
+        #[default]
         MIN_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9962,6 +10177,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkVideoEncodeAV1CapabilityFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoEncodeAV1CapabilityFlagKHR: u32 {
         /// # Requirements
@@ -9971,6 +10187,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_ENCODE_AV1_CAPABILITY_PER_RATE_CONTROL_GROUP_MIN_MAX_Q_INDEX_BIT_KHR")]
+        #[default]
         VIDEO_ENCODE_AV1_CAPABILITY_PER_RATE_CONTROL_GROUP_MIN_MAX_Q_INDEX_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10039,6 +10256,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkVideoEncodeAV1StdFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoEncodeAV1StdFlagKHR: u32 {
         /// # Requirements
@@ -10048,6 +10266,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_ENCODE_AV1_STD_UNIFORM_TILE_SPACING_FLAG_SET_BIT_KHR")]
+        #[default]
         VIDEO_ENCODE_AV1_STD_UNIFORM_TILE_SPACING_FLAG_SET_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10100,6 +10319,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkVideoEncodeAV1SuperblockSizeFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoEncodeAV1SuperblockSizeFlagKHR: u32 {
         /// # Requirements
@@ -10109,6 +10329,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_ENCODE_AV1_SUPERBLOCK_SIZE_64_BIT_KHR")]
+        #[default]
         VIDEO_ENCODE_AV1_SUPERBLOCK_SIZE_64_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10144,6 +10365,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoEncodeAV1RateControlFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoEncodeAV1RateControlFlagKHR: u32 {
         /// # Requirements
@@ -10153,6 +10375,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_ENCODE_AV1_RATE_CONTROL_REGULAR_GOP_BIT_KHR")]
+        #[default]
         VIDEO_ENCODE_AV1_RATE_CONTROL_REGULAR_GOP_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10201,6 +10424,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkAddressCopyFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum AddressCopyFlagKHR: u32 {
         /// # Requirements
@@ -10210,6 +10434,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_ADDRESS_COPY_DEVICE_LOCAL_BIT_KHR")]
+        #[default]
         DEVICE_LOCAL_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10250,6 +10475,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoEncodeIntraRefreshModeFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoEncodeIntraRefreshModeFlagKHR: u32 {
         /// # Requirements
@@ -10259,6 +10485,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_ENCODE_INTRA_REFRESH_MODE_NONE_KHR")]
+        #[default]
         NONE_KHR = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10319,6 +10546,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkDeviceFaultFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum DeviceFaultFlagKHR: u32 {
         /// # Requirements
@@ -10328,6 +10556,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_DEVICE_FAULT_FLAG_DEVICE_LOST_KHR")]
+        #[default]
         FLAG_DEVICE_LOST_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10394,6 +10623,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkAccessFlagBits3KHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum AccessFlag3KHR: u64 {
         /// # Requirements
@@ -10403,6 +10633,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_ACCESS_3_NONE_KHR")]
+        #[default]
         NONE_KHR = 0,
     }
 }
@@ -10427,6 +10658,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoEncodePerPartitionFeedbackFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoEncodePerPartitionFeedbackFlagKHR: u32 {
         /// # Requirements
@@ -10436,6 +10668,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_ENCODE_PER_PARTITION_FEEDBACK_STATUS_BIT_KHR")]
+        #[default]
         STATUS_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10477,6 +10710,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkRenderingAttachmentFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum RenderingAttachmentFlagKHR: u32 {
         /// # Requirements
@@ -10486,6 +10720,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_RENDERING_ATTACHMENT_INPUT_ATTACHMENT_FEEDBACK_BIT_KHR")]
+        #[default]
         INPUT_ATTACHMENT_FEEDBACK_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10526,6 +10761,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkResolveImageFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ResolveImageFlagKHR: u32 {
         /// # Requirements
@@ -10535,6 +10771,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_RESOLVE_IMAGE_SKIP_TRANSFER_FUNCTION_BIT_KHR")]
+        #[default]
         SKIP_TRANSFER_FUNCTION_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10569,6 +10806,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkFormatFeatureFlagBits4KHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum FormatFeatureFlag4KHR: u64 {
     }
@@ -10596,6 +10834,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkImageUsageFlagBits2KHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ImageUsageFlag2KHR: u64 {
         /// # Requirements
@@ -10605,6 +10844,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_IMAGE_USAGE_2_TRANSFER_SRC_BIT_KHR")]
+        #[default]
         TRANSFER_SRC_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10821,6 +11061,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkImageCreateFlagBits2KHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ImageCreateFlag2KHR: u64 {
         /// # Requirements
@@ -10830,6 +11071,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_IMAGE_CREATE_2_SPARSE_BINDING_BIT_KHR")]
+        #[default]
         SPARSE_BINDING_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11015,6 +11257,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkDebugReportFlagBitsEXT")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum DebugReportFlagEXT: u32 {
         /// # Requirements
@@ -11025,6 +11268,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_DEBUG_REPORT_INFORMATION_BIT_EXT")]
+        #[default]
         INFORMATION_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11087,6 +11331,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkExternalMemoryHandleTypeFlagBitsNV")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ExternalMemoryHandleTypeFlagNV: u32 {
         /// # Requirements
@@ -11097,6 +11342,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV")]
+        #[default]
         OPAQUE_WIN32_NV = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11152,6 +11398,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkExternalMemoryFeatureFlagBitsNV")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ExternalMemoryFeatureFlagNV: u32 {
         /// # Requirements
@@ -11162,6 +11409,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_NV")]
+        #[default]
         DEDICATED_ONLY_NV = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11207,6 +11455,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkSurfaceCounterFlagBitsEXT")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum SurfaceCounterFlagEXT: u32 {
         /// # Requirements
@@ -11216,6 +11465,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_SURFACE_COUNTER_VBLANK_BIT_EXT")]
+        #[default]
         VBLANK_EXT = 1,
     }
 }
@@ -11241,6 +11491,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkDebugUtilsMessageSeverityFlagBitsEXT")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum DebugUtilsMessageSeverityFlagEXT: u32 {
         /// # Requirements
@@ -11250,6 +11501,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_DEBUG_UTILS_MESSAGE_SEVERITY_VERBOSE_BIT_EXT")]
+        #[default]
         VERBOSE_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11298,6 +11550,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkDebugUtilsMessageTypeFlagBitsEXT")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum DebugUtilsMessageTypeFlagEXT: u32 {
         /// # Requirements
@@ -11307,6 +11560,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_DEBUG_UTILS_MESSAGE_TYPE_GENERAL_BIT_EXT")]
+        #[default]
         GENERAL_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11355,6 +11609,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkGpaSqShaderStageFlagBitsAMD")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum GpaSqShaderStageFlagAMD: u32 {
         /// # Requirements
@@ -11364,6 +11619,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_GPA_SQ_SHADER_STAGE_PS_BIT_AMD")]
+        #[default]
         PS_AMD = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11437,6 +11693,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkTensorViewCreateFlagBitsARM")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum TensorViewCreateFlagARM: u64 {
         /// # Requirements
@@ -11446,6 +11703,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_TENSOR_VIEW_CREATE_DESCRIPTOR_BUFFER_CAPTURE_REPLAY_BIT_ARM")]
+        #[default]
         DESCRIPTOR_BUFFER_CAPTURE_REPLAY_ARM = 1,
     }
 }
@@ -11471,6 +11729,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkSpirvResourceTypeFlagBitsEXT")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum SpirvResourceTypeFlagEXT: u32 {
         /// # Requirements
@@ -11480,6 +11739,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_SPIRV_RESOURCE_TYPE_ALL_EXT")]
+        #[default]
         ALL_EXT = 2147483647,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11586,6 +11846,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkGeometryFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum GeometryFlagKHR: u32 {
         /// # Requirements
@@ -11597,6 +11858,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_GEOMETRY_OPAQUE_BIT_KHR")]
+        #[default]
         OPAQUE_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11653,6 +11915,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkGeometryInstanceFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum GeometryInstanceFlagKHR: u32 {
         /// # Requirements
@@ -11664,6 +11927,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_GEOMETRY_INSTANCE_TRIANGLE_FACING_CULL_DISABLE_BIT_KHR")]
+        #[default]
         TRIANGLE_FACING_CULL_DISABLE_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11778,6 +12042,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkBuildAccelerationStructureFlagBitsKHR")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum BuildAccelerationStructureFlagKHR: u32 {
         /// # Requirements
@@ -11789,6 +12054,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_UPDATE_BIT_KHR")]
+        #[default]
         ALLOW_UPDATE_KHR = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11961,6 +12227,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkPipelineCompilerControlFlagBitsAMD")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum PipelineCompilerControlFlagAMD: u32 {
     }
@@ -11986,6 +12253,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkPresentStageFlagBitsEXT")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum PresentStageFlagEXT: u32 {
         /// # Requirements
@@ -11995,6 +12263,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_PRESENT_STAGE_QUEUE_OPERATIONS_END_BIT_EXT")]
+        #[default]
         QUEUE_OPERATIONS_END_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12043,6 +12312,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkPastPresentationTimingFlagBitsEXT")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum PastPresentationTimingFlagEXT: u32 {
         /// # Requirements
@@ -12052,6 +12322,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_PAST_PRESENTATION_TIMING_ALLOW_PARTIAL_RESULTS_BIT_EXT")]
+        #[default]
         ALLOW_PARTIAL_RESULTS_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12084,6 +12355,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkPresentTimingInfoFlagBitsEXT")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum PresentTimingInfoFlagEXT: u32 {
         /// # Requirements
@@ -12093,6 +12365,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_PRESENT_TIMING_INFO_PRESENT_AT_RELATIVE_TIME_BIT_EXT")]
+        #[default]
         PRESENT_AT_RELATIVE_TIME_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12127,6 +12400,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkShaderCorePropertiesFlagBitsAMD")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ShaderCorePropertiesFlagAMD: u32 {
     }
@@ -12154,6 +12428,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkIndirectStateFlagBitsNV")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum IndirectStateFlagNV: u32 {
         /// # Requirements
@@ -12163,6 +12438,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_INDIRECT_STATE_FLAG_FRONTFACE_BIT_NV")]
+        #[default]
         FLAG_FRONTFACE_NV = 1,
     }
 }
@@ -12187,6 +12463,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkIndirectCommandsLayoutUsageFlagBitsNV")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum IndirectCommandsLayoutUsageFlagNV: u32 {
         /// # Requirements
@@ -12196,6 +12473,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_INDIRECT_COMMANDS_LAYOUT_USAGE_EXPLICIT_PREPROCESS_BIT_NV")]
+        #[default]
         EXPLICIT_PREPROCESS_NV = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12236,6 +12514,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkDeviceDiagnosticsConfigFlagBitsNV")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum DeviceDiagnosticsConfigFlagNV: u32 {
         /// # Requirements
@@ -12245,6 +12524,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_DEVICE_DIAGNOSTICS_CONFIG_ENABLE_SHADER_DEBUG_INFO_BIT_NV")]
+        #[default]
         ENABLE_SHADER_DEBUG_INFO_NV = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12293,6 +12573,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkTileShadingRenderPassFlagBitsQCOM")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum TileShadingRenderPassFlagQCOM: u32 {
         /// # Requirements
@@ -12302,6 +12583,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_TILE_SHADING_RENDER_PASS_ENABLE_BIT_QCOM")]
+        #[default]
         ENABLE_QCOM = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12334,6 +12616,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkExportMetalObjectTypeFlagBitsEXT")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ExportMetalObjectTypeFlagEXT: u32 {
         /// # Requirements
@@ -12343,6 +12626,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_EXPORT_METAL_OBJECT_TYPE_METAL_DEVICE_BIT_EXT")]
+        #[default]
         METAL_DEVICE_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12409,6 +12693,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkGraphicsPipelineLibraryFlagBitsEXT")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum GraphicsPipelineLibraryFlagEXT: u32 {
         /// # Requirements
@@ -12418,6 +12703,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_GRAPHICS_PIPELINE_LIBRARY_VERTEX_INPUT_INTERFACE_BIT_EXT")]
+        #[default]
         VERTEX_INPUT_INTERFACE_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12466,6 +12752,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkImageCompressionFlagBitsEXT")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ImageCompressionFlagEXT: u32 {
         /// # Requirements
@@ -12475,6 +12762,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_IMAGE_COMPRESSION_DEFAULT_EXT")]
+        #[default]
         DEFAULT_EXT = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12523,6 +12811,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkImageCompressionFixedRateFlagBitsEXT")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ImageCompressionFixedRateFlagEXT: u32 {
         /// # Requirements
@@ -12532,6 +12821,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_IMAGE_COMPRESSION_FIXED_RATE_NONE_EXT")]
+        #[default]
         NONE_EXT = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12748,6 +13038,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkDeviceAddressBindingFlagBitsEXT")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum DeviceAddressBindingFlagEXT: u32 {
         /// # Requirements
@@ -12757,6 +13048,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_DEVICE_ADDRESS_BINDING_INTERNAL_OBJECT_BIT_EXT")]
+        #[default]
         INTERNAL_OBJECT_EXT = 1,
     }
 }
@@ -12781,6 +13073,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkImageConstraintsInfoFlagBitsFUCHSIA")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ImageConstraintsInfoFlagFUCHSIA: u32 {
         /// # Requirements
@@ -12790,6 +13083,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_IMAGE_CONSTRAINTS_INFO_CPU_READ_RARELY_FUCHSIA")]
+        #[default]
         CPU_READ_RARELY_FUCHSIA = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12846,6 +13140,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkFrameBoundaryFlagBitsEXT")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum FrameBoundaryFlagEXT: u32 {
         /// # Requirements
@@ -12855,6 +13150,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_FRAME_BOUNDARY_FRAME_END_BIT_EXT")]
+        #[default]
         FRAME_END_EXT = 1,
     }
 }
@@ -12879,6 +13175,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoEncodeRgbModelConversionFlagBitsVALVE")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoEncodeRgbModelConversionFlagVALVE: u32 {
         /// # Requirements
@@ -12888,6 +13185,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_ENCODE_RGB_MODEL_CONVERSION_RGB_IDENTITY_BIT_VALVE")]
+        #[default]
         RGB_IDENTITY_VALVE = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12947,6 +13245,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoEncodeRgbRangeCompressionFlagBitsVALVE")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoEncodeRgbRangeCompressionFlagVALVE: u32 {
         /// # Requirements
@@ -12956,6 +13255,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_ENCODE_RGB_RANGE_COMPRESSION_FULL_RANGE_BIT_VALVE")]
+        #[default]
         FULL_RANGE_VALVE = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12991,6 +13291,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkVideoEncodeRgbChromaOffsetFlagBitsVALVE")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum VideoEncodeRgbChromaOffsetFlagVALVE: u32 {
         /// # Requirements
@@ -13000,6 +13301,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_VIDEO_ENCODE_RGB_CHROMA_OFFSET_COSITED_EVEN_BIT_VALVE")]
+        #[default]
         COSITED_EVEN_VALVE = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13036,6 +13338,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkBuildMicromapFlagBitsEXT")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum BuildMicromapFlagEXT: u32 {
         /// # Requirements
@@ -13046,6 +13349,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_BUILD_MICROMAP_PREFER_FAST_TRACE_BIT_EXT")]
+        #[default]
         PREFER_FAST_TRACE_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13090,6 +13394,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkMicromapCreateFlagBitsEXT")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum MicromapCreateFlagEXT: u32 {
         /// # Requirements
@@ -13100,6 +13405,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_MICROMAP_CREATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT_EXT")]
+        #[default]
         DEVICE_ADDRESS_CAPTURE_REPLAY_EXT = 1,
     }
 }
@@ -13127,6 +13433,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkPhysicalDeviceSchedulingControlsFlagBitsARM")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum PhysicalDeviceSchedulingControlsFlagARM: u64 {
         /// # Requirements
@@ -13136,6 +13443,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_PHYSICAL_DEVICE_SCHEDULING_CONTROLS_SHADER_CORE_COUNT_ARM")]
+        #[default]
         SHADER_CORE_COUNT_ARM = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13172,6 +13480,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkMemoryDecompressionMethodFlagBitsEXT")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum MemoryDecompressionMethodFlagEXT: u64 {
         /// # Requirements
@@ -13181,6 +13490,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_MEMORY_DECOMPRESSION_METHOD_GDEFLATE_1_0_BIT_EXT")]
+        #[default]
         GDEFLATE_1_0_EXT = 1,
     }
 }
@@ -13220,6 +13530,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkTensorCreateFlagBitsARM")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum TensorCreateFlagARM: u64 {
         /// # Requirements
@@ -13229,6 +13540,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_TENSOR_CREATE_MUTABLE_FORMAT_BIT_ARM")]
+        #[default]
         MUTABLE_FORMAT_ARM = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13277,6 +13589,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkTensorUsageFlagBitsARM")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum TensorUsageFlagARM: u64 {
         /// # Requirements
@@ -13286,6 +13599,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_TENSOR_USAGE_SHADER_BIT_ARM")]
+        #[default]
         SHADER_ARM = 2,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13342,6 +13656,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkOpticalFlowGridSizeFlagBitsNV")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum OpticalFlowGridSizeFlagNV: u32 {
         /// # Requirements
@@ -13351,6 +13666,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_OPTICAL_FLOW_GRID_SIZE_UNKNOWN_NV")]
+        #[default]
         UNKNOWN_NV = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13407,6 +13723,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkOpticalFlowUsageFlagBitsNV")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum OpticalFlowUsageFlagNV: u32 {
         /// # Requirements
@@ -13416,6 +13733,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_OPTICAL_FLOW_USAGE_UNKNOWN_NV")]
+        #[default]
         UNKNOWN_NV = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13480,6 +13798,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkOpticalFlowSessionCreateFlagBitsNV")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum OpticalFlowSessionCreateFlagNV: u32 {
         /// # Requirements
@@ -13489,6 +13808,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_OPTICAL_FLOW_SESSION_CREATE_ENABLE_HINT_BIT_NV")]
+        #[default]
         ENABLE_HINT_NV = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13545,6 +13865,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkOpticalFlowExecuteFlagBitsNV")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum OpticalFlowExecuteFlagNV: u32 {
         /// # Requirements
@@ -13554,6 +13875,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_OPTICAL_FLOW_EXECUTE_DISABLE_TEMPORAL_HINTS_BIT_NV")]
+        #[default]
         DISABLE_TEMPORAL_HINTS_NV = 1,
     }
 }
@@ -13578,6 +13900,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkShaderCreateFlagBitsEXT")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ShaderCreateFlagEXT: u32 {
         /// # Requirements
@@ -13587,6 +13910,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_SHADER_CREATE_LINK_STAGE_BIT_EXT")]
+        #[default]
         LINK_STAGE_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13709,6 +14033,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkDataGraphPipelineSessionCreateFlagBitsARM")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum DataGraphPipelineSessionCreateFlagARM: u64 {
         /// # Requirements
@@ -13718,6 +14043,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_DATA_GRAPH_PIPELINE_SESSION_CREATE_PROTECTED_BIT_ARM")]
+        #[default]
         PROTECTED_ARM = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13751,6 +14077,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkDataGraphPipelineDispatchFlagBitsARM")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum DataGraphPipelineDispatchFlagARM: u64 {
     }
@@ -13778,6 +14105,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkDataGraphTOSAQualityFlagBitsARM")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum DataGraphTOSAQualityFlagARM: u32 {
         /// # Requirements
@@ -13787,6 +14115,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_DATA_GRAPH_TOSA_QUALITY_ACCELERATED_ARM")]
+        #[default]
         ACCELERATED_ARM = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13837,6 +14166,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkClusterAccelerationStructureAddressResolutionFlagBitsNV")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ClusterAccelerationStructureAddressResolutionFlagNV: u32 {
         /// # Requirements
@@ -13846,6 +14176,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_CLUSTER_ACCELERATION_STRUCTURE_ADDRESS_RESOLUTION_NONE_NV")]
+        #[default]
         NONE_NV = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13919,6 +14250,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkClusterAccelerationStructureClusterFlagBitsNV")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ClusterAccelerationStructureClusterFlagNV: u32 {
         /// # Requirements
@@ -13928,6 +14260,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_CLUSTER_ACCELERATION_STRUCTURE_CLUSTER_ALLOW_DISABLE_OPACITY_MICROMAPS_NV")]
+        #[default]
         ALLOW_DISABLE_OPACITY_MICROMAPS_NV = 1,
     }
 }
@@ -13955,6 +14288,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkClusterAccelerationStructureGeometryFlagBitsNV")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ClusterAccelerationStructureGeometryFlagNV: u32 {
         /// # Requirements
@@ -13964,6 +14298,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_CLUSTER_ACCELERATION_STRUCTURE_GEOMETRY_CULL_DISABLE_BIT_NV")]
+        #[default]
         CULL_DISABLE_NV = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14009,6 +14344,7 @@ flagset::flags! {
     /// # Returned only
     /// This type is only returned by Vulkan, never constructed by the API user.
     #[doc(alias = "VkClusterAccelerationStructureIndexFormatFlagBitsNV")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum ClusterAccelerationStructureIndexFormatFlagNV: u32 {
         /// # Requirements
@@ -14018,6 +14354,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_CLUSTER_ACCELERATION_STRUCTURE_INDEX_FORMAT_8BIT_NV")]
+        #[default]
         _8BIT_NV = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14061,6 +14398,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkPartitionedAccelerationStructureInstanceFlagBitsNV")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum PartitionedAccelerationStructureInstanceFlagNV: u32 {
         /// # Requirements
@@ -14070,6 +14408,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_PARTITIONED_ACCELERATION_STRUCTURE_INSTANCE_FLAG_TRIANGLE_FACING_CULL_DISABLE_BIT_NV")]
+        #[default]
         FLAG_TRIANGLE_FACING_CULL_DISABLE_NV = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14127,6 +14466,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkIndirectCommandsInputModeFlagBitsEXT")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum IndirectCommandsInputModeFlagEXT: u32 {
         /// # Requirements
@@ -14136,6 +14476,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_INDIRECT_COMMANDS_INPUT_MODE_VULKAN_INDEX_BUFFER_EXT")]
+        #[default]
         VULKAN_INDEX_BUFFER_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14170,6 +14511,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkIndirectCommandsLayoutUsageFlagBitsEXT")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum IndirectCommandsLayoutUsageFlagEXT: u32 {
         /// # Requirements
@@ -14179,6 +14521,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_INDIRECT_COMMANDS_LAYOUT_USAGE_EXPLICIT_PREPROCESS_BIT_EXT")]
+        #[default]
         EXPLICIT_PREPROCESS_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14211,6 +14554,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkDataGraphOpticalFlowGridSizeFlagBitsARM")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum DataGraphOpticalFlowGridSizeFlagARM: u32 {
         /// # Requirements
@@ -14220,6 +14564,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_DATA_GRAPH_OPTICAL_FLOW_GRID_SIZE_UNKNOWN_ARM")]
+        #[default]
         UNKNOWN_ARM = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14277,6 +14622,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkDataGraphOpticalFlowCreateFlagBitsARM")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum DataGraphOpticalFlowCreateFlagARM: u32 {
         /// # Requirements
@@ -14286,6 +14632,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_DATA_GRAPH_OPTICAL_FLOW_CREATE_ENABLE_HINT_BIT_ARM")]
+        #[default]
         ENABLE_HINT_ARM = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14326,6 +14673,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkDataGraphOpticalFlowImageUsageFlagBitsARM")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum DataGraphOpticalFlowImageUsageFlagARM: u32 {
         /// # Requirements
@@ -14335,6 +14683,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_DATA_GRAPH_OPTICAL_FLOW_IMAGE_USAGE_UNKNOWN_ARM")]
+        #[default]
         UNKNOWN_ARM = 0,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14392,6 +14741,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkDataGraphOpticalFlowExecuteFlagBitsARM")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum DataGraphOpticalFlowExecuteFlagARM: u32 {
         /// # Requirements
@@ -14401,6 +14751,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_DATA_GRAPH_OPTICAL_FLOW_EXECUTE_DISABLE_TEMPORAL_HINTS_BIT_ARM")]
+        #[default]
         DISABLE_TEMPORAL_HINTS_ARM = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14457,6 +14808,7 @@ flagset::flags! {
     /// Note this list might not be exhaustive. For more information check vulkan documentation.
     ///
     #[doc(alias = "VkCooperativeMatrixFlagBitsEXT")]
+    #[derive(Default)]
     #[non_exhaustive]
     pub enum CooperativeMatrixFlagEXT: u32 {
         /// # Requirements
@@ -14466,6 +14818,7 @@ flagset::flags! {
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
         #[doc(alias = "VK_COOPERATIVE_MATRIX_SATURATING_ACCUMULATION_BIT_EXT")]
+        #[default]
         SATURATING_ACCUMULATION_EXT = 1,
     }
 }
