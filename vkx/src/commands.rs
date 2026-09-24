@@ -1105,7 +1105,7 @@ pub type FnGetPhysicalDeviceSparseImageFormatProperties = unsafe extern "C" fn(
     PhysicalDeviceHandle,
     Format,
     ImageType,
-    SampleCountFlags,
+    SampleCountFlag,
     ImageUsageFlags,
     ImageTiling,
     *mut u32,
@@ -1127,7 +1127,7 @@ impl PhysicalDevice {
         &self,
         format: Format,
         type_: ImageType,
-        samples: SampleCountFlags,
+        samples: SampleCountFlag,
         usage: ImageUsageFlags,
         tiling: ImageTiling,
         p_property_count: *mut u32,
@@ -2544,7 +2544,7 @@ impl CommandBuffer {
 /// [`vkCmdWriteTimestamp`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteTimestamp.html)
 ///
 pub type FnCmdWriteTimestamp =
-    unsafe extern "C" fn(CommandBufferHandle, PipelineStageFlags, QueryPool, u32);
+    unsafe extern "C" fn(CommandBufferHandle, PipelineStageFlag, QueryPool, u32);
 impl CommandBuffer {
     /// [`vkCmdWriteTimestamp`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteTimestamp.html)
     ///
@@ -2574,7 +2574,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_write_timestamp(
         &self,
-        pipeline_stage: PipelineStageFlags,
+        pipeline_stage: PipelineStageFlag,
         query_pool: QueryPool,
         query: u32,
     ) {
@@ -11713,7 +11713,7 @@ impl Device {
 ///
 pub type FnGetMemoryWin32HandlePropertiesKHR = unsafe extern "C" fn(
     DeviceHandle,
-    ExternalMemoryHandleTypeFlags,
+    ExternalMemoryHandleTypeFlag,
     HANDLE,
     *mut MemoryWin32HandlePropertiesKHR,
 ) -> ResultCode;
@@ -11736,7 +11736,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn get_memory_win_32_handle_properties_khr(
         &self,
-        handle_type: ExternalMemoryHandleTypeFlags,
+        handle_type: ExternalMemoryHandleTypeFlag,
         handle: HANDLE,
         p_memory_win_32_handle_properties: *mut MemoryWin32HandlePropertiesKHR,
     ) -> Result<(), ErrorCode> {
@@ -11798,7 +11798,7 @@ impl Device {
 ///
 pub type FnGetMemoryFdPropertiesKHR = unsafe extern "C" fn(
     DeviceHandle,
-    ExternalMemoryHandleTypeFlags,
+    ExternalMemoryHandleTypeFlag,
     c_int,
     *mut MemoryFdPropertiesKHR,
 ) -> ResultCode;
@@ -11821,7 +11821,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn get_memory_fd_properties_khr(
         &self,
-        handle_type: ExternalMemoryHandleTypeFlags,
+        handle_type: ExternalMemoryHandleTypeFlag,
         fd: c_int,
         p_memory_fd_properties: *mut MemoryFdPropertiesKHR,
     ) -> Result<(), ErrorCode> {
@@ -18344,7 +18344,7 @@ impl CommandBuffer {
 pub type FnGetShaderInfoAMD = unsafe extern "C" fn(
     DeviceHandle,
     Pipeline,
-    ShaderStageFlags,
+    ShaderStageFlag,
     ShaderInfoTypeAMD,
     *mut usize,
     *mut c_void,
@@ -18373,7 +18373,7 @@ impl Device {
     pub unsafe fn get_shader_info_amd(
         &self,
         pipeline: Pipeline,
-        shader_stage: ShaderStageFlags,
+        shader_stage: ShaderStageFlag,
         info_type: ShaderInfoTypeAMD,
         p_info_size: *mut usize,
         p_info: Option<*mut c_void>,
@@ -19020,12 +19020,8 @@ impl Device {
 
 /// [`vkGetSwapchainCounterEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSwapchainCounterEXT.html)
 ///
-pub type FnGetSwapchainCounterEXT = unsafe extern "C" fn(
-    DeviceHandle,
-    SwapchainKHR,
-    SurfaceCounterFlagsEXT,
-    *mut u64,
-) -> ResultCode;
+pub type FnGetSwapchainCounterEXT =
+    unsafe extern "C" fn(DeviceHandle, SwapchainKHR, SurfaceCounterFlagEXT, *mut u64) -> ResultCode;
 impl Device {
     /// [`vkGetSwapchainCounterEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetSwapchainCounterEXT.html)
     ///
@@ -19047,7 +19043,7 @@ impl Device {
     pub unsafe fn get_swapchain_counter_ext(
         &self,
         swapchain: SwapchainKHR,
-        counter: SurfaceCounterFlagsEXT,
+        counter: SurfaceCounterFlagEXT,
         p_counter_value: *mut u64,
     ) -> Result<(), ErrorCode> {
         let command = unsafe {
@@ -19764,7 +19760,7 @@ impl Instance {
 ///
 pub type FnSubmitDebugUtilsMessageEXT = unsafe extern "C" fn(
     InstanceHandle,
-    DebugUtilsMessageSeverityFlagsEXT,
+    DebugUtilsMessageSeverityFlagEXT,
     DebugUtilsMessageTypeFlagsEXT,
     *const DebugUtilsMessengerCallbackDataEXT,
 );
@@ -19781,7 +19777,7 @@ impl Instance {
     #[inline(always)]
     pub unsafe fn submit_debug_utils_message_ext(
         &self,
-        message_severity: DebugUtilsMessageSeverityFlagsEXT,
+        message_severity: DebugUtilsMessageSeverityFlagEXT,
         message_types: DebugUtilsMessageTypeFlagsEXT,
         p_callback_data: *const DebugUtilsMessengerCallbackDataEXT,
     ) {
@@ -21105,7 +21101,7 @@ impl CommandBuffer {
 /// [`vkGetPhysicalDeviceMultisamplePropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceMultisamplePropertiesEXT.html)
 ///
 pub type FnGetPhysicalDeviceMultisamplePropertiesEXT =
-    unsafe extern "C" fn(PhysicalDeviceHandle, SampleCountFlags, *mut MultisamplePropertiesEXT);
+    unsafe extern "C" fn(PhysicalDeviceHandle, SampleCountFlag, *mut MultisamplePropertiesEXT);
 impl PhysicalDevice {
     /// [`vkGetPhysicalDeviceMultisamplePropertiesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetPhysicalDeviceMultisamplePropertiesEXT.html)
     ///
@@ -21119,7 +21115,7 @@ impl PhysicalDevice {
     #[inline(always)]
     pub unsafe fn get_multisample_properties_ext(
         &self,
-        samples: SampleCountFlags,
+        samples: SampleCountFlag,
         p_multisample_properties: *mut MultisamplePropertiesEXT,
     ) {
         let command = unsafe {
@@ -22149,7 +22145,7 @@ impl Device {
 ///
 pub type FnGetMemoryHostPointerPropertiesEXT = unsafe extern "C" fn(
     DeviceHandle,
-    ExternalMemoryHandleTypeFlags,
+    ExternalMemoryHandleTypeFlag,
     *const c_void,
     *mut MemoryHostPointerPropertiesEXT,
 ) -> ResultCode;
@@ -22172,7 +22168,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn get_memory_host_pointer_properties_ext(
         &self,
-        handle_type: ExternalMemoryHandleTypeFlags,
+        handle_type: ExternalMemoryHandleTypeFlag,
         p_host_pointer: *const c_void,
         p_memory_host_pointer_properties: *mut MemoryHostPointerPropertiesEXT,
     ) -> Result<(), ErrorCode> {
@@ -22197,7 +22193,7 @@ impl Device {
 /// [`vkCmdWriteBufferMarkerAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteBufferMarkerAMD.html)
 ///
 pub type FnCmdWriteBufferMarkerAMD =
-    unsafe extern "C" fn(CommandBufferHandle, PipelineStageFlags, Buffer, DeviceSize, u32);
+    unsafe extern "C" fn(CommandBufferHandle, PipelineStageFlag, Buffer, DeviceSize, u32);
 impl CommandBuffer {
     /// [`vkCmdWriteBufferMarkerAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdWriteBufferMarkerAMD.html)
     ///
@@ -22223,7 +22219,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_write_buffer_marker_amd(
         &self,
-        pipeline_stage: Option<PipelineStageFlags>,
+        pipeline_stage: Option<PipelineStageFlag>,
         dst_buffer: Buffer,
         dst_offset: DeviceSize,
         marker: u32,
@@ -26631,7 +26627,7 @@ impl Device {
 ///
 pub type FnGetMemoryZirconHandlePropertiesFUCHSIA = unsafe extern "C" fn(
     DeviceHandle,
-    ExternalMemoryHandleTypeFlags,
+    ExternalMemoryHandleTypeFlag,
     zx_handle_t,
     *mut MemoryZirconHandlePropertiesFUCHSIA,
 ) -> ResultCode;
@@ -26653,7 +26649,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn get_memory_zircon_handle_properties_fuchsia(
         &self,
-        handle_type: ExternalMemoryHandleTypeFlags,
+        handle_type: ExternalMemoryHandleTypeFlag,
         zircon_handle: zx_handle_t,
         p_memory_zircon_handle_properties: *mut MemoryZirconHandlePropertiesFUCHSIA,
     ) -> Result<(), ErrorCode> {
@@ -28875,7 +28871,7 @@ impl CommandBuffer {
 /// [`vkCmdSetRasterizationSamplesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRasterizationSamplesEXT.html)
 ///
 pub type FnCmdSetRasterizationSamplesEXT =
-    unsafe extern "C" fn(CommandBufferHandle, SampleCountFlags);
+    unsafe extern "C" fn(CommandBufferHandle, SampleCountFlag);
 impl CommandBuffer {
     /// [`vkCmdSetRasterizationSamplesEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetRasterizationSamplesEXT.html)
     ///
@@ -28898,10 +28894,7 @@ impl CommandBuffer {
     ///
     #[doc(alias = "vkCmdSetRasterizationSamplesEXT")]
     #[inline(always)]
-    pub unsafe fn cmd_set_rasterization_samples_ext(
-        &self,
-        rasterization_samples: SampleCountFlags,
-    ) {
+    pub unsafe fn cmd_set_rasterization_samples_ext(&self, rasterization_samples: SampleCountFlag) {
         let command = unsafe {
             std::mem::transmute::<FnVoidFunction, FnCmdSetRasterizationSamplesEXT>(vtable_get(
                 self.vtable(),
@@ -28915,7 +28908,7 @@ impl CommandBuffer {
 /// [`vkCmdSetSampleMaskEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetSampleMaskEXT.html)
 ///
 pub type FnCmdSetSampleMaskEXT =
-    unsafe extern "C" fn(CommandBufferHandle, SampleCountFlags, *const SampleMask);
+    unsafe extern "C" fn(CommandBufferHandle, SampleCountFlag, *const SampleMask);
 impl CommandBuffer {
     /// [`vkCmdSetSampleMaskEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdSetSampleMaskEXT.html)
     ///
@@ -28940,7 +28933,7 @@ impl CommandBuffer {
     #[inline(always)]
     pub unsafe fn cmd_set_sample_mask_ext(
         &self,
-        samples: SampleCountFlags,
+        samples: SampleCountFlag,
         p_sample_mask: Option<*const SampleMask>,
     ) {
         let command = unsafe {
@@ -30936,7 +30929,7 @@ impl Device {
 /// [`vkCmdBindShadersEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindShadersEXT.html)
 ///
 pub type FnCmdBindShadersEXT =
-    unsafe extern "C" fn(CommandBufferHandle, u32, *const ShaderStageFlags, *const ShaderEXT);
+    unsafe extern "C" fn(CommandBufferHandle, u32, *const ShaderStageFlag, *const ShaderEXT);
 impl CommandBuffer {
     /// [`vkCmdBindShadersEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/vkCmdBindShadersEXT.html)
     ///
@@ -30962,7 +30955,7 @@ impl CommandBuffer {
     pub unsafe fn cmd_bind_shaders_ext(
         &self,
         stage_count: u32,
-        p_stages: *const ShaderStageFlags,
+        p_stages: *const ShaderStageFlag,
         p_shaders: Option<*const ShaderEXT>,
     ) {
         let command = unsafe {
@@ -32977,7 +32970,7 @@ impl Device {
 ///
 pub type FnGetMemoryMetalHandlePropertiesEXT = unsafe extern "C" fn(
     DeviceHandle,
-    ExternalMemoryHandleTypeFlags,
+    ExternalMemoryHandleTypeFlag,
     *const c_void,
     *mut MemoryMetalHandlePropertiesEXT,
 ) -> ResultCode;
@@ -33000,7 +32993,7 @@ impl Device {
     #[inline(always)]
     pub unsafe fn get_memory_metal_handle_properties_ext(
         &self,
-        handle_type: ExternalMemoryHandleTypeFlags,
+        handle_type: ExternalMemoryHandleTypeFlag,
         p_handle: *const c_void,
         p_memory_metal_handle_properties: *mut MemoryMetalHandlePropertiesEXT,
     ) -> Result<(), ErrorCode> {
