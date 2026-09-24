@@ -15,6 +15,7 @@ flagset::flags! {
     #[doc(alias = "VkFormatFeatureFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum FormatFeatureFlag: u32 {
         #[doc(alias = "VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT")]
         #[default]
@@ -267,6 +268,7 @@ flagset::flags! {
     #[doc(alias = "VkImageCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ImageCreateFlag: u32 {
         #[doc(alias = "VK_IMAGE_CREATE_SPARSE_BINDING_BIT")]
         #[default]
@@ -456,6 +458,7 @@ flagset::flags! {
     #[doc(alias = "VkSampleCountFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum SampleCountFlag: u32 {
         #[doc(alias = "VK_SAMPLE_COUNT_1_BIT")]
         #[default]
@@ -487,6 +490,7 @@ flagset::flags! {
     #[doc(alias = "VkImageUsageFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ImageUsageFlag: u32 {
         #[doc(alias = "VK_IMAGE_USAGE_TRANSFER_SRC_BIT")]
         #[default]
@@ -666,6 +670,7 @@ flagset::flags! {
     #[doc(alias = "VkInstanceCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum InstanceCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -691,6 +696,7 @@ flagset::flags! {
     #[doc(alias = "VkMemoryHeapFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum MemoryHeapFlag: u32 {
         #[doc(alias = "VK_MEMORY_HEAP_DEVICE_LOCAL_BIT")]
         #[default]
@@ -735,6 +741,7 @@ flagset::flags! {
     #[doc(alias = "VkMemoryPropertyFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum MemoryPropertyFlag: u32 {
         #[doc(alias = "VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT")]
         #[default]
@@ -790,6 +797,7 @@ flagset::flags! {
     #[doc(alias = "VkQueueFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum QueueFlag: u32 {
         #[doc(alias = "VK_QUEUE_GRAPHICS_BIT")]
         #[default]
@@ -849,6 +857,7 @@ flagset::flags! {
     #[doc(alias = "VkShaderStageFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ShaderStageFlag: u32 {
         #[doc(alias = "VK_SHADER_STAGE_VERTEX_BIT")]
         #[default]
@@ -1002,6 +1011,7 @@ flagset::flags! {
     #[doc(alias = "VkDeviceQueueCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum DeviceQueueCreateFlag: u32 {
         #[doc(alias = "VK_DEVICE_QUEUE_CREATE_PROTECTED_BIT")]
         #[default]
@@ -1027,6 +1037,7 @@ flagset::flags! {
     #[doc(alias = "VkPipelineStageFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum PipelineStageFlag: u32 {
         #[doc(alias = "VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT")]
         #[default]
@@ -1194,6 +1205,7 @@ flagset::flags! {
     #[doc(alias = "VkMemoryMapFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum MemoryMapFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -1217,6 +1229,7 @@ flagset::flags! {
     #[doc(alias = "VkImageAspectFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ImageAspectFlag: u32 {
         #[doc(alias = "VK_IMAGE_ASPECT_COLOR_BIT")]
         #[default]
@@ -1328,6 +1341,7 @@ flagset::flags! {
     #[doc(alias = "VkSparseImageFormatFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum SparseImageFormatFlag: u32 {
         #[doc(alias = "VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT")]
         #[default]
@@ -1351,6 +1365,7 @@ flagset::flags! {
     #[doc(alias = "VkSparseMemoryBindFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum SparseMemoryBindFlag: u32 {
         #[doc(alias = "VK_SPARSE_MEMORY_BIND_METADATA_BIT")]
         #[default]
@@ -1368,6 +1383,7 @@ flagset::flags! {
     #[doc(alias = "VkFenceCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum FenceCreateFlag: u32 {
         #[doc(alias = "VK_FENCE_CREATE_SIGNALED_BIT")]
         #[default]
@@ -1385,6 +1401,7 @@ flagset::flags! {
     #[doc(alias = "VkQueryPoolCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum QueryPoolCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -1408,6 +1425,7 @@ flagset::flags! {
     #[doc(alias = "VkQueryPipelineStatisticFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum QueryPipelineStatisticFlag: u32 {
         #[doc(alias = "VK_QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_VERTICES_BIT")]
         #[default]
@@ -1469,6 +1487,7 @@ flagset::flags! {
     #[doc(alias = "VkQueryResultFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum QueryResultFlag: u32 {
         #[doc(alias = "VK_QUERY_RESULT_64_BIT")]
         #[default]
@@ -1500,6 +1519,7 @@ flagset::flags! {
     #[doc(alias = "VkBufferCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum BufferCreateFlag: u32 {
         #[doc(alias = "VK_BUFFER_CREATE_SPARSE_BINDING_BIT")]
         #[default]
@@ -1560,6 +1580,7 @@ flagset::flags! {
     #[doc(alias = "VkBufferUsageFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum BufferUsageFlag: u32 {
         #[doc(alias = "VK_BUFFER_USAGE_TRANSFER_SRC_BIT")]
         #[default]
@@ -1767,6 +1788,7 @@ flagset::flags! {
     #[doc(alias = "VkImageViewCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ImageViewCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -1807,6 +1829,7 @@ flagset::flags! {
     #[doc(alias = "VkAccessFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum AccessFlag: u32 {
         #[doc(alias = "VK_ACCESS_INDIRECT_COMMAND_READ_BIT")]
         #[default]
@@ -1986,6 +2009,7 @@ flagset::flags! {
     #[doc(alias = "VkDependencyFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum DependencyFlag: u32 {
         #[doc(alias = "VK_DEPENDENCY_BY_REGION_BIT")]
         #[default]
@@ -2055,6 +2079,7 @@ flagset::flags! {
     #[doc(alias = "VkCommandPoolCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum CommandPoolCreateFlag: u32 {
         #[doc(alias = "VK_COMMAND_POOL_CREATE_TRANSIENT_BIT")]
         #[default]
@@ -2076,6 +2101,7 @@ flagset::flags! {
     #[doc(alias = "VkCommandPoolResetFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum CommandPoolResetFlag: u32 {
         #[doc(alias = "VK_COMMAND_POOL_RESET_RELEASE_RESOURCES_BIT")]
         #[default]
@@ -2093,6 +2119,7 @@ flagset::flags! {
     #[doc(alias = "VkQueryControlFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum QueryControlFlag: u32 {
         #[doc(alias = "VK_QUERY_CONTROL_PRECISE_BIT")]
         #[default]
@@ -2110,6 +2137,7 @@ flagset::flags! {
     #[doc(alias = "VkCommandBufferUsageFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum CommandBufferUsageFlag: u32 {
         #[doc(alias = "VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT")]
         #[default]
@@ -2131,6 +2159,7 @@ flagset::flags! {
     #[doc(alias = "VkCommandBufferResetFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum CommandBufferResetFlag: u32 {
         #[doc(alias = "VK_COMMAND_BUFFER_RESET_RELEASE_RESOURCES_BIT")]
         #[default]
@@ -2148,6 +2177,7 @@ flagset::flags! {
     #[doc(alias = "VkEventCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum EventCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2178,6 +2208,7 @@ flagset::flags! {
     #[doc(alias = "VkPipelineCacheCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum PipelineCacheCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2216,6 +2247,7 @@ flagset::flags! {
     #[doc(alias = "VkPipelineCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum PipelineCreateFlag: u32 {
         #[doc(alias = "VK_PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT")]
         #[default]
@@ -2513,6 +2545,7 @@ flagset::flags! {
     #[doc(alias = "VkPipelineLayoutCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum PipelineLayoutCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2545,6 +2578,7 @@ flagset::flags! {
     #[doc(alias = "VkPipelineShaderStageCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum PipelineShaderStageCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2588,6 +2622,7 @@ flagset::flags! {
     #[doc(alias = "VkSamplerCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum SamplerCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2644,6 +2679,7 @@ flagset::flags! {
     #[doc(alias = "VkDescriptorPoolCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum DescriptorPoolCreateFlag: u32 {
         #[doc(alias = "VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT")]
         #[default]
@@ -2705,6 +2741,7 @@ flagset::flags! {
     #[doc(alias = "VkDescriptorSetLayoutCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum DescriptorSetLayoutCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2796,6 +2833,7 @@ flagset::flags! {
     #[doc(alias = "VkColorComponentFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ColorComponentFlag: u32 {
         #[doc(alias = "VK_COLOR_COMPONENT_R_BIT")]
         #[default]
@@ -2819,6 +2857,7 @@ flagset::flags! {
     #[doc(alias = "VkCullModeFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum CullModeFlag: u32 {
         #[doc(alias = "VK_CULL_MODE_NONE")]
         #[default]
@@ -2842,6 +2881,7 @@ flagset::flags! {
     #[doc(alias = "VkPipelineColorBlendStateCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum PipelineColorBlendStateCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2875,6 +2915,7 @@ flagset::flags! {
     #[doc(alias = "VkPipelineDepthStencilStateCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum PipelineDepthStencilStateCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2925,6 +2966,7 @@ flagset::flags! {
     #[doc(alias = "VkAttachmentDescriptionFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum AttachmentDescriptionFlag: u32 {
         #[doc(alias = "VK_ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT")]
         #[default]
@@ -2958,6 +3000,7 @@ flagset::flags! {
     #[doc(alias = "VkFramebufferCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum FramebufferCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2988,6 +3031,7 @@ flagset::flags! {
     #[doc(alias = "VkRenderPassCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum RenderPassCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3019,6 +3063,7 @@ flagset::flags! {
     #[doc(alias = "VkSubpassDescriptionFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum SubpassDescriptionFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3136,6 +3181,7 @@ flagset::flags! {
     #[doc(alias = "VkStencilFaceFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum StencilFaceFlag: u32 {
         #[doc(alias = "VK_STENCIL_FACE_FRONT_BIT")]
         #[default]
@@ -3165,6 +3211,7 @@ flagset::flags! {
     #[doc(alias = "VkSubgroupFeatureFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum SubgroupFeatureFlag: u32 {
         #[doc(alias = "VK_SUBGROUP_FEATURE_BASIC_BIT")]
         #[default]
@@ -3246,6 +3293,7 @@ flagset::flags! {
     #[doc(alias = "VkPeerMemoryFeatureFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum PeerMemoryFeatureFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3330,6 +3378,7 @@ flagset::flags! {
     #[doc(alias = "VkMemoryAllocateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum MemoryAllocateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3409,6 +3458,7 @@ flagset::flags! {
     #[doc(alias = "VkExternalMemoryHandleTypeFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ExternalMemoryHandleTypeFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3622,6 +3672,7 @@ flagset::flags! {
     #[doc(alias = "VkExternalMemoryFeatureFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ExternalMemoryFeatureFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3695,6 +3746,7 @@ flagset::flags! {
     #[doc(alias = "VkExternalFenceHandleTypeFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ExternalFenceHandleTypeFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3781,6 +3833,7 @@ flagset::flags! {
     #[doc(alias = "VkExternalFenceFeatureFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ExternalFenceFeatureFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3841,6 +3894,7 @@ flagset::flags! {
     #[doc(alias = "VkFenceImportFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum FenceImportFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3886,6 +3940,7 @@ flagset::flags! {
     #[doc(alias = "VkSemaphoreImportFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum SemaphoreImportFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3931,6 +3986,7 @@ flagset::flags! {
     #[doc(alias = "VkExternalSemaphoreHandleTypeFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ExternalSemaphoreHandleTypeFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -4042,6 +4098,7 @@ flagset::flags! {
     #[doc(alias = "VkExternalSemaphoreFeatureFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ExternalSemaphoreFeatureFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -4102,6 +4159,7 @@ flagset::flags! {
     #[doc(alias = "VkResolveModeFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ResolveModeFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -4217,6 +4275,7 @@ flagset::flags! {
     #[doc(alias = "VkSemaphoreWaitFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum SemaphoreWaitFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -4262,6 +4321,7 @@ flagset::flags! {
     #[doc(alias = "VkDescriptorBindingFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum DescriptorBindingFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -4348,6 +4408,7 @@ flagset::flags! {
     #[doc(alias = "VkToolPurposeFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ToolPurposeFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -4465,6 +4526,7 @@ flagset::flags! {
     #[doc(alias = "VkPrivateDataSlotCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum PrivateDataSlotCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -4503,6 +4565,7 @@ flagset::flags! {
     #[doc(alias = "VkPipelineStageFlagBits2")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u64)]
     pub enum PipelineStageFlag2: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -5074,6 +5137,7 @@ flagset::flags! {
     #[doc(alias = "VkAccessFlagBits2")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u64)]
     pub enum AccessFlag2: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -5653,6 +5717,7 @@ flagset::flags! {
     #[doc(alias = "VkSubmitFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum SubmitFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -5700,6 +5765,7 @@ flagset::flags! {
     #[doc(alias = "VkFormatFeatureFlagBits2")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u64)]
     pub enum FormatFeatureFlag2: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -6358,6 +6424,7 @@ flagset::flags! {
     #[doc(alias = "VkPipelineCreationFeedbackFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum PipelineCreationFeedbackFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -6431,6 +6498,7 @@ flagset::flags! {
     #[doc(alias = "VkRenderingFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum RenderingFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -6556,6 +6624,7 @@ flagset::flags! {
     #[doc(alias = "VkMemoryUnmapFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum MemoryUnmapFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -6595,6 +6664,7 @@ flagset::flags! {
     #[doc(alias = "VkBufferUsageFlagBits2")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u64)]
     pub enum BufferUsageFlag2: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -6977,6 +7047,7 @@ flagset::flags! {
     #[doc(alias = "VkHostImageCopyFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum HostImageCopyFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -7023,6 +7094,7 @@ flagset::flags! {
     #[doc(alias = "VkPipelineCreateFlagBits2")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u64)]
     pub enum PipelineCreateFlag2: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -7501,6 +7573,7 @@ flagset::flags! {
     #[doc(alias = "VkSurfaceTransformFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum SurfaceTransformFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -7612,6 +7685,7 @@ flagset::flags! {
     #[doc(alias = "VkCompositeAlphaFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum CompositeAlphaFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -7673,6 +7747,7 @@ flagset::flags! {
     #[doc(alias = "VkSwapchainCreateFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum SwapchainCreateFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -7775,6 +7850,7 @@ flagset::flags! {
     #[doc(alias = "VkDeviceGroupPresentModeFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum DeviceGroupPresentModeFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -7844,6 +7920,7 @@ flagset::flags! {
     #[doc(alias = "VkDisplayPlaneAlphaFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum DisplayPlaneAlphaFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -7905,6 +7982,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoCodecOperationFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoCodecOperationFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -7998,6 +8076,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoChromaSubsamplingFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoChromaSubsamplingFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8065,6 +8144,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoComponentBitDepthFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoComponentBitDepthFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8126,6 +8206,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoCapabilityFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoCapabilityFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8171,6 +8252,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoSessionCreateFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoSessionCreateFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8246,6 +8328,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoSessionParametersCreateFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoSessionParametersCreateFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8282,6 +8365,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoCodingControlFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoCodingControlFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8335,6 +8419,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoDecodeCapabilityFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoDecodeCapabilityFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8380,6 +8465,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoDecodeUsageFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoDecodeUsageFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8441,6 +8527,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeH264CapabilityFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoEncodeH264CapabilityFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8560,6 +8647,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeH264StdFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoEncodeH264StdFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8749,6 +8837,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeH264RateControlFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoEncodeH264RateControlFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8818,6 +8907,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeH265CapabilityFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoEncodeH265CapabilityFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8945,6 +9035,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeH265StdFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoEncodeH265StdFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9144,6 +9235,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeH265CtbSizeFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoEncodeH265CtbSizeFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9199,6 +9291,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeH265TransformBlockSizeFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoEncodeH265TransformBlockSizeFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9261,6 +9354,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeH265RateControlFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoEncodeH265RateControlFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9328,6 +9422,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoDecodeH264PictureLayoutFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoDecodeH264PictureLayoutFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9384,6 +9479,7 @@ flagset::flags! {
     #[doc(alias = "VkPerformanceCounterDescriptionFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum PerformanceCounterDescriptionFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9431,7 +9527,11 @@ flagset::flags! {
     #[doc(alias = "VkAcquireProfilingLockFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum AcquireProfilingLockFlagKHR: u32 {
+        #[default]
+        #[doc(hidden)]
+        __PLACEHOLDER = 0,
     }
 }
 /// [`VkAcquireProfilingLockFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAcquireProfilingLockFlagsKHR.html)
@@ -9457,6 +9557,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoEncodeFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9510,6 +9611,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeCapabilityFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoEncodeCapabilityFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9571,6 +9673,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeRateControlModeFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoEncodeRateControlModeFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9632,6 +9735,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeFeedbackFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoEncodeFeedbackFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9739,6 +9843,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeUsageFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoEncodeUsageFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9806,6 +9911,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeContentFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoEncodeContentFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9865,6 +9971,7 @@ flagset::flags! {
     #[doc(alias = "VkAddressCommandFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum AddressCommandFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9940,6 +10047,7 @@ flagset::flags! {
     #[doc(alias = "VkConditionalRenderingFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ConditionalRenderingFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9976,6 +10084,7 @@ flagset::flags! {
     #[doc(alias = "VkAccelerationStructureCreateFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum AccelerationStructureCreateFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10030,6 +10139,7 @@ flagset::flags! {
     #[doc(alias = "VkPresentScalingFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum PresentScalingFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10104,6 +10214,7 @@ flagset::flags! {
     #[doc(alias = "VkPresentGravityFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum PresentGravityFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10179,6 +10290,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeAV1CapabilityFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoEncodeAV1CapabilityFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10258,6 +10370,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeAV1StdFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoEncodeAV1StdFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10321,6 +10434,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeAV1SuperblockSizeFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoEncodeAV1SuperblockSizeFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10367,6 +10481,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeAV1RateControlFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoEncodeAV1RateControlFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10426,6 +10541,7 @@ flagset::flags! {
     #[doc(alias = "VkAddressCopyFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum AddressCopyFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10477,6 +10593,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeIntraRefreshModeFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoEncodeIntraRefreshModeFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10548,6 +10665,7 @@ flagset::flags! {
     #[doc(alias = "VkDeviceFaultFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum DeviceFaultFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10625,6 +10743,7 @@ flagset::flags! {
     #[doc(alias = "VkAccessFlagBits3KHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u64)]
     pub enum AccessFlag3KHR: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10660,6 +10779,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodePerPartitionFeedbackFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoEncodePerPartitionFeedbackFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10712,6 +10832,7 @@ flagset::flags! {
     #[doc(alias = "VkRenderingAttachmentFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum RenderingAttachmentFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10763,6 +10884,7 @@ flagset::flags! {
     #[doc(alias = "VkResolveImageFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ResolveImageFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10808,7 +10930,11 @@ flagset::flags! {
     #[doc(alias = "VkFormatFeatureFlagBits4KHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u64)]
     pub enum FormatFeatureFlag4KHR: u64 {
+        #[default]
+        #[doc(hidden)]
+        __PLACEHOLDER = 0,
     }
 }
 /// [`VkFormatFeatureFlags4KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatFeatureFlags4KHR.html)
@@ -10836,6 +10962,7 @@ flagset::flags! {
     #[doc(alias = "VkImageUsageFlagBits2KHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u64)]
     pub enum ImageUsageFlag2KHR: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11063,6 +11190,7 @@ flagset::flags! {
     #[doc(alias = "VkImageCreateFlagBits2KHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u64)]
     pub enum ImageCreateFlag2KHR: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11259,6 +11387,7 @@ flagset::flags! {
     #[doc(alias = "VkDebugReportFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum DebugReportFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11333,6 +11462,7 @@ flagset::flags! {
     #[doc(alias = "VkExternalMemoryHandleTypeFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ExternalMemoryHandleTypeFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11400,6 +11530,7 @@ flagset::flags! {
     #[doc(alias = "VkExternalMemoryFeatureFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ExternalMemoryFeatureFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11457,6 +11588,7 @@ flagset::flags! {
     #[doc(alias = "VkSurfaceCounterFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum SurfaceCounterFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11493,6 +11625,7 @@ flagset::flags! {
     #[doc(alias = "VkDebugUtilsMessageSeverityFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum DebugUtilsMessageSeverityFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11552,6 +11685,7 @@ flagset::flags! {
     #[doc(alias = "VkDebugUtilsMessageTypeFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum DebugUtilsMessageTypeFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11611,6 +11745,7 @@ flagset::flags! {
     #[doc(alias = "VkGpaSqShaderStageFlagBitsAMD")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum GpaSqShaderStageFlagAMD: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11695,6 +11830,7 @@ flagset::flags! {
     #[doc(alias = "VkTensorViewCreateFlagBitsARM")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u64)]
     pub enum TensorViewCreateFlagARM: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11731,6 +11867,7 @@ flagset::flags! {
     #[doc(alias = "VkSpirvResourceTypeFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum SpirvResourceTypeFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11848,6 +11985,7 @@ flagset::flags! {
     #[doc(alias = "VkGeometryFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum GeometryFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11917,6 +12055,7 @@ flagset::flags! {
     #[doc(alias = "VkGeometryInstanceFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum GeometryInstanceFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12044,6 +12183,7 @@ flagset::flags! {
     #[doc(alias = "VkBuildAccelerationStructureFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum BuildAccelerationStructureFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12229,7 +12369,11 @@ flagset::flags! {
     #[doc(alias = "VkPipelineCompilerControlFlagBitsAMD")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum PipelineCompilerControlFlagAMD: u32 {
+        #[default]
+        #[doc(hidden)]
+        __PLACEHOLDER = 0,
     }
 }
 /// [`VkPipelineCompilerControlFlagsAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCompilerControlFlagsAMD.html)
@@ -12255,6 +12399,7 @@ flagset::flags! {
     #[doc(alias = "VkPresentStageFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum PresentStageFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12314,6 +12459,7 @@ flagset::flags! {
     #[doc(alias = "VkPastPresentationTimingFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum PastPresentationTimingFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12357,6 +12503,7 @@ flagset::flags! {
     #[doc(alias = "VkPresentTimingInfoFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum PresentTimingInfoFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12402,7 +12549,11 @@ flagset::flags! {
     #[doc(alias = "VkShaderCorePropertiesFlagBitsAMD")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ShaderCorePropertiesFlagAMD: u32 {
+        #[default]
+        #[doc(hidden)]
+        __PLACEHOLDER = 0,
     }
 }
 /// [`VkShaderCorePropertiesFlagsAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderCorePropertiesFlagsAMD.html)
@@ -12430,6 +12581,7 @@ flagset::flags! {
     #[doc(alias = "VkIndirectStateFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum IndirectStateFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12465,6 +12617,7 @@ flagset::flags! {
     #[doc(alias = "VkIndirectCommandsLayoutUsageFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum IndirectCommandsLayoutUsageFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12516,6 +12669,7 @@ flagset::flags! {
     #[doc(alias = "VkDeviceDiagnosticsConfigFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum DeviceDiagnosticsConfigFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12575,6 +12729,7 @@ flagset::flags! {
     #[doc(alias = "VkTileShadingRenderPassFlagBitsQCOM")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum TileShadingRenderPassFlagQCOM: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12618,6 +12773,7 @@ flagset::flags! {
     #[doc(alias = "VkExportMetalObjectTypeFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ExportMetalObjectTypeFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12695,6 +12851,7 @@ flagset::flags! {
     #[doc(alias = "VkGraphicsPipelineLibraryFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum GraphicsPipelineLibraryFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12754,6 +12911,7 @@ flagset::flags! {
     #[doc(alias = "VkImageCompressionFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ImageCompressionFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12813,6 +12971,7 @@ flagset::flags! {
     #[doc(alias = "VkImageCompressionFixedRateFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ImageCompressionFixedRateFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13040,6 +13199,7 @@ flagset::flags! {
     #[doc(alias = "VkDeviceAddressBindingFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum DeviceAddressBindingFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13075,6 +13235,7 @@ flagset::flags! {
     #[doc(alias = "VkImageConstraintsInfoFlagBitsFUCHSIA")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ImageConstraintsInfoFlagFUCHSIA: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13142,6 +13303,7 @@ flagset::flags! {
     #[doc(alias = "VkFrameBoundaryFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum FrameBoundaryFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13177,6 +13339,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeRgbModelConversionFlagBitsVALVE")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoEncodeRgbModelConversionFlagVALVE: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13247,6 +13410,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeRgbRangeCompressionFlagBitsVALVE")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoEncodeRgbRangeCompressionFlagVALVE: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13293,6 +13457,7 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeRgbChromaOffsetFlagBitsVALVE")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum VideoEncodeRgbChromaOffsetFlagVALVE: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13340,6 +13505,7 @@ flagset::flags! {
     #[doc(alias = "VkBuildMicromapFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum BuildMicromapFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13396,6 +13562,7 @@ flagset::flags! {
     #[doc(alias = "VkMicromapCreateFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum MicromapCreateFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13435,6 +13602,7 @@ flagset::flags! {
     #[doc(alias = "VkPhysicalDeviceSchedulingControlsFlagBitsARM")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u64)]
     pub enum PhysicalDeviceSchedulingControlsFlagARM: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13482,6 +13650,7 @@ flagset::flags! {
     #[doc(alias = "VkMemoryDecompressionMethodFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u64)]
     pub enum MemoryDecompressionMethodFlagEXT: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13532,6 +13701,7 @@ flagset::flags! {
     #[doc(alias = "VkTensorCreateFlagBitsARM")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u64)]
     pub enum TensorCreateFlagARM: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13591,6 +13761,7 @@ flagset::flags! {
     #[doc(alias = "VkTensorUsageFlagBitsARM")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u64)]
     pub enum TensorUsageFlagARM: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13658,6 +13829,7 @@ flagset::flags! {
     #[doc(alias = "VkOpticalFlowGridSizeFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum OpticalFlowGridSizeFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13725,6 +13897,7 @@ flagset::flags! {
     #[doc(alias = "VkOpticalFlowUsageFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum OpticalFlowUsageFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13800,6 +13973,7 @@ flagset::flags! {
     #[doc(alias = "VkOpticalFlowSessionCreateFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum OpticalFlowSessionCreateFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13867,6 +14041,7 @@ flagset::flags! {
     #[doc(alias = "VkOpticalFlowExecuteFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum OpticalFlowExecuteFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13902,6 +14077,7 @@ flagset::flags! {
     #[doc(alias = "VkShaderCreateFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ShaderCreateFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14035,6 +14211,7 @@ flagset::flags! {
     #[doc(alias = "VkDataGraphPipelineSessionCreateFlagBitsARM")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u64)]
     pub enum DataGraphPipelineSessionCreateFlagARM: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14079,7 +14256,11 @@ flagset::flags! {
     #[doc(alias = "VkDataGraphPipelineDispatchFlagBitsARM")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u64)]
     pub enum DataGraphPipelineDispatchFlagARM: u64 {
+        #[default]
+        #[doc(hidden)]
+        __PLACEHOLDER = 0,
     }
 }
 /// [`VkDataGraphPipelineDispatchFlagsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineDispatchFlagsARM.html)
@@ -14107,6 +14288,7 @@ flagset::flags! {
     #[doc(alias = "VkDataGraphTOSAQualityFlagBitsARM")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum DataGraphTOSAQualityFlagARM: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14168,6 +14350,7 @@ flagset::flags! {
     #[doc(alias = "VkClusterAccelerationStructureAddressResolutionFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ClusterAccelerationStructureAddressResolutionFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14252,6 +14435,7 @@ flagset::flags! {
     #[doc(alias = "VkClusterAccelerationStructureClusterFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ClusterAccelerationStructureClusterFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14290,6 +14474,7 @@ flagset::flags! {
     #[doc(alias = "VkClusterAccelerationStructureGeometryFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ClusterAccelerationStructureGeometryFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14346,6 +14531,7 @@ flagset::flags! {
     #[doc(alias = "VkClusterAccelerationStructureIndexFormatFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum ClusterAccelerationStructureIndexFormatFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14400,6 +14586,7 @@ flagset::flags! {
     #[doc(alias = "VkPartitionedAccelerationStructureInstanceFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum PartitionedAccelerationStructureInstanceFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14468,6 +14655,7 @@ flagset::flags! {
     #[doc(alias = "VkIndirectCommandsInputModeFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum IndirectCommandsInputModeFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14513,6 +14701,7 @@ flagset::flags! {
     #[doc(alias = "VkIndirectCommandsLayoutUsageFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum IndirectCommandsLayoutUsageFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14556,6 +14745,7 @@ flagset::flags! {
     #[doc(alias = "VkDataGraphOpticalFlowGridSizeFlagBitsARM")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum DataGraphOpticalFlowGridSizeFlagARM: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14624,6 +14814,7 @@ flagset::flags! {
     #[doc(alias = "VkDataGraphOpticalFlowCreateFlagBitsARM")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum DataGraphOpticalFlowCreateFlagARM: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14675,6 +14866,7 @@ flagset::flags! {
     #[doc(alias = "VkDataGraphOpticalFlowImageUsageFlagBitsARM")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum DataGraphOpticalFlowImageUsageFlagARM: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14743,6 +14935,7 @@ flagset::flags! {
     #[doc(alias = "VkDataGraphOpticalFlowExecuteFlagBitsARM")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum DataGraphOpticalFlowExecuteFlagARM: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14810,6 +15003,7 @@ flagset::flags! {
     #[doc(alias = "VkCooperativeMatrixFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
+    #[repr(u32)]
     pub enum CooperativeMatrixFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:

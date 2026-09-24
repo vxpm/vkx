@@ -740,6 +740,7 @@ class Context:
         out.writeln(f'#[doc(alias = "{x.name}")]')
         out.writeln("#[derive(Default)]")
         out.writeln("#[non_exhaustive]")
+        out.writeln(f"#[repr({repr_type})]")
         out.writeln(f"pub enum {flag_enum_name}: {repr_type} {{")
         out.indent()
 
@@ -758,6 +759,11 @@ class Context:
                 first_flag = False
 
             out.writeln(f"{name} = {flag.value},")
+
+        if len(x.flags) == 0:
+            out.writeln("#[default]")
+            out.writeln("#[doc(hidden)]")
+            out.writeln("__PLACEHOLDER = 0,")
 
         out.deindent()
         out.writeln("}")
@@ -1316,7 +1322,7 @@ class Context:
             flags = self.generate_flags(flags)
             self.reg.flags.append(flags)
 
-        # anon flags
+        # anon flag sets
         for flags in self.vk.flags.values():
             if flags.bitmaskName is not None:
                 continue
