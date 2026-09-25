@@ -71,7 +71,7 @@ class CTypeParser:
             )
 
             if atom.startswith("PFN_vk"):
-                atom = names.fnptr(atom)
+                atom = f"Option<{names.fnptr(atom)}>"
 
         return RustAtom(atom)
 

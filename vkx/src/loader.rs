@@ -10,13 +10,20 @@ type GlobalVTable = VTable<{ crate::GlobalCommand::VARIANTS.len() }>;
 type InstanceVTable = VTable<{ crate::InstanceCommand::VARIANTS.len() }>;
 type DeviceVTable = VTable<{ crate::DeviceCommand::VARIANTS.len() }>;
 
+unsafe extern "C" fn invalid_cmd_handler() {
+    panic!("called an invalid (null) command")
+}
+
+#[cfg_attr(debug_assertions, track_caller)]
 #[inline(always)]
 pub(crate) fn vtable_get<const N: usize>(table: &VTable<N>, index: usize) -> crate::FnVoidFunction {
     let func = table[index];
 
     if cfg!(debug_assertions) {
-        let ptr = func as *const crate::FnVoidFunction;
-        assert!(!ptr.is_null(), "command should not be null");
+        assert!(
+            !std::ptr::fn_addr_eq(func, invalid_cmd_handler as crate::FnVoidFunction),
+            "called an invalid (null) command"
+        );
     }
 
     func
@@ -60,7 +67,7 @@ pub unsafe fn setup() -> Result<(), libloading::Error> {
             get_instance_proc_addr(crate::InstanceHandle::default(), command.name().as_ptr())
         };
 
-        global_commands.push(command);
+        global_commands.push(command.unwrap_or(invalid_cmd_handler));
     }
 
     let global_commands = global_commands.try_into().unwrap();
@@ -125,7 +132,7 @@ impl Instance {
         let mut instance_commands = Vec::with_capacity(crate::InstanceCommand::VARIANTS.len());
         for command in crate::InstanceCommand::VARIANTS {
             let command = unsafe { get_instance_proc_addr(instance, command.name().as_ptr()) };
-            instance_commands.push(command);
+            instance_commands.push(command.unwrap_or(invalid_cmd_handler));
         }
 
         let boxed_array: Box<[_; _]> = instance_commands.into_boxed_slice().try_into().unwrap();
@@ -221,7 +228,7 @@ impl PhysicalDevice {
         let mut device_commands = Vec::with_capacity(crate::DeviceCommand::VARIANTS.len());
         for command in crate::DeviceCommand::VARIANTS {
             let command = unsafe { get_device_proc_addr(device, command.name().as_ptr()) };
-            device_commands.push(command);
+            device_commands.push(command.unwrap_or(invalid_cmd_handler));
         }
 
         let boxed_array: Box<[_; _]> = device_commands.into_boxed_slice().try_into().unwrap();

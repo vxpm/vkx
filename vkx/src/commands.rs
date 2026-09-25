@@ -334,13 +334,13 @@ impl PhysicalDevice {
 /// [`vkGetInstanceProcAddr`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetInstanceProcAddr.html)
 ///
 pub type FnGetInstanceProcAddr =
-    unsafe extern "C" fn(InstanceHandle, *const c_char) -> FnVoidFunction;
+    unsafe extern "C" fn(InstanceHandle, *const c_char) -> Option<FnVoidFunction>;
 impl Instance {
     /// [`vkGetInstanceProcAddr`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetInstanceProcAddr.html)
     ///
     #[doc(alias = "vkGetInstanceProcAddr")]
     #[inline(always)]
-    pub unsafe fn get_proc_addr(&self, p_name: *const c_char) -> FnVoidFunction {
+    pub unsafe fn get_proc_addr(&self, p_name: *const c_char) -> Option<FnVoidFunction> {
         let command = unsafe {
             std::mem::transmute::<FnVoidFunction, FnGetInstanceProcAddr>(vtable_get(
                 self.vtable(),
@@ -353,13 +353,14 @@ impl Instance {
 
 /// [`vkGetDeviceProcAddr`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceProcAddr.html)
 ///
-pub type FnGetDeviceProcAddr = unsafe extern "C" fn(DeviceHandle, *const c_char) -> FnVoidFunction;
+pub type FnGetDeviceProcAddr =
+    unsafe extern "C" fn(DeviceHandle, *const c_char) -> Option<FnVoidFunction>;
 impl Device {
     /// [`vkGetDeviceProcAddr`](https://docs.vulkan.org/refpages/latest/refpages/source/vkGetDeviceProcAddr.html)
     ///
     #[doc(alias = "vkGetDeviceProcAddr")]
     #[inline(always)]
-    pub unsafe fn get_device_proc_addr(&self, p_name: *const c_char) -> FnVoidFunction {
+    pub unsafe fn get_device_proc_addr(&self, p_name: *const c_char) -> Option<FnVoidFunction> {
         let command = unsafe {
             std::mem::transmute::<FnVoidFunction, FnGetDeviceProcAddr>(vtable_get(
                 self.vtable(),

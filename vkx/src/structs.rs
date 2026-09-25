@@ -161,13 +161,13 @@ impl Default for BaseOutStructure {
 pub struct AllocationCallbacks {
     /// Optional
     pub p_user_data: *mut c_void,
-    pub pfn_allocation: FnAllocationFunction,
-    pub pfn_reallocation: FnReallocationFunction,
-    pub pfn_free: FnFreeFunction,
+    pub pfn_allocation: Option<FnAllocationFunction>,
+    pub pfn_reallocation: Option<FnReallocationFunction>,
+    pub pfn_free: Option<FnFreeFunction>,
     /// Optional
-    pub pfn_internal_allocation: FnInternalAllocationNotification,
+    pub pfn_internal_allocation: Option<FnInternalAllocationNotification>,
     /// Optional
-    pub pfn_internal_free: FnInternalFreeNotification,
+    pub pfn_internal_free: Option<FnInternalFreeNotification>,
 }
 impl Default for AllocationCallbacks {
     #[inline(always)]
@@ -27859,7 +27859,7 @@ pub struct DebugReportCallbackCreateInfoEXT {
     pub p_next: *const c_void,
     /// Optional
     pub flags: DebugReportFlagsEXT,
-    pub pfn_callback: FnDebugReportCallbackEXT,
+    pub pfn_callback: Option<FnDebugReportCallbackEXT>,
     /// Optional
     pub p_user_data: *mut c_void,
 }
@@ -30282,7 +30282,7 @@ pub struct DebugUtilsMessengerCreateInfoEXT {
     pub flags: DebugUtilsMessengerCreateFlagsEXT,
     pub message_severity: DebugUtilsMessageSeverityFlagsEXT,
     pub message_type: DebugUtilsMessageTypeFlagsEXT,
-    pub pfn_user_callback: FnDebugUtilsMessengerCallbackEXT,
+    pub pfn_user_callback: Option<FnDebugUtilsMessengerCallbackEXT>,
     /// Optional
     pub p_user_data: *mut c_void,
 }
@@ -38314,7 +38314,7 @@ pub struct DeviceDeviceMemoryReportCreateInfoEXT {
     /// Optional
     pub p_next: *const c_void,
     pub flags: DeviceMemoryReportFlagsEXT,
-    pub pfn_user_callback: FnDeviceMemoryReportCallbackEXT,
+    pub pfn_user_callback: Option<FnDeviceMemoryReportCallbackEXT>,
     /// Optional
     pub p_user_data: *mut c_void,
 }
@@ -46935,7 +46935,7 @@ pub struct DirectDriverLoadingInfoLUNARG {
     /// Optional
     pub p_next: *mut c_void,
     pub flags: DirectDriverLoadingFlagsLUNARG,
-    pub pfn_get_instance_proc_addr: FnGetInstanceProcAddrLUNARG,
+    pub pfn_get_instance_proc_addr: Option<FnGetInstanceProcAddrLUNARG>,
 }
 impl Default for DirectDriverLoadingInfoLUNARG {
     #[inline(always)]

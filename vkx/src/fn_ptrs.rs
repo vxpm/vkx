@@ -87,4 +87,4 @@ pub type FnDeviceMemoryReportCallbackEXT =
 ///
 #[doc(alias = "PFN_vkGetInstanceProcAddrLUNARG")]
 pub type FnGetInstanceProcAddrLUNARG =
-    unsafe extern "C" fn(InstanceHandle, *const c_char) -> FnVoidFunction;
+    unsafe extern "C" fn(InstanceHandle, *const c_char) -> Option<FnVoidFunction>;
