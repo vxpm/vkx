@@ -285,9 +285,22 @@ macro_rules! auto_count {
     }};
 }
 
+mod sealed {
+    pub trait Sealed {}
+    impl Sealed for u8 {}
+    impl Sealed for u16 {}
+    impl Sealed for u32 {}
+    impl Sealed for u64 {}
+    impl Sealed for i8 {}
+    impl Sealed for i16 {}
+    impl Sealed for i32 {}
+    impl Sealed for i64 {}
+}
+
 /// A flag-like type.
 pub trait Flag: std::fmt::Debug + Copy + Sized + 'static {
-    type Inner: Copy
+    type Inner: sealed::Sealed
+        + Copy
         + PartialEq
         + Eq
         + Default
@@ -323,55 +336,34 @@ impl<F: Flag> std::fmt::Debug for FlagSet<F> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let mut f = f.debug_set();
 
-        let mut count = 0;
         for variant in F::VARIANTS {
             let inner = variant.to_inner();
             if self.0 & inner == inner {
-                count += 1;
                 f.entry(&variant);
             }
         }
 
-        if count == F::VARIANTS.len() {
-            f.finish()
-        } else {
-            f.finish_non_exhaustive()
-        }
+        f.finish()
     }
 }
 
 impl<F: Flag> FlagSet<F> {
     /// Returns an empty set.
+    #[inline(always)]
     pub fn empty() -> Self {
         Self(Default::default())
     }
 
     /// Returns a full set. This returns a set with every possible flag set, not just known ones. If
     /// you need a set with known ones only, use [`Self::truncated`] afterwards.
+    #[inline(always)]
     pub fn full() -> Self {
         !Self::empty()
     }
 
-    /// Returns whether this set is a superset of `other`, i.e. it contains every flag in `other`
-    /// and possibly more.
-    pub fn is_superset(self, other: impl Into<Self>) -> bool {
-        let other = other.into();
-        self.0 & other.0 == other.0
-    }
-
-    /// Returns whether this set is a subset of `other`, i.e. `other` contains every flag in it
-    /// and possibly more.
-    pub fn is_subset(self, other: impl Into<Self>) -> bool {
-        other.into().is_superset(self)
-    }
-
-    /// Returns whether this set contains `other`. This is an alias of [`Self::is_superset`].
-    pub fn contains(self, other: impl Into<Self>) -> bool {
-        self.is_superset(other)
-    }
-
     /// Truncates this set, keeping only known flags of `F`.
     #[must_use]
+    #[inline(always)]
     pub fn truncated(self) -> Self {
         let mut result = self.0;
         for variant in F::VARIANTS {
@@ -380,6 +372,43 @@ impl<F: Flag> FlagSet<F> {
         }
 
         Self(result)
+    }
+
+    /// Returns whether this set is a superset of `other`, i.e. it contains every flag in `other`
+    /// and possibly more.
+    #[inline(always)]
+    pub fn is_superset(self, other: impl Into<Self>) -> bool {
+        let other = other.into();
+        self.0 & other.0 == other.0
+    }
+
+    /// Returns whether this set is a subset of `other`, i.e. `other` contains every flag in it
+    /// and possibly more.
+    #[inline(always)]
+    pub fn is_subset(self, other: impl Into<Self>) -> bool {
+        other.into().is_superset(self)
+    }
+
+    /// Returns whether this set contains `other`. This is an alias of [`Self::is_superset`].
+    #[inline(always)]
+    pub fn contains(self, other: impl Into<Self>) -> bool {
+        self.is_superset(other)
+    }
+
+    /// Returns a set representing the difference between `self` and `other`: it contains every
+    /// flag that is in `self` but **not** in `other`.
+    #[inline(always)]
+    pub fn difference(self, other: impl Into<Self>) -> Self {
+        let other = other.into();
+        Self(self.0 & !other.0)
+    }
+
+    /// Returns a set representing the symmetric difference between `self` and `other`: it contains
+    /// every flag that is in either `self` or `other`, but **not both**.
+    #[inline(always)]
+    pub fn symmetric_difference(self, other: impl Into<Self>) -> Self {
+        let other = other.into();
+        Self(self.0 ^ other.0)
     }
 }
 
@@ -492,6 +521,7 @@ macro_rules! __vkx_internal_flags {
                 &[$($name::$variant),*]
             };
 
+            #[inline(always)]
             fn to_inner(self) -> Self::Inner {
                 self as $inner
             }
