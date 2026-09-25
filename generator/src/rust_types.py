@@ -67,7 +67,7 @@ class CTypeParser:
                 type.removeprefix("struct ")
                 .removeprefix("Vk")
                 .removeprefix("StdVideo")
-                .replace("FlagBits", "Flags")
+                .replace("FlagBits", "Flag")
             )
 
             if atom.startswith("PFN_vk"):

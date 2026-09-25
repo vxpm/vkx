@@ -284,3 +284,253 @@ macro_rules! auto_count {
         (out, result)
     }};
 }
+
+/// A flag-like type.
+pub trait Flag: std::fmt::Debug + Copy + Sized + 'static {
+    type Inner: Copy
+        + PartialEq
+        + Eq
+        + Default
+        + std::ops::Not<Output = Self::Inner>
+        + std::ops::BitAnd<Output = Self::Inner>
+        + std::ops::BitAndAssign
+        + std::ops::BitOr<Output = Self::Inner>
+        + std::ops::BitOrAssign
+        + std::ops::BitXor<Output = Self::Inner>
+        + std::ops::BitXorAssign;
+
+    /// All the variants of this flag.
+    const VARIANTS: &[Self];
+
+    /// Turns this flag value into it's inner representation.
+    fn to_inner(self) -> Self::Inner;
+}
+
+/// A set of [`Flag`]s.
+///
+/// `F` defines two things:
+/// - The inner type of this set
+/// - The known flag values
+///
+/// The inner value of the set _might_ contain flags that aren't defined in `F` (i.e. unknowns),
+/// and no operations are going to implicitly discard those. If you wish to keep only known flags
+/// of `F`, [`Self::truncated`] can do that.
+#[derive(Clone, Copy, PartialEq, Eq)]
+#[repr(transparent)]
+pub struct FlagSet<F: Flag>(pub F::Inner);
+
+impl<F: Flag> std::fmt::Debug for FlagSet<F> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let mut f = f.debug_set();
+
+        let mut count = 0;
+        for variant in F::VARIANTS {
+            let inner = variant.to_inner();
+            if self.0 & inner == inner {
+                count += 1;
+                f.entry(&variant);
+            }
+        }
+
+        if count == F::VARIANTS.len() {
+            f.finish()
+        } else {
+            f.finish_non_exhaustive()
+        }
+    }
+}
+
+impl<F: Flag> FlagSet<F> {
+    /// Returns an empty set.
+    pub fn empty() -> Self {
+        Self(Default::default())
+    }
+
+    /// Returns a full set. This returns a set with every possible flag set, not just known ones. If
+    /// you need a set with known ones only, use [`Self::truncated`] afterwards.
+    pub fn full() -> Self {
+        !Self::empty()
+    }
+
+    /// Returns whether this set is a superset of `other`, i.e. it contains every flag in `other`
+    /// and possibly more.
+    pub fn is_superset(self, other: impl Into<Self>) -> bool {
+        let other = other.into();
+        self.0 & other.0 == other.0
+    }
+
+    /// Returns whether this set is a subset of `other`, i.e. `other` contains every flag in it
+    /// and possibly more.
+    pub fn is_subset(self, other: impl Into<Self>) -> bool {
+        other.into().is_superset(self)
+    }
+
+    /// Returns whether this set contains `other`. This is an alias of [`Self::is_superset`].
+    pub fn contains(self, other: impl Into<Self>) -> bool {
+        self.is_superset(other)
+    }
+
+    /// Truncates this set, keeping only known flags of `F`.
+    #[must_use]
+    pub fn truncated(self) -> Self {
+        let mut result = self.0;
+        for variant in F::VARIANTS {
+            let inner = variant.to_inner();
+            result &= inner;
+        }
+
+        Self(result)
+    }
+}
+
+impl<F: Flag> Default for FlagSet<F> {
+    fn default() -> Self {
+        Self::empty()
+    }
+}
+
+impl<F: Flag> From<F> for FlagSet<F> {
+    #[inline(always)]
+    fn from(value: F) -> Self {
+        Self(value.to_inner())
+    }
+}
+
+impl<F: Flag> std::ops::Not for FlagSet<F> {
+    type Output = Self;
+
+    #[inline(always)]
+    fn not(self) -> Self::Output {
+        Self(!self.0)
+    }
+}
+
+impl<F: Flag, T: Into<FlagSet<F>>> std::ops::BitAnd<T> for FlagSet<F> {
+    type Output = Self;
+
+    #[inline(always)]
+    fn bitand(self, rhs: T) -> Self::Output {
+        Self(self.0 & rhs.into().0)
+    }
+}
+
+impl<F: Flag, T: Into<FlagSet<F>>> std::ops::BitAndAssign<T> for FlagSet<F> {
+    #[inline(always)]
+    fn bitand_assign(&mut self, rhs: T) {
+        self.0 &= rhs.into().0;
+    }
+}
+
+impl<F: Flag, T: Into<FlagSet<F>>> std::ops::BitOr<T> for FlagSet<F> {
+    type Output = Self;
+
+    #[inline(always)]
+    fn bitor(self, rhs: T) -> Self::Output {
+        Self(self.0 | rhs.into().0)
+    }
+}
+
+impl<F: Flag, T: Into<FlagSet<F>>> std::ops::BitOrAssign<T> for FlagSet<F> {
+    #[inline(always)]
+    fn bitor_assign(&mut self, rhs: T) {
+        self.0 |= rhs.into().0;
+    }
+}
+
+impl<F: Flag, T: Into<FlagSet<F>>> std::ops::BitXor<T> for FlagSet<F> {
+    type Output = Self;
+
+    #[inline(always)]
+    fn bitxor(self, rhs: T) -> Self::Output {
+        Self(self.0 ^ rhs.into().0)
+    }
+}
+
+impl<F: Flag, T: Into<FlagSet<F>>> std::ops::BitXorAssign<T> for FlagSet<F> {
+    #[inline(always)]
+    fn bitxor_assign(&mut self, rhs: T) {
+        self.0 ^= rhs.into().0;
+    }
+}
+
+#[macro_export]
+#[doc(hidden)]
+macro_rules! __vkx_internal_flags {
+    (
+        $(#[$ty_meta:meta])*
+        $vis:vis enum $name:ident: $inner:ty {
+            $(
+                $(#[$variant_meta:meta])*
+                $variant:ident = $value:expr
+            ),* $(,)?
+        }
+    ) => {
+        $(#[$ty_meta])*
+        #[derive(Copy, Clone, Debug, PartialEq, Eq)]
+        #[repr($inner)]
+        $vis enum $name {
+            $(
+                $(#[$variant_meta])*
+                $variant = $value
+            ),*
+        }
+
+        const _: () = {
+            $(
+                let value: $inner = $value;
+                assert!(
+                    value == 0 || value.count_ones() == 1,
+                    "flag variants must only have one bit set"
+                );
+            )*
+        };
+
+        impl $crate::Flag for $name {
+            type Inner = $inner;
+
+            const VARIANTS: &[Self] = {
+                &[$($name::$variant),*]
+            };
+
+            fn to_inner(self) -> Self::Inner {
+                self as $inner
+            }
+        }
+
+        impl ::std::ops::Not for $name {
+            type Output = $crate::FlagSet<$name>;
+
+            #[inline(always)]
+            fn not(self) -> Self::Output {
+                !$crate::FlagSet::from(self)
+            }
+        }
+
+        impl<T: Into<$crate::FlagSet<$name>>> ::std::ops::BitAnd<T> for $name {
+            type Output = $crate::FlagSet<$name>;
+
+            #[inline(always)]
+            fn bitand(self, rhs: T) -> Self::Output {
+                $crate::FlagSet::from(self) & rhs
+            }
+        }
+
+        impl<T: Into<$crate::FlagSet<$name>>> ::std::ops::BitOr<T> for $name {
+            type Output = $crate::FlagSet<$name>;
+
+            #[inline(always)]
+            fn bitor(self, rhs: T) -> Self::Output {
+                $crate::FlagSet::from(self) | rhs
+            }
+        }
+
+        impl<T: Into<$crate::FlagSet<$name>>> std::ops::BitXor<T> for $name {
+            type Output = $crate::FlagSet<$name>;
+
+            #[inline(always)]
+            fn bitxor(self, rhs: T) -> Self::Output {
+                $crate::FlagSet::from(self) ^ rhs
+            }
+        }
+    };
+}

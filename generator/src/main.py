@@ -59,6 +59,7 @@ use crate::structs::*;
 
 FLAGS_MODULE_PREFIX: str = """
 use crate::enums::*;
+use crate::FlagSet;
 """
 
 HANDLES_MODULE_PREFIX: str = """
@@ -728,7 +729,7 @@ class Context:
         )
         repr_type = "u32" if x.bitWidth == 32 else "u64"
 
-        out.writeln("flagset::flags! {")
+        out.writeln("crate::__vkx_internal_flags! {")
         out.indent()
 
         # docs
@@ -740,13 +741,18 @@ class Context:
         out.writeln(f'#[doc(alias = "{x.name}")]')
         out.writeln("#[derive(Default)]")
         out.writeln("#[non_exhaustive]")
-        out.writeln(f"#[repr({repr_type})]")
         out.writeln(f"pub enum {flag_enum_name}: {repr_type} {{")
         out.indent()
 
         first_flag = True
+        set_consts: list[vkobj.Flag] = []
         flag_aliases: list[tuple[str, str]] = []
         for flag in x.flags:
+            # check if this is actually a set constant
+            if flag.value.bit_count() > 1:
+                set_consts.append(flag)
+                continue
+
             name = names.flag_variant(flag.name, flag_prefix)
             for alias in flag.aliases:
                 flag_aliases.append((name, alias))
@@ -777,7 +783,7 @@ class Context:
             out.writeln(f'#[doc(alias = "{alias}")]')
             out.writeln(f"pub type {alias_name} = {flag_enum_name};")
 
-        if len(flag_aliases) > 0:
+        if len(flag_aliases) > 0 or len(set_consts) > 0:
             out.writeln(f"impl {flag_enum_name} {{")
             out.indent()
 
@@ -791,6 +797,13 @@ class Context:
                 self.vulkan_doc_header(out, alias)
                 out.writeln(f'#[doc(alias = "{alias}")]')
                 out.writeln(f"pub const {alias_name}: Self = Self::{flag};")
+
+            for flag in set_consts:
+                name = names.flag_variant(flag.name, flag_prefix)
+                self.requirements_doc_header(out, None, flag.extensions)
+                out.writeln(f'#[doc(alias = "{flag.name}")]')
+                out.writeln(f"pub const {name}: FlagSet<Self> = FlagSet({flag.value});")
+
             out.deindent()
             out.writeln("}")
 
@@ -800,7 +813,7 @@ class Context:
         self.requirements_doc_header(out, None, flag_set.extensions)
         self.returned_only_doc_header(out, flag_set.returnedOnly)
         out.writeln(f'#[doc(alias = "{x.flagName}")]')
-        out.writeln(f"pub type {flag_set_name} = flagset::FlagSet<{flag_enum_name}>;")
+        out.writeln(f"pub type {flag_set_name} = FlagSet<{flag_enum_name}>;")
 
         # flag set aliases
         for alias in flag_set.aliases:

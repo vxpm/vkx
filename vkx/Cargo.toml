@@ -4,7 +4,6 @@ version = "0.1.0+1.4.362"
 edition = "2024"
 
 [dependencies]
-flagset = "0.4.7"
 libloading = "0.9.0"
 raw-window-handle = { version = "0.6.2", features = ["std"], optional = true }
 thiserror = { version = "2.0.20", optional = true }

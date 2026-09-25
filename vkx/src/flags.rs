@@ -7,15 +7,15 @@ use crate::loader::*;
 use crate::platform::*;
 use std::ffi::{c_char, c_int, c_uint, c_void};
 
+use crate::FlagSet;
 use crate::enums::*;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkFormatFeatureFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatFeatureFlagBits.html)
     ///
     #[doc(alias = "VkFormatFeatureFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum FormatFeatureFlag: u32 {
         #[doc(alias = "VK_FORMAT_FEATURE_SAMPLED_IMAGE_BIT")]
         #[default]
@@ -260,15 +260,14 @@ impl FormatFeatureFlag {
 /// [`VkFormatFeatureFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatFeatureFlags.html)
 ///
 #[doc(alias = "VkFormatFeatureFlags")]
-pub type FormatFeatureFlags = flagset::FlagSet<FormatFeatureFlag>;
+pub type FormatFeatureFlags = FlagSet<FormatFeatureFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkImageCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCreateFlagBits.html)
     ///
     #[doc(alias = "VkImageCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ImageCreateFlag: u32 {
         #[doc(alias = "VK_IMAGE_CREATE_SPARSE_BINDING_BIT")]
         #[default]
@@ -450,15 +449,14 @@ impl ImageCreateFlag {
 /// [`VkImageCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCreateFlags.html)
 ///
 #[doc(alias = "VkImageCreateFlags")]
-pub type ImageCreateFlags = flagset::FlagSet<ImageCreateFlag>;
+pub type ImageCreateFlags = FlagSet<ImageCreateFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkSampleCountFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSampleCountFlagBits.html)
     ///
     #[doc(alias = "VkSampleCountFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum SampleCountFlag: u32 {
         #[doc(alias = "VK_SAMPLE_COUNT_1_BIT")]
         #[default]
@@ -482,15 +480,14 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSampleCountFlags")]
-pub type SampleCountFlags = flagset::FlagSet<SampleCountFlag>;
+pub type SampleCountFlags = FlagSet<SampleCountFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkImageUsageFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageUsageFlagBits.html)
     ///
     #[doc(alias = "VkImageUsageFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ImageUsageFlag: u32 {
         #[doc(alias = "VK_IMAGE_USAGE_TRANSFER_SRC_BIT")]
         #[default]
@@ -662,15 +659,14 @@ impl ImageUsageFlag {
 /// [`VkImageUsageFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageUsageFlags.html)
 ///
 #[doc(alias = "VkImageUsageFlags")]
-pub type ImageUsageFlags = flagset::FlagSet<ImageUsageFlag>;
+pub type ImageUsageFlags = FlagSet<ImageUsageFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkInstanceCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkInstanceCreateFlagBits.html)
     ///
     #[doc(alias = "VkInstanceCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum InstanceCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -686,9 +682,9 @@ flagset::flags! {
 /// [`VkInstanceCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkInstanceCreateFlags.html)
 ///
 #[doc(alias = "VkInstanceCreateFlags")]
-pub type InstanceCreateFlags = flagset::FlagSet<InstanceCreateFlag>;
+pub type InstanceCreateFlags = FlagSet<InstanceCreateFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkMemoryHeapFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryHeapFlagBits.html)
     ///
     /// # Returned only
@@ -696,7 +692,6 @@ flagset::flags! {
     #[doc(alias = "VkMemoryHeapFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum MemoryHeapFlag: u32 {
         #[doc(alias = "VK_MEMORY_HEAP_DEVICE_LOCAL_BIT")]
         #[default]
@@ -731,9 +726,9 @@ impl MemoryHeapFlag {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkMemoryHeapFlags")]
-pub type MemoryHeapFlags = flagset::FlagSet<MemoryHeapFlag>;
+pub type MemoryHeapFlags = FlagSet<MemoryHeapFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkMemoryPropertyFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryPropertyFlagBits.html)
     ///
     /// # Returned only
@@ -741,7 +736,6 @@ flagset::flags! {
     #[doc(alias = "VkMemoryPropertyFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum MemoryPropertyFlag: u32 {
         #[doc(alias = "VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT")]
         #[default]
@@ -787,9 +781,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkMemoryPropertyFlags")]
-pub type MemoryPropertyFlags = flagset::FlagSet<MemoryPropertyFlag>;
+pub type MemoryPropertyFlags = FlagSet<MemoryPropertyFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkQueueFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueueFlagBits.html)
     ///
     /// # Returned only
@@ -797,7 +791,6 @@ flagset::flags! {
     #[doc(alias = "VkQueueFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum QueueFlag: u32 {
         #[doc(alias = "VK_QUEUE_GRAPHICS_BIT")]
         #[default]
@@ -849,15 +842,14 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkQueueFlags")]
-pub type QueueFlags = flagset::FlagSet<QueueFlag>;
+pub type QueueFlags = FlagSet<QueueFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkShaderStageFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderStageFlagBits.html)
     ///
     #[doc(alias = "VkShaderStageFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ShaderStageFlag: u32 {
         #[doc(alias = "VK_SHADER_STAGE_VERTEX_BIT")]
         #[default]
@@ -872,10 +864,6 @@ flagset::flags! {
         FRAGMENT = 16,
         #[doc(alias = "VK_SHADER_STAGE_COMPUTE_BIT")]
         COMPUTE = 32,
-        #[doc(alias = "VK_SHADER_STAGE_ALL_GRAPHICS")]
-        ALL_GRAPHICS = 31,
-        #[doc(alias = "VK_SHADER_STAGE_ALL")]
-        ALL = 2147483647,
         /// # Requirements
         /// This requires _at least_ one of the following:
         /// - Extension [`NV_RayTracing`](Extension::NV_RayTracing)
@@ -999,19 +987,22 @@ impl ShaderStageFlag {
     ///
     #[doc(alias = "VK_SHADER_STAGE_MESH_BIT_NV")]
     pub const MESH_NV: Self = Self::MESH_EXT;
+    #[doc(alias = "VK_SHADER_STAGE_ALL_GRAPHICS")]
+    pub const ALL_GRAPHICS: FlagSet<Self> = FlagSet(31);
+    #[doc(alias = "VK_SHADER_STAGE_ALL")]
+    pub const ALL: FlagSet<Self> = FlagSet(2147483647);
 }
 /// [`VkShaderStageFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderStageFlags.html)
 ///
 #[doc(alias = "VkShaderStageFlags")]
-pub type ShaderStageFlags = flagset::FlagSet<ShaderStageFlag>;
+pub type ShaderStageFlags = FlagSet<ShaderStageFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkDeviceQueueCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceQueueCreateFlagBits.html)
     ///
     #[doc(alias = "VkDeviceQueueCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum DeviceQueueCreateFlag: u32 {
         #[doc(alias = "VK_DEVICE_QUEUE_CREATE_PROTECTED_BIT")]
         #[default]
@@ -1029,15 +1020,14 @@ flagset::flags! {
 /// [`VkDeviceQueueCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceQueueCreateFlags.html)
 ///
 #[doc(alias = "VkDeviceQueueCreateFlags")]
-pub type DeviceQueueCreateFlags = flagset::FlagSet<DeviceQueueCreateFlag>;
+pub type DeviceQueueCreateFlags = FlagSet<DeviceQueueCreateFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkPipelineStageFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineStageFlagBits.html)
     ///
     #[doc(alias = "VkPipelineStageFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum PipelineStageFlag: u32 {
         #[doc(alias = "VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT")]
         #[default]
@@ -1197,15 +1187,14 @@ impl PipelineStageFlag {
 /// [`VkPipelineStageFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineStageFlags.html)
 ///
 #[doc(alias = "VkPipelineStageFlags")]
-pub type PipelineStageFlags = flagset::FlagSet<PipelineStageFlag>;
+pub type PipelineStageFlags = FlagSet<PipelineStageFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkMemoryMapFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryMapFlagBits.html)
     ///
     #[doc(alias = "VkMemoryMapFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum MemoryMapFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -1221,15 +1210,14 @@ flagset::flags! {
 /// [`VkMemoryMapFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryMapFlags.html)
 ///
 #[doc(alias = "VkMemoryMapFlags")]
-pub type MemoryMapFlags = flagset::FlagSet<MemoryMapFlag>;
+pub type MemoryMapFlags = FlagSet<MemoryMapFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkImageAspectFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageAspectFlagBits.html)
     ///
     #[doc(alias = "VkImageAspectFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ImageAspectFlag: u32 {
         #[doc(alias = "VK_IMAGE_ASPECT_COLOR_BIT")]
         #[default]
@@ -1331,9 +1319,9 @@ impl ImageAspectFlag {
 /// [`VkImageAspectFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageAspectFlags.html)
 ///
 #[doc(alias = "VkImageAspectFlags")]
-pub type ImageAspectFlags = flagset::FlagSet<ImageAspectFlag>;
+pub type ImageAspectFlags = FlagSet<ImageAspectFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkSparseImageFormatFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSparseImageFormatFlagBits.html)
     ///
     /// # Returned only
@@ -1341,7 +1329,6 @@ flagset::flags! {
     #[doc(alias = "VkSparseImageFormatFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum SparseImageFormatFlag: u32 {
         #[doc(alias = "VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT")]
         #[default]
@@ -1357,15 +1344,14 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSparseImageFormatFlags")]
-pub type SparseImageFormatFlags = flagset::FlagSet<SparseImageFormatFlag>;
+pub type SparseImageFormatFlags = FlagSet<SparseImageFormatFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkSparseMemoryBindFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSparseMemoryBindFlagBits.html)
     ///
     #[doc(alias = "VkSparseMemoryBindFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum SparseMemoryBindFlag: u32 {
         #[doc(alias = "VK_SPARSE_MEMORY_BIND_METADATA_BIT")]
         #[default]
@@ -1375,15 +1361,14 @@ flagset::flags! {
 /// [`VkSparseMemoryBindFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSparseMemoryBindFlags.html)
 ///
 #[doc(alias = "VkSparseMemoryBindFlags")]
-pub type SparseMemoryBindFlags = flagset::FlagSet<SparseMemoryBindFlag>;
+pub type SparseMemoryBindFlags = FlagSet<SparseMemoryBindFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkFenceCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFenceCreateFlagBits.html)
     ///
     #[doc(alias = "VkFenceCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum FenceCreateFlag: u32 {
         #[doc(alias = "VK_FENCE_CREATE_SIGNALED_BIT")]
         #[default]
@@ -1393,15 +1378,14 @@ flagset::flags! {
 /// [`VkFenceCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFenceCreateFlags.html)
 ///
 #[doc(alias = "VkFenceCreateFlags")]
-pub type FenceCreateFlags = flagset::FlagSet<FenceCreateFlag>;
+pub type FenceCreateFlags = FlagSet<FenceCreateFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkQueryPoolCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryPoolCreateFlagBits.html)
     ///
     #[doc(alias = "VkQueryPoolCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum QueryPoolCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -1417,15 +1401,14 @@ flagset::flags! {
 /// [`VkQueryPoolCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryPoolCreateFlags.html)
 ///
 #[doc(alias = "VkQueryPoolCreateFlags")]
-pub type QueryPoolCreateFlags = flagset::FlagSet<QueryPoolCreateFlag>;
+pub type QueryPoolCreateFlags = FlagSet<QueryPoolCreateFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkQueryPipelineStatisticFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryPipelineStatisticFlagBits.html)
     ///
     #[doc(alias = "VkQueryPipelineStatisticFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum QueryPipelineStatisticFlag: u32 {
         #[doc(alias = "VK_QUERY_PIPELINE_STATISTIC_INPUT_ASSEMBLY_VERTICES_BIT")]
         #[default]
@@ -1479,15 +1462,14 @@ flagset::flags! {
 /// [`VkQueryPipelineStatisticFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryPipelineStatisticFlags.html)
 ///
 #[doc(alias = "VkQueryPipelineStatisticFlags")]
-pub type QueryPipelineStatisticFlags = flagset::FlagSet<QueryPipelineStatisticFlag>;
+pub type QueryPipelineStatisticFlags = FlagSet<QueryPipelineStatisticFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkQueryResultFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryResultFlagBits.html)
     ///
     #[doc(alias = "VkQueryResultFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum QueryResultFlag: u32 {
         #[doc(alias = "VK_QUERY_RESULT_64_BIT")]
         #[default]
@@ -1511,15 +1493,14 @@ flagset::flags! {
 /// [`VkQueryResultFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryResultFlags.html)
 ///
 #[doc(alias = "VkQueryResultFlags")]
-pub type QueryResultFlags = flagset::FlagSet<QueryResultFlag>;
+pub type QueryResultFlags = FlagSet<QueryResultFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkBufferCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferCreateFlagBits.html)
     ///
     #[doc(alias = "VkBufferCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum BufferCreateFlag: u32 {
         #[doc(alias = "VK_BUFFER_CREATE_SPARSE_BINDING_BIT")]
         #[default]
@@ -1572,15 +1553,14 @@ impl BufferCreateFlag {
 /// [`VkBufferCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferCreateFlags.html)
 ///
 #[doc(alias = "VkBufferCreateFlags")]
-pub type BufferCreateFlags = flagset::FlagSet<BufferCreateFlag>;
+pub type BufferCreateFlags = FlagSet<BufferCreateFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkBufferUsageFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferUsageFlagBits.html)
     ///
     #[doc(alias = "VkBufferUsageFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum BufferUsageFlag: u32 {
         #[doc(alias = "VK_BUFFER_USAGE_TRANSFER_SRC_BIT")]
         #[default]
@@ -1780,15 +1760,14 @@ impl BufferUsageFlag {
 /// [`VkBufferUsageFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferUsageFlags.html)
 ///
 #[doc(alias = "VkBufferUsageFlags")]
-pub type BufferUsageFlags = flagset::FlagSet<BufferUsageFlag>;
+pub type BufferUsageFlags = FlagSet<BufferUsageFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkImageViewCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageViewCreateFlagBits.html)
     ///
     #[doc(alias = "VkImageViewCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ImageViewCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -1821,15 +1800,14 @@ flagset::flags! {
 /// [`VkImageViewCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageViewCreateFlags.html)
 ///
 #[doc(alias = "VkImageViewCreateFlags")]
-pub type ImageViewCreateFlags = flagset::FlagSet<ImageViewCreateFlag>;
+pub type ImageViewCreateFlags = FlagSet<ImageViewCreateFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkAccessFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccessFlagBits.html)
     ///
     #[doc(alias = "VkAccessFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum AccessFlag: u32 {
         #[doc(alias = "VK_ACCESS_INDIRECT_COMMAND_READ_BIT")]
         #[default]
@@ -2001,15 +1979,14 @@ impl AccessFlag {
 /// [`VkAccessFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccessFlags.html)
 ///
 #[doc(alias = "VkAccessFlags")]
-pub type AccessFlags = flagset::FlagSet<AccessFlag>;
+pub type AccessFlags = FlagSet<AccessFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkDependencyFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDependencyFlagBits.html)
     ///
     #[doc(alias = "VkDependencyFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum DependencyFlag: u32 {
         #[doc(alias = "VK_DEPENDENCY_BY_REGION_BIT")]
         #[default]
@@ -2071,15 +2048,14 @@ impl DependencyFlag {
 /// [`VkDependencyFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDependencyFlags.html)
 ///
 #[doc(alias = "VkDependencyFlags")]
-pub type DependencyFlags = flagset::FlagSet<DependencyFlag>;
+pub type DependencyFlags = FlagSet<DependencyFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkCommandPoolCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandPoolCreateFlagBits.html)
     ///
     #[doc(alias = "VkCommandPoolCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum CommandPoolCreateFlag: u32 {
         #[doc(alias = "VK_COMMAND_POOL_CREATE_TRANSIENT_BIT")]
         #[default]
@@ -2093,15 +2069,14 @@ flagset::flags! {
 /// [`VkCommandPoolCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandPoolCreateFlags.html)
 ///
 #[doc(alias = "VkCommandPoolCreateFlags")]
-pub type CommandPoolCreateFlags = flagset::FlagSet<CommandPoolCreateFlag>;
+pub type CommandPoolCreateFlags = FlagSet<CommandPoolCreateFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkCommandPoolResetFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandPoolResetFlagBits.html)
     ///
     #[doc(alias = "VkCommandPoolResetFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum CommandPoolResetFlag: u32 {
         #[doc(alias = "VK_COMMAND_POOL_RESET_RELEASE_RESOURCES_BIT")]
         #[default]
@@ -2111,15 +2086,14 @@ flagset::flags! {
 /// [`VkCommandPoolResetFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandPoolResetFlags.html)
 ///
 #[doc(alias = "VkCommandPoolResetFlags")]
-pub type CommandPoolResetFlags = flagset::FlagSet<CommandPoolResetFlag>;
+pub type CommandPoolResetFlags = FlagSet<CommandPoolResetFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkQueryControlFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryControlFlagBits.html)
     ///
     #[doc(alias = "VkQueryControlFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum QueryControlFlag: u32 {
         #[doc(alias = "VK_QUERY_CONTROL_PRECISE_BIT")]
         #[default]
@@ -2129,15 +2103,14 @@ flagset::flags! {
 /// [`VkQueryControlFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkQueryControlFlags.html)
 ///
 #[doc(alias = "VkQueryControlFlags")]
-pub type QueryControlFlags = flagset::FlagSet<QueryControlFlag>;
+pub type QueryControlFlags = FlagSet<QueryControlFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkCommandBufferUsageFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferUsageFlagBits.html)
     ///
     #[doc(alias = "VkCommandBufferUsageFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum CommandBufferUsageFlag: u32 {
         #[doc(alias = "VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT")]
         #[default]
@@ -2151,15 +2124,14 @@ flagset::flags! {
 /// [`VkCommandBufferUsageFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferUsageFlags.html)
 ///
 #[doc(alias = "VkCommandBufferUsageFlags")]
-pub type CommandBufferUsageFlags = flagset::FlagSet<CommandBufferUsageFlag>;
+pub type CommandBufferUsageFlags = FlagSet<CommandBufferUsageFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkCommandBufferResetFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferResetFlagBits.html)
     ///
     #[doc(alias = "VkCommandBufferResetFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum CommandBufferResetFlag: u32 {
         #[doc(alias = "VK_COMMAND_BUFFER_RESET_RELEASE_RESOURCES_BIT")]
         #[default]
@@ -2169,15 +2141,14 @@ flagset::flags! {
 /// [`VkCommandBufferResetFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCommandBufferResetFlags.html)
 ///
 #[doc(alias = "VkCommandBufferResetFlags")]
-pub type CommandBufferResetFlags = flagset::FlagSet<CommandBufferResetFlag>;
+pub type CommandBufferResetFlags = FlagSet<CommandBufferResetFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkEventCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkEventCreateFlagBits.html)
     ///
     #[doc(alias = "VkEventCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum EventCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2200,15 +2171,14 @@ impl EventCreateFlag {
 /// [`VkEventCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkEventCreateFlags.html)
 ///
 #[doc(alias = "VkEventCreateFlags")]
-pub type EventCreateFlags = flagset::FlagSet<EventCreateFlag>;
+pub type EventCreateFlags = FlagSet<EventCreateFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkPipelineCacheCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCacheCreateFlagBits.html)
     ///
     #[doc(alias = "VkPipelineCacheCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum PipelineCacheCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2239,15 +2209,14 @@ impl PipelineCacheCreateFlag {
 /// [`VkPipelineCacheCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCacheCreateFlags.html)
 ///
 #[doc(alias = "VkPipelineCacheCreateFlags")]
-pub type PipelineCacheCreateFlags = flagset::FlagSet<PipelineCacheCreateFlag>;
+pub type PipelineCacheCreateFlags = FlagSet<PipelineCacheCreateFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkPipelineCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreateFlagBits.html)
     ///
     #[doc(alias = "VkPipelineCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum PipelineCreateFlag: u32 {
         #[doc(alias = "VK_PIPELINE_CREATE_DISABLE_OPTIMIZATION_BIT")]
         #[default]
@@ -2537,15 +2506,14 @@ impl PipelineCreateFlag {
 /// [`VkPipelineCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreateFlags.html)
 ///
 #[doc(alias = "VkPipelineCreateFlags")]
-pub type PipelineCreateFlags = flagset::FlagSet<PipelineCreateFlag>;
+pub type PipelineCreateFlags = FlagSet<PipelineCreateFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkPipelineLayoutCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineLayoutCreateFlagBits.html)
     ///
     #[doc(alias = "VkPipelineLayoutCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum PipelineLayoutCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2570,15 +2538,14 @@ flagset::flags! {
 /// [`VkPipelineLayoutCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineLayoutCreateFlags.html)
 ///
 #[doc(alias = "VkPipelineLayoutCreateFlags")]
-pub type PipelineLayoutCreateFlags = flagset::FlagSet<PipelineLayoutCreateFlag>;
+pub type PipelineLayoutCreateFlags = FlagSet<PipelineLayoutCreateFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkPipelineShaderStageCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineShaderStageCreateFlagBits.html)
     ///
     #[doc(alias = "VkPipelineShaderStageCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum PipelineShaderStageCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2614,15 +2581,14 @@ impl PipelineShaderStageCreateFlag {
 /// [`VkPipelineShaderStageCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineShaderStageCreateFlags.html)
 ///
 #[doc(alias = "VkPipelineShaderStageCreateFlags")]
-pub type PipelineShaderStageCreateFlags = flagset::FlagSet<PipelineShaderStageCreateFlag>;
+pub type PipelineShaderStageCreateFlags = FlagSet<PipelineShaderStageCreateFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkSamplerCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerCreateFlagBits.html)
     ///
     #[doc(alias = "VkSamplerCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum SamplerCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2671,15 +2637,14 @@ flagset::flags! {
 /// [`VkSamplerCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSamplerCreateFlags.html)
 ///
 #[doc(alias = "VkSamplerCreateFlags")]
-pub type SamplerCreateFlags = flagset::FlagSet<SamplerCreateFlag>;
+pub type SamplerCreateFlags = FlagSet<SamplerCreateFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkDescriptorPoolCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorPoolCreateFlagBits.html)
     ///
     #[doc(alias = "VkDescriptorPoolCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum DescriptorPoolCreateFlag: u32 {
         #[doc(alias = "VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT")]
         #[default]
@@ -2733,15 +2698,14 @@ impl DescriptorPoolCreateFlag {
 /// [`VkDescriptorPoolCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorPoolCreateFlags.html)
 ///
 #[doc(alias = "VkDescriptorPoolCreateFlags")]
-pub type DescriptorPoolCreateFlags = flagset::FlagSet<DescriptorPoolCreateFlag>;
+pub type DescriptorPoolCreateFlags = FlagSet<DescriptorPoolCreateFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkDescriptorSetLayoutCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetLayoutCreateFlagBits.html)
     ///
     #[doc(alias = "VkDescriptorSetLayoutCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum DescriptorSetLayoutCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2825,15 +2789,14 @@ impl DescriptorSetLayoutCreateFlag {
 /// [`VkDescriptorSetLayoutCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorSetLayoutCreateFlags.html)
 ///
 #[doc(alias = "VkDescriptorSetLayoutCreateFlags")]
-pub type DescriptorSetLayoutCreateFlags = flagset::FlagSet<DescriptorSetLayoutCreateFlag>;
+pub type DescriptorSetLayoutCreateFlags = FlagSet<DescriptorSetLayoutCreateFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkColorComponentFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkColorComponentFlagBits.html)
     ///
     #[doc(alias = "VkColorComponentFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ColorComponentFlag: u32 {
         #[doc(alias = "VK_COLOR_COMPONENT_R_BIT")]
         #[default]
@@ -2849,15 +2812,14 @@ flagset::flags! {
 /// [`VkColorComponentFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkColorComponentFlags.html)
 ///
 #[doc(alias = "VkColorComponentFlags")]
-pub type ColorComponentFlags = flagset::FlagSet<ColorComponentFlag>;
+pub type ColorComponentFlags = FlagSet<ColorComponentFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkCullModeFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCullModeFlagBits.html)
     ///
     #[doc(alias = "VkCullModeFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum CullModeFlag: u32 {
         #[doc(alias = "VK_CULL_MODE_NONE")]
         #[default]
@@ -2866,22 +2828,23 @@ flagset::flags! {
         FRONT = 1,
         #[doc(alias = "VK_CULL_MODE_BACK_BIT")]
         BACK = 2,
-        #[doc(alias = "VK_CULL_MODE_FRONT_AND_BACK")]
-        FRONT_AND_BACK = 3,
     }
+}
+impl CullModeFlag {
+    #[doc(alias = "VK_CULL_MODE_FRONT_AND_BACK")]
+    pub const FRONT_AND_BACK: FlagSet<Self> = FlagSet(3);
 }
 /// [`VkCullModeFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCullModeFlags.html)
 ///
 #[doc(alias = "VkCullModeFlags")]
-pub type CullModeFlags = flagset::FlagSet<CullModeFlag>;
+pub type CullModeFlags = FlagSet<CullModeFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkPipelineColorBlendStateCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineColorBlendStateCreateFlagBits.html)
     ///
     #[doc(alias = "VkPipelineColorBlendStateCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum PipelineColorBlendStateCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2907,15 +2870,14 @@ impl PipelineColorBlendStateCreateFlag {
 /// [`VkPipelineColorBlendStateCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineColorBlendStateCreateFlags.html)
 ///
 #[doc(alias = "VkPipelineColorBlendStateCreateFlags")]
-pub type PipelineColorBlendStateCreateFlags = flagset::FlagSet<PipelineColorBlendStateCreateFlag>;
+pub type PipelineColorBlendStateCreateFlags = FlagSet<PipelineColorBlendStateCreateFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkPipelineDepthStencilStateCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineDepthStencilStateCreateFlagBits.html)
     ///
     #[doc(alias = "VkPipelineDepthStencilStateCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum PipelineDepthStencilStateCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -2957,16 +2919,14 @@ impl PipelineDepthStencilStateCreateFlag {
 /// [`VkPipelineDepthStencilStateCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineDepthStencilStateCreateFlags.html)
 ///
 #[doc(alias = "VkPipelineDepthStencilStateCreateFlags")]
-pub type PipelineDepthStencilStateCreateFlags =
-    flagset::FlagSet<PipelineDepthStencilStateCreateFlag>;
+pub type PipelineDepthStencilStateCreateFlags = FlagSet<PipelineDepthStencilStateCreateFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkAttachmentDescriptionFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentDescriptionFlagBits.html)
     ///
     #[doc(alias = "VkAttachmentDescriptionFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum AttachmentDescriptionFlag: u32 {
         #[doc(alias = "VK_ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT")]
         #[default]
@@ -2992,15 +2952,14 @@ flagset::flags! {
 /// [`VkAttachmentDescriptionFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAttachmentDescriptionFlags.html)
 ///
 #[doc(alias = "VkAttachmentDescriptionFlags")]
-pub type AttachmentDescriptionFlags = flagset::FlagSet<AttachmentDescriptionFlag>;
+pub type AttachmentDescriptionFlags = FlagSet<AttachmentDescriptionFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkFramebufferCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFramebufferCreateFlagBits.html)
     ///
     #[doc(alias = "VkFramebufferCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum FramebufferCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3023,15 +2982,14 @@ impl FramebufferCreateFlag {
 /// [`VkFramebufferCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFramebufferCreateFlags.html)
 ///
 #[doc(alias = "VkFramebufferCreateFlags")]
-pub type FramebufferCreateFlags = flagset::FlagSet<FramebufferCreateFlag>;
+pub type FramebufferCreateFlags = FlagSet<FramebufferCreateFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkRenderPassCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassCreateFlagBits.html)
     ///
     #[doc(alias = "VkRenderPassCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum RenderPassCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3055,15 +3013,14 @@ flagset::flags! {
 /// [`VkRenderPassCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderPassCreateFlags.html)
 ///
 #[doc(alias = "VkRenderPassCreateFlags")]
-pub type RenderPassCreateFlags = flagset::FlagSet<RenderPassCreateFlag>;
+pub type RenderPassCreateFlags = FlagSet<RenderPassCreateFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkSubpassDescriptionFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassDescriptionFlagBits.html)
     ///
     #[doc(alias = "VkSubpassDescriptionFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum SubpassDescriptionFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3173,37 +3130,32 @@ impl SubpassDescriptionFlag {
 /// [`VkSubpassDescriptionFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubpassDescriptionFlags.html)
 ///
 #[doc(alias = "VkSubpassDescriptionFlags")]
-pub type SubpassDescriptionFlags = flagset::FlagSet<SubpassDescriptionFlag>;
+pub type SubpassDescriptionFlags = FlagSet<SubpassDescriptionFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkStencilFaceFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkStencilFaceFlagBits.html)
     ///
     #[doc(alias = "VkStencilFaceFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum StencilFaceFlag: u32 {
         #[doc(alias = "VK_STENCIL_FACE_FRONT_BIT")]
         #[default]
         FRONT = 1,
         #[doc(alias = "VK_STENCIL_FACE_BACK_BIT")]
         BACK = 2,
-        #[doc(alias = "VK_STENCIL_FACE_FRONT_AND_BACK")]
-        FRONT_AND_BACK = 3,
     }
 }
 impl StencilFaceFlag {
-    /// [`VK_STENCIL_FRONT_AND_BACK`](https://docs.vulkan.org/refpages/latest/refpages/source/VK_STENCIL_FRONT_AND_BACK.html)
-    ///
-    #[doc(alias = "VK_STENCIL_FRONT_AND_BACK")]
-    pub const STENCIL_FRONT_AND_BACK: Self = Self::FRONT_AND_BACK;
+    #[doc(alias = "VK_STENCIL_FACE_FRONT_AND_BACK")]
+    pub const FRONT_AND_BACK: FlagSet<Self> = FlagSet(3);
 }
 /// [`VkStencilFaceFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkStencilFaceFlags.html)
 ///
 #[doc(alias = "VkStencilFaceFlags")]
-pub type StencilFaceFlags = flagset::FlagSet<StencilFaceFlag>;
+pub type StencilFaceFlags = FlagSet<StencilFaceFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkSubgroupFeatureFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubgroupFeatureFlagBits.html)
     ///
     /// # Returned only
@@ -3211,7 +3163,6 @@ flagset::flags! {
     #[doc(alias = "VkSubgroupFeatureFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum SubgroupFeatureFlag: u32 {
         #[doc(alias = "VK_SUBGROUP_FEATURE_BASIC_BIT")]
         #[default]
@@ -3278,9 +3229,9 @@ impl SubgroupFeatureFlag {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSubgroupFeatureFlags")]
-pub type SubgroupFeatureFlags = flagset::FlagSet<SubgroupFeatureFlag>;
+pub type SubgroupFeatureFlags = FlagSet<SubgroupFeatureFlag>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkPeerMemoryFeatureFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPeerMemoryFeatureFlagBits.html)
     ///
     /// # Requirements
@@ -3293,7 +3244,6 @@ flagset::flags! {
     #[doc(alias = "VkPeerMemoryFeatureFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum PeerMemoryFeatureFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3359,13 +3309,13 @@ impl PeerMemoryFeatureFlag {
 /// [`VkPeerMemoryFeatureFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPeerMemoryFeatureFlags.html)
 ///
 #[doc(alias = "VkPeerMemoryFeatureFlags")]
-pub type PeerMemoryFeatureFlags = flagset::FlagSet<PeerMemoryFeatureFlag>;
+pub type PeerMemoryFeatureFlags = FlagSet<PeerMemoryFeatureFlag>;
 /// [`VkPeerMemoryFeatureFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPeerMemoryFeatureFlagsKHR.html)
 ///
 #[doc(alias = "VkPeerMemoryFeatureFlagsKHR")]
 pub type PeerMemoryFeatureFlagsKHR = PeerMemoryFeatureFlags;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkMemoryAllocateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryAllocateFlagBits.html)
     ///
     /// # Requirements
@@ -3378,7 +3328,6 @@ flagset::flags! {
     #[doc(alias = "VkMemoryAllocateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum MemoryAllocateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3439,13 +3388,13 @@ impl MemoryAllocateFlag {
 /// [`VkMemoryAllocateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryAllocateFlags.html)
 ///
 #[doc(alias = "VkMemoryAllocateFlags")]
-pub type MemoryAllocateFlags = flagset::FlagSet<MemoryAllocateFlag>;
+pub type MemoryAllocateFlags = FlagSet<MemoryAllocateFlag>;
 /// [`VkMemoryAllocateFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryAllocateFlagsKHR.html)
 ///
 #[doc(alias = "VkMemoryAllocateFlagsKHR")]
 pub type MemoryAllocateFlagsKHR = MemoryAllocateFlags;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkExternalMemoryHandleTypeFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryHandleTypeFlagBits.html)
     ///
     /// # Requirements
@@ -3458,7 +3407,6 @@ flagset::flags! {
     #[doc(alias = "VkExternalMemoryHandleTypeFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ExternalMemoryHandleTypeFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3651,13 +3599,13 @@ impl ExternalMemoryHandleTypeFlag {
 /// [`VkExternalMemoryHandleTypeFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryHandleTypeFlags.html)
 ///
 #[doc(alias = "VkExternalMemoryHandleTypeFlags")]
-pub type ExternalMemoryHandleTypeFlags = flagset::FlagSet<ExternalMemoryHandleTypeFlag>;
+pub type ExternalMemoryHandleTypeFlags = FlagSet<ExternalMemoryHandleTypeFlag>;
 /// [`VkExternalMemoryHandleTypeFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryHandleTypeFlagsKHR.html)
 ///
 #[doc(alias = "VkExternalMemoryHandleTypeFlagsKHR")]
 pub type ExternalMemoryHandleTypeFlagsKHR = ExternalMemoryHandleTypeFlags;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkExternalMemoryFeatureFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryFeatureFlagBits.html)
     ///
     /// # Requirements
@@ -3672,7 +3620,6 @@ flagset::flags! {
     #[doc(alias = "VkExternalMemoryFeatureFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ExternalMemoryFeatureFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3727,13 +3674,13 @@ impl ExternalMemoryFeatureFlag {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkExternalMemoryFeatureFlags")]
-pub type ExternalMemoryFeatureFlags = flagset::FlagSet<ExternalMemoryFeatureFlag>;
+pub type ExternalMemoryFeatureFlags = FlagSet<ExternalMemoryFeatureFlag>;
 /// [`VkExternalMemoryFeatureFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryFeatureFlagsKHR.html)
 ///
 #[doc(alias = "VkExternalMemoryFeatureFlagsKHR")]
 pub type ExternalMemoryFeatureFlagsKHR = ExternalMemoryFeatureFlags;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkExternalFenceHandleTypeFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalFenceHandleTypeFlagBits.html)
     ///
     /// # Requirements
@@ -3746,7 +3693,6 @@ flagset::flags! {
     #[doc(alias = "VkExternalFenceHandleTypeFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ExternalFenceHandleTypeFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3812,13 +3758,13 @@ impl ExternalFenceHandleTypeFlag {
 /// [`VkExternalFenceHandleTypeFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalFenceHandleTypeFlags.html)
 ///
 #[doc(alias = "VkExternalFenceHandleTypeFlags")]
-pub type ExternalFenceHandleTypeFlags = flagset::FlagSet<ExternalFenceHandleTypeFlag>;
+pub type ExternalFenceHandleTypeFlags = FlagSet<ExternalFenceHandleTypeFlag>;
 /// [`VkExternalFenceHandleTypeFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalFenceHandleTypeFlagsKHR.html)
 ///
 #[doc(alias = "VkExternalFenceHandleTypeFlagsKHR")]
 pub type ExternalFenceHandleTypeFlagsKHR = ExternalFenceHandleTypeFlags;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkExternalFenceFeatureFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalFenceFeatureFlagBits.html)
     ///
     /// # Requirements
@@ -3833,7 +3779,6 @@ flagset::flags! {
     #[doc(alias = "VkExternalFenceFeatureFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ExternalFenceFeatureFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3875,13 +3820,13 @@ impl ExternalFenceFeatureFlag {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkExternalFenceFeatureFlags")]
-pub type ExternalFenceFeatureFlags = flagset::FlagSet<ExternalFenceFeatureFlag>;
+pub type ExternalFenceFeatureFlags = FlagSet<ExternalFenceFeatureFlag>;
 /// [`VkExternalFenceFeatureFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalFenceFeatureFlagsKHR.html)
 ///
 #[doc(alias = "VkExternalFenceFeatureFlagsKHR")]
 pub type ExternalFenceFeatureFlagsKHR = ExternalFenceFeatureFlags;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkFenceImportFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFenceImportFlagBits.html)
     ///
     /// # Requirements
@@ -3894,7 +3839,6 @@ flagset::flags! {
     #[doc(alias = "VkFenceImportFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum FenceImportFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3921,13 +3865,13 @@ impl FenceImportFlag {
 /// [`VkFenceImportFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFenceImportFlags.html)
 ///
 #[doc(alias = "VkFenceImportFlags")]
-pub type FenceImportFlags = flagset::FlagSet<FenceImportFlag>;
+pub type FenceImportFlags = FlagSet<FenceImportFlag>;
 /// [`VkFenceImportFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFenceImportFlagsKHR.html)
 ///
 #[doc(alias = "VkFenceImportFlagsKHR")]
 pub type FenceImportFlagsKHR = FenceImportFlags;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkSemaphoreImportFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreImportFlagBits.html)
     ///
     /// # Requirements
@@ -3940,7 +3884,6 @@ flagset::flags! {
     #[doc(alias = "VkSemaphoreImportFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum SemaphoreImportFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -3967,13 +3910,13 @@ impl SemaphoreImportFlag {
 /// [`VkSemaphoreImportFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreImportFlags.html)
 ///
 #[doc(alias = "VkSemaphoreImportFlags")]
-pub type SemaphoreImportFlags = flagset::FlagSet<SemaphoreImportFlag>;
+pub type SemaphoreImportFlags = FlagSet<SemaphoreImportFlag>;
 /// [`VkSemaphoreImportFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreImportFlagsKHR.html)
 ///
 #[doc(alias = "VkSemaphoreImportFlagsKHR")]
 pub type SemaphoreImportFlagsKHR = SemaphoreImportFlags;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkExternalSemaphoreHandleTypeFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalSemaphoreHandleTypeFlagBits.html)
     ///
     /// # Requirements
@@ -3986,7 +3929,6 @@ flagset::flags! {
     #[doc(alias = "VkExternalSemaphoreHandleTypeFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ExternalSemaphoreHandleTypeFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -4077,13 +4019,13 @@ impl ExternalSemaphoreHandleTypeFlag {
 /// [`VkExternalSemaphoreHandleTypeFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalSemaphoreHandleTypeFlags.html)
 ///
 #[doc(alias = "VkExternalSemaphoreHandleTypeFlags")]
-pub type ExternalSemaphoreHandleTypeFlags = flagset::FlagSet<ExternalSemaphoreHandleTypeFlag>;
+pub type ExternalSemaphoreHandleTypeFlags = FlagSet<ExternalSemaphoreHandleTypeFlag>;
 /// [`VkExternalSemaphoreHandleTypeFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalSemaphoreHandleTypeFlagsKHR.html)
 ///
 #[doc(alias = "VkExternalSemaphoreHandleTypeFlagsKHR")]
 pub type ExternalSemaphoreHandleTypeFlagsKHR = ExternalSemaphoreHandleTypeFlags;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkExternalSemaphoreFeatureFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalSemaphoreFeatureFlagBits.html)
     ///
     /// # Requirements
@@ -4098,7 +4040,6 @@ flagset::flags! {
     #[doc(alias = "VkExternalSemaphoreFeatureFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ExternalSemaphoreFeatureFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -4140,13 +4081,13 @@ impl ExternalSemaphoreFeatureFlag {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkExternalSemaphoreFeatureFlags")]
-pub type ExternalSemaphoreFeatureFlags = flagset::FlagSet<ExternalSemaphoreFeatureFlag>;
+pub type ExternalSemaphoreFeatureFlags = FlagSet<ExternalSemaphoreFeatureFlag>;
 /// [`VkExternalSemaphoreFeatureFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalSemaphoreFeatureFlagsKHR.html)
 ///
 #[doc(alias = "VkExternalSemaphoreFeatureFlagsKHR")]
 pub type ExternalSemaphoreFeatureFlagsKHR = ExternalSemaphoreFeatureFlags;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkResolveModeFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkResolveModeFlagBits.html)
     ///
     /// # Requirements
@@ -4159,7 +4100,6 @@ flagset::flags! {
     #[doc(alias = "VkResolveModeFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ResolveModeFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -4256,13 +4196,13 @@ impl ResolveModeFlag {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkResolveModeFlags")]
-pub type ResolveModeFlags = flagset::FlagSet<ResolveModeFlag>;
+pub type ResolveModeFlags = FlagSet<ResolveModeFlag>;
 /// [`VkResolveModeFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkResolveModeFlagsKHR.html)
 ///
 #[doc(alias = "VkResolveModeFlagsKHR")]
 pub type ResolveModeFlagsKHR = ResolveModeFlags;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkSemaphoreWaitFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreWaitFlagBits.html)
     ///
     /// # Requirements
@@ -4275,7 +4215,6 @@ flagset::flags! {
     #[doc(alias = "VkSemaphoreWaitFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum SemaphoreWaitFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -4302,13 +4241,13 @@ impl SemaphoreWaitFlag {
 /// [`VkSemaphoreWaitFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreWaitFlags.html)
 ///
 #[doc(alias = "VkSemaphoreWaitFlags")]
-pub type SemaphoreWaitFlags = flagset::FlagSet<SemaphoreWaitFlag>;
+pub type SemaphoreWaitFlags = FlagSet<SemaphoreWaitFlag>;
 /// [`VkSemaphoreWaitFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSemaphoreWaitFlagsKHR.html)
 ///
 #[doc(alias = "VkSemaphoreWaitFlagsKHR")]
 pub type SemaphoreWaitFlagsKHR = SemaphoreWaitFlags;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkDescriptorBindingFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorBindingFlagBits.html)
     ///
     /// # Requirements
@@ -4321,7 +4260,6 @@ flagset::flags! {
     #[doc(alias = "VkDescriptorBindingFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum DescriptorBindingFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -4387,13 +4325,13 @@ impl DescriptorBindingFlag {
 /// [`VkDescriptorBindingFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorBindingFlags.html)
 ///
 #[doc(alias = "VkDescriptorBindingFlags")]
-pub type DescriptorBindingFlags = flagset::FlagSet<DescriptorBindingFlag>;
+pub type DescriptorBindingFlags = FlagSet<DescriptorBindingFlag>;
 /// [`VkDescriptorBindingFlagsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDescriptorBindingFlagsEXT.html)
 ///
 #[doc(alias = "VkDescriptorBindingFlagsEXT")]
 pub type DescriptorBindingFlagsEXT = DescriptorBindingFlags;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkToolPurposeFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkToolPurposeFlagBits.html)
     ///
     /// # Requirements
@@ -4408,7 +4346,6 @@ flagset::flags! {
     #[doc(alias = "VkToolPurposeFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ToolPurposeFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -4507,13 +4444,13 @@ impl ToolPurposeFlag {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkToolPurposeFlags")]
-pub type ToolPurposeFlags = flagset::FlagSet<ToolPurposeFlag>;
+pub type ToolPurposeFlags = FlagSet<ToolPurposeFlag>;
 /// [`VkToolPurposeFlagsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkToolPurposeFlagsEXT.html)
 ///
 #[doc(alias = "VkToolPurposeFlagsEXT")]
 pub type ToolPurposeFlagsEXT = ToolPurposeFlags;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkPrivateDataSlotCreateFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPrivateDataSlotCreateFlagBits.html)
     ///
     /// # Requirements
@@ -4526,7 +4463,6 @@ flagset::flags! {
     #[doc(alias = "VkPrivateDataSlotCreateFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum PrivateDataSlotCreateFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -4546,13 +4482,13 @@ pub type PrivateDataSlotCreateFlagEXT = PrivateDataSlotCreateFlag;
 /// [`VkPrivateDataSlotCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPrivateDataSlotCreateFlags.html)
 ///
 #[doc(alias = "VkPrivateDataSlotCreateFlags")]
-pub type PrivateDataSlotCreateFlags = flagset::FlagSet<PrivateDataSlotCreateFlag>;
+pub type PrivateDataSlotCreateFlags = FlagSet<PrivateDataSlotCreateFlag>;
 /// [`VkPrivateDataSlotCreateFlagsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPrivateDataSlotCreateFlagsEXT.html)
 ///
 #[doc(alias = "VkPrivateDataSlotCreateFlagsEXT")]
 pub type PrivateDataSlotCreateFlagsEXT = PrivateDataSlotCreateFlags;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkPipelineStageFlagBits2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineStageFlagBits2.html)
     ///
     /// # Requirements
@@ -4565,7 +4501,6 @@ flagset::flags! {
     #[doc(alias = "VkPipelineStageFlagBits2")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u64)]
     pub enum PipelineStageFlag2: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -5118,13 +5053,13 @@ impl PipelineStageFlag2 {
 /// [`VkPipelineStageFlags2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineStageFlags2.html)
 ///
 #[doc(alias = "VkPipelineStageFlags2")]
-pub type PipelineStageFlags2 = flagset::FlagSet<PipelineStageFlag2>;
+pub type PipelineStageFlags2 = FlagSet<PipelineStageFlag2>;
 /// [`VkPipelineStageFlags2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineStageFlags2KHR.html)
 ///
 #[doc(alias = "VkPipelineStageFlags2KHR")]
 pub type PipelineStageFlags2KHR = PipelineStageFlags2;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkAccessFlagBits2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccessFlagBits2.html)
     ///
     /// # Requirements
@@ -5137,7 +5072,6 @@ flagset::flags! {
     #[doc(alias = "VkAccessFlagBits2")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u64)]
     pub enum AccessFlag2: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -5698,13 +5632,13 @@ impl AccessFlag2 {
 /// [`VkAccessFlags2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccessFlags2.html)
 ///
 #[doc(alias = "VkAccessFlags2")]
-pub type AccessFlags2 = flagset::FlagSet<AccessFlag2>;
+pub type AccessFlags2 = FlagSet<AccessFlag2>;
 /// [`VkAccessFlags2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccessFlags2KHR.html)
 ///
 #[doc(alias = "VkAccessFlags2KHR")]
 pub type AccessFlags2KHR = AccessFlags2;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkSubmitFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubmitFlagBits.html)
     ///
     /// # Requirements
@@ -5717,7 +5651,6 @@ flagset::flags! {
     #[doc(alias = "VkSubmitFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum SubmitFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -5744,13 +5677,13 @@ impl SubmitFlag {
 /// [`VkSubmitFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubmitFlags.html)
 ///
 #[doc(alias = "VkSubmitFlags")]
-pub type SubmitFlags = flagset::FlagSet<SubmitFlag>;
+pub type SubmitFlags = FlagSet<SubmitFlag>;
 /// [`VkSubmitFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSubmitFlagsKHR.html)
 ///
 #[doc(alias = "VkSubmitFlagsKHR")]
 pub type SubmitFlagsKHR = SubmitFlags;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkFormatFeatureFlagBits2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatFeatureFlagBits2.html)
     ///
     /// # Requirements
@@ -5765,7 +5698,6 @@ flagset::flags! {
     #[doc(alias = "VkFormatFeatureFlagBits2")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u64)]
     pub enum FormatFeatureFlag2: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -6403,13 +6335,13 @@ impl FormatFeatureFlag2 {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkFormatFeatureFlags2")]
-pub type FormatFeatureFlags2 = flagset::FlagSet<FormatFeatureFlag2>;
+pub type FormatFeatureFlags2 = FlagSet<FormatFeatureFlag2>;
 /// [`VkFormatFeatureFlags2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatFeatureFlags2KHR.html)
 ///
 #[doc(alias = "VkFormatFeatureFlags2KHR")]
 pub type FormatFeatureFlags2KHR = FormatFeatureFlags2;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkPipelineCreationFeedbackFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreationFeedbackFlagBits.html)
     ///
     /// # Requirements
@@ -6424,7 +6356,6 @@ flagset::flags! {
     #[doc(alias = "VkPipelineCreationFeedbackFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum PipelineCreationFeedbackFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -6479,13 +6410,13 @@ impl PipelineCreationFeedbackFlag {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPipelineCreationFeedbackFlags")]
-pub type PipelineCreationFeedbackFlags = flagset::FlagSet<PipelineCreationFeedbackFlag>;
+pub type PipelineCreationFeedbackFlags = FlagSet<PipelineCreationFeedbackFlag>;
 /// [`VkPipelineCreationFeedbackFlagsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreationFeedbackFlagsEXT.html)
 ///
 #[doc(alias = "VkPipelineCreationFeedbackFlagsEXT")]
 pub type PipelineCreationFeedbackFlagsEXT = PipelineCreationFeedbackFlags;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkRenderingFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingFlagBits.html)
     ///
     /// # Requirements
@@ -6498,7 +6429,6 @@ flagset::flags! {
     #[doc(alias = "VkRenderingFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum RenderingFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -6605,13 +6535,13 @@ impl RenderingFlag {
 /// [`VkRenderingFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingFlags.html)
 ///
 #[doc(alias = "VkRenderingFlags")]
-pub type RenderingFlags = flagset::FlagSet<RenderingFlag>;
+pub type RenderingFlags = FlagSet<RenderingFlag>;
 /// [`VkRenderingFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingFlagsKHR.html)
 ///
 #[doc(alias = "VkRenderingFlagsKHR")]
 pub type RenderingFlagsKHR = RenderingFlags;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkMemoryUnmapFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryUnmapFlagBits.html)
     ///
     /// # Requirements
@@ -6624,7 +6554,6 @@ flagset::flags! {
     #[doc(alias = "VkMemoryUnmapFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum MemoryUnmapFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -6644,13 +6573,13 @@ pub type MemoryUnmapFlagKHR = MemoryUnmapFlag;
 /// [`VkMemoryUnmapFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryUnmapFlags.html)
 ///
 #[doc(alias = "VkMemoryUnmapFlags")]
-pub type MemoryUnmapFlags = flagset::FlagSet<MemoryUnmapFlag>;
+pub type MemoryUnmapFlags = FlagSet<MemoryUnmapFlag>;
 /// [`VkMemoryUnmapFlagsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryUnmapFlagsKHR.html)
 ///
 #[doc(alias = "VkMemoryUnmapFlagsKHR")]
 pub type MemoryUnmapFlagsKHR = MemoryUnmapFlags;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkBufferUsageFlagBits2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferUsageFlagBits2.html)
     ///
     /// # Requirements
@@ -6664,7 +6593,6 @@ flagset::flags! {
     #[doc(alias = "VkBufferUsageFlagBits2")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u64)]
     pub enum BufferUsageFlag2: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -7028,13 +6956,13 @@ impl BufferUsageFlag2 {
 /// [`VkBufferUsageFlags2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferUsageFlags2.html)
 ///
 #[doc(alias = "VkBufferUsageFlags2")]
-pub type BufferUsageFlags2 = flagset::FlagSet<BufferUsageFlag2>;
+pub type BufferUsageFlags2 = FlagSet<BufferUsageFlag2>;
 /// [`VkBufferUsageFlags2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBufferUsageFlags2KHR.html)
 ///
 #[doc(alias = "VkBufferUsageFlags2KHR")]
 pub type BufferUsageFlags2KHR = BufferUsageFlags2;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkHostImageCopyFlagBits`](https://docs.vulkan.org/refpages/latest/refpages/source/VkHostImageCopyFlagBits.html)
     ///
     /// # Requirements
@@ -7047,7 +6975,6 @@ flagset::flags! {
     #[doc(alias = "VkHostImageCopyFlagBits")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum HostImageCopyFlag: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -7074,13 +7001,13 @@ impl HostImageCopyFlag {
 /// [`VkHostImageCopyFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkHostImageCopyFlags.html)
 ///
 #[doc(alias = "VkHostImageCopyFlags")]
-pub type HostImageCopyFlags = flagset::FlagSet<HostImageCopyFlag>;
+pub type HostImageCopyFlags = FlagSet<HostImageCopyFlag>;
 /// [`VkHostImageCopyFlagsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkHostImageCopyFlagsEXT.html)
 ///
 #[doc(alias = "VkHostImageCopyFlagsEXT")]
 pub type HostImageCopyFlagsEXT = HostImageCopyFlags;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkPipelineCreateFlagBits2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreateFlagBits2.html)
     ///
     /// # Requirements
@@ -7094,7 +7021,6 @@ flagset::flags! {
     #[doc(alias = "VkPipelineCreateFlagBits2")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u64)]
     pub enum PipelineCreateFlag2: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -7554,13 +7480,13 @@ impl PipelineCreateFlag2 {
 /// [`VkPipelineCreateFlags2`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreateFlags2.html)
 ///
 #[doc(alias = "VkPipelineCreateFlags2")]
-pub type PipelineCreateFlags2 = flagset::FlagSet<PipelineCreateFlag2>;
+pub type PipelineCreateFlags2 = FlagSet<PipelineCreateFlag2>;
 /// [`VkPipelineCreateFlags2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCreateFlags2KHR.html)
 ///
 #[doc(alias = "VkPipelineCreateFlags2KHR")]
 pub type PipelineCreateFlags2KHR = PipelineCreateFlags2;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkSurfaceTransformFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceTransformFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -7573,7 +7499,6 @@ flagset::flags! {
     #[doc(alias = "VkSurfaceTransformFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum SurfaceTransformFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -7671,9 +7596,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkSurfaceTransformFlagsKHR")]
-pub type SurfaceTransformFlagsKHR = flagset::FlagSet<SurfaceTransformFlagKHR>;
+pub type SurfaceTransformFlagsKHR = FlagSet<SurfaceTransformFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkCompositeAlphaFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCompositeAlphaFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -7685,7 +7610,6 @@ flagset::flags! {
     #[doc(alias = "VkCompositeAlphaFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum CompositeAlphaFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -7733,9 +7657,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkCompositeAlphaFlagsKHR")]
-pub type CompositeAlphaFlagsKHR = flagset::FlagSet<CompositeAlphaFlagKHR>;
+pub type CompositeAlphaFlagsKHR = FlagSet<CompositeAlphaFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkSwapchainCreateFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSwapchainCreateFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -7747,7 +7671,6 @@ flagset::flags! {
     #[doc(alias = "VkSwapchainCreateFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum SwapchainCreateFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -7834,9 +7757,9 @@ impl SwapchainCreateFlagKHR {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkSwapchainCreateFlagsKHR")]
-pub type SwapchainCreateFlagsKHR = flagset::FlagSet<SwapchainCreateFlagKHR>;
+pub type SwapchainCreateFlagsKHR = FlagSet<SwapchainCreateFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkDeviceGroupPresentModeFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceGroupPresentModeFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -7850,7 +7773,6 @@ flagset::flags! {
     #[doc(alias = "VkDeviceGroupPresentModeFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum DeviceGroupPresentModeFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -7906,9 +7828,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkDeviceGroupPresentModeFlagsKHR")]
-pub type DeviceGroupPresentModeFlagsKHR = flagset::FlagSet<DeviceGroupPresentModeFlagKHR>;
+pub type DeviceGroupPresentModeFlagsKHR = FlagSet<DeviceGroupPresentModeFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkDisplayPlaneAlphaFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDisplayPlaneAlphaFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -7920,7 +7842,6 @@ flagset::flags! {
     #[doc(alias = "VkDisplayPlaneAlphaFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum DisplayPlaneAlphaFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -7968,9 +7889,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDisplayPlaneAlphaFlagsKHR")]
-pub type DisplayPlaneAlphaFlagsKHR = flagset::FlagSet<DisplayPlaneAlphaFlagKHR>;
+pub type DisplayPlaneAlphaFlagsKHR = FlagSet<DisplayPlaneAlphaFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoCodecOperationFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoCodecOperationFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -7982,7 +7903,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoCodecOperationFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoCodecOperationFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8062,9 +7982,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoCodecOperationFlagsKHR")]
-pub type VideoCodecOperationFlagsKHR = flagset::FlagSet<VideoCodecOperationFlagKHR>;
+pub type VideoCodecOperationFlagsKHR = FlagSet<VideoCodecOperationFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoChromaSubsamplingFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoChromaSubsamplingFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -8076,7 +7996,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoChromaSubsamplingFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoChromaSubsamplingFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8130,9 +8049,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkVideoChromaSubsamplingFlagsKHR")]
-pub type VideoChromaSubsamplingFlagsKHR = flagset::FlagSet<VideoChromaSubsamplingFlagKHR>;
+pub type VideoChromaSubsamplingFlagsKHR = FlagSet<VideoChromaSubsamplingFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoComponentBitDepthFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoComponentBitDepthFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -8144,7 +8063,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoComponentBitDepthFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoComponentBitDepthFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8190,9 +8108,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkVideoComponentBitDepthFlagsKHR")]
-pub type VideoComponentBitDepthFlagsKHR = flagset::FlagSet<VideoComponentBitDepthFlagKHR>;
+pub type VideoComponentBitDepthFlagsKHR = FlagSet<VideoComponentBitDepthFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoCapabilityFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoCapabilityFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -8206,7 +8124,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoCapabilityFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoCapabilityFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8238,9 +8155,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoCapabilityFlagsKHR")]
-pub type VideoCapabilityFlagsKHR = flagset::FlagSet<VideoCapabilityFlagKHR>;
+pub type VideoCapabilityFlagsKHR = FlagSet<VideoCapabilityFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoSessionCreateFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoSessionCreateFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -8252,7 +8169,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoSessionCreateFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoSessionCreateFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8314,9 +8230,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkVideoSessionCreateFlagsKHR")]
-pub type VideoSessionCreateFlagsKHR = flagset::FlagSet<VideoSessionCreateFlagKHR>;
+pub type VideoSessionCreateFlagsKHR = FlagSet<VideoSessionCreateFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoSessionParametersCreateFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoSessionParametersCreateFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -8328,7 +8244,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoSessionParametersCreateFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoSessionParametersCreateFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8350,10 +8265,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkVideoSessionParametersCreateFlagsKHR")]
-pub type VideoSessionParametersCreateFlagsKHR =
-    flagset::FlagSet<VideoSessionParametersCreateFlagKHR>;
+pub type VideoSessionParametersCreateFlagsKHR = FlagSet<VideoSessionParametersCreateFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoCodingControlFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoCodingControlFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -8365,7 +8279,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoCodingControlFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoCodingControlFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8403,9 +8316,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkVideoCodingControlFlagsKHR")]
-pub type VideoCodingControlFlagsKHR = flagset::FlagSet<VideoCodingControlFlagKHR>;
+pub type VideoCodingControlFlagsKHR = FlagSet<VideoCodingControlFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoDecodeCapabilityFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeCapabilityFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -8419,7 +8332,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoDecodeCapabilityFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoDecodeCapabilityFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8451,9 +8363,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoDecodeCapabilityFlagsKHR")]
-pub type VideoDecodeCapabilityFlagsKHR = flagset::FlagSet<VideoDecodeCapabilityFlagKHR>;
+pub type VideoDecodeCapabilityFlagsKHR = FlagSet<VideoDecodeCapabilityFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoDecodeUsageFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeUsageFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -8465,7 +8377,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoDecodeUsageFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoDecodeUsageFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8511,9 +8422,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkVideoDecodeUsageFlagsKHR")]
-pub type VideoDecodeUsageFlagsKHR = flagset::FlagSet<VideoDecodeUsageFlagKHR>;
+pub type VideoDecodeUsageFlagsKHR = FlagSet<VideoDecodeUsageFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoEncodeH264CapabilityFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264CapabilityFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -8527,7 +8438,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeH264CapabilityFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoEncodeH264CapabilityFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8631,9 +8541,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeH264CapabilityFlagsKHR")]
-pub type VideoEncodeH264CapabilityFlagsKHR = flagset::FlagSet<VideoEncodeH264CapabilityFlagKHR>;
+pub type VideoEncodeH264CapabilityFlagsKHR = FlagSet<VideoEncodeH264CapabilityFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoEncodeH264StdFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264StdFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -8647,7 +8557,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeH264StdFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoEncodeH264StdFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8823,9 +8732,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeH264StdFlagsKHR")]
-pub type VideoEncodeH264StdFlagsKHR = flagset::FlagSet<VideoEncodeH264StdFlagKHR>;
+pub type VideoEncodeH264StdFlagsKHR = FlagSet<VideoEncodeH264StdFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoEncodeH264RateControlFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH264RateControlFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -8837,7 +8746,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeH264RateControlFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoEncodeH264RateControlFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -8891,9 +8799,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkVideoEncodeH264RateControlFlagsKHR")]
-pub type VideoEncodeH264RateControlFlagsKHR = flagset::FlagSet<VideoEncodeH264RateControlFlagKHR>;
+pub type VideoEncodeH264RateControlFlagsKHR = FlagSet<VideoEncodeH264RateControlFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoEncodeH265CapabilityFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265CapabilityFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -8907,7 +8815,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeH265CapabilityFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoEncodeH265CapabilityFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9019,9 +8926,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeH265CapabilityFlagsKHR")]
-pub type VideoEncodeH265CapabilityFlagsKHR = flagset::FlagSet<VideoEncodeH265CapabilityFlagKHR>;
+pub type VideoEncodeH265CapabilityFlagsKHR = FlagSet<VideoEncodeH265CapabilityFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoEncodeH265StdFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265StdFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -9035,7 +8942,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeH265StdFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoEncodeH265StdFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9219,9 +9125,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeH265StdFlagsKHR")]
-pub type VideoEncodeH265StdFlagsKHR = flagset::FlagSet<VideoEncodeH265StdFlagKHR>;
+pub type VideoEncodeH265StdFlagsKHR = FlagSet<VideoEncodeH265StdFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoEncodeH265CtbSizeFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265CtbSizeFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -9235,7 +9141,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeH265CtbSizeFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoEncodeH265CtbSizeFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9275,9 +9180,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeH265CtbSizeFlagsKHR")]
-pub type VideoEncodeH265CtbSizeFlagsKHR = flagset::FlagSet<VideoEncodeH265CtbSizeFlagKHR>;
+pub type VideoEncodeH265CtbSizeFlagsKHR = FlagSet<VideoEncodeH265CtbSizeFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoEncodeH265TransformBlockSizeFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265TransformBlockSizeFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -9291,7 +9196,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeH265TransformBlockSizeFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoEncodeH265TransformBlockSizeFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9340,9 +9244,9 @@ flagset::flags! {
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeH265TransformBlockSizeFlagsKHR")]
 pub type VideoEncodeH265TransformBlockSizeFlagsKHR =
-    flagset::FlagSet<VideoEncodeH265TransformBlockSizeFlagKHR>;
+    FlagSet<VideoEncodeH265TransformBlockSizeFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoEncodeH265RateControlFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeH265RateControlFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -9354,7 +9258,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeH265RateControlFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoEncodeH265RateControlFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9408,9 +9311,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkVideoEncodeH265RateControlFlagsKHR")]
-pub type VideoEncodeH265RateControlFlagsKHR = flagset::FlagSet<VideoEncodeH265RateControlFlagKHR>;
+pub type VideoEncodeH265RateControlFlagsKHR = FlagSet<VideoEncodeH265RateControlFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoDecodeH264PictureLayoutFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoDecodeH264PictureLayoutFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -9422,7 +9325,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoDecodeH264PictureLayoutFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoDecodeH264PictureLayoutFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9462,10 +9364,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoDecodeH264PictureLayoutFlagsKHR")]
-pub type VideoDecodeH264PictureLayoutFlagsKHR =
-    flagset::FlagSet<VideoDecodeH264PictureLayoutFlagKHR>;
+pub type VideoDecodeH264PictureLayoutFlagsKHR = FlagSet<VideoDecodeH264PictureLayoutFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkPerformanceCounterDescriptionFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPerformanceCounterDescriptionFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -9479,7 +9380,6 @@ flagset::flags! {
     #[doc(alias = "VkPerformanceCounterDescriptionFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum PerformanceCounterDescriptionFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9512,10 +9412,9 @@ impl PerformanceCounterDescriptionFlagKHR {}
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPerformanceCounterDescriptionFlagsKHR")]
-pub type PerformanceCounterDescriptionFlagsKHR =
-    flagset::FlagSet<PerformanceCounterDescriptionFlagKHR>;
+pub type PerformanceCounterDescriptionFlagsKHR = FlagSet<PerformanceCounterDescriptionFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkAcquireProfilingLockFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAcquireProfilingLockFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -9527,7 +9426,6 @@ flagset::flags! {
     #[doc(alias = "VkAcquireProfilingLockFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum AcquireProfilingLockFlagKHR: u32 {
         #[default]
         #[doc(hidden)]
@@ -9543,9 +9441,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkAcquireProfilingLockFlagsKHR")]
-pub type AcquireProfilingLockFlagsKHR = flagset::FlagSet<AcquireProfilingLockFlagKHR>;
+pub type AcquireProfilingLockFlagsKHR = FlagSet<AcquireProfilingLockFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoEncodeFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -9557,7 +9455,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoEncodeFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9595,9 +9492,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkVideoEncodeFlagsKHR")]
-pub type VideoEncodeFlagsKHR = flagset::FlagSet<VideoEncodeFlagKHR>;
+pub type VideoEncodeFlagsKHR = FlagSet<VideoEncodeFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoEncodeCapabilityFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeCapabilityFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -9611,7 +9508,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeCapabilityFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoEncodeCapabilityFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9659,9 +9555,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeCapabilityFlagsKHR")]
-pub type VideoEncodeCapabilityFlagsKHR = flagset::FlagSet<VideoEncodeCapabilityFlagKHR>;
+pub type VideoEncodeCapabilityFlagsKHR = FlagSet<VideoEncodeCapabilityFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoEncodeRateControlModeFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeRateControlModeFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -9673,7 +9569,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeRateControlModeFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoEncodeRateControlModeFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9721,9 +9616,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeRateControlModeFlagsKHR")]
-pub type VideoEncodeRateControlModeFlagsKHR = flagset::FlagSet<VideoEncodeRateControlModeFlagKHR>;
+pub type VideoEncodeRateControlModeFlagsKHR = FlagSet<VideoEncodeRateControlModeFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoEncodeFeedbackFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeFeedbackFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -9735,7 +9630,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeFeedbackFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoEncodeFeedbackFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9829,9 +9723,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkVideoEncodeFeedbackFlagsKHR")]
-pub type VideoEncodeFeedbackFlagsKHR = flagset::FlagSet<VideoEncodeFeedbackFlagKHR>;
+pub type VideoEncodeFeedbackFlagsKHR = FlagSet<VideoEncodeFeedbackFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoEncodeUsageFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeUsageFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -9843,7 +9737,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeUsageFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoEncodeUsageFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9897,9 +9790,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkVideoEncodeUsageFlagsKHR")]
-pub type VideoEncodeUsageFlagsKHR = flagset::FlagSet<VideoEncodeUsageFlagKHR>;
+pub type VideoEncodeUsageFlagsKHR = FlagSet<VideoEncodeUsageFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoEncodeContentFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeContentFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -9911,7 +9804,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeContentFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoEncodeContentFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -9957,9 +9849,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkVideoEncodeContentFlagsKHR")]
-pub type VideoEncodeContentFlagsKHR = flagset::FlagSet<VideoEncodeContentFlagKHR>;
+pub type VideoEncodeContentFlagsKHR = FlagSet<VideoEncodeContentFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkAddressCommandFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAddressCommandFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -9971,7 +9863,6 @@ flagset::flags! {
     #[doc(alias = "VkAddressCommandFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum AddressCommandFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10033,9 +9924,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkAddressCommandFlagsKHR")]
-pub type AddressCommandFlagsKHR = flagset::FlagSet<AddressCommandFlagKHR>;
+pub type AddressCommandFlagsKHR = FlagSet<AddressCommandFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkConditionalRenderingFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkConditionalRenderingFlagBitsEXT.html)
     ///
     /// # Requirements
@@ -10047,7 +9938,6 @@ flagset::flags! {
     #[doc(alias = "VkConditionalRenderingFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ConditionalRenderingFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10070,9 +9960,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkConditionalRenderingFlagsEXT")]
-pub type ConditionalRenderingFlagsEXT = flagset::FlagSet<ConditionalRenderingFlagEXT>;
+pub type ConditionalRenderingFlagsEXT = FlagSet<ConditionalRenderingFlagEXT>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkAccelerationStructureCreateFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccelerationStructureCreateFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -10084,7 +9974,6 @@ flagset::flags! {
     #[doc(alias = "VkAccelerationStructureCreateFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum AccelerationStructureCreateFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10124,9 +10013,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkAccelerationStructureCreateFlagsKHR")]
-pub type AccelerationStructureCreateFlagsKHR = flagset::FlagSet<AccelerationStructureCreateFlagKHR>;
+pub type AccelerationStructureCreateFlagsKHR = FlagSet<AccelerationStructureCreateFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkPresentScalingFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentScalingFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -10139,7 +10028,6 @@ flagset::flags! {
     #[doc(alias = "VkPresentScalingFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum PresentScalingFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10195,13 +10083,13 @@ impl PresentScalingFlagKHR {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkPresentScalingFlagsKHR")]
-pub type PresentScalingFlagsKHR = flagset::FlagSet<PresentScalingFlagKHR>;
+pub type PresentScalingFlagsKHR = FlagSet<PresentScalingFlagKHR>;
 /// [`VkPresentScalingFlagsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentScalingFlagsEXT.html)
 ///
 #[doc(alias = "VkPresentScalingFlagsEXT")]
 pub type PresentScalingFlagsEXT = PresentScalingFlagsKHR;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkPresentGravityFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentGravityFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -10214,7 +10102,6 @@ flagset::flags! {
     #[doc(alias = "VkPresentGravityFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum PresentGravityFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10270,13 +10157,13 @@ impl PresentGravityFlagKHR {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkPresentGravityFlagsKHR")]
-pub type PresentGravityFlagsKHR = flagset::FlagSet<PresentGravityFlagKHR>;
+pub type PresentGravityFlagsKHR = FlagSet<PresentGravityFlagKHR>;
 /// [`VkPresentGravityFlagsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentGravityFlagsEXT.html)
 ///
 #[doc(alias = "VkPresentGravityFlagsEXT")]
 pub type PresentGravityFlagsEXT = PresentGravityFlagsKHR;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoEncodeAV1CapabilityFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1CapabilityFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -10290,7 +10177,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeAV1CapabilityFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoEncodeAV1CapabilityFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10354,9 +10240,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeAV1CapabilityFlagsKHR")]
-pub type VideoEncodeAV1CapabilityFlagsKHR = flagset::FlagSet<VideoEncodeAV1CapabilityFlagKHR>;
+pub type VideoEncodeAV1CapabilityFlagsKHR = FlagSet<VideoEncodeAV1CapabilityFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoEncodeAV1StdFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1StdFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -10370,7 +10256,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeAV1StdFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoEncodeAV1StdFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10418,9 +10303,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeAV1StdFlagsKHR")]
-pub type VideoEncodeAV1StdFlagsKHR = flagset::FlagSet<VideoEncodeAV1StdFlagKHR>;
+pub type VideoEncodeAV1StdFlagsKHR = FlagSet<VideoEncodeAV1StdFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoEncodeAV1SuperblockSizeFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1SuperblockSizeFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -10434,7 +10319,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeAV1SuperblockSizeFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoEncodeAV1SuperblockSizeFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10466,10 +10350,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeAV1SuperblockSizeFlagsKHR")]
-pub type VideoEncodeAV1SuperblockSizeFlagsKHR =
-    flagset::FlagSet<VideoEncodeAV1SuperblockSizeFlagKHR>;
+pub type VideoEncodeAV1SuperblockSizeFlagsKHR = FlagSet<VideoEncodeAV1SuperblockSizeFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoEncodeAV1RateControlFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeAV1RateControlFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -10481,7 +10364,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeAV1RateControlFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoEncodeAV1RateControlFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10527,9 +10409,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkVideoEncodeAV1RateControlFlagsKHR")]
-pub type VideoEncodeAV1RateControlFlagsKHR = flagset::FlagSet<VideoEncodeAV1RateControlFlagKHR>;
+pub type VideoEncodeAV1RateControlFlagsKHR = FlagSet<VideoEncodeAV1RateControlFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkAddressCopyFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAddressCopyFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -10541,7 +10423,6 @@ flagset::flags! {
     #[doc(alias = "VkAddressCopyFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum AddressCopyFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10579,9 +10460,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkAddressCopyFlagsKHR")]
-pub type AddressCopyFlagsKHR = flagset::FlagSet<AddressCopyFlagKHR>;
+pub type AddressCopyFlagsKHR = FlagSet<AddressCopyFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoEncodeIntraRefreshModeFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeIntraRefreshModeFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -10593,7 +10474,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeIntraRefreshModeFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoEncodeIntraRefreshModeFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10649,9 +10529,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeIntraRefreshModeFlagsKHR")]
-pub type VideoEncodeIntraRefreshModeFlagsKHR = flagset::FlagSet<VideoEncodeIntraRefreshModeFlagKHR>;
+pub type VideoEncodeIntraRefreshModeFlagsKHR = FlagSet<VideoEncodeIntraRefreshModeFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkDeviceFaultFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceFaultFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -10665,7 +10545,6 @@ flagset::flags! {
     #[doc(alias = "VkDeviceFaultFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum DeviceFaultFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10729,9 +10608,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDeviceFaultFlagsKHR")]
-pub type DeviceFaultFlagsKHR = flagset::FlagSet<DeviceFaultFlagKHR>;
+pub type DeviceFaultFlagsKHR = FlagSet<DeviceFaultFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkAccessFlagBits3KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkAccessFlagBits3KHR.html)
     ///
     /// # Requirements
@@ -10743,7 +10622,6 @@ flagset::flags! {
     #[doc(alias = "VkAccessFlagBits3KHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u64)]
     pub enum AccessFlag3KHR: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10765,9 +10643,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkAccessFlags3KHR")]
-pub type AccessFlags3KHR = flagset::FlagSet<AccessFlag3KHR>;
+pub type AccessFlags3KHR = FlagSet<AccessFlag3KHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoEncodePerPartitionFeedbackFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodePerPartitionFeedbackFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -10779,7 +10657,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodePerPartitionFeedbackFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoEncodePerPartitionFeedbackFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10817,10 +10694,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkVideoEncodePerPartitionFeedbackFlagsKHR")]
-pub type VideoEncodePerPartitionFeedbackFlagsKHR =
-    flagset::FlagSet<VideoEncodePerPartitionFeedbackFlagKHR>;
+pub type VideoEncodePerPartitionFeedbackFlagsKHR = FlagSet<VideoEncodePerPartitionFeedbackFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkRenderingAttachmentFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkRenderingAttachmentFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -10832,7 +10708,6 @@ flagset::flags! {
     #[doc(alias = "VkRenderingAttachmentFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum RenderingAttachmentFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10870,9 +10745,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkRenderingAttachmentFlagsKHR")]
-pub type RenderingAttachmentFlagsKHR = flagset::FlagSet<RenderingAttachmentFlagKHR>;
+pub type RenderingAttachmentFlagsKHR = FlagSet<RenderingAttachmentFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkResolveImageFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkResolveImageFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -10884,7 +10759,6 @@ flagset::flags! {
     #[doc(alias = "VkResolveImageFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ResolveImageFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -10914,9 +10788,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkResolveImageFlagsKHR")]
-pub type ResolveImageFlagsKHR = flagset::FlagSet<ResolveImageFlagKHR>;
+pub type ResolveImageFlagsKHR = FlagSet<ResolveImageFlagKHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkFormatFeatureFlagBits4KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFormatFeatureFlagBits4KHR.html)
     ///
     /// # Requirements
@@ -10930,7 +10804,6 @@ flagset::flags! {
     #[doc(alias = "VkFormatFeatureFlagBits4KHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u64)]
     pub enum FormatFeatureFlag4KHR: u64 {
         #[default]
         #[doc(hidden)]
@@ -10948,9 +10821,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkFormatFeatureFlags4KHR")]
-pub type FormatFeatureFlags4KHR = flagset::FlagSet<FormatFeatureFlag4KHR>;
+pub type FormatFeatureFlags4KHR = FlagSet<FormatFeatureFlag4KHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkImageUsageFlagBits2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageUsageFlagBits2KHR.html)
     ///
     /// # Requirements
@@ -10962,7 +10835,6 @@ flagset::flags! {
     #[doc(alias = "VkImageUsageFlagBits2KHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u64)]
     pub enum ImageUsageFlag2KHR: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11176,9 +11048,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkImageUsageFlags2KHR")]
-pub type ImageUsageFlags2KHR = flagset::FlagSet<ImageUsageFlag2KHR>;
+pub type ImageUsageFlags2KHR = FlagSet<ImageUsageFlag2KHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkImageCreateFlagBits2KHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCreateFlagBits2KHR.html)
     ///
     /// # Requirements
@@ -11190,7 +11062,6 @@ flagset::flags! {
     #[doc(alias = "VkImageCreateFlagBits2KHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u64)]
     pub enum ImageCreateFlag2KHR: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11372,9 +11243,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkImageCreateFlags2KHR")]
-pub type ImageCreateFlags2KHR = flagset::FlagSet<ImageCreateFlag2KHR>;
+pub type ImageCreateFlags2KHR = FlagSet<ImageCreateFlag2KHR>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkDebugReportFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugReportFlagBitsEXT.html)
     ///
     /// # Requirements
@@ -11387,7 +11258,6 @@ flagset::flags! {
     #[doc(alias = "VkDebugReportFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum DebugReportFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11447,9 +11317,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkDebugReportFlagsEXT")]
-pub type DebugReportFlagsEXT = flagset::FlagSet<DebugReportFlagEXT>;
+pub type DebugReportFlagsEXT = FlagSet<DebugReportFlagEXT>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkExternalMemoryHandleTypeFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryHandleTypeFlagBitsNV.html)
     ///
     /// # Requirements
@@ -11462,7 +11332,6 @@ flagset::flags! {
     #[doc(alias = "VkExternalMemoryHandleTypeFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ExternalMemoryHandleTypeFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11513,9 +11382,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkExternalMemoryHandleTypeFlagsNV")]
-pub type ExternalMemoryHandleTypeFlagsNV = flagset::FlagSet<ExternalMemoryHandleTypeFlagNV>;
+pub type ExternalMemoryHandleTypeFlagsNV = FlagSet<ExternalMemoryHandleTypeFlagNV>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkExternalMemoryFeatureFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExternalMemoryFeatureFlagBitsNV.html)
     ///
     /// # Requirements
@@ -11530,7 +11399,6 @@ flagset::flags! {
     #[doc(alias = "VkExternalMemoryFeatureFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ExternalMemoryFeatureFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11574,9 +11442,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkExternalMemoryFeatureFlagsNV")]
-pub type ExternalMemoryFeatureFlagsNV = flagset::FlagSet<ExternalMemoryFeatureFlagNV>;
+pub type ExternalMemoryFeatureFlagsNV = FlagSet<ExternalMemoryFeatureFlagNV>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkSurfaceCounterFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSurfaceCounterFlagBitsEXT.html)
     ///
     /// # Requirements
@@ -11588,7 +11456,6 @@ flagset::flags! {
     #[doc(alias = "VkSurfaceCounterFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum SurfaceCounterFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11611,9 +11478,9 @@ impl SurfaceCounterFlagEXT {}
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkSurfaceCounterFlagsEXT")]
-pub type SurfaceCounterFlagsEXT = flagset::FlagSet<SurfaceCounterFlagEXT>;
+pub type SurfaceCounterFlagsEXT = FlagSet<SurfaceCounterFlagEXT>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkDebugUtilsMessageSeverityFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugUtilsMessageSeverityFlagBitsEXT.html)
     ///
     /// # Requirements
@@ -11625,7 +11492,6 @@ flagset::flags! {
     #[doc(alias = "VkDebugUtilsMessageSeverityFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum DebugUtilsMessageSeverityFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11671,9 +11537,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkDebugUtilsMessageSeverityFlagsEXT")]
-pub type DebugUtilsMessageSeverityFlagsEXT = flagset::FlagSet<DebugUtilsMessageSeverityFlagEXT>;
+pub type DebugUtilsMessageSeverityFlagsEXT = FlagSet<DebugUtilsMessageSeverityFlagEXT>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkDebugUtilsMessageTypeFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDebugUtilsMessageTypeFlagBitsEXT.html)
     ///
     /// # Requirements
@@ -11685,7 +11551,6 @@ flagset::flags! {
     #[doc(alias = "VkDebugUtilsMessageTypeFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum DebugUtilsMessageTypeFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11731,9 +11596,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkDebugUtilsMessageTypeFlagsEXT")]
-pub type DebugUtilsMessageTypeFlagsEXT = flagset::FlagSet<DebugUtilsMessageTypeFlagEXT>;
+pub type DebugUtilsMessageTypeFlagsEXT = FlagSet<DebugUtilsMessageTypeFlagEXT>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkGpaSqShaderStageFlagBitsAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/VkGpaSqShaderStageFlagBitsAMD.html)
     ///
     /// # Requirements
@@ -11745,7 +11610,6 @@ flagset::flags! {
     #[doc(alias = "VkGpaSqShaderStageFlagBitsAMD")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum GpaSqShaderStageFlagAMD: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11815,9 +11679,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkGpaSqShaderStageFlagsAMD")]
-pub type GpaSqShaderStageFlagsAMD = flagset::FlagSet<GpaSqShaderStageFlagAMD>;
+pub type GpaSqShaderStageFlagsAMD = FlagSet<GpaSqShaderStageFlagAMD>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkTensorViewCreateFlagBitsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorViewCreateFlagBitsARM.html)
     ///
     /// # Requirements
@@ -11830,7 +11694,6 @@ flagset::flags! {
     #[doc(alias = "VkTensorViewCreateFlagBitsARM")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u64)]
     pub enum TensorViewCreateFlagARM: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11853,9 +11716,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkTensorViewCreateFlagsARM")]
-pub type TensorViewCreateFlagsARM = flagset::FlagSet<TensorViewCreateFlagARM>;
+pub type TensorViewCreateFlagsARM = FlagSet<TensorViewCreateFlagARM>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkSpirvResourceTypeFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSpirvResourceTypeFlagBitsEXT.html)
     ///
     /// # Requirements
@@ -11867,7 +11730,6 @@ flagset::flags! {
     #[doc(alias = "VkSpirvResourceTypeFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum SpirvResourceTypeFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11875,16 +11737,8 @@ flagset::flags! {
         ///
         /// Note this list might not be exhaustive. For more information check vulkan documentation.
         ///
-        #[doc(alias = "VK_SPIRV_RESOURCE_TYPE_ALL_EXT")]
-        #[default]
-        ALL_EXT = 2147483647,
-        /// # Requirements
-        /// This requires _at least_ one of the following:
-        /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
-        ///
-        /// Note this list might not be exhaustive. For more information check vulkan documentation.
-        ///
         #[doc(alias = "VK_SPIRV_RESOURCE_TYPE_SAMPLER_BIT_EXT")]
+        #[default]
         SAMPLER_EXT = 1,
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -11960,6 +11814,16 @@ flagset::flags! {
         TENSOR_ARM = 512,
     }
 }
+impl SpirvResourceTypeFlagEXT {
+    /// # Requirements
+    /// This requires _at least_ one of the following:
+    /// - Extension [`EXT_DescriptorHeap`](Extension::EXT_DescriptorHeap)
+    ///
+    /// Note this list might not be exhaustive. For more information check vulkan documentation.
+    ///
+    #[doc(alias = "VK_SPIRV_RESOURCE_TYPE_ALL_EXT")]
+    pub const ALL_EXT: FlagSet<Self> = FlagSet(2147483647);
+}
 /// [`VkSpirvResourceTypeFlagsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkSpirvResourceTypeFlagsEXT.html)
 ///
 /// # Requirements
@@ -11969,9 +11833,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkSpirvResourceTypeFlagsEXT")]
-pub type SpirvResourceTypeFlagsEXT = flagset::FlagSet<SpirvResourceTypeFlagEXT>;
+pub type SpirvResourceTypeFlagsEXT = FlagSet<SpirvResourceTypeFlagEXT>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkGeometryFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkGeometryFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -11985,7 +11849,6 @@ flagset::flags! {
     #[doc(alias = "VkGeometryFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum GeometryFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12035,13 +11898,13 @@ impl GeometryFlagKHR {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkGeometryFlagsKHR")]
-pub type GeometryFlagsKHR = flagset::FlagSet<GeometryFlagKHR>;
+pub type GeometryFlagsKHR = FlagSet<GeometryFlagKHR>;
 /// [`VkGeometryFlagsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkGeometryFlagsNV.html)
 ///
 #[doc(alias = "VkGeometryFlagsNV")]
 pub type GeometryFlagsNV = GeometryFlagsKHR;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkGeometryInstanceFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkGeometryInstanceFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -12055,7 +11918,6 @@ flagset::flags! {
     #[doc(alias = "VkGeometryInstanceFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum GeometryInstanceFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12163,13 +12025,13 @@ impl GeometryInstanceFlagKHR {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkGeometryInstanceFlagsKHR")]
-pub type GeometryInstanceFlagsKHR = flagset::FlagSet<GeometryInstanceFlagKHR>;
+pub type GeometryInstanceFlagsKHR = FlagSet<GeometryInstanceFlagKHR>;
 /// [`VkGeometryInstanceFlagsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkGeometryInstanceFlagsNV.html)
 ///
 #[doc(alias = "VkGeometryInstanceFlagsNV")]
 pub type GeometryInstanceFlagsNV = GeometryInstanceFlagsKHR;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkBuildAccelerationStructureFlagBitsKHR`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBuildAccelerationStructureFlagBitsKHR.html)
     ///
     /// # Requirements
@@ -12183,7 +12045,6 @@ flagset::flags! {
     #[doc(alias = "VkBuildAccelerationStructureFlagBitsKHR")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum BuildAccelerationStructureFlagKHR: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12351,13 +12212,13 @@ impl BuildAccelerationStructureFlagKHR {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkBuildAccelerationStructureFlagsKHR")]
-pub type BuildAccelerationStructureFlagsKHR = flagset::FlagSet<BuildAccelerationStructureFlagKHR>;
+pub type BuildAccelerationStructureFlagsKHR = FlagSet<BuildAccelerationStructureFlagKHR>;
 /// [`VkBuildAccelerationStructureFlagsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBuildAccelerationStructureFlagsNV.html)
 ///
 #[doc(alias = "VkBuildAccelerationStructureFlagsNV")]
 pub type BuildAccelerationStructureFlagsNV = BuildAccelerationStructureFlagsKHR;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkPipelineCompilerControlFlagBitsAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPipelineCompilerControlFlagBitsAMD.html)
     ///
     /// # Requirements
@@ -12369,7 +12230,6 @@ flagset::flags! {
     #[doc(alias = "VkPipelineCompilerControlFlagBitsAMD")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum PipelineCompilerControlFlagAMD: u32 {
         #[default]
         #[doc(hidden)]
@@ -12385,9 +12245,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkPipelineCompilerControlFlagsAMD")]
-pub type PipelineCompilerControlFlagsAMD = flagset::FlagSet<PipelineCompilerControlFlagAMD>;
+pub type PipelineCompilerControlFlagsAMD = FlagSet<PipelineCompilerControlFlagAMD>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkPresentStageFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentStageFlagBitsEXT.html)
     ///
     /// # Requirements
@@ -12399,7 +12259,6 @@ flagset::flags! {
     #[doc(alias = "VkPresentStageFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum PresentStageFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12445,9 +12304,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkPresentStageFlagsEXT")]
-pub type PresentStageFlagsEXT = flagset::FlagSet<PresentStageFlagEXT>;
+pub type PresentStageFlagsEXT = FlagSet<PresentStageFlagEXT>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkPastPresentationTimingFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPastPresentationTimingFlagBitsEXT.html)
     ///
     /// # Requirements
@@ -12459,7 +12318,6 @@ flagset::flags! {
     #[doc(alias = "VkPastPresentationTimingFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum PastPresentationTimingFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12489,9 +12347,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkPastPresentationTimingFlagsEXT")]
-pub type PastPresentationTimingFlagsEXT = flagset::FlagSet<PastPresentationTimingFlagEXT>;
+pub type PastPresentationTimingFlagsEXT = FlagSet<PastPresentationTimingFlagEXT>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkPresentTimingInfoFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPresentTimingInfoFlagBitsEXT.html)
     ///
     /// # Requirements
@@ -12503,7 +12361,6 @@ flagset::flags! {
     #[doc(alias = "VkPresentTimingInfoFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum PresentTimingInfoFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12533,9 +12390,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkPresentTimingInfoFlagsEXT")]
-pub type PresentTimingInfoFlagsEXT = flagset::FlagSet<PresentTimingInfoFlagEXT>;
+pub type PresentTimingInfoFlagsEXT = FlagSet<PresentTimingInfoFlagEXT>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkShaderCorePropertiesFlagBitsAMD`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderCorePropertiesFlagBitsAMD.html)
     ///
     /// # Requirements
@@ -12549,7 +12406,6 @@ flagset::flags! {
     #[doc(alias = "VkShaderCorePropertiesFlagBitsAMD")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ShaderCorePropertiesFlagAMD: u32 {
         #[default]
         #[doc(hidden)]
@@ -12567,9 +12423,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkShaderCorePropertiesFlagsAMD")]
-pub type ShaderCorePropertiesFlagsAMD = flagset::FlagSet<ShaderCorePropertiesFlagAMD>;
+pub type ShaderCorePropertiesFlagsAMD = FlagSet<ShaderCorePropertiesFlagAMD>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkIndirectStateFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectStateFlagBitsNV.html)
     ///
     /// # Requirements
@@ -12581,7 +12437,6 @@ flagset::flags! {
     #[doc(alias = "VkIndirectStateFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum IndirectStateFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12603,9 +12458,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkIndirectStateFlagsNV")]
-pub type IndirectStateFlagsNV = flagset::FlagSet<IndirectStateFlagNV>;
+pub type IndirectStateFlagsNV = FlagSet<IndirectStateFlagNV>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkIndirectCommandsLayoutUsageFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsLayoutUsageFlagBitsNV.html)
     ///
     /// # Requirements
@@ -12617,7 +12472,6 @@ flagset::flags! {
     #[doc(alias = "VkIndirectCommandsLayoutUsageFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum IndirectCommandsLayoutUsageFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12655,9 +12509,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkIndirectCommandsLayoutUsageFlagsNV")]
-pub type IndirectCommandsLayoutUsageFlagsNV = flagset::FlagSet<IndirectCommandsLayoutUsageFlagNV>;
+pub type IndirectCommandsLayoutUsageFlagsNV = FlagSet<IndirectCommandsLayoutUsageFlagNV>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkDeviceDiagnosticsConfigFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceDiagnosticsConfigFlagBitsNV.html)
     ///
     /// # Requirements
@@ -12669,7 +12523,6 @@ flagset::flags! {
     #[doc(alias = "VkDeviceDiagnosticsConfigFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum DeviceDiagnosticsConfigFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12715,9 +12568,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkDeviceDiagnosticsConfigFlagsNV")]
-pub type DeviceDiagnosticsConfigFlagsNV = flagset::FlagSet<DeviceDiagnosticsConfigFlagNV>;
+pub type DeviceDiagnosticsConfigFlagsNV = FlagSet<DeviceDiagnosticsConfigFlagNV>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkTileShadingRenderPassFlagBitsQCOM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkTileShadingRenderPassFlagBitsQCOM.html)
     ///
     /// # Requirements
@@ -12729,7 +12582,6 @@ flagset::flags! {
     #[doc(alias = "VkTileShadingRenderPassFlagBitsQCOM")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum TileShadingRenderPassFlagQCOM: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12759,9 +12611,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkTileShadingRenderPassFlagsQCOM")]
-pub type TileShadingRenderPassFlagsQCOM = flagset::FlagSet<TileShadingRenderPassFlagQCOM>;
+pub type TileShadingRenderPassFlagsQCOM = FlagSet<TileShadingRenderPassFlagQCOM>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkExportMetalObjectTypeFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkExportMetalObjectTypeFlagBitsEXT.html)
     ///
     /// # Requirements
@@ -12773,7 +12625,6 @@ flagset::flags! {
     #[doc(alias = "VkExportMetalObjectTypeFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ExportMetalObjectTypeFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12837,9 +12688,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkExportMetalObjectTypeFlagsEXT")]
-pub type ExportMetalObjectTypeFlagsEXT = flagset::FlagSet<ExportMetalObjectTypeFlagEXT>;
+pub type ExportMetalObjectTypeFlagsEXT = FlagSet<ExportMetalObjectTypeFlagEXT>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkGraphicsPipelineLibraryFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkGraphicsPipelineLibraryFlagBitsEXT.html)
     ///
     /// # Requirements
@@ -12851,7 +12702,6 @@ flagset::flags! {
     #[doc(alias = "VkGraphicsPipelineLibraryFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum GraphicsPipelineLibraryFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12897,9 +12747,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkGraphicsPipelineLibraryFlagsEXT")]
-pub type GraphicsPipelineLibraryFlagsEXT = flagset::FlagSet<GraphicsPipelineLibraryFlagEXT>;
+pub type GraphicsPipelineLibraryFlagsEXT = FlagSet<GraphicsPipelineLibraryFlagEXT>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkImageCompressionFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCompressionFlagBitsEXT.html)
     ///
     /// # Requirements
@@ -12911,7 +12761,6 @@ flagset::flags! {
     #[doc(alias = "VkImageCompressionFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ImageCompressionFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -12957,9 +12806,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkImageCompressionFlagsEXT")]
-pub type ImageCompressionFlagsEXT = flagset::FlagSet<ImageCompressionFlagEXT>;
+pub type ImageCompressionFlagsEXT = FlagSet<ImageCompressionFlagEXT>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkImageCompressionFixedRateFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageCompressionFixedRateFlagBitsEXT.html)
     ///
     /// # Requirements
@@ -12971,7 +12820,6 @@ flagset::flags! {
     #[doc(alias = "VkImageCompressionFixedRateFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ImageCompressionFixedRateFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13185,9 +13033,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkImageCompressionFixedRateFlagsEXT")]
-pub type ImageCompressionFixedRateFlagsEXT = flagset::FlagSet<ImageCompressionFixedRateFlagEXT>;
+pub type ImageCompressionFixedRateFlagsEXT = FlagSet<ImageCompressionFixedRateFlagEXT>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkDeviceAddressBindingFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceAddressBindingFlagBitsEXT.html)
     ///
     /// # Requirements
@@ -13199,7 +13047,6 @@ flagset::flags! {
     #[doc(alias = "VkDeviceAddressBindingFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum DeviceAddressBindingFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13221,9 +13068,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkDeviceAddressBindingFlagsEXT")]
-pub type DeviceAddressBindingFlagsEXT = flagset::FlagSet<DeviceAddressBindingFlagEXT>;
+pub type DeviceAddressBindingFlagsEXT = FlagSet<DeviceAddressBindingFlagEXT>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkImageConstraintsInfoFlagBitsFUCHSIA`](https://docs.vulkan.org/refpages/latest/refpages/source/VkImageConstraintsInfoFlagBitsFUCHSIA.html)
     ///
     /// # Requirements
@@ -13235,7 +13082,6 @@ flagset::flags! {
     #[doc(alias = "VkImageConstraintsInfoFlagBitsFUCHSIA")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ImageConstraintsInfoFlagFUCHSIA: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13289,9 +13135,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkImageConstraintsInfoFlagsFUCHSIA")]
-pub type ImageConstraintsInfoFlagsFUCHSIA = flagset::FlagSet<ImageConstraintsInfoFlagFUCHSIA>;
+pub type ImageConstraintsInfoFlagsFUCHSIA = FlagSet<ImageConstraintsInfoFlagFUCHSIA>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkFrameBoundaryFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkFrameBoundaryFlagBitsEXT.html)
     ///
     /// # Requirements
@@ -13303,7 +13149,6 @@ flagset::flags! {
     #[doc(alias = "VkFrameBoundaryFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum FrameBoundaryFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13325,9 +13170,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkFrameBoundaryFlagsEXT")]
-pub type FrameBoundaryFlagsEXT = flagset::FlagSet<FrameBoundaryFlagEXT>;
+pub type FrameBoundaryFlagsEXT = FlagSet<FrameBoundaryFlagEXT>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoEncodeRgbModelConversionFlagBitsVALVE`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeRgbModelConversionFlagBitsVALVE.html)
     ///
     /// # Requirements
@@ -13339,7 +13184,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeRgbModelConversionFlagBitsVALVE")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoEncodeRgbModelConversionFlagVALVE: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13395,10 +13239,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeRgbModelConversionFlagsVALVE")]
-pub type VideoEncodeRgbModelConversionFlagsVALVE =
-    flagset::FlagSet<VideoEncodeRgbModelConversionFlagVALVE>;
+pub type VideoEncodeRgbModelConversionFlagsVALVE = FlagSet<VideoEncodeRgbModelConversionFlagVALVE>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoEncodeRgbRangeCompressionFlagBitsVALVE`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeRgbRangeCompressionFlagBitsVALVE.html)
     ///
     /// # Requirements
@@ -13410,7 +13253,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeRgbRangeCompressionFlagBitsVALVE")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoEncodeRgbRangeCompressionFlagVALVE: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13443,9 +13285,9 @@ flagset::flags! {
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeRgbRangeCompressionFlagsVALVE")]
 pub type VideoEncodeRgbRangeCompressionFlagsVALVE =
-    flagset::FlagSet<VideoEncodeRgbRangeCompressionFlagVALVE>;
+    FlagSet<VideoEncodeRgbRangeCompressionFlagVALVE>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkVideoEncodeRgbChromaOffsetFlagBitsVALVE`](https://docs.vulkan.org/refpages/latest/refpages/source/VkVideoEncodeRgbChromaOffsetFlagBitsVALVE.html)
     ///
     /// # Requirements
@@ -13457,7 +13299,6 @@ flagset::flags! {
     #[doc(alias = "VkVideoEncodeRgbChromaOffsetFlagBitsVALVE")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum VideoEncodeRgbChromaOffsetFlagVALVE: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13489,10 +13330,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkVideoEncodeRgbChromaOffsetFlagsVALVE")]
-pub type VideoEncodeRgbChromaOffsetFlagsVALVE =
-    flagset::FlagSet<VideoEncodeRgbChromaOffsetFlagVALVE>;
+pub type VideoEncodeRgbChromaOffsetFlagsVALVE = FlagSet<VideoEncodeRgbChromaOffsetFlagVALVE>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkBuildMicromapFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkBuildMicromapFlagBitsEXT.html)
     ///
     /// # Requirements
@@ -13505,7 +13345,6 @@ flagset::flags! {
     #[doc(alias = "VkBuildMicromapFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum BuildMicromapFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13547,9 +13386,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkBuildMicromapFlagsEXT")]
-pub type BuildMicromapFlagsEXT = flagset::FlagSet<BuildMicromapFlagEXT>;
+pub type BuildMicromapFlagsEXT = FlagSet<BuildMicromapFlagEXT>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkMicromapCreateFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMicromapCreateFlagBitsEXT.html)
     ///
     /// # Requirements
@@ -13562,7 +13401,6 @@ flagset::flags! {
     #[doc(alias = "VkMicromapCreateFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum MicromapCreateFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13586,9 +13424,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkMicromapCreateFlagsEXT")]
-pub type MicromapCreateFlagsEXT = flagset::FlagSet<MicromapCreateFlagEXT>;
+pub type MicromapCreateFlagsEXT = FlagSet<MicromapCreateFlagEXT>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkPhysicalDeviceSchedulingControlsFlagBitsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPhysicalDeviceSchedulingControlsFlagBitsARM.html)
     ///
     /// # Requirements
@@ -13602,7 +13440,6 @@ flagset::flags! {
     #[doc(alias = "VkPhysicalDeviceSchedulingControlsFlagBitsARM")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u64)]
     pub enum PhysicalDeviceSchedulingControlsFlagARM: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13635,9 +13472,9 @@ flagset::flags! {
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkPhysicalDeviceSchedulingControlsFlagsARM")]
 pub type PhysicalDeviceSchedulingControlsFlagsARM =
-    flagset::FlagSet<PhysicalDeviceSchedulingControlsFlagARM>;
+    FlagSet<PhysicalDeviceSchedulingControlsFlagARM>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkMemoryDecompressionMethodFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryDecompressionMethodFlagBitsEXT.html)
     ///
     /// # Requirements
@@ -13650,7 +13487,6 @@ flagset::flags! {
     #[doc(alias = "VkMemoryDecompressionMethodFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u64)]
     pub enum MemoryDecompressionMethodFlagEXT: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13683,13 +13519,13 @@ impl MemoryDecompressionMethodFlagEXT {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkMemoryDecompressionMethodFlagsEXT")]
-pub type MemoryDecompressionMethodFlagsEXT = flagset::FlagSet<MemoryDecompressionMethodFlagEXT>;
+pub type MemoryDecompressionMethodFlagsEXT = FlagSet<MemoryDecompressionMethodFlagEXT>;
 /// [`VkMemoryDecompressionMethodFlagsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkMemoryDecompressionMethodFlagsNV.html)
 ///
 #[doc(alias = "VkMemoryDecompressionMethodFlagsNV")]
 pub type MemoryDecompressionMethodFlagsNV = MemoryDecompressionMethodFlagsEXT;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkTensorCreateFlagBitsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorCreateFlagBitsARM.html)
     ///
     /// # Requirements
@@ -13701,7 +13537,6 @@ flagset::flags! {
     #[doc(alias = "VkTensorCreateFlagBitsARM")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u64)]
     pub enum TensorCreateFlagARM: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13747,9 +13582,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkTensorCreateFlagsARM")]
-pub type TensorCreateFlagsARM = flagset::FlagSet<TensorCreateFlagARM>;
+pub type TensorCreateFlagsARM = FlagSet<TensorCreateFlagARM>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkTensorUsageFlagBitsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkTensorUsageFlagBitsARM.html)
     ///
     /// # Requirements
@@ -13761,7 +13596,6 @@ flagset::flags! {
     #[doc(alias = "VkTensorUsageFlagBitsARM")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u64)]
     pub enum TensorUsageFlagARM: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13815,9 +13649,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkTensorUsageFlagsARM")]
-pub type TensorUsageFlagsARM = flagset::FlagSet<TensorUsageFlagARM>;
+pub type TensorUsageFlagsARM = FlagSet<TensorUsageFlagARM>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkOpticalFlowGridSizeFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowGridSizeFlagBitsNV.html)
     ///
     /// # Requirements
@@ -13829,7 +13663,6 @@ flagset::flags! {
     #[doc(alias = "VkOpticalFlowGridSizeFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum OpticalFlowGridSizeFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13883,9 +13716,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkOpticalFlowGridSizeFlagsNV")]
-pub type OpticalFlowGridSizeFlagsNV = flagset::FlagSet<OpticalFlowGridSizeFlagNV>;
+pub type OpticalFlowGridSizeFlagsNV = FlagSet<OpticalFlowGridSizeFlagNV>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkOpticalFlowUsageFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowUsageFlagBitsNV.html)
     ///
     /// # Requirements
@@ -13897,7 +13730,6 @@ flagset::flags! {
     #[doc(alias = "VkOpticalFlowUsageFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum OpticalFlowUsageFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -13959,9 +13791,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkOpticalFlowUsageFlagsNV")]
-pub type OpticalFlowUsageFlagsNV = flagset::FlagSet<OpticalFlowUsageFlagNV>;
+pub type OpticalFlowUsageFlagsNV = FlagSet<OpticalFlowUsageFlagNV>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkOpticalFlowSessionCreateFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowSessionCreateFlagBitsNV.html)
     ///
     /// # Requirements
@@ -13973,7 +13805,6 @@ flagset::flags! {
     #[doc(alias = "VkOpticalFlowSessionCreateFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum OpticalFlowSessionCreateFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14027,9 +13858,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkOpticalFlowSessionCreateFlagsNV")]
-pub type OpticalFlowSessionCreateFlagsNV = flagset::FlagSet<OpticalFlowSessionCreateFlagNV>;
+pub type OpticalFlowSessionCreateFlagsNV = FlagSet<OpticalFlowSessionCreateFlagNV>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkOpticalFlowExecuteFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkOpticalFlowExecuteFlagBitsNV.html)
     ///
     /// # Requirements
@@ -14041,7 +13872,6 @@ flagset::flags! {
     #[doc(alias = "VkOpticalFlowExecuteFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum OpticalFlowExecuteFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14063,9 +13893,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkOpticalFlowExecuteFlagsNV")]
-pub type OpticalFlowExecuteFlagsNV = flagset::FlagSet<OpticalFlowExecuteFlagNV>;
+pub type OpticalFlowExecuteFlagsNV = FlagSet<OpticalFlowExecuteFlagNV>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkShaderCreateFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkShaderCreateFlagBitsEXT.html)
     ///
     /// # Requirements
@@ -14077,7 +13907,6 @@ flagset::flags! {
     #[doc(alias = "VkShaderCreateFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ShaderCreateFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14197,9 +14026,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkShaderCreateFlagsEXT")]
-pub type ShaderCreateFlagsEXT = flagset::FlagSet<ShaderCreateFlagEXT>;
+pub type ShaderCreateFlagsEXT = FlagSet<ShaderCreateFlagEXT>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkDataGraphPipelineSessionCreateFlagBitsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineSessionCreateFlagBitsARM.html)
     ///
     /// # Requirements
@@ -14211,7 +14040,6 @@ flagset::flags! {
     #[doc(alias = "VkDataGraphPipelineSessionCreateFlagBitsARM")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u64)]
     pub enum DataGraphPipelineSessionCreateFlagARM: u64 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14241,10 +14069,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkDataGraphPipelineSessionCreateFlagsARM")]
-pub type DataGraphPipelineSessionCreateFlagsARM =
-    flagset::FlagSet<DataGraphPipelineSessionCreateFlagARM>;
+pub type DataGraphPipelineSessionCreateFlagsARM = FlagSet<DataGraphPipelineSessionCreateFlagARM>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkDataGraphPipelineDispatchFlagBitsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphPipelineDispatchFlagBitsARM.html)
     ///
     /// # Requirements
@@ -14256,7 +14083,6 @@ flagset::flags! {
     #[doc(alias = "VkDataGraphPipelineDispatchFlagBitsARM")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u64)]
     pub enum DataGraphPipelineDispatchFlagARM: u64 {
         #[default]
         #[doc(hidden)]
@@ -14272,9 +14098,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkDataGraphPipelineDispatchFlagsARM")]
-pub type DataGraphPipelineDispatchFlagsARM = flagset::FlagSet<DataGraphPipelineDispatchFlagARM>;
+pub type DataGraphPipelineDispatchFlagsARM = FlagSet<DataGraphPipelineDispatchFlagARM>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkDataGraphTOSAQualityFlagBitsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphTOSAQualityFlagBitsARM.html)
     ///
     /// # Requirements
@@ -14288,7 +14114,6 @@ flagset::flags! {
     #[doc(alias = "VkDataGraphTOSAQualityFlagBitsARM")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum DataGraphTOSAQualityFlagARM: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14336,9 +14161,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkDataGraphTOSAQualityFlagsARM")]
-pub type DataGraphTOSAQualityFlagsARM = flagset::FlagSet<DataGraphTOSAQualityFlagARM>;
+pub type DataGraphTOSAQualityFlagsARM = FlagSet<DataGraphTOSAQualityFlagARM>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkClusterAccelerationStructureAddressResolutionFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureAddressResolutionFlagBitsNV.html)
     ///
     /// # Requirements
@@ -14350,7 +14175,6 @@ flagset::flags! {
     #[doc(alias = "VkClusterAccelerationStructureAddressResolutionFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ClusterAccelerationStructureAddressResolutionFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14421,9 +14245,9 @@ flagset::flags! {
 ///
 #[doc(alias = "VkClusterAccelerationStructureAddressResolutionFlagsNV")]
 pub type ClusterAccelerationStructureAddressResolutionFlagsNV =
-    flagset::FlagSet<ClusterAccelerationStructureAddressResolutionFlagNV>;
+    FlagSet<ClusterAccelerationStructureAddressResolutionFlagNV>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkClusterAccelerationStructureClusterFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureClusterFlagBitsNV.html)
     ///
     /// # Requirements
@@ -14435,7 +14259,6 @@ flagset::flags! {
     #[doc(alias = "VkClusterAccelerationStructureClusterFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ClusterAccelerationStructureClusterFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14458,9 +14281,9 @@ flagset::flags! {
 ///
 #[doc(alias = "VkClusterAccelerationStructureClusterFlagsNV")]
 pub type ClusterAccelerationStructureClusterFlagsNV =
-    flagset::FlagSet<ClusterAccelerationStructureClusterFlagNV>;
+    FlagSet<ClusterAccelerationStructureClusterFlagNV>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkClusterAccelerationStructureGeometryFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureGeometryFlagBitsNV.html)
     ///
     /// # Requirements
@@ -14474,7 +14297,6 @@ flagset::flags! {
     #[doc(alias = "VkClusterAccelerationStructureGeometryFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ClusterAccelerationStructureGeometryFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14515,9 +14337,9 @@ flagset::flags! {
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkClusterAccelerationStructureGeometryFlagsNV")]
 pub type ClusterAccelerationStructureGeometryFlagsNV =
-    flagset::FlagSet<ClusterAccelerationStructureGeometryFlagNV>;
+    FlagSet<ClusterAccelerationStructureGeometryFlagNV>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkClusterAccelerationStructureIndexFormatFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkClusterAccelerationStructureIndexFormatFlagBitsNV.html)
     ///
     /// # Requirements
@@ -14531,7 +14353,6 @@ flagset::flags! {
     #[doc(alias = "VkClusterAccelerationStructureIndexFormatFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum ClusterAccelerationStructureIndexFormatFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14572,9 +14393,9 @@ flagset::flags! {
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkClusterAccelerationStructureIndexFormatFlagsNV")]
 pub type ClusterAccelerationStructureIndexFormatFlagsNV =
-    flagset::FlagSet<ClusterAccelerationStructureIndexFormatFlagNV>;
+    FlagSet<ClusterAccelerationStructureIndexFormatFlagNV>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkPartitionedAccelerationStructureInstanceFlagBitsNV`](https://docs.vulkan.org/refpages/latest/refpages/source/VkPartitionedAccelerationStructureInstanceFlagBitsNV.html)
     ///
     /// # Requirements
@@ -14586,7 +14407,6 @@ flagset::flags! {
     #[doc(alias = "VkPartitionedAccelerationStructureInstanceFlagBitsNV")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum PartitionedAccelerationStructureInstanceFlagNV: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14641,9 +14461,9 @@ flagset::flags! {
 ///
 #[doc(alias = "VkPartitionedAccelerationStructureInstanceFlagsNV")]
 pub type PartitionedAccelerationStructureInstanceFlagsNV =
-    flagset::FlagSet<PartitionedAccelerationStructureInstanceFlagNV>;
+    FlagSet<PartitionedAccelerationStructureInstanceFlagNV>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkIndirectCommandsInputModeFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsInputModeFlagBitsEXT.html)
     ///
     /// # Requirements
@@ -14655,7 +14475,6 @@ flagset::flags! {
     #[doc(alias = "VkIndirectCommandsInputModeFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum IndirectCommandsInputModeFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14687,9 +14506,9 @@ flagset::flags! {
 /// # Returned only
 /// This type is only returned by Vulkan, never constructed by the API user.
 #[doc(alias = "VkIndirectCommandsInputModeFlagsEXT")]
-pub type IndirectCommandsInputModeFlagsEXT = flagset::FlagSet<IndirectCommandsInputModeFlagEXT>;
+pub type IndirectCommandsInputModeFlagsEXT = FlagSet<IndirectCommandsInputModeFlagEXT>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkIndirectCommandsLayoutUsageFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkIndirectCommandsLayoutUsageFlagBitsEXT.html)
     ///
     /// # Requirements
@@ -14701,7 +14520,6 @@ flagset::flags! {
     #[doc(alias = "VkIndirectCommandsLayoutUsageFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum IndirectCommandsLayoutUsageFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14731,9 +14549,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkIndirectCommandsLayoutUsageFlagsEXT")]
-pub type IndirectCommandsLayoutUsageFlagsEXT = flagset::FlagSet<IndirectCommandsLayoutUsageFlagEXT>;
+pub type IndirectCommandsLayoutUsageFlagsEXT = FlagSet<IndirectCommandsLayoutUsageFlagEXT>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkDataGraphOpticalFlowGridSizeFlagBitsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphOpticalFlowGridSizeFlagBitsARM.html)
     ///
     /// # Requirements
@@ -14745,7 +14563,6 @@ flagset::flags! {
     #[doc(alias = "VkDataGraphOpticalFlowGridSizeFlagBitsARM")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum DataGraphOpticalFlowGridSizeFlagARM: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14799,10 +14616,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkDataGraphOpticalFlowGridSizeFlagsARM")]
-pub type DataGraphOpticalFlowGridSizeFlagsARM =
-    flagset::FlagSet<DataGraphOpticalFlowGridSizeFlagARM>;
+pub type DataGraphOpticalFlowGridSizeFlagsARM = FlagSet<DataGraphOpticalFlowGridSizeFlagARM>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkDataGraphOpticalFlowCreateFlagBitsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphOpticalFlowCreateFlagBitsARM.html)
     ///
     /// # Requirements
@@ -14814,7 +14630,6 @@ flagset::flags! {
     #[doc(alias = "VkDataGraphOpticalFlowCreateFlagBitsARM")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum DataGraphOpticalFlowCreateFlagARM: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14852,9 +14667,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkDataGraphOpticalFlowCreateFlagsARM")]
-pub type DataGraphOpticalFlowCreateFlagsARM = flagset::FlagSet<DataGraphOpticalFlowCreateFlagARM>;
+pub type DataGraphOpticalFlowCreateFlagsARM = FlagSet<DataGraphOpticalFlowCreateFlagARM>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkDataGraphOpticalFlowImageUsageFlagBitsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphOpticalFlowImageUsageFlagBitsARM.html)
     ///
     /// # Requirements
@@ -14866,7 +14681,6 @@ flagset::flags! {
     #[doc(alias = "VkDataGraphOpticalFlowImageUsageFlagBitsARM")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum DataGraphOpticalFlowImageUsageFlagARM: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14920,10 +14734,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkDataGraphOpticalFlowImageUsageFlagsARM")]
-pub type DataGraphOpticalFlowImageUsageFlagsARM =
-    flagset::FlagSet<DataGraphOpticalFlowImageUsageFlagARM>;
+pub type DataGraphOpticalFlowImageUsageFlagsARM = FlagSet<DataGraphOpticalFlowImageUsageFlagARM>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkDataGraphOpticalFlowExecuteFlagBitsARM`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDataGraphOpticalFlowExecuteFlagBitsARM.html)
     ///
     /// # Requirements
@@ -14935,7 +14748,6 @@ flagset::flags! {
     #[doc(alias = "VkDataGraphOpticalFlowExecuteFlagBitsARM")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum DataGraphOpticalFlowExecuteFlagARM: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -14989,9 +14801,9 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkDataGraphOpticalFlowExecuteFlagsARM")]
-pub type DataGraphOpticalFlowExecuteFlagsARM = flagset::FlagSet<DataGraphOpticalFlowExecuteFlagARM>;
+pub type DataGraphOpticalFlowExecuteFlagsARM = FlagSet<DataGraphOpticalFlowExecuteFlagARM>;
 
-flagset::flags! {
+crate::__vkx_internal_flags! {
     /// [`VkCooperativeMatrixFlagBitsEXT`](https://docs.vulkan.org/refpages/latest/refpages/source/VkCooperativeMatrixFlagBitsEXT.html)
     ///
     /// # Requirements
@@ -15003,7 +14815,6 @@ flagset::flags! {
     #[doc(alias = "VkCooperativeMatrixFlagBitsEXT")]
     #[derive(Default)]
     #[non_exhaustive]
-    #[repr(u32)]
     pub enum CooperativeMatrixFlagEXT: u32 {
         /// # Requirements
         /// This requires _at least_ one of the following:
@@ -15025,7 +14836,7 @@ flagset::flags! {
 /// Note this list might not be exhaustive. For more information check vulkan documentation.
 ///
 #[doc(alias = "VkCooperativeMatrixFlagsEXT")]
-pub type CooperativeMatrixFlagsEXT = flagset::FlagSet<CooperativeMatrixFlagEXT>;
+pub type CooperativeMatrixFlagsEXT = FlagSet<CooperativeMatrixFlagEXT>;
 
 /// [`VkDeviceCreateFlags`](https://docs.vulkan.org/refpages/latest/refpages/source/VkDeviceCreateFlags.html)
 ///
